@@ -1,5 +1,5 @@
 <?php
-$frequencies=array("岱"=>3,
+$char_frequencies=array("岱"=>3,
 "宗"=>37,
 "夫"=>113,
 "如"=>294,
