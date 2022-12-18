@@ -1,5 +1,6 @@
 <?php
-$sorted_frequency_char=array(966=>array("不"),
+$sorted_frequency_char=array(
+966=>array("不"),
 777=>array("人"),
 602=>array("日"),
 572=>array("風"),
