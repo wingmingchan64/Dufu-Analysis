@@ -74,6 +74,8 @@ $text = "";
 
 foreach( $line as $l )
 {
+	// the char can appear multiple times on a page!!!
+	// check repeated page numbers
 	$p = $line_page[ $l ];
 	require_once( $collection_path . "${p}.php" );
 	$title = $content[ '詩題' ];
