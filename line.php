@@ -1,5 +1,5 @@
 <?php
-$lines=array(
+$line=array(
 "岱宗夫如何",
 "齊魯青未了",
 "造化鍾神秀",
