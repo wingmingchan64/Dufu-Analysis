@@ -1,4 +1,8 @@
 <?php
+/*
+生成：本文檔用 PHP 生成。
+說明：單字=>詩中用此字的頻率，並按頻率的高低排列。
+*/
 $sorted_frequency_char=array(
 939=>array("不"),
 759=>array("人"),
