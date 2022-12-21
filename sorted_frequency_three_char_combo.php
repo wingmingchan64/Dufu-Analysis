@@ -1,4 +1,8 @@
 <?php
+/*
+生成：本文檔用 PHP 生成。
+說明：出現頻率=>三字組合，按頻率高低排序。
+*/
 $sorted_frequency_three_char_combo=array(
 21=>array("君不見"),
 16=>array("白帝城"),
