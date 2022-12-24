@@ -1,5 +1,9 @@
 <?php
-$poem_folder_path = array(
+/*
+生成：本文檔用人手生成、編輯。
+說明：詩文件夾路徑。
+*/
+$詩文件夾路徑 = array(
 "h:\\github\\DuFu\\01 卷一 3-270\\",
 "h:\\github\\DuFu\\02 卷二 271-579\\",
 "h:\\github\\DuFu\\03 卷三 581-898\\",

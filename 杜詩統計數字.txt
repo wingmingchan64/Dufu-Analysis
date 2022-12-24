@@ -2,14 +2,14 @@
 統計的資料内容：只統計杜詩詩文，不包括主詩題、副詩題、序言、注
 
 主詩題數目： 1132 （見 https://github.com/wingmingchan64/DuFu/blob/master/%E7%9B%AE%E9%8C%84.txt）
-詩組數目：    134 （見）
+詩組數目：    134 （見 https://github.com/wingmingchan64/Dufu-Analysis/blob/main/page_multiple_verse.php）
 詩總數：     1455 （見下）
 詩句數目：
 總字數：
 用字數目：
 
 卷   主詩題   詩數目       纍計
-==============================
+===============================
 一    44      56       44,   56
 二    44      62       88,  118
 三    48      58      136,  176
