@@ -3,14 +3,15 @@
 $outfile = 'h:\github\Dufu-Analysis\display.txt';
 $collection_path = "h:\\github\\Dufu-Analysis\\詩集\\";
 
-/* 
+/*
 test 1: given a page number, retrieve the title of a poem 
 result:
 s:12:"送李卿曄";
-
-require_once( 'page_title.php' );
+*/
+/*
+require_once( '頁碼_詩題.php' );
 $fp = fopen( $outfile, 'w' );
-fwrite( $fp, serialize( $page_title[ '3025' ] ) );
+fwrite( $fp, serialize( $頁碼_詩題[ '3025' ] ) );
 fclose( $fp );
 */
 
@@ -18,7 +19,8 @@ fclose( $fp );
 test 2: given a page number, retrieve the poem on that page
 result:
 s:144:"王子思歸日。長安已亂兵。霑衣問行在。走馬向承明。暮景巴蜀僻。春風江漢清。晉山雖自棄。魏闕尚含情。";
-
+*/
+/*
 require_once( $collection_path . '3025.php' );
 $fp = fopen( $outfile, 'w' );
 fwrite( $fp, serialize( $content[ "詩文" ] ) );
@@ -43,9 +45,9 @@ test 4: given a title, retrieve 原注 coming with the title
 result:
 s:51:"員外季弟執金吾，見知於代，故有下句";
 
-require_once( 'title_page.php' );
+require_once( '詩題_頁碼.php' );
 require_once(
-$collection_path . "${title_page[ '過宋員外之問舊莊' ]}.php" );
+$collection_path . "${詩題_頁碼[ '過宋員外之問舊莊' ]}.php" );
 $fp = fopen( $outfile, 'w' );
 fwrite( $fp, serialize( $content[ "題注" ] ) );
 fclose( $fp );
@@ -112,6 +114,8 @@ s:2724:"白沙渡
 
 ";
 */
+
+/**/
 $search = '長江';
 require_once( 'line.php' );
 require_once( 'line_page.php' );
@@ -139,4 +143,5 @@ foreach( $page as $p )
 $fp = fopen( $outfile, 'w' );
 fwrite( $fp, serialize( $text ) );
 fclose( $fp );
+
 ?>
