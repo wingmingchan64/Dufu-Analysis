@@ -143,8 +143,7 @@ $fp = fopen( $outfile, 'w' );
 fwrite( $fp, serialize( $text ) );
 fclose( $fp );
 */
-
-require_once( 'normalized.php' );
-echo mb_strlen( trim ( implode( explode( '。', $text ) ) ) );	
+require_once( $collection_path . "0003坐標_字.php" );
+var_dump( $坐標_字 );
 
 ?>
