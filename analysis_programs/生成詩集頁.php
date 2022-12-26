@@ -56,6 +56,23 @@ file_put_contents( 'h:\github\Dufu-Analysis\頁碼_路徑.php', $code );
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+說明：詩篇文檔所在路徑=>頁碼。
+*/
+\$路徑_頁碼=array(\n";
+
+foreach( $page_path as $p => $path )
+{
+	$code = $code . '"' . $path . "\"=>'" .
+		$p . "',\n";
+}
+$code = substr( $code, 0, -2 );
+$code = $code . "\n);\n?>";
+file_put_contents( 'h:\github\Dufu-Analysis\路徑_頁碼.php', $code );
+
+
+$code = "<?php
+/*
+生成：本文檔用 PHP 生成。
 說明：頁碼。
 */
 \$頁碼=array(\n";

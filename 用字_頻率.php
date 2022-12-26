@@ -3,7 +3,7 @@
 生成：本文檔用 PHP 生成。
 說明：單字=>詩中用此字的頻率，統計的資料來自 normalized.php。
 */
-$char_frequency=array(
+$用字_頻率=array(
 "岱"=>3,
 "宗"=>35,
 "夫"=>108,
