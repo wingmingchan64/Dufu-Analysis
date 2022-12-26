@@ -7,7 +7,7 @@ $code = "<?php
 生成：本文檔用 PHP 生成。
 說明：詩句=>坐標，坐標=>詩句。
 */
-\$詩句坐標=array(\n";	
+\$詩句_坐標=array(\n";	
 	foreach( $頁碼 as $p )
 	{
 		require_once( $page_path . $p . '.php' );
