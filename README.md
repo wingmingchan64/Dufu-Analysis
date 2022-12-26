@@ -12,6 +12,6 @@
 <ul>
 <li>完成《杜甫全集粵音注音》</li>
 <li>把杜詩用字與各字的讀音（粵音）、注釋聯係起來，把<a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/%E5%AD%97">字</a>變成一本杜詩字典</li>
-<li>還要細讀杜詩</li>
+<li>還要細讀杜詩，并且擴充《杜甫全集校注》的部分</li>
 <li>行有餘力的話，加入宋、清的注本（現在正努力輸入浦起龍的《讀杜心解》）</li>
 </ul>
