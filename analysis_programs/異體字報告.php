@@ -1,6 +1,6 @@
 <?php
 /*
-php code\analysis_programs\異體字報告.php
+php h:\github\Dufu-Analysis\analysis_programs\異體字報告.php
 
 在 h:\\github\\DuFu\\杜甫全集.txt 中搜尋異體字。
 異體字列表見 h:\\github\\Dufu-Analysis\\異體字.php

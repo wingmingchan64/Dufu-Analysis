@@ -1,9 +1,13 @@
 <?php
-require_once( 'h:\github\Dufu-Analysis\page_multiple_verse.php' );
+require_once( "h:\\github\\Dufu-Analysis\\詩組_詩題.php" );
+require_once( "h:\\github\\Dufu-Analysis\\帶序文之詩歌.php" );
+require_once( "h:\\github\\Dufu-Analysis\\頁碼_路徑.php" );
 $path_for_file = '';
 $text_of_file  = '';
 
-function getAnnotation( $file_path ) : string
+// 提取題注（原注）
+// $file_path: h:\github\DuFu\01 卷一 3-270\0048 過宋員外之問舊莊.txt
+function getAnnotation( string $file_path ) : string
 {
 	global $path_for_file;
 	global $text_of_file;
@@ -36,7 +40,10 @@ function getFile( $file_path ) : string
 	return $text_of_file;
 }
 
-function getOrderOfPoem( array $titles, $l_int ) : int
+// 決定一行詩在詩組中，屬於哪一首，用於計算首碼
+// titles: 詩組_詩題, example: ( 3, 10, 13, 20 )
+// $l_int: 詩句的行碼
+function getOrderOfPoem( array $titles, int $l_int ) : int
 {
 	$count = 0;
 	
@@ -50,13 +57,17 @@ function getOrderOfPoem( array $titles, $l_int ) : int
 	return $count;
 }
 
+// 提取詩文
+// $file_path: h:\github\DuFu\01 卷一 3-270\0048 過宋員外之問舊莊.txt
+// 宋公舊池館。零落首陽阿。枉道祗從入。吟詩許更過。
+// 淹留問耆老。寂寞向山河。更識將軍樹。悲風日暮多。
 function getPoem( string $path ) : string
 {
-	global $page_multiple_verse;
-	global $poem_with_preface;
-	global $page_path;
-	global $path_for_file;
-	global $text_of_file;
+	global $詩組_詩題;
+	global $帶序文之詩歌;
+	global $頁碼_路徑;
+	//global $path_for_file;
+	//global $text_of_file;
 	
 	$text  = getFile( $path );
 	$lines = explode( "\n", $text );
@@ -65,13 +76,15 @@ function getPoem( string $path ) : string
 	
 	$path_array = explode( "\\", $path );
 	
-	$page = substr( $path_array[ sizeof( $path_array ) - 1 ], 0, 4 );
-	$multi_verse = array_key_exists( 
-		$page, $page_multiple_verse );
+	$page = substr(
+		$path_array[ sizeof( $path_array ) - 1 ], 0, 4 );
+	$multi_verse = array_key_exists( $page, $詩組_詩題 );
 	
-	if( array_key_exists( $path, $poem_with_preface ) )
+	echo $page, 新行;
+	
+	if( array_key_exists( $path, $帶序文之詩歌 ) )
 	{
-		$skip = $poem_with_preface[ trim( $path ) ];
+		$skip = $帶序文之詩歌[ trim( $path ) ];
 	}
 	
 	for( $i = 0; $i < sizeof( $lines ); $i++ )
@@ -97,10 +110,10 @@ function getPoem( string $path ) : string
 			{
 				if( $multi_verse )
 				{
-					$l_of_titles = $page_multiple_verse[ $page ][ 1 ];
+					$l_of_titles = $詩組_詩題[ $page ][ 1 ];
 					if( in_array( ( $i + 1 ), $l_of_titles ) )
 					{
-						continue; // skip titles
+						continue; // skip 副題
 					}
 				}
 
@@ -109,10 +122,20 @@ function getPoem( string $path ) : string
 		}
 	}
 	return normalize( implode( $text_array ) );
-
-	//return "";
 }
 
+// 在詩文之前加上行碼
+/*
+Array
+(
+    [〚1〛] => 0048 過宋員外之問舊莊[員外季弟執金吾，見知於代，故有下句]
+    [〚2〛] =>
+    [〚3〛] => 宋公舊池館，零落首陽阿。
+    [〚4〛] => 枉道祗從入，吟詩許更過。
+    [〚5〛] => 淹留問耆老，寂寞向山河。
+    [〚6〛] => 更識將軍樹，悲風日暮多。
+)
+*/
 function getLN( string $path ) : array
 {
 	$text  = getFile( $path );
@@ -132,14 +155,16 @@ function getLN( string $path ) : array
 	return $ln_array;
 }
 
+// 提取序文
+// $帶序文之詩歌
 function getPreface( string $path ) : string
 {
-	global $poem_with_preface;
+	global $帶序文之詩歌;
 	$preface = "";
 	
-	if( array_key_exists( $path, $poem_with_preface ) )
+	if( array_key_exists( $path, $帶序文之詩歌 ) )
 	{
-		$preface_lines = $poem_with_preface[ $path ];
+		$preface_lines = $帶序文之詩歌[ $path ];
 		
 		// not a preface
 		if( sizeof( $preface_lines ) > 1 && 
@@ -150,20 +175,20 @@ function getPreface( string $path ) : string
 	$lines = explode( "\n", $text );
 	$preface_array = array();
 	
-	if( array_key_exists( $path, $poem_with_preface ) )
+	if( array_key_exists( $path, $帶序文之詩歌 ) )
 	{
-
 		for( $i = 0; $i < sizeof( $preface_lines ); $i++ )
 		{
 			$preface_array[ $i ] = $lines[ $preface_lines[ $i ] - 1 ];
 		}
-		$preface = implode( $preface_array );
+		$preface = implode( 新行, $preface_array );
 	}
-	
 	
 	return $preface;
 }
 
+// 提取某個帶像「=浦」一類標記的部分。
+// return: array
 function getSection( string $path, string $prefix ) : array
 {
 	$text  = getFile( $path );
@@ -231,7 +256,7 @@ function normalize( string $text ) : string
 	return $text;
 }
 
-function 取杜甫文件名稱() : array
+function 提取杜甫文件名稱() : array
 {
 	$sub_folder_array = array();
 	$file_names       = array();
