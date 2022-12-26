@@ -4,7 +4,7 @@ $c_out_path = 'h:\github\Dufu-Analysis\用字_頻率.php';
 
 if( $text )
 {
-	$chars = mb_str_split( $text );
+	$chars = mb_str_split( trim( $text ) );
 	$frequency = array();
 
 	foreach( $chars as $char )
