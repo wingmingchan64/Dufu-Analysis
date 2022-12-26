@@ -1,6 +1,6 @@
 <?php
-global $poem_with_preface;
-$poem_with_preface = array(
+global $帶序文之詩歌;
+$帶序文之詩歌 = array(
 'h:\github\Dufu\09 卷九 2501-2746\2516 江頭五詠.txt' =>
 	array( 3, 10, 17, 24, 31 ),
 'h:\github\DuFu\13 卷十三 3591-3883\3686 種萵苣.txt' =>

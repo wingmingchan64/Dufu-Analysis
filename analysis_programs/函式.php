@@ -80,8 +80,6 @@ function getPoem( string $path ) : string
 		$path_array[ sizeof( $path_array ) - 1 ], 0, 4 );
 	$multi_verse = array_key_exists( $page, $詩組_詩題 );
 	
-	echo $page, 新行;
-	
 	if( array_key_exists( $path, $帶序文之詩歌 ) )
 	{
 		$skip = $帶序文之詩歌[ trim( $path ) ];
@@ -299,4 +297,56 @@ function 提取杜甫文件名稱() : array
 	
 	return $file_names;
 }
+
+// 去掉頁碼, garbage in, garbage out
+function 提取簡化坐標( string $坐標 ) : string
+{
+	$str = trim( $坐標, 坐標括號 );
+	$str_array = explode( ':', $str );
+
+	if( strlen( $str_array[ 0 ] ) !== 4 ) // no 頁碼
+	{
+		return $坐標;
+	}
+	return 坐標開括號 .
+		substr( implode( ':', $str_array ), 5 ) .
+		坐標關括號;
+}
+
+// 提取頁碼,〚 後來的四個字, garbage in, garbage out
+function 提取頁碼( string $坐標 ) : string
+{
+	$str = trim( $坐標, 坐標括號 );
+	$str_array = explode( ':', $str );
+	// 至少有兩塊
+	if( sizeof( $str_array ) < 2 ||
+		strlen( $str_array[ 0 ] ) !== 4 )
+	{
+		return $坐標;
+	}
+	return $str_array[ 0 ];
+}
+
+// 提取首碼, 1-20, garbage in, garbage out
+function 提取首碼( string $坐標 ) : string
+{
+	$str = trim( $坐標, 坐標括號 );
+	$str_array = explode( ':', $str );
+	//print_r( $str_array );
+	if( sizeof( $str_array ) == 3 && // 有頁碼
+		( intval( $str_array[ 1 ] ) > 0 &&
+		  intval( $str_array[ 1 ] ) < 21 ) &&
+		strlen( $str_array[ 0 ] ) === 4 )
+	{
+		return $str_array[ 1 ];
+	}
+	elseif( sizeof( $str_array ) == 2 && // 沒有頁碼
+		( intval( $str_array[ 0 ] ) > 0 &&
+		  intval( $str_array[ 0 ] ) < 21 ))
+	{
+		return $str_array[ 0 ];
+	}
+	return $坐標;
+}
+
 ?>
