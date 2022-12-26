@@ -1,3 +1,8 @@
 <h1>杜甫詩分析、資料庫</h1>
 
-Analyzing Du Fu's poems using PHP programs. A lot of files containing PHP source code have also been generated. These files can be further used in other programs.
+<p>這裏提供的主要是 PHP 程式。這些程式分三大類：</p>
+<ul>
+<li>關於杜詩的各種統計數字</li>
+<li>包含各種資料的陣列；這部分其實是個小型的資料庫</li>
+<li>展示如何搜索資料庫的程式</li>
+</ul>
