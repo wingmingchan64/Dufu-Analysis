@@ -9,7 +9,7 @@ if( $text )
 
 	foreach( $chars as $char )
 	{
-		if( $char === "。" )
+		if( $char === "。" || $char === "" )
 			continue;
 		if( !array_key_exists( $char, $frequency ) )
 		{
