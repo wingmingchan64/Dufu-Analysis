@@ -1,0 +1,37 @@
+<?php
+require_once( '常數.php' );
+require_once( '函式.php' );
+require_once( 'h:\github\Dufu-Analysis\詩句_頁碼.php' );
+$out_file  = 'h:\github\Dufu-Analysis\詩句_頁碼_行碼.php';
+$code      = "<?php
+/*
+生成：本文檔用 PHP 生成。
+說明：詩句=>（頁碼，行碼）。
+*/
+\$詩句_頁碼_行碼=array(\n";
+
+foreach( $詩句_頁碼 as $l => $p )
+{
+	$path = 詩集文件夾 . $p . ".php";
+	require_once( $path );
+	$ln_array = $content[ "行碼" ];
+	
+	// search for the line
+	$pln = "";
+	foreach( $ln_array as $ln => $dl )
+	{
+		// find the first instance in the ln
+		if( mb_strpos( $dl, $l ) !== false )
+		{
+			$pln = $ln ;
+			break;
+		}
+	}
+	
+	$code = $code . "\"" . $l . "\"=>array(" .
+		"\"" . $p . "\",\"" . $pln . "\"),\n";
+}
+$code = substr( $code, 0, -1 );
+$code = $code . "\n);\n?>";
+file_put_contents( $out_file, $code );
+?>

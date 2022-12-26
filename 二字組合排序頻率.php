@@ -3,7 +3,7 @@
 生成：本文檔用 PHP 生成。
 說明：出現頻率=>雙字組合，按頻率高低排序。
 */
-$sorted_frequency_two_char_combo=array(
+$二字組合排序頻率=array(
 74=>array("萬里"),
 56=>array("回首"),
 49=>array("不見"),
