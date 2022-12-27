@@ -142,8 +142,11 @@ foreach( $page as $p )
 $fp = fopen( $outfile, 'w' );
 fwrite( $fp, serialize( $text ) );
 fclose( $fp );
-*/
+
 require_once( $collection_path . "0003坐標_字.php" );
 var_dump( $坐標_字 );
+*/
 
+require_once( "h:\\github\\Dufu-Analysis\\二字組合_坐標.php" );
+var_dump( $二字組合_坐標[ "石門" ] );
 ?>

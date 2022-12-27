@@ -261,36 +261,36 @@ function 提取杜甫文件名稱() : array
 
 	if( is_dir( 杜甫文件夾 ) )
 	{
-	$sub_folders = scandir( 杜甫文件夾 );
+		$sub_folders = scandir( 杜甫文件夾 );
 	
-	// store all sub-folder names in DuFu
-	foreach( $sub_folders as $sub_folder )
-	{
-		if( $sub_folder != "." && 
-			$sub_folder != ".." &&	
-			is_dir( 杜甫文件夾 . $sub_folder ) )
+		// store all sub-folder names in DuFu
+		foreach( $sub_folders as $sub_folder )
 		{
-			array_push( $sub_folder_array, 
-				杜甫文件夾 . $sub_folder );
-		}
-	}
-	// store all text file names
-	foreach( $sub_folder_array as $cfolder )
-	{
-		$files = scandir( $cfolder );
-		
-		foreach( $files as $file )
-		{
-			if( $file != '.' && $file != '..' &&
-				str_contains( $file, '.txt' )
-			)
+			if( $sub_folder != "." && 
+				$sub_folder != ".." &&	
+				is_dir( 杜甫文件夾 . $sub_folder ) )
 			{
-				array_push( 
-					$file_names, $cfolder . "\\" . 
-					$file );
+				array_push( $sub_folder_array, 
+					杜甫文件夾 . $sub_folder );
 			}
 		}
-	}
+		// store all text file names
+		foreach( $sub_folder_array as $cfolder )
+		{
+			$files = scandir( $cfolder );
+		
+			foreach( $files as $file )
+			{
+				if( $file != '.' && $file != '..' &&
+					str_contains( $file, '.txt' )
+				)
+				{
+					array_push( 
+						$file_names, $cfolder . "\\" . 
+						$file );
+				}
+			}
+		}
 	}
 	// sort all files names
 	sort( $file_names, SORT_STRING );
@@ -349,4 +349,36 @@ function 提取首碼( string $坐標 ) : string
 	return $坐標;
 }
 
+function 生成完整坐標( string $坐標, string $頁碼 ) : string
+{
+	$str = trim( $坐標, 坐標括號 );
+	$str_array = explode( ':', $str );
+	
+	if( 
+		( sizeof( $str_array ) === 2 || 
+			sizeof( $str_array ) === 3 )
+		&&
+		strlen( $str_array[ 0 ] ) === 4 ) // 頁碼 already there
+	{
+		return $坐標;
+	}
+	
+		
+	
+	if( strlen( $頁碼 ) !== 4 ) // no 頁碼 supplied
+	{
+		return $坐標;
+	}
+	
+	if( ( sizeof( $str_array ) === 2 &&
+		intval( $str_array[ 0 ] ) > 0 &&
+		intval( $str_array[ 0 ] ) < 21 ) ||
+		sizeof( $str_array ) === 1 )
+	{
+		return 
+			坐標開括號 . $頁碼 . ':' . 
+			implode( ':', $str_array ) .
+			坐標關括號;
+	}
+}
 ?>
