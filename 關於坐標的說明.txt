@@ -156,3 +156,13 @@ PHP 的陣列中，然後用一行代碼，就能把想要的資料提出來。
 
 只要我們知道頁碼，我們就能馬上找到我們要的坐標。利用這個陣列，我們也可以生成一
 個二字詞/詞組的詞典。
+
+坐標例子：
+1. 行碼
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%A9%A9%E9%9B%86/0003.php
+2. 句碼
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E5%9D%90%E6%A8%99_%E8%A9%A9%E5%8F%A5.php
+3. 字碼
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%A9%A9%E9%9B%86/0003%E5%9D%90%E6%A8%99_%E7%94%A8%E5%AD%97.php
+4. 二字組合=>坐標
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E4%BA%8C%E5%AD%97%E7%B5%84%E5%90%88_%E5%9D%90%E6%A8%99.php
