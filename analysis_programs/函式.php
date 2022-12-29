@@ -211,6 +211,7 @@ function getSection( string $path, string $prefix ) : array
 				break;
 			}
 		}
+		
 	}
 	$text_array = array_slice( $lines, $start, $end - $start );
 	return $text_array;
