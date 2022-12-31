@@ -48,8 +48,8 @@ $code = "<?php
 foreach( $部分陣列 as $k => $子儲存 )
 {
 	$題 = trim( $k, '【】' );
+	$補充説明 = ( $題 == '補充説明' );
 	$内容 = implode( "\n", $子儲存 );
-	$平仄found = false;
 	$parts = array();
 
 	if( mb_strpos( $内容, '--' ) !== false )
@@ -80,7 +80,6 @@ foreach( $部分陣列 as $k => $子儲存 )
 					( mb_strpos( $音_陣列[ $i+1 ], "平" ) !== false ) &&
 					( mb_strpos( $音_陣列[ $i+1 ], "仄" ) !== false ) )
 				{
-					//array_push( $parts[ $音_陣列[ $i-1 ] ], $音_陣列[ $i+1 ] );
 					$sub_code = $sub_code . "\"${音_陣列[ $i+1 ]}\"),";
 				}
 				else
@@ -121,9 +120,22 @@ foreach( $部分陣列 as $k => $子儲存 )
 		foreach( $字音 as $字 => $音s )
 		{
 			$subcode = $subcode . "\"${字}\"=>array(";
+			
 			foreach( $音s as $音 )
 			{
-				$subcode = $subcode . "\"${音}\",";
+				if( strpos( $音, '/' ) )
+				{
+					$多音 = explode( '/', $音 );
+					
+					foreach( $多音 as $單音 )
+					{
+						$subcode = $subcode . "\"${單音}\",";
+					}
+				}
+				else
+				{
+					$subcode = $subcode . "\"${音}\",";
+				}
 			}
 			$subcode = substr( $subcode, 0, -1 );
 			$subcode = $subcode . "),\n";
@@ -131,6 +143,10 @@ foreach( $部分陣列 as $k => $子儲存 )
 		$subcode = substr( $subcode, 0, -2 );
 		$subcode = $subcode . "\n)";
 		$内容 = $内容 . $subcode;
+	}
+	elseif( $補充説明 ) // a mixture of contents; just output it
+	{
+		$内容 = "\"$内容\"";
 	}
 	elseif( mb_strpos( $内容, '〚' ) !== false )
 	{
