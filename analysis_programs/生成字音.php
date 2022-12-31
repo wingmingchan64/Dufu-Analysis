@@ -40,6 +40,7 @@ foreach( $頁碼 as $頁 )
 		}
 	}
 }
+
 ksort( $字音陣列 );
 
 foreach( $字音陣列 as $字 => $音陣列 )
