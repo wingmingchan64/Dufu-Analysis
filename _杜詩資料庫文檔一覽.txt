@@ -58,6 +58,9 @@ https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E5%9D%90%E6%A8%99_%E8
 https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%A9%A9%E5%8F%A5_%E5%9D%90%E6%A8%99.php
 詩句=>坐標
 
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E4%BA%8C%E5%AD%97%E7%B5%84%E5%90%88_%E5%9D%90%E6%A8%99.php
+二字組合=>坐標
+
 https://github.com/wingmingchan64/Dufu-Analysis/tree/main/%E8%A9%A9%E9%9B%86
 - 兩千多個文檔，儲存行碼、用字坐標等資料
 
