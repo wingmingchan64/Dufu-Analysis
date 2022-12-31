@@ -8,6 +8,9 @@
 <li>展示如何搜索這個資料庫的程式</li>
 </ul>
 <p>聯係資料庫各個部分的關鍵是一個坐標系統。請從<a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E9%97%9C%E6%96%BC%E5%9D%90%E6%A8%99%E7%9A%84%E8%AA%AA%E6%98%8E.txt">關於坐標的說明</a>開始。</p>
+<h2>杜甫詩資料庫</h2>
+<p><a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/_%E6%9D%9C%E8%A9%A9%E8%B3%87%E6%96%99%E5%BA%AB%E6%96%87%E6%AA%94%E4%B8%80%E8%A6%BD.txt">杜詩資料庫文檔一覽</a></p>
+
 <h2>未來的計劃</h2>
 <ul>
 <li>完成《杜甫全集粵音注音》</li>
