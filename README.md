@@ -11,6 +11,9 @@
 <h2>杜甫詩資料庫</h2>
 <p><a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/_%E6%9D%9C%E8%A9%A9%E8%B3%87%E6%96%99%E5%BA%AB%E6%96%87%E6%AA%94%E4%B8%80%E8%A6%BD.txt">杜詩資料庫文檔一覽</a></p>
 
+<h2>生成杜甫詩資料庫的 PHP 程式</h2>
+<p><a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/analysis_programs">analysis_programs</a></p>
+
 <h2>未來的計劃</h2>
 <ul>
 <li>完成《杜甫全集粵音注音》</li>
