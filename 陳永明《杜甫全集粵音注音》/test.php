@@ -240,7 +240,10 @@ Array
         )
 
 )
-*/
 require_once( "0013.php" );
 print_r( $content );
+*/
+require_once( "陳永明《杜甫全集粵音注音》字音.php" );
+print_r( $字音[ "處" ] );
+
 ?>
