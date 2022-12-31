@@ -58,66 +58,12 @@ https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E5%9D%90%E6%A8%99_%E8
 https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%A9%A9%E5%8F%A5_%E5%9D%90%E6%A8%99.php
 詩句=>坐標
 
+https://github.com/wingmingchan64/Dufu-Analysis/tree/main/%E8%A9%A9%E9%9B%86
+- 兩千多個文檔，儲存行碼、用字坐標等資料
 
+https://github.com/wingmingchan64/Dufu-Analysis/tree/main/%E5%AD%97
+- 四千多個文檔，儲存用字的坐標、讀音等資料
 
-
-
-
-h:\github\Dufu-Analysis\analysis_programs\生成頁碼_詩題.php
-- $頁碼_詩題
-- $詩題_頁碼
-
-h:\github\Dufu-Analysis\analysis_programs\生成詩集頁.php
-- set the flag for creating pages!!!
-- $頁碼_路徑
-- $路徑_頁碼
-- $頁碼
-- pages in 詩集
-- normalized text
-
-h:\github\Dufu-Analysis\analysis_programs\生成用字頻率.php
-- $用字_頻率
-
-h:\github\Dufu-Analysis\analysis_programs\生成排序用字頻率.php
-- $排序頻率_用字
-
-h:\github\Dufu-Analysis\analysis_programs\生成詩句.php
-- $詩句
-
-h:\github\Dufu-Analysis\analysis_programs\生成詩句_頁碼.php
-- $詩句_頁碼
-
-h:\github\Dufu-Analysis\analysis_programs\生成用字_詩句.php
-- $用字_詩句
-
-h:\github\Dufu-Analysis\analysis_programs\生成用字_頁碼.php
-- $用字_頁碼
-
-h:\github\Dufu-Analysis\analysis_programs\生成詩句_頁碼_行碼.php
-- $詩句_頁碼_行碼
-
-h:\github\Dufu-Analysis\analysis_programs\生成二字組合.php
-h:\github\Dufu-Analysis\analysis_programs\生成三字組合.php
-h:\github\Dufu-Analysis\analysis_programs\生成四字組合.php
-
-h:\github\Dufu-Analysis\analysis_programs\生成詩句_坐標.php
-h:\github\Dufu-Analysis\analysis_programs\生成部首_用字.php
-h:\github\Dufu-Analysis\analysis_programs\生成用字_部首.php
-
-// try not to run this!
-h:\github\Dufu-Analysis\analysis_programs\生成字典.php
-
-// run this only if 詩集 is changed
-h:\github\Dufu-Analysis\analysis_programs\生成坐標_用字.php
-
-h:\github\Dufu-Analysis\analysis_programs\生成二字組合_坐標.php
-
-
-h:\github\Dufu-Analysis\analysis_programs\生成書本.php
-h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php
-
-
-
-
-https://gist.github.com/2ue/7deda3ee996a394ad2361580f58c0c45
-
+浦起龍《讀杜心解》
+蕭滌非主編《杜甫全集校注》
+陳永明《杜甫全集粵音注音》
