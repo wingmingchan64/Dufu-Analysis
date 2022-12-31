@@ -15,7 +15,7 @@ foreach( $頁碼 as $p )
 {
 	$path = 詩集文件夾 . $p . ".php";
 	require_once( $path );
-	$line = $content[ "詩句" ];
+	$line = $内容[ "詩句" ];
 	
 	foreach( $line as $l )
 	{

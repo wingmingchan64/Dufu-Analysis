@@ -91,7 +91,7 @@ foreach( $部首_用字 as $部首 => $用字陣列 )
 				
 			}
 			require_once( "h:\\github\\Dufu-Analysis\\" . "蕭滌非主編《杜甫全集校注》\\${page}.php";
-			foreach( $content[ "注釋" ] as $note )
+			foreach( $内容[ "注釋" ] as $note )
 			{
 				if(  
 			}

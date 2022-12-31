@@ -1,0 +1,123 @@
+https://github.com/wingmingchan64/DuFu/blob/master/%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86.txt
+杜甫全集白文
+
+https://github.com/wingmingchan64/DuFu/blob/master/%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86%E7%B2%B5%E9%9F%B3%E6%B3%A8%E9%9F%B3.txt
+杜甫全集粵音注音
+
+https://github.com/wingmingchan64/DuFu/blob/master/%E7%9B%AE%E9%8C%84.txt
+杜甫全集目錄
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E9%A0%81%E7%A2%BC.php
+頁碼
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E9%A0%81%E7%A2%BC_%E8%A9%A9%E9%A1%8C.php
+頁碼=>詩題
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E9%A0%81%E7%A2%BC_%E8%B7%AF%E5%BE%91.php
+頁碼=>詩篇文檔所在路徑
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E9%A0%81%E7%A2%BC_%E9%9F%BB%E9%83%A8.php
+頁碼=>韻部
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%A9%A9%E9%A1%8C_%E9%A0%81%E7%A2%BC.php
+詩題=>頁碼
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%B7%AF%E5%BE%91_%E9%A0%81%E7%A2%BC.php
+詩篇文檔所在路徑=>頁碼
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E9%9F%BB%E9%83%A8_%E9%A0%81%E7%A2%BC.php
+韻部=>頁碼
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%A9%A9%E7%B5%84_%E8%A9%A9%E9%A1%8C.php
+同一頁碼包含一組詩、副題行碼
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%A9%A9%E5%8F%A5.php
+一句一句的詩句
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%A9%A9%E5%8F%A5_%E9%A0%81%E7%A2%BC.php
+單句詩句=>頁碼
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%A9%A9%E5%8F%A5_%E9%A0%81%E7%A2%BC_%E8%A1%8C%E7%A2%BC.php
+詩句=>（頁碼，行碼）
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E7%94%A8%E5%AD%97_%E8%A9%A9%E5%8F%A5.php
+用字=>含有該字的詩句
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E7%94%A8%E5%AD%97_%E9%A0%81%E7%A2%BC.php
+用字=>頁碼
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E7%94%A8%E5%AD%97_%E9%83%A8%E9%A6%96.php
+用字=>部首
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%A9%A9%E5%8F%A5_%E5%9D%90%E6%A8%99.php
+詩句=>坐標
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E5%9D%90%E6%A8%99_%E8%A9%A9%E5%8F%A5.php
+坐標=>詩句
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%A9%A9%E5%8F%A5_%E5%9D%90%E6%A8%99.php
+詩句=>坐標
+
+
+
+
+
+
+h:\github\Dufu-Analysis\analysis_programs\生成頁碼_詩題.php
+- $頁碼_詩題
+- $詩題_頁碼
+
+h:\github\Dufu-Analysis\analysis_programs\生成詩集頁.php
+- set the flag for creating pages!!!
+- $頁碼_路徑
+- $路徑_頁碼
+- $頁碼
+- pages in 詩集
+- normalized text
+
+h:\github\Dufu-Analysis\analysis_programs\生成用字頻率.php
+- $用字_頻率
+
+h:\github\Dufu-Analysis\analysis_programs\生成排序用字頻率.php
+- $排序頻率_用字
+
+h:\github\Dufu-Analysis\analysis_programs\生成詩句.php
+- $詩句
+
+h:\github\Dufu-Analysis\analysis_programs\生成詩句_頁碼.php
+- $詩句_頁碼
+
+h:\github\Dufu-Analysis\analysis_programs\生成用字_詩句.php
+- $用字_詩句
+
+h:\github\Dufu-Analysis\analysis_programs\生成用字_頁碼.php
+- $用字_頁碼
+
+h:\github\Dufu-Analysis\analysis_programs\生成詩句_頁碼_行碼.php
+- $詩句_頁碼_行碼
+
+h:\github\Dufu-Analysis\analysis_programs\生成二字組合.php
+h:\github\Dufu-Analysis\analysis_programs\生成三字組合.php
+h:\github\Dufu-Analysis\analysis_programs\生成四字組合.php
+
+h:\github\Dufu-Analysis\analysis_programs\生成詩句_坐標.php
+h:\github\Dufu-Analysis\analysis_programs\生成部首_用字.php
+h:\github\Dufu-Analysis\analysis_programs\生成用字_部首.php
+
+// try not to run this!
+h:\github\Dufu-Analysis\analysis_programs\生成字典.php
+
+// run this only if 詩集 is changed
+h:\github\Dufu-Analysis\analysis_programs\生成坐標_用字.php
+
+h:\github\Dufu-Analysis\analysis_programs\生成二字組合_坐標.php
+
+
+h:\github\Dufu-Analysis\analysis_programs\生成書本.php
+h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php
+
+
+
+
+https://gist.github.com/2ue/7deda3ee996a394ad2361580f58c0c45
+

@@ -14,7 +14,7 @@ foreach( $詩句_頁碼 as $l => $p )
 {
 	$path = 詩集文件夾 . $p . ".php";
 	require_once( $path );
-	$ln_array = $content[ "行碼" ];
+	$ln_array = $内容[ "行碼" ];
 	
 	// search for the line
 	$pln = "";

@@ -10,7 +10,7 @@ foreach( $頁碼 as $頁 )
 {
 	require_once( $詩集路徑 . "$頁.php" );
 	$坐標_字 = array();
-	$坐標_句 = $content[ "坐標_句" ];
+	$坐標_句 = $内容[ "坐標_句" ];
 
 	$code = "<?php
 /*

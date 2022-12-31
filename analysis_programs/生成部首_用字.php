@@ -39,10 +39,10 @@ foreach( $chars as $char )
 
 	foreach( $部首_file_array as $部首_file )
 	{
-		$content = 
+		$内容 = 
 			file_get_contents( $部首_folder_path . $部首_file );
 	
-		if( mb_strpos( $content, $char ) !== false )
+		if( mb_strpos( $内容, $char ) !== false )
 		{
 			
 			$r = substr( substr( $部首_file, 3 ), 0, -4 );

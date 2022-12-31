@@ -20,7 +20,7 @@ $code2 = "<?php
 	{
 		require_once( $page_path . $p . '.php' );
 		
-		foreach( $content[ "坐標_句" ] as $坐 => $句 )
+		foreach( $内容[ "坐標_句" ] as $坐 => $句 )
 		{
 			$code1 = $code1 . "\"${坐}\"=>\"${句}\",\n";
 			$code2 = $code2 . "\"${句}\"=>\"${坐}\",\n";

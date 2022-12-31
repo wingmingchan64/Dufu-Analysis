@@ -17,7 +17,7 @@ foreach( $頁碼 as $頁 )
 	{
 		require_once( $頁路徑 );
 		
-		foreach( $content[ "注釋" ] as $坐標 => $注釋 )
+		foreach( $内容[ "注釋" ] as $坐標 => $注釋 )
 		{
 			$坐標 = 生成完整坐標( $坐標, $頁 );
 			$注釋 = trim( $注釋 );

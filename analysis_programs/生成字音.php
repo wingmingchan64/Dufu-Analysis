@@ -21,7 +21,7 @@ foreach( $頁碼 as $頁 )
 	{
 		require_once( $頁路徑 );
 		
-		foreach( $content[ "字音" ] as $字 => $音陣列 )
+		foreach( $内容[ "字音" ] as $字 => $音陣列 )
 		{
 			if( !array_key_exists( $字, $字音陣列 ) )
 			{

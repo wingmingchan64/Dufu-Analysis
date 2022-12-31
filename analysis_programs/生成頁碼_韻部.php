@@ -31,7 +31,7 @@ foreach( $頁碼 as $頁 )
 	{
 		require_once( $file );
 		
-		foreach( $content[ "韻部" ] as $坐標 => $字_韻部 )
+		foreach( $内容[ "韻部" ] as $坐標 => $字_韻部 )
 		{
 			$字_韻陣列 = explode( '：', $字_韻部 );
 			$韻 = trim( $字_韻陣列[ 1 ] );
