@@ -3,12 +3,12 @@
 生成：本文檔用 PHP 生成。
 說明：陳永明《杜甫全集粵音注音》中關於《劉九法曹鄭瑕丘石門宴集》的資料。
 */
-$content=array(
+$内容=array(
 "書名"=>"陳永明《杜甫全集粵音注音》",
 "注音"=>
 array(
 
-"秋水清無底。蕭然淨客心。"=>array("cau1 seoi2 cing1 mou4 dai2,  siu1 jin4 zing6 haak3 sam1","平仄平平仄，平平仄仄平"),
+"秋水清無底。蕭然淨客心。"=>array("cau1 seoi2 cing1 mou4 dai2, siu1 jin4 zing6 haak3 sam1","平仄平平仄，平平仄仄平"),
 "掾曹乘逸興。鞍馬到荒林。"=>array("jyun6 cou4 sing4 jat6 hing3, on1 maa5 dou3 fong1 lam4","仄平平仄仄，平仄仄平平"),
 "能吏逢聯璧。華筵直一金。"=>array("nang4 lei6 fung4 lyun4 bik1, waa4 jin4 zik6 jat1 gam1","平仄平平仄，平平仄仄平"),
 "晚來橫吹好。泓下亦龍吟。"=>array("maan5 loi4 waang4 ceoi3 hou2, wang4 haa6 jik6 lung4 jam4","仄平平仄仄，平仄仄平平"),),
@@ -18,11 +18,11 @@ array(
 "清"=>array("cing1"),
 "無"=>array("mou4"),
 "底"=>array("dai2"),
-"蕭"=>array(""),
-"然"=>array("siu1"),
-"淨"=>array("jin4"),
-"客"=>array("zing6"),
-"心"=>array("haak3"),
+"蕭"=>array("siu1"),
+"然"=>array("jin4"),
+"淨"=>array("zing6"),
+"客"=>array("haak3"),
+"心"=>array("sam1"),
 "掾"=>array("jyun6"),
 "曹"=>array("cou4"),
 "乘"=>array("sing4"),

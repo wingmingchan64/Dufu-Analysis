@@ -3,13 +3,11 @@
 生成：本文檔用 PHP 生成。
 說明：陳永明《杜甫全集粵音注音》中關於《臨邑舍弟書至，苦雨，黃河泛溢，隄防之患，簿領所憂，因寄此詩，用寬其意》的資料。
 */
-$content=array(
+$内容=array(
 "書名"=>"陳永明《杜甫全集粵音注音》",
 "注音"=>
 array(
 
-"隄防之患。簿領所憂。"=>array("tai4 fong4 zi1 waan6, bou6 ling5 so2 jau1,"),
-"因寄此詩。用寬其意"=>array("jan1 gei3 ci2 si1, jung6 fun1 kei4 ji3"),
 "二儀積風雨。百谷漏波濤。"=>array("ji6 ji4 zik1 fung1 jyu5, baak3 guk1 lau6 bo1 tou4","仄平仄平仄，仄仄仄平平"),
 "聞道洪河坼。遙連滄海高。"=>array("man4 dou6 hung4 ho4 caak3, jiu4 lin4 cong1 hoi2 gou1","平仄平平仄，平平平仄平"),
 "職司憂悄悄。郡國訴嗷嗷。"=>array("zik1 si1 jau1 ciu3 ciu3, gwan6 gwok3 sou3 ngou4 ngou4","仄平平仄仄，仄仄仄平平"),
@@ -23,22 +21,6 @@ array(
 "吾衰同泛梗。利涉想蟠桃。"=>array("ng4 seoi1 tung4 faan6 gang2, lei6 sip3 soeng2 pun4 tou4","平平平仄仄，仄仄仄平平"),
 "卻倚天涯釣。猶能掣巨鼇。"=>array("koek3 ji2 tin1 ngaai4 diu3, jau4 nang4 zai3 geoi6 ngou4","仄仄平平仄，平平仄仄平"),),
 "字音"=>array(
-"隄"=>array("tai4"),
-"防"=>array("fong4"),
-"之"=>array("zi1"),
-"患"=>array("waan6"),
-"簿"=>array("bou6"),
-"領"=>array("ling5"),
-"所"=>array("so2"),
-"憂"=>array("jau1"),
-"因"=>array("jan1"),
-"寄"=>array("gei3"),
-"此"=>array("ci2"),
-"詩"=>array("si1"),
-"用"=>array("jung6"),
-"寬"=>array("fun1"),
-"其"=>array("kei4"),
-"意"=>array("ji3"),
 "二"=>array("ji6"),
 "儀"=>array("ji4"),
 "積"=>array("zik1"),
@@ -61,6 +43,7 @@ array(
 "高"=>array("gou1"),
 "職"=>array("zik1"),
 "司"=>array("si1"),
+"憂"=>array("jau1"),
 "悄"=>array("ciu3"),
 "郡"=>array("gwan6"),
 "國"=>array("gwok3"),
@@ -71,7 +54,10 @@ array(
 "卑"=>array("bei1"),
 "栖"=>array("cai1"),
 "邑"=>array("jap1"),
+"防"=>array("fong4"),
 "川"=>array("cyun1"),
+"領"=>array("ling5"),
+"簿"=>array("bou6"),
 "曹"=>array("cou4"),
 "尺"=>array("cek3"),
 "書"=>array("syu1"),

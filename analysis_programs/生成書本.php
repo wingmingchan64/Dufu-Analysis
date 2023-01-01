@@ -9,17 +9,14 @@ require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
 $簡稱   = '=粵';
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
-
 foreach( $頁碼 as $頁 )
 {
 	$text_array = getSection( $頁碼_路徑[ $頁 ], $簡稱 );
-
 	if( mb_strpos( implode( $text_array ), '【' ) === false )
 	{
 		echo $頁, "\n";
 		continue;
 	}
-
 	$書名  = trim( $text_array[ 0 ] );
 	$部分陣列  = array();
 	$current = "";
@@ -69,8 +66,15 @@ foreach( $部分陣列 as $k => $子儲存 )
 			$音  = "";
 			$文  = "";
 			
-			if( $i == 0 || $i == 1 || 
-				str_starts_with( $音_陣列[ $i ], '--'  ) )
+			// skip 詩題
+			if( mb_strpos( $頁碼_詩題[ $頁 ], $音_陣列[ $i ] )
+				!== false )
+			{
+				$i = $i + 1;
+				continue;
+			}
+			// skip -----------
+			elseif( str_starts_with( $音_陣列[ $i ], '--'  ) )
 			{
 				continue;
 			}
@@ -94,6 +98,7 @@ foreach( $部分陣列 as $k => $子儲存 )
 					$sub_code = $sub_code . "),";
 				}
 			}
+			
 		}
 		//$sub_code = $sub_code . "\"$文\"=>\"$音\",";
 		//$sub_code = substr( $sub_code, 0, -2 );

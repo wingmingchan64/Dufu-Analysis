@@ -3,17 +3,17 @@
 生成：本文檔用 PHP 生成。
 說明：陳永明《杜甫全集粵音注音》中關於《望嶽》的資料。
 */
-$content=array(
+$内容=array(
 "書名"=>"陳永明《杜甫全集粵音注音》",
 "注音"=>
 array(
 
-"岱宗夫如何。齊魯青未了。"=>array("doi7 zung1 fu4 jyu4 ho4, cai4 lou5 cing1 mei6 liu5"),
+"岱宗夫如何。齊魯青未了。"=>array("doi6 zung1 fu4 jyu4 ho4, cai4 lou5 cing1 mei6 liu5"),
 "造化鍾神秀。陰陽割昏曉。"=>array("zou6 faa3 zung1 san4 sau3, jam1 joeng4 got3 fan1 hiu2"),
 "盪胸生曾雲。決眥入歸鳥。"=>array("dong6 hung1 sang1 cang4 wan4, kyut3 zi6 jap6 gwai1 niu5"),
 "會當凌絕頂。一覽眾山小。"=>array("wui6 dong1 ling4 zyut6 ding2, jat1 laam5 zung3 saan1 siu2"),),
 "字音"=>array(
-"岱"=>array("doi7"),
+"岱"=>array("doi6"),
 "宗"=>array("zung1"),
 "夫"=>array("fu4"),
 "如"=>array("jyu4"),

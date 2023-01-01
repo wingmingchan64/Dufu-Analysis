@@ -3,26 +3,16 @@
 生成：本文檔用 PHP 生成。
 說明：陳永明《杜甫全集粵音注音》中關於《暫如臨邑，至㟙山湖亭，奉懷李員外，率爾成興》的資料。
 */
-$content=array(
+$内容=array(
 "書名"=>"陳永明《杜甫全集粵音注音》",
 "注音"=>
 array(
 
-"奉懷李員外。率爾成興"=>array("fung6 waai4 lei5 jyun4 ngoi6, seot1 ji5 sing4 hing3"),
 "野亭逼湖水。歇馬高林間。"=>array("je5 ting4 bik1 wu4 seoi2, hit3 maa5 gou1 lam4 gaan1","仄平仄平仄，仄仄平平平"),
 "鼉吼風奔浪。魚跳日映山。"=>array("to4 hau3 fung1 ban1 long6, jyu4 tiu1 jat6 jing2 saan1","平仄平平仄，平平仄仄平"),
 "暫遊阻詞伯。卻望懷青關。"=>array("zaam6 jau4 zo2 ci4 baak3, koek3 mong6 waai4 cing1 gwaan1","仄平仄平仄，仄仄平平平"),
 "靄靄生雲霧。唯應促駕還。"=>array("oi2 oi2 sang1 wan4 mou6, wai4 jing1 cuk1 gaa3 waan4","仄仄平平仄，平平仄仄平"),),
 "字音"=>array(
-"奉"=>array("fung6"),
-"懷"=>array("waai4"),
-"李"=>array("lei5"),
-"員"=>array("jyun4"),
-"外"=>array("ngoi6"),
-"率"=>array("seot1"),
-"爾"=>array("ji5"),
-"成"=>array("sing4"),
-"興"=>array("hing3"),
 "野"=>array("je5"),
 "亭"=>array("ting4"),
 "逼"=>array("bik1"),
@@ -50,6 +40,7 @@ array(
 "伯"=>array("baak3"),
 "卻"=>array("koek3"),
 "望"=>array("mong6"),
+"懷"=>array("waai4"),
 "青"=>array("cing1"),
 "關"=>array("gwaan1"),
 "靄"=>array("oi2"),
