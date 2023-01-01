@@ -14,12 +14,13 @@ foreach( $頁碼 as $頁 )
 	$text_array = getSection( $頁碼_路徑[ $頁 ], $簡稱 );
 	if( mb_strpos( implode( $text_array ), '【' ) === false )
 	{
-		echo $頁, "\n";
 		continue;
 	}
 	$書名  = trim( $text_array[ 0 ] );
 	$部分陣列  = array();
 	$current = "";
+
+//print_r( $text_array );
 
 // skip the first two line
 for( $i = 2; $i < sizeof( $text_array ); $i++ )
@@ -37,6 +38,8 @@ for( $i = 2; $i < sizeof( $text_array ); $i++ )
 	}
 	else
 	{
+		//echo $current, "\n";
+		//echo $行, "\n";
 		array_push( $部分陣列[ $current ], trim( $行 ) );
 	}
 }
