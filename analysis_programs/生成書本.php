@@ -123,9 +123,12 @@ foreach( $部分陣列 as $k => $子儲存 )
 				}
 				if( !in_array( $行音陣列[ $i ], $字音[ mb_substr( $行, $i, 1 ) ] ) )
 				{
+					if( $行音陣列[ $i ] != "" )
+					{
 					array_push( 
 						$字音[ mb_substr( $行, $i, 1 ) ], 
 						$行音陣列[ $i ] );
+					}
 				}
 			}
 		}
