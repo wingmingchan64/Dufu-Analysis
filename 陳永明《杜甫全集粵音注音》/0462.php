@@ -17,7 +17,7 @@ array(
 "巢多眾鳥鬬。葉密鳴蟬稠。"=>array("caau4 do1 zung3 niu5 dau3, jip6 mat6 ming4 sim4 cau4"),
 "苦遭此物聒。孰謂吾廬幽。"=>array("fu2 zou1 ci2 mat6 kut3, suk6 wai6 ng4 lou4 jau1"),
 "水花晚色靜。庶足充淹留。"=>array("seoi2 faa1 maan5 sik1 zing6, syu3 zuk1 cung1 jim1 lau4"),
-"預恐尊中盡。更起爲君謀。（尤韻）"=>array("jyu6 hung2 zoen1 zung1 zeon6, gang3 hei2 wai6 gwan1 mau4"),),
+"預恐尊中盡。更起爲君謀。"=>array("jyu6 hung2 zoen1 zung1 zeon6, gang3 hei2 wai6 gwan1 mau4"),),
 "字音"=>array(
 "遠"=>array("jyun5"),
 "林"=>array("lam4"),
@@ -117,14 +117,21 @@ array(
 "起"=>array("hei2"),
 "爲"=>array("wai6"),
 "君"=>array("gwan1"),
-"謀"=>array("mau4"),
-"（"=>array(""),
-"尤"=>array(""),
-"韻"=>array(""),
-"）"=>array("")
+"謀"=>array("mau4")
 ),
 "韻部"=>
-"",
+array(
+"〚0462:3.2.5〛"=>"遊：尤韻",
+"〚0462:4.2.5〛"=>"樓：尤韻",
+"〚0462:5.2.5〛"=>"求：尤韻",
+"〚0462:6.2.5〛"=>"不：尤韻",
+"〚0462:7.2.5〛"=>"流：尤韻",
+"〚0462:8.2.5〛"=>"秋：尤韻",
+"〚0462:9.2.5〛"=>"稠：尤韻",
+"〚0462:10.2.5〛"=>"幽：尤韻",
+"〚0462:11.2.5〛"=>"留：尤韻",
+"〚0462:12.2.5〛"=>"謀：尤韻")
+,
 "補充説明"=>
 "〚6.2.5〛不，平聲。",
 

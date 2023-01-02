@@ -5,6 +5,7 @@
 require_once( "h:\\github\\Dufu-Analysis\\部首_用字.php" );
 require_once( "h:\\github\\Dufu-Analysis\\用字_詩句.php" );
 require_once( "h:\\github\\Dufu-Analysis\\詩句_坐標.php" );
+require_once( "h:\\github\\Dufu-Analysis\\陳永明《杜甫全集粵音注音》\\陳永明《杜甫全集粵音注音》字音.php" );
 
 $字文件夾 = "h:\\github\\Dufu-Analysis\\字\\";
 
@@ -17,7 +18,6 @@ foreach( $部首s as $部首 )
 
 foreach( $部首_用字 as $部首 => $用字陣列 )
 {
-	
 	foreach( $用字陣列 as $用字 )
 	{
 		$code =
@@ -62,46 +62,23 @@ foreach( $部首_用字 as $部首 => $用字陣列 )
 				$code = $code . "),\n";
 			}
 		}
-		$code = $code . "),\n";
-/*
-		// process $字坐標s
-		$注釋s = array();
-		foreach( $字坐標s as $字坐標 )
+		$code = $code . ");\n";
+		
+		if( array_key_exists( $用字, $字音 ) )
 		{
-			$parts = explode( ':', trim( $字坐標 ) );
-			$page = $parts[ 0 ];
-			$rcoor = "";
-			for( $i = 0; $i < sizeof( $parts ); $i++ )
+			$code = $code . "\$字音=array(";
+			foreach( $字音[ $用字 ] as $音 )
 			{
-				// 頁碼
-				if( $i == 0 )
-					$rcoor = '〚';
-				// 行碼
-				elseif( i== 1 && mb_strlen( $parts[ $i ] ) > 3 )
-				{
-					$rcoor = $rcoor . $parts[ $i ] . '〛';
-				}
-				// 首碼
-				elseif( i== 1 && 
-					mb_strlen( $parts[ $i ] ) == 1 )
-				{
-					$rcoor = $rcoor . $parts[ $i ] . ':' .
-						$parts[ $i+1 ] . '〛';
-				}
-				
+				$code = $code . "\"${音}\",";
 			}
-			require_once( "h:\\github\\Dufu-Analysis\\" . "蕭滌非主編《杜甫全集校注》\\${page}.php";
-			foreach( $内容[ "注釋" ] as $note )
-			{
-				if(  
-			}
+			
+			$code = substr( $code, 0, -1 );
+			$code = $code . ");\n";
 		}
-*/
 		
 		$code = $code . "\n?>";
 		file_put_contents(
 			$字文件夾 . $部首 . "\\" . $用字 . '.php', $code );
 	}
 }
-
 ?>

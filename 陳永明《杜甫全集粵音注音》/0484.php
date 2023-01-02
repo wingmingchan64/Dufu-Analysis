@@ -19,7 +19,7 @@ array(
 "維南有崇山。恐與川浸溜。"=>array("wai4 naam4 jau5 sung4 saan1, hung2 jyu5 cyun1 zam3 lau6"),
 "是節東籬菊。紛披爲誰秀。"=>array("si6 zit3 dung1 lei4 guk1, fan1 pei1 wai6 seoi4 sau3"),
 "岑生多新詩。性亦嗜醇酎。"=>array("sam4 sang1 do1 san1 si1, sing3 jik6 si3 seon4 zau6"),
-"采采黃金花。何由滿衣袖。（宥韻）"=>array("coi2 coi2 wong4 gam1 faa1, ho4 jau4 mun5 ji1 zau6"),),
+"采采黃金花。何由滿衣袖。"=>array("coi2 coi2 wong4 gam1 faa1, ho4 jau4 mun5 ji1 zau6"),),
 "字音"=>array(
 "出"=>array("ceot1"),
 "門"=>array("mun4"),
@@ -133,11 +133,7 @@ array(
 "由"=>array("jau4"),
 "滿"=>array("mun5"),
 "衣"=>array("ji1"),
-"袖"=>array("zau6"),
-"（"=>array(""),
-"宥"=>array(""),
-"韻"=>array(""),
-"）"=>array("")
+"袖"=>array("zau6")
 ),
 "韻部"=>
 array(
