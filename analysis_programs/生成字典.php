@@ -7,7 +7,7 @@ require_once( "h:\\github\\Dufu-Analysis\\用字_詩句.php" );
 require_once( "h:\\github\\Dufu-Analysis\\詩句_坐標.php" );
 require_once( "h:\\github\\Dufu-Analysis\\陳永明《杜甫全集粵音注音》\\陳永明《杜甫全集粵音注音》字音.php" );
 
-$字文件夾 = "h:\\github\\Dufu-Analysis\\字\\";
+$字文件夾 = "h:\\github\\Dufu-Analysis\\用字\\";
 
 $部首s = array_keys( $部首_用字 );
 
