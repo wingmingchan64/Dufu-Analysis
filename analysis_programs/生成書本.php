@@ -6,7 +6,7 @@ require_once( 'h:\github\Dufu-Analysis\頁碼_詩題.php' );
 require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
 
 //$頁    = '0013';
-$簡稱   = '=蕭';
+$簡稱   = '=浦';
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
 foreach( $頁碼 as $頁 )
