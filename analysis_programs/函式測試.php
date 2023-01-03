@@ -82,9 +82,20 @@ echo 提取頁碼( "〚0003:1:5.2.2〛" ), 新行; // 0003
 echo 提取頁碼( "〚0003:5.2.2〛" ), 新行;   // 0003
 echo 提取頁碼( "〚5.2.2〛" ), 新行;        // 〚5.2.2〛
 */
-
+/*
 echo 生成完整坐標( "〚0003:5.2.2〛", "0003" ), 新行;
 echo 生成完整坐標( "〚5.2.2〛", "0013" ), 新行;
 echo 生成完整坐標( "〚12:45.2.2〛", "0013" ), 新行;
 echo 生成完整坐標( "〚0003:12:45.2.2〛", "0013" ), 新行;
+*/
+var_dump( getExpandedPages( '〚4〛' ) );
+var_dump( getExpandedPages( '〚4.1〛' ) );
+var_dump( getExpandedPages( '〚4.1.5〛' ) );
+var_dump( getExpandedPages( '〚4.1.3-5〛' ) );
+
+//var_dump( getExpandedPages( '〚4.1.4-5〛' ) );
+//var_dump( getExpandedPages( '〚4.1.4-5〛' ) );
+//var_dump( getExpandedPages( '〚4.1.4-5〛' ) );
+//var_dump( getExpandedPages( '〚4.1.4-5〛' ) );
+//var_dump( getExpandedPages( '〚4.1.4-5〛' ) );
 ?>

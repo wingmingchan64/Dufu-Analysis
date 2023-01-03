@@ -34,6 +34,56 @@ function getAnnotation( string $file_path ) : string
 	return $annotation;
 }
 
+function getExpandedPages( string $coor ) : array
+{
+	$parts = explode( '.', $coor );
+	
+	if( sizeof( $parts ) < 3 )
+	{
+		return array( $coor );
+	}
+	else
+	{
+		$pages = 
+			trim( $parts[ sizeof( $parts ) - 1 ], '〛' );
+			
+		if( strpos( $pages, '-' ) !== false )
+		{
+			$page_array = array();
+			$pre_parts = "";
+			
+			for( $i = 0; $i < sizeof( $parts ) - 1; $i ++ )
+			{
+				$pre_parts = $pre_parts . '.' . $parts[ $i ];
+			}
+			$pre_parts = trim( $pre_parts, '.' );
+			$page_range = explode( '-', $pages );			
+
+			if( sizeof( $page_range ) == 2 )
+			{
+				$page_range_array = 
+					range( $page_range [ 0 ], $page_range [ 1 ] );
+				
+				foreach( $page_range_array as $p )
+				{
+					array_push(
+						$page_array,
+						$pre_parts . '.' . $p . '〛' );
+				}
+			}
+			
+			return $page_array;
+		}
+		else
+		{
+			return array( $coor );
+		}
+		
+		echo $pages, "\n";
+		
+	}
+}
+
 function getFile( $file_path ) : string
 {
 	$text_of_file = file_get_contents( $file_path );

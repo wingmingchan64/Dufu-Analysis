@@ -18,7 +18,7 @@ array(
 "俯視但一氣。焉能辨皇州。"=>array("fu2 si6 daan6 jat1 hei3, jin1 nang4 bin6 wong4 zau1"),
 "回首叫虞舜。蒼梧雲正愁。"=>array("wui4 sau2 giu3 jyu4 seon3, cong1 ng4 wan4 zing3 sau4"),
 "惜哉瑤池飲。日晏崑崙丘。"=>array("sik1 zoi1 jiu4 ci4 jam2, jat6 aan3 kwan1 leon4 jau1"),
-"黃鵠去不息。哀鳴何所投。"=>array("wong4 guk1 heoi3 bat1 sik1, oi1 ming4 ho4 so2 tau4"),
+"黃鵠去不息。哀鳴何所投。"=>array("wong4 huk6 heoi3 bat1 sik1, oi1 ming4 ho4 so2 tau4"),
 "君看隨陽雁。各有稻粱謀。"=>array("gwan1 hon3 ceoi4 joeng4 ngaan6, gok3 jau5 dou6 loeng4 mau4"),),
 "字音"=>array(
 "高"=>array("gou1"),
@@ -119,7 +119,7 @@ array(
 "崙"=>array("leon4"),
 "丘"=>array("jau1"),
 "黃"=>array("wong4"),
-"鵠"=>array("guk1"),
+"鵠"=>array("huk6"),
 "去"=>array("heoi3"),
 "息"=>array("sik1"),
 "哀"=>array("oi1"),
