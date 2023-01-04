@@ -1,9 +1,11 @@
 <?php
+require_once( "常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\詩組_詩題.php" );
 require_once( "h:\\github\\Dufu-Analysis\\帶序文之詩歌.php" );
 require_once( "h:\\github\\Dufu-Analysis\\頁碼_路徑.php" );
 require_once( "h:\\github\\Dufu-Analysis\\書目簡稱.php" );
 require_once( "h:\\github\\Dufu-Analysis\\坐標_詩句.php" );
+require_once( "h:\\github\\Dufu-Analysis\\頁碼_詩題.php" );
 $path_for_file = '';
 $text_of_file  = '';
 
@@ -416,8 +418,6 @@ function 生成完整坐標( string $坐標, string $頁碼 ) : string
 		return $坐標;
 	}
 	
-		
-	
 	if( strlen( $頁碼 ) !== 4 ) // no 頁碼 supplied
 	{
 		return $坐標;
@@ -435,11 +435,40 @@ function 生成完整坐標( string $坐標, string $頁碼 ) : string
 	}
 }
 
-function 提取版本詩文( string $版本, string $頁 ) : string
+function 提取版本詩文( string $版本, string $頁 ) : array
 {
 	global $書目簡稱;
 	global $坐標_詩句;
+	global $頁碼_詩題;
+	global $頁碼_路徑;
 	
+	// 讀取想要版本的異文、夾注
+	$section = getSection( $頁碼_路徑[ $頁 ], $版本 );
+	$版本異文、夾注 = array();
+	$in_異文、夾注 = false;
+	
+	foreach( $section as $l )
+	{
+		if( mb_strpos( $l, "【異文、夾注】" ) !== false )
+		{
+			$in_異文、夾注 = true;
+			continue;
+		}
+		elseif( $in_異文、夾注 && trim( $l ) === "" )
+		{
+			$in_異文、夾注 = false;
+			break;
+		}
+		if( $in_異文、夾注 )
+		{
+			$parts = explode( '〛', $l );
+			$版本異文、夾注[ '〚' . $頁 . ':' . 
+				trim( $parts[ 0 ], '〚' ) .
+				'〛' ] = $parts[ 1 ];
+		}
+	}
+
+	$版本陣列 = array();
 	// 讀取默認版本
 	$詩文路徑 = 詩集文件夾 . "\\" . $頁 . '.php';
 	require_once( $詩文路徑 );
@@ -449,18 +478,12 @@ function 提取版本詩文( string $版本, string $頁 ) : string
 	$坐標_用字路徑 = 詩集文件夾 . "\\" . $頁 . '坐標_用字.php';
 	require_once( $坐標_用字路徑 );
 
-	// 讀取想要版本的異文、夾注
-	$版本路徑 = 杜甫分析文件夾 . 
-		$書目簡稱[ $版本 ] . "\\" . $頁 . '.php';
-	require_once( $版本路徑 );
-	$版本異文、夾注 = $内容[ "異文、夾注" ];
-
 	// 以想要版本的異文、夾注，代替默認版本相對應的用字
 	foreach( $版本異文、夾注 as $異文、夾注坐標 => $異文、夾注 )
 	{
 		if( $異文、夾注坐標 == "〚${頁}:1〛" )
 		{
-			echo $異文、夾注, "\n\n"; // output title
+			$版本陣列[ "詩題" ] = trim( $異文、夾注 );
 			continue; 
 		}
 	
@@ -476,7 +499,7 @@ function 提取版本詩文( string $版本, string $頁 ) : string
 		{
 			$版本詩句 = str_replace(
 				$坐標_用字[ $異文、夾注坐標 ],
-				$異文、夾注,
+				trim( $異文、夾注 ),
 				$詩句 );
 		
 			$版本詩文 = str_replace( 
@@ -497,7 +520,7 @@ function 提取版本詩文( string $版本, string $頁 ) : string
 
 			$版本詩句 = str_replace(
 				$chunk,
-				$異文、夾注,
+				trim( $異文、夾注 ),
 				$詩句 );
 
 			$版本詩文 = str_replace( 
@@ -506,6 +529,7 @@ function 提取版本詩文( string $版本, string $頁 ) : string
 				$版本詩文 );
 		}
 	}
-	return $版本詩文;
+	$版本陣列[ "詩文" ] = $版本詩文;
+	return $版本陣列;
 }
 ?>

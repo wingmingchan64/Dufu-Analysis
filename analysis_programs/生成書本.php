@@ -1,4 +1,7 @@
 <?php
+/*
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php
+*/
 require_once( '函式.php' );
 require_once( 'h:\github\Dufu-Analysis\頁碼.php' );
 require_once( 'h:\github\Dufu-Analysis\頁碼_路徑.php' );
@@ -55,6 +58,7 @@ foreach( $部分陣列 as $k => $子儲存 )
 {
 	$題 = trim( $k, '【】' );
 	$補充説明 = ( $題 == '補充説明' );
+	$異文、夾注 = ( $題 == '異文、夾注' );
 	$内容 = implode( "\n", $子儲存 );
 	$parts = array();
 
@@ -165,6 +169,24 @@ foreach( $部分陣列 as $k => $子儲存 )
 	{
 		$内容 = "\"$内容\"";
 	}
+	
+	elseif( $異文、夾注 )
+	{
+		$題 = "版本";
+		$版本陣列 = 提取版本詩文( $簡稱, $頁 );
+		$内容 = "array(";
+		if( array_key_exists( "詩題", $版本陣列 ) )
+		{
+			$内容 = "\n\"詩題\"=>\"" . $版本陣列[ "詩題" ] . "\",";
+		}
+		
+		if( array_key_exists( "詩文", $版本陣列 ) )
+		{
+			$内容 = $内容 . "\n\"詩文\"=>\"" . $版本陣列[ "詩文" ] . "\",";
+		}
+		$内容 = $内容 . ")";
+	}
+	
 	elseif( mb_strpos( $内容, '〚' ) !== false )
 	{
 		$〚儲存 = explode( '〚', $内容 );
