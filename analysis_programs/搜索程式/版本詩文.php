@@ -4,19 +4,19 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\版本詩文.php
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
-require_once( "h:\\github\\Dufu-Analysis\\書目簡稱.php" );
-require_once( "h:\\github\\Dufu-Analysis\\坐標_詩句.php" );
+//require_once( "h:\\github\\Dufu-Analysis\\書目簡稱.php" );
+//require_once( "h:\\github\\Dufu-Analysis\\坐標_詩句.php" );
 
 // 想要的版本
-$版本 = '=浦';
+$版本 = '=蕭';
 // 頁碼
-$頁  = '0715';
+$頁  = '0079';
 
+/*
 // 讀取默認版本
 $詩文路徑 = 詩集文件夾 . "\\" . $頁 . '.php';
 require_once( $詩文路徑 );
 $版本詩文 = $内容[ "詩文" ];
-//echo $版本詩文, 新行;
 
 // 讀取默認版本的坐標_用字
 $坐標_用字路徑 = 詩集文件夾 . "\\" . $頁 . '坐標_用字.php';
@@ -79,4 +79,6 @@ foreach( $版本異文、夾注 as $異文、夾注坐標 => $異文、夾注 )
 	}
 }
 echo $版本詩文, 新行;
+*/
+echo 提取版本詩文($版本, $頁), "\n";
 ?>
