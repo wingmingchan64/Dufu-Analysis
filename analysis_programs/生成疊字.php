@@ -22,8 +22,9 @@ foreach( $疊字 as $組合 )
 {
 	$code = $code . "\"${組合}\",";
 }
-$code = $code . "\n);\n?>";
-echo sizeof( $疊字 );
+$size = sizeof( $疊字 );
+$code = $code . "\n); // size: ${size}
+\n?>";
 file_put_contents( "h:\\github\\Dufu-Analysis\\疊字.php",
 	$code );
 ?>
