@@ -17,6 +17,7 @@ $頁碼 = explode( ':', $裸坐標 )[ 0 ];
 require_once( "h:\\github\\Dufu-Analysis\\張志烈主編《杜詩全集（今注本）》\\${頁碼}.php" );
 foreach( $内容[ "注釋" ] as $坐標 => $注釋 )
 {
+	// 注意：把〚 加回去
 	if( str_starts_with( $坐標, '〚' . $裸坐標 ) )
 	{
 		echo $注釋, "\n";
