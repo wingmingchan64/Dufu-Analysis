@@ -8,9 +8,9 @@ require_once( 'h:\github\Dufu-Analysis\頁碼_路徑.php' );
 require_once( 'h:\github\Dufu-Analysis\頁碼_詩題.php' );
 require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
 
-$簡稱   = '=蕭';
 $簡稱   = '=譯';
 $簡稱   = '=今';
+$簡稱   = '=蕭';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
