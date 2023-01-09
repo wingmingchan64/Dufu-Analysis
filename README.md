@@ -14,7 +14,7 @@
 <h2>生成杜甫詩資料庫的 PHP 程式</h2>
 <p><a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/analysis_programs">analysis_programs</a></p>
 <h2>搜索程式</h2>
-<p>這裏展示了如何利用坐標、資料庫，找到我們想要的東西。</p>
+<p><a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/analysis_programs/%E6%90%9C%E7%B4%A2%E7%A8%8B%E5%BC%8F">搜索程式</a>展示了如何利用坐標、資料庫，找到我們想要的東西。</p>
 <ul>
 <li>版本詩文：利用某注本中【異文、夾注】的資料，復原這個注本的白文，包括異體字、夾注等。</li>
 <li>兩字出現於同一首詩：找尋包含某兩個特定字的所有詩</li>
