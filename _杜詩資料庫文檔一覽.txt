@@ -61,6 +61,12 @@ https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%A9%A9%E5%8F%A5_%E5
 https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E4%BA%8C%E5%AD%97%E7%B5%84%E5%90%88_%E5%9D%90%E6%A8%99.php
 二字組合=>坐標
 
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E4%B8%89%E5%AD%97%E7%B5%84%E5%90%88_%E5%9D%90%E6%A8%99.php
+三字組合=>坐標
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E5%9B%9B%E5%AD%97%E7%B5%84%E5%90%88_%E5%9D%90%E6%A8%99.php
+四字組合=>坐標
+
 https://github.com/wingmingchan64/Dufu-Analysis/tree/main/%E8%A9%A9%E9%9B%86
 - 兩千多個文檔，儲存行碼、用字坐標等資料
 
@@ -68,5 +74,10 @@ https://github.com/wingmingchan64/Dufu-Analysis/tree/main/%E5%AD%97
 - 四千多個文檔，儲存用字的坐標、讀音等資料
 
 浦起龍《讀杜心解》
+
+
 蕭滌非主編《杜甫全集校注》
+https://github.com/wingmingchan64/Dufu-Analysis/tree/main/%E8%95%AD%E6%BB%8C%E9%9D%9E%E4%B8%BB%E7%B7%A8%E3%80%8A%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86%E6%A0%A1%E6%B3%A8%E3%80%8B
+這版本的詩文白文、注釋。
+
 陳永明《杜甫全集粵音注音》
