@@ -78,6 +78,6 @@ https://github.com/wingmingchan64/Dufu-Analysis/tree/main/%E5%AD%97
 
 蕭滌非主編《杜甫全集校注》
 https://github.com/wingmingchan64/Dufu-Analysis/tree/main/%E8%95%AD%E6%BB%8C%E9%9D%9E%E4%B8%BB%E7%B7%A8%E3%80%8A%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86%E6%A0%A1%E6%B3%A8%E3%80%8B
-這版本的詩文白文、注釋。
+- 這版本的詩文白文、注釋。
 
 陳永明《杜甫全集粵音注音》
