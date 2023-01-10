@@ -5,7 +5,9 @@ require_once( 'h:\github\Dufu-Analysis\頁碼.php' );
 require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
 
 $簡稱   = '=譯';
+$簡稱   = '=今';
 $種類   = '注釋';
+$種類   = '大意';
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
 $code = "<?php\n\$${書目簡稱[ $簡稱 ]}${種類}=array(\n";
