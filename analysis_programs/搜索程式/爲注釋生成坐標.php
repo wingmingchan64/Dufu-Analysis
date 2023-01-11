@@ -1,26 +1,24 @@
 <?php
-/*
-php h:\github\Dufu-Analysis\analysis_programs\生成書本.php
-*/
 require_once( '函式.php' );
 require_once( 'h:\github\Dufu-Analysis\頁碼.php' );
 require_once( 'h:\github\Dufu-Analysis\頁碼_路徑.php' );
 require_once( 'h:\github\Dufu-Analysis\頁碼_詩題.php' );
 require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
 
-$簡稱   = '=譯';
-$簡稱   = '=全';
-$簡稱   = '=蕭';
+
 $簡稱   = '=今';
+
+$頁 = "0003";
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
-foreach( $頁碼 as $頁 )
-{
+//foreach( $頁碼 as $頁 )
+//{
 	$text_array = getSection( $頁碼_路徑[ $頁 ], $簡稱 );
+	
 	if( mb_strpos( implode( $text_array ), '【' ) === false )
 	{
-		continue;
+		//continue;
 	}
 	$書名  = trim( $text_array[ 0 ] );
 	$部分陣列  = array();
@@ -172,6 +170,7 @@ foreach( $部分陣列 as $k => $子儲存 )
 	{
 		$内容 = "\"$内容\"";
 	}
+	
 	elseif( $異文、夾注 )
 	{
 		$題 = "版本";
@@ -187,6 +186,30 @@ foreach( $部分陣列 as $k => $子儲存 )
 			$内容 = $内容 . "\n\"詩文\"=>\"" . $版本陣列[ "詩文" ] . "\",";
 		}
 		$内容 = $内容 . ")";
+	}
+	elseif( mb_strpos( $内容, '〚' ) !== false )
+	{
+		$〚儲存 = explode( '〚', $内容 );
+		$sub_code = "array(\n";
+		
+		foreach( $〚儲存 as $l )
+		{
+			$l = trim( $l );
+			
+			if( $l == "" )
+			{
+				continue;
+			}
+			//$l = '〚' . $l ; // add 〚 back
+			$parts = explode( '〛', $l );
+			$l = "\"〚" . $頁 . ':' . $parts[ 0 ] . "〛\"=>\"" .
+				$parts[ 1 ] . "\",\n";
+			
+			$sub_code = $sub_code . $l;
+		}
+		$sub_code = substr( $sub_code, 0, -2 );
+		$sub_code = $sub_code . ")\n";
+		$内容 = $sub_code;
 	}
 	elseif( mb_strpos( $内容, '〖' ) !== false )
 	{
@@ -264,30 +287,6 @@ require_once( 'h:\github\Dufu-Analysis\三字組合_坐標.php' );
 		$sub_code = $sub_code . ")\n";
 		$内容 = $sub_code;
 	}
-	elseif( mb_strpos( $内容, '〚' ) !== false )
-	{
-		$〚儲存 = explode( '〚', $内容 );
-		$sub_code = "array(\n";
-		
-		foreach( $〚儲存 as $l )
-		{
-			$l = trim( $l );
-			
-			if( $l == "" )
-			{
-				continue;
-			}
-			//$l = '〚' . $l ; // add 〚 back
-			$parts = explode( '〛', $l );
-			$l = "\"〚" . $頁 . ':' . $parts[ 0 ] . "〛\"=>\"" .
-				$parts[ 1 ] . "\",\n";
-			
-			$sub_code = $sub_code . $l;
-		}
-		$sub_code = substr( $sub_code, 0, -2 );
-		$sub_code = $sub_code . ")\n";
-		$内容 = $sub_code;
-	}
 	else
 	{
 		$内容 = "\"$内容\"";
@@ -298,5 +297,5 @@ require_once( 'h:\github\Dufu-Analysis\三字組合_坐標.php' );
 
 	$code = $code . "\n);\n?>";
 	file_put_contents( $out_path . "$頁.php", $code );
-}
+//}
 ?>
