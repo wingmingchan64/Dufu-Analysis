@@ -7,6 +7,8 @@ require_once( 'h:\github\Dufu-Analysis\頁碼.php' );
 require_once( 'h:\github\Dufu-Analysis\頁碼_路徑.php' );
 require_once( 'h:\github\Dufu-Analysis\頁碼_詩題.php' );
 require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
+require_once( 'h:\github\Dufu-Analysis\二字組合_坐標.php' );
+require_once( 'h:\github\Dufu-Analysis\三字組合_坐標.php' );
 
 $簡稱   = '=譯';
 $簡稱   = '=全';
@@ -16,8 +18,13 @@ $簡稱   = '=今';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
+//$頁 = "0062";
 foreach( $頁碼 as $頁 )
 {
+require_once( "h:\\github\\Dufu-Analysis\\詩集\\${頁}坐標_用字.php" );
+
+//echo $頁, "\n";
+
 	$text_array = getSection( $頁碼_路徑[ $頁 ], $簡稱 );
 	if( mb_strpos( implode( $text_array ), '【' ) === false )
 	{
@@ -37,6 +44,7 @@ for( $i = 2; $i < sizeof( $text_array ); $i++ )
 	if( mb_strpos( $行, '【' ) !== false )
 	{
 		$current = trim( $行 );
+		//echo $current, "\n";
 		$部分陣列[ $current ] = array();
 	}
 	elseif( $行 == "" )
@@ -45,6 +53,7 @@ for( $i = 2; $i < sizeof( $text_array ); $i++ )
 	}
 	else
 	{
+		//echo $頁, "\n";
 		//echo $current, "\n";
 		//echo $行, "\n";
 		array_push( $部分陣列[ $current ], trim( $行 ) );
@@ -191,10 +200,6 @@ foreach( $部分陣列 as $k => $子儲存 )
 	}
 	elseif( mb_strpos( $内容, '〖' ) !== false )
 	{
-require_once( "h:\\github\\Dufu-Analysis\\詩集\\${頁}坐標_用字.php" );
-require_once( 'h:\github\Dufu-Analysis\二字組合_坐標.php' );
-require_once( 'h:\github\Dufu-Analysis\三字組合_坐標.php' );
-
 		$〖儲存 = explode( '〖', $内容 );
 		$sub_code = "array(\n";
 		
