@@ -11,10 +11,10 @@ require_once( 'h:\github\Dufu-Analysis\二字組合_坐標.php' );
 require_once( 'h:\github\Dufu-Analysis\三字組合_坐標.php' );
 
 $簡稱   = '=譯';
-$簡稱   = '=全';
 $簡稱   = '=蕭';
 $簡稱   = '=地';
 $簡稱   = '=今';
+$簡稱   = '=全';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
@@ -303,6 +303,7 @@ foreach( $部分陣列 as $k => $子儲存 )
 }
 
 	$code = $code . "\n);\n?>";
+	//echo $out_path . "$頁.php", "\n";
 	file_put_contents( $out_path . "$頁.php", $code );
 }
 ?>
