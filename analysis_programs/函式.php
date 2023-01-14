@@ -441,6 +441,7 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 	global $坐標_詩句;
 	global $頁碼_詩題;
 	global $頁碼_路徑;
+	global $詩組_詩題;
 	
 	// 讀取想要版本的異文、夾注
 	$section = getSection( $頁碼_路徑[ $頁 ], $版本 );
@@ -477,7 +478,7 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 	// 讀取默認版本的坐標_用字
 	$坐標_用字路徑 = 詩集文件夾 . "\\" . $頁 . '坐標_用字.php';
 	require( $坐標_用字路徑 );
-
+		
 	// 以想要版本的異文、夾注，代替默認版本相對應的用字
 	foreach( $版本異文、夾注 as $異文、夾注坐標 => $異文、夾注 )
 	{
@@ -529,6 +530,48 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 				$版本詩文 );
 		}
 	}
+	
+	// 分解詩文
+	if( array_key_exists( $頁, $詩組_詩題 ) )
+	{
+		$首行數列陣 = $詩組_詩題[ $頁 ][ 1 ];
+		$首數 = sizeof( $首行數列陣 );
+		$curr_line = 0;
+		$新版本詩文 = array();
+		
+		for( $i = 0; $i < sizeof( $首行數列陣 )-1; $i++ )
+		{
+			// use a copy
+			$版本詩文列陣 = explode( '。', $版本詩文 );
+			// 3: 空行、詩題、空行
+			$diff = $首行數列陣[ $i + 1 ] - $首行數列陣[ $i ] - 3;
+			$diff2 = $diff * 2;
+			array_push( $新版本詩文, 
+				array_splice( 
+					$版本詩文列陣, $curr_line, $diff2 ) );
+			$curr_line = $curr_line + $diff2;
+		}
+		// the last chunk
+		$版本詩文列陣 = explode( '。', trim( $版本詩文, '。' ) );
+		array_push( $新版本詩文, 
+				array_splice( 
+					$版本詩文列陣, $curr_line ) );
+		//print_r( $新版本詩文 );		
+		
+		$版本詩文 = $新版本詩文;
+		// 3 = 0, 1
+		// 4 = 2, 3
+		// 5 = 4, 5
+		// 6 = 6, 7
+		// 7 empty
+		// 8 title
+		// 9 empty
+		// 10 = 8, 9
+		// 11 = 10, 11
+		// 12 = 12, 13
+		// 13 = 14, 15
+	}
+	
 	$版本陣列[ "詩文" ] = $版本詩文;
 	return $版本陣列;
 }

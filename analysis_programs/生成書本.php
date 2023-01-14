@@ -10,6 +10,7 @@ require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
 require_once( 'h:\github\Dufu-Analysis\二字組合_坐標.php' );
 require_once( 'h:\github\Dufu-Analysis\三字組合_坐標.php' );
 require_once( 'h:\github\Dufu-Analysis\四字組合_坐標.php' );
+require_once( 'h:\github\Dufu-Analysis\詩組_詩題.php' );
 
 $簡稱   = '=譯';
 $簡稱   = '=地';
@@ -19,7 +20,7 @@ $簡稱   = '=蕭';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
-//$頁 = "0062";
+//$頁 = "0241";
 foreach( $頁碼 as $頁 )
 {
 require_once( "h:\\github\\Dufu-Analysis\\詩集\\${頁}坐標_用字.php" );
@@ -76,6 +77,7 @@ foreach( $部分陣列 as $k => $子儲存 )
 	$内容 = implode( "\n", $子儲存 );
 	$parts = array();
 
+	// 粵音
 	if( mb_strpos( $内容, '--' ) !== false )
 	{
 		$音_陣列 = explode( "\n", $内容  );
@@ -179,23 +181,41 @@ foreach( $部分陣列 as $k => $子儲存 )
 		$subcode = $subcode . "\n)";
 		$内容 = $内容 . $subcode;
 	}
+	// 補充説明
 	elseif( $補充説明 ) // a mixture of contents; just output it
 	{
 		$内容 = "\"$内容\"";
 	}
+	// 異文、夾注
 	elseif( $異文、夾注 )
 	{
 		$題 = "版本";
 		$版本陣列 = 提取版本詩文( $簡稱, $頁 );
 		$内容 = "array(";
+		
 		if( array_key_exists( "詩題", $版本陣列 ) )
 		{
 			$内容 = "\n\"詩題\"=>\"" . $版本陣列[ "詩題" ] . "\",";
 		}
 		
+		// 詩文
 		if( array_key_exists( "詩文", $版本陣列 ) )
 		{
-			$内容 = $内容 . "\n\"詩文\"=>\"" . $版本陣列[ "詩文" ] . "\",";
+			if( !is_array( $版本陣列[ "詩文" ] ) )
+			{
+				$内容 = $内容 . "\n\"詩文\"=>\"" . 
+					$版本陣列[ "詩文" ] . "\",";
+			}
+			else
+			{
+				$内容 = $内容 . "\n\"詩文\"=>array(";
+				foreach( $版本陣列[ "詩文" ] as $詩文 )
+				{
+					$詩文 = implode( '。', $詩文 ) . '。';
+					$内容 = $内容 . "\"${詩文}\",";
+				}
+				$内容 = $内容 . "),\n";
+			}
 		}
 		$内容 = $内容 . ")";
 	}
