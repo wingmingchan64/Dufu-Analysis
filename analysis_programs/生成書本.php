@@ -12,10 +12,10 @@ require_once( 'h:\github\Dufu-Analysis\三字組合_坐標.php' );
 require_once( 'h:\github\Dufu-Analysis\四字組合_坐標.php' );
 
 $簡稱   = '=譯';
-$簡稱   = '=蕭';
 $簡稱   = '=地';
 $簡稱   = '=全';
 $簡稱   = '=今';
+$簡稱   = '=蕭';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
