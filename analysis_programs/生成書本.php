@@ -9,12 +9,13 @@ require_once( 'h:\github\Dufu-Analysis\頁碼_詩題.php' );
 require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
 require_once( 'h:\github\Dufu-Analysis\二字組合_坐標.php' );
 require_once( 'h:\github\Dufu-Analysis\三字組合_坐標.php' );
+require_once( 'h:\github\Dufu-Analysis\四字組合_坐標.php' );
 
 $簡稱   = '=譯';
 $簡稱   = '=蕭';
 $簡稱   = '=地';
-$簡稱   = '=今';
 $簡稱   = '=全';
+$簡稱   = '=今';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
@@ -198,6 +199,8 @@ foreach( $部分陣列 as $k => $子儲存 )
 		}
 		$内容 = $内容 . ")";
 	}
+	// 坐標的轉換靠的是統一化詩文，因此出現在〖〗内的必須是
+	// 我的統一化後的詩文。
 	elseif( mb_strpos( $内容, '〖' ) !== false )
 	{
 		$〖儲存 = explode( '〖', $内容 );
@@ -217,12 +220,12 @@ foreach( $部分陣列 as $k => $子儲存 )
 			$詞條長度 = mb_strlen( $詞條 );
 			$詞條坐標 = "";
 			
-			if( $詞條 == 1 )
+			if( $詞條 == 1 ) //〖1〗題解
 			{
 				$詞條坐標 = "〚${頁}:1〛";
 				$注釋 = $parts[ 1 ];
 			}
-			elseif( $詞條長度 == 1 )
+			elseif( $詞條長度 == 1 ) // 單字
 			{
 				foreach( $坐標_用字 as $坐標 => $用字 )
 				{
@@ -233,24 +236,22 @@ foreach( $部分陣列 as $k => $子儲存 )
 					}
 				}
 				$注釋 = $parts[ 0 ] . '：' . $parts[ 1 ];
-				
 			}
-			elseif( $詞條長度 == 2 )
+			else // 組合
 			{
-				$坐標s = $二字組合_坐標[ $詞條 ];
-				foreach( $坐標s as $坐標 )
+				if( $詞條長度 == 2 )
 				{
-					if( str_starts_with( $坐標, '〚' . $頁 ) )
-					{
-						$詞條坐標 = $坐標;
-						break;
-					}
+					$坐標s = $二字組合_坐標[ $詞條 ];
 				}
-				$注釋 = $parts[ 0 ] . '：' . $parts[ 1 ];
-			}
-			elseif( $詞條長度 == 3 )
-			{
-				$坐標s = $三字組合_坐標[ $詞條 ];
+				elseif( $詞條長度 == 3 )
+				{
+					$坐標s = $三字組合_坐標[ $詞條 ];
+				}
+				elseif( $詞條長度 == 4 )
+				{
+					$坐標s = $四字組合_坐標[ $詞條 ];
+				}
+				// look for the first matching 坐標
 				foreach( $坐標s as $坐標 )
 				{
 					if( str_starts_with( $坐標, '〚' . $頁 ) )
