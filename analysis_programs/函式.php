@@ -1,10 +1,16 @@
 <?php
+/*
+〖〗
+*/
+set_error_handler(function ($severity, $message, $file, $line) {
+    throw new \ErrorException($message, $severity, $severity, $file, $line);
+});
 require_once( "常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\詩組_詩題.php" );
 require_once( "h:\\github\\Dufu-Analysis\\帶序文之詩歌.php" );
 require_once( "h:\\github\\Dufu-Analysis\\頁碼_路徑.php" );
 require_once( "h:\\github\\Dufu-Analysis\\書目簡稱.php" );
-require_once( "h:\\github\\Dufu-Analysis\\坐標_詩句.php" );
+require( "h:\\github\\Dufu-Analysis\\坐標_詩句.php" );
 require_once( "h:\\github\\Dufu-Analysis\\頁碼_詩題.php" );
 $path_for_file = '';
 $text_of_file  = '';
@@ -437,8 +443,9 @@ function 生成完整坐標( string $坐標, string $頁碼 ) : string
 
 function 提取版本詩文( string $版本, string $頁 ) : array
 {
+	require( "h:\\github\\Dufu-Analysis\\坐標_詩句.php" );
 	global $書目簡稱;
-	global $坐標_詩句;
+	//global $坐標_詩句;
 	global $頁碼_詩題;
 	global $頁碼_路徑;
 	global $詩組_詩題;
@@ -460,46 +467,79 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 			$in_異文、夾注 = false;
 			break;
 		}
+		//
 		if( $in_異文、夾注 )
 		{
-			$parts = explode( '〛', $l );
-			$版本異文、夾注[ '〚' . $頁 . ':' . 
-				trim( $parts[ 0 ], '〚' ) .
-				'〛' ] = $parts[ 1 ];
+			if( mb_strpos( $l, '〛' ) !== false )
+			{
+				$parts = explode( '〛', $l );
+				$版本異文、夾注[ '〚' . $頁 . ':' . 
+					trim( $parts[ 0 ], '〚' ) .
+					'〛' ] = $parts[ 1 ];
+			}
+			elseif( mb_strpos( $l, '〗' ) !== false )
+			{
+				$parts = explode( '〗', $l );				
+				
+				$坐標 = 提取〖詩文〗坐標( $parts[ 0 ] . '〗', $頁 );
+				
+				if( $頁 == "0152" )
+				{
+					//print_r( $坐標 );
+				}
+				
+				$版本異文、夾注[ $坐標 ] = $parts[ 1 ];
+			}
 		}
 	}
 
 	$版本陣列 = array();
 	// 讀取默認版本
 	$詩文路徑 = 詩集文件夾 . "\\" . $頁 . '.php';
-	require_once( $詩文路徑 );
+	require( $詩文路徑 );
 	$版本詩文 = $内容[ "詩文" ];
 
 	// 讀取默認版本的坐標_用字
 	$坐標_用字路徑 = 詩集文件夾 . "\\" . $頁 . '坐標_用字.php';
 	require( $坐標_用字路徑 );
-		
+				
 	// 以想要版本的異文、夾注，代替默認版本相對應的用字
 	foreach( $版本異文、夾注 as $異文、夾注坐標 => $異文、夾注 )
 	{
+		if( $異文、夾注坐標 == "" )
+		{
+			continue;
+		}
 		if( $異文、夾注坐標 == "〚${頁}:1〛" )
 		{
 			$版本陣列[ "詩題" ] = trim( $異文、夾注 );
 			continue; 
 		}
+		
 	
 		// 換句
 		$句坐標 = 
 			substr( 
 			$異文、夾注坐標, 0, strrpos( $異文、夾注坐標, '.' ) ) .
 			'〛';
-		$詩句 = $坐標_詩句[ $句坐標 ];
 
-		// no page range
-		if( strpos( $異文、夾注坐標, '-' ) === false )
+		//echo $句坐標;
+		try
 		{
+			$詩句 = $坐標_詩句[ $句坐標 ];
+		}
+		catch( Exception $e )
+		{
+			echo $頁, "\n";
+			//echo mb_strlen(""), "\n";
+		}
+		// no page range
+		if( trim( $異文、夾注坐標 ) != "" &&
+			strpos( $異文、夾注坐標, '-' ) === false )
+		{
+			//echo $異文、夾注坐標, "\n";
 			$版本詩句 = str_replace(
-				$坐標_用字[ $異文、夾注坐標 ],
+				$坐標_用字[ trim( $異文、夾注坐標 ) ],
 				trim( $異文、夾注 ),
 				$詩句 );
 		
@@ -575,4 +615,49 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 	$版本陣列[ "詩文" ] = $版本詩文;
 	return $版本陣列;
 }
+
+function 提取〖詩文〗坐標( string $〖詩文〗, string $頁 ) : string
+{
+	
+	if( $〖詩文〗 == "〖1〗" )
+	{
+		return "〚" . $頁 . ':' . 
+			trim( $〖詩文〗, '〖〗' ) . "〛";
+	}
+	
+	require( "h:\\github\\Dufu-Analysis\\詩集\\${頁}.php" );
+	$詩文 = trim( $〖詩文〗, '〖〗' );
+	$空坐標 = "";
+	$句坐標 = "";
+	$詩文位置 = -1;
+	
+	foreach( $内容[ "坐標_句" ] as $坐標 => $句 )
+	{
+		$詩文位置 = mb_strpos( $句, $詩文 ); // 0 based
+		
+		if( $詩文位置 !== false )
+		{
+			$句坐標 = $坐標;
+			// discount the brackets: - 2
+			if( mb_strlen( $〖詩文〗 ) - 2 > 1 )
+			{
+				$詩文位置 = "." . $詩文位置+1 . "-" . 
+					$詩文位置+1 + mb_strlen( $〖詩文〗 ) - 3;
+			}
+			else
+			{
+				$詩文位置 = "." . $詩文位置 + 1;
+			}
+			$句坐標 = '〚' . trim( $句坐標, '〛' ) . 
+				$詩文位置 . '〛';
+			// get rid of sth invisible
+			$句坐標 = "〚" . trim( $句坐標, "〚〛" ) . "〛";
+
+			return $句坐標;
+		}
+	}
+	
+	return $空坐標;
+}
+
 ?>
