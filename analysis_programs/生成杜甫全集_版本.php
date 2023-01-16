@@ -22,7 +22,7 @@ foreach( $頁碼 as $頁 )
 {
 	$count++;
 	
-	if( $count > 150 )
+	if( $count > 225 )
 		break;
 	
 	$默認文檔路徑 = $默認路徑 . $頁 . '.php';
