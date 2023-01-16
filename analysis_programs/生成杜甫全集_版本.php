@@ -16,9 +16,15 @@ $new_content = $書名 . "\n\n";
 $默認路徑 = "h:\\github\\Dufu-Analysis\\詩集\\";
 $版本路徑 = "h:\\github\\Dufu-Analysis\\${書名}\\";
 
+$count = 0;
 //$頁 = "0003";
 foreach( $頁碼 as $頁 )
 {
+	$count++;
+	
+	if( $count > 3 )
+		break;
+	
 	$默認文檔路徑 = $默認路徑 . $頁 . '.php';
 	require_once( $默認文檔路徑 );
 	$版本文檔路徑 = $版本路徑 . $頁 . '.php';
