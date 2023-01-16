@@ -20,7 +20,7 @@ $簡稱   = '=蕭';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
-//$頁 = "0241";
+//$頁 = "1233";
 foreach( $頁碼 as $頁 )
 {
 require_once( "h:\\github\\Dufu-Analysis\\詩集\\${頁}坐標_用字.php" );
@@ -192,6 +192,9 @@ foreach( $部分陣列 as $k => $子儲存 )
 	{
 		$題 = "版本";
 		$版本陣列 = 提取版本詩文( $簡稱, $頁 );
+		
+		//print_r( $版本陣列 );
+		
 		$内容 = "array(";
 		
 		if( array_key_exists( "詩題", $版本陣列 ) )
@@ -210,8 +213,10 @@ foreach( $部分陣列 as $k => $子儲存 )
 			else
 			{
 				$内容 = $内容 . "\n\"詩文\"=>array(";
+				
 				foreach( $版本陣列[ "詩文" ] as $詩文 )
 				{
+					//var_dump( $詩文 );
 					$詩文 = implode( '。', $詩文 ) . '。';
 					$内容 = $内容 . "\"${詩文}\",";
 				}
@@ -335,6 +340,8 @@ foreach( $部分陣列 as $k => $子儲存 )
 }
 
 	$code = $code . "\n);\n?>";
+	
+	//echo $code;
 	//echo $out_path . "$頁.php", "\n";
 	file_put_contents( $out_path . "$頁.php", $code );
 }
