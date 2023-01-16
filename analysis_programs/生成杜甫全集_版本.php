@@ -31,12 +31,12 @@ foreach( $頁碼 as $頁 )
 		{
 			//echo $$陣列名[ "版本" ][ "詩題" ], "\n";
 			$new_content = $new_content . $頁 . ' ' .
-				$$陣列名[ "版本" ][ "詩題" ] . "\n\n";
+				trim( $$陣列名[ "版本" ][ "詩題" ] ) . "\n\n";
 		}
 		else
 		{
 			$new_content = $new_content . $頁 . ' ' .
-				$内容[ "詩題" ] . "\n\n";
+				trim( $内容[ "詩題" ] ) . "\n\n";
 		}
 
 		if( is_array( $$陣列名[ "版本" ][ "詩文" ] ) )
@@ -44,22 +44,22 @@ foreach( $頁碼 as $頁 )
 			foreach( $$陣列名[ "版本" ][ "詩文" ] as $詩 )
 			{
 				$new_content = $new_content .
-					$詩 . "\n";
+					trim( $詩 ) . "\n";
 			}
 			$new_content = $new_content . "\n";
 		}
 		else
 		{
 			$new_content = $new_content .
-				$$陣列名[ "版本" ][ "詩文" ] . "\n\n";
+				trim( $$陣列名[ "版本" ][ "詩文" ] ) . "\n\n";
 		}
 	}
 	else
 	{
 		$new_content = $new_content . $頁 . ' ' .
-			$内容[ "詩題" ] . "\n\n";
+			trim( $内容[ "詩題" ] ) . "\n\n";
 		$new_content = $new_content .
-			$内容[ "詩文" ] . "\n\n";
+			trim( $内容[ "詩文" ] ) . "\n\n";
 	}
 }
 $code = "<?php

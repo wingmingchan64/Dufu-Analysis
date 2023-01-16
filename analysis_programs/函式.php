@@ -454,6 +454,7 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 	$section = getSection( $頁碼_路徑[ $頁 ], $版本 );
 	$版本異文、夾注 = array();
 	$in_異文、夾注 = false;
+	$坐標版本異文、夾注 = array();
 	
 	foreach( $section as $l )
 	{
@@ -482,6 +483,7 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 				$parts = explode( '〗', $l );				
 				
 				$坐標 = 提取〖詩文〗坐標( $parts[ 0 ] . '〗', $頁 );
+				$坐標版本異文、夾注[ $坐標 ] = trim( $l );
 				
 				if( $頁 == "0152" )
 				{
@@ -515,7 +517,6 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 			$版本陣列[ "詩題" ] = trim( $異文、夾注 );
 			continue; 
 		}
-		
 	
 		// 換句
 		$句坐標 = 
@@ -613,6 +614,16 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 	}
 	
 	$版本陣列[ "詩文" ] = $版本詩文;
+	
+	/*$code = "array(";
+	
+	foreach( $坐標版本異文、夾注 as $坐標 => $版本異文、夾注 )
+	{
+		$code = $code . "\"${坐標}\"=>\"${版本異文、夾注}\",";
+	}
+	$code = $code . ");";*/
+	$版本陣列[ "坐標版本異文、夾注" ] = $坐標版本異文、夾注;
+	
 	return $版本陣列;
 }
 
