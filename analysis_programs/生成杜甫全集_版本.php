@@ -11,20 +11,14 @@ $簡稱 = '=蕭';
 $前綴 = trim( $簡稱, '=' );
 $陣列名 = "${前綴}内容";
 $書名 = $書目簡稱[ $簡稱 ];
-$outfile = "h:\\github\\Dufu-Analysis\\${書名}\\杜甫全集.php";
+$outfile = "h:\\github\\Dufu-Analysis\\${書名}\\杜甫全集.txt";
 $new_content = $書名 . "\n\n";
 $默認路徑 = "h:\\github\\Dufu-Analysis\\詩集\\";
 $版本路徑 = "h:\\github\\Dufu-Analysis\\${書名}\\";
 
-$count = 0;
 //$頁 = "0003";
 foreach( $頁碼 as $頁 )
-{
-	$count++;
-	
-	//if( $count > 195 )
-		//break;
-	
+{	
 	$默認文檔路徑 = $默認路徑 . $頁 . '.php';
 	require_once( $默認文檔路徑 );
 	$版本文檔路徑 = $版本路徑 . $頁 . '.php';
@@ -68,11 +62,9 @@ foreach( $頁碼 as $頁 )
 			trim( $内容[ "詩文" ] ) . "\n\n";
 	}
 }
-$code = "<?php
-\$詩文 = \"" . $new_content . "\";\n?>";
 
 // add msg and write to files
-//$msg = file_get_contents( 'msg.txt', true );
-file_put_contents( $outfile, $code );
+$msg = file_get_contents( 'msg.txt', true );
+file_put_contents( $outfile, $new_content . $msg );
 
 ?>
