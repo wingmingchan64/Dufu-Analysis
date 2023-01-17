@@ -16,52 +16,60 @@ $簡稱   = '=譯';
 $簡稱   = '=地';
 $簡稱   = '=全';
 $簡稱   = '=今';
+$簡稱   = '=浦';
 $簡稱   = '=蕭';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
-//$頁 = "1233";
+//$頁 = "0053";
+//$頁 = "2516";
+//$頁 = "0305";
 foreach( $頁碼 as $頁 )
 {
-require_once( "h:\\github\\Dufu-Analysis\\詩集\\${頁}坐標_用字.php" );
-
-//echo $頁, "\n";
-
+	require_once( "h:\\github\\Dufu-Analysis\\詩集\\${頁}坐標_用字.php" );
+	// get the relevant section as an array
 	$text_array = getSection( $頁碼_路徑[ $頁 ], $簡稱 );
+	//echo $頁, "\n";
+
+	// nothing to process
 	if( mb_strpos( implode( $text_array ), '【' ) === false )
 	{
 		continue;
 	}
+	// 書名: always the first line
 	$書名  = trim( $text_array[ 0 ] );
 	$部分陣列  = array();
 	$current = "";
 
-//print_r( $text_array );
+	//print_r( $text_array );
 
-// skip the first two line
-for( $i = 2; $i < sizeof( $text_array ); $i++ )
-{
-	$行 = trim( $text_array[ $i ] );
+	// skip 書名, empty line
+	for( $i = 2; $i < sizeof( $text_array ); $i++ )
+	{
+		$行 = trim( $text_array[ $i ] );
 	
-	if( mb_strpos( $行, '【' ) !== false )
-	{
-		$current = trim( $行 );
-		//echo $current, "\n";
-		$部分陣列[ $current ] = array();
+		if( mb_strpos( $行, '【' ) !== false )
+		{
+			// functional headers like 【異文、夾注】,【注釋】
+			$current = trim( $行 ); 
+			//echo $current, "\n";
+			$部分陣列[ $current ] = array();
+		}
+		// skip empty line
+		elseif( $行 == "" )
+		{
+			continue;
+		}
+		else
+		{
+			//echo $頁, "\n";
+			//echo $current, "\n";
+			//echo $行, "\n";
+			array_push( $部分陣列[ $current ], trim( $行 ) );
+		}
 	}
-	elseif( $行 == "" )
-	{
-		continue;
-	}
-	else
-	{
-		//echo $頁, "\n";
-		//echo $current, "\n";
-		//echo $行, "\n";
-		array_push( $部分陣列[ $current ], trim( $行 ) );
-	}
-}
-$前綴 = trim( $簡稱, '=' );
+	// used in variable name like $蕭内容
+	$前綴 = trim( $簡稱, '=' );
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
@@ -70,118 +78,127 @@ $code = "<?php
 \$${前綴}内容=array(\n" .
 	"\"書名\"=>\"$書名\",\n";
 
-foreach( $部分陣列 as $k => $子儲存 )
-{
-	$題 = trim( $k, '【】' );
-	$補充説明 = ( $題 == '補充説明' );
-	$異文、夾注 = ( $題 == '異文、夾注' );
-	$内容 = implode( "\n", $子儲存 );
-	$parts = array();
-
-	// 粵音
-	if( mb_strpos( $内容, '--' ) !== false )
+	foreach( $部分陣列 as $k => $子儲存 )
 	{
-		$音_陣列 = explode( "\n", $内容  );
-		
-		$sub_code = "array(\n";
+		$題 = mb_substr( $k, 1, -1 ); // remove 【】
+		//echo $題, "\n";
+		$補充説明 = ( $題 == '補充説明' );
+		$異文、夾注 = ( $題 == '異文、夾注' );
+		$内容 = implode( "\n", $子儲存 ); // a string
+		$parts = array();
 
-		for( $i = 0; $i < sizeof( $音_陣列 ); $i++ )
+		// 粵音: 【注音】,【韻部】
+		// 岱宗夫如何？齊魯青未了。
+		// doi6 zung1 fu4 jyu4 ho4, cai4 lou5 cing1 mei6 liu5
+		// ---------------------------------------------
+		if( mb_strpos( $内容, '--' ) !== false )//delimiter
 		{
-			$音  = "";
-			$文  = "";
-			
-			// skip 詩題
-			if( mb_strpos( $頁碼_詩題[ $頁 ], $音_陣列[ $i ] )
-				!== false )
-			{
-				$i = $i + 1;
-				continue;
-			}
-			// skip -----------
-			elseif( str_starts_with( $音_陣列[ $i ], '--'  ) )
-			{
-				continue;
-			}
-			elseif( strpos( $音_陣列[ $i ], ',' ) !== false )
-			{
-				$文 = normalize( $音_陣列[ $i-1 ] );
-				$parts[ $文 ] = array( $音_陣列[ $i ] );
-				
-				$sub_code = $sub_code .
-					"\n\"${文}\"=>array(\"${音_陣列[ $i ]}\",";
-				
-				if( $i + 1 < sizeof( $音_陣列 ) &&
-					( mb_strpos( $音_陣列[ $i+1 ], "平" ) !== false ) &&
-					( mb_strpos( $音_陣列[ $i+1 ], "仄" ) !== false ) )
-				{
-					$sub_code = $sub_code . "\"${音_陣列[ $i+1 ]}\"),";
-				}
-				else
-				{
-					$sub_code = substr( $sub_code, 0, -1 );
-					$sub_code = $sub_code . "),";
-				}
-			}
-			
-		}
-		//$sub_code = $sub_code . "\"$文\"=>\"$音\",";
-		//$sub_code = substr( $sub_code, 0, -2 );
-		$sub_code = $sub_code . "),\n";
-		$内容 = $sub_code;
-		$字音 = array();
+			$音_陣列 = explode( "\n", $内容  ); // lines
 		
-		foreach( $parts as $行 => $行音 )
-		{
-			$行 = str_replace( "。", "", $行 );
-			$行音 = str_replace( ',', '', $行音 );
-			$行音陣列 = explode( ' ', $行音[ 0 ] );
-			
-			for( $i = 0; $i < mb_strlen( $行 ); $i++ )
+			$sub_code = "array(\n";
+
+			for( $i = 0; $i < sizeof( $音_陣列 ); $i++ )
 			{
-				if( !array_key_exists( mb_substr( $行, $i, 1 ), $字音 ) )
+				$音  = "";
+				$文  = "";
+			
+				// skip 詩題
+				if( mb_strpos( 
+					$頁碼_詩題[ $頁 ], $音_陣列[ $i ] ) !== false )
 				{
-					$字音[ mb_substr( $行, $i, 1 ) ] = array();
+					$i = $i + 1;
+					continue;
 				}
-				if( !in_array( $行音陣列[ $i ], $字音[ mb_substr( $行, $i, 1 ) ] ) )
+				// skip -----------
+				elseif( str_starts_with( 
+					$音_陣列[ $i ], '--'  ) )
 				{
-					if( $行音陣列[ $i ] != "" )
+					continue;
+				}
+				// , used only in the pronunciation
+				elseif( strpos( 
+					$音_陣列[ $i ], ',' ) !== false )
+				{
+					// 詩文 preceding pronunciation
+					$文 = normalize( $音_陣列[ $i-1 ] );
+					$parts[ $文 ] = array( $音_陣列[ $i ] );
+				
+					$sub_code = $sub_code .
+						"\n\"${文}\"=>array(\"${音_陣列[ $i ]}\",";
+					// containing 平仄
+					if( $i + 1 < sizeof( $音_陣列 ) &&
+						( mb_strpos( $音_陣列[ $i+1 ], "平" ) !== false ) &&
+						( mb_strpos( $音_陣列[ $i+1 ], "仄" ) !== false ) )
 					{
-					array_push( 
-						$字音[ mb_substr( $行, $i, 1 ) ], 
-						$行音陣列[ $i ] );
+						$sub_code = $sub_code . "\"${音_陣列[ $i+1 ]}\"),";
+					}
+					else
+					{
+						$sub_code = substr( $sub_code, 0, -1 );
+						$sub_code = $sub_code . "),";
+					}
+				}
+			
+			}
+			//$sub_code = $sub_code . "\"$文\"=>\"$音\",";
+			//$sub_code = substr( $sub_code, 0, -2 );
+			$sub_code = $sub_code . "),\n";
+			$内容 = $sub_code;
+			$字音 = array(); // store 字 and its 音
+		
+			foreach( $parts as $行 => $行音 )
+			{
+				$行 = str_replace( "。", "", $行 );
+				$行音 = str_replace( ',', '', $行音 );
+				$行音陣列 = explode( ' ', $行音[ 0 ] );
+			
+				for( $i = 0; $i < mb_strlen( $行 ); $i++ )
+				{
+					if( !array_key_exists( mb_substr( $行, $i, 1 ), $字音 ) )
+					{
+						$字音[ mb_substr( $行, $i, 1 ) ] = array();
+					}
+					if( !in_array( $行音陣列[ $i ], $字音[ mb_substr( $行, $i, 1 ) ] ) )
+					{
+						if( $行音陣列[ $i ] != "" )
+						{
+						array_push( 
+							$字音[ mb_substr( $行, $i, 1 ) ], 
+							$行音陣列[ $i ] );
+						}
 					}
 				}
 			}
-		}
 		
-		$subcode = "\"字音\"=>array(\n";
-		foreach( $字音 as $字 => $音s )
-		{
-			$subcode = $subcode . "\"${字}\"=>array(";
+			$subcode = "\"字音\"=>array(\n";
 			
-			foreach( $音s as $音 )
+			foreach( $字音 as $字 => $音s )
 			{
-				if( strpos( $音, '/' ) )
+				$subcode = $subcode . "\"${字}\"=>array(";
+			
+				foreach( $音s as $音 )
 				{
-					$多音 = explode( '/', $音 );
+					if( strpos( $音, '/' ) )
+					{
+						$多音 = explode( '/', $音 );
 					
-					foreach( $多音 as $單音 )
+						foreach( $多音 as $單音 )
+						{
+							$subcode = $subcode . "\"${單音}\",";
+						}
+					}
+					else
 					{
-						$subcode = $subcode . "\"${單音}\",";
+						$subcode = $subcode . "\"${音}\",";
 					}
 				}
-				else
-				{
-					$subcode = $subcode . "\"${音}\",";
-				}
+				$subcode = substr( $subcode, 0, -1 );
+				$subcode = $subcode . "),\n";
 			}
-			$subcode = substr( $subcode, 0, -1 );
-			$subcode = $subcode . "),\n";
+			$subcode = substr( $subcode, 0, -2 );
+			$subcode = $subcode . "\n)";
+			$内容 = $内容 . $subcode;
 		}
-		$subcode = substr( $subcode, 0, -2 );
-		$subcode = $subcode . "\n)";
-		$内容 = $内容 . $subcode;
-	}
 	// 補充説明
 	elseif( $補充説明 ) // a mixture of contents; just output it
 	{

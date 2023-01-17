@@ -480,20 +480,26 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 			}
 			elseif( mb_strpos( $l, '〗' ) !== false )
 			{
-				$parts = explode( '〗', $l );				
+				$parts = explode( '〗', $l );
+				//print_r( $parts );
+				$默認詩文 = mb_substr( $parts[ 0 ], 1 );
+				
 				
 				$坐標 = 提取〖詩文〗坐標( $parts[ 0 ] . '〗', $頁 );
 				$坐標版本異文、夾注[ $坐標 ] = trim( $l );
 				
-				if( $頁 == "0152" )
+				if( $頁 == "2516" )
 				{
-					//print_r( $坐標 );
+					//print_r( $坐標版本異文、夾注 );
 				}
 				
-				$版本異文、夾注[ $坐標 ] = $parts[ 1 ];
+				$版本異文、夾注[ $坐標 ] = 
+					array( $默認詩文, $parts[ 1 ] );
 			}
 		}
 	}
+	
+	//print_r( $版本異文、夾注 );
 
 	$版本陣列 = array();
 	// 讀取默認版本
@@ -506,9 +512,7 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 	// 讀取默認版本的坐標_用字
 	$坐標_用字路徑 = 詩集文件夾 . "\\" . $頁 . '坐標_用字.php';
 	require( $坐標_用字路徑 );
-	
-	//print_r( $坐標_用字 );
-				
+					
 	// 以想要版本的異文、夾注，代替默認版本相對應的用字
 	foreach( $版本異文、夾注 as $異文、夾注坐標 => $異文、夾注 )
 	{
@@ -516,12 +520,26 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 		{
 			continue;
 		}
-		if( $異文、夾注坐標 == "〚${頁}:1〛" )
+		elseif( $異文、夾注坐標 == "〚${頁}:1〛" )
 		{
-			$版本陣列[ "詩題" ] = trim( $異文、夾注 );
+			//echo $頁, "\n";
+			//〖1〗
+			//print_r( $異文、夾注 );
+			$版本陣列[ "詩題" ] = trim( $異文、夾注[ 1 ] );
 			continue; 
 		}
-	
+		else
+		{
+			$版本詩文 = str_replace(
+				trim( $異文、夾注[ 0 ] ),
+				trim( $異文、夾注[ 1 ] ),
+				$版本詩文 );
+			//echo $版本詩文;
+		}
+	}
+
+		
+/*	
 		// 換句
 		$句坐標 = 
 			substr( 
@@ -575,58 +593,68 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 				$版本詩句, // 想要的版本
 				$版本詩文 );
 		}
-	}
+*/		
+		
+	//echo $版本詩文;
+	
 	// 分解詩文
 	if( array_key_exists( $頁, $詩組_詩題 ) )
 	{
-		$首行數列陣 = $詩組_詩題[ $頁 ][ 1 ];
-		$首數 = sizeof( $首行數列陣 );
-		$curr_line = 0;
-		$新版本詩文 = array();
-		
-		for( $i = 0; $i < sizeof( $首行數列陣 )-1; $i++ )
+		if( $頁 == "0305" )
 		{
+			$新版本詩文 = array();
+			$第一首 = mb_substr( $版本詩文, 0, 39 );
+			$第二首 = mb_substr( $版本詩文, 40, 39 );
+			$第三首 = mb_substr( $版本詩文, 80, 39 );
+
+			array_push( $新版本詩文, explode( '。', $第一首 ) );
+			array_push( $新版本詩文, explode( '。', $第二首 ) );
+			array_push( $新版本詩文, explode( '。', $第三首 ) );
+			//array_push( $新版本詩文, 
+			//array_push( $新版本詩文, 
+			$版本詩文 = $新版本詩文;
 			//print_r( $版本詩文 );
-			// use a copy
-			$版本詩文列陣 = explode( '。', $版本詩文 );
-			//print_r( $版本詩文列陣 );
-			// 3: 空行、詩題、空行
-			$diff = $首行數列陣[ $i + 1 ] - $首行數列陣[ $i ] - 3;
-			$diff2 = $diff * 2;
-			array_push( $新版本詩文, 
-				array_splice( 
-					$版本詩文列陣, $curr_line, $diff2 ) );
-			$curr_line = $curr_line + $diff2;
 		}
+		else
+		{
+			$首行數列陣 = $詩組_詩題[ $頁 ][ 1 ];
+			$首數 = sizeof( $首行數列陣 );
+			$curr_line = 0;
+			$新版本詩文 = array();
 		
-		//print_r( $新版本詩文 );
+			for( $i = 0; $i < sizeof( $首行數列陣 )-1; $i++ )
+			{
+				//print_r( $版本詩文 );
+				// use a copy
+				$版本詩文列陣 = explode( '。', $版本詩文 );
+				//print_r( $版本詩文列陣 );
+				// 3: 空行、詩題、空行
+				$diff = $首行數列陣[ $i + 1 ] - $首行數列陣[ $i ] - 3;
+				$diff2 = $diff * 2;
+				array_push( $新版本詩文, 
+					array_splice( 
+						$版本詩文列陣, $curr_line, $diff2 ) );
+				$curr_line = $curr_line + $diff2;
+			}
 		
-		// the last chunk
-		//print_r( $版本詩文 );
-		// remove last 。
-		$版本詩文 = mb_substr( $版本詩文, 0, -1 );
-		//echo $版本詩文;
-		$版本詩文列陣 = explode( "。", $版本詩文 );
-		//print_r( $版本詩文列陣  );
-		array_push( $新版本詩文, 
-				array_splice( 
-					$版本詩文列陣, $curr_line ) );
-		//print_r( $新版本詩文 );		
+			//print_r( $新版本詩文 );
 		
-		$版本詩文 = $新版本詩文;
-		// 3 = 0, 1
-		// 4 = 2, 3
-		// 5 = 4, 5
-		// 6 = 6, 7
-		// 7 empty
-		// 8 title
-		// 9 empty
-		// 10 = 8, 9
-		// 11 = 10, 11
-		// 12 = 12, 13
-		// 13 = 14, 15
+			// the last chunk
+			//print_r( $版本詩文 );
+			// remove last 。
+			$版本詩文 = mb_substr( $版本詩文, 0, -1 );
+			//echo $版本詩文;
+			$版本詩文列陣 = explode( "。", $版本詩文 );
+			//print_r( $版本詩文列陣  );
+			array_push( $新版本詩文, 
+					array_splice( 
+						$版本詩文列陣, $curr_line ) );
+			//print_r( $新版本詩文 );		
+			
+			$版本詩文 = $新版本詩文;
+			//print_r( $版本詩文 );
+		}
 	}
-	
 	$版本陣列[ "詩文" ] = $版本詩文;
 		
 	/*$code = "array(";
@@ -639,8 +667,8 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 	$版本陣列[ "坐標版本異文、夾注" ] = $坐標版本異文、夾注;
 	
 	return $版本陣列;
-}
 
+}
 function 提取〖詩文〗坐標( string $〖詩文〗, string $頁 ) : string
 {
 	

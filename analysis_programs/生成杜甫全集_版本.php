@@ -36,7 +36,13 @@ foreach( $頁碼 as $頁 )
 		else
 		{
 			$new_content = $new_content . $頁 . ' ' .
-				trim( $内容[ "詩題" ] ) . "\n\n";
+				trim( $内容[ "詩題" ] );
+			if( in_array( "題注", array_keys( $内容 ) ) )
+			{
+				$new_content = $new_content .
+					'[' . $内容[ "題注" ] . ']';
+			}
+			$new_content = $new_content . "\n\n";
 		}
 
 		if( is_array( $$陣列名[ "版本" ][ "詩文" ] ) )
@@ -57,7 +63,29 @@ foreach( $頁碼 as $頁 )
 	else
 	{
 		$new_content = $new_content . $頁 . ' ' .
-			trim( $内容[ "詩題" ] ) . "\n\n";
+			trim( $内容[ "詩題" ] );
+			
+		if( in_array( "題注", array_keys( $内容 ) ) )
+		{
+			$new_content = $new_content .
+				'[' . $内容[ "題注" ] . ']';
+		}
+		$new_content = $new_content . "\n\n";
+/*		
+		if( $頁 == "0048" )
+			print_r( $内容[ "題注" ] );
+
+		if( $頁 == "0048" )
+		{
+			
+			//print_r( array_keys( $内容 ) );
+			//echo in_array( "題注", array_keys( $内容 ) );
+		}
+*/
+
+		
+	
+
 		$new_content = $new_content .
 			trim( $内容[ "詩文" ] ) . "\n\n";
 	}
