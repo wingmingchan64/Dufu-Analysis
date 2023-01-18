@@ -17,8 +17,14 @@ $默認路徑 = "h:\\github\\Dufu-Analysis\\詩集\\";
 $版本路徑 = "h:\\github\\Dufu-Analysis\\${書名}\\";
 
 //$頁 = "0003";
+$count = 0;
+
 foreach( $頁碼 as $頁 )
-{	
+{
+	$count++;
+	if( $count > 200 )
+		exit;
+	
 	$默認文檔路徑 = $默認路徑 . $頁 . '.php';
 	require_once( $默認文檔路徑 );
 	$版本文檔路徑 = $版本路徑 . $頁 . '.php';
