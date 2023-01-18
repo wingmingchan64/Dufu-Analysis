@@ -600,20 +600,17 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 	// 分解詩文
 	if( array_key_exists( $頁, $詩組_詩題 ) )
 	{
+		// special case
 		if( $頁 == "0305" )
 		{
 			$新版本詩文 = array();
 			$第一首 = mb_substr( $版本詩文, 0, 39 );
 			$第二首 = mb_substr( $版本詩文, 40, 39 );
 			$第三首 = mb_substr( $版本詩文, 80, 39 );
-
 			array_push( $新版本詩文, explode( '。', $第一首 ) );
 			array_push( $新版本詩文, explode( '。', $第二首 ) );
 			array_push( $新版本詩文, explode( '。', $第三首 ) );
-			//array_push( $新版本詩文, 
-			//array_push( $新版本詩文, 
 			$版本詩文 = $新版本詩文;
-			//print_r( $版本詩文 );
 		}
 		else
 		{
