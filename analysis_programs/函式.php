@@ -481,34 +481,21 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 			elseif( mb_strpos( $l, '〗' ) !== false )
 			{
 				$parts = explode( '〗', $l );
-				//print_r( $parts );
 				$默認詩文 = mb_substr( $parts[ 0 ], 1 );
-				
-				
 				$坐標 = 提取〖詩文〗坐標( $parts[ 0 ] . '〗', $頁 );
 				$坐標版本異文、夾注[ $坐標 ] = trim( $l );
-				
-				if( $頁 == "2516" )
-				{
-					//print_r( $坐標版本異文、夾注 );
-				}
-				
 				$版本異文、夾注[ $坐標 ] = 
 					array( $默認詩文, $parts[ 1 ] );
 			}
 		}
 	}
 	
-	//print_r( $版本異文、夾注 );
-
 	$版本陣列 = array();
 	// 讀取默認版本
 	$詩文路徑 = 詩集文件夾 . "\\" . $頁 . '.php';
 	require( $詩文路徑 );
 	$版本詩文 = $内容[ "詩文" ];
 	
-	//echo $版本詩文;
-
 	// 讀取默認版本的坐標_用字
 	$坐標_用字路徑 = 詩集文件夾 . "\\" . $頁 . '坐標_用字.php';
 	require( $坐標_用字路徑 );
@@ -522,9 +509,7 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 		}
 		elseif( $異文、夾注坐標 == "〚${頁}:1〛" )
 		{
-			//echo $頁, "\n";
 			//〖1〗
-			//print_r( $異文、夾注 );
 			$版本陣列[ "詩題" ] = trim( $異文、夾注[ 1 ] );
 			continue; 
 		}
@@ -534,69 +519,9 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 				trim( $異文、夾注[ 0 ] ),
 				trim( $異文、夾注[ 1 ] ),
 				$版本詩文 );
-			//echo $版本詩文;
 		}
 	}
 
-		
-/*	
-		// 換句
-		$句坐標 = 
-			substr( 
-			$異文、夾注坐標, 0, strrpos( $異文、夾注坐標, '.' ) ) .
-			'〛';
-
-		//echo $句坐標;
-		try
-		{
-			$詩句 = $坐標_詩句[ $句坐標 ];
-			//echo $詩句;
-		}
-		catch( Exception $e )
-		{
-			echo $頁, "\n";
-			//echo mb_strlen(""), "\n";
-		}
-		// no page range
-		if( trim( $異文、夾注坐標 ) != "" &&
-			strpos( $異文、夾注坐標, '-' ) === false )
-		{
-			//echo $異文、夾注坐標, "\n";
-			$版本詩句 = str_replace(
-				$坐標_用字[ trim( $異文、夾注坐標 ) ],
-				trim( $異文、夾注 ),
-				$詩句 );
-		
-			$版本詩文 = str_replace( 
-				$詩句,    // 默認的版本
-				$版本詩句, // 想要的版本
-				$版本詩文 );
-		}
-		// with page range
-		else
-		{
-			$chunk = '';
-			$pages = getExpandedPages( $異文、夾注坐標 );
-		
-			foreach( $pages as $p )
-			{
-				$chunk = $chunk . $坐標_用字[ $p ];
-			}
-
-			$版本詩句 = str_replace(
-				$chunk,
-				trim( $異文、夾注 ),
-				$詩句 );
-
-			$版本詩文 = str_replace( 
-				$詩句,    // 默認的版本
-				$版本詩句, // 想要的版本
-				$版本詩文 );
-		}
-*/		
-		
-	//echo $版本詩文;
-	
 	// 分解詩文
 	if( array_key_exists( $頁, $詩組_詩題 ) )
 	{
@@ -604,12 +529,18 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 		if( $頁 == "0305" )
 		{
 			$新版本詩文 = array();
-			$第一首 = mb_substr( $版本詩文, 0, 39 );
-			$第二首 = mb_substr( $版本詩文, 40, 39 );
-			$第三首 = mb_substr( $版本詩文, 80, 39 );
-			array_push( $新版本詩文, explode( '。', $第一首 ) );
-			array_push( $新版本詩文, explode( '。', $第二首 ) );
-			array_push( $新版本詩文, explode( '。', $第三首 ) );
+			// remove last 。
+			$版本詩文 = mb_substr( $版本詩文, 0, -1 );
+			// store 詩句 in array
+			$詩句 = explode( '。', $版本詩文 );
+			// chunks
+			array_push( $新版本詩文, 
+				array_splice( $詩句, 0, 5 ) );
+			array_push( $新版本詩文, 
+				array_splice( $詩句, 0, 5 ) );
+			array_push( $新版本詩文, 
+				array_splice( $詩句, 0, 5 ) );
+			
 			$版本詩文 = $新版本詩文;
 		}
 		else
@@ -621,10 +552,8 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 		
 			for( $i = 0; $i < sizeof( $首行數列陣 )-1; $i++ )
 			{
-				//print_r( $版本詩文 );
 				// use a copy
 				$版本詩文列陣 = explode( '。', $版本詩文 );
-				//print_r( $版本詩文列陣 );
 				// 3: 空行、詩題、空行
 				$diff = $首行數列陣[ $i + 1 ] - $首行數列陣[ $i ] - 3;
 				$diff2 = $diff * 2;
@@ -633,34 +562,19 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 						$版本詩文列陣, $curr_line, $diff2 ) );
 				$curr_line = $curr_line + $diff2;
 			}
-		
-			//print_r( $新版本詩文 );
-		
+
 			// the last chunk
-			//print_r( $版本詩文 );
 			// remove last 。
 			$版本詩文 = mb_substr( $版本詩文, 0, -1 );
-			//echo $版本詩文;
 			$版本詩文列陣 = explode( "。", $版本詩文 );
-			//print_r( $版本詩文列陣  );
 			array_push( $新版本詩文, 
 					array_splice( 
 						$版本詩文列陣, $curr_line ) );
-			//print_r( $新版本詩文 );		
 			
 			$版本詩文 = $新版本詩文;
-			//print_r( $版本詩文 );
 		}
 	}
 	$版本陣列[ "詩文" ] = $版本詩文;
-		
-	/*$code = "array(";
-	
-	foreach( $坐標版本異文、夾注 as $坐標 => $版本異文、夾注 )
-	{
-		$code = $code . "\"${坐標}\"=>\"${版本異文、夾注}\",";
-	}
-	$code = $code . ");";*/
 	$版本陣列[ "坐標版本異文、夾注" ] = $坐標版本異文、夾注;
 	
 	return $版本陣列;

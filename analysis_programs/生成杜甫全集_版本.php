@@ -71,21 +71,6 @@ foreach( $頁碼 as $頁 )
 				'[' . $内容[ "題注" ] . ']';
 		}
 		$new_content = $new_content . "\n\n";
-/*		
-		if( $頁 == "0048" )
-			print_r( $内容[ "題注" ] );
-
-		if( $頁 == "0048" )
-		{
-			
-			//print_r( array_keys( $内容 ) );
-			//echo in_array( "題注", array_keys( $内容 ) );
-		}
-*/
-
-		
-	
-
 		$new_content = $new_content .
 			trim( $内容[ "詩文" ] ) . "\n\n";
 	}
@@ -94,5 +79,4 @@ foreach( $頁碼 as $頁 )
 // add msg and write to files
 $msg = file_get_contents( 'msg.txt', true );
 file_put_contents( $outfile, $new_content . $msg );
-
 ?>
