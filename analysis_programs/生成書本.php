@@ -11,6 +11,7 @@ require_once( 'h:\github\Dufu-Analysis\二字組合_坐標.php' );
 require_once( 'h:\github\Dufu-Analysis\三字組合_坐標.php' );
 require_once( 'h:\github\Dufu-Analysis\四字組合_坐標.php' );
 require_once( 'h:\github\Dufu-Analysis\詩組_詩題.php' );
+require_once( 'h:\github\Dufu-Analysis\詩句_坐標.php' );
 
 $簡稱   = '=譯';
 $簡稱   = '=地';
@@ -21,9 +22,8 @@ $簡稱   = '=蕭';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
-//$頁 = "0053";
-//$頁 = "2516";
-//$頁 = "0305";
+
+$頁 = "0022";
 foreach( $頁碼 as $頁 )
 {
 	require_once( "h:\\github\\Dufu-Analysis\\詩集\\${頁}坐標_用字.php" );
@@ -36,6 +36,8 @@ foreach( $頁碼 as $頁 )
 	{
 		continue;
 	}
+	
+
 	// 書名: always the first line
 	$書名  = trim( $text_array[ 0 ] );
 	$部分陣列  = array();
@@ -305,6 +307,11 @@ $code = "<?php
 				{
 					$坐標s = $四字組合_坐標[ $詞條 ];
 				}
+				else
+				{
+					//print_r();
+					$坐標s = array( $詩句_坐標[ $詞條 ] );
+				}
 				// look for the first matching 坐標
 				foreach( $坐標s as $坐標 )
 				{
@@ -362,5 +369,8 @@ $code = "<?php
 	//echo $code;
 	//echo $out_path . "$頁.php", "\n";
 	file_put_contents( $out_path . "$頁.php", $code );
+	
+
 }
+
 ?>
