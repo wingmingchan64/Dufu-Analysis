@@ -65,6 +65,7 @@ foreach( $頁碼 as $頁 )
 			//echo $頁, "\n";
 			//echo $current, "\n";
 			//echo $行, "\n";
+
 			array_push( $部分陣列[ $current ], trim( $行 ) );
 		}
 	}
