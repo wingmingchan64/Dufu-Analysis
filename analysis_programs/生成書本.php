@@ -368,8 +368,6 @@ $code = "<?php
 	//echo $code;
 	//echo $out_path . "$頁.php", "\n";
 	file_put_contents( $out_path . "$頁.php", $code );
-	
-
 }
 
 ?>
