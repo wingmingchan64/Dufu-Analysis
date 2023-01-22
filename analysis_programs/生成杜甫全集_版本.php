@@ -8,6 +8,7 @@ require_once( 'h:\github\Dufu-Analysis\頁碼.php' );
 require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
 
 $簡稱 = '=蕭';
+$簡稱 = '=全';
 $前綴 = trim( $簡稱, '=' );
 $陣列名 = "${前綴}内容";
 $書名 = $書目簡稱[ $簡稱 ];
@@ -15,6 +16,24 @@ $outfile = "h:\\github\\Dufu-Analysis\\${書名}\\杜甫全集.txt";
 $new_content = $書名 . "\n\n";
 $默認路徑 = "h:\\github\\Dufu-Analysis\\詩集\\";
 $版本路徑 = "h:\\github\\Dufu-Analysis\\${書名}\\";
+$默認文檔路徑 = "";
+// 全唐詩
+
+if( $簡稱 == '=全' )
+{
+	$目錄 = file_get_contents( "h:\\github\\Dufu-Analysis\\${書名}\目錄.txt" );
+	$lines = explode( "\n", $目錄 );
+	$頁碼 = array();
+	
+	foreach( $lines as $l )
+	{
+		if( $l !== "" )
+		{
+			array_push( $頁碼, explode( ',', $l )[ 2 ] );
+		}
+	}
+}
+
 
 //$頁 = "0003";
 $count = 0;
@@ -25,7 +44,11 @@ foreach( $頁碼 as $頁 )
 	//if( $count > 421 )
 		//break;
 	
-	$默認文檔路徑 = $默認路徑 . $頁 . '.php';
+	$默認文檔路徑 = "${默認路徑}${頁}.php";
+	
+	echo $默認文檔路徑, "\n";
+	exit;
+	
 	require_once( $默認文檔路徑 );
 	$版本文檔路徑 = $版本路徑 . $頁 . '.php';
 	
@@ -68,6 +91,7 @@ foreach( $頁碼 as $頁 )
 	}
 	else
 	{
+/*
 		$new_content = $new_content . $頁 . ' ' .
 			trim( $内容[ "詩題" ] );
 			
@@ -79,6 +103,7 @@ foreach( $頁碼 as $頁 )
 		$new_content = $new_content . "\n\n";
 		$new_content = $new_content .
 			trim( $内容[ "詩文" ] ) . "\n\n";
+*/
 	}
 }
 

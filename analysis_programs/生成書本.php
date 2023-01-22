@@ -15,15 +15,15 @@ require_once( 'h:\github\Dufu-Analysis\詩句_坐標.php' );
 
 $簡稱   = '=譯';
 $簡稱   = '=地';
-$簡稱   = '=全';
 $簡稱   = '=今';
 $簡稱   = '=浦';
+$簡稱   = '=全';
 $簡稱   = '=蕭';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
 
-$頁 = "0022";
+//$頁 = "0295";
 foreach( $頁碼 as $頁 )
 {
 	require_once( "h:\\github\\Dufu-Analysis\\詩集\\${頁}坐標_用字.php" );
@@ -237,7 +237,6 @@ $code = "<?php
 				foreach( $版本陣列[ "詩文" ] as $詩文 )
 				{
 					//var_dump( $詩文 );
-					$詩文 = implode( '。', $詩文 ) . '。';
 					$内容 = $内容 . "\"${詩文}\",";
 				}
 				$内容 = $内容 . "),\n";
