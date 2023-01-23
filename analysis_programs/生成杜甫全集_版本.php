@@ -13,6 +13,8 @@ $前綴 = trim( $簡稱, '=' );
 $陣列名 = "${前綴}内容";
 $書名 = $書目簡稱[ $簡稱 ];
 $outfile = "h:\\github\\Dufu-Analysis\\${書名}\\杜甫全集.txt";
+$outfile_clean = "h:\\github\\Dufu-Analysis\\${書名}\\杜甫全集無夾注.txt";
+
 $new_content = $書名 . "\n\n";
 $默認路徑 = "h:\\github\\Dufu-Analysis\\詩集\\";
 $版本路徑 = "h:\\github\\Dufu-Analysis\\${書名}\\";
@@ -84,4 +86,10 @@ foreach( $頁碼 as $頁 )
 // add msg and write to files
 $msg = file_get_contents( 'msg.txt', true );
 file_put_contents( $outfile, $new_content . $msg );
+
+$cleaned_text = 
+	preg_replace( '/\[\X+?]/', '', $new_content );
+file_put_contents( $outfile_clean, $cleaned_text . $msg );
+
+
 ?>
