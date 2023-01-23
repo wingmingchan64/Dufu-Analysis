@@ -17,8 +17,8 @@ $簡稱   = '=譯';
 $簡稱   = '=地';
 $簡稱   = '=今';
 $簡稱   = '=浦';
-$簡稱   = '=蕭';
 $簡稱   = '=全';
+$簡稱   = '=蕭';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
@@ -37,7 +37,6 @@ foreach( $頁碼 as $頁 )
 		continue;
 	}
 	
-
 	// 書名: always the first line
 	$書名  = trim( $text_array[ 0 ] );
 	$部分陣列  = array();
