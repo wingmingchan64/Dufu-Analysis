@@ -7,8 +7,8 @@ require_once( '函式.php' );
 require_once( 'h:\github\Dufu-Analysis\頁碼.php' );
 require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
 
-$簡稱 = '=蕭';
 $簡稱 = '=全';
+$簡稱 = '=蕭';
 $前綴 = trim( $簡稱, '=' );
 $陣列名 = "${前綴}内容";
 $書名 = $書目簡稱[ $簡稱 ];
@@ -29,27 +29,17 @@ if( $簡稱 == '=全' )
 	{
 		if( $l !== "" )
 		{
-			array_push( $頁碼, explode( ',', $l )[ 2 ] );
+			array_push( $頁碼, 
+				trim( explode( ',', $l )[ 2 ] ) );
 		}
 	}
 }
 
-
-//$頁 = "0003";
-$count = 0;
-
 foreach( $頁碼 as $頁 )
 {
-	$count++;
-	//if( $count > 421 )
-		//break;
-	
-	$默認文檔路徑 = "${默認路徑}${頁}.php";
-	
-	echo $默認文檔路徑, "\n";
-	exit;
-	
+	$默認文檔路徑 = $默認路徑 . $頁 . ".php";
 	require_once( $默認文檔路徑 );
+	
 	$版本文檔路徑 = $版本路徑 . $頁 . '.php';
 	
 	if( file_exists( $版本文檔路徑 ) )
@@ -88,22 +78,6 @@ foreach( $頁碼 as $頁 )
 			$new_content = $new_content .
 				trim( $$陣列名[ "版本" ][ "詩文" ] ) . "\n\n";
 		}
-	}
-	else
-	{
-/*
-		$new_content = $new_content . $頁 . ' ' .
-			trim( $内容[ "詩題" ] );
-			
-		if( in_array( "題注", array_keys( $内容 ) ) )
-		{
-			$new_content = $new_content .
-				'[' . $内容[ "題注" ] . ']';
-		}
-		$new_content = $new_content . "\n\n";
-		$new_content = $new_content .
-			trim( $内容[ "詩文" ] ) . "\n\n";
-*/
 	}
 }
 
