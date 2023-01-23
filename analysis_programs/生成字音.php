@@ -85,6 +85,7 @@ file_put_contents( $out_file, $code );
 foreach( $音字陣列 as $音 => $字陣列 )
 {
 	$code2 = $code2 . "\"${音}\"=>array(";
+	sort( $字陣列 );
 	foreach( $字陣列 as $字 )
 	{
 		$code2 = $code2 . "\"${字}\",";
