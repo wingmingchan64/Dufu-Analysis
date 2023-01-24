@@ -30,8 +30,8 @@ foreach( $頁碼 as $頁 )
 	if( file_exists( $頁路徑 ) )
 	{
 		require_once( $頁路徑 );
-		
-		foreach( $内容[ "字音" ] as $字 => $音陣列 )
+		echo $頁路徑, "\n";
+		foreach( $粵内容[ "字音" ] as $字 => $音陣列 )
 		{
 			if( !array_key_exists( $字, $字音陣列 ) )
 			{
@@ -62,8 +62,6 @@ foreach( $頁碼 as $頁 )
 		}
 	}
 }
-
-
 
 ksort( $字音陣列 );
 ksort( $音字陣列 );
