@@ -17,15 +17,16 @@ $簡稱   = '=譯';
 $簡稱   = '=地';
 $簡稱   = '=今';
 $簡稱   = '=浦';
-$簡稱   = '=蕭';
 $簡稱   = '=全';
+$簡稱   = '=粵';
+$簡稱   = '=蕭';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
 
-$頁 = "0167";
-//foreach( $頁碼 as $頁 )
-//{
+//$頁 = "0167";
+foreach( $頁碼 as $頁 )
+{
 	require_once( "h:\\github\\Dufu-Analysis\\詩集\\${頁}坐標_用字.php" );
 	// get the relevant section as an array
 	$text_array = getSection( $頁碼_路徑[ $頁 ], $簡稱 );
@@ -34,7 +35,7 @@ $頁 = "0167";
 	// nothing to process
 	if( mb_strpos( implode( $text_array ), '【' ) === false )
 	{
-		//continue;
+		continue;
 	}
 	
 	// 書名: always the first line
@@ -373,6 +374,5 @@ $code = "<?php
 	//echo $code;
 	//echo $out_path . "$頁.php", "\n";
 	file_put_contents( $out_path . "$頁.php", $code );
-//}
-
+}
 ?>

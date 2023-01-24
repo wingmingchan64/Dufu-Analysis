@@ -3,14 +3,14 @@
 生成：本文檔用 PHP 生成。
 說明：陳永明《杜甫全集粵音注音》中關於《前苦寒行二首》的資料。
 */
-$内容=array(
+$粵内容=array(
 "書名"=>"陳永明《杜甫全集粵音注音》",
 "注音"=>
 array(
 
 "漢時長安雪一丈。牛馬毛寒縮如蝟。"=>array("hon3 si4 coeng4 on1 syut3 jat1 zoeng6, ngau4 maa5 mou4 hon4 suk1 jyu4 wai6"),
 "楚江巫峽冰入懷。虎豹哀號又堪記。"=>array("co2 gong1 mou4 haap6 bing1 jap6 waai4, fu2 paau3 oi1 hou4 jau6 ham1 gei3"),
-"秦城老翁荊揚客。慣習炎蒸歲絺綌。"=>array("ceon4 sing4 lou5 jung1 ging1 joeng4 haak3, gwaan3 zaap6 jim4 zing1 seoi3 ci1 gwik1"),
+"秦城老翁荆揚客。慣習炎蒸歲絺綌。"=>array("ceon4 sing4 lou5 jung1 ging1 joeng4 haak3, gwaan3 zaap6 jim4 zing1 seoi3 ci1 gwik1"),
 "玄冥祝融氣或交。手持白羽未敢釋。"=>array("jyun4 ming4 zuk1 jung4 hei3 waak6 gaau1, sau2 ci4 baak6 jyu5 mei6 gam2 sik1"),
 "去年白帝雪在山。今年白帝雪在地。"=>array("heoi3 nin4 baak6 dai3 syut3 zoi6 saan1, gam1 nin4 baak6 dai3 syut3 zoi6 dei6"),
 "凍埋蛟龍南浦縮。寒刮肌膚北風利。"=>array("dung3 maai4 gaau1 lung4 naam4 pou2 suk1, hon4 gwaat3 gei1 fu1 bak1 fung1 lei6"),
@@ -49,7 +49,7 @@ array(
 "城"=>array("sing4"),
 "老"=>array("lou5"),
 "翁"=>array("jung1"),
-"荊"=>array("ging1"),
+"荆"=>array("ging1"),
 "揚"=>array("joeng4"),
 "客"=>array("haak3"),
 "慣"=>array("gwaan3"),

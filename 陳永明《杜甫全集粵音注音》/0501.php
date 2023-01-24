@@ -3,7 +3,7 @@
 生成：本文檔用 PHP 生成。
 說明：陳永明《杜甫全集粵音注音》中關於《示從孫濟》的資料。
 */
-$内容=array(
+$粵内容=array(
 "書名"=>"陳永明《杜甫全集粵音注音》",
 "注音"=>
 array(
@@ -16,7 +16,7 @@ array(
 "淘米少汲水。汲多井水渾。"=>array("tou4 mai5 siu2 kap1 seoi2, kap1 do1 zeng2 seoi2 wan4"),
 "刈葵莫放手。放手傷葵根。"=>array("ngaai6 kwai4 mok6 fong3 sau2, fong3 sau2 soeng1 kwai4 gan1"),
 "阿翁懶惰久。覺兒行步奔。"=>array("aa3 jung1 laan5 do6 gau2, gok3 ji4 hang4 bou6 ban1"),
-"所來爲宗族。亦不爲盤飱。"=>array("so2 loi4 wai6 zung1 zuk6, jik6 bat1 wai6 pun4 syun1"),
+"所來爲宗族。亦不爲盤飧。"=>array("so2 loi4 wai6 zung1 zuk6, jik6 bat1 wai6 pun4 syun1"),
 "小人利口實。薄俗難可論。"=>array("siu2 jan4 lei6 hau2 sat6, bok6 zuk6 naan4 ho2 leon4"),
 "勿受外嫌猜。同姓古所敦。"=>array("mat6 sau6 ngoi6 jim4 caai1, tung4 sing3 gu2 so2 deon1"),),
 "字音"=>array(
@@ -93,7 +93,7 @@ array(
 "族"=>array("zuk6"),
 "亦"=>array("jik6"),
 "盤"=>array("pun4"),
-"飱"=>array("syun1"),
+"飧"=>array("syun1"),
 "小"=>array("siu2"),
 "人"=>array("jan4"),
 "利"=>array("lei6"),

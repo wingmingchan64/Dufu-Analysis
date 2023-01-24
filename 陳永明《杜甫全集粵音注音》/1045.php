@@ -3,13 +3,13 @@
 生成：本文檔用 PHP 生成。
 說明：陳永明《杜甫全集粵音注音》中關於《曲江二首》的資料。
 */
-$内容=array(
+$粵内容=array(
 "書名"=>"陳永明《杜甫全集粵音注音》",
 "注音"=>
 array(
 
 "一片花飛減卻春。風飄萬點正愁人。"=>array("jat1 pin3 faa1 fei1 gaam2 koek3 ceon1, fung1 piu1 maan6 dim2 zing3 sau4 jan4","仄仄平平仄仄平，平平仄仄仄平平"),
-"且看欲盡花經眼。莫厭傷多酒入唇。"=>array("ce2 hon1 juk6 zeon6 faa1 ging1 ngaan5, mok6 jim3 soeng1 do1 zau2 jap6 seon4","仄平仄仄平平仄，仄仄平平仄仄平"),
+"且看欲盡花經眼。莫厭傷多酒入脣。"=>array("ce2 hon1 juk6 zeon6 faa1 ging1 ngaan5, mok6 jim3 soeng1 do1 zau2 jap6 seon4","仄平仄仄平平仄，仄仄平平仄仄平"),
 "江上小堂巢翡翠。苑邊高冢臥麒麟。"=>array("gong1 soeng6 siu2 tong4 caau4 fei2 ceoi3, jyun2 bin1 gou1 cung2 ngo6 kei4 leon4","平仄仄平平仄仄，仄平平仄仄平平"),
 "細推物理須行樂。何用浮名絆此身。"=>array("sai3 teoi1 mat6 lei5 seoi1 hang4 lok6, ho4 jung6 fau4 ming4 bun6 ci2 san1","仄平仄仄平平仄，平仄平平仄仄平"),
 "朝迴日日典春衣。每日江頭盡醉歸。"=>array("ciu4 wui4 jat6 jat6 din2 ceon1 ji1, mui5 jat6 gong1 tau4 zeon6 zeoi3 gwai1","平平仄仄仄平平，仄仄平平仄仄平"),
@@ -43,7 +43,7 @@ array(
 "多"=>array("do1"),
 "酒"=>array("zau2"),
 "入"=>array("jap6"),
-"唇"=>array("seon4"),
+"脣"=>array("seon4"),
 "江"=>array("gong1"),
 "上"=>array("soeng6"),
 "小"=>array("siu2"),

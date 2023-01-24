@@ -3,7 +3,7 @@
 生成：本文檔用 PHP 生成。
 說明：陳永明《杜甫全集粵音注音》中關於《自京赴奉先縣詠懷五百字》的資料。
 */
-$内容=array(
+$粵内容=array(
 "書名"=>"陳永明《杜甫全集粵音注音》",
 "注音"=>
 array(
@@ -16,7 +16,7 @@ array(
 "取笑同學翁。浩歌彌激烈。"=>array("ceoi2 siu3 tung4 hok6 jung1, hou6 go1 mei4 gik1 lit6"),
 "非無江海志。瀟洒送日月。"=>array("fei1 mou4 gong1 hoi2 zi3, siu1 saa2 sung3 jat6 jyut6"),
 "生逢堯舜君。不忍便永訣。"=>array("sang1 fung4 jiu4 seon3 gwan1, bat1 jan2 bin6 wing5 kyut3"),
-"當今廊廟具。構厦豈云缺。"=>array("dong1 gam1 long4 miu6 geoi6, gau3 haa6 hei2 wan4 kyut3"),
+"當今廊廟具。構廈豈云缺。"=>array("dong1 gam1 long4 miu6 geoi6, gau3 haa6 hei2 wan4 kyut3"),
 "葵藿傾太陽。物性固莫奪。"=>array("kwai4 fok3 king1 taai3 joeng4, mat6 sing3 gu3 mok6 dyut6"),
 "顧惟螻蟻輩。但自求其穴。"=>array("gu3 wai4 lau4 ngai5 bui3, daan6 zi6 kau4 kei4 jyut6"),
 "胡爲慕大鯨。輒擬偃溟渤。"=>array("wu4 wai4 mou6 daai6 king4, zip3 ji5 jin2 ming4 but6"),
@@ -44,7 +44,7 @@ array(
 "朱門酒肉臭。路有凍死骨。"=>array("zyu1 mun4 zau2 juk6 cau3, lou6 jau5 dung3 sei2 gwat1"),
 "榮枯咫尺異。惆悵難再述。"=>array("wing4 fu1 zi2 cek3 ji6, cau4 coeng3 naan4 zoi3 seot6"),
 "北轅就涇渭。官渡又改轍。"=>array("bak1 jyun4 zau6 ging1 wai6, gun1 dou6 jau6 goi2 cit3"),
-"羣水從西下。極目高崪兀。"=>array("kwan4 seoi2 cung4 sai1 haa6, gik6 muk6 gou1 zeot6 ngat6"),
+"羣水從西下。極目高崒兀。"=>array("kwan4 seoi2 cung4 sai1 haa6, gik6 muk6 gou1 zeot6 ngat6"),
 "疑是崆峒來。恐觸天柱折。"=>array("ji4 si6 hung1 tung4 loi4, hung2 zuk1 tin1 cyu5 zit3"),
 "河梁幸未拆。枝撐聲窸窣。"=>array("ho4 loeng4 hang6 mei6 caak3, zi1 caang1 seng1 sik1 seot1"),
 "行旅相攀援。川廣不可越。"=>array("hang4 leoi5 soeng1 paan1 wun4, cyun1 gwong2 bat1 ho2 jyut6"),
@@ -143,7 +143,7 @@ array(
 "廟"=>array("miu6"),
 "具"=>array("geoi6"),
 "構"=>array("gau3"),
-"厦"=>array("haa6"),
+"廈"=>array("haa6"),
 "豈"=>array("hei2"),
 "云"=>array("wan4"),
 "缺"=>array("kyut3"),
@@ -390,7 +390,7 @@ array(
 "下"=>array("haa6"),
 "極"=>array("gik6"),
 "目"=>array("muk6"),
-"崪"=>array("zeot6"),
+"崒"=>array("zeot6"),
 "疑"=>array("ji4"),
 "是"=>array("si6"),
 "崆"=>array("hung1"),
