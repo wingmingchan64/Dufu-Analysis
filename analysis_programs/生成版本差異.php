@@ -6,8 +6,8 @@ require_once( 'h:\github\Dufu-Analysis\頁碼.php' );
 require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
 require_once( 'h:\github\Dufu-Analysis\頁碼_詩題.php' );
 
-$簡稱 = '=蕭';
 $簡稱 = '=全';
+$簡稱 = '=蕭';
 $前綴 = trim( $簡稱, '=' );
 $文件夾 = $書目簡稱[ $簡稱 ];
 $var_name = $前綴 . "内容";
@@ -68,6 +68,9 @@ foreach( $頁碼 as $頁 )
 		}
 $code = "<?php
 /*
+生成：本文檔用 PHP 生成。
+說明：默認版本與${書目簡稱[ $簡稱 ]}版本的差異。
+把詩題、詩文（不包括夾注）逐字比較，並列出坐標，以方便查找。
 */
 \$默認版本_${前綴}版本差異=array(\n";
 		foreach( $差異列陣 as $坐標 => $差異 )
