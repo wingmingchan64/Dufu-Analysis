@@ -7,8 +7,8 @@ require_once( '函式.php' );
 require_once( 'h:\github\Dufu-Analysis\頁碼.php' );
 require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
 
-$簡稱 = '=全';
 $簡稱 = '=蕭';
+$簡稱 = '=全';
 $前綴 = trim( $簡稱, '=' );
 $陣列名 = "${前綴}内容";
 $書名 = $書目簡稱[ $簡稱 ];

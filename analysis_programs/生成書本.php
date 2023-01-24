@@ -17,15 +17,15 @@ $簡稱   = '=譯';
 $簡稱   = '=地';
 $簡稱   = '=今';
 $簡稱   = '=浦';
-$簡稱   = '=全';
 $簡稱   = '=蕭';
+$簡稱   = '=全';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
 
-//$頁 = "0295";
-foreach( $頁碼 as $頁 )
-{
+$頁 = "0167";
+//foreach( $頁碼 as $頁 )
+//{
 	require_once( "h:\\github\\Dufu-Analysis\\詩集\\${頁}坐標_用字.php" );
 	// get the relevant section as an array
 	$text_array = getSection( $頁碼_路徑[ $頁 ], $簡稱 );
@@ -34,7 +34,7 @@ foreach( $頁碼 as $頁 )
 	// nothing to process
 	if( mb_strpos( implode( $text_array ), '【' ) === false )
 	{
-		continue;
+		//continue;
 	}
 	
 	// 書名: always the first line
@@ -226,8 +226,12 @@ $code = "<?php
 		{
 			if( !is_array( $版本陣列[ "詩文" ] ) )
 			{
+				// ]* is a marker to instruct
+				// the program to remove 。 after ]
+				$詩文 = str_replace( 
+					']*。', ']', $版本陣列[ "詩文" ] );
 				$内容 = $内容 . "\n\"詩文\"=>\"" . 
-					$版本陣列[ "詩文" ] . "\",";
+					$詩文 . "\",";
 			}
 			else
 			{
@@ -236,6 +240,8 @@ $code = "<?php
 				foreach( $版本陣列[ "詩文" ] as $詩文 )
 				{
 					//var_dump( $詩文 );
+					$詩文 = str_replace( 
+						']*。', ']', $詩文 );
 					$内容 = $内容 . "\"${詩文}\",";
 				}
 				$内容 = $内容 . "),\n";
@@ -367,6 +373,6 @@ $code = "<?php
 	//echo $code;
 	//echo $out_path . "$頁.php", "\n";
 	file_put_contents( $out_path . "$頁.php", $code );
-}
+//}
 
 ?>
