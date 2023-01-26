@@ -1,7 +1,11 @@
 <?php
-const 杜甫文件夾 = "h:\\github\\Dufu\\";
+const 杜甫資料庫 = "h:\\杜甫資料庫\\";
+const 詩集文件夾 = "h:\\杜甫資料庫\\詩集\\";
+
+
 const 杜甫分析文件夾 = "h:\\github\\Dufu-Analysis\\";
-const 詩集文件夾 = "h:\\github\\Dufu-Analysis\\詩集\\";
+
+const 杜甫文件夾 = "h:\\github\\Dufu\\";
 const 杜甫全集 = 'h:\github\DuFu\杜甫全集.txt';
 const 杜甫全集粵音注音 = 'h:\github\DuFu\杜甫全集粵音注音.txt';
 const 目錄 = 'h:\github\DuFu\目錄.txt';

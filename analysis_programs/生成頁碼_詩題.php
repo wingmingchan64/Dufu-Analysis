@@ -18,7 +18,6 @@ if( is_dir( 杜甫文件夾 ) )
 				str_contains( $file, '.txt' )
 			)
 			{
-				//array_push( $頁碼_詩題, $file );
 				$頁碼_詩題[ substr( $file, 0, 4 ) ] =
 					substr( $file, 5, -4 );
 			}
@@ -29,6 +28,7 @@ if( is_dir( 杜甫文件夾 ) )
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+生成程式： 生成頁碼_詩題.php
 說明：頁碼=>詩題。
 */
 \$頁碼_詩題=array(\n";
@@ -38,11 +38,12 @@ foreach( $頁碼_詩題 as $p => $t )
 }
 $code = substr( $code, 0, -2 );
 $code = $code . "\n);\n?>";
-file_put_contents( 'h:\github\Dufu-Analysis\頁碼_詩題.php', $code );
+file_put_contents( 杜甫資料庫. '頁碼_詩題.php', $code );
 
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+生成程式： 生成頁碼_詩題.php
 說明：詩題=>頁碼。
 */
 \$詩題_頁碼=array(\n";
@@ -52,6 +53,5 @@ foreach( $頁碼_詩題 as $p => $t )
 }
 $code = substr( $code, 0, -2 );
 $code = $code . "\n);\n?>";
-file_put_contents( 'h:\github\Dufu-Analysis\詩題_頁碼.php', $code );
-
+file_put_contents( 杜甫資料庫. '詩題_頁碼.php', $code );
 ?>
