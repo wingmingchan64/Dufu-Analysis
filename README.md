@@ -1,6 +1,6 @@
 <h1>杜甫詩分析、資料庫</h1>
 
-<p>這裏提供的主要是上萬個 PHP 程式。這些程式分四大類：</p>
+<p>這裏提供的主要是 PHP 程式。這些程式分四大類：</p>
 <ul>
 <li>關於杜詩的各種統計數字</li>
 <li>包含各種原始資料的陣列；這部分其實是個小型的資料庫</li>
@@ -9,7 +9,9 @@
 </ul>
 <p>聯係資料庫各個部分的關鍵是一個坐標系統。請從<a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E9%97%9C%E6%96%BC%E5%9D%90%E6%A8%99%E7%9A%84%E8%AA%AA%E6%98%8E.txt">關於坐標的說明</a>開始。</p>
 <h2>杜甫詩資料庫</h2>
-<p><a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/_%E6%9D%9C%E8%A9%A9%E8%B3%87%E6%96%99%E5%BA%AB%E6%96%87%E6%AA%94%E4%B8%80%E8%A6%BD.txt">杜詩資料庫文檔一覽</a></p>
+<p>我原來的打算是把生成的所有 PHP 程式都上傳到 github，可是最後把 我的戶口擠爆了。現在，這裏只保留了資料庫文檔的一小部分。其實，會編程的朋友可以自己生成這些文檔，不會編程的朋友看了這些程式也是白搭，也只好這樣了。</p>
+<p><a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/_%E6%9%9C%E8%A9%A9%E8%B3%87%E6%96%99%E5%BA%AB%E6%96%87%E6%AA%94%E4%B8%80%E8%A6%BD.txt">杜詩資料庫文檔一覽</a></p>
+<p><a href=""></a></p>
 
 <h2>生成杜甫詩資料庫的 PHP 程式</h2>
 <p><a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/analysis_programs">analysis_programs</a></p>

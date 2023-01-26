@@ -1,0 +1,99 @@
+Run from h:\php809
+
+Test:
+php h:\github\Dufu-Analysis\analysis_programs\函式測試.php
+
+php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集.php
+
+Reports:
+php h:\github\Dufu-Analysis\analysis_programs\異體字報告.php
+array(4) {
+  [0]=>
+  string(3) "慎"
+  [1]=>
+  string(3) "洒"
+  [2]=>
+  string(3) "沈"
+  [3]=>
+  string(3) "游"
+}
+File generation:
+php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集粵音注音.php
+- require 常數.php
+- require 函式.php
+- require msg.txt
+
+php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_詩題.php
+- $頁碼_詩題
+- $詩題_頁碼
+
+php h:\github\Dufu-Analysis\analysis_programs\生成詩集頁.php
+- set the flag for creating pages!!!
+- $頁碼_路徑
+- $路徑_頁碼
+- $頁碼
+- pages in 詩集
+- normalized text
+
+php h:\github\Dufu-Analysis\analysis_programs\生成用字頻率.php
+- $用字_頻率
+
+php h:\github\Dufu-Analysis\analysis_programs\生成排序用字頻率.php
+- $排序頻率_用字
+
+php h:\github\Dufu-Analysis\analysis_programs\生成詩句.php
+- $詩句
+
+php h:\github\Dufu-Analysis\analysis_programs\生成詩句_頁碼.php
+- $詩句_頁碼
+
+php h:\github\Dufu-Analysis\analysis_programs\生成用字_詩句.php
+- $用字_詩句
+
+php h:\github\Dufu-Analysis\analysis_programs\生成用字_頁碼.php
+- $用字_頁碼
+
+php h:\github\Dufu-Analysis\analysis_programs\生成詩句_頁碼_行碼.php
+- $詩句_頁碼_行碼
+
+php h:\github\Dufu-Analysis\analysis_programs\生成二字組合.php
+php h:\github\Dufu-Analysis\analysis_programs\生成三字組合.php
+php h:\github\Dufu-Analysis\analysis_programs\生成四字組合.php
+
+php h:\github\Dufu-Analysis\analysis_programs\生成詩句_坐標.php
+php h:\github\Dufu-Analysis\analysis_programs\生成部首_用字.php
+php h:\github\Dufu-Analysis\analysis_programs\生成用字_部首.php
+
+php h:\github\Dufu-Analysis\analysis_programs\生成二字組合_坐標.php
+php h:\github\Dufu-Analysis\analysis_programs\生成三字組合_坐標.php
+php h:\github\Dufu-Analysis\analysis_programs\生成四字組合_坐標.php
+
+// requires 生成坐標_用字 run against 杜甫全集粵音注音
+// requires 生成書本 run against 杜甫全集粵音注音
+php h:\github\Dufu-Analysis\analysis_programs\生成坐標_用字.php
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php
+php h:\github\Dufu-Analysis\analysis_programs\生成字音.php
+
+php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_韻部.php
+
+// try not to run this!
+php h:\github\Dufu-Analysis\analysis_programs\生成字典.php
+
+// run this only if 詩集 is changed
+php h:\github\Dufu-Analysis\analysis_programs\生成疊字.php
+
+
+
+
+
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php
+php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集_版本.php
+
+php h:\github\Dufu-Analysis\analysis_programs\生成版本差異.php
+
+php h:\github\Dufu-Analysis\analysis_programs\生成字典注釋.php
+
+
+https://gist.github.com/2ue/7deda3ee996a394ad2361580f58c0c45
+
+
