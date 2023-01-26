@@ -10,8 +10,8 @@ require_once( 杜甫資料庫 . '詩組_詩題.php' );
 require_once( 杜甫資料庫 . '帶序文之詩歌.php' );
 require_once( 杜甫資料庫 . '頁碼_路徑.php' );
 require_once( 杜甫資料庫 . '書目簡稱.php' );
-require( "h:\\github\\Dufu-Analysis\\坐標_詩句.php" );
-require_once( "h:\\github\\Dufu-Analysis\\頁碼_詩題.php" );
+require( 杜甫資料庫 . '坐標_詩句.php' );
+require_once( 杜甫資料庫 . '頁碼_詩題.php' );
 $path_for_file = '';
 $text_of_file  = '';
 
@@ -657,7 +657,7 @@ function 提取〖詩文〗坐標( string $〖詩文〗, string $頁 ) : string
 			trim( $〖詩文〗, '〖〗' ) . "〛";
 	}
 	
-	require( "h:\\github\\Dufu-Analysis\\詩集\\${頁}.php" );
+	require( 詩集文件夾 . "${頁}.php" );
 	$詩文 = trim( $〖詩文〗, '〖〗' );
 	$空坐標 = "";
 	$句坐標 = "";

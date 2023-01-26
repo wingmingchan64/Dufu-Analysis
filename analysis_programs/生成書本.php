@@ -3,15 +3,15 @@
 php h:\github\Dufu-Analysis\analysis_programs\生成書本.php
 */
 require_once( '函式.php' );
-require_once( 'h:\github\Dufu-Analysis\頁碼.php' );
-require_once( 'h:\github\Dufu-Analysis\頁碼_路徑.php' );
-require_once( 'h:\github\Dufu-Analysis\頁碼_詩題.php' );
-require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
-require_once( 'h:\github\Dufu-Analysis\二字組合_坐標.php' );
-require_once( 'h:\github\Dufu-Analysis\三字組合_坐標.php' );
-require_once( 'h:\github\Dufu-Analysis\四字組合_坐標.php' );
-require_once( 'h:\github\Dufu-Analysis\詩組_詩題.php' );
-require_once( 'h:\github\Dufu-Analysis\詩句_坐標.php' );
+require_once( 杜甫資料庫 . '頁碼.php' );
+require_once( 杜甫資料庫 . '頁碼_路徑.php' );
+require_once( 杜甫資料庫 . '頁碼_詩題.php' );
+require_once( 杜甫資料庫 . '書目簡稱.php' );
+require_once( 杜甫資料庫 . '二字組合_坐標.php' );
+require_once( 杜甫資料庫 . '三字組合_坐標.php' );
+require_once( 杜甫資料庫 . '四字組合_坐標.php' );
+require_once( 杜甫資料庫 . '詩組_詩題.php' );
+require_once( 杜甫資料庫 . '詩句_坐標.php' );
 
 $簡稱   = '=譯';
 $簡稱   = '=地';
@@ -22,12 +22,12 @@ $簡稱   = '=粵';
 $簡稱   = '=蕭';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
-$out_path   = "h:\\github\\Dufu-Analysis\\${文件夾}\\";
+$out_path   = 杜甫資料庫 . "${文件夾}\\";
 
 //$頁 = "0167";
 foreach( $頁碼 as $頁 )
 {
-	require_once( "h:\\github\\Dufu-Analysis\\詩集\\${頁}坐標_用字.php" );
+	require_once( 詩集文件夾 . "${頁}坐標_用字.php" );
 	// get the relevant section as an array
 	$text_array = getSection( $頁碼_路徑[ $頁 ], $簡稱 );
 	//echo $頁, "\n";
@@ -76,6 +76,7 @@ foreach( $頁碼 as $頁 )
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成書本.php \$簡稱 = '$簡稱';
 說明：${書目簡稱[ $簡稱 ]}中關於《${頁碼_詩題[$頁]}》的資料。
 */
 \$${前綴}内容=array(\n" .
@@ -198,7 +199,7 @@ $code = "<?php
 				$subcode = substr( $subcode, 0, -1 );
 				$subcode = $subcode . "),\n";
 			}
-			$subcode = substr( $subcode, 0, -2 );
+			//$subcode = substr( $subcode, 0, -1 );
 			$subcode = $subcode . "\n)";
 			$内容 = $内容 . $subcode;
 		}

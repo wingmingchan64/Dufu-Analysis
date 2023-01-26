@@ -1,24 +1,25 @@
 <?php
 require_once( '常數.php' );
 require_once( '函式.php' );
-require_once( 'h:\github\Dufu-Analysis\頁碼.php' );
+require_once( 杜甫資料庫 . '頁碼.php' );
 
-$in_folder = 
-	"h:\\github\\Dufu-Analysis\\陳永明《杜甫全集粵音注音》\\";
-$頁碼out_file = "h:\\github\\Dufu-Analysis\\頁碼_韻部.php";
-$韻部out_file = "h:\\github\\Dufu-Analysis\\韻部_頁碼.php";
+$in_folder = 杜甫資料庫 . "陳永明《杜甫全集粵音注音》\\";
+$頁碼out_file = 杜甫資料庫 . '頁碼_韻部.php';
+$韻部out_file = 杜甫資料庫 . '韻部_頁碼.php';
 $頁碼_韻部陣列 = array();
 $韻部_頁碼陣列 = array();
 
 $頁碼code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成頁碼_韻部.php
 說明：頁碼=>韻部。
 */
 \$頁碼_韻部=array(\n";
 $韻部code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成頁碼_韻部.php
 說明：韻部=>頁碼。
 */
 \$韻部_頁碼=array(\n";
@@ -31,7 +32,7 @@ foreach( $頁碼 as $頁 )
 	{
 		require_once( $file );
 		
-		foreach( $内容[ "韻部" ] as $坐標 => $字_韻部 )
+		foreach( $粵内容[ "韻部" ] as $坐標 => $字_韻部 )
 		{
 			$字_韻陣列 = explode( '：', $字_韻部 );
 			echo $頁, "\n";

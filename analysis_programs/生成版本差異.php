@@ -1,10 +1,9 @@
 <?php
 require_once( '常數.php' );
 require_once( '函式.php' );
-
-require_once( 'h:\github\Dufu-Analysis\頁碼.php' );
-require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
-require_once( 'h:\github\Dufu-Analysis\頁碼_詩題.php' );
+require_once( 杜甫資料庫 . '頁碼.php' );
+require_once( 杜甫資料庫 . '書目簡稱.php' );
+require_once( 杜甫資料庫 . '頁碼_詩題.php' );
 
 $簡稱 = '=全';
 $簡稱 = '=蕭';
@@ -14,8 +13,8 @@ $var_name = $前綴 . "内容";
 
 foreach( $頁碼 as $頁 )
 {
-	require_once( "h:\\github\\Dufu-Analysis\\詩集\\${頁}坐標_用字.php" );
-	$版本文檔 = "h:\\github\\Dufu-Analysis\\${文件夾}\\${頁}.php";
+	require_once( 詩集文件夾 . "${頁}坐標_用字.php" );
+	$版本文檔 = 杜甫資料庫 . "${文件夾}\\${頁}.php";
  
 	if( file_exists( $版本文檔 ) )
 	{
@@ -69,6 +68,7 @@ foreach( $頁碼 as $頁 )
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成版本差異.php \$簡稱 = '$簡稱';
 說明：默認版本與${書目簡稱[ $簡稱 ]}版本的差異。
 把詩題、詩文（不包括夾注）逐字比較，並列出坐標，以方便查找。
 */
@@ -82,7 +82,7 @@ $code = "<?php
 		$code = $code . "\n?>";
 
 		//$content = print_r( $差異列陣, true );
-		$outfile =  "h:\\github\\Dufu-Analysis\\${文件夾}\\${頁}版本差異.php";
+		$outfile =  杜甫資料庫 . "${文件夾}\\${頁}版本差異.php";
 		file_put_contents( $outfile, $code );
 	}
 }

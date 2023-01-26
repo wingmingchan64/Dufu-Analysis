@@ -1,12 +1,13 @@
 <?php
 /*
 */
-require_once( "h:\\github\\Dufu-Analysis\\用字_頻率.php" );
+require_once( '常數.php' );
+require_once( 杜甫資料庫 . '用字_頻率.php' );
 
 $部首_folder_path = "h:\\github\\unicode\\";
 $部首_file_array = array();
 $部首 = array();
-$out_file = "h:\\github\\Dufu-Analysis\\部首_用字.php";
+$out_file = 杜甫資料庫 . '部首_用字.php';
 
 if( is_dir( $部首_folder_path ) )
 {
@@ -70,6 +71,7 @@ foreach( $部首 as $部 => $字 )
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成部首_用字.php
 說明：杜甫詩中所用字，按部首、筆畫數排列。
 */
 \$部首_用字=array(\n";

@@ -2,12 +2,15 @@
 /*
 php h:\github\Dufu-Analysis\analysis_programs\生成疊字.php
 */
-require_once( "函式.php" );
-require_once( "h:\\github\\Dufu-Analysis\\二字組合.php" );
+require_once( '常數.php' );
+require_once( 杜甫資料庫 . '二字組合.php' );
 
 $疊字 = array();
 $code = "<?php
 /*
+生成：本文檔用 PHP 生成。
+程式：生成疊字.php
+說明：疊字。
 */
 \$疊字=array(\n";
 
@@ -25,7 +28,6 @@ foreach( $疊字 as $組合 )
 $size = sizeof( $疊字 );
 $code = $code . "\n); // size: ${size}
 \n?>";
-file_put_contents( "h:\\github\\Dufu-Analysis\\疊字.php",
-	$code );
+file_put_contents( 杜甫資料庫 . '疊字.php', $code );
 ?>
 

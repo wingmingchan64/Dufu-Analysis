@@ -1,21 +1,23 @@
 <?php
 require_once( '常數.php' );
 require_once( '函式.php' );
-require_once( 'h:\github\Dufu-Analysis\頁碼.php' );
+require_once( 杜甫資料庫 . '頁碼.php' );
 
-$文件夾 = "h:\\github\\Dufu-Analysis\\陳永明《杜甫全集粵音注音》\\";
+$文件夾 = 杜甫資料庫 . "陳永明《杜甫全集粵音注音》\\";
 $out_file = "${文件夾}陳永明《杜甫全集粵音注音》字音.php";
 $out_file2 = "${文件夾}陳永明《杜甫全集粵音注音》字音用字.php";
 
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成字音.php
 說明：杜詩用字粵語讀音，按部首、筆劃數排列。
 */
 \$字音=array(\n";
 $code2 = "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成字音.php
 說明：杜詩用字粵語讀音檢索。
 */
 \$音字=array(\n";

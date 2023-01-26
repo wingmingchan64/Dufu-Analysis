@@ -1,7 +1,7 @@
 <?php
 require_once( '常數.php' );
 require_once( '函式.php' );
-require_once( "h:\\github\\Dufu-Analysis\\詩句_坐標.php" );
+require_once( 杜甫資料庫 . '詩句_坐標.php' );
 
 $四字組合_坐標陣列 = array();
 
@@ -32,6 +32,7 @@ foreach( $詩句_坐標 as $詩句 => $坐標 )
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成四字組合_坐標.php
 說明：四字組合=>坐標。
 */
 \$四字組合_坐標=array(\n";
@@ -50,5 +51,5 @@ foreach( $四字組合_坐標陣列 as $組合 => $坐標陣列 )
 $code = substr( $code, 0, -2 );
 $code = $code . "\n);\n?>";
 
-file_put_contents( 'h:\github\Dufu-Analysis\四字組合_坐標.php', $code );
+file_put_contents( 杜甫資料庫 . '四字組合_坐標.php', $code );
 ?>

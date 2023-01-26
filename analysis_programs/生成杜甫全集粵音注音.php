@@ -2,7 +2,7 @@
 require_once( '常數.php' );
 require_once( '函式.php' );
 //require_once( "h:\\github\\Dufu-Analysis\\路徑_頁碼.php" );
-require_once( "h:\\github\\Dufu-Analysis\\頁碼_詩題.php" );
+require_once( 杜甫資料庫 . '頁碼_詩題.php' );
 
 // get all text file names
 $file_names  = 提取杜甫文件名稱() ;

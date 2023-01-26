@@ -2,18 +2,19 @@
 /*
 //mkdir( $字文件夾 . $部首 );
 */
-require_once( "h:\\github\\Dufu-Analysis\\部首_用字.php" );
-require_once( "h:\\github\\Dufu-Analysis\\用字_詩句.php" );
-require_once( "h:\\github\\Dufu-Analysis\\詩句_坐標.php" );
-require_once( "h:\\github\\Dufu-Analysis\\陳永明《杜甫全集粵音注音》\\陳永明《杜甫全集粵音注音》字音.php" );
+require_once( '常數.php' );
+require_once( 杜甫資料庫 . '部首_用字.php' );
+require_once( 杜甫資料庫 . '用字_詩句.php' );
+require_once( 杜甫資料庫 . '詩句_坐標.php' );
+require_once( 杜甫資料庫 . '陳永明《杜甫全集粵音注音》\陳永明《杜甫全集粵音注音》字音.php' );
 
-$字文件夾 = "h:\\github\\Dufu-Analysis\\用字\\";
+$字文件夾 = 杜甫資料庫 . "用字\\";
 
 $部首s = array_keys( $部首_用字 );
 
 foreach( $部首s as $部首 )
 {
-	//mkdir( $字文件夾 . $部首 );
+	mkdir( $字文件夾 . $部首 );
 }
 
 foreach( $部首_用字 as $部首 => $用字陣列 )
@@ -24,6 +25,7 @@ foreach( $部首_用字 as $部首 => $用字陣列 )
 		"<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成字典.php
 說明：關於杜詩中「${用字}」字的資料。
 */
 ";
