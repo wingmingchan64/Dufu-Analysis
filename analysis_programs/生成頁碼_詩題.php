@@ -1,7 +1,7 @@
 <?php
-require_once( 'h:\github\Dufu-Analysis\詩文件夾路徑.php' );
 require_once( '常數.php' );
 require_once( '函式.php' );
+require_once( 杜甫資料庫 . '詩文件夾路徑.php' );
 
 $頁碼_詩題 = array();
 // get the titles

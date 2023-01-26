@@ -1,9 +1,9 @@
 <?php
 require_once( '常數.php' );
 require_once( '函式.php' );
-require_once( 'h:\github\Dufu-Analysis\詩組_詩題.php' );
-require_once( 'h:\github\Dufu-Analysis\詩文件夾路徑.php' );
-require_once( 'h:\github\Dufu-Analysis\帶序文之詩歌.php' );
+require_once( 杜甫資料庫 . '詩組_詩題.php' );
+require_once( 杜甫資料庫 . '詩文件夾路徑.php' );
+require_once( 杜甫資料庫 . '帶序文之詩歌.php' );
 
 $create_pages     = true;
 //$create_pages     = false;
@@ -40,6 +40,7 @@ if( is_dir( 杜甫文件夾 ) )
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成詩集頁.php
 說明：頁碼=>詩篇文檔所在路徑。
 */
 \$頁碼_路徑=array(\n";
@@ -51,11 +52,12 @@ foreach( $page_path as $p => $path )
 }
 $code = substr( $code, 0, -2 );
 $code = $code . "\n);\n?>";
-file_put_contents( 'h:\github\Dufu-Analysis\頁碼_路徑.php', $code );
+file_put_contents( 杜甫資料庫 . '頁碼_路徑.php', $code );
 
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成詩集頁.php
 說明：詩篇文檔所在路徑=>頁碼。
 */
 \$路徑_頁碼=array(\n";
@@ -67,12 +69,13 @@ foreach( $page_path as $p => $path )
 }
 $code = substr( $code, 0, -2 );
 $code = $code . "\n);\n?>";
-file_put_contents( 'h:\github\Dufu-Analysis\路徑_頁碼.php', $code );
+file_put_contents( 杜甫資料庫 . '路徑_頁碼.php', $code );
 
 
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成詩集頁.php
 說明：頁碼。
 */
 \$頁碼=array(\n";
@@ -83,11 +86,11 @@ foreach( $page as $p )
 }
 $code = substr( $code, 0, -2 );
 $code = $code . "\n);\n?>";
-file_put_contents( 'h:\github\Dufu-Analysis\頁碼.php', $code );
+file_put_contents( 杜甫資料庫 . '頁碼.php', $code );
 
 // create the php pages
-require_once( 'h:\github\Dufu-Analysis\頁碼_詩題.php' );
-require_once( 'h:\github\Dufu-Analysis\頁碼_路徑.php' );
+require_once( 杜甫資料庫 . '頁碼_詩題.php' );
+require_once( 杜甫資料庫 . '頁碼_路徑.php' );
 
 $multiple_verse = false;
 
@@ -115,6 +118,7 @@ if( is_dir ( 詩集文件夾 ) )
 "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成詩集頁.php
 說明：詩篇的相關内容。
 */
 \$内容=array(\n" .
@@ -308,10 +312,10 @@ if( is_dir ( 詩集文件夾 ) )
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成詩集頁.php
 說明：清理乾淨的詩篇内容，不包括詩題、序言、注文等，也不包括文集中的内容。
 */
 \$text=\"$normalized_text\"
 ?>";
-file_put_contents( 'h:\github\Dufu-Analysis\normalized.php',
-	$code );
+file_put_contents( 杜甫資料庫 . 'normalized.php', $code );
 ?>

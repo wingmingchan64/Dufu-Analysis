@@ -5,11 +5,11 @@
 set_error_handler(function ($severity, $message, $file, $line) {
     throw new \ErrorException($message, $severity, $severity, $file, $line);
 });
-require_once( "常數.php" );
-require_once( "h:\\github\\Dufu-Analysis\\詩組_詩題.php" );
-require_once( "h:\\github\\Dufu-Analysis\\帶序文之詩歌.php" );
-require_once( "h:\\github\\Dufu-Analysis\\頁碼_路徑.php" );
-require_once( "h:\\github\\Dufu-Analysis\\書目簡稱.php" );
+require_once( '常數.php' );
+require_once( 杜甫資料庫 . '詩組_詩題.php' );
+require_once( 杜甫資料庫 . '帶序文之詩歌.php' );
+require_once( 杜甫資料庫 . '頁碼_路徑.php' );
+require_once( 杜甫資料庫 . '書目簡稱.php' );
 require( "h:\\github\\Dufu-Analysis\\坐標_詩句.php" );
 require_once( "h:\\github\\Dufu-Analysis\\頁碼_詩題.php" );
 $path_for_file = '';

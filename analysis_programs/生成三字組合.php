@@ -1,7 +1,7 @@
 <?php
 require_once( '常數.php' );
 require_once( '函式.php' );
-require_once( "h:\\github\\Dufu-Analysis\\詩句.php" );
+require_once( 杜甫資料庫 . '詩句.php' );
 
 $three_char_combo = array();
 
@@ -25,19 +25,6 @@ foreach( $詩句 as $l )
 		$count++;
 	}
 }
-
-/*
-$code = "<?php\n\$three_char_combo=array(\n";
-
-foreach( $three_char_combo as $p => $f )
-{
-	$code = $code . "\"${p}\"=>$f,\n";
-}
-$code = substr( $code, 0, -2 );
-$code = $code . "\n);\n?>";
-
-file_put_contents( "h:\\github\\Dufu-Analysis\\three_char_combo.php", $code );
-*/
 
 $sorted_p_frequency = array();
 
@@ -76,9 +63,9 @@ $code = substr( $code, 0, -2 );
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成三字組合.php
 說明：出現頻率=>三字組合，按頻率高低排序。
 */
 \$三字組合排序頻率=array(\n" . $code . ");\n?>";
-file_put_contents( 'h:\github\Dufu-Analysis\三字組合排序頻率.php', $code );
-
+file_put_contents( 杜甫資料庫 . '三字組合排序頻率.php', $code );
 ?>

@@ -1,5 +1,6 @@
 <?php
-require_once( 'h:\github\Dufu-Analysis\用字_頻率.php' );
+require_once( '常數.php' );
+require_once( 杜甫資料庫 . '用字_頻率.php' );
 
 $sorted_char_frequency = array();
 
@@ -38,8 +39,9 @@ $code = substr( $code, 0, -2 );
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
+程式：生成排序用字頻率.php
 說明：詩中用此字的頻率=>單字，並按頻率的高低排列。
 */
 \$排序頻率_用字=array(\n" . $code . ");\n?>";
-file_put_contents( 'h:\github\Dufu-Analysis\排序頻率_用字.php', $code );
+file_put_contents( 杜甫資料庫 . '排序頻率_用字.php', $code );
 ?>
