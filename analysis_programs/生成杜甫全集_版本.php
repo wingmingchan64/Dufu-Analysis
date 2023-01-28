@@ -49,6 +49,8 @@ foreach( $頁碼 as $頁 )
 	{
 		require_once( $版本文檔路徑 );
 
+		echo $頁, "\n";
+		
 		if( array_key_exists( "詩題", $$陣列名[ "版本" ] ) )
 		{
 			//echo $$陣列名[ "版本" ][ "詩題" ], "\n";
