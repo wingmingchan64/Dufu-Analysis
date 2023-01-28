@@ -79,8 +79,21 @@ foreach( $頁碼 as $頁 )
 		else
 		{
 			$new_content = $new_content .
-				trim( $$陣列名[ "版本" ][ "詩文" ] ) . "\n\n";
+				trim( $$陣列名[ "版本" ][ "詩文" ] ) . "\n\n";			
 		}
+	}
+	elseif( $簡稱 == '=蕭' )
+	{
+		$new_content = $new_content . $頁 . ' ' .
+			trim( $内容[ "詩題" ] );
+		if( in_array( "題注", array_keys( $内容 ) ) )
+		{
+			$new_content = $new_content .
+				'[' . $内容[ "題注" ] . ']';
+		}
+		$new_content = $new_content . "\n\n";
+		$new_content = $new_content . 
+			$内容[ "詩文" ] . "\n\n";
 	}
 }
 
