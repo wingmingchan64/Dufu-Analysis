@@ -12,9 +12,13 @@ $字文件夾 = 杜甫資料庫 . "用字\\";
 
 $部首s = array_keys( $部首_用字 );
 
-foreach( $部首s as $部首 )
+// create folders
+if( !is_dir( $字文件夾 . "一部" ) )
 {
-	mkdir( $字文件夾 . $部首 );
+	foreach( $部首s as $部首 )
+	{
+		mkdir( $字文件夾 . $部首 );
+	}
 }
 
 foreach( $部首_用字 as $部首 => $用字陣列 )

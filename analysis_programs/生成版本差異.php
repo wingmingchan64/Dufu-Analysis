@@ -4,6 +4,8 @@ require_once( '函式.php' );
 require_once( 杜甫資料庫 . '頁碼.php' );
 require_once( 杜甫資料庫 . '書目簡稱.php' );
 require_once( 杜甫資料庫 . '頁碼_詩題.php' );
+require_once( 杜甫資料庫 . '頁碼_詩題.php' );
+require_once( 杜甫資料庫 . '帶序文之詩歌.php' );
 
 $簡稱 = '=全';
 $簡稱 = '=蕭';

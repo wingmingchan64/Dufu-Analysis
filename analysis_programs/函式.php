@@ -90,7 +90,6 @@ function getExpandedPages( string $coor ) : array
 		}
 		
 		echo $pages, "\n";
-		
 	}
 }
 
@@ -140,11 +139,6 @@ function getPoem( string $path ) : string
 		$path_array[ sizeof( $path_array ) - 1 ], 0, 4 );
 	$multi_verse = array_key_exists( $page, $詩組_詩題 );
 	
-	if( array_key_exists( $path, $帶序文之詩歌 ) )
-	{
-		$skip = $帶序文之詩歌[ trim( $path ) ];
-	}
-	
 	for( $i = 0; $i < sizeof( $lines ); $i++ )
 	{
 		// skip first line
@@ -152,8 +146,8 @@ function getPoem( string $path ) : string
 		{
 			continue;
 		}
-		elseif( ( $skip != '' && is_array( $skip ) && 
-			in_array(  $i+1, $skip ) ) || $lines[ $i ] == '' )
+		// skip 序言
+		elseif( in_array( $path, $帶序文之詩歌 ) && $i == 2 )
 		{
 			continue;
 		}
@@ -219,27 +213,32 @@ function getPreface( string $path ) : string
 {
 	global $帶序文之詩歌;
 	$preface = "";
-	
-	if( array_key_exists( $path, $帶序文之詩歌 ) )
+	//echo $path;
+/*	
+	if( in_array( $path, $帶序文之詩歌 ) )
 	{
-		$preface_lines = $帶序文之詩歌[ $path ];
+		$preface_line = 3;
 		
 		// not a preface
-		if( sizeof( $preface_lines ) > 1 && 
+		if( sizeof( $preface_line ) > 1 && 
 			$preface_lines[1] != 4 )
 			return $preface;
 	}
+*/
 	$text  = getFile( $path );
 	$lines = explode( "\n", $text );
 	$preface_array = array();
 	
-	if( array_key_exists( $path, $帶序文之詩歌 ) )
+	if( in_array( $path, $帶序文之詩歌 ) )
 	{
+/*
 		for( $i = 0; $i < sizeof( $preface_lines ); $i++ )
 		{
 			$preface_array[ $i ] = $lines[ $preface_lines[ $i ] - 1 ];
 		}
-		$preface = implode( 新行, $preface_array );
+*/
+		//$preface = implode( 新行, $preface_array );
+		$preface = $lines[ 2 ];
 	}
 	
 	return $preface;
@@ -481,6 +480,12 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 			elseif( mb_strpos( $l, '〗' ) !== false )
 			{
 				$parts = explode( '〗', $l );
+				
+				if( $頁 == "3955" )
+				{
+					//print_r( $parts );
+				}
+				
 				$默認詩文 = mb_substr( $parts[ 0 ], 1 );
 				$坐標 = 提取〖詩文〗坐標( $parts[ 0 ] . '〗', $頁 );
 				$坐標版本異文、夾注[ $坐標 ] = trim( $l );
@@ -530,6 +535,12 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 			$版本陣列[ "詩題" ] = trim( $異文、夾注[ 1 ] );
 			continue; 
 		}
+		elseif( $異文、夾注坐標 == "〚${頁}:3〛" )
+		{
+			//〖3〗
+			$版本陣列[ "詩序" ] = trim( $異文、夾注[ 1 ] );
+			continue; 
+		}		
 		else
 		{
 			if( !array_key_exists( $頁, $詩組_詩題 ) )
@@ -650,13 +661,19 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 }
 function 提取〖詩文〗坐標( string $〖詩文〗, string $頁 ) : string
 {
-	
+	/*
 	if( $〖詩文〗 == "〖1〗" )
 	{
 		return "〚" . $頁 . ':' . 
 			trim( $〖詩文〗, '〖〗' ) . "〛";
 	}
-	
+	*/
+	if( intval( trim( $〖詩文〗, '〖〗' ) ) > 0 )
+	{
+		return "〚" . $頁 . ':' .
+			trim( $〖詩文〗, '〖〗' ) . "〛";
+	}
+
 	require( 詩集文件夾 . "${頁}.php" );
 	$詩文 = trim( $〖詩文〗, '〖〗' );
 	$空坐標 = "";
