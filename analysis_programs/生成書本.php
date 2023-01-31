@@ -37,6 +37,7 @@ foreach( $頁碼 as $頁 )
 	// nothing to process
 	if( mb_strpos( implode( $text_array ), '【' ) === false )
 	{
+		//echo $頁, "\n";
 		continue;
 	}
 	
