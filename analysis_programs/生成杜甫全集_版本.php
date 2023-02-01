@@ -120,8 +120,10 @@ foreach( $頁碼 as $頁 )
 // add msg and write to files
 $msg = file_get_contents( 'msg.txt', true );
 file_put_contents( $outfile, $new_content . $msg );
+file_put_contents( "h:\\github\\Dufu-Analysis\\" . $書目簡稱[ $簡稱 ] . "\\杜甫全集.txt", $new_content . $msg );
 
 $cleaned_text = 
 	preg_replace( '/\[\X+?]/', '', $new_content );
 file_put_contents( $outfile_clean, $cleaned_text . $msg );
+file_put_contents( "h:\\github\\Dufu-Analysis\\" . $書目簡稱[ $簡稱 ] . "\\杜甫全集無夾注.txt", $new_content . $msg );
 ?>
