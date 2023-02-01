@@ -7,9 +7,9 @@ require_once( '函式.php' );
 require_once( 杜甫資料庫 . '頁碼.php' );
 require_once( 杜甫資料庫 . '書目簡稱.php' );
 
-$簡稱 = '=全';
 $簡稱 = '=默';
 $簡稱 = '=蕭';
+$簡稱 = '=全';
 
 $默認路徑 = 詩集文件夾;
 $默認文檔路徑 = "";
@@ -35,22 +35,13 @@ else
 // 全唐詩
 if( $簡稱 == '=全' )
 {
-	$目錄 = file_get_contents( 杜甫資料庫 . "${書名}\目錄.txt" );
-	$lines = explode( "\n", $目錄 );
-	$頁碼 = array();
-	
-	foreach( $lines as $l )
-	{
-		if( $l !== "" )
-		{
-			array_push( $頁碼, 
-				trim( explode( ',', $l )[ 2 ] ) );
-		}
-	}
+	require_once( 杜甫資料庫 . "${書名}\目錄.php" );
+	$頁碼 = array_keys( $全目錄 );
 }
 
 foreach( $頁碼 as $頁 )
 {
+	echo $頁, "\n";
 	$默認文檔路徑 = $默認路徑 . $頁 . ".php";
 	require_once( $默認文檔路徑 );
 	
