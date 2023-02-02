@@ -1,15 +1,24 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集_版本.php
+php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集_版本.php 蕭
 */
 require_once( '常數.php' );
 require_once( '函式.php' );
 require_once( 杜甫資料庫 . '頁碼.php' );
 require_once( 杜甫資料庫 . '書目簡稱.php' );
 
+if( sizeof( $argv ) < 2 )
+{
+	echo "必須提供簡稱。", "\n";
+	exit;
+}
+
+$簡稱   = '=' . $argv[ 1 ];
+/*
 $簡稱 = '=蕭';
 $簡稱 = '=默';
 $簡稱 = '=全';
+*/
 
 $默認路徑 = 詩集文件夾;
 $默認文檔路徑 = "";

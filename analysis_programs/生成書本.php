@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\生成書本.php
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 蕭
 */
 require_once( '函式.php' );
 require_once( 杜甫資料庫 . '頁碼.php' );
@@ -14,14 +14,21 @@ require_once( 杜甫資料庫 . '詩組_詩題.php' );
 require_once( 杜甫資料庫 . '詩句_坐標.php' );
 require_once( 杜甫資料庫 . '帶序文之詩歌.php' );
 
-
+if( sizeof( $argv ) < 2 )
+{
+	echo "必須提供簡稱。", "\n";
+	exit;
+}
+$簡稱   = '=' . $argv[ 1 ];
+/*
 $簡稱   = '=譯';
 $簡稱   = '=地';
 $簡稱   = '=今';
 $簡稱   = '=浦';
 $簡稱   = '=粵';
-$簡稱   = '=蕭';
 $簡稱   = '=全';
+$簡稱   = '=蕭';
+*/
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = 杜甫資料庫 . "${文件夾}\\";
