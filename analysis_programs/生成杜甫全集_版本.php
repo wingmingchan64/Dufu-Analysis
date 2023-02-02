@@ -7,9 +7,9 @@ require_once( '函式.php' );
 require_once( 杜甫資料庫 . '頁碼.php' );
 require_once( 杜甫資料庫 . '書目簡稱.php' );
 
-$簡稱 = '=默';
 $簡稱 = '=蕭';
 $簡稱 = '=全';
+$簡稱 = '=默';
 
 $默認路徑 = 詩集文件夾;
 $默認文檔路徑 = "";
@@ -119,14 +119,14 @@ foreach( $頁碼 as $頁 )
 }
 // add msg and write to files
 $msg = file_get_contents( 'msg.txt', true );
-file_put_contents( $outfile, $new_content . $msg );
 if( $簡稱 != '=默' )
 {
+	file_put_contents( $outfile, $new_content . $msg );
 	file_put_contents( "h:\\github\\Dufu-Analysis\\" . $書目簡稱[ $簡稱 ] . "\\杜甫全集.txt", $new_content . $msg );
 }
 else
 {
-		file_put_contents( "h:\\github\\Dufu-Analysis\\杜甫全集.txt", $new_content . $msg );
+	file_put_contents( "h:\\github\\Dufu-Analysis\\杜甫全集.txt", $new_content . $msg );
 }
 
 $cleaned_text = 
@@ -138,6 +138,6 @@ if( $簡稱 != '=默' )
 }
 else
 {
-		file_put_contents( "h:\\github\\Dufu-Analysis\\杜甫全集無夾注.txt", $new_content . $msg );
+	file_put_contents( "h:\\github\\Dufu-Analysis\\杜甫全集無夾注.txt", $new_content . $msg );
 }
 ?>
