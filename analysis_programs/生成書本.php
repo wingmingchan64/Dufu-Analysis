@@ -98,6 +98,13 @@ $code = "<?php
 		//echo $題, "\n";
 		$補充説明 = ( $題 == '補充説明' );
 		$異文、夾注 = ( $題 == '異文、夾注' );
+		$體裁 = "";
+
+		if( $題 == '體裁' )
+		{
+			$體裁 = $子儲存[ 0 ];
+		}
+
 		$内容 = implode( "\n", $子儲存 ); // a string
 		$parts = array();
 
@@ -213,17 +220,17 @@ $code = "<?php
 			$subcode = $subcode . "\n)";
 			$内容 = $内容 . $subcode;
 		}
-	// 補充説明
-	elseif( $補充説明 ) // a mixture of contents; just output it
-	{
-		$内容 = "\"$内容\"";
-	}
-	// 異文、夾注
-	elseif( $異文、夾注 )
-	{
-		$題 = "版本";
-		$版本陣列 = 提取版本詩文( $簡稱, $頁 );
-		$版本序言 = "";
+		// 補充説明
+		elseif( $補充説明 ) // a mixture of contents; just output it
+		{
+			$内容 = "\"$内容\"";
+		}
+		// 異文、夾注
+		elseif( $異文、夾注 )
+		{
+			$題 = "版本";
+			$版本陣列 = 提取版本詩文( $簡稱, $頁 );
+			$版本序言 = "";
 		
 		if( in_array( $頁, $帶序文之詩歌[ "頁碼" ] ) )
 		{
@@ -344,9 +351,8 @@ $code = "<?php
 				{
 					$坐標s = $四字組合_坐標[ $詞條 ];
 				}
-				else
+				elseif( $詞條 != "" )
 				{
-					//print_r();
 					$坐標s = array( $詩句_坐標[ $詞條 ] );
 				}
 				// look for the first matching 坐標
@@ -382,24 +388,34 @@ $code = "<?php
 			{
 				continue;
 			}
+
+			//echo $頁, "\n";
 			//$l = '〚' . $l ; // add 〚 back
 			$parts = explode( '〛', $l );
-			$l = "\"〚" . $頁 . ':' . $parts[ 0 ] . "〛\"=>\"" .
-				$parts[ 1 ] . "\",\n";
+			//print_r( $parts );
 			
-			$sub_code = $sub_code . $l;
+			if( sizeof( $parts ) > 1 )
+			{
+				$l = "\"〚" . $頁 . ':' . $parts[ 0 ] . "〛\"=>\"" .
+				$parts[ 1 ] . "\",\n";
+				$sub_code = $sub_code . $l;
+			}
 		}
 		$sub_code = substr( $sub_code, 0, -2 );
 		$sub_code = $sub_code . ")\n";
 		$内容 = $sub_code;
 	}
-	else
-	{
-		$内容 = "\"$内容\"";
-	}
+		elseif( $體裁 != "" )
+		{
+			$内容 = "\"$内容\"";
+		}
+		else
+		{
+			$内容 = "\"$内容\"";
+		}
 	
-	$code = $code . "\"$題\"=>\n$内容,\n";
-}
+		$code = $code . "\"$題\"=>\n$内容,\n";
+	}
 
 	$code = $code . "\n);\n?>";
 	
