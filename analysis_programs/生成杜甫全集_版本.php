@@ -147,6 +147,6 @@ if( $簡稱 != '=默' )
 }
 else
 {
-	file_put_contents( "h:\\github\\Dufu-Analysis\\杜甫全集無夾注.txt", $new_content . $msg );
+	file_put_contents( "h:\\github\\Dufu-Analysis\\杜甫全集無夾注.txt", $cleaned_text . $msg );
 }
 ?>
