@@ -276,14 +276,17 @@ if( is_dir ( 詩集文件夾 ) )
 			}
 			
 			$code = $code . "\n\"副題\"=>array(\n";
+			$count = 1;
+			
 			foreach( $副題 as $t )
 			{
-				$code = $code . "\"${t}\",";
+				$code = $code . "\"〚${p}:${count}:〛\"=>\"${t}\",\n";
+				$count++;
 			}
 			$code = substr( $code, 0, -1 );
 			$code = $code . "),\n";
-			
 			$code = $code . "\"詩歌\"=>array(\n";
+			
 			foreach( $poem_array as $poem => $poem_lines )
 			{
 				$code = $code . "\"${poem}\"=>array(\n";
