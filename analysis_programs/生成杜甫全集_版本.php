@@ -51,6 +51,11 @@ if( $簡稱 == '=全' )
 foreach( $頁碼 as $頁 )
 {
 	//echo $頁, "\n";
+	if( mb_strpos( $頁, ":" ) )
+	{
+		//echo $頁, "\n";
+		continue;
+	}
 	$默認文檔路徑 = $默認路徑 . $頁 . ".php";
 	require_once( $默認文檔路徑 );
 	
