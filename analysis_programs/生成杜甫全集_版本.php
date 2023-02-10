@@ -50,6 +50,10 @@ if( $簡稱 == '=全' )
 
 foreach( $頁碼 as $頁 )
 {
+	if( $頁 == "" )
+	{
+		continue;
+	}
 	//echo $頁, "\n";
 	if( mb_strpos( $頁, ":" ) )
 	{
