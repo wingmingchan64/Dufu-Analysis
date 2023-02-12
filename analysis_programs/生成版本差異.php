@@ -1,4 +1,7 @@
 <?php
+/*
+php h:\github\Dufu-Analysis\analysis_programs\生成版本差異.php 全
+*/
 require_once( '常數.php' );
 require_once( '函式.php' );
 require_once( 杜甫資料庫 . '頁碼.php' );
@@ -7,9 +10,15 @@ require_once( 杜甫資料庫 . '頁碼_詩題.php' );
 require_once( 杜甫資料庫 . '頁碼_詩題.php' );
 require_once( 杜甫資料庫 . '帶序文之詩歌.php' );
 
-$簡稱 = '=全';
-$簡稱 = '=蕭';
-$前綴 = trim( $簡稱, '=' );
+if( sizeof( $argv ) < 2 )
+{
+	echo "必須提供簡稱。", "\n";
+	exit;
+}
+$前綴 = trim( $argv[ 1 ] );
+$簡稱 = '=' . $前綴;
+//$簡稱 = '=全';
+//$簡稱 = '=蕭';
 $文件夾 = $書目簡稱[ $簡稱 ];
 $var_name = $前綴 . "内容";
 
@@ -70,7 +79,7 @@ foreach( $頁碼 as $頁 )
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
-程式：生成版本差異.php \$簡稱 = '$簡稱';
+程式：生成版本差異.php $前綴
 說明：默認版本與${書目簡稱[ $簡稱 ]}版本的差異。
 把詩題、詩文（不包括夾注）逐字比較，並列出坐標，以方便查找。
 詩題：$頁碼_詩題[$頁]
