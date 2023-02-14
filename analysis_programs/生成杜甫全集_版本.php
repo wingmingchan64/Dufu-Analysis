@@ -54,10 +54,17 @@ foreach( $頁碼 as $頁 )
 		continue;
 	}
 	//echo $頁, "\n";
+	$首 = 0;
+	$裸坐標 = "";
 	if( mb_strpos( $頁, ":" ) )
 	{
+		$裸坐標 = $頁;
+		$碼s = explode( ":", $頁 );
+		$頁 = trim( $碼s[ 0 ] );
+		$首 = intval( trim( $碼s[ 1 ], ":" ) );
 		//echo $頁, "\n";
-		continue;
+		//echo $首, "\n";
+		//continue;
 	}
 	$默認文檔路徑 = $默認路徑 . $頁 . ".php";
 	require_once( $默認文檔路徑 );
@@ -80,22 +87,43 @@ foreach( $頁碼 as $頁 )
 			}
 			else
 			{
-				$new_content = $new_content . $頁 . ' ' .
-					trim( $内容[ "詩題" ] );
-				if( in_array( "題注", array_keys( $内容 ) ) )
+				if( $簡稱 == '=全' &&
+					$裸坐標 != "" )
 				{
-					$new_content = $new_content .
-						'[' . $内容[ "題注" ] . ']';
+					if( $全目錄[ $裸坐標 ][ 0 ] != "" )
+					{
+						$new_content = $new_content .
+							$全目錄[ $裸坐標 ][ 0 ] .
+							"\n\n";
+					}
 				}
-				$new_content = $new_content . "\n\n";
+				else
+				{
+					$new_content = $new_content . $頁 . ' ' . trim( $内容[ "詩題" ] );
+					if( in_array( "題注", array_keys( $内容 ) ) )
+					{
+						$new_content = $new_content .
+							'[' . $内容[ "題注" ] . ']';
+					}
+					$new_content = $new_content . "\n\n";
+				}
 			}
 
 			if( is_array( $$陣列名[ "版本" ][ "詩文" ] ) )
 			{
-				foreach( $$陣列名[ "版本" ][ "詩文" ] as $詩 )
+				//echo $頁, "\n";
+				if( $首 != 0 )
 				{
 					$new_content = $new_content .
-						trim( $詩 ) . "\n";
+						$$陣列名[ "版本" ][ "詩文" ][ $首 - 1 ] . "\n";
+				}
+				else
+				{
+					foreach( $$陣列名[ "版本" ][ "詩文" ] as $詩 )
+					{
+						$new_content = $new_content .
+							trim( $詩 ) . "\n";
+					}
 				}
 				$new_content = $new_content . "\n";
 			}
