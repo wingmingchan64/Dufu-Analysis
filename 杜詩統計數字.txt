@@ -11,7 +11,7 @@
 Code:
 require_once( 'normalized.php' );
 echo mb_strlen( trim( implode( explode( '。', $text ) ) ) );	
-用字數目：   4395 （見 https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E7%94%A8%E5%AD%97_%E9%A0%BB%E7%8E%87.php）
+用字數目：   4326 （見 https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E7%94%A8%E5%AD%97_%E9%A0%BB%E7%8E%87.php）
 疊字：       243 
 
 卷   主詩題   詩數目       纍計
