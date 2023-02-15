@@ -147,7 +147,6 @@ foreach( $頁碼 as $頁 )
 				$内容[ "詩文" ] . "\n\n";
 		}
 	}
-
 	else
 	{
 		$new_content = $new_content . $頁 . ' ' .

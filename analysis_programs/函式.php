@@ -2,8 +2,11 @@
 /*
 〖〗
 */
-set_error_handler(function ($severity, $message, $file, $line) {
-    throw new \ErrorException($message, $severity, $severity, $file, $line);
+set_error_handler( function ( 
+	$severity, $message, $file, $line )
+{
+    throw new \ErrorException( $message, $severity, 	
+		$severity, $file, $line );
 });
 require_once( '常數.php' );
 require_once( 杜甫資料庫 . '詩組_詩題.php' );
@@ -373,7 +376,7 @@ function 提取簡化坐標( string $坐標 ) : string
 		坐標關括號;
 }
 
-// 提取頁碼,〚 後來的四個字, garbage in, garbage out
+// 提取頁碼,〚 後面的四個數字, garbage in, garbage out
 function 提取頁碼( string $坐標 ) : string
 {
 	$str = trim( $坐標, 坐標括號 );
@@ -568,106 +571,15 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 			}
 		}
 	}
-
-/*
-	// 分解詩文
-	if( array_key_exists( $頁, $詩組_詩題 ) )
-	{
-		// special case
-		if( $頁 == "0305" )
-		{
-			$新版本詩文 = array();
-			// remove last 。
-			$版本詩文 = mb_substr( $版本詩文, 0, -1 );
-			// store 詩句 in array
-			$詩句 = explode( '。', $版本詩文 );
-			// chunks
-			array_push( $新版本詩文, 
-				array_splice( $詩句, 0, 5 ) );
-			array_push( $新版本詩文, 
-				array_splice( $詩句, 0, 5 ) );
-			array_push( $新版本詩文, 
-				array_splice( $詩句, 0, 5 ) );
-			
-			$版本詩文 = $新版本詩文;
-		}
-		elseif( $頁 == "3236" )
-		{
-			$新版本詩文 = array();
-			// remove last 。
-			$版本詩文 = mb_substr( $版本詩文, 0, -1 );
-			// store 詩句 in array
-			$pos = mb_strpos( $版本詩文, '憶昔開元' );
-			
-			if( $pos !== false )
-			{
-				$first = explode( '。', 
-					mb_substr( $版本詩文, 0, $pos - 1 ) );
-				$second = explode( '。', 
-					mb_substr( $版本詩文, $pos ) );
-				array_push( $新版本詩文, $first );
-				array_push( $新版本詩文, $second );
-
-			}
-			$版本詩文 = $新版本詩文;
-			//print_r( $版本詩文 );
-		}
-		else
-		{
-			$首行數列陣 = $詩組_詩題[ $頁 ][ 1 ];
-			$首數 = sizeof( $首行數列陣 );
-			$curr_line = 0;
-			$新版本詩文 = array();
-		
-			for( $i = 0; $i < sizeof( $首行數列陣 )-1; $i++ )
-			{
-				// use a copy
-				$版本詩文列陣 = explode( '。', $版本詩文 );
-				// 3: 空行、詩題、空行
-				$diff = $首行數列陣[ $i + 1 ] - $首行數列陣[ $i ] - 3;
-				$diff2 = $diff * 2;
-				array_push( $新版本詩文, 
-					array_splice( 
-						$版本詩文列陣, $curr_line, $diff2 ) );
-				$curr_line = $curr_line + $diff2;
-			}
-
-			// the last chunk
-			// remove last 。
-			$版本詩文 = mb_substr( $版本詩文, 0, -1 );
-			$版本詩文列陣 = explode( "。", $版本詩文 );
-			array_push( $新版本詩文, 
-					array_splice( 
-						$版本詩文列陣, $curr_line ) );
-			
-			$版本詩文 = $新版本詩文;
-		}
-	}
-	// 只能清理詩末的 。
-	
-	if( !is_array( $版本詩文 ) && 
-		mb_strpos( $版本詩文, '。[' ) !== false )
-	{
-		$版本詩文 = mb_substr( $版本詩文, 0, -1 );
-	}
-*/	
 	
 	$版本陣列[ "詩文" ] = $版本詩文;
 	$版本陣列[ "坐標版本異文、夾注" ] = $坐標版本異文、夾注;
 	
 	//print_r( $版本陣列 );
-	
 	return $版本陣列;
 }
 function 提取〖詩文〗坐標( string $〖詩文〗, string $頁 ) : string
 {
-	/*
-	if( $〖詩文〗 == "〖1〗" )
-	{
-		return "〚" . $頁 . ':' . 
-			trim( $〖詩文〗, '〖〗' ) . "〛";
-	}
-	*/
 	if( intval( trim( $〖詩文〗, '〖〗' ) ) > 0 )
 	{
 		return "〚" . $頁 . ':' .
@@ -708,5 +620,4 @@ function 提取〖詩文〗坐標( string $〖詩文〗, string $頁 ) : string
 	
 	return $空坐標;
 }
-
 ?>
