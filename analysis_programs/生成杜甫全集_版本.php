@@ -45,6 +45,7 @@ if( $簡稱 == '=全' )
 {
 	require_once( 杜甫資料庫 . "${書名}\目錄.php" );
 	$頁碼 = array_keys( $全目錄 );
+	$temp_storage = array();
 }
 
 foreach( $頁碼 as $頁 )
@@ -99,6 +100,11 @@ foreach( $頁碼 as $頁 )
 				}
 				else
 				{
+					if( $頁 == "1395" || $頁 == "0241" )
+					{
+						$new_content = $new_content .
+							"\n";
+					}
 					$new_content = $new_content . $頁 . ' ' . trim( $内容[ "詩題" ] );
 					if( in_array( "題注", array_keys( $内容 ) ) )
 					{
@@ -112,10 +118,32 @@ foreach( $頁碼 as $頁 )
 			if( is_array( $$陣列名[ "版本" ][ "詩文" ] ) )
 			{
 				//echo $頁, "\n";
+				//echo $首, "\n";
 				if( $首 != 0 )
 				{
+					//echo $首, "\n";
 					$new_content = $new_content .
-						$$陣列名[ "版本" ][ "詩文" ][ $首 - 1 ] . "\n";
+						$$陣列名[ "版本" ][ "詩文" ][ $首 - 1 ];
+					// ad hoc code just to make it work
+					if( $頁 == "1376" )
+					{
+						$temp_storage[ "1376:3:" ] =
+							$$陣列名[ "版本" ][ "詩文" ][ 2 ];
+						$temp_storage[ "1376:4:" ] =
+							$$陣列名[ "版本" ][ "詩文" ][ 3 ];
+						$temp_storage[ "1376:5:" ] =
+							$$陣列名[ "版本" ][ "詩文" ][ 4 ];
+					}
+					
+					if( $頁 == "1390" && $首 == 2 )
+					{
+						$new_content = $new_content .
+						"\n" .
+						$temp_storage[ "1376:3:" ] . "\n" .
+						$temp_storage[ "1376:4:" ] . "\n" .
+						$temp_storage[ "1376:5:" ] . "\n";
+					}
+					
 				}
 				else
 				{
@@ -126,6 +154,7 @@ foreach( $頁碼 as $頁 )
 					}
 				}
 				$new_content = $new_content . "\n";
+				
 			}
 			else
 			{
