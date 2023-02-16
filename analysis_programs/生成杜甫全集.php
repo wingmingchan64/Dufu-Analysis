@@ -41,6 +41,8 @@ function truncate_path( $path )
 $msg = file_get_contents('msg.txt', true);
 file_put_contents( 杜甫全集, $new_content . $msg );
 file_put_contents( 杜甫資料庫 . "杜甫全集_默認版本.php", $new_content . $msg );
+file_put_contents( "h:\\github\\Dufu-Analysis\\" . "杜甫全集_默認版本.php", $new_content . $msg );
+
 $files = array_map( "truncate_path", $file_names );
 file_put_contents( 目錄, implode( "\n", $files ) .
 	"\n\n" . $msg );
