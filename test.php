@@ -1,7 +1,7 @@
 <?php
 
-$outfile = 'h:\github\Dufu-Analysis\display.txt';
-$collection_path = "h:\\github\\Dufu-Analysis\\詩集\\";
+//$outfile = 'h:\github\Dufu-Analysis\display.txt';
+//$collection_path = "h:\\github\\Dufu-Analysis\\詩集\\";
 
 /*
 test 1: given a page number, retrieve the title of a poem 
@@ -145,8 +145,12 @@ fclose( $fp );
 
 require_once( $collection_path . "0003坐標_字.php" );
 var_dump( $坐標_字 );
-*/
+
 
 require_once( "h:\\github\\Dufu-Analysis\\二字組合_坐標.php" );
 var_dump( $二字組合_坐標[ "石門" ] );
+*/
+require_once( 'normalized.php' );
+echo mb_strlen( trim( implode( explode( '。', $text ) ) ) );	
+
 ?>
