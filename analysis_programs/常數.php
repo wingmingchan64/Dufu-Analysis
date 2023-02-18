@@ -16,6 +16,7 @@ const 新行 = "\n";
 const 坐標開括號 = '〚';
 const 坐標關括號 = '〛';
 const 坐標括號 = "〚〛";
+const 夾注regex = '/\[\X+?]/';
 
 // php data files
 const 異體字 = 'h:\github\Dufu-Analysis\異體字.php';
