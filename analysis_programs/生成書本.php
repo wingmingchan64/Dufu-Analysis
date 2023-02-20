@@ -40,7 +40,7 @@ foreach( $頁碼 as $頁 )
 	require_once( 詩集文件夾 . "${頁}坐標_用字.php" );
 	// get the relevant section as an array
 	$text_array = getSection( $頁碼_路徑[ $頁 ], $簡稱 );
-	//echo $頁, "\n";
+	echo $頁, "\n";
 
 	// nothing to process
 	if( mb_strpos( implode( $text_array ), '【' ) === false )
