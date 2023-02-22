@@ -84,6 +84,7 @@ foreach( $頁碼 as $頁 )
 
 			//echo $頁, "\n";
 		
+			// 詩題
 			if( array_key_exists( "詩題", $$陣列名[ "版本" ] ) )
 			{
 				//echo $$陣列名[ "版本" ][ "詩題" ], "\n";
@@ -119,7 +120,8 @@ foreach( $頁碼 as $頁 )
 					$new_content = $new_content . "\n\n";
 				}
 			}
-
+			// 詩文
+			// 詩組
 			if( is_array( $$陣列名[ "版本" ][ "詩文" ] ) )
 			{
 				//echo $頁, "\n";
@@ -151,7 +153,7 @@ foreach( $頁碼 as $頁 )
 						$temp_storage[ "2516:5:" ] =
 							$$陣列名[ "版本" ][ "詩文" ][ 4 ];
 					}
-					
+										
 					if( $頁 == "1390" && $首 == 2 )
 					{
 						$new_content = $new_content .
@@ -169,6 +171,11 @@ foreach( $頁碼 as $頁 )
 						$new_content = $new_content .
 							trim( $詩 ) . "\n";
 					}
+					if( $頁 == "2591" )
+					{
+						$new_content = preg_replace( '/元年建巳月。\[是月代宗改元。復以建巳月爲四月。]官有王司直/', '元年建巳月。官有王司直', $new_content );
+					}
+
 				}
 				$new_content = $new_content . "\n";
 				
