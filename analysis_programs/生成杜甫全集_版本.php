@@ -58,6 +58,7 @@ foreach( $頁碼 as $頁 )
 	{
 		continue;
 	}
+	
 	//echo $頁, "\n";
 	$首 = 0;
 	$裸坐標 = "";
@@ -124,7 +125,6 @@ foreach( $頁碼 as $頁 )
 			// 詩組
 			if( is_array( $$陣列名[ "版本" ][ "詩文" ] ) )
 			{
-				//echo $頁, "\n";
 				//echo $首, "\n";
 				if( $首 != 0 )
 				{
@@ -166,8 +166,20 @@ foreach( $頁碼 as $頁 )
 				}
 				else
 				{
+					if( $頁 == "2516" )
+					{
+						//print_r( $内容[ "副題" ] );
+					}
+					$cur_index = 1;
+					
 					foreach( $$陣列名[ "版本" ][ "詩文" ] as $詩 )
 					{
+						if( $頁 == "2516" )
+						{
+							$new_content = $new_content .
+							$内容[ "副題" ][ "〚2516:{$cur_index}:〛" ] . "\n";
+							$cur_index++;
+						}
 						$new_content = $new_content .
 							trim( $詩 ) . "\n";
 					}
@@ -175,7 +187,6 @@ foreach( $頁碼 as $頁 )
 					{
 						$new_content = preg_replace( '/元年建巳月。\[是月代宗改元。復以建巳月爲四月。]官有王司直/', '元年建巳月。官有王司直', $new_content );
 					}
-
 				}
 				$new_content = $new_content . "\n";
 				
@@ -188,6 +199,8 @@ foreach( $頁碼 as $頁 )
 		}
 		elseif( $簡稱 == '=蕭' )
 		{
+			//echo $頁 . "\n";
+			
 			$new_content = $new_content . $頁 . ' ' .
 				trim( $内容[ "詩題" ] );
 			if( in_array( "題注", array_keys( $内容 ) ) )
