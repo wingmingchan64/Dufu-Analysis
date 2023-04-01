@@ -19,7 +19,6 @@ if( sizeof( $argv ) < 2 )
 
 $前綴 = trim( $argv[ 1 ] );
 $簡稱 = '=' . $前綴;
-
 $默認路徑 = 詩集文件夾;
 $默認文檔路徑 = "";
 
@@ -29,7 +28,6 @@ if( $簡稱 != '=默' )
 	$書名 = $書目簡稱[ $簡稱 ];
 	$outfile = 杜甫資料庫 . "${書名}\\杜甫全集.txt";
 	$outfile_clean = 杜甫資料庫 . "${書名}\\杜甫全集無夾注.txt";
-
 	$new_content = $書名 . "\n\n";
 	$版本路徑 = 杜甫資料庫 . "${書名}\\";
 }
@@ -113,6 +111,7 @@ foreach( $頁碼 as $頁 )
 							"\n";
 					}
 					$new_content = $new_content . $頁 . ' ' . trim( $内容[ "詩題" ] );
+					
 					if( in_array( "題注", array_keys( $内容 ) ) )
 					{
 						$new_content = $new_content .
@@ -120,6 +119,11 @@ foreach( $頁碼 as $頁 )
 					}
 					$new_content = $new_content . "\n\n";
 				}
+			}
+			if( in_array( "序言", array_keys( $$陣列名[ "版本" ] ) ) )
+			{
+				//echo $$陣列名[ "版本" ][ "序言" ], "\n";
+				$new_content = $new_content . $$陣列名[ "版本" ][ "序言" ] . "\n";
 			}
 			// 詩文
 			// 詩組
@@ -162,7 +166,6 @@ foreach( $頁碼 as $頁 )
 						$temp_storage[ "1376:4:" ] . "\n" .
 						$temp_storage[ "1376:5:" ] . "\n";
 					}
-					
 				}
 				else
 				{

@@ -241,6 +241,7 @@ $code = "<?php
 				{
 					$版本序言 = trim( normalize( mb_substr( 
 						$item, mb_strlen( '〖3〗' ) ) ) );
+					$内容 = $内容 . $版本序言 . "\n";
 					break;
 				}
 			}
