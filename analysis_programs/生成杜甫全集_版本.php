@@ -60,6 +60,7 @@ foreach( $頁碼 as $頁 )
 	//echo $頁, "\n";
 	$首 = 0;
 	$裸坐標 = "";
+	
 	if( mb_strpos( $頁, ":" ) )
 	{
 		$裸坐標 = $頁;
@@ -125,8 +126,22 @@ foreach( $頁碼 as $頁 )
 				//echo $$陣列名[ "版本" ][ "序言" ], "\n";
 				$new_content = $new_content . $$陣列名[ "版本" ][ "序言" ] . "\n";
 			}
+			
+			if( $頁 == "3955" )
+			{
+				$八哀詩副題 = array();
+				for( $i = 1; $i < 9; $i++)
+				{
+					array_push( $八哀詩副題,
+						substr(
+							$$陣列名[ "版本" ][ "坐標版本異文、夾注" ]
+								[ "〚$頁:$i:〛" ], 8 ) );
+				}
+				//print_r( $八哀詩副題 );
+				
+			}
 			// 詩文
-			// 詩組
+			// 詩組,
 			if( is_array( $$陣列名[ "版本" ][ "詩文" ] ) )
 			{
 				//echo $首, "\n";
@@ -175,6 +190,8 @@ foreach( $頁碼 as $頁 )
 					}
 					$cur_index = 1;
 					
+					$八_index = 0;
+					
 					foreach( $$陣列名[ "版本" ][ "詩文" ] as $詩 )
 					{
 						if( $頁 == "2516" )
@@ -182,6 +199,12 @@ foreach( $頁碼 as $頁 )
 							$new_content = $new_content .
 							$内容[ "副題" ][ "〚2516:{$cur_index}:〛" ] . "\n";
 							$cur_index++;
+						}
+						if( $頁 == "3955" )
+						{
+							$new_content = $new_content .
+								$八哀詩副題[ $八_index ] . "\n";
+							$八_index++;
 						}
 						$new_content = $new_content .
 							trim( $詩 ) . "\n";
