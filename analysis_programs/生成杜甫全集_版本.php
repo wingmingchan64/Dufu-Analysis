@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集_版本.php 蕭
+php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集_版本.php 蕭xu
 
 $簡稱 = '=蕭';
 $簡稱 = '=默';
@@ -140,6 +140,14 @@ foreach( $頁碼 as $頁 )
 				//print_r( $八哀詩副題 );
 				
 			}
+			if( $頁 == "4546" || $頁 == "4813" )
+			{
+				$new_content = $new_content . 
+					str_replace( "，", "。", 
+						str_replace( "、", "。",$内容[ "序言" ] ) ) .
+					"\n";
+			}
+			
 			// 詩文
 			// 詩組,
 			if( is_array( $$陣列名[ "版本" ][ "詩文" ] ) )
