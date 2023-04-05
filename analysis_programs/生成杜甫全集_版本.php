@@ -144,7 +144,7 @@ foreach( $頁碼 as $頁 )
 			{
 				$new_content = $new_content . 
 					str_replace( "，", "。", 
-						str_replace( "、", "。",$内容[ "序言" ] ) ) .
+						str_replace( "、", "。", $内容[ "序言" ] ) ) .
 					"\n";
 			}
 			

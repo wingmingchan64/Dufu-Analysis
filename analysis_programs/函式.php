@@ -232,16 +232,13 @@ function getPreface( string $path ) : string
 	$lines = explode( "\n", $text );
 	$preface_array = array();
 	
+	//echo $path, "\n";
+	
 	if( in_array( $path, $帶序文之詩歌 ) )
 	{
-/*
-		for( $i = 0; $i < sizeof( $preface_lines ); $i++ )
-		{
-			$preface_array[ $i ] = $lines[ $preface_lines[ $i ] - 1 ];
-		}
-*/
-		//$preface = implode( 新行, $preface_array );
+		//$preface = implode( 新行, $preface_array );pri
 		$preface = $lines[ 2 ];
+		//echo "preface ", $preface, "\n";
 	}
 	
 	return $preface;

@@ -147,6 +147,7 @@ if( is_dir ( 詩集文件夾 ) )
 		
 		//序言
 		$preface = getPreface( $page_path[ $p ] );
+		
 		if( $preface != '' )
 		{
 			$code = $code . "\n\"序言\"=>\"" . trim( $preface ) . "\",";
