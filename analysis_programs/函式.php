@@ -18,6 +18,34 @@ require_once( 杜甫資料庫 . '頁碼_詩題.php' );
 $path_for_file = '';
 $text_of_file  = '';
 
+// 比較兩段文字。如果字數不同，不比較。
+function compareText( string $text1, string $text2 ) : array
+{
+	$difference = array();
+	$text1 = normalize( $text1, true, true );
+	$text2 = normalize( $text2, true, true );
+	$len1 = mb_strlen( $text1 );
+	$len2 = mb_strlen( $text2 );
+	
+	if( $len1 != $len2 )
+	{
+		array_push( $difference, "字數不同，不能比較。" );
+	}
+	for( $i = 0; $i < $len1; $i++ )
+	{
+		$char1 = mb_substr( $text1, $i, 1 );
+		$char2 = mb_substr( $text2, $i, 1 );
+		
+		if( $char1 != $char2 )
+		{
+			$difference[ $i ] = array( $char1, $char2 );
+		}
+	}
+	
+	return $difference; // could be empty
+}
+
+
 // 提取題注（原注）
 // $file_path: h:\github\DuFu\01 卷一 3-270\0048 過宋員外之問舊莊.txt
 function getAnnotation( string $file_path ) : string
@@ -276,8 +304,18 @@ function getSection( string $path, string $prefix ) : array
 	return $text_array;
 }
 
-function normalize( string $text ) : string
+function normalize( string $text,
+	bool $removeSpace = false,
+	bool $removeNewline = false ) : string
 {
+	if( $removeSpace )
+	{
+		$text = str_replace( " ", "", $text );
+	}
+	if( $removeNewline )
+	{
+		$text = str_replace( "\n", "", $text );
+	}
 	$text = 
 		str_replace( "？", "。", // use 。
 		str_replace( "，", "。",
