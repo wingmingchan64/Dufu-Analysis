@@ -29,10 +29,10 @@
 <ul>
 <li>默認版本：<br />
 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86.txt">杜甫全集</a><br />
-這個版本是個以蕭滌非主編之《杜甫全集校注》爲底本，去掉夾注、簡體字、錯字、大部分的異體字以後所生成的乾淨版本。所有版本比較，均以此版本爲標準。<br />
+這個版本是個以蕭滌非主編之《杜甫全集校注》爲底本，去掉夾注、簡體字、錯字、大部分的異體字以後所生成的乾淨版本。所有版本比較，均以此版本爲對比標準。<br />
 按：默認版本包含《杜鵑行》（君不見）。
 </li>
-<li>蕭滌非主編《杜甫全集校注》（在校對中）：<br />
+<li>蕭滌非主編《杜甫全集校注》（完成一校）：<br />
 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%95%AD%E6%BB%8C%E9%9D%9E%E4%B8%BB%E7%B7%A8%E3%80%8A%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86%E6%A0%A1%E6%B3%A8%E3%80%8B/%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86.txt">杜甫全集</a><br />
 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%95%AD%E6%BB%8C%E9%9D%9E%E4%B8%BB%E7%B7%A8%E3%80%8A%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86%E6%A0%A1%E6%B3%A8%E3%80%8B/%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86%E7%84%A1%E5%A4%BE%E6%B3%A8.txt">杜甫全集無夾注</a><br />
 按：《杜鵑行》（君不見）此版本缺。
