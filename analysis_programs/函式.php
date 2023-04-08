@@ -30,6 +30,7 @@ function compareText( string $text1, string $text2 ) : array
 	if( $len1 != $len2 )
 	{
 		array_push( $difference, "字數不同，不能比較。" );
+		return $difference;
 	}
 	for( $i = 0; $i < $len1; $i++ )
 	{
