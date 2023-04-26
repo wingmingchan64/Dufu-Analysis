@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\生成版本差異.php 全
+php h:\github\Dufu-Analysis\analysis_programs\比較詩文.php
 */
 require_once( '常數.php' );
 require_once( '函式.php' );
