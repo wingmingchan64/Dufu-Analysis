@@ -12,7 +12,7 @@
 <p>我原來的打算是把生成的所有 PHP 程式都上傳到 github，可是最後把我的戶口擠爆了。現在，這裏只保留了資料庫文檔的一小部分。其實，會編程的朋友可以自己生成這些文檔，不會編程的朋友看了這些程式也是白搭，也只好這樣了。</p>
 <p><a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/_%E6%9%9C%E8%A9%A9%E8%B3%87%E6%96%99%E5%BA%AB%E6%96%87%E6%AA%94%E4%B8%80%E8%A6%BD.txt">杜詩資料庫文檔一覽</a></p>
 <p><a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/_exec.txt">_exec.txt</a>： 執行這些程式的順序</p>
-<p>剛試了一下，把《杜甫資料庫》（包含手編的、生成的所有PHP文檔）打了包，再上傳，沒問題。見 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E6%9D%9C%E7%94%AB%E8%B3%87%E6%96%99%E5%BA%AB.rar">杜甫資料庫.rar</a></p>
+<p>剛試了一下，把《杜甫資料庫》（包含手編的、生成的所有 PHP 文檔）打了包，再上傳，沒問題。見 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E6%9D%9C%E7%94%AB%E8%B3%87%E6%96%99%E5%BA%AB.rar">杜甫資料庫.rar</a></p>
 
 <h2>生成杜甫詩資料庫的 PHP 程式</h2>
 <p><a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/analysis_programs">analysis_programs</a></p>
