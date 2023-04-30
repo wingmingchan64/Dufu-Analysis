@@ -95,6 +95,9 @@ php h:\github\Dufu-Analysis\analysis_programs\生成版本差異.php 蕭
 php h:\github\Dufu-Analysis\analysis_programs\生成字典注釋.php
 
 
+php h:\github\Dufu-Analysis\analysis_programs\比較詩文.php
+
+
 https://gist.github.com/2ue/7deda3ee996a394ad2361580f58c0c45
 
 https://raw.githubusercontent.com/rime-aca/corpus/master/%E5%85%A8%E5%94%90%E8%A9%A9/%E5%8D%B7216-234%20%20%E6%9D%9C%E7%94%AB.txt
