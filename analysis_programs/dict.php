@@ -5531,6 +5531,7 @@ https://humanum.arts.cuhk.edu.hk/Lexis/lexi-can/
 "HUWML"=>"鼻（竹山田一中)",
 "HVHI"=>"魏（竹女竹戈)",
 "HVHU"=>"兜（竹女竹山)",
+"HUI"=>"鬼（竹山戈)", // 第五代倉頡
 "HVIF"=>"系（竹女戈火)",
 "HVIO"=>"瓜（竹女戈人)",
 "HVLW"=>"鼬（竹女中田)",
@@ -6226,6 +6227,7 @@ https://humanum.arts.cuhk.edu.hk/Lexis/lexi-can/
 "LMMM"=>"韭（中一一一)",
 "LMP"=>"北（中一心)",
 "LMPNL"=>"邶（中一心弓中)",
+"LMSY"=>"非（中一尸卜)", // 第五代倉頡 
 "LMUO"=>"兆（中一山人)",
 "LMUOC"=>"頫（中一山人金)",
 "LMUOU"=>"覜（中一山人山)",
@@ -6421,6 +6423,7 @@ https://humanum.arts.cuhk.edu.hk/Lexis/lexi-can/
 "MGYRV"=>"瓖（一土卜口女)",
 "MGYTJ"=>"璋（一土卜廿十)",
 "MGYUB"=>"璃（一土卜山月)",
+"MH"=>"厂（一竹)",
 "MHAF"=>"原（一竹日火)",
 "MHHAF"=>"鴉（一竹竹日火)",
 "MHNL"=>"邪（一竹弓中)",
@@ -6604,6 +6607,7 @@ https://humanum.arts.cuhk.edu.hk/Lexis/lexi-can/
 "MWOMD"=>"酴（一田人一木)",
 "MWPI"=>"酌（一田心戈)",
 "MWRRK"=>"釅（一田口口大)",
+"MWSL"=>"面（一田尸中)", // 第五代倉頡
 "MWSU"=>"配（一田尸山)",
 "MWTA"=>"醋（一田廿日)",
 "MWTM"=>"酣（一田廿一)",
@@ -6806,7 +6810,7 @@ https://humanum.arts.cuhk.edu.hk/Lexis/lexi-can/
 "OANB"=>"僩（人日弓月)",
 "OB"=>"內（人月)",
 "OBCN"=>"側（人月金弓)",
-"OBG"=>"隺（人月土)"
+"OBG"=>"隺（人月土)",
 "OBMC"=>"俱（人月一金)",
 "OBND"=>"俘（人月弓木)",
 "OBO"=>"肉（人月人)",
@@ -7044,6 +7048,7 @@ https://humanum.arts.cuhk.edu.hk/Lexis/lexi-can/
 "OOMO"=>"儉（人人一人)",
 "OOOJ"=>"傘（人人人十)",
 "OOOK"=>"斂（人人人大)",
+"OOS"=>"作（人人尸)", // 第五代倉頡
 "OOWY"=>"侮（人人田卜)",
 "OP"=>"化（人心)",
 "OPBUC"=>"貸（人心月山金)",
@@ -7070,6 +7075,7 @@ https://humanum.arts.cuhk.edu.hk/Lexis/lexi-can/
 "ORNIN"=>"舒（人口弓戈弓)",
 "ORNL"=>"郃（人口弓中)",
 "ORRK"=>"儼（人口口大)",
+"ORSE"=>"假（人口尸水)", // 第五代倉頡
 "ORUC"=>"僎（人口山金)",
 "ORYE"=>"假（人口卜水)",
 "ORYO"=>"促（人口卜人)",
@@ -8164,6 +8170,7 @@ https://humanum.arts.cuhk.edu.hk/Lexis/lexi-can/
 "TMFF"=>"蒜（廿一火火)",
 "TMGF"=>"蘸（廿一土火)",
 "TMKS"=>"勤（廿一大尸)",
+"TMLC"=>"黃（廿一中金)", // 第五代倉頡
 "TMMC"=>"其（廿一一金)",
 "TMMI"=>"芸（廿一一戈)",
 "TMMV"=>"甚（廿一一女)",
