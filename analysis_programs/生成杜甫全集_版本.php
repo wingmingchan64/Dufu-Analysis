@@ -140,7 +140,7 @@ foreach( $頁碼 as $頁 )
 				//print_r( $八哀詩副題 );
 				
 			}
-			if( $頁 == "4546" || $頁 == "4813" )
+			if( $頁 == "4813" )
 			{
 				$new_content = $new_content . 
 					str_replace( "，", "。", 
