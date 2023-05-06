@@ -140,6 +140,7 @@ foreach( $頁碼 as $頁 )
 				//print_r( $八哀詩副題 );
 				
 			}
+			/*
 			if( $頁 == "4813" )
 			{
 				$new_content = $new_content . 
@@ -147,6 +148,7 @@ foreach( $頁碼 as $頁 )
 						str_replace( "、", "。", $内容[ "序言" ] ) ) .
 					"\n";
 			}
+			*/
 			
 			// 詩文
 			// 詩組,
@@ -265,9 +267,18 @@ foreach( $頁碼 as $頁 )
 $msg = file_get_contents( 'msg.txt', true );
 if( $簡稱 != '=默' )
 {
+	if( $簡稱 == "=全" )
+	{
+		// 刪除四句
+		$new_content = str_replace(
+			"再扈祠壇墠。前後百卷文。枕藉皆禁臠。篆刻揚雄流。", "", $new_content );
+		$new_content = str_replace( "++", "", $new_content );
+	}
+
 	file_put_contents( $outfile, $new_content . $msg );
 	file_put_contents( "h:\\github\\Dufu-Analysis\\" . $書目簡稱[ $簡稱 ] . "\\杜甫全集.txt", $new_content . $msg );
 }
+// 默認
 else
 {
 	file_put_contents( "h:\\github\\Dufu-Analysis\\杜甫全集.txt", $new_content . $msg );

@@ -321,10 +321,17 @@ $code = "<?php
 			$詞條 = $parts[ 0 ];
 			$詞條長度 = mb_strlen( $詞條 );
 			$詞條坐標 = "";
-
+/*
 			if( $詞條 == 1 ) //〖1〗題解
 			{
 				$詞條坐標 = "〚${頁}:1〛";
+				$注釋 = $parts[ 1 ];
+			}
+*/
+			if( intval( $詞條 ) > 0 )
+			{
+				//echo $頁, "\n";
+				$詞條坐標 = "〚${頁}:${詞條}〛";
 				$注釋 = $parts[ 1 ];
 			}
 			elseif( $詞條長度 == 1 ) // 單字
@@ -420,7 +427,14 @@ $code = "<?php
 	}
 
 	$code = $code . "\n);\n?>";
-	
+/*
+	if( $簡稱 == "=全" )
+	{
+		// 刪除四句
+		$code = str_replace(
+			"再扈祠壇墠。前後百卷文。枕藉皆禁臠。篆刻揚雄流。", "", $code );
+	}
+*/	
 	//echo $code;
 	//echo $out_path . "$頁.php", "\n";
 	file_put_contents( $out_path . "$頁.php", $code );
