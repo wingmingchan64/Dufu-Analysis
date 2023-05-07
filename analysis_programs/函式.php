@@ -19,17 +19,19 @@ $path_for_file = '';
 $text_of_file  = '';
 
 // 比較兩段文字。如果字數不同，不比較。
-function compareText( string $text1, string $text2 ) : array
+function compareText( string $text1, string $text2, bool $removePunctuation = false ) : array
 {
 	$difference = array();
-	$text1 = normalize( $text1, true, true );
-	$text2 = normalize( $text2, true, true );
+	$text1 = normalize( $text1, true, true, $removePunctuation );
+	$text2 = normalize( $text2, true, true, $removePunctuation );
 	$len1 = mb_strlen( $text1 );
 	$len2 = mb_strlen( $text2 );
 	
 	if( $len1 != $len2 )
 	{
-		array_push( $difference, "字數不同，不能比較。" );
+		array_push( $difference, "${len1}，${len2}，字數不同，不能比較。" );
+		echo $text1, "\n";
+		echo $text2, "\n";
 		return $difference;
 	}
 	for( $i = 0; $i < $len1; $i++ )
@@ -307,7 +309,8 @@ function getSection( string $path, string $prefix ) : array
 
 function normalize( string $text,
 	bool $removeSpace = false,
-	bool $removeNewline = false ) : string
+	bool $removeNewline = false,
+	bool $removePunctuation = false ) : string
 {
 	if( $removeSpace )
 	{
@@ -326,6 +329,14 @@ function normalize( string $text,
 		str_replace( "、", "。",
 		str_replace( "《", "",   // remove these
 		str_replace( "》", "",
+		str_replace( "〈", "",
+		str_replace( "〉", "",
+		str_replace( "「", "",
+		str_replace( "」", "",
+		str_replace( "『", "",
+		str_replace( "』", "",
+		str_replace( "·", "",
+		str_replace( "　", "",
 		str_replace( "其一", "",
 		str_replace( "其二", "",
 		str_replace( "其三", "",
@@ -346,9 +357,14 @@ function normalize( string $text,
 		str_replace( "其十八", "",
 		str_replace( "其十九", "",
 		str_replace( "其二十", "", $text
-		))))))))))))))))))))))))))));  
+		))))))))))))))))))))))))))))))))))));  
 	$text = preg_replace( '/[\d]+ [\P{M}]+?\n/', "", $text );
 	$text = preg_replace( '/[\s]+/', "", $text );
+	
+	if( $removePunctuation )
+	{
+		$text = str_replace( "。", "", $text );
+	}
 
 	return $text;
 }
