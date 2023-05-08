@@ -6,6 +6,7 @@ require_once( 'h:\github\Dufu-Analysis\書目簡稱.php' );
 
 $簡稱   = '=譯';
 $簡稱   = '=今';
+$簡稱   = '=仇';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $詞條s = array();
