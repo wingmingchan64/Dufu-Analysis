@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\生成字典注釋.php 今 注釋
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 今 注釋
 
 */
 require_once( '常數.php' );
@@ -14,29 +14,35 @@ if( sizeof( $argv ) < 3 )
 	exit;
 }
 
-$簡稱 = '=' . $argv[ 1 ];
-$種類 = $argv[ 2 ];
-/*
-$簡稱   = '=譯';
-$簡稱   = '=今';
-$種類   = '大意';
-$種類   = '注釋';
-*/
+$前綴 = trim( $argv[ 1 ] );
+$簡稱 = '=' . $前綴;
+$種類 = trim( $argv[ 2 ] );
+$陣列名 = "${前綴}内容";
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path = 杜甫資料庫 . "${文件夾}\\";
-$code = "<?php\n\$${書目簡稱[ $簡稱 ]}${種類}=array(\n";
+$code = "<?php\n
+/*
+生成：本文檔用 PHP 生成。
+程式：生成書本注釋.php
+說明：把${種類}集中在一個文檔裏。
+*/
+\$${書目簡稱[ $簡稱 ]}${種類}=array(\n";
 
 foreach( $頁碼 as $頁 )
 {
 	$頁路徑 = $out_path . "${頁}.php";
+	//echo $頁路徑, "\n";
 
 	if( file_exists( $頁路徑 ) )
 	{
 		require_once( $頁路徑 );
+		//print_r( $$陣列名 );
 		
-		if( array_key_exists( $種類, $内容 ) )
+		
+		if( array_key_exists( $種類, $$陣列名 ) )
 		{
-			foreach( $内容[ $種類 ] as $坐標 => $内容 )
+			//echo $頁, "\n";
+			foreach( $$陣列名[ $種類 ] as $坐標 => $内容 )
 			{
 				$坐標 = 生成完整坐標( $坐標, $頁 );
 				$内容 = trim( $内容 );
@@ -48,5 +54,6 @@ foreach( $頁碼 as $頁 )
 }
 
 $code = $code . ");\n?>";
-file_put_contents( $out_path . "${書目簡稱[ $簡稱 ]}${種類}.php", $code );
+file_put_contents( $out_path . "${書目簡稱[ $簡稱 ]}${種類}.php", 
+	$code );
 ?>
