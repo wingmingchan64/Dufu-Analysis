@@ -48,6 +48,14 @@ if( $簡稱 == '=全' )
 
 foreach( $頁碼 as $頁 )
 {
+	// 全唐詩
+	if( $頁 == "6497" )
+	{
+		continue;
+	}
+	// a hidden char
+	$頁 = str_replace( '﻿', '', $頁 );
+	echo $頁, "\n";
 	if( $頁 == "" )
 	{
 		continue;

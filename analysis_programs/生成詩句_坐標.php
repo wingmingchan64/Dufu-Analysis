@@ -18,6 +18,8 @@ $code2 = "<?php
 說明：詩句=>坐標。
 */
 \$詩句_坐標=array(\n";
+	// 同一句可以出現在不同詩中
+	$句坐 = array();
 
 	foreach( $頁碼 as $p )
 	{
@@ -26,10 +28,41 @@ $code2 = "<?php
 		foreach( $内容[ "坐標_句" ] as $坐 => $句 )
 		{
 			$code1 = $code1 . "\"${坐}\"=>\"${句}\",\n";
-			$code2 = $code2 . "\"${句}\"=>\"${坐}\",\n";
+			if( !array_key_exists( $句, $句坐 ) )
+			{
+				$句坐[ $句 ] = $坐;
+			}
+			else
+			{
+				if( !is_array( $句坐[ $句 ] ) )
+				{
+					$句坐[ $句 ] = array( $句坐[ $句 ], $坐 );
+				}
+				else
+				{
+					array_push( $句坐[ $句 ], $坐 );
+				}
+			}
+			//$code2 = $code2 . "\"${句}\"=>\"${坐}\",\n";
 		}
 	}
 	
+	foreach( $句坐 as $句 => $坐 )
+	{
+		if( !is_array( $坐 ) )
+		{
+			$code2 = $code2 . "\"${句}\"=>\"${坐}\",\n";
+		}
+		else
+		{
+			$code2 = $code2 . "\"${句}\"=>array(";
+			foreach( $坐 as $coor )
+			{
+				$code2 = $code2 . "\"" . $coor . "\",";
+			}
+			$code2 = $code2 . "),\n";
+		}
+	}
 	// truncate last ,\n
 	$code1 = substr( $code1, 0, -2 );
 	$code2 = substr( $code2, 0, -2 );
