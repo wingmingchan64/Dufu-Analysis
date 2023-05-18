@@ -53,9 +53,10 @@ foreach( $頁碼 as $頁 )
 	{
 		continue;
 	}
+
 	// a hidden char
 	$頁 = str_replace( '﻿', '', $頁 );
-	echo $頁, "\n";
+	//echo $頁, "\n";
 	if( $頁 == "" )
 	{
 		continue;
@@ -82,6 +83,7 @@ foreach( $頁碼 as $頁 )
 	$默認文檔路徑 = $默認路徑 . $頁 . ".php";
 	require_once( $默認文檔路徑 );
 	
+	// 默認版本以外的其他版本
 	if( $簡稱 != '=默' )
 	{
 		$版本文檔路徑 = $版本路徑 . $頁 . '.php';
@@ -104,11 +106,31 @@ foreach( $頁碼 as $頁 )
 				if( $簡稱 == '=全' &&
 					$裸坐標 != "" )
 				{
-					if( $全目錄[ $裸坐標 ][ 0 ] != "" )
+					if( $全目錄[ $裸坐標 ][ 0 ] != "" && $頁 != "0062" )
 					{
 						$new_content = $new_content .
 							$全目錄[ $裸坐標 ][ 0 ] .
 							"\n\n";
+					}
+					
+					if( $頁 == "0062" )
+					{
+						if( $首 == 1 )
+						{
+							$new_content = $new_content . "0062 " .
+								str_replace( '〖1:1〗', '', $$陣列名[ "版本" ][ "坐標版本異文、夾注" ]
+									[ '〚0062:1:1〛' ] ) . "\n\n" .
+								$$陣列名[ "版本" ][ "詩文" ][ 0 ] . "\n\n";
+							$temp_storage[ '〚0062:2:〛' ] = "0062 " .
+								str_replace( '〖2:1〗', '', $$陣列名[ "版本" ][ "坐標版本異文、夾注" ]
+									[ '〚0062:2:1〛' ] ) . "\n\n" .
+								$$陣列名[ "版本" ][ "詩文" ][ 1 ] . "\n\n";
+						}
+						elseif( $首 == 2 )
+						{
+							$new_content = $new_content . $temp_storage[ '〚0062:2:〛' ] . "\n";
+						}
+						continue;
 					}
 				}
 				else
@@ -265,18 +287,37 @@ foreach( $頁碼 as $頁 )
 				$内容[ "詩文" ] . "\n\n";
 		}
 	}
+	// 默認版本
 	else
 	{
 		$new_content = $new_content . $頁 . ' ' .
 			trim( $内容[ "詩題" ] );
+			
 		if( in_array( "題注", array_keys( $内容 ) ) )
 		{
 			$new_content = $new_content .
 				'[' . $内容[ "題注" ] . ']';
 		}
+		
 		$new_content = $new_content . "\n\n";
-		$new_content = $new_content . 
-			$内容[ "詩文" ] . "\n\n";
+		
+		if( array_key_exists( "詩歌", $内容 ) )
+		{
+			$副題_詩句 = $内容[ "詩歌" ];
+			
+			foreach( $副題_詩句 as $副題 => $詩句 )
+			{
+				$詩文 = normalize( implode( $詩句 ) );
+				$new_content = $new_content . $詩文 . "\n";
+			}
+			
+			$new_content = $new_content . "\n";
+		}
+		else
+		{
+			$new_content = $new_content . 
+				$内容[ "詩文" ] . "\n\n";
+		}
 	}
 }
 // add msg and write to files

@@ -111,6 +111,8 @@ if( is_dir ( 詩集文件夾 ) )
 		}
 		
 		$poem  = getPoem( $page_path[ $p ] );
+		
+		
 		$normalized_text .= $poem;
 		// 句
 		$lines = explode( '。', $poem );

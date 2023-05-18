@@ -34,6 +34,7 @@ foreach( $頁碼 as $頁 )
 		
 		foreach( $粵内容[ "韻部" ] as $坐標 => $字_韻部 )
 		{
+			// ：, unicode, not ascii
 			$字_韻陣列 = explode( '：', $字_韻部 );
 			echo $頁, "\n";
 			print_r( $字_韻陣列 );
