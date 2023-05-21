@@ -320,8 +320,22 @@ foreach( $頁碼 as $頁 )
 		}
 	}
 }
+
+$全唐詩異體字 = array(
+	'溼'=>'濕',
+);
 // add msg and write to files
+if( $簡稱 != '=默' && file_exists( $版本路徑 . '說明.txt' ) )
+{
+	$說明 = file_get_contents( $版本路徑 . '說明.txt', true );;
+}
+else
+{
+	$說明 = '';
+}
+
 $msg = file_get_contents( 'msg.txt', true );
+
 if( $簡稱 != '=默' )
 {
 	if( $簡稱 == "=全" )
@@ -330,26 +344,31 @@ if( $簡稱 != '=默' )
 		$new_content = str_replace(
 			"再扈祠壇墠。前後百卷文。枕藉皆禁臠。篆刻揚雄流。", "", $new_content );
 		$new_content = str_replace( "++", "", $new_content );
+		
+		foreach( $全唐詩異體字 as $異體字 => $標準字 )
+		{
+			$new_content = str_replace( $異體字, $標準字, $new_content );
+		}
 	}
 
-	file_put_contents( $outfile, $new_content . $msg );
+	file_put_contents( $outfile, $說明 . $new_content . $msg );
 	file_put_contents( "h:\\github\\Dufu-Analysis\\" . $書目簡稱[ $簡稱 ] . "\\杜甫全集.txt", $new_content . $msg );
 }
 // 默認
 else
 {
-	file_put_contents( "h:\\github\\Dufu-Analysis\\杜甫全集.txt", $new_content . $msg );
+	file_put_contents( "h:\\github\\Dufu-Analysis\\杜甫全集.txt", $說明 . $new_content . $msg );
 }
 
 $cleaned_text = 
 	preg_replace( '/\[\X+?]/', '', $new_content );
-file_put_contents( $outfile_clean, $cleaned_text . $msg );
+file_put_contents( $outfile_clean, $說明 . $cleaned_text . $msg );
 if( $簡稱 != '=默' )
 {
-	file_put_contents( "h:\\github\\Dufu-Analysis\\" . $書目簡稱[ $簡稱 ] . "\\杜甫全集無夾注.txt", $cleaned_text . $msg );
+	file_put_contents( "h:\\github\\Dufu-Analysis\\" . $書目簡稱[ $簡稱 ] . "\\杜甫全集無夾注.txt", $說明 . $cleaned_text . $msg );
 }
 else
 {
-	file_put_contents( "h:\\github\\Dufu-Analysis\\杜甫全集無夾注.txt", $cleaned_text . $msg );
+	file_put_contents( "h:\\github\\Dufu-Analysis\\杜甫全集無夾注.txt", $說明 . $cleaned_text . $msg );
 }
 ?>
