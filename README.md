@@ -53,7 +53,7 @@
 <li>我也可以同時列出某首詩的不同版本</li>
 <li>網上提供的絕不是這些有選擇性的、有目的性的資料</li>
 </ul>
-<p>例子：</p>
+<p>例子：列出《杜詩詳註》及《讀杜心解》關於《望嶽》一詩的評論</p>
 <pre>
 // php h:\github\Dufu-Analysis\analysis_programs\搜索程式\搜索詩文評論.php 0003 仇,浦
 foreach( $簡稱s as $簡稱 )
