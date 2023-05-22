@@ -78,7 +78,7 @@ print_r( $result );
 </pre>
 <p>例子二：列出《杜詩詳註》、《讀杜心解》、《杜詩全集（今注本）》對“能吏逢聯璧”的解釋</p>
 <pre>php h:\github\Dufu-Analysis\analysis_programs\搜索程式\搜索詩文注釋.php 能吏逢聯璧 仇,浦,今</pre>
-<p>結果：</p>d
+<p>結果：</p>
 <pre>
 [仇] => Array
 (
