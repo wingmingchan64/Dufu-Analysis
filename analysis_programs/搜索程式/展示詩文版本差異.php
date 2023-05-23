@@ -44,9 +44,9 @@ if( array_key_exists( "=${簡稱1}", $書目簡稱 ) &&
 	foreach( $result as $pos => $chars )
 	{
 		$詩文1 = str_replace( $chars[ 0 ], 
-			'<style color="#ff2222">' . $chars[ 0 ] . '</style>', $詩文1 );
+			'<span class="red">' . $chars[ 0 ] . '</span>', $詩文1 );
 		$詩文2 = str_replace( $chars[ 1 ],  
-			'<style color="#22ff22">' . $chars[ 1 ] . '</style>', $詩文2 );
+			'<span class="green">' . $chars[ 1 ] . '</span>', $詩文2 );
 	}
 	echo $詩文1, "\n";
 	echo $詩文2, "\n";
