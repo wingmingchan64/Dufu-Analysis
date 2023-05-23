@@ -80,6 +80,14 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\搜索詩文評論.ph
   [1] => 聯璧：本指并列的美玉，常比喻兩者可相媲美。
 )
 </pre>
+<p>例子三：列出《杜甫全集校注》、《杜詩詳註》兩個版本關於《望嶽》一詩的異同</p>
+<pre>php h:\github\Dufu-Analysis\analysis_programs\搜索程式\展示詩文版本差異.php
+0003 蕭,仇</pre>
+<p>結果：</p>
+<pre>
+岱宗夫如何。齊魯青未了。造化鍾神秀。陰陽割昏曉。盪胸生曾雲。<style color="#ff2222">決</style>眥入歸鳥。<style color="#ff2222">會</style>當凌絶頂。一覽衆山小。
+岱宗夫如何。齊魯青未了。造化鍾神秀。陰陽割昏曉。盪胸生曾雲。<style color="#22ff22">决</style>眥入歸鳥。<style color="#22ff22">㑹</style>當凌絶頂。一覽衆山小。
+</pre>
 
 <h2>未來的計劃</h2>
 <ul>
