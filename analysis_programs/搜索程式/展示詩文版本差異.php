@@ -44,9 +44,9 @@ if( array_key_exists( "=${簡稱1}", $書目簡稱 ) &&
 	foreach( $result as $pos => $chars )
 	{
 		$詩文1 = str_replace( $chars[ 0 ], 
-			'🔻' . $chars[ 0 ], $詩文1 );
+			'🔴' . $chars[ 0 ], $詩文1 );
 		$詩文2 = str_replace( $chars[ 1 ],  
-			'🔻' . $chars[ 1 ] , $詩文2 );
+			'🔴' . $chars[ 1 ] , $詩文2 );
 	}
 	echo $書目簡稱[ "=${簡稱1}" ], "\n";
 	echo $詩文1, "\n\n";
