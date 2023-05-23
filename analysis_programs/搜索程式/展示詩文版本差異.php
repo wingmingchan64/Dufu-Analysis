@@ -44,11 +44,13 @@ if( array_key_exists( "=${簡稱1}", $書目簡稱 ) &&
 	foreach( $result as $pos => $chars )
 	{
 		$詩文1 = str_replace( $chars[ 0 ], 
-			'<span class="red">' . $chars[ 0 ] . '</span>', $詩文1 );
+			'🍄' . $chars[ 0 ], $詩文1 );
 		$詩文2 = str_replace( $chars[ 1 ],  
-			'<span class="green">' . $chars[ 1 ] . '</span>', $詩文2 );
+			'🍄' . $chars[ 1 ] , $詩文2 );
 	}
+	echo $書目簡稱[ "=${簡稱1}" ], "\n";
 	echo $詩文1, "\n";
+	echo $書目簡稱[ "=${簡稱2}" ], "\n";
 	echo $詩文2, "\n";
 }
 
