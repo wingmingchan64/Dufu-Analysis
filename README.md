@@ -80,7 +80,7 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\搜索詩文評論.ph
   [1] => 聯璧：本指并列的美玉，常比喻兩者可相媲美。
 )
 </pre>
-<p>例子三：列出《杜甫全集校注》、《杜詩詳註》兩個版本關於《望嶽》一詩的異同</p>
+<p>例子三：列出《杜甫全集校注》、《杜詩詳註》兩個版本關於《望嶽》一詩的異同（<a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/analysis_programs/%E6%90%9C%E7%B4%A2%E7%A8%8B%E5%BC%8F/%E5%B1%95%E7%A4%BA%E8%A9%A9%E6%96%87%E7%89%88%E6%9C%AC%E5%B7%AE%E7%95%B0.php">展示詩文版本差異.php</a>）</p>
 <pre>php h:\github\Dufu-Analysis\analysis_programs\搜索程式\展示詩文版本差異.php
 0003 蕭,仇</pre>
 <p>結果：</p>
