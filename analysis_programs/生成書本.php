@@ -33,6 +33,9 @@ $簡稱   = '=蕭';
 
 $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = 杜甫資料庫 . "${文件夾}\\";
+$注音_詩句 = array();
+$詩句_注音 = array();
+$count = 0;
 
 //$頁 = "0167";
 foreach( $頁碼 as $頁 )
@@ -144,9 +147,13 @@ $code = "<?php
 					// 詩文 preceding pronunciation
 					$文 = normalize( $音_陣列[ $i-1 ] );
 					$parts[ $文 ] = array( $音_陣列[ $i ] );
+					
+					$音s = explode( ',', $音_陣列[ $i ] );
+					$句s = explode( '。', $文 );
 				
 					$sub_code = $sub_code .
 						"\n\"${文}\"=>array(\"${音_陣列[ $i ]}\",";
+					
 					// containing 平仄
 					if( $i + 1 < sizeof( $音_陣列 ) &&
 						( mb_strpos( $音_陣列[ $i+1 ], "平" ) !== false ) &&
@@ -159,6 +166,22 @@ $code = "<?php
 						$sub_code = substr( $sub_code, 0, -1 );
 						$sub_code = $sub_code . "),";
 					}
+					
+					$音 = trim( $音s[ 0 ] );
+					$注音_詩句[ $音 ] = $句s[ 0 ];
+					$詩句_注音[ $句s[ 0 ] ] = $音;
+					$count++;
+					$sub_code = $sub_code .
+						"\n\"${句s[ 0 ]}\"=>\"${音}\",";
+					if( sizeof( $音s ) > 1 )
+					{
+						$音 = trim( $音s[ 1 ] );
+						$sub_code = $sub_code .
+							"\n\"${句s[ 1 ]}\"=>\"${音}\",";
+						$注音_詩句[ $音 ] = $句s[ 1 ];
+						$詩句_注音[ $句s[ 1 ] ] = $音;
+						$count++;
+					}
 				}
 			
 			}
@@ -167,6 +190,12 @@ $code = "<?php
 			$sub_code = $sub_code . "),\n";
 			$内容 = $sub_code;
 			$字音 = array(); // store 字 and its 音
+			
+// break out of 北征
+if ( $頁 == '0943' )
+{
+	break;
+}
 		
 			foreach( $parts as $行 => $行音 )
 			{
@@ -180,7 +209,7 @@ $code = "<?php
 					{
 						$字音[ mb_substr( $行, $i, 1 ) ] = array();
 					}
-					//echo $頁, "\n";
+						
 					if( !in_array( 
 						$行音陣列[ $i ], 
 						$字音[ mb_substr( $行, $i, 1 ) ] ) )
@@ -448,4 +477,25 @@ $code = "<?php
 	//echo $out_path . "$頁.php", "\n";
 	file_put_contents( $out_path . "$頁.php", $code );
 }
+
+if( sizeof( $注音_詩句 ) > 1 )
+{
+	ksort( $注音_詩句 );
+	$code1 = "<?php
+\$注音_詩句=array(\n";
+	$code2 = "<?php
+\$詩句_注音=array(\n";
+
+	foreach( $注音_詩句 as $注音 => $詩句 )
+	{
+		$code1 = $code1 . "\"${注音}\"=>\"${詩句}\",\n";
+		$code2 = $code2 . "\"${詩句}\"=>\"${注音}\",\n";
+	}
+	$code1 = $code1 . ");\n?>";
+	$code2 = $code2 . ");\n?>";
+	file_put_contents( $out_path . "注音_詩句.php", $code1 );
+	file_put_contents( $out_path . "詩句_注音.php", $code2 );
+}
+	
+//echo sizeof( $注音_詩句 ), " ", $count, "\n";
 ?>

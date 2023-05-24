@@ -672,4 +672,53 @@ function 提取〖詩文〗坐標( string $〖詩文〗, string $頁 ) : string
 	
 	return $空坐標;
 }
+
+function containsPronunciation( string $haystack, string $needle ) : bool
+{
+	if( strpos( $haystack, '/' ) === false )
+	{
+		if( $haystack == $needle || // identical
+			strpos( $haystack, $needle ) !== false ) // proper subset
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else
+	{
+		$hs = explode( ' ', $haystack );
+		$temp = array( array(), array() );
+		
+		foreach( $hs as $h )
+		{
+			if( strpos( $h, '/' ) === false )
+			{
+				array_push( $temp[ 0 ], $h );
+				array_push( $temp[ 1 ], $h );
+			}
+			else
+			{
+				$ps = explode( '/', $h );
+				array_push( $temp[ 0 ], $ps[ 0 ] );
+				array_push( $temp[ 1 ], $ps[ 1 ] );
+			}
+		}
+		$h1 = implode( ' ', $temp[ 0 ] );
+		$h2 = implode( ' ', $temp[ 1 ] );
+		
+		if( containsPronunciation( $h1, $needle ) ||
+			containsPronunciation( $h2, $needle ) )
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+}
 ?>
