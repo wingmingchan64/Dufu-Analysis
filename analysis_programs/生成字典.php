@@ -55,12 +55,28 @@ foreach( $部首_用字 as $部首 => $用字陣列 )
 				if( mb_substr( $詩句, $i, 1 ) == $用字 )
 				{
 					$count++;
-					$字coor = trim( $coor );
-					$字coor = trim( $字coor, '〚〛' );
-					$字coor = $字coor . '.' . $i+1 ;
-					$code = $code . 
-						"\"〚" . $字coor . "〛\",\n";
-					array_push( $字坐標s, $字coor );
+					if( is_string( $coor ) )
+					{
+						$字coor = trim( $coor );
+						$字coor = trim( $字coor, '〚〛' );
+						$字coor = $字coor . '.' . $i+1 ;
+						$code = $code . 
+							"\"〚" . $字coor . "〛\",\n";
+						array_push( $字坐標s, $字coor );
+					}
+					// 同一句詩可以出現兩次
+					elseif( is_array( $coor ) )
+					{
+						foreach( $coor as $字coor )
+						{
+							$字coor = trim( $字coor );
+							$字coor = trim( $字coor, '〚〛' );
+							$字coor = $字coor . '.' . $i+1 ;
+							$code = $code . 
+								"\"〚" . $字coor . "〛\",\n";
+							array_push( $字坐標s, $字coor );
+						}
+					}
 				}
 			}
 			if( $instance > 1 )

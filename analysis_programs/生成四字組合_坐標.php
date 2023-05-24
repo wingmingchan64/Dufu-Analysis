@@ -14,7 +14,10 @@ foreach( $詩句_坐標 as $詩句 => $坐標 )
 	{
 		$組合 = mb_substr( $詩句, $count, 4 );
 		
-		$坐   = trim( $坐標, 坐標括號 );
+		if( is_string( $坐標 ) )
+		{
+			$坐 = trim( $坐標, 坐標括號 );
+		}
 		
 		if( !array_key_exists( $組合, $四字組合_坐標陣列 ) )
 		{
@@ -25,6 +28,16 @@ foreach( $詩句_坐標 as $詩句 => $坐標 )
 			$count+1 . '-' . $count+4 . 坐標關括號;
 		array_push( $四字組合_坐標陣列[ $組合 ], $coor );
 		
+		if( is_array( $坐標 ) )
+		{
+			foreach( $坐標 as $坐 )
+			{
+				$坐 = trim( $坐, 坐標括號 );
+				$coor = 坐標開括號 . $坐 . '.' . 
+					$count+1 . '-' . $count+4 . 坐標關括號;
+				array_push( $四字組合_坐標陣列[ $組合 ], $coor );
+			}
+		}
 		$count++;
 	}
 }

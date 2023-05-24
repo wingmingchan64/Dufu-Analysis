@@ -93,7 +93,10 @@ foreach( $頁碼 as $頁 )
 			require_once( $版本文檔路徑 );
 
 			//echo $頁, "\n";
-		
+if( $頁 == "3466" )
+{
+	break;
+}
 			// 詩題
 			if( array_key_exists( "詩題", $$陣列名[ "版本" ] ) )
 			{
