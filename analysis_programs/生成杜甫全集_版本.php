@@ -76,7 +76,9 @@ foreach( $頁碼 as $頁 )
 		$碼s = explode( ":", $頁 );
 		$頁 = trim( $碼s[ 0 ] );
 		$首 = intval( trim( $碼s[ 1 ], ":" ) );
-		//echo $頁, "\n";
+		
+		//if( $頁 == "2516" )
+			//echo $頁, "\n";
 		//echo $首, "\n";
 		//continue;
 	}
@@ -101,19 +103,34 @@ if( $頁 == "3466" )
 			if( array_key_exists( "詩題", $$陣列名[ "版本" ] ) )
 			{
 				//echo $$陣列名[ "版本" ][ "詩題" ], "\n";
-				$new_content = $new_content . $頁 . ' ' .
-					trim( $$陣列名[ "版本" ][ "詩題" ] ) . "\n\n";
+//if( $頁 == "2516" )
+	//echo "2516\n";
+				if( $頁 != "2530" || $裸坐標 == "2530:2:" )
+				{
+					$new_content = $new_content . $頁 . ' ' .
+						trim( $$陣列名[ "版本" ][ "詩題" ] ) . "\n\n";
+				}
 			}
 			else
-			{
+			{				
 				if( $簡稱 == '=全' &&
 					$裸坐標 != "" )
 				{
 					if( $全目錄[ $裸坐標 ][ 0 ] != "" && $頁 != "0062" )
 					{
+//if( $頁 == "2516" )
+	//echo "2516 else\n";
 						$new_content = $new_content .
 							$全目錄[ $裸坐標 ][ 0 ] .
-							"\n\n";
+							"\n";
+						//if( $裸坐標 == "2516:2:" )
+							//$new_content = $new_content . "\n";
+					/*
+						if( $裸坐標 == "2530:1:" )
+						{
+							$new_content = $new_content . "\n";
+						}
+					*/
 					}
 					
 					if( $頁 == "0062" )
@@ -144,6 +161,7 @@ if( $頁 == "3466" )
 						$new_content = $new_content .
 							"\n";
 					}
+										
 					$new_content = $new_content . $頁 . ' ' . trim( $内容[ "詩題" ] );
 					
 					if( in_array( "題注", array_keys( $内容 ) ) )
@@ -199,8 +217,11 @@ if( $頁 == "3466" )
 				if( $首 != 0 )
 				{
 					//echo $首, "\n";
-					$new_content = $new_content .
-						$$陣列名[ "版本" ][ "詩文" ][ $首 - 1 ];
+					if( $頁 != "2516" )
+					{
+						$new_content = $new_content .
+							$$陣列名[ "版本" ][ "詩文" ][ $首 - 1 ];
+					}
 					// ad hoc code just to make it work
 					if( $頁 == "1376" )
 					{
@@ -214,6 +235,11 @@ if( $頁 == "3466" )
 					
 					if( $頁 == "2516" )
 					{
+						if( $首 == 2 )
+						{
+							$new_content = $new_content . "\n" .
+							$$陣列名[ "版本" ][ "詩文" ][ 1 ] . "\n";
+							
 						$temp_storage[ "2516:1:" ] =
 							$$陣列名[ "版本" ][ "詩文" ][ 0 ];
 						$temp_storage[ "2516:3:" ] =
@@ -221,7 +247,14 @@ if( $頁 == "3466" )
 						$temp_storage[ "2516:4:" ] =
 							$$陣列名[ "版本" ][ "詩文" ][ 3 ];
 						$temp_storage[ "2516:5:" ] =
-							$$陣列名[ "版本" ][ "詩文" ][ 4 ];
+							$$陣列名[ "版本" ][ "詩文" ][ 4 ] . "\n";
+						}
+						else
+						{
+							//echo $裸坐標, "\n";
+							$new_content = $new_content .
+								$temp_storage[ $裸坐標 ] ;
+						}
 					}
 										
 					if( $頁 == "1390" && $首 == 2 )
@@ -237,7 +270,8 @@ if( $頁 == "3466" )
 				{
 					if( $頁 == "2516" )
 					{
-						//print_r( $内容[ "副題" ] );
+						//$全目錄[ "${頁}:1" ]
+						 //print_r( $内容[ "副題" ] );
 					}
 					$cur_index = 1;
 					
@@ -245,12 +279,20 @@ if( $頁 == "3466" )
 					
 					foreach( $$陣列名[ "版本" ][ "詩文" ] as $詩 )
 					{
+						/*
 						if( $頁 == "2516" )
 						{
+							
+							echo $詩, "\n";
+							if( $cur_index == 2 )
+								continue;
+							
 							$new_content = $new_content .
-							$内容[ "副題" ][ "〚2516:{$cur_index}:〛" ] . "\n";
+							$全目錄[ "〚2516:${cur_index}:〛" ][ 1 ] . "\n" . $temp_storage[ "〚2516:${cur_index}:〛" ];
+							
 							$cur_index++;
 						}
+						*/
 						if( $頁 == "3955" )
 						{
 							$new_content = $new_content .
