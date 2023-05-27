@@ -35,6 +35,7 @@ $文件夾 = $書目簡稱[ $簡稱 ];
 $out_path   = 杜甫資料庫 . "${文件夾}\\";
 $注音_詩句 = array();
 $詩句_注音 = array();
+$詩題_注音 = array();
 $count = 0;
 
 //$頁 = "0167";
@@ -116,6 +117,8 @@ $code = "<?php
 		// 岱宗夫如何？齊魯青未了。
 		// doi6 zung1 fu4 jyu4 ho4, cai4 lou5 cing1 mei6 liu5
 		// ---------------------------------------------
+		
+		
 		if( mb_strpos( $内容, '--' ) !== false )//delimiter
 		{
 			$音_陣列 = explode( "\n", $内容  ); // lines
@@ -131,6 +134,8 @@ $code = "<?php
 				if( mb_strpos( 
 					$頁碼_詩題[ $頁 ], $音_陣列[ $i ] ) !== false )
 				{
+					//echo "inside\n";
+					$詩題_注音[ $頁碼_詩題[ $頁 ] ] = $音_陣列[ $i+1 ];
 					$i = $i + 1;
 					continue;
 				}
@@ -498,4 +503,13 @@ if( sizeof( $注音_詩句 ) > 1 )
 }
 	
 //echo sizeof( $注音_詩句 ), " ", $count, "\n";
+$code = "<?php
+\$詩題_注音=array(\n";
+
+foreach( $詩題_注音 as $詩題 => $注音 )
+{
+	$code = $code . "\"$詩題\"=>\"$注音\",\n";
+}
+$code = $code . ");\n?>";
+file_put_contents( $out_path . "詩題_注音.php", $code );
 ?>
