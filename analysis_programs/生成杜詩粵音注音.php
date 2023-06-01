@@ -19,7 +19,11 @@ foreach( $頁碼 as $頁 )
 	foreach( $行s as $行 => $詩文 )
 	{
 		$詩文 = str_replace( "﻿", "", $詩文 );// invisible char
-		$詩文 = mb_substr( $詩文, 0, mb_strlen( $詩文 ) - 1 );
+		
+		if( str_ends_with( $詩文, "。" ) )
+		{
+			$詩文 = mb_substr( $詩文, 0, mb_strlen( $詩文 ) - 1 );
+		}
 		
 		$詩文 = trim( $詩文, '1234567890' ) . "\n"; 
 		$詩文 = trim( $詩文 );
