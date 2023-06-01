@@ -22,4 +22,6 @@ const 夾注regex = '/\[\X+?]/';
 const 異體字 = 'h:\github\Dufu-Analysis\異體字.php';
 const 詩組_詩題 = 'h:\github\Dufu-Analysis\詩組_詩題.php';
 const 頁碼_路徑 = 'h:\github\Dufu-Analysis\頁碼_路徑.php';
+
+const 行碼 = "行碼";
 ?>
