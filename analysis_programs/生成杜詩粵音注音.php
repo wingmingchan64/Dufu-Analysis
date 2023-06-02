@@ -20,11 +20,13 @@ foreach( $頁碼 as $頁 )
 	{
 		$詩文 = str_replace( "﻿", "", $詩文 );// invisible char
 		
+		// remove last 。
 		if( str_ends_with( $詩文, "。" ) )
 		{
 			$詩文 = mb_substr( $詩文, 0, mb_strlen( $詩文 ) - 1 );
 		}
 		
+		// remove page number
 		$詩文 = trim( $詩文, '1234567890' ) . "\n"; 
 		$詩文 = trim( $詩文 );
 		$contents = $contents . $詩文 . "\n";
@@ -43,7 +45,7 @@ foreach( $頁碼 as $頁 )
 				$contents = trim( $contents ) . ', ';
 				continue;
 			}
-		
+			// 生成注音
 			if( array_key_exists( $字, $統一碼字_粵音 ) )
 			{
 				$字音s = $統一碼字_粵音[ $字 ];
@@ -52,11 +54,13 @@ foreach( $頁碼 as $頁 )
 			{
 				$字音s = array( "unknown" );
 			}
-		
+			
+			// 只一個讀音
 			if( sizeof( $字音s ) == 1 ) 
 			{
 				$contents = $contents . $字音s[ 0 ] . ' ';
 			}
+			// 多音字
 			else
 			{
 				$contents = $contents . implode( '/', $字音s ) . ' ';
