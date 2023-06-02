@@ -1,3 +1,7 @@
+本文檔以 PHP 生成，
+php h:\github\Dufu-Analysis\analysis_programs\生成杜詩粵音注音.php
+
+
 0003 望嶽
 mong4/mong6 ngok6 
 
@@ -20773,7 +20777,7 @@ fo3 faat6/fat6 muk6 unknown bing1/bing3/ping4/ping1/bing6/bing4 zeoi6 unknown
 
 
 課隸人伯夷，幸秀，信行等，入谷斬陰木，人日四根止，維條伊枚，正直挺然，晨征暮返，委積庭內，我有藩籬，是缺是補，載伐篠簜，伊仗支持，則旅次於小安，山有虎，知禁，若恃爪牙之利，必昏黑撐突，夔人屋壁，列樹白菊，鏝爲牆，實以竹，示式遏，爲與虎近，混淪乎無良，賓客憂害馬之徒苟活爲幸，可嘿息已，作詩付宗武誦
-fo3 lai6/dai6 jan4/jan5 baa3/mak6/baak3 ji4, zap1/hang6 sau3, san1/seon1/seon3 hang6/hong4/haang4/hong6/hong5/hang4 dang2, jap6 juk6/luk6/guk1 zaam2 am1/jam3/jam1 muk6, jan4/jan5 mik6/jat6 si3/sei3 gan1 zi2, wai4 tiu1/tiu4/dik6 ji1 mui4, zing1/zeng3/zing2/zing3 zik6 ting2/ting5 jin4, san4 zing1 mou6 faan1/faan2, wai1/wai3/wai2 zi3/zik1 ting3/ting4 naap6/noi6, ngo5 jau6/jau5 faan4 lei4/jin4, si6 kyut3/hyut3/gyut3 si6 bou2, zoi2/zoi6/zoi3/daai3 faat6/fat6 siu5/siu2 dong6/ong6, ji1 zoeng3/zoeng6 zi1 ci4, zik1/zak1 leoi5 zi1/ci3/ci6 wu1/jyu1 siu2 ngon1/on1, saan1 jau6/jau5 fu2, zi3/zi1 kam1/gam1/kam3/gam3, je5/joek6 si5/ci5/si6 zaau2 ngaa4 zi1 lei6, bit1/bit3 fan1 haak1/hak1 caang1/cang1 duk1/dat6/dak6/tat6, kwai4 jan4/jan5 nguk1/uk1 bek3/bik3/bik1, laat6/lit6 syu5/syu6 baak6/baak3 guk1, maan4/mun4/maan6 wai6/wai4 coeng4, sat6 ji5 zuk1, kei4/si6 sik1 ngaat3/aat3, wai6/wai4 jyu6/jyu4/jyu5 fu2 kan5/gan3/gei3/gan6, wan4/gwan2/wan6/kwan2/gwan1 leon4 fu1/wu4/fu4 mo4/mou5/mou4 loeng4, ban3/ban1 haak3 jau1 hot3/hot6/hoi6 maa5 zi1 tou4 gau2 kwut3/fut3/wut6/kut3/hut6 wai6/wai4 zap1/hang6, hak1/haak1/ho2 hei1/maak6/hak1/he1/mak6 sak1/sik1 ji3/ji5, zo3/zou6/zou3/zok3 si1 fu6 zung1 mou5 zung6/cung6 
+fo3 lai6/dai6 jan4/jan5 baa3/mak6/baak3 ji4, zap1/hang6 sau3, san1/seon1/seon3 hang6/hong4/haang4/hong6/hong5/hang4 dang2, jap6 juk6/luk6/guk1 zaam2 am1/jam3/jam1 muk6, jan4/jan5 mik6/jat6 si3/sei3 gan1 zi2, wai4 tiu1/tiu4/dik6 ji1 mui4, zing1/zeng3/zing2/zing3 zik6 ting2/ting5 jin4, san4 zing1 mou6 faan1/faan2, wai1/wai3/wai2 zi3/zik1 ting3/ting4 naap6/noi6, ngo5 jau6/jau5 faan4 lei4/jin4, si6 kyut3/hyut3/gyut3 si6 bou2, zoi2/zoi6/zoi3/daai3 faat6/fat6 siu5/siu2 dong6/ong6, ji1 zoeng3/zoeng6 zi1 ci4, zik1/zak1 leoi5 zi1/ci3/ci6 wu1/jyu1 siu2 ngon1/on1, saan1 jau6/jau5 fu2, zi3/zi1 kam1/gam1/kam3/gam3, je5/joek6 si5/ci5/si6 zaau2 ngaa4 zi1 lei6, bit1/bit3 fan1 haak1/hak1 caang1/cang1 duk1/dat6/dak6/tat6, kwai4 jan4/jan5 nguk1/uk1 bek3/bik3/bik1, laat6/lit6 syu5/syu6 baak6/baak3 guk1, maan4/maan6 wai6/wai4 coeng4, sat6 ji5 zuk1, kei4/si6 sik1 ngaat3/aat3, wai6/wai4 jyu6/jyu4/jyu5 fu2 kan5/gan3/gei3/gan6, wan4/gwan2/wan6/kwan2/gwan1 leon4 fu1/wu4/fu4 mo4/mou5/mou4 loeng4, ban3/ban1 haak3 jau1 hot3/hot6/hoi6 maa5 zi1 tou4 gau2 kwut3/fut3/wut6/kut3/hut6 wai6/wai4 zap1/hang6, hak1/haak1/ho2 hei1/maak6/hak1/he1/mak6 sak1/sik1 ji3/ji5, zo3/zou6/zou3/zok3 si1 fu6 zung1 mou5 zung6/cung6 
 
 
 長夏無所爲，客居課奴僕
@@ -26367,11 +26371,11 @@ dong3/dong2/dong1 nim6 zoek6/zoek3/cyu5/zyu3 baak6/baak3 mou2/mou6, coi3/coi2 me
 
 
 5659 夜聞𥷑篥
-je6 man6/man4 unknown leot6 
+je6 man6/man4 bat1 leot6 
 
 
 夜聞𥷑篥滄江上，衰年側耳情所嚮
-je6 man6/man4 unknown leot6 cong1 gong1 soeng5/saang3/soeng6, ceoi1/so1/seoi1 nin4 zaak1/cak1/zak1 ji5 cing4/ceng4 so2 hoeng2/hoeng3 
+je6 man6/man4 bat1 leot6 cong1 gong1 soeng5/saang3/soeng6, ceoi1/so1/seoi1 nin4 zaak1/cak1/zak1 ji5 cing4/ceng4 so2 hoeng2/hoeng3 
 鄰舟一聽多感傷，塞曲三更欻悲壯
 leon4 zau1 jat1 teng1/ting1/ting3/teng3 do1 gaam2/gam2 soeng1, coi3/soi3/sak1 huk1/kuk1/guk1 saam3/saam1/saam6 gang3/gaang1/gaang3/gang1/ang3 ceoi1/caat3/fat1 bei1 zong1/zong3 
 積雪飛霜此夜寒，孤燈急管復風湍

@@ -7,7 +7,10 @@ require_once( '函式.php' );
 require_once( 杜甫資料庫 . '頁碼.php' );
 require_once( 杜甫資料庫 . '統一碼字_粵音.php' );
 
-$contents = "";
+$contents = "
+本文檔以 PHP 生成。
+php h:\github\Dufu-Analysis\analysis_programs\生成杜詩粵音注音.php
+";
 
 foreach( $頁碼 as $頁 )
 {
@@ -74,5 +77,8 @@ $contents = str_replace( '。', '，', $contents );
 
 $outfile = "h:\\杜甫資料庫\\杜甫全集粵音注音.txt";
 file_put_contents( $outfile, $contents );
+$outfile = "h:\\github\Dufu-Analysis\\陳永明《杜甫全集粵音注音》\\杜甫全集粵音注音.txt";
+file_put_contents( $outfile, $contents );
+
 //echo $contents, "\n";
 ?>
