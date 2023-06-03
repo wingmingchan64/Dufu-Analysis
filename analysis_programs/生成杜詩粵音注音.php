@@ -52,6 +52,11 @@ foreach( $頁碼 as $頁 )
 			if( array_key_exists( $字, $統一碼字_粵音 ) )
 			{
 				$字音s = $統一碼字_粵音[ $字 ];
+				// take the first three
+				if( sizeof( $字音s ) > 3 )
+				{
+					$字音s = array_slice( $字音s, 0, 3 );
+				}
 			}
 			else
 			{
