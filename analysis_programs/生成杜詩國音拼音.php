@@ -1,15 +1,15 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\生成杜詩粵音注音.php
+php h:\github\Dufu-Analysis\analysis_programs\生成杜詩國音拼音.php
 */
 require_once( '常數.php' );
 require_once( '函式.php' );
 require_once( 杜甫資料庫 . '頁碼.php' );
-require_once( 杜甫資料庫 . '統一碼字_粵音.php' );
+require_once( 杜甫資料庫 . '統一碼字_國音拼音.php' );
 
 $contents = "
 本文檔以 PHP 生成。
-php h:\github\Dufu-Analysis\analysis_programs\生成杜詩粵音注音.php
+php h:\github\Dufu-Analysis\analysis_programs\生成杜詩國音拼音.php
 ";
 
 foreach( $頁碼 as $頁 )
@@ -49,9 +49,9 @@ foreach( $頁碼 as $頁 )
 				continue;
 			}
 			// 生成注音
-			if( array_key_exists( $字, $統一碼字_粵音 ) )
+			if( array_key_exists( $字, $統一碼字_國音拼音 ) )
 			{
-				$字音s = $統一碼字_粵音[ $字 ];
+				$字音s = $統一碼字_國音拼音[ $字 ];
 				// take the first three
 				if( sizeof( $字音s ) > 3 )
 				{
@@ -80,11 +80,9 @@ foreach( $頁碼 as $頁 )
 
 $contents = str_replace( '。', '，', $contents );
 
-$outfile = "h:\\杜甫資料庫\\杜甫全集粵音注音.txt";
+$outfile = "h:\\杜甫資料庫\\杜甫全集國音拼音.txt";
 file_put_contents( $outfile, $contents );
-
-// 手編以下文檔
-//$outfile = "h:\\github\Dufu-Analysis\\陳永明《杜甫全集粵音注音》\\杜甫全集粵音注音.txt";
+//$outfile = "h:\\github\Dufu-Analysis\\陳永明《杜甫全集粵音注音》\\杜甫全集國音拼音.txt";
 //file_put_contents( $outfile, $contents );
 
 //echo $contents, "\n";
