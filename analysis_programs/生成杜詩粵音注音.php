@@ -5,7 +5,7 @@ php h:\github\Dufu-Analysis\analysis_programs\生成杜詩粵音注音.php
 require_once( '常數.php' );
 require_once( '函式.php' );
 require_once( 杜甫資料庫 . '頁碼.php' );
-require_once( 杜甫資料庫 . '統一碼字_粵音.php' );
+require_once( 杜甫資料庫 . '修正統一碼字_粵音.php' );
 
 $contents = "
 本文檔以 PHP 生成。
@@ -49,9 +49,9 @@ foreach( $頁碼 as $頁 )
 				continue;
 			}
 			// 生成注音
-			if( array_key_exists( $字, $統一碼字_粵音 ) )
+			if( array_key_exists( $字, $修正統一碼字_粵音 ) )
 			{
-				$字音s = $統一碼字_粵音[ $字 ];
+				$字音s = $修正統一碼字_粵音[ $字 ];
 				// take the first three
 				if( sizeof( $字音s ) > 3 )
 				{
