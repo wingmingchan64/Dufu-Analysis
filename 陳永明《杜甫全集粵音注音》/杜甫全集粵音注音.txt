@@ -490,52 +490,35 @@ zung1 saan3 saan1 joeng4 dyun3, jyu4 gung1 je5 guk1 cyun1
 寧紆長者轍，歸老任乾坤
 ning4 jyu1 zoeng2 ze2 cit3, gwai1 lou5 jam6 kin4 kwan1
 
-
 0152 故武衞將軍挽歌三首
-gu3 mou5 wai6 zoeng1/zoeng3 gwan1 waan5 go1 saam1/saam3 sau2
-
-
-
-
-
+gu3 mou5 wai6 zoeng1 gwan1 waan5 go1 saam1 sau2
 
 嚴警當寒夜，前軍落大星
-jim4 ging2 dong1/dong3/dong2 hon4 je6, cin4 gwan1 lok6 daai6/taai3 sing1
+jim4 ging2 dong1 hon4 je6, cin4 gwan1 lok6 daai6 sing1
 壯夫思敢決，哀詔惜精靈
-zong3 fu1/fu4 si1/si3/soi1 gam2 kyut3, oi1 ziu3 sik1 zing1 ling4
+zong3 fu1 si1 gam2 kyut3, oi1 ziu3 sik1 zing1 ling4
 王者今無戰，書生已勒銘
-wong4/wong6 ze2 gam1 mou4 zin3, syu1 sang1/saang1 ji5 lak6 ming4/ming5
+wong4 ze2 gam1 mou4 zin3, syu1 sang1 ji5 lak6 ming4
 封侯意疏闊，編簡爲誰青
-fung1 hau4 ji3 so1/so3 fut3, pin1 gaan2 wai6/wai4 seoi4 cing1
-
-
-
-
-
+fung1 hau4 ji3 so1 fut3, pin1 gaan2 wai6 seoi4 cing1
 
 舞劍過人絕，鳴弓射獸能
-mou5 gim3 gwo3 jan4 zyut6, ming4 gung1 se6/je6 sau3 nang4
+mou5 gim3 gwo1 jan4 zyut6, ming4 gung1 se6 sau3 nang4
 銛鋒行愜順，猛噬失蹻騰
-tim4/cim1 fung1 hang4/hang6/hong4 hip3/hip6 seon6, maang5 sai6 sat1 hiu1/goek3/kiu5 tang4
+cim1 fung1 hang4 hip3 seon6, maang5 sai6 sat1 giu2 tang4
 赤羽千夫膳，黃河十月冰
-cek3/cik3 jyu5 cin1 fu1/fu4 sin6, wong4 ho4 sap6 jyut6 bing1
+cik3 jyu5 cin1 fu1 sin6, wong4 ho4 sap6 jyut6 bing1
 橫行沙漠外，神速至今稱
-waang4/waang6 hang4/hang6/hong4 saa1 mok6 ngoi6, san4/san1 cuk1 zi3 gam1 cing1/cing3
-
-
-
-
-
+waang4 hang4 saa1 mok6 ngoi6, san4 cuk1 zi3 gam1 cing1
 
 哀挽青門去，新阡絳水遙
 oi1 waan5 cing1 mun4 heoi3, san1 cin1 gong3 seoi2 jiu4
 路人紛雨泣，天意颯風飈
-lou6 jan4 fan1 jyu5/jyu6 jap1, tin1 ji3 saap3 fung1/fung3 biu1
+lou6 jan4 fan1 jyu5 jap1, tin1 ji3 saap3 fung1 biu1
 部曲精仍銳，匈奴氣不驕
 bou6 kuk1 zing1 jing4 jeoi6, hung1 nou4 hei3 bat1 giu1
 無由覩雄略，大樹日蕭蕭
-mou4 jau4 dou2 hung4 loek6, daai6/taai3 syu6 jat6 siu1 siu1
-
+mou4 jau4 dou2 hung4 loek6, daai6 syu6 jat6 siu1 siu1
 
 0161 奉寄河南韋尹丈人[甫敝廬在偃師，承韋公頻有訪問，故有下句]
 fung6 gei3 ho4 naam4 wai5/wai4 wan5 zoeng6 jan4 unknown fu2/pou2 bai6 lou4 zoi6 jin2 si1, sing4 wai5/wai4 gung1 pan4 jau5/jau6 fong2 man6, gu3 jau5/jau6 haa6/haa5 geoi3 unknown
@@ -1466,7 +1449,7 @@ hei1/ci1 ji1/ji3 kwaa3/gwaa3/gwai1 lo4 bok6/pik1/bei6, loeng4 jyut6 baak6 fan1 f
 
 
 幽意忽不愜，歸期無奈何
-jau1 ji3 fat1 bat1 hip3/hip6, gwai1 kei4/gei1 mou4 noi6 ho4
+jau1 ji3 fat1 bat1 hip3, gwai1 kei4/gei1 mou4 noi6 ho4
 出門流水住，回首白雲多
 ceot1 mun4 lau4 seoi2 zyu6, wui4 sau2 baak6 wan4 do1
 自笑燈前舞，誰憐醉後歌
@@ -2136,7 +2119,7 @@ fong1 seoi3 ji4 neoi5 sau3, mou6 tou4 tai3 si3/sei3 ling4
 主人念老馬，廨署容秋螢
 zyu2 jan4 nim6 lou5 maa5, gaai3/haai6/haai3 cyu5/syu5 jung4 cau1 jing4
 流寓理豈愜，窮愁醉未醒
-lau4 jyu6 lei5 hei2 hip3/hip6, kung4 sau4 zeoi3 mei6 sing2
+lau4 jyu6 lei5 hei2 hip3, kung4 sau4 zeoi3 mei6 sing2
 何當擺俗累，浩蕩乘滄溟
 ho4 dong1/dong3/dong2 baai2 zuk6 leoi5/leoi6/leoi4, hou6 dong6 sing4/sing6 cong1 ming5/ming4
 
@@ -7152,7 +7135,7 @@ hoi2 noi6/naap6 zi1/zi3 ming4 si6, wan4 dyun1 gok3 ji6 fong1
 高岑殊緩步，沈鮑得同行
 gou1 sam4 syu4 wun6 bou6, cam4/sam2 baau1/baau6 dak1 tung4 hang4/hang6/hong4
 意愜關飛動，篇終接混茫
-ji3 hip3/hip6 gwaan1 fei1 dung6, pin1 zung1 zip3 wan6 mong4
+ji3 hip3 gwaan1 fei1 dung6, pin1 zung1 zip3 wan6 mong4
 舉天悲富駱，近代惜盧王
 geoi2 tin1 bei1 fu3 lok3, gan6/kan5 doi6 sik1 lou4 wong4/wong6
 似爾官仍貴，前賢命可傷
@@ -7356,7 +7339,7 @@ gaang1 ngaam4 fei1 guk1/juk6/luk6 hau2, git3 cou2 zik1 ho4 ban1
 肘後符應驗，囊中藥未陳
 zaau2 hau6 fu4 jing1/jing3 jim6, nong4 zung1/zung3 joek6 mei6 can4/zan6
 旅懷殊不愜，良覿渺無因
-leoi5 waai4 syu4 bat1 hip3/hip6, loeng4 dik6 miu5 mou4 jan1
+leoi5 waai4 syu4 bat1 hip3, loeng4 dik6 miu5 mou4 jan1
 自古皆悲恨，浮生有屈伸
 zi6 gu2 gaai1 bei1 han6, fau4 sang1/saang1 jau5/jau6 wat1 san1
 此邦今尙武，何處且依仁
@@ -18360,7 +18343,7 @@ gu3 si1 tou4 lei5 gung1 gwong1 bat6
 司徒天寶末，北收晉陽甲
 si1 tou4 tin1 bou2 mut6, bak1 sau1 zeon3 joeng4 gaap3
 胡騎攻吾城，愁寂意不愜
-wu4 ke4/kei4 gung1 ng4 sing4, sau4 zik6 ji3 bat1 hip3/hip6
+wu4 ke4/kei4 gung1 ng4 sing4, sau4 zik6 ji3 bat1 hip3
 人安若泰山，薊北斷右脅
 jan4 on1 joek6/je5 taai3 saan1, gai3 bak1 dyun6/dyun3/tyun5 jau6 hip3
 朔方氣乃蘇，黎首見帝業
@@ -20780,7 +20763,7 @@ lou5 jyu1/wu1 gon1 gwo1 zai3, zaak6 hang6 pung4/fung4 bat1 ze1
 石亂上雲氣，杉清延月華
 sek6/daam3 lyun6 soeng6/soeng5 wan4 hei3, caam3/saam1 cing1 jin4 jyut6 waa4/waa6/faa1
 賞姸又分外，理愜夫何誇
-soeng2 jin4 jau6 fan1/fan6 ngoi6, lei5 hip3/hip6 fu1/fu4 ho4 kwaa1
+soeng2 jin4 jau6 fan1/fan6 ngoi6, lei5 hip3 fu1/fu4 ho4 kwaa1
 足了垂白年，敢居高士差
 zuk1/zeoi3 liu5 seoi4 baak6 nin4, gam2 geoi1 gou1 si6 caa1/caai1/ci1
 書此豁平昔，回首猶暮霞
@@ -21968,7 +21951,7 @@ jam1 ho4 soeng6/soeng4/soeng3 cing1 saang2/sing2, cam4/sam2 sung3 ceoi1/caat3/fa
 律比崑崙竹，音知燥濕絃
 leot6 bei2/bei3/bei6 kwan1/gwan1 leon4 zuk1, jam1 zi1/zi3 cou3 sap1 jin4
 風流俱善價，愜當久忘筌
-fung1/fung3 lau4 keoi1 sin6 gaa3, hip3/hip6 dong1/dong3/dong2 gau2 mong4 cyun4
+fung1/fung3 lau4 keoi1 sin6 gaa3, hip3 dong1/dong3/dong2 gau2 mong4 cyun4
 置驛常如此，登龍蓋有焉
 zi3 jik6 soeng4 jyu4 ci2, dang1 lung4 goi3/koi3/gap6 jau5/jau6 jin4/jin1
 雖云隔禮數，不敢墜周旋
@@ -24214,7 +24197,7 @@ cik1/cok1 cyu4/ceoi4 pui5 soeng4 sau1, bui1 pun4 po2/po1 long4 zik6
 時雖屬喪亂，事貴賞匹敵
 si4 seoi1 suk6/zuk1 song3/song1 lyun6, si6 gwai3 soeng2 pat1 dik6
 中宵愜良會，裴鄭非遠戚
-zung1/zung3 siu1 hip3/hip6 loeng4 wui6/wui5/kui2, pui4 zeng6 fei1 jyun5/jyun6 cik1
+zung1 siu1 hip3 loeng4 wui6/wui5/kui2, pui4 zeng6 fei1 jyun5/jyun6 cik1
 羣書一萬卷，博涉供務隙
 kwan4 syu1 jat1 maan6 gyun2, bok3 sip3 gung1/gung3 mou6 gwik1
 他日辱銀鈎，森疏見矛戟
@@ -25746,7 +25729,7 @@ man4/man6 mat6 pui4 ceon4 sau2/sau3, can1/can3 jin4 beng6/bing6 git3 geoi3/geoi1
 公時呵猰㺄，首唱卻鯨魚
 gung1 si4 ho1 ngaat3/jaak3/aat3 jyu5, sau2 coeng3 koek3 king4 jyu4
 勢愜宗蕭相，材非一范雎
-sai3 hip3/hip6 zung1 siu1 soeng1/soeng3, coi4 fei1 jat1 faan6 zeoi1
+sai3 hip3 zung1 siu1 soeng1/soeng3, coi4 fei1 jat1 faan6 zeoi1
 屍塡太行道，血走浚儀渠
 si1 tin4/zan3/can4 taai3 hang4/hang6/hong4 dou6, hyut3 zau2 zeon3/seon3 ji4 keoi4
 滏口師仍會，函關憤已攄
