@@ -1,4 +1,4 @@
-本文檔以 PHP 生成，再用人手編輯。
+本文檔以 PHP 生成，再用人手編輯。 1013
 php h:\github\Dufu-Analysis\analysis_programs\生成杜詩粵音注音.php
 
 0003 望嶽
@@ -910,120 +910,108 @@ zi1 gwan1 ci2 gai3 sing4 coeng4 wong5, zi1 cou2 long4 gon1 jat6 jing1 coeng4
 鐵鎖高垂不可攀，致身福地何蕭爽
 tit3 so2 gou1 seoi4 bat1 ho2 paan1, zi3 san1 fuk1 dei6 ho4 siu1 song2
 
-
 0276 奉贈韋左丞丈二十二韻
 fung6 zang6 wai5/wai4 zo2 sing4 zoeng6 ji6 sap6 ji6 wan6
-
 
 紈袴不餓死，儒冠多誤身
 jyun4 fu3 bat1 ngo6 sei2, jyu4 gun1 do1 ng6 san1
 丈人試靜聽，賤子請具陳
-zoeng6 jan4 si3 zing6 ting1/ting3, zin6 zi2 cing2 geoi6 can4/zan6
+zoeng6 jan4 si3 zing6 ting1, zin6 zi2 cing2 geoi6 can4
 甫昔少年日，早充觀國賓
-fu2/pou2 sik1 siu2/siu3 nin4 jat6, zou2 cung1 gun1/gun3 gwok3 ban1
+fu2 sik1 siu3 nin4 jat6, zou2 cung1 gun1 gwok3 ban1
 讀書破萬卷，下筆如有神
-duk6/dau6 syu1 po3 maan6 gyun2, haa6/haa5 bat1 jyu4 jau5/jau6 san4/san1
+duk6 syu1 po3 maan6 gyun2, haa6 bat1 jyu4 jau5 san4
 賦料揚雄敵，詩看子建親
-fu3 liu6 joeng4 hung4 dik6, si1 hon3/hon1 zi2 gin3 can1/can3
+fu3 liu6 joeng4 hung4 dik6, si1 hon1 zi2 gin3 can1
 李邕求識面，王翰願卜鄰
-lei5 jung1 kau4 sik1/zi3 min6, wong4/wong6 hon6 jyun6 buk1 leon4
+lei5 jung1 kau4 sik1 min6, wong4 hon6 jyun6 buk1 leon4
 自謂頗挺出，立登要路津
-zi6 wai6 po2/po1 ting5 ceot1, lap6/laap6 dang1 jiu3/jiu1 lou6 zeon1
+zi6 wai6 po2 ting5 ceot1, lap6 dang1 jiu3 lou6 zeon1
 致君堯舜上，再使風俗淳
-zi3 gwan1 jiu4 seon3 soeng6/soeng5, zoi3 si2/si3/sai2 fung1/fung3 zuk6 seon4
+zi3 gwan1 jiu4 seon3 soeng6, zoi3 si2 fung1 zuk6 seon4
 此意竟蕭條，行歌非隱淪
-ci2 ji3 ging2 siu1 tiu4, hang4/hang6/hong4 go1 fei1 jan2 leon4
+ci2 ji3 ging2 siu1 tiu4, hang4 go1 fei1 jan2 leon4
 騎驢三十載，旅食京華春
-ke4/kei4 lou4/leoi4 saam1 sap6 zoi3/zoi2, leoi5 sik6/zi6/ji6 ging1 waa4/waa6/faa1 ceon1
+kei4 lou4 saam1 sap6 zoi2, leoi5 sik6 ging1 waa4 ceon1
 朝扣富兒門，暮隨肥馬塵
-ziu1/ciu4 kau3 fu3 ji4 mun4, mou6 ceoi4 fei4 maa5 can4
+ziu1 kau3 fu3 ji4 mun4, mou6 ceoi4 fei4 maa5 can4
 殘杯與冷炙，到處潛悲辛
-caan4 bui1 jyu5/jyu6/jyu4 laang5 zek3, dou3 cyu3/cyu2 cim4 bei1 san1
+caan4 bui1 jyu5 laang5 zek3, dou3 cyu3 cim4 bei1 san1
 主上頃見徵，欻然欲求伸
-zyu2 soeng6/soeng5 king2 gin3/jin6 zing1/zi2, ceoi1/caat3/fat1 jin4 juk6 kau4 san1
+zyu2 soeng6 king2 gin3 zing1, fat1 jin4 juk6 kau4 san1
 青冥卻垂翅，蹭蹬無縱鱗
-cing1 ming4/ming5 koek3 seoi4 ci3, sang6/zang1/sang3 dang6 mou4 zung3/zung1 leon4
+cing1 ming4 koek3 seoi4 ci3, sang3 dang6 mou4 zung3 leon4
 甚愧丈人厚，甚知丈人眞
-sam6 kwai3 zoeng6 jan4 hau5, sam6 zi1/zi3 zoeng6 jan4 zan1
+sam6 kwai3/kwai5 zoeng6 jan4 hau5, sam6 zi1 zoeng6 jan4 zan1
 每於百僚上，猥誦佳句新
-mui5 jyu1/wu1 baak3 liu4 soeng6/soeng5, wai2/wui1 zung6 gaai1 geoi3 san1
+mui5 jyu1 baak3 liu4 soeng6, wai2 zung6 gaai1 geoi3 san1
 竊效貢公喜，難甘原憲貧
-sit3 haau6 gung3 gung1 hei2, naan4/naan6/no4 gam1 jyun4 hin3 pan4
+sit3 haau6 gung3 gung1 hei2, naan4 gam1 jyun4 hin3 pan4
 焉能心怏怏，祇是走踆踆
-jin4/jin1 nang4 sam1 joeng2/joeng3 joeng2/joeng3, kei4/zi2 si6 zau2 seon1/zeon3/cyun1 seon1/zeon3/cyun1
+jin1 nang4 sam1 joeng2 joeng2, zi2 si6 zau2 cyun4 cyun4
 今欲東入海，卽將西去秦
-gam1 juk6 dung1 jap6 hoi2, zik1 zoeng1/zoeng3 sai1 heoi3 ceon4
+gam1 juk6 dung1 jap6 hoi2, zik1 zoeng1 sai1 heoi3 ceon4
 尙憐終南山，回首清渭濱
-soeng6/soeng4/soeng3 lin4 zung1 naam4 saan1, wui4 sau2 cing1 wai6 ban1
+soeng6 lin4 zung1 naam4 saan1, wui4 sau2 cing1 wai6 ban1
 常擬報一飯，況懷辭大臣
-soeng4 ji5 bou3 jat1 faan6, fong3 waai4 ci4 daai6/taai3 san4
+soeng4 ji5 bou3 jat1 faan6, fong3 waai4 ci4 daai6 san4
 白鷗沒浩蕩，萬里誰能馴
 baak6 au1 mut6 hou6 dong6, maan6 lei5 seoi4 nang4 seon4
 
-
-0288 奉留贈集賢院崔于二學士[國輔，休烈]
-fung6 lau4 zang6 zaap6 jin4 jyun2/jyun6 ceoi1 jyu1/jyu4 ji6 hok6 si6 unknown gwok3 fu6, jau1 lit6 unknown
-
+0288 奉留贈集賢院崔于二學士
+fung6 lau4 zang6 zaap6 jin4 jyun6 ceoi1 jyu1 ji6 hok6 si6
 
 昭代將垂白，途窮乃叫閽
-ciu1 doi6 zoeng1/zoeng3 seoi4 baak6, tou4 kung4 naai5 giu3 fan1
+ciu1 doi6 zoeng1 seoi4 baak6, tou4 kung4 naai5 giu3 fan1
 氣衝星象表，詞感帝王尊
-hei3 cung1 sing1 zoeng6 biu2/biu1, ci4 gam2 dai3 wong4/wong6 zyun1/zeon1
+hei3 cung1 sing1 zoeng6 biu2, ci4 gam2 dai3 wong4 zyun1
 天老書題目，春官驗討論
-tin1 lou5 syu1 tai4 muk6, ceon1 gun1 jim6 tou2 leon6/leon4
+tin1 lou5 syu1 tai4 muk6, ceon1 gun1 jim6 tou2 leon4
 倚風遺鶂路，隨水到龍門
-ji2 fung1/fung3 wai4/wai6 jik6/jik1 lou6, ceoi4 seoi2 dou3 lung4 mun4
+ji2 fung1 wai4 jik6 lou6, ceoi4 seoi2 dou3 lung4 mun4
 竟與蛟螭雜，寧無燕雀喧
-ging2 jyu5/jyu6/jyu4 gaau1 ci1/lei4 zaap6, ning4 mou4 jin3/jin1 zoek3 hyun1
+ging2 jyu5 gaau1 ci1 zaap6, ning4 mou4 jin3 zoek3 hyun1
 青冥猶契闊，陵厲不飛翻
-cing1 ming4/ming5 jau4 kai3/kit3/sit3 fut3, ling4 lai6 bat1 fei1 faan1
+cing1 ming4 jau4 kit3 fut3, ling4 lai6 bat1 fei1 faan1
 儒術誠難起，家聲庶已存
-jyu4 seot6 sing4 naan4/naan6/no4 hei2, gaa1 sing1 syu3 ji5 cyun4
+jyu4 seot6 sing4 naan4 hei2, gaa1 sing1 syu3 ji5 cyun4
 故山多藥物，勝槪憶桃源
-gu3 saan1 do1 joek6 mat6, sing3/sing1 koi3 jik1 tou4 jyun4
+gu3 saan1 do1 joek6 mat6, sing3 koi3 jik1 tou4 jyun4
 欲整還鄕旆，長懷禁掖垣
-juk6 zing2 waan4 hoeng3/hoeng1 pui3, coeng4/zoeng2/zoeng6 waai4 gam3/kam1 jik6 wun4
+juk6 zing2 waan4 hoeng1 pui3, coeng4 waai4 gam3 jik6 wun4
 謬稱三賦在，難述二公恩
-mau6 cing1/cing3 saam1 fu3 zoi6, naan4/naan6/no4 seot6 ji6 gung1 jan1
+mau6 cing1 saam1 fu3 zoi6, naan4 seot6 ji6 gung1 jan1
 
-
-0295 同諸公登慈恩寺塔[時高適，薛據先有此作]
-tung4 zyu1 gung1 dang1 ci4 jan1 zi6/zi2 taap3 unknown si4 gou1 sik1/dik1, sit3 geoi3 sin1 jau5/jau6 ci2 zok3 unknown
-
+0295 同諸公登慈恩寺塔
+tung4 zyu1 gung1 dang1 ci4 jan1 zi6 taap3
 
 高標跨蒼穹，烈風無時休
-gou1 biu1 kwaa1/kwaa3 cong1 kung4, lit6 fung1/fung3 mou4 si4 jau1
+gou1 biu1 kwaa1 cong1 kung4, lit6 fung1 mou4 si4 jau1
 自非曠士懷，登茲翻百憂
-zi6 fei1 kwong3/kong3 si6 waai4, dang1 zi1/ci4 faan1 baak3 jau1
+zi6 fei1 kwong3 si6 waai4, dang1 zi1 faan1 baak3 jau1
 方知象教力，足可追冥搜
-fong1 zi1/zi3 zoeng6 gaau3 lik6, zuk1/zeoi3 ho2/hak1 zeoi1 ming4/ming5 sau2/sau1
+fong1 zi1 zoeng6 gaau3 lik6, zuk1 ho2 zeoi1 ming4 sau1
 仰穿龍蛇窟，始出枝撐幽
-joeng5 cyun1 lung4 se4/ji4 fat1, ci2 ceot1 zi1 caang1 jau1
+joeng5 cyun1 lung4 se4 fat1, ci2 ceot1 zi1 caang1 jau1
 七星在北戶，河漢聲西流
 cat1 sing1 zoi6 bak1 wu6, ho4 hon3 sing1 sai1 lau4
 羲和鞭白日，少昊行清秋
-hei1 wo4/wo6 bin1 baak6 jat6, siu2/siu3 hou6 hang4/hang6/hong4 cing1 cau1
+hei1 wo4 bin1 baak6 jat6, siu3 hou6 hang4 cing1 cau1
 秦山忽破碎，涇渭不可求
-ceon4 saan1 fat1 po3 seoi3, ging1 wai6 bat1 ho2/hak1 kau4
+ceon4 saan1 fat1 po3 seoi3, ging1 wai6 bat1 ho2 kau4
 俯視但一氣，焉能辨皇州
-fu2 si6 daan6 jat1 hei3, jin4/jin1 nang4 bin6 wong4 zau1
+fu2 si6 daan6 jat1 hei3, jin1 nang4 bin6 wong4 zau1
 回首叫虞舜，蒼梧雲正愁
-wui4 sau2 giu3 jyu4 seon3, cong1 ng4 wan4 zing3/zing1 sau4
+wui4 sau2 giu3 jyu4 seon3, cong1 ng4 wan4 zing3 sau4
 惜哉瑤池飲，日晏崑崙丘
-sik1 zoi1 jiu4 ci4 jam2/jam3, jat6 aan3 kwan1/gwan1 leon4 jau1
+sik1 zoi1 jiu4 ci4 jam2, jat6 aan3 kwan1 leon4 jau1
 黃鵠去不息，哀鳴何所投
-wong4 guk1/huk6 heoi3 bat1 sik1, oi1 ming4 ho4 so2 tau4
+wong4 huk6 heoi3 bat1 sik1, oi1 ming4 ho4 so2 tau4
 君看隨陽雁，各有稻粱謀
-gwan1 hon3/hon1 ceoi4 joeng4 ngaan6, gok3 jau5/jau6 dou6 loeng4 mau4
-
+gwan1 hon3 ceoi4 joeng4 ngaan6, gok3 jau5 dou6 loeng4 mau4
 
 0305 曲江三章章五句
 kuk1 gong1 saam1 zoeng1 zoeng1 ng5 geoi3
-
-
-
-
-
 
 曲江蕭條秋氣高
 kuk1 gong1 siu1 tiu4 cau1 hei3 gou1
@@ -3008,7 +2996,7 @@ bei1 cing1 baan2/faan2
 
 
 我軍青坂在東門，天寒飲馬太白窟
-ngo5 gwan1 cing1 baan2/faan2 zoi6 dung1 mun4, tin1 hon4 jam2/jam3 maa5 taai3 baak6 fat1
+ngo5 gwan1 cing1 baan2/faan2 zoi6 dung1 mun4, tin1 hon4 jam3 maa5 taai3 baak6 fat1
 黃頭奚兒日向西，數騎彎弓敢馳突
 wong4 tau4 hai4 ji4 jat6 hoeng3 sai1, sou3/sou2/sok3 ke4/kei4 waan1 gung1 gam2 ci4 dat6/duk1
 山雪河冰野蕭飋，青是烽煙白人骨
@@ -4084,7 +4072,7 @@ so2 jyu6 do1 pei5/bei6/pei1 soeng1, san1 jam4 gang1/gaang1/gang3 lau4 hyut3
 回首鳳翔縣，旌旗晚明滅
 wui4 sau2 fung6 coeng4 jyun6/jyun4, zing1/sing1 kei4 maan5 ming4 mit6
 前登寒山重，屢得飲馬窟
-cin4 dang1 hon4 saan1 zung6/cung4/cung5, leoi5 dak1 jam2/jam3 maa5 fat1
+cin4 dang1 hon4 saan1 zung6/cung4/cung5, leoi5 dak1 jam3 maa5 fat1
 邠郊入地底，涇水中蕩潏
 ban1 gaau1 jap6 dei6 dai2, ging1 seoi2 zung1/zung3 dong6 kyut3/wat6/seot6
 猛虎立我前，蒼崖吼時裂
@@ -7394,7 +7382,7 @@ hei2 fuk6/fuk1/fau6 wai3 lou5 fu1/fu4, mong5 jin4 naan4/naan6/no4 gau2 lau4
 日色隱孤戍，烏啼滿城頭
 jat6 sik1 jan2 gu1 syu3, wu1 tai4 mun5 sing4 tau4
 中宵驅車去，飲馬寒塘流
-zung1/zung3 siu1 keoi1 ce1/geoi1 heoi3, jam2/jam3 maa5 hon4 tong4 lau4
+zung1/zung3 siu1 keoi1 ce1/geoi1 heoi3, jam3 maa5 hon4 tong4 lau4
 磊落星月高，蒼茫雲霧浮
 leoi5 lok6 sing1 jyut6 gou1, cong1 mong4 wan4 mou6 fau4
 大哉乾坤內，吾道長悠悠
