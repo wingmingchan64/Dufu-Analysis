@@ -1346,7 +1346,7 @@ gong1 seoi2 cing1 jyun4 kuk1, ging1 mun4 ci2 lou6 ji4
 maan5 loi4 gou1 hing3 zeon6, jiu4 dong6 guk1 faa1 kei4
 
 0400 贈陳二補闕
-zang6 can4/zan6 ji6 bou2 kyut3/gwat6/hyut3
+zang6 can4/zan6 ji6 bou2 kyut3
 
 世儒多汩沒，夫子獨聲名
 sai3 jyu4 do1 gwat1 mut6, fu1 zi2 duk6 sing1 ming4
@@ -1358,35 +1358,31 @@ zou6 diu1 hon4 ci2 gap1, tin1 maa5 lou5 nang4 hang4
 zi6 dou3 cing1 ming4 leoi5, jau1 hon1 baak6 faat3 sang1
 
 0403 送張二十參軍赴蜀州，因呈楊五侍御
-sung3 zoeng1/zoeng3 ji6 sap6 caam1/sam1/cam1 gwan1 fu6 suk6 zau1, jan1 cing4 joeng4 ng5 si6 jyu6/ngaa6
-
+sung3 zoeng1 ji6 sap6 caam1 gwan1 fu6 suk6 zau1, jan1 cing4 joeng4 ng5 si6 jyu6
 
 好去張公子，通家別恨添
-hou2/hou3 heoi3 zoeng1/zoeng3 gung1 zi2, tung1 gaa1 bit6 han6 tim1
+hou2 heoi3 zoeng1 gung1 zi2, tung1 gaa1 bit6 han6 tim1
 兩行秦樹直，萬點蜀山尖
-loeng5/loeng2 hang4/hang6/hong4 ceon4 syu6 zik6, maan6 dim2 suk6 saan1 zim1
+loeng5 hong4 ceon4 syu6 zik6, maan6 dim2 suk6 saan1 zim1
 御史新驄馬，參軍舊紫髯
-jyu6/ngaa6 si2 san1 cung1 maa5, caam1/sam1/cam1 gwan1 gau6 zi2 jim4
+jyu6 si2 san1 cung1 maa5, caam1 gwan1 gau6 zi2 jim4
 皇華吾善處，於汝定無嫌
-wong4 waa4/waa6/faa1 ng4 sin6 cyu3/cyu2, jyu1/wu1 jyu5 ding6 mou4 jim4
-
+wong4 waa4 ng4 sin6 cyu3, jyu1 jyu5 ding6 mou4 jim4
 
 0406 寄高三十五書記
 gei3 gou1 saam1 sap6 ng5 syu1 gei3
 
-
 歎惜高生老，新詩日又多
-taan1/taan3 sik1 gou1 sang1/saang1 lou5, san1 si1 jat6 jau6 do1
+taan3 sik1 gou1 sang1 lou5, san1 si1 jat6 jau6 do1
 美名人不及，佳句法如何
 mei5 ming4 jan4 bat1 kap6, gaai1 geoi3 faat3 jyu4 ho4
 主將收才子，崆峒足凱歌
-zyu2 zoeng1/zoeng3 sau1 coi4 zi2, hung1 tung4/dung6/dung4 zuk1/zeoi3 hoi2 go1
+zyu2 zoeng3 sau1 coi4 zi2, hung1 tung4 zuk1 hoi2 go1
 聞君已朱紱，且得慰蹉跎
-man4 gwan1 ji5 zyu1 bat6/fat1, ce2 dak1 wai3 co1 to4
+man4 gwan1 ji5 zyu1 fat1, ce2 dak1 wai3 co1 to4
 
-
-0409 醉時歌[贈廣文館博士鄭虔]
-zeoi3 si4 go1 unknown zang6 gwong2 man4/man6 gun2 bok3 si6 zeng6 kin4 unknown
+0409 醉時歌
+zeoi3 si4 go1
 
 
 諸公衮衮登臺省，廣文先生官獨冷
@@ -13956,7 +13952,7 @@ zang6 wong4/wong6 ji6 sap6 sei3 si6 jyu6/ngaa6 kai3/kit3/sit3 sei3 sap6 wan6
 往往雖相見，飄飄愧此身
 wong5 wong5 seoi1 soeng1/soeng3 gin3/jin6, piu1 piu1 kwai3 ci2 san1
 不關輕紱冕，俱是避風塵
-bat1 gwaan1 hing1 bat6/fat1 min5, keoi1 si6 bei6 fung1/fung3 can4
+bat1 gwaan1 hing1 fat1 min5, keoi1 si6 bei6 fung1/fung3 can4
 一別星橋夜，三移斗柄春
 jat1 bit6 sing1 kiu4 je6, saam1 ji4 dau2/dau3 beng3 ceon1
 敗亡非赤壁，奔走爲黃巾
@@ -14544,18 +14540,16 @@ zaam6 cau4 zi1/zi3 gei2 fan1/fan6, waan4 jap6 gu3 lam4 cai1
 
 
 3271 村雨
-cyun1 jyu5/jyu6
-
+cyun1 jyu5
 
 雨聲傳兩夜，寒事颯高秋
-jyu5/jyu6 sing1 cyun4/zyun6 loeng5/loeng2 je6, hon4 si6 saap3 gou1 cau1
+jyu5 sing1 cyun4 loeng5 je6, hon4 si6 saap3 gou1 cau1
 挈帶看朱紱，開箱覩黑裘
-kit3 daai3 hon3/hon1 zyu1 bat6/fat1, hoi1 soeng1 dou2 hak1 kau4
+kit3 daai3 hon1 zyu1 fat1, hoi1 soeng1 dou2 hak1 kau4
 世情只益睡，盜賊敢忘憂
 sai3 cing4 zi2 jik1 seoi6, dou6 caak6 gam2 mong4 jau1
 松菊新霑洗，茅齋慰遠遊
-cung4 guk1 san1 zim1 sai2, maau4 zaai1 wai3 jyun5/jyun6 jau4
-
+cung4 guk1 san1 zim1 sai2, maau4 zaai1 wai3 jyun5 jau4
 
 3273 宿府
 suk1/sau3 fu2
@@ -15070,7 +15064,7 @@ hei2 zi1/zi3 ngaa4 ci2 lok6, ming4 dim3 zin3 jin4 zung1/zung3
 
 
 扶病垂朱紱，歸休步紫苔
-fu4 beng6/bing6 seoi4 zyu1 bat6/fat1, gwai1 jau1 bou6 zi2 toi4/toi1
+fu4 beng6/bing6 seoi4 zyu1 fat1, gwai1 jau1 bou6 zi2 toi4/toi1
 郊扉存晚計，幕府愧羣材
 gaau1 fei1 cyun4 maan5 gai3/gei3, mok6 fu2 kwai3 kwan4 coi4
 燕外晴絲卷，鷗邊水葉開
@@ -16112,7 +16106,7 @@ toi4 long4 syun2 coi4 zeon3, zi6 gu3 jik6 ji5 gik6
 前輩聲名人，埋沒何所得
 cin4 bui3 sing1 ming4 jan4, maai4 mut6 ho4 so2 dak1
 居然綰章紱，受性本幽獨
-geoi1 jin4 waan2 zoeng1 bat6/fat1, sau6 sing3 bun2 jau1 duk6
+geoi1 jin4 waan2 zoeng1 fat1, sau6 sing3 bun2 jau1 duk6
 平生憩息地，必種數竿竹
 ping4 sang1/saang1 hei3 sik1 dei6, bit1 zung2/zung3 sou3/sou2/sok3 gon1 zuk1
 事業只濁醪，營葺但草屋
@@ -17674,7 +17668,7 @@ baak3 niu5 gok3 soeng1/soeng3 ming6, gu1 wan4 mou4 zi6 sam1
 層軒俯江壁，要路亦高深
 cang4 hin1 fu2 gong1 bik1/bek3, jiu3/jiu1 lou6 jik6 gou1 sam1
 朱紱猶紗帽，新詩近玉琴
-zyu1 bat6/fat1 jau4 saa1 mou6/mou2, san1 si1 gan6/kan5 juk6 kam4
+zyu1 fat1 jau4 saa1 mou6/mou2, san1 si1 gan6/kan5 juk6 kam4
 功名不早立，衰病謝知音
 gung1 ming4 bat1 zou2 lap6/laap6, seoi1/ceoi1 beng6/bing6 ze6 zi1/zi3 jam1
 哀世非王粲，終然學越吟
@@ -19448,7 +19442,7 @@ zi2 dai6/tai5 sin1 zeot1/cyut3 ng5, zi1 laan4 dip6 jyu4 faan4
 同心注師律，灑血在戎軒
 tung4 sam1 zyu3 si1 leot6, saa2 hyut3 zoi6 jung4 hin1
 絲綸實具載，紱冕已殊恩
-si1 gwaan1/leon4 sat6 geoi6 zoi3/zoi2, bat6/fat1 min5 ji5 syu4 jan1
+si1 gwaan1/leon4 sat6 geoi6 zoi3/zoi2, fat1 min5 ji5 syu4 jan1
 奉公舉骨肉，誅叛經寒溫
 fung6 gung1 geoi2 gwat1 juk6, zyu1 bun6 ging1 hon4 wan1
 金甲雪猶凍，朱旗塵不翻
@@ -24348,7 +24342,7 @@ hung4 ngaan6 jing2 loi4 lin4 haap6 noi6/naap6, zik1/zek3/zik3 ling4 fei1 gap1 do
 嶢關險路今虛遠，禹鑿寒江正穩流
 jiu4 gwaan1 him2 lou6 gam1 heoi1 jyun5/jyun6, jyu5 zok6 hon4 gong1 zing3/zing1 wan2 lau4
 朱紱卽當隨綵鷁，青春不假報黃牛
-zyu1 bat6/fat1 zik1 dong1/dong3/dong2 ceoi4 coi2 jat6/jik1/jik6, cing1 ceon1 bat1 gaa2/gaa3 bou3 wong4 ngau4
+zyu1 fat1 zik1 dong1/dong3/dong2 ceoi4 coi2 jat6/jik1/jik6, cing1 ceon1 bat1 gaa2/gaa3 bou3 wong4 ngau4
 
 
 
@@ -25610,7 +25604,7 @@ bei1 cau1 wui4 baak6 sau2, ji2 zoeng6 bui3/bui6 gu1 sing4
 江斂洲諸出，天虛風物清
 gong1 lim5/lim6 zau1 zyu1 ceot1, tin1 heoi1 fung1/fung3 mat6 cing1
 滄溟服衰謝，朱紱負平生
-cong1 ming5/ming4 fuk6 seoi1/ceoi1 ze6, zyu1 bat6/fat1 fu6 ping4 sang1/saang1
+cong1 ming5/ming4 fuk6 seoi1/ceoi1 ze6, zyu1 fat1 fu6 ping4 sang1/saang1
 仰羨黃昏鳥，投林羽翮輕
 joeng5 sin6 wong4 fan1 niu5, tau4 lam4 jyu5 gaak3/hat6/lik6 hing1
 
