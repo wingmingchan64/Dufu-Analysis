@@ -26,6 +26,9 @@ $韻部code = "<?php
 
 foreach( $頁碼 as $頁 )
 {
+if( $頁 == "0703" )
+	break;
+
 	$file = $in_folder . "${頁}.php";
 	
 	if( file_exists( $file ) )
