@@ -1,4 +1,4 @@
-本文檔以 PHP 生成，再用人手編輯。 1013
+本文檔以 PHP 生成，再用人手編輯。 1593
 php h:\github\Dufu-Analysis\analysis_programs\生成杜詩粵音注音.php
 
 0003 望嶽
@@ -12,7 +12,6 @@ zou6 faa3 zung1 san4 sau3, jam1 joeng4 got3 fan1 hiu2
 dong6 hung1 sang1 cang4 wan4, kyut3 zi6 jap6 gwai1 niu5
 會當凌絕頂，一覽眾山小
 wui6 dong1 ling4 zyut6 ding2, jat1 laam5 zung3 saan1 siu2
-
 
 0008 登兗州城樓
 dang1 jin5 zau1 sing4 lau4
@@ -1592,11 +1591,6 @@ jyu6 hung2 zeon1 zung1 zeon6, gang3 hei2 wai6 gwan1 mau4
 
 0465 秋雨歎三首
 cau1 jyu5/jyu6 taan1/taan3 saam1 sau2
-
-
-
-
-
 
 雨中百草秋爛死，階下決明顏色鮮
 jyu5/jyu6 zung1/zung3 baak3 cou2 cau1 laan6 sei2/si2, gaai1 haa6/haa5 kyut3 ming4 ngaan4 sik1 sin1/sin2
