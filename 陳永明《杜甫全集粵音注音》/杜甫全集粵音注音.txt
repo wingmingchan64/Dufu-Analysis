@@ -15798,20 +15798,17 @@ san1 beng6/bing6 bat1 nang4 baai3, leoi6 haa6/haa5 jyu4 bing2/ping3/bing3 cyun4
 3498 子規
 zi2 kwai1
 
-
 峽裏雲安縣，江樓翼瓦齊
-haap6 leoi5/lei5 wan4 on1 jyun6/jyun4, gong1 lau4 jik6 ngaa5 cai4/zi1/zaai1
+haap6 leoi5 wan4 on1 jyun6, gong1 lau4 jik6 ngaa5 cai4
 兩邊山木合，終日子規啼
-loeng5/loeng2 bin1 saan1 muk6 hap6/gap3, zung1 jat6 zi2 kwai1 tai4
+loeng5 bin1 saan1 muk6 hap6, zung1 jat6 zi2 kwai1 tai4
 眇眇春風見，蕭蕭夜色淒
-miu5 miu5 ceon1 fung1/fung3 gin3/jin6, siu1 siu1 je6 sik1 cai1
+miu5 miu5 ceon1 fung1 jin6, siu1 siu1 je6 sik1 cai1
 客愁那聽此，故作傍人低
-haak3 sau4 naa5/naa1 ting1/ting3 ci2, gu3 zok3 bong6/pong4 jan4 dai1
-
+haak3 sau4 no4 ting3 ci2, gu3 zok3 bong6 jan4 dai1
 
 3502 近聞
-gan6/kan5 man4
-
+gan6 man4
 
 近聞犬戎遠遁逃，牧馬不敢侵臨洮
 gan6/kan5 man4 hyun2 jung4 jyun5/jyun6 deon6 tou4, muk6 maa5 bat1 gam2 cam1 lam4 jiu4/tou1/tou4
@@ -16012,12 +16009,10 @@ jau4 lou5 hing1 au1 ngoi6, ham4 cai1 gaau3/gok3 jyu5 jin4
 3535 漫成一絕
 maan6 sing4 jat1 zyut6
 
-
 江月去人只數尺，風燈照夜欲三更
-gong1 jyut6 heoi3 jan4 zi2 sou3/sou2/sok3 cek3, fung1/fung3 dang1 ziu3 je6 juk6 saam1 gang1/gaang1/gang3
+gong1 jyut6 heoi3 jan4 zi2 sou3 cek3, fung1 dang1 ziu3 je6 juk6 saam1 gang1
 沙頭宿鷺聯拳靜，船尾跳魚撥剌鳴
-saa1 tau4 suk1/sau3 lou6 lyun4 kyun4 zing6, syun4 mei5 tiu3 jyu4 but6 laat6/laa1 ming4
-
+saa1 tau4 suk1 lou6 lyun4 kyun4 zing6, syun4 mei5 tiu1 jyu4 but6 laat6 ming4
 
 3537 客堂
 haak3 tong4
@@ -19590,24 +19585,21 @@ cin1 zoi3/zoi2 siu2/siu3 ci5 zyu1 wan4 jan4, zi3 gam1 zit3/zip3 laam6 hung1 leon
 婁公不語宋公語，尙憶先皇容直臣
 lau4 gung1 bat1 jyu5/jyu6 sung3 gung1 jyu5/jyu6, soeng6/soeng4/soeng3 jik1 sin1 wong4 jung4 zik6 san4
 
-
 4361 立春
-lap6/laap6 ceon1
-
+lap6 ceon1
 
 春日春盤細生菜，忽憶兩京梅發時
-ceon1 jat6 ceon1 pun4 sai3 sang1/saang1 coi3, fat1 jik1 loeng5/loeng2 ging1 mui4 faat3 si4
+ceon1 jat6 ceon1 pun4 sai3 san
+g1 coi3, fat1 jik1 loeng5 ging1 mui4 faat3 si4
 盤出高門行白玉，菜傳纖手送青絲
-pun4 ceot1 gou1 mun4 hang4/hang6/hong4 baak6 juk6, coi3 cyun4/zyun6 cim1 sau2 sung3 cing1 si1
+pun4 ceot1 gou1 mun4 hang4 baak6 juk6, coi3 cyun4 cim1 sau2 sung3 cing1 si1
 巫峽寒江那對眼，杜陵遠客不勝悲
-mou4 haap6 hon4 gong1 naa5/naa1 deoi3 ngaan5, dou6 ling4 jyun5/jyun6 haak3 bat1 sing3/sing1 bei1
+mou4 haap6 hon4 gong1 no4 deoi3 ngaan5, dou6 ling4 jyun5 haak3 bat1 sing1 bei1
 此身未知歸定處，呼兒覓紙一題詩
-ci2 san1 mei6 zi1/zi3 gwai1 ding6 cyu3/cyu2, fu1 ji4 mik6 zi2 jat1 tai4 si1
-
+ci2 san1 mei6 zi1 gwai1 ding6 cyu3, fu1 ji4 mik6 zi2 jat1 tai4 si1
 
 4367 江梅
 gong1 mui4
-
 
 梅蕊臘前破，梅花年後多
 mui4 jeoi5 laap6 cin4 po3, mui4 faa1 nin4 hau6 do1
