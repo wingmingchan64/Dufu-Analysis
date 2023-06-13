@@ -2432,8 +2432,8 @@ gwan1 bat1 gin3/jin6 kau1/gau1/gau3 soeng6/soeng5 jing1, jat1 baau2 zak1 fei1 za
 jin4/jin1 nang4 zok3 tong4 soeng6/soeng5 jin3/jin1, haam4 nai4/nei6 fu6 jim4 jit6
 野人曠蕩無靦顏，豈可久在王侯間
 je5 jan4 kwong3/kong3 dong6 mou4 din2/min5 ngaan4, hei2 ho2/hak1 gau2 zoi6 wong4/wong6 hau4 gaan1/gaan3
-未試囊中飡玉法，明朝且入藍田山
-mei6 si3 nong4 zung1/zung3 syun1/caan1 juk6 faat3, ming4 ziu1/ciu4 ce2 jap6 laam4 tin4 saan1
+未試囊中餐玉法，明朝且入藍田山
+mei6 si3 nong4 zung1/zung3 caan1 juk6 faat3, ming4 ziu1/ciu4 ce2 jap6 laam4 tin4 saan1
 
 
 0656 奉同郭給事湯東靈湫作
@@ -4764,7 +4764,7 @@ saau2 doi6 cau1 fung1/fung3 loeng4 laang5 hau6, gou1 cam4 baak6 dai3 man6 zan1 j
 zou2 cau1 fu2 jit6 deoi1 on3 soeng1/soeng3 jing4 unknown si4 jam6/jam4 waa4/waa6/faa1 zau1 si1 gung1 unknown
 
 
-七月六日苦炎蒸，對食暫飡還不能
+七月六日苦炎蒸，對食暫餐還不能
 cat1 jyut6 luk6 jat6 fu2 jim4 zing1, deoi3 sik6/zi6/ji6 zaam6 syun1/caan1 waan4 bat1 nang4
 每愁夜中自足蝎，況乃秋後轉多蠅
 mui5 sau4 je6 zung1/zung3 zi6 zuk1/zeoi3 hot3/kit3/hit3, fong3 naai5 cau1 hau6 zyun2/zyun3 do1 jing4
@@ -14213,8 +14213,8 @@ saam1 zau1 haam6 hyun2 jung4, daan6 gin3/jin6 sai1 ling5 cing1
 gung1 loi4 lin6 maang5 si6, juk6 dyut6 tin1 bin1 sing4
 此堂不易升，庸蜀日已寧
 ci2 tong4 bat1 ji6/jik6 sing1, jung4 suk6 jat6 ji5 ning4
-吾徒且加飡，休適蠻與荆
-ng4 tou4 ce2 gaa1 syun1/caan1, jau1 sik1/dik1 maan4 jyu5/jyu6/jyu4 ging1
+吾徒且加餐，休適蠻與荆
+ng4 tou4 ce2 gaa1 caan1, jau1 sik1/dik1 maan4 jyu5/jyu6/jyu4 ging1
 
 
 3234 軍中醉歌寄沈八劉叟
@@ -15067,8 +15067,8 @@ siu1 siu1 gin3/jin6 baak6 jat6, hung1 hung1 hoi1 ban1 teon1/cyun2
 dou6/dok6 tong4 fei2 waa4/waa6/faa1 lai6/lei4, joeng5/joeng6 zyut3 ji6 haau2 pun4
 草茅雖薙葺，衰疾方少寬
 cou2 maau4 seoi1 tai3 cap1, seoi1/ceoi1 zat6 fong1 siu2/siu3 fun1
-洗然順所適，此足代加飡
-sai2 jin4 seon6 so2 sik1/dik1, ci2 zuk1/zeoi3 doi6 gaa1 syun1/caan1
+洗然順所適，此足代加餐
+sai2 jin4 seon6 so2 sik1/dik1, ci2 zuk1/zeoi3 doi6 gaa1 caan1
 寂無斤斧響，庶遂憩息歡
 zik6 mou4 gan1 fu2 hoeng2, syu3 seoi6 hei3 sik1 fun1
 
@@ -16666,8 +16666,8 @@ wan4 dyun1 seoi2 tung4/tung2 caak3, lam4 biu2/biu1 saan1 sek6 seoi3
 zuk1/cuk1 jit6 zik6/ze3 zi2 sau1, tung1 lau4 jyu5/jyu6/jyu4 cyu4/ceoi4 wui6/wui5/kui2
 往來四十里，荒險崖谷大
 wong5 loi4 sei3 sap6 lei5, fong1 him2 ngaai4 guk1/juk6/luk6 daai6/taai3
-日曛驚未飡，貌赤愧相對
-jat6 fan1 ging1 mei6 syun1/caan1, maau6 cek3/cik3 kwai3 soeng1/soeng3 deoi3
+日曛驚未餐，貌赤愧相對
+jat6 fan1 ging1 mei6 caan1, maau6 cek3/cik3 kwai3 soeng1/soeng3 deoi3
 浮瓜供老病，裂餠常所愛
 fau4 gwaa1 gung1/gung3 lou5 beng6/bing6, lit6 bing2/beng2 soeng4 so2 oi3
 於斯答恭謹，足以殊殿最
@@ -21113,8 +21113,8 @@ gwan1 san4 dong1/dong3/dong2 gung6 zai3/zai2, jin4 sing3 jik6 tung4 si4
 jik6 daai3 gwai1 sin1 zyu2, bing6/bing1/bing3 tan1 gang1/gaang1/gang3 ceot1 si1
 蟲蛇穿畫壁，巫覡醉蛛絲
 cung4 se4/ji4 cyun1 waa6/waak6/waa2 bik1/bek3, mou4 seng2/hat6/sing2 zeoi3 zyu1 si1
-欻憶吟樑父，躬耕也未遲
-ceoi1/caat3/fat1 jik1 jam4 loeng4 fu6/fu2, gung1 gaang1 jaa5 mei6 ci4
+欻憶吟梁父，躬耕也未遲
+fat1 jik1 jam4 loeng4 fu2, gung1 gaang1 jaa5 mei6 ci4
 
 
 4711 夜雨
@@ -23462,8 +23462,8 @@ fuk6/fuk1/fau6 zok3 gwai1 tin4 heoi3, jau4 caan4 wok6 dou6 gung1
 zuk1 coeng4 lin4 jyut6 ngai5, sap6 seoi6 heoi2 cyun1 tung4
 落杵光輝白，除芒子粒紅
 lok6 cyu5 gwong1 fai1 baak6, ceoi4 mong4/mong1 zi2 nap1 hung4/gung1
-加飡可扶老，倉庾慰飄蓬
-gaa1 syun1/caan1 ho2/hak1 fu4 lou5, cong1 jyu4/jyu5 wai3 piu1 pung4/fung4
+加餐可扶老，倉庾慰飄蓬
+gaa1 caan1 ho2/hak1 fu4 lou5, cong1 jyu4/jyu5 wai3 piu1 pung4/fung4
 
 
 5201 茅堂檢校收稻二首
@@ -25182,7 +25182,7 @@ siu2 gong1 waan4 zik1 long6/long4, joek6 laam6 ce2 coeng4/zoeng2/zoeng6 tai4
 gwai1 lou6 fei1 gwaan1 bak1, hang4/hang6/hong4 zau1 koek3 hoeng3 sai1
 暮年漂泊恨，今夕亂離啼
 mou6 nin4 piu1/piu3 bok6/baak3 han6, gam1 zik6 lyun6 lei4/lei6 tai4
-童稚頻書扎，盤飡詎糝藜
+童稚頻書扎，盤飧詎糝藜
 tung4 zi6 pan4 syu1 zaat3, pun4 syun1/caan1 keoi5/geoi5/geoi6 saam2/saam1/saan2 lei4/lai4
 我行何到此，物理直難齊
 ngo5 hang4/hang6/hong4 ho4 dou3 ci2, mat6 lei5 zik6 naan4/naan6/no4 cai4/zi1/zaai1
