@@ -26,7 +26,7 @@ if( array_key_exists( $詩句, $詩句_坐標 ) )
 }
 else
 {
-	echo "沒找着${詩句}n";
+	echo "沒找著\"${詩句}\"\n";
 	exit;
 }
 $頁碼 = 提取頁碼( $坐標 );
