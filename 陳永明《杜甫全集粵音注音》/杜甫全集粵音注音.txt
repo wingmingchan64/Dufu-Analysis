@@ -1,4 +1,4 @@
-本文檔以 PHP 生成，再用人手編輯。 1764
+本文檔以 PHP 生成，再用人手編輯。 1912
 php h:\github\Dufu-Analysis\analysis_programs\生成杜詩粵音注音.php
 
 0003 望嶽
@@ -1765,158 +1765,152 @@ mat6 sau6 ngoi6 jim4 caai1, tung4 sing3 gu2 so2 deon1
 fung6 zang6 taai3 soeng4 zoeng1 hing1 gei3 ji6 sap6 wan6
 
 方丈三韓外，崑崙萬國西
-fong1 zoeng6 saam1 hon4 ngoi6, kwan1/gwan1 leon4 maan6 gwok3 sai1
+fong1 zoeng6 saam1 hon4 ngoi6, kwan1 leon4 maan6 gwok3 sai1
 建標天地闊，詣絕古今迷
 gin3 biu1 tin1 dei6 fut3, ngai6 zyut6 gu2 gam1 mai4
 氣得神仙迥，恩承雨露低
-hei3 dak1 san4/san1 sin1 gwing2, jan1 sing4 jyu5/jyu6 lou6 dai1
+hei3 dak1 san4 sin1 gwing2, jan1 sing4 jyu5 lou6 dai1
 相門清議眾，儒術大名齊
-soeng1/soeng3 mun4 cing1 ji5 zung3, jyu4 seot6 daai6/taai3 ming4 cai4/zi1/zaai1
+soeng3 mun4 cing1 ji5 zung3, jyu4 seot6 daai6 ming4 cai4
 軒冕羅天闕，琳琅識介珪
-hin1 min5 lo4 tin1 kyut3/gwat6/hyut3, lam4 long4 sik1/zi3 gaai3 gwai1
+hin1 min5 lo4 tin1 kyut3, lam4 long4 sik1 gaai3 gwai1
 伶官詩必誦，夔樂典猶稽
-ling4 gun1 si1 bit1 zung6, kwai4 ngaau6/ngok6/lok6 din2 jau4 kai1/kai2
+ling4 gun1 si1 bit1 zung6, kwai4 ngok6 din2 jau4 kai1
 健筆凌鸚鵡，銛鋒瑩鸊鵜
-gin6 bat1 ling4 jing1 mou5, tim4/cim1 fung1 jing4 pik1 tai4
+gin6 bat1 ling4 jing1 mou5, cim1 fung1 jing4 pik1 tai4
 友于皆挺拔，公望各端倪
-jau5 jyu1/jyu4 gaai1 ting5 bat6, gung1 mong6 gok3 dyun1 ngai4
+jau5 jyu4 gaai1 ting5 bat6, gung1 mong6 gok3 dyun1 ngai4
 通籍踰青瑣，亨衢照紫泥
-tung1 zik6 jyu4/jyu6 cing1 so2, hang1/paang1 keoi4 ziu3 zi2 nai4/nei6
+tung1 zik6 jyu4 cing1 so2, hang1 keoi4 ziu3 zi2 nai4
 靈虯傳夕箭，歸馬散霜蹄
-ling4 kau4 cyun4/zyun6 zik6 zin3, gwai1 maa5 saan3/saan2 soeng1 tai4
+ling4 kau4 cyun4 zik6 zin3, gwai1 maa5 saan3 soeng1 tai4
 能事聞重譯，嘉謨及遠黎
-nang4 si6 man4 zung6/cung4/cung5 jik6, gaa1 mou4 kap6 jyun5/jyun6 lai4
+nang4 si6 man4 cung4 jik6, gaa1 mou4 kap6 jyun5 lai4
 弼諧方一展，班序更何躋
-bat6 haai4 fong1 jat1 zin2, baan1 zeoi6 gang1/gaang1/gang3 ho4 zai1
+bat6 haai4 fong1 jat1 zin2, baan1 zeoi6 gang3 ho4 zai1
 適越空顚躓，遊梁竟慘悽
-sik1/dik1 jyut6 hung1 din1 zi3, jau4 loeng4 ging2 caam2 cai1
+sik1 jyut6 hung1 din1 zi3, jau4 loeng4 ging2 caam2 cai1
 謬知終畫虎，微分是䤈雞
-mau6 zi1/zi3 zung1 waa6/waak6/waa2 fu2, mei4 fan1/fan6 si6 hei1 gai1
+mau6 zi1 zung1 waak6 fu2, mei4 fan6 si6 hei1 gai1
 萍泛無休日，桃陰想舊蹊
-ping4 faan3 mou4 jau1 jat6, tou4 jam1 soeng2 gau6 hai4/kai1
+ping4 faan3 mou4 jau1 jat6, tou4 jam1 soeng2 gau6 hai4
 吹噓人所羨，騰躍事仍暌
-ceoi1 heoi1/syu4 jan4 so2 sin6, tang4 joek3/joek6 si6 jing4 kwai1/kwai5/kwai4
+ceoi1 heoi1 jan4 so2 sin6, tang4 joek3 si6 jing4 kwai4
 碧海眞難涉，青雲不可梯
-bik1 hoi2 zan1 naan4 sip3, cing1 wan4 bat1 ho2/hak1 tai1
+bik1 hoi2 zan1 naan4 sip3, cing1 wan4 bat1 ho2 tai1
 顧深慚鍛鍊，才小辱提攜
-gu3 sam1 caam4 dyun3/dyun6 lin6/lin2, coi4 siu2 juk6 tai4 kwai4
+gu3 sam1 caam4 dyun3 lin6, coi4 siu2 juk6 tai4 kwai4
 檻束哀猿巧，枝驚夜鵲栖
-laam6 cuk1 oi1 jyun4 haau2, zi1 ging1 je6 zoek3/coek3 cai1
+laam6 cuk1 oi1 jyun4 haau2, zi1 ging1 je6 zoek3 cai1
 幾時陪羽獵，應指釣璜溪
-gei2/gei1 si4 pui4 jyu5 lip6, jing1/jing3 zi2 diu3 wong4 kai1
-
+gei2 si4 pui4 jyu5 lip6, jing1 zi2 diu3 wong4 kai1
 
 0515 橋陵詩三十韻因呈縣內諸官
-kiu4 ling4 si1 saam1 sap6 wan6 jan1 cing4 jyun6/jyun4 noi6/naap6 zyu1 gun1
-
+kiu4 ling4 si1 saam1 sap6 wan6 jan1 cing4 jyun6 noi6 zyu1 gun1
 
 先帝昔晏駕，茲山朝百靈
-sin1 dai3 sik1 aan3 gaa3, zi1/ci4 saan1 ziu1/ciu4 baak3 ling4
+sin1 dai3 sik1 aan3 gaa3, zi1 saan1 ciu4 baak3 ling4
 崇岡擁象設，沃野開天庭
 sung4 gong1 jung2 zoeng6 cit3, juk1 je5 hoi1 tin1 ting4
 卽事壯重險，論功超五丁
-zik1 si6 zong3 zung6/cung4/cung5 him2, leon6/leon4 gung1 ciu1 ng5 ding1/zang1
+zik1 si6 zong3 cung4 him2, leon6 gung1 ciu1 ng5 ding1
 坡陀因厚地，卻略羅峻屛
-bo1/po1 to4 jan1 hau5 dei6, koek3 loek6 lo4 zeon3 bing2/bing3/ping4
+bo1 to4 jan1 hau5 dei6, koek3 loek6 lo4 zeon3 ping4
 雲闕虛冉冉，風松肅泠泠
-wan4 kyut3/gwat6/hyut3 heoi1 jim5 jim5, fung1 cung4 suk1 ling4 ling4
+wan4 kyut3 heoi1 jim5 jim5, fung1 cung4 suk1 ling4 ling4
 石門霜露白，玉殿莓苔青
-sek6 mun4 soeng1 lou6 baak6, juk6 din6 mui4 toi4/toi1 cing1
+sek6 mun4 soeng1 lou6 baak6, juk6 din6 mui4 toi4 cing1
 宮女曉知曙，祠官朝見星
-gung1 neoi5 hiu2 zi1/zi3 cyu5/syu5, ci4 gun1 ziu1/ciu4 gin3/jin6 sing1
+gung1 neoi5 hiu2 zi1 cyu5, ci4 gun1 ziu1 gin3 sing1
 空梁簇畫戟，陰井敲銅甁
-hung1 loeng4 cuk1 waa6/waak6/waa2 gik1, jam1 zeng2/zing2 haau1 tung4 peng4/ping4
+hung1 loeng4 cuk1 waa6 gik1, jam1 zing2 haau1 tung4 ping4
 中使日夜繼，惟王心不寧
-zung1 si2/si3/sai2 jat6 je6 gai3, wai4 wong4/wong6 sam1 bat1 ning4
+zung1 si3 jat6 je6 gai3, wai4 wong4 sam1 bat1 ning4
 豈徒䘏備享，尙謂求無形
-hei2 tou4 seot1 bei6 hoeng2, soeng6/soeng4/soeng3 wai6 kau4 mou4 jing4
+hei2 tou4 seot1 bei6 hoeng2, soeng6 wai6 kau4 mou4 jing4
 孝理敦國政，神凝推道經
-haau3 lei5 deon1 gwok3 zing3, san4/san1 jing4 teoi1 dou6 ging1
+haau3 lei5 deon1 gwok3 zing3, san4 jing4 teoi1 dou6 ging1
 瑞芝產廟柱，好鳥鳴巖扃
-seoi6 zi1 caan2 miu6 cyu5, hou2/hou3 niu5 ming4 ngaam4 gwing2/kwing1/gwing1
+seoi6 zi1 caan2 miu6 cyu5, hou2 niu5 ming4 ngaam4 gwing1
 高岳前嵂崒，洪河左瀅濴
-gou1 ngok6 cin4 leot6 zyut6/zeot1/ceoi3, hung4 ho4 zo2 jing6/jing4 jing4
+gou1 ngok6 cin4 leot6 zeot1, hung4 ho4 zo2 jing4 jing4
 金城蓄峻趾，沙菀交迴汀
-gam1 sing4 cuk1 zeon3 zi2, saa1 wat1/wan5/wan3 gaau1 wui4 ting1
+gam1 sing4 cuk1 zeon3 zi2, saa1 jyun2 gaau1 wui4 ting1
 永與奧區固，川原紛眇冥
-wing5 jyu5/jyu6/jyu4 ou3 keoi1/au1 gu3, cyun1 jyun4 fan1 miu5 ming4/ming5
+wing5 jyu5 ou3 keoi1 gu3, cyun1 jyun4 fan1 miu5 ming4
 居然赤縣立，臺榭爭岧亭
-geoi1 jin4 cek3/cik3 jyun6/jyun4 lap6/laap6, toi4 ze6 zang1 tiu4/siu4 ting4
+geoi1 jin4 cik3 jyun6 lap6, toi4 ze6 zang1 tiu4 ting4
 官屬果稱是，聲華眞可聽
-gun1 suk6/zuk1 gwo2 cing1/cing3 si6, sing1 waa4/waa6/faa1 zan1 ho2/hak1 ting1/ting3
+gun1 suk6 gwo2 cing1 si6, sing1 waa4 zan1 ho2 ting1
 王劉美竹潤，裴李春蘭馨
-wong4/wong6 lau4 mei5 zuk1 jeon6, pui4 lei5 ceon1 laan4 hing1
+wong4 lau4 mei5 zuk1 jeon6, pui4 lei5 ceon1 laan4 hing1
 鄭氏才振古，啖侯筆不停
-zeng6 si6/zi1 coi4 zan3 gu2, daam6 hau4 bat1 bat1 ting4
+zeng6 si6 coi4 zan3 gu2, daam6 hau4 bat1 bat1 ting4
 遣詞必中律，利物常發硎
-hin2 ci4 bit1 zung1 leot6, lei6 mat6 soeng4 faat3 jing4
+hin2 ci4 bit1 zung3 leot6, lei6 mat6 soeng4 faat3 jing4
 綺繡相展轉，琳琅愈青熒
-ji2 sau3 soeng1/soeng3 zin2 zyun2/zyun3, lam4 long4 jyu6 cing1 jing2/taam4/jing4
+ji2 sau3 soeng1 zin2 zyun2, lam4 long4 jyu6 cing1 jing4
 側聞魯恭化，秉德崔瑗銘
-zak1 man4 lou5 gung1 faa3, bing2 dak1 ceoi1 wun6/jyun4/jyun6 ming4/ming5
+zak1 man4 lou5 gung1 faa3, bing2 dak1 ceoi1 jyun6 ming4
 太史候鳧影，王喬隨鶴翎
-taai3 si2 hau6 fu4 jing2, wong4/wong6 kiu4 ceoi4 hok6 ling4
+taai3 si2 hau6 fu4 jing2, wong4 kiu4 ceoi4 hok6 ling4
 朝儀限霄漢，客思迴林坰
-ziu1/ciu4 ji4 haan6 siu1 hon3, haak3 si1/si3/soi1 wui4 lam4 gwing2/gwing1
+ciu4 ji4 haan6 siu1 hon3, haak3 si3 wui4 lam4 gwing1
 轗軻辭下杜，飄颻陵濁涇
 ham2 ho2 ci4 haa6 dou6, piu1 jiu4 ling4 zuk6 ging1
 諸生舊短褐，旅泛一浮萍
-zyu1 sang1/saang1 gau6 dyun2 hot3, leoi5 faan3 jat1 fau4 ping4
+zyu1 sang1 gau6 dyun2 hot3, leoi5 faan3 jat1 fau4 ping4
 荒歲兒女瘦，暮途涕泗零
-fong1 seoi3 ji4 neoi5 sau3, mou6 tou4 tai3 si3/sei3 ling4
+fong1 seoi3 ji4 neoi5 sau3, mou6 tou4 tai3 si3 ling4
 主人念老馬，廨署容秋螢
-zyu2 jan4 nim6 lou5 maa5, gaai3/haai6/haai3 cyu5/syu5 jung4 cau1 jing4
+zyu2 jan4 nim6 lou5 maa5, haai6/gaai3 cyu5 jung4 cau1 jing4
 流寓理豈愜，窮愁醉未醒
-lau4 jyu6 lei5 hei2 hip3, kung4 sau4 zeoi3 mei6 sing2
+lau4 jyu6 lei5 hei2 hip3, kung4 sau4 zeoi3 mei6 sing1
 何當擺俗累，浩蕩乘滄溟
-ho4 dong1/dong3/dong2 baai2 zuk6 leoi5/leoi6/leoi4, hou6 dong6 sing4/sing6 cong1 ming5/ming4
-
+ho4 dong1 baai2 zuk6 leoi6, hou6 dong6 sing4 cong1 ming4
 
 0527 奉先劉少府新畫山水障歌
-fung6 sin1 lau4 siu2/siu3 fu2 san1 waa6/waak6/waa2 saan1 seoi2 zoeng3 go1
-
+fung6 sin1 lau4 siu3 fu2 san1 waak6 saan1 seoi2 zoeng3 go1
 
 堂上不合生楓樹，怪底江山起煙霧
-tong4 soeng6/soeng5 bat1 hap6/gap3 sang1/saang1 fung1 syu6, gwaai3 dai2 gong1 saan1 hei2 jin1 mou6
+tong4 soeng6 bat1 hap6 sang1 fung1 syu6, gwaai3 dai2 gong1 saan1 hei2 jin1 mou6
 聞君掃卻赤縣圖，乘興遣畫滄洲趣
-man4 gwan1 sou3 koek3 cek3/cik3 jyun6/jyun4 tou4, sing4/sing6 hing1/hing3 hin2 waa6/waak6/waa2 cong1 zau1 ceoi3/cuk1
+man4 gwan1 sou3 koek3 cik3 jyun6 tou4, sing4 hing3 hin2 waa6 cong1 zau1 ceoi3
 畫師亦無數，好手不可遇
-waa6/waak6/waa2 si1 jik6 mou4 sou3/sou2/sok3, hou2/hou3 sau2 bat1 ho2/hak1 jyu6
+waa6 si1 jik6 mou4 sou3, hou2 sau2 bat1 ho2 jyu6
 對此融心神，知君重毫素
-deoi3 ci2 jung4 sam1 san4/san1, zi1/zi3 gwan1 zung6/cung4/cung5 hou4 sou3
+deoi3 ci2 jung4 sam1 san4, zi1/zi3 gwan1 zung6 hou4 sou3
 豈但祁岳與鄭虔，筆迹遠過楊契丹
-hei2 daan6 kei4 ngok6 jyu5/jyu6/jyu4 zeng6 kin4, bat1 zek3/zik1 jyun5/jyun6 gwo3 joeng4 kai3/kit3/sit3 daan1
+hei2 daan6 kei4 ngok6 jyu5 zeng6 kin4, bat1 zik1 jyun5 gwo3 joeng4 sit3 daan1
 得非玄圃裂，無乃瀟湘翻
 dak1 fei1 jyun4 pou2 lit6, mou4 naai5 siu1 soeng1 faan1
 悄然坐我天姥下，耳邊已似聞清猿
-ciu2 jin4 zo6/co5 ngo5 tin1 lou5/mou5 haa6, ji5 bin1 ji5 ci5 man4 cing1 jyun4
+ciu2 jin4 zo6 ngo5 tin1 mou5 haa6, ji5 bin1 ji5 ci5 man4 cing1 jyun4
 反思前夜風雨急，乃是蒲城鬼神入
-faan2 si1/si3/soi1 cin4 je6 fung1 jyu5/jyu6 gap1, naai5 si6 pou4 sing4 gwai2 san4/san1 jap6
+faan2 si1 cin4 je6 fung1 jyu5 gap1, naai5 si6 pou4 sing4 gwai2 san4 jap6
 元氣淋漓障猶濕，眞宰上訴天應泣
-jyun4 hei3 lam4 lei4 zoeng3 jau4 sap1, zan1 zoi2 soeng6/soeng5 sou3 tin1 jing1/jing3 jap1
+jyun4 hei3 lam4 lei4 zoeng3 jau4 sap1, zan1 zoi2 soeng6 sou3 tin1 jing1 jap1
 野亭春還雜花遠，漁翁暝踏孤舟立
-je5 ting4 ceon1 waan4 zaap6 faa1 jyun5/jyun6, jyu4 jung1 ming6/ming5/ming4 daap6 gu1 zau1 lap6/laap6
+je5 ting4 ceon1 waan4 zaap6 faa1 jyun5, jyu4 jung1 ming4 daap6 gu1 zau1 lap6
 滄浪水深青冥闊，攲岸側島秋毫末
-cong1 long6/long4 seoi2 sam1 cing1 ming4/ming5 fut3, hei1/kei1/ji1 ngon6 zak1 dou2 cau1 hou4 mut6
+cong1 long4 seoi2 sam1 cing1 ming4 fut3, kei1 ngon6 zak1 dou2 cau1 hou4 mut6
 不見湘妃鼓瑟時，至今班竹臨江活
-bat1 gin3/jin6 soeng1 fei1 gu2 sat1 si4, zi3 gam1 baan1 zuk1 lam4 gong1 wut6
+bat1 gin3 soeng1 fei1 gu2 sat1 si4, zi3 gam1 baan1 zuk1 lam4 gong1 wut6
 劉侯天機精，愛畫入骨髓
-lau4 hau4 tin1 gei1 zing1, oi3 waa6/waak6/waa2 jap6 gwat1 seoi5
+lau4 hau4 tin1 gei1 zing1, oi3 waa6 jap6 gwat1 seoi5
 自有兩兒郎，揮灑亦莫比
-zi6 jau5/jau6 loeng5/loeng2 ji4 long4, fai1 saa2 jik6 mok6 bei2/bei3/bei6
+zi6 jau5 loeng5 ji4 long4, fai1 saa2 jik6 mok6 bei2
 大兒聰明到，能添老樹巓崖裏
-daai6/taai3 ji4 cung1 ming4 dou3, nang4 tim1 lou5 syu6 din1 ngaai4 leoi5/lei5
+daai6 ji4 cung1 ming4 dou3, nang4 tim1 lou5 syu6 din1 ngaai4 leoi5
 小兒心孔開，貌得山僧及童子
 siu2 ji4 sam1 hung2 hoi1, maau6 dak1 saan1 zang1 kap6 tung4 zi2
 若耶溪，雲門寺
-joek6/je5 je4 kai1, wan4 mun4 zi6/zi2
+joek6 je4 kai1, wan4 mun4 zi6
 吾獨胡爲在泥滓，青鞋布襪從此始
-ng4 duk6 wu4 wai6/wai4 zoi6 nai4/nei6 zi2, cing1 haai4 bou3 mat6 cung4/sung1/zung6 ci2 ci2
+ng4 duk6 wu4 wai4 zoi6 nai4 zi2, cing1 haai4 bou3 mat6 cung4 ci2 ci2
 
-
-0536 贈獻納使起居田舍人[澄]
-zang6 hin3 naap6 si2/si3/sai2 hei2 geoi1 tin4 se3/se2 jan4 unknown cing4 unknown
-
+0536 贈獻納使起居田舍人
+zang6 hin3 naap6 si3 hei2 geoi1 tin4 se3 jan4
 
 獻納司存雨露邊，地分清切任才賢
 hin3 naap6 si1 cyun4 jyu5/jyu6 lou6 bin1, dei6 fan1/fan6 cing1 cit3/cai3 jam6/jam4 coi4 jin4
