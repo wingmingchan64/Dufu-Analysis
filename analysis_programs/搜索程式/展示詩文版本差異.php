@@ -1,7 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\展示詩文版本差異.php
-0003 蕭,仇
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\展示詩文版本差異.php 0003 蕭,仇
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
