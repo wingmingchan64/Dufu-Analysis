@@ -118,17 +118,18 @@ $code = "<?php
 		// doi6 zung1 fu4 jyu4 ho4, cai4 lou5 cing1 mei6 liu5
 		// ---------------------------------------------
 		
-		
 		if( mb_strpos( $内容, '--' ) !== false )//delimiter
 		{
 			$音_陣列 = explode( "\n", $内容  ); // lines
 		
 			$sub_code = "array(\n";
+			$詩文注音 = '';
 
 			for( $i = 0; $i < sizeof( $音_陣列 ); $i++ )
 			{
 				$音  = "";
 				$文  = "";
+				$詩文注音 .= $音_陣列[ $i ] . "\n";
 			
 				// skip 詩題
 				if( mb_strpos( 
@@ -192,8 +193,10 @@ $code = "<?php
 			}
 			//$sub_code = $sub_code . "\"$文\"=>\"$音\",";
 			//$sub_code = substr( $sub_code, 0, -2 );
+			//$sub_code = $sub_code . "\n\"詩文注音\"=>\"$詩文注音\",";
 			$sub_code = $sub_code . "),\n";
 			$内容 = $sub_code;
+			$内容 = $内容 . "\n\"詩文注音\"=>\"$詩文注音\",\n";
 			$字音 = array(); // store 字 and its 音
 			
 // break out of 北征

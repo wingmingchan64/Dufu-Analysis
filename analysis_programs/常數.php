@@ -22,13 +22,18 @@ const 夾注regex = '/\[\X+?]/';
 const 異體字 = 'h:\github\Dufu-Analysis\異體字.php';
 const 詩組_詩題 = 'h:\github\Dufu-Analysis\詩組_詩題.php';
 const 頁碼_路徑 = 'h:\github\Dufu-Analysis\頁碼_路徑.php';
-// keys
+
+// 書本部分
 const 内容 = "内容";
+const 大意 = '大意';
 const 行碼 = "行碼";
 const 書名 = "書名";
 const 參數 = '參數';
 const 注釋 = '注釋';
+const 注音 = '注音';
 const 譯文 = '譯文';
 const 評論 = '評論';
+const 異文夾注 = '異文、夾注';
+const 詩文注音 = '詩文注音';
 
 ?>

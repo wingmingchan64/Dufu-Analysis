@@ -1,7 +1,7 @@
 <?php
 /*
 // 參數: 什麽書、哪個部分
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\生成杜甫詩選.php 參數="默:詩文;今:注釋;譯:譯文;仇:注釋,評論;浦:評論"
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\生成杜甫詩選.php 參數="默:詩文;粵:詩文注音;今:注釋;譯:譯文;仇:注釋,評論;浦:評論"
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );

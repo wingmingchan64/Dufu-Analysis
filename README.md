@@ -93,12 +93,32 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\搜索詩文評論.ph
 </pre>
 <p>例子四：生成《杜甫詩選》（假設我只選《望嶽》一首詩；當然，我也可以選多首杜詩）（<a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/analysis_programs/%E6%90%9C%E7%B4%A2%E7%A8%8B%E5%BC%8F/%E7%94%9F%E6%88%90%E6%9D%9C%E7%94%AB%E8%A9%A9%E9%81%B8.php">生成杜甫詩選.php</a>）</p>
 <pre>
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\生成杜甫詩選.php 參數="默:詩文;今:注釋;譯:譯文;仇:注釋,評論;浦:評論"</pre>
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\生成杜甫詩選.php 參數="默:詩文;粵:詩文注音;今:注釋;譯:譯文;仇:注釋,評論;浦:評論"</pre>
 <p>結果：</p>
 <pre>
 望嶽
 
 岱宗夫如何。齊魯青未了。造化鍾神秀。陰陽割昏曉。盪胸生曾雲。決眥入歸鳥。會當凌絕頂。一覽眾山小。
+
+
+=====================================================
+陳永明《杜甫全集粵音注音》
+
+詩文注音
+
+望嶽
+岱宗夫如何？齊魯青未了。
+doi6 zung1 fu4 jyu4 ho4, cai4 lou5 cing1 mei6 liu5
+-----------------------------------------------------
+造化鍾神秀，陰陽割昏曉。
+zou6 faa3 zung1 san4 sau3, jam1 joeng4 got3 fan1 hiu2
+-----------------------------------------------------
+盪胸生曾雲，決眥入歸鳥。
+dong6 hung1 sang1 cang4 wan4, kyut3 zi6 jap6 gwai1 niu5
+-----------------------------------------------------
+會當凌絕頂，一覽眾山小。
+wui6 dong1 ling4 zyut6 ding2, jat1 laam5 zung3 saan1 siu2
+
 
 
 =====================================================
