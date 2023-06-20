@@ -1,4 +1,4 @@
-本文檔以 PHP 生成，再用人手編輯。 1912
+本文檔以 PHP 生成，再用人手編輯。 1924
 php h:\github\Dufu-Analysis\analysis_programs\生成杜詩粵音注音.php
 
 0003 望嶽
@@ -1913,25 +1913,23 @@ ng4 duk6 wu4 wai4 zoi6 nai4 zi2, cing1 haai4 bou3 mat6 cung4 ci2 ci2
 zang6 hin3 naap6 si3 hei2 geoi1 tin4 se3 jan4
 
 獻納司存雨露邊，地分清切任才賢
-hin3 naap6 si1 cyun4 jyu5/jyu6 lou6 bin1, dei6 fan1/fan6 cing1 cit3/cai3 jam6/jam4 coi4 jin4
+hin3 naap6 si1 cyun4 jyu5 lou6 bin1, dei6 fan1 cing1 cit3 jam6 coi4 jin4
 舍人退食收封事，宮女開函近御筵
-se3/se2 jan4 teoi3 sik6/zi6/ji6 sau1 fung1 si6, gung1 neoi5 hoi1 haam4 gan6/kan5 jyu6/ngaa6 jin4
+se3 jan4 teoi3 sik6 sau1 fung1 si6, gung1 neoi5 hoi1 haam4 gan6 jyu6 jin4
 曉漏追趨青瑣闥，晴窗點檢白雲篇
-hiu2 lau6 zeoi1 ceoi1/cuk1 cing1 so2 taat3, cing4 coeng1 dim2 gim2 baak6 wan4 pin1
+hiu2 lau6 zeoi1 ceoi1 cing1 so2 taat3, cing4 coeng1 dim2 gim2 baak6 wan4 pin1
 揚雄更有河東賦，唯待吹噓送上天
-joeng4 hung4 gang1/gaang1/gang3 jau5/jau6 ho4 dung1 fu3, wai4/wai2 doi6 ceoi1 heoi1/syu4 sung3 soeng6/soeng5 tin1
-
+joeng4 hung4 gang3 jau5 ho4 dung1 fu3, wai4 doi6 ceoi1 heoi1 sung3 soeng5 tin1
 
 0541 沙苑行
-saa1 jyun2 hang4/hang6/hong4
-
+saa1 jyun2 hang4
 
 君不見左輔白沙如白水，繚以周牆百餘里
-gwan1 bat1 gin3/jin6 zo2 fu6 baak6 saa1 jyu4 baak6 seoi2, liu4 ji5 zau1 coeng4 baak3 jyu4 lei5
+gwan1 bat1 gin3 zo2 fu6 baak6 saa1 jyu4 baak6 seoi2, liu4 ji5 zau1 coeng4 baak3 jyu4 lei5
 龍媒昔是渥洼生，汗血今稱獻於此
-lung4 mui4 sik1 si6 ak1 gwai1/waa1 sang1/saang1, hon6/hon4 hyut3 gam1 cing1/cing3 hin3 jyu1/wu1 ci2
+lung4 mui4 sik1 si6 ak1 waa1 sang1, hon6 hyut3 gam1 cing1 hin3 jyu1 ci2
 苑中騋牝三千匹，豐草青青寒不死
-jyun2 zung1 loi4/loi6 pan5 saam1 cin1 pat1, fung1 cou2 cing1 cing1 hon4 bat1 sei2/si2
+jyun2 zung1 loi4 pan5 saam1 cin1 pat1, fung1 cou2 cing1 cing1 hon4 bat1 sei2
 食之豪健西域無，每歲攻駒冠邊鄙
 sik6/zi6/ji6 zi1 hou4 gin6 sai1 wik6 mou4, mui5 seoi3 gung1 keoi1 gun1/gun3 bin1 pei2
 王有虎臣司苑門，入門天廐皆雲屯
@@ -23635,36 +23633,25 @@ ho4 seoi1/sou1 dou3/dou6 wan4 jyu5/jyu6, pik1 lik1/lik6 co2 wong4/wong6 toi4
 
 
 5235 朝二首
-ziu1/ciu4 ji6 sau2
-
-
-
-
-
+ziu1 ji6 sau2
 
 清旭楚宮南，霜空萬嶺含
 cing1 juk1 co2 gung1 naam4, soeng1 hung1 maan6 ling5 ham4
 野人時獨往，雲木曉相參
-je5 jan4 si4 duk6 wong5, wan4 muk6 hiu2 soeng1/soeng3 caam1/sam1/cam1
+je5 jan4 si4 duk6 wong5, wan4 muk6 hiu2 soeng1 caam1
 俊鶻無聲過，飢烏下食貪
-zeon3 wat6/waat6/gwat1 mou4 sing1 gwo3, gei1 wu1 haa6 sik6/zi6/ji6 taam1
+zeon3 gwat1 mou4 sing1 gwo3, gei1 wu1 haa6 sik6 taam1
 病身終不動，搖落任江潭
-beng6/bing6 san1 zung1 bat1 dung6, jiu4 lok6 jam6/jam4 gong1 taam4
-
-
-
-
-
+bing6 san1 zung1 bat1 dung6, jiu4 lok6 jam6 gong1 taam4
 
 浦帆晨初發，郊扉冷未開
-pou2 faan4 san4 co1 faat3, gaau1 fei1 laang5 mei6 hoi1
+pou2 faan6 san4 co1 faat3, gaau1 fei1 laang5 mei6 hoi1
 村疏黃葉墜，野靜白鷗來
-cyun1 so1/so3 wong4 jip6 zeoi6, je5 zing6 baak6 au1 loi4
+cyun1 so1 wong4 jip6 zeoi6, je5 zing6 baak6 au1 loi4
 礎潤休全濕，雲晴欲半迴
 co2 jeon6 jau1 cyun4 sap1, wan4 cing4 juk6 bun3 wui4
 巫山冬可怪，昨夜有奔雷
-mou4 saan1 dung1 ho2/hak1 gwaai3, zok3/zok6 je6 jau5/jau6 ban1 leoi4
-
+mou4 saan1 dung1 ho2 gwaai3, zok3 je6 jau5 ban1 leoi4
 
 5239 悶
 mun6

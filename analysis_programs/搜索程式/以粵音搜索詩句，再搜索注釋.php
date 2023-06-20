@@ -4,10 +4,9 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以粵音搜索詩句
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
-require_once( "h:\\杜甫資料庫\\陳永明《杜甫全集粵音注音》\\注音_詩句.php" );
-require_once( "h:\\杜甫資料庫\\詩句_坐標.php" );
-require_once( "h:\\github\\Dufu-Analysis\\書目簡稱.php" );
-
+require_once( 杜甫資料庫 . "陳永明《杜甫全集粵音注音》\\注音_詩句.php" );
+require_once( 杜甫資料庫 . "詩句_坐標.php" );
+require_once( 杜甫資料庫 . "書目簡稱.php" );
 
 if( sizeof( $argv ) != 3 )
 {
