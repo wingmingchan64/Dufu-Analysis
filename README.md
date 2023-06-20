@@ -91,10 +91,9 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\搜索詩文評論.ph
 仇兆鰲《杜詩詳註》
 岱宗夫如何。齊魯青未了。造化鍾神秀。陰陽割昏曉。盪胸生曾雲。🔴决眥入歸鳥。🔴㑹當凌絶頂。一覽衆山小。
 </pre>
-<p>例子四：生成《杜甫詩選》（假設我只選《望嶽》一首詩；當然，我也可以選多首杜詩）</p>
+<p>例子四：生成《杜甫詩選》（假設我只選《望嶽》一首詩；當然，我也可以選多首杜詩）（<a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/analysis_programs/%E6%90%9C%E7%B4%A2%E7%A8%8B%E5%BC%8F/%E7%94%9F%E6%88%90%E6%9D%9C%E7%94%AB%E8%A9%A9%E9%81%B8.php">生成杜甫詩選.php</a>）</p>
 <pre>
-php code\生成杜甫詩選.php 參數="默:詩文;今:注釋;譯:譯文;仇:注釋,評論;浦:評論"
-</pre>
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\生成杜甫詩選.php 參數="默:詩文;今:注釋;譯:譯文;仇:注釋,評論;浦:評論"</pre>
 <p>結果：</p>
 <pre>
 望嶽
