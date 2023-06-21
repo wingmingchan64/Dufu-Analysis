@@ -368,10 +368,9 @@ function normalize(
 	
 	if( $removePunctuation )
 	{
-		echo "Removing punctuation\n";
 		$text = str_replace( "。", "", $text );
 	}
-	echo $text;
+	//echo $text;
 	return $text;
 }
 

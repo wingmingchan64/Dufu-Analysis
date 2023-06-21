@@ -16,7 +16,7 @@ foreach( $file_names as $from_file )
 	if( $handle )
 	{
 		// read a line at a time and store it
-		while (( $line = fgets( $handle ) ) !== false )
+		while ( ( $line = fgets( $handle ) ) !== false )
 		{
 			if( substr( $line, 0, 1 ) != '=' )
 			{
@@ -38,7 +38,7 @@ function truncate_path( $path )
 }
 
 // add msg and write to files
-$msg = file_get_contents('msg.txt', true);
+$msg = file_get_contents( 'msg.txt', true );
 file_put_contents( 杜甫全集, $new_content . $msg );
 file_put_contents( 杜甫資料庫 . "杜甫全集_默認版本.php", $new_content . $msg );
 file_put_contents( "h:\\github\\Dufu-Analysis\\" . "杜甫全集_默認版本.php", $new_content . $msg );
