@@ -19,7 +19,10 @@ $path_for_file = '';
 $text_of_file  = '';
 
 // 比較兩段文字。如果字數不同，不比較。
-function compareText( string $text1, string $text2, bool $removePunctuation = false ) : array
+function compareText(
+	string $text1,
+	string $text2,
+	bool $removePunctuation = false ) : array
 {
 	$difference = array();
 	$text1 = normalize( $text1, true, true, $removePunctuation );
@@ -34,6 +37,7 @@ function compareText( string $text1, string $text2, bool $removePunctuation = fa
 		echo $text2, "\n";
 		return $difference;
 	}
+	
 	for( $i = 0; $i < $len1; $i++ )
 	{
 		$char1 = mb_substr( $text1, $i, 1 );
@@ -307,7 +311,8 @@ function getSection( string $path, string $prefix ) : array
 	return $text_array;
 }
 
-function normalize( string $text,
+function normalize(
+	string $text,
 	bool $removeSpace = false,
 	bool $removeNewline = false,
 	bool $removePunctuation = false ) : string
@@ -363,9 +368,10 @@ function normalize( string $text,
 	
 	if( $removePunctuation )
 	{
+		echo "Removing punctuation\n";
 		$text = str_replace( "。", "", $text );
 	}
-
+	echo $text;
 	return $text;
 }
 
