@@ -39,8 +39,8 @@ if( $頁 == "0703" )
 		{
 			// ：, unicode, not ascii
 			$字_韻陣列 = explode( '：', $字_韻部 );
-			echo $頁, "\n";
-			print_r( $字_韻陣列 );
+			//echo $頁, "\n";
+			//print_r( $字_韻陣列 );
 			$韻 = trim( $字_韻陣列[ 1 ] );
 			
 			if( !array_key_exists( $頁, $頁碼_韻部陣列 ) )

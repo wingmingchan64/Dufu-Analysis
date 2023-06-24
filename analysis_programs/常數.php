@@ -37,11 +37,15 @@ const 内容 = "内容";
 const 大意 = '大意';
 const 行碼 = "行碼";
 const 書名 = "書名";
+const 版本 = "版本";
+const 詩題 = "詩題";
+const 詩文 = "詩文";
 const 參數 = '參數';
 const 注釋 = '注釋';
 const 注音 = '注音';
 const 譯文 = '譯文';
 const 評論 = '評論';
+const 校記 = '校記';
 const 異文夾注 = '異文、夾注';
 const 詩文注音 = '詩文注音';
 

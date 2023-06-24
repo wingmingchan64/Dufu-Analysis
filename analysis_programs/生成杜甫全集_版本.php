@@ -49,8 +49,19 @@ if( $簡稱 == '=全' )
 foreach( $頁碼 as $頁 )
 {
 	// 全唐詩
-	if( $頁 == "6497" )
+	if( $頁 == "哭長孫侍御" ||
+		$頁 == "九日登梓州城" ||
+		$頁 == "闕題" ||
+		$頁 == "句" 
+	)
 	{
+		$path = 全唐詩 . "${頁}.php";
+		if( file_exists( $path ) )
+		{
+			require_once( $path );
+			$new_content = $new_content . $全内容[ 版本 ][ 詩題 ] . "\n\n";
+			$new_content = $new_content . $全内容[ 版本 ][ 詩文 ] . "\n\n";
+		}
 		continue;
 	}
 
@@ -95,10 +106,10 @@ foreach( $頁碼 as $頁 )
 			require_once( $版本文檔路徑 );
 
 			//echo $頁, "\n";
-if( $頁 == "3466" )
-{
-	break;
-}
+//if( $頁 == "3466" )
+//{
+	//break;
+//}
 			// 詩題
 			if( array_key_exists( "詩題", $$陣列名[ "版本" ] ) )
 			{
@@ -366,7 +377,7 @@ if( $頁 == "3466" )
 	}
 }
 
-$全唐詩異體字 = array(
+$全唐詩異體字 = array( // see line 400
 	'溼'=>'濕',
 	'衆'=>'眾',
 	'荊'=>'荆',
@@ -384,7 +395,7 @@ else
 	$說明 = '';
 }
 
-$msg = file_get_contents( 'msg.txt', true );
+$msg = str_replace( '﻿', '', file_get_contents( 'msg.txt', true ) );
 
 if( $簡稱 != '=默' )
 {
@@ -397,7 +408,7 @@ if( $簡稱 != '=默' )
 		
 		foreach( $全唐詩異體字 as $異體字 => $標準字 )
 		{
-			$new_content = str_replace( $異體字, $標準字, $new_content );
+			//$new_content = str_replace( $異體字, $標準字, $new_content );
 		}
 	}
 

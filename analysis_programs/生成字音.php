@@ -35,7 +35,7 @@ if( $頁 == "0943" )
 	if( file_exists( $頁路徑 ) )
 	{
 		require_once( $頁路徑 );
-		echo $頁路徑, "\n";
+		//echo $頁路徑, "\n";
 		foreach( $粵内容[ "字音" ] as $字 => $音陣列 )
 		{
 			if( !array_key_exists( $字, $字音陣列 ) )
