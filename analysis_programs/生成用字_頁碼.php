@@ -41,7 +41,18 @@ foreach( $char_page as $ch => $pages )
 
 	foreach( $pages as $p )
 	{
-		$code = $code . '"' . $p . "\",";
+		if( is_string( $p ) )
+		{
+			$code = $code . '"' . $p . "\",";
+		}
+		elseif ( is_array( $p ) )
+		{
+			foreach( $p as $頁 )
+			{
+				//echo $ch, "\n";
+				$code = $code . '"' . $頁 . "\",";
+			}
+		}
 	}
 
 	$code = $code . "),\n";

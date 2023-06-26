@@ -66,7 +66,7 @@ foreach( $頁碼_詩題 as $p => $t )
 		$temp[ $t ] = array( $first, $p );
 	}
 }
-print_r( $temp );
+//print_r( $temp );
 
 $code = "<?php
 /*
@@ -83,7 +83,6 @@ foreach( $temp as $t => $ps )
 	}
 	elseif( is_array( $ps ) )
 	{
-		echo "Array\n";
 		$code = $code . '"' . $t . "\"=>array(";
 		
 		foreach( $ps as $p )

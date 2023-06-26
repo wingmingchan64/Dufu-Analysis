@@ -27,6 +27,7 @@ foreach( $頁碼 as $p )
 		}
 		elseif( is_array( $temp[ $l ] ) )
 		{
+			//echo "Array\n";
 			array_push( $temp[ $l ], $p );
 		}
 		elseif( is_string( $temp[ $l ] ) )
@@ -45,6 +46,7 @@ foreach( $temp as $詩句 => $頁碼s )
 	}
 	elseif( is_array( $頁碼s ) )
 	{
+		//echo "Array\n";
 		$code = $code . "\"" . $詩句 . "\"=>array(\n";
 		
 		foreach( $頁碼s as $頁 )
