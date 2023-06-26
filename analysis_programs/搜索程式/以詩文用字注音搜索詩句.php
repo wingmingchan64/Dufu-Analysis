@@ -1,10 +1,7 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以粵音搜索詩句.php "hung4 zi1 jat6 taai3 ho4 cau4 zeot6"
-
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以粵音搜索詩句.php "ceoi1 ting4"
-
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以粵音搜索詩句.php "zang1 zang1"
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以詩文用字注音搜索詩句.php "hung4 zi1 jat6 taai3 ho4 cau4 zeot6"
+=> 
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
@@ -13,7 +10,7 @@ require_once( "h:\\杜甫資料庫\\詩句_坐標.php" );
 
 if( sizeof( $argv ) != 2 )
 {
-	echo "必須提供粵音注音。", "\n";
+	echo "必須提供詩文用字注音。", "\n";
 	exit;
 }
 $粵音注音 = trim( $argv[ 1 ] );
