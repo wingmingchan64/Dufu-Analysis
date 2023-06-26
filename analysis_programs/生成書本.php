@@ -79,7 +79,7 @@ foreach( $頁碼 as $頁 )
 		}
 		else
 		{
-			//echo $頁, "\n";
+			echo $頁, "\n";
 			//echo $current, "\n";
 			//echo $行, "\n";
 

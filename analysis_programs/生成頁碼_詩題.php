@@ -1,4 +1,7 @@
 <?php
+/*
+
+*/
 require_once( '常數.php' );
 require_once( '函式.php' );
 require_once( 杜甫資料庫 . '詩文件夾路徑.php' );
@@ -40,6 +43,31 @@ $code = substr( $code, 0, -2 );
 $code = $code . "\n);\n?>";
 file_put_contents( 杜甫資料庫. '頁碼_詩題.php', $code );
 
+$temp = array();
+
+foreach( $頁碼_詩題 as $p => $t )
+{
+	$p = trim( $p );
+	$t = trim( $t );
+	
+	if( !array_key_exists( $t, $temp ) )
+	{
+		$temp[ $t ] = $p;
+	}
+	elseif( is_array( $temp[ $t ] ) )
+	{
+		array_push( $temp[ $t ], $p );
+		//echo "2 " . $temp[ $t ], "\n";
+		//
+	}
+	else // string
+	{
+		$first = $temp[ $t ];
+		$temp[ $t ] = array( $first, $p );
+	}
+}
+print_r( $temp );
+
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
@@ -47,9 +75,23 @@ $code = "<?php
 說明：詩題=>頁碼。
 */
 \$詩題_頁碼=array(\n";
-foreach( $頁碼_詩題 as $p => $t )
+foreach( $temp as $t => $ps )
 {
-	$code = $code . '"' . $t . "\"=>\"$p\",\n";
+	if( is_string( $ps ) )
+	{
+	$code = $code . '"' . $t . "\"=>\"${ps}\",\n";
+	}
+	elseif( is_array( $ps ) )
+	{
+		echo "Array\n";
+		$code = $code . '"' . $t . "\"=>array(";
+		
+		foreach( $ps as $p )
+		{
+			$code = $code . "\"${p}\",";
+		}
+		$code = $code . "),\n";
+	}
 }
 $code = substr( $code, 0, -2 );
 $code = $code . "\n);\n?>";

@@ -11,19 +11,51 @@ $code      = "<?php
 */
 \$詩句_頁碼=array(\n";
 //$count = 0;
+$temp = array();
 
 foreach( $頁碼 as $p )
 {
 	$path = 詩集文件夾 . $p . ".php";
 	require_once( $path );
 	$line = $内容[ "詩句" ];
-	
+
 	foreach( $line as $l )
 	{
-		$code = $code . "\"" . $l . "\"=>\"" .
-			$p . "\",\n";
+		if( !array_key_exists( $l, $temp ) )
+		{
+			$temp[ $l ] = $p;
+		}
+		elseif( is_array( $temp[ $l ] ) )
+		{
+			array_push( $temp[ $l ], $p );
+		}
+		elseif( is_string( $temp[ $l ] ) )
+		{
+			$first = $temp[ $l ];
+			$temp[ $l ] = array( $first, $p );
+		}
 	}
 }
+foreach( $temp as $詩句 => $頁碼s )
+{
+	if( is_string( $頁碼s ) )
+	{
+		$code = $code . "\"" . $詩句 . "\"=>\"" .
+			$頁碼s . "\",\n";
+	}
+	elseif( is_array( $頁碼s ) )
+	{
+		$code = $code . "\"" . $詩句 . "\"=>array(\n";
+		
+		foreach( $頁碼s as $頁 )
+		{
+			$code = $code . "\"${頁}\",";
+		}
+		
+		$code = $code . "),\n";
+	}
+}
+
 $code = substr( $code, 0, -1 );
 $code = $code . "\n);\n?>";
 file_put_contents( $out_file, $code );

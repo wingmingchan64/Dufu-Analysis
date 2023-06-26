@@ -1,7 +1,11 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\生成版本目錄.php 蕭
-php h:\github\Dufu-Analysis\analysis_programs\生成版本目錄.php 全
+php h:\github\Dufu-Analysis\analysis_programs\生成版本頁碼索引.php 蕭
+php h:\github\Dufu-Analysis\analysis_programs\生成版本頁碼索引.php 全
+php h:\github\Dufu-Analysis\analysis_programs\生成版本頁碼索引.php 今
+
+蕭滌非主編《杜甫全集校注》缺1989
+《全唐詩》缺2828，2845，5503
 */
 require_once( '常數.php' );
 require_once( '函式.php' );
@@ -22,10 +26,10 @@ $陣列命 = $簡稱 . "内容";
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
-程式：生成版本目錄.php
+程式：生成版本頁碼索引.php
 說明：不同注本頁碼。
 */
-\$頁碼_版本頁碼=array(\n";
+\$頁碼_${簡稱}頁碼=array(\n";
 $count = 0;
 foreach( $頁碼 as $頁 )
 {
@@ -45,8 +49,8 @@ foreach( $頁碼 as $頁 )
 		$count++;
 	}
 }
-echo $count, "\n";
+//echo $count, "\n";
 $code = $code . ");\n?>";
-//file_put_contents( 杜甫資料庫 . $書名 . "\\${書名}目錄.php", $code );
+file_put_contents( 杜甫資料庫 . $書名 . "\\${書名}頁碼索引.php", $code );
 ?>
 

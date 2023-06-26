@@ -12,14 +12,4 @@ if( sizeof( $argv ) != 2 )
 	exit;
 }
 
-$頁碼 = trim( $argv[ 1 ] );
-
-if( array_key_exists( $頁碼, $頁碼_詩題 ) )
-{
-	echo $頁碼_詩題[ $頁碼 ], "\n";
-}
-else
-{
-	echo "沒有結果。\n";
-}
 ?>
