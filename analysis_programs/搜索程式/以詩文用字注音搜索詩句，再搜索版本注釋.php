@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以粵音搜索詩句，再搜索注釋.php "nang4 lei6" 今
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以詩文用字注音搜索詩句，再搜索版本注釋.php "nang4 lei6" 今
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
