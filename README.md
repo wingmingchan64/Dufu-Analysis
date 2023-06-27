@@ -207,7 +207,7 @@ wui6 dong1 ling4 zyut6 ding2, jat1 laam5 zung3 saan1 siu2
 
 會當凌絕頂[周王褒詩。絶頂日猶晴。沈約詩。絶頂復孤圓]。一覽[世說。王珣曰。若使阡陌條暢。則一覽而盡]眾山小[楊子法言。登東嶽者。然後知衆山之峛崺也]。</pre>
 
-<h2>搜索資料庫</h2>
+<h2>互動搜索資料庫示範</h2>
 <p>我寫了一個互動搜索程式，用以推動其他的搜索程式。我會不斷增强這個互動搜索程式的功能。以下是運用這個程式的一個示範：</p>
 <pre>
 H:\php809>php h:\github\Dufu-Analysis\analysis_programs\搜索程式\search.php
