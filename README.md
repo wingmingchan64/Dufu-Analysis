@@ -107,6 +107,8 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\生成杜甫詩選.ph
 詩文注音
 
 望嶽
+mong6 ngok6
+
 岱宗夫如何？齊魯青未了。
 doi6 zung1 fu4 jyu4 ho4, cai4 lou5 cing1 mei6 liu5
 -----------------------------------------------------
