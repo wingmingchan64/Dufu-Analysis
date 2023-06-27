@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以頁碼詩文用字提取坐標.php 0668 妻
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以頁碼詩文單字提取坐標.php 0668 妻
 => 坐標：〚43.1.2〛
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
