@@ -20,6 +20,7 @@ const 坐標關括號 = '〛';
 const 坐標括號 = "〚〛";
 const 分號 = '：'; // UNICODE!!!
 const 夾注regex = '/\[\X+?]/';
+const 兩句regex = "/(\\X+?。\\X+?。)/";
 
 // php data files
 const 頁碼     = 杜甫資料庫 . '頁碼.php';
@@ -104,9 +105,11 @@ const 搜索程式 = array(
 const 程式後綴 = '.php';
 
 // error msg
+const 提供頁碼 = '必須提供頁碼。';
 const 提供頁、簡 = '必須提供頁碼、版本簡稱。';
+const 提供題音 = '必須提供詩題用字注音。';
 const 提供題、簡 = '必須提供詩題用字、版本簡稱。';
-const 提供題音、簡 = '必須提供詩題注音、版本簡稱。';
+const 提供題音、簡 = '必須提供詩題用字注音、版本簡稱。';
 const 提供詩題 = '必須提供詩題用字。';
 const 提供詩句 = '必須提供詩句。';
 const 提供詩文 = '必須提供詩文用字。';

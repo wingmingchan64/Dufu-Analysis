@@ -3,6 +3,8 @@
 php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以頁碼提取詩文注音.php 0003
 => 詩文注音：
 望嶽
+mong6 ngok6
+
 岱宗夫如何？齊魯青未了。
 doi6 zung1 fu4 jyu4 ho4, cai4 lou5 cing1 mei6 liu5
 -----------------------------------------------------
@@ -18,12 +20,7 @@ wui6 dong1 ling4 zyut6 ding2, jat1 laam5 zung3 saan1 siu2
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
-if( sizeof( $argv ) != 2 )
-{
-	echo "必須提供頁碼。", "\n";
-	exit;
-}
-
+checkARGV( $argv, 2, 提供頁碼 );
 $頁碼 = trim( $argv[ 1 ] );
 
 $path = 杜甫全集粵音注音文件夾 . $頁碼 . 程式後綴;
