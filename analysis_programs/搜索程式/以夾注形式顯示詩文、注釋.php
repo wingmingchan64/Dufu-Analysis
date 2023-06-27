@@ -19,26 +19,27 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以夾注形式顯示
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
-require_once( 杜甫資料庫 . "書目簡稱.php" );
-require_once( 杜甫資料庫 . "頁碼.php" );
-require_once( 杜甫資料庫 . "頁碼_詩題.php" );
+require_once( 書目簡稱 );
+require_once( 頁碼 );
+require_once( 頁碼_詩題 );
 
-if( sizeof( $argv ) != 3 )
-{
-	echo "必須提供頁碼、版本簡稱。", "\n";
-	exit;
-}
+checkARGV( $argv, 3, 提供頁、簡 );
 $result = array();
 $頁 = trim( $argv[ 1 ] );
 
 if( !in_array( $頁, $頁碼 ) )
 {
-	echo "頁碼不存在。\n";
+	echo 無頁碼, NL;
 	exit;
 }
-
 $簡稱 = trim( $argv[ 2 ] );
-$書名 = $書目簡稱[ '=' . $簡稱 ];
+if( !array_key_exists( 等號 . $簡稱, $書目簡稱 ) )
+{
+	echo 無簡稱, NL;
+	exit;
+}
+// 提取資料
+$書名 = $書目簡稱[ 等號 . $簡稱 ];
 $默認路徑 = 詩集文件夾 . $頁 . 程式後綴;
 $版本路徑 = 杜甫資料庫 . $書名 . "\\" . $頁 . 程式後綴;
 $陣列名 = "${簡稱}内容";
@@ -46,13 +47,14 @@ require_once( $默認路徑 );
 require_once( $版本路徑 );
 
 $詩題 = $内容[ 詩題 ];
-$詩文 = str_replace( $頁, '', implode( "\n\n", array_values( $内容[ 行碼 ] ) ) );
+$詩文 = str_replace( $頁, '', implode( NL.NL, array_values( $内容[ 行碼 ] ) ) );
 
 foreach( array_values( $$陣列名[ 注釋 ] ) as $注 )
 {
-	if( mb_strpos( $注, "："  ) !== false ) // 題注
+	// 題注
+	if( mb_strpos( $注, 分號  ) !== false )
 	{
-		$note = explode( "：", $注 );
+		$note = explode( 分號, $注 );
 		$term = $note[ 0 ];
 		// 用〖〗來區分詩文本身與注釋中的詩文
 		$詩文 = str_replace( $term, "〖${term}〗", $詩文 );
@@ -60,20 +62,20 @@ foreach( array_values( $$陣列名[ 注釋 ] ) as $注 )
 }
 foreach( array_values( $$陣列名[ 注釋 ] ) as $注 )
 {
-	if( mb_strpos( $注, "："  ) === false ) // 題注
+	// 題注
+	if( mb_strpos( $注, 分號  ) === false )
 	{
-		$詩文 = str_replace( $詩題, $詩題 . "\n[" . $注 . ']', $詩文 );
+		$詩文 = str_replace( $詩題, $詩題 . NL . "[" . $注 . ']', $詩文 );
 	}
+	// 詩文注
 	else
 	{
-		$note = explode( "：", $注 );
+		$note = explode( 分號, $注 );
 		$term = $note[ 0 ];
 		$exp  = trim( $note[ 1 ], '。' );
 		$詩文 = str_replace( "〖${term}〗", $term . "[" . $exp . ']', $詩文 );
 	}
 }
-
-
 print_r( $詩文 );
 /*
 2552, 2628 */

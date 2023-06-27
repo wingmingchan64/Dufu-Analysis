@@ -18,6 +18,16 @@ require_once( 杜甫資料庫 . '頁碼_詩題.php' );
 $path_for_file = '';
 $text_of_file  = '';
 
+// check argv
+function checkARGV( array $argv, int $num, string $msg )
+{
+	if( sizeof( $argv ) != $num )
+	{
+		echo $msg, NL;
+		exit;
+	}
+}
+
 // 比較兩段文字。如果字數不同，不比較。
 function compareText(
 	string $text1,

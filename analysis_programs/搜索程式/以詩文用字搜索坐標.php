@@ -1,24 +1,28 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以詩文用字搜索坐標.php 雲
-*/
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以詩文用字搜索坐標.php 遁
+=>
+Array
+(
+    [0] => 〚0030:6.2.4〛
+    [1] => 〚0797:4:38.2.2〛
+    [2] => 〚1821:11.2.4〛
+    [3] => 〚2621:8.2.6〛
+    [4] => 〚3207:15.2.7〛
+    [5] => 〚3502:3.1.6〛
+    [6] => 〚5948:24.2.4〛
+)*/
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
-//require_once( 杜甫資料庫 . "頁碼_詩題.php" );
 
-if( sizeof( $argv ) != 2 )
-{
-	echo "必須提供詩文用字。", "\n";
-	exit;
-}
+checkARGV( $argv, 2, 提供詩文 );
 $字  = trim( $argv[ 1 ] );
 $字數 = mb_strlen( $字 );
 $result = array();
-$temp   = array();
 
 if( $字數 == 1 )
 {
-	require_once( 杜甫資料庫 . "用字_頁碼.php" );
+	require_once( 用字_頁碼 );
 	$頁碼s = $用字_頁碼[ $字 ];
 	
 	foreach( $頁碼s as $頁碼 )
@@ -35,7 +39,7 @@ if( $字數 == 1 )
 	}
 	if( sizeof( $result ) == 0 )
 	{
-		array_push( $result, "沒找著結果。" );
+		array_push( $result, 無結果 );
 	}
 }
 elseif( $字數 > 1 && $字數 < 5 )
@@ -51,7 +55,7 @@ elseif( $字數 > 1 && $字數 < 5 )
 	}
 	else
 	{
-		array_push( $result, "沒找著結果。" );
+		array_push( $result, 無結果 );
 	}
 }
 elseif( $字數 >= 5 )
@@ -78,7 +82,7 @@ elseif( $字數 >= 5 )
 	}
 	if( sizeof( $result ) == 0 )
 	{
-		array_push( $result, "沒找著結果。" );
+		array_push( $result, 無結果 );
 	}
 }
 print_r( $result );

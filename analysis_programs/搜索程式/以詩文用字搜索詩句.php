@@ -43,13 +43,9 @@ Array
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
-require_once( "h:\\杜甫資料庫\\詩句_坐標.php" );
+require_once( 詩句_坐標 );
 
-if( sizeof( $argv ) != 2 )
-{
-	echo "必須提供詩文用字。", "\n";
-	exit;
-}
+checkARGV( $argv, 2, 提供詩文 );
 $詩文用字 = trim( $argv[ 1 ] );
 $result = array();
 $result[ "詩句" ] = array();

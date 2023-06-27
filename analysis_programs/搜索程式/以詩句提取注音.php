@@ -1,17 +1,13 @@
 <?php
 /*
 php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以詩句提取注音.php 把釣待秋風
-=> 
+=> baa2 diu3 doi6 cau1 fung1
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
-require_once( "h:\\杜甫資料庫\\陳永明《杜甫全集粵音注音》\\詩句_注音.php" );
+require_once( 詩句_注音 );
 
-if( sizeof( $argv ) != 2 )
-{
-	echo "必須提供詩句。", "\n";
-	exit;
-}
+checkARGV( $argv, 2, 提供詩句 );
 $句 = trim( $argv[ 1 ] );
 $result = array();
 
@@ -21,7 +17,7 @@ if( array_key_exists( $句, $詩句_注音 ) )
 }
 else
 {
-	array_push( $result, "沒有結果。" );
+	array_push( $result, 無結果 );
 }
 
 print_r( $result );
