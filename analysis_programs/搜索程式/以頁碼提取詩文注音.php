@@ -32,6 +32,6 @@ if( file_exists( $path ) )
 }
 else
 {
-	echo "沒有結果。\n";
+	echo 無結果, NL;
 }
 ?>

@@ -6,11 +6,7 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以頁碼詩文單字
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
-if( sizeof( $argv ) != 3 )
-{
-	echo "必須提供頁碼、用字。", "\n";
-	exit;
-}
+checkARGV( $argv, 3, 提供頁、字 );
 $頁碼 = trim( $argv[ 1 ] );
 $用字 = trim( $argv[ 2 ] );
 
@@ -19,7 +15,7 @@ $found = false;
 
 if( !file_exists( $path ) )
 {
-	echo "頁碼不存在。\n";
+	echo 無頁碼, NL;
 }
 else
 {
@@ -36,7 +32,7 @@ else
 	}
 	if( !$found )
 	{
-		echo "沒找著‘${用字}’字\n";
+		echo 無結果, NL;
 	}
 }
 ?>
