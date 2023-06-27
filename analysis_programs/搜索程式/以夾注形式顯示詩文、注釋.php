@@ -36,6 +36,15 @@ $詩文 = str_replace( $頁, '', implode( "\n\n", array_values( $内容[ 行碼 
 
 foreach( array_values( $$陣列名[ 注釋 ] ) as $注 )
 {
+	if( mb_strpos( $注, "："  ) !== false ) // 題注
+	{
+		$note = explode( "：", $注 );
+		$term = $note[ 0 ];
+		$詩文 = str_replace( $term, "〖${term}〗", $詩文 );
+	}
+}
+foreach( array_values( $$陣列名[ 注釋 ] ) as $注 )
+{
 	if( mb_strpos( $注, "："  ) === false ) // 題注
 	{
 		$詩文 = str_replace( $詩題, $詩題 . "\n[" . $注 . ']', $詩文 );
@@ -45,10 +54,11 @@ foreach( array_values( $$陣列名[ 注釋 ] ) as $注 )
 		$note = explode( "：", $注 );
 		$term = $note[ 0 ];
 		$exp  = trim( $note[ 1 ], '。' );
-		$詩文 = str_replace( $term, $term . "[" . $exp . ']', $詩文 );
+		$詩文 = str_replace( "〖${term}〗", $term . "[" . $exp . ']', $詩文 );
 	}
 }
-;
+
+
 print_r( $詩文 );
 /*
 2552, 2628 */
