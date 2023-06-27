@@ -40,6 +40,7 @@ foreach( array_values( $$陣列名[ 注釋 ] ) as $注 )
 	{
 		$note = explode( "：", $注 );
 		$term = $note[ 0 ];
+		// 用〖〗來區分詩文本身與注釋中的詩文
 		$詩文 = str_replace( $term, "〖${term}〗", $詩文 );
 	}
 }
