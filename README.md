@@ -241,7 +241,7 @@ wui6 dong1 ling4 zyut6 ding2, jat1 laam5 zung3 saan1 siu2
 
 
 <h2>互動搜索資料庫示範</h2>
-<p>我寫了一個互動搜索程式，用以推動其他的搜索程式。我會不斷增强這個互動搜索程式的功能。以下是運用這個程式的一個示範：</p>
+<p>我寫了一個互動搜索程式（<a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/analysis_programs/%E6%90%9C%E7%B4%A2%E7%A8%8B%E5%BC%8F/search.php">search.php</a>），用以推動其他的搜索程式。我會不斷增加這個互動搜索程式的功能。（關於 search.php 的功能，請參考 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/analysis_programs/%E5%B8%B8%E6%95%B8.php">常數.php</a>）以下是運用這個程式的一個示範：</p>
 <pre>
 H:\php809>php h:\github\Dufu-Analysis\analysis_programs\搜索程式\search.php
 要搜索甚麽？請輸入選項數字；用 exit 來結束。
