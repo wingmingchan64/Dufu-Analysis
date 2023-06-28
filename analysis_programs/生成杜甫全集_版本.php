@@ -405,11 +405,15 @@ if( $簡稱 != '=默' )
 		$new_content = str_replace(
 			"再扈祠壇墠。前後百卷文。枕藉皆禁臠。篆刻揚雄流。", "", $new_content );
 		$new_content = str_replace( "++", "", $new_content );
-		
+		// 刪除重複詩文夾注
+		$new_content = str_replace(
+		'江花未落還成都。江花未落還成都。[一本無此疊句。一作還成都多暇。]江花未落還成都。江花未落還成都。[一本無此疊句。一作還成都多暇。]', '江花未落還成都。江花未落還成都。[一本無此疊句。一作還成都多暇。]', $new_content );
 		foreach( $全唐詩異體字 as $異體字 => $標準字 )
 		{
 			//$new_content = str_replace( $異體字, $標準字, $new_content );
 		}
+		
+		
 	}
 
 	file_put_contents( $outfile, $說明 . $new_content . $msg );
