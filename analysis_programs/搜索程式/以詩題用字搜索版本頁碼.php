@@ -35,7 +35,7 @@ foreach( $詩題s as $詩題 => $頁碼 )
 	{
 		require_once( $path );
 		$首行 = $$陣列命[ 書名 ];
-		echo $詩題 . 分號 . $首行, NL;
+		echo $詩題 . 冒號 . $首行, NL;
 	}
 }
 ?>

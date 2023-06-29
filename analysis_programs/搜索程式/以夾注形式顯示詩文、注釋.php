@@ -52,9 +52,9 @@ $詩文 = str_replace( $頁, '', implode( NL.NL, array_values( $内容[ 行碼 ]
 foreach( array_values( $$陣列名[ 注釋 ] ) as $注 )
 {
 	// 題注
-	if( mb_strpos( $注, 分號  ) !== false )
+	if( mb_strpos( $注, 冒號  ) !== false )
 	{
-		$note = explode( 分號, $注 );
+		$note = explode( 冒號, $注 );
 		$term = $note[ 0 ];
 		// 用〖〗來區分詩文本身與注釋中的詩文
 		$詩文 = str_replace( $term, "〖${term}〗", $詩文 );
@@ -63,14 +63,14 @@ foreach( array_values( $$陣列名[ 注釋 ] ) as $注 )
 foreach( array_values( $$陣列名[ 注釋 ] ) as $注 )
 {
 	// 題注
-	if( mb_strpos( $注, 分號  ) === false )
+	if( mb_strpos( $注, 冒號  ) === false )
 	{
 		$詩文 = str_replace( $詩題, $詩題 . NL . "[" . $注 . ']', $詩文 );
 	}
 	// 詩文注
 	else
 	{
-		$note = explode( 分號, $注 );
+		$note = explode( 冒號, $注 );
 		$term = $note[ 0 ];
 		$exp  = trim( $note[ 1 ], '。' );
 		$詩文 = str_replace( "〖${term}〗", $term . "[" . $exp . ']', $詩文 );
