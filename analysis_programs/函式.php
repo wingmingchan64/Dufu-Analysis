@@ -734,6 +734,6 @@ function containsPronunciation( string $haystack, string $needle ) : bool
 			return false;
 		}
 	}
-	
 }
+
 ?>
