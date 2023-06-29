@@ -52,9 +52,9 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
-checkARGV( $argv, 2, 提供坐標 );
-$坐標 = trim( $argv[ 1 ], '〚〛' ); // 去掉〚〛
-print_r( 以坐標提取詩文( $坐標 ) );
+//checkARGV( $argv, 2, 提供坐標 );
+//$坐標 = trim( $argv[ 1 ], '〚〛' ); // 去掉〚〛
+//print_r( 以坐標提取詩文( $坐標 ) );
 
 function 以坐標提取詩文( string $坐標 ) : array
 {
