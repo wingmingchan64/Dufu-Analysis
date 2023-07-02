@@ -11,27 +11,13 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以頁碼版本簡稱
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
-require_once( 書目簡稱 );
+//require_once( 書目簡稱 );
 
-checkARGV( $argv, 3, 提供頁、簡 );
-$頁碼 = trim( $argv[ 1 ] );
-$簡稱 = trim( $argv[ 2 ] );
-
-if( !array_key_exists( 等號 . $簡稱, $書目簡稱 ) )
+function 以頁碼版本簡稱顯示版本原文(
+	string $頁碼, array $默認陣列, array $版本陣列 ) : string
 {
-	echo 無結果 . NL;
-	exit;
-}
-$書名 = $書目簡稱[ 等號 . $簡稱 ];
-$路徑 = 杜甫資料庫 . $書名 . "\\" . $頁碼 . 程式後綴;
-
-if( file_exists( $路徑 ) )
-{
-	require_once( $路徑 );
-	require_once( 詩集文件夾 . $頁碼 . 程式後綴 );
-	$列陣名 = "${簡稱}内容";
 	$詩句s = array();
-	$坐標版本異文、夾注 = $$列陣名[ 版本 ][ 坐標版本異文、夾注 ];
+	$坐標版本異文、夾注 = $版本陣列[ 版本 ][ 坐標版本異文、夾注 ];
 	$異夾s = array();
 	$注釋s = array();
 	
@@ -43,23 +29,21 @@ if( file_exists( $路徑 ) )
 	//print_r( $異夾s );
 	$版本詩文 = '';
 	
-	if( array_key_exists( 詩題, $$列陣名 ) )
+	if( array_key_exists( 詩題, $版本陣列 ) )
 	{
-		$版本詩文 = $$列陣名[ 詩題 ];
+		$版本詩文 = $版本陣列[ 詩題 ];
 	}
 	else
 	{
-		$版本詩文 = $内容[ 詩題 ];
+		$版本詩文 = $默認陣列[ 詩題 ];
 	}
 	
-	
-	foreach( $$列陣名[ 注釋 ] as $坐標 => $注釋 )
+	foreach( $版本陣列[ 注釋 ] as $坐標 => $注釋 )
 	{
 		$parts = explode( 冒號, $注釋 );
 		
 		if( sizeof( $parts ) == 1 ) // 題注
 		{
-			echo "attaching", NL;
 			$版本詩文 .= '【' . $parts[ 0 ] . '】';
 		}
 		elseif( sizeof( $parts ) == 2 )
@@ -72,7 +56,7 @@ if( file_exists( $路徑 ) )
 	
 	//print_r( $注釋s );
 
-	foreach( $内容[ 詩句 ] as $句 )
+	foreach( $默認陣列[ 詩句 ] as $句 )
 	{
 		if( array_key_exists( $句, $異夾s ) )
 		{
@@ -85,16 +69,20 @@ if( file_exists( $路徑 ) )
 		
 		if( array_key_exists( $句, $注釋s ) )
 		{
-			$版本詩文 .= '【' . trim( $注釋s[ $句 ], '。' ) . '】';
+			//$版本詩文 .= '【' . trim( $注釋s[ $句 ], '。' ) . '】';
+			$content = $注釋s[ $句 ];
+			
+			if( str_ends_with( $注釋s[ $句 ], '。' ) )
+			{
+				$content = mb_substr( $注釋s[ $句 ], 0, mb_strlen( $注釋s[ $句 ] ) - 1 );
+			}
+			$版本詩文 .= '【' .  $content . '】';
 		}
 		$版本詩文 .= '。';
 	}
 	
 	$版本詩文 = $版本詩文 . NL . NL;
-	echo $版本詩文;
-}
-else
-{
-	echo 無結果 . NL;
+	return $版本詩文;
+
 }
 ?>
