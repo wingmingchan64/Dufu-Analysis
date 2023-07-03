@@ -2,7 +2,7 @@
 /*
 php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集_版本.php 蕭xu
 
-$簡稱 = '=蕭';
+$簡稱 = '=蕭';1 
 $簡稱 = '=默';
 $簡稱 = '=全';
 */
@@ -92,6 +92,7 @@ foreach( $頁碼 as $頁 )
 			//echo $頁, "\n";
 		//echo $首, "\n";
 		//continue;
+		//continue;
 	}
 	$默認文檔路徑 = $默認路徑 . $頁 . ".php";
 	require_once( $默認文檔路徑 );
@@ -121,6 +122,11 @@ foreach( $頁碼 as $頁 )
 					$new_content = $new_content . $頁 . ' ' .
 						trim( $$陣列名[ "版本" ][ "詩題" ] ) . "\n\n";
 				}
+				if( $頁 == '3099' )
+				{
+					$temp_storage[ '〚3099:2:〛' ] = $$陣列名[ 版本 ][ 詩文 ][ 1 ] ;
+					//echo $temp_storage[ '〚3099:2:〛' ], NL;
+				}
 			}
 			else
 			{				
@@ -131,6 +137,8 @@ foreach( $頁碼 as $頁 )
 					{
 //if( $頁 == "2516" )
 	//echo "2516 else\n";
+						//if( $頁 == '3099' )
+						//{ echo "3099 $裸坐標 here L144", NL; }
 						$new_content = $new_content .
 							$全目錄[ $裸坐標 ][ 0 ] .
 							"\n";
@@ -163,6 +171,26 @@ foreach( $頁碼 as $頁 )
 						}
 						continue;
 					}
+				
+					if( $裸坐標 == '3099:2:' )
+					{
+						$new_content = $new_content .
+							
+							NL . $temp_storage[ '〚3099:2:〛' ] . NL . "**";
+					}
+/*
+					if( $裸坐標 == '3104:2:' )
+					{
+						
+					}
+					
+					elseif( $裸坐標 == '3104:1:' )
+					{
+						$new_content = $new_content . 
+							$temp_storage[ '〚3104:1:〛' ] . "\n";
+					}
+*/
+					
 				}
 				else
 				{
@@ -200,6 +228,7 @@ foreach( $頁碼 as $頁 )
 			if( $頁 == "3955" )
 			{
 				$八哀詩副題 = array();
+				
 				for( $i = 1; $i < 9; $i++)
 				{
 					array_push( $八哀詩副題,
@@ -277,6 +306,26 @@ foreach( $頁碼 as $頁 )
 						$temp_storage[ "1376:4:" ] . "\n" .
 						$temp_storage[ "1376:5:" ] . "\n";
 					}
+					if( $頁 == "3104" )
+					{
+						if( $首 == 1 )
+						{
+							/*
+							$new_content = $new_content . "\n" .
+							$$陣列名[ "版本" ][ "詩文" ][ 1 ] . "\n";
+							*/
+							
+							$temp_storage[ "3104:2:" ] =
+								$$陣列名[ "版本" ][ "詩文" ][ 1 ];
+						}
+						else
+						{
+							//echo $裸坐標, "\n";
+							$new_content = $new_content .
+								$temp_storage[ $裸坐標 ] . NL;
+						}
+					}
+
 				}
 				else
 				{
@@ -325,7 +374,7 @@ foreach( $頁碼 as $頁 )
 			else
 			{
 				$new_content = $new_content .
-					trim( $$陣列名[ "版本" ][ "詩文" ] ) . "\n\n";			
+					trim( $$陣列名[ "版本" ][ "詩文" ] ) . "\n\n";
 			}
 		}
 		elseif( $簡稱 == '=蕭' )
@@ -412,6 +461,10 @@ if( $簡稱 != '=默' )
 		
 		$new_content = str_replace(
 		'[時代宗幸陝。詔徵天下兵。無一人應召者。故感激言之。]嗚呼。', '嗚呼。', $new_content );
+		
+		$new_content = str_replace(
+		'**浩劫因王造[一作起]。平臺訪古遊。綵雲蕭史駐。文字魯恭留。宮闕通羣帝。乾坤到十洲。人傳有笙鶴。時過此[一作北]山頭。', '', $new_content );
+
 		
 		
 		foreach( $全唐詩異體字 as $異體字 => $標準字 )

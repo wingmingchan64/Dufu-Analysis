@@ -64,8 +64,9 @@ Array
 print_r( getSection( $頁碼_路徑[ '0003' ], '=浦' ) );
 */
 
-/*
+
 // test 提取簡化坐標
+/*
 echo 提取簡化坐標("〚5.2.2〛"), 新行;         // 〚5.2.2〛
 echo 提取簡化坐標("〚0003:5.2.2〛"), 新行;    // 〚5.2.2〛
 echo 提取簡化坐標("〚0003:1:5.2.2〛"), 新行;  // 〚1:5.2.2〛
@@ -87,7 +88,8 @@ echo 生成完整坐標( "〚0003:5.2.2〛", "0003" ), 新行;
 echo 生成完整坐標( "〚5.2.2〛", "0013" ), 新行;
 echo 生成完整坐標( "〚12:45.2.2〛", "0013" ), 新行;
 echo 生成完整坐標( "〚0003:12:45.2.2〛", "0013" ), 新行;
-
+*/
+/*
 var_dump( getExpandedPages( '〚4〛' ) );
 var_dump( getExpandedPages( '〚4.1〛' ) );
 var_dump( getExpandedPages( '〚4.1.5〛' ) );
@@ -97,7 +99,9 @@ var_dump( getExpandedPages( '〚4.1.3-5〛' ) );
 //var_dump( getExpandedPages( '〚4.1.4-5〛' ) );
 //var_dump( getExpandedPages( '〚4.1.4-5〛' ) );
 //var_dump( getExpandedPages( '〚4.1.4-5〛' ) );
-//var_dump( getExpandedPages( '〚4.1.4-5〛' ) );
+//ar_dump( getExpandedPages( '〚4.1.4-5〛' ) );
 
 echo 提取〖詩文〗坐標( "〖出處〗", "0013" ), "\n";
+
+//print_r( 提取版本詩文( '今', '0003' ) );
 ?>

@@ -1,7 +1,4 @@
 <?php
-/*
-〖〗
-*/
 set_error_handler( function ( 
 	$severity, $message, $file, $line )
 {
@@ -102,8 +99,7 @@ function getExpandedPages( string $coor ) : array
 	}
 	else
 	{
-		$pages = 
-			trim( $parts[ sizeof( $parts ) - 1 ], '〛' );
+		$pages = str_replace( '〛', '', $parts[ sizeof( $parts ) - 1 ] );
 			
 		if( strpos( $pages, '-' ) !== false )
 		{
@@ -431,7 +427,7 @@ function 提取杜甫文件名稱() : array
 // 去掉頁碼, garbage in, garbage out
 function 提取簡化坐標( string $坐標 ) : string
 {
-	$str = trim( $坐標, 坐標括號 );
+	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
 	$str_array = explode( ':', $str );
 
 	if( strlen( $str_array[ 0 ] ) !== 4 ) // no 頁碼
@@ -446,7 +442,9 @@ function 提取簡化坐標( string $坐標 ) : string
 // 提取頁碼,〚 後面的四個數字, garbage in, garbage out
 function 提取頁碼( string $坐標 ) : string
 {
-	$str = trim( $坐標, 坐標括號 );
+	//$str = trim( $坐標, 坐標括號 );
+	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
+
 	$str_array = explode( ':', $str );
 	// 至少有兩塊
 	if( sizeof( $str_array ) < 2 ||
@@ -460,7 +458,9 @@ function 提取頁碼( string $坐標 ) : string
 // 提取首碼, 1-20, garbage in, garbage out
 function 提取首碼( string $坐標 ) : string
 {
-	$str = trim( $坐標, 坐標括號 );
+	//$str = trim( $坐標, 坐標括號 );
+	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
+
 	$str_array = explode( ':', $str );
 	//print_r( $str_array );
 	if( sizeof( $str_array ) == 3 && // 有頁碼
@@ -481,7 +481,9 @@ function 提取首碼( string $坐標 ) : string
 
 function 生成完整坐標( string $坐標, string $頁碼 ) : string
 {
-	$str = trim( $坐標, 坐標括號 );
+	//$str = trim( $坐標, 坐標括號 );
+	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
+
 	$str_array = explode( ':', $str );
 	
 	if( 
@@ -543,12 +545,14 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 			if( mb_strpos( $l, '〛' ) !== false )
 			{
 				$parts = explode( '〛', $l );
-				$版本異文、夾注[ '〚' . $頁 . ':' . 
-					trim( $parts[ 0 ], '〚' ) .
+				$版本異文、夾注[ '〚' . $頁 . ':' .
+					str_replace( '〚', '', $parts[ 0 ] ) .
+					//trim( $parts[ 0 ], '〚' ) .
 					'〛' ] = $parts[ 1 ];
 			}
 			elseif( mb_strpos( $l, '〗' ) !== false )
 			{
+				
 				$parts = explode( '〗', $l );
 				
 				if( $頁 == "3955" )
@@ -557,7 +561,15 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 				}
 				
 				$默認詩文 = mb_substr( $parts[ 0 ], 1 );
+				
+				if( $頁 == "3955" )
+				{
+					echo 'L567 ', $parts[ 0 ] . '〗', NL;
+				}
+				
 				$坐標 = 提取〖詩文〗坐標( $parts[ 0 ] . '〗', $頁 );
+				
+				
 				$坐標版本異文、夾注[ $坐標 ] = trim( $l );
 				$版本異文、夾注[ $坐標 ] = 
 					array( $默認詩文, $parts[ 1 ] );
@@ -647,24 +659,49 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 }
 function 提取〖詩文〗坐標( string $〖詩文〗, string $頁 ) : string
 {
-	if( intval( trim( $〖詩文〗, '〖〗' ) ) > 0 )
+if( $頁 == '3955' )
+{
+	echo 'L664 ', $〖詩文〗, NL;
+}
+	
+	$str = str_replace( '〛', '', str_replace( '〚', '', $〖詩文〗 ) );
+	
+	//if( intval( trim( $〖詩文〗, '〖〗' ) ) > 0 )
+	if( intval( $str ) > 0 )
 	{
 		return "〚" . $頁 . ':' .
-			trim( $〖詩文〗, '〖〗' ) . "〛";
+			//trim( $〖詩文〗, '〖〗' ) . "〛";
+			$str . "〛";
 	}
+	
 
 	require( 詩集文件夾 . "${頁}.php" );
-	$詩文 = trim( $〖詩文〗, '〖〗' );
+	//$詩文 = trim( $〖詩文〗, '〖〗' );
+	$詩文 = str_replace( '〗', '', str_replace( '〖', '', $〖詩文〗 ) );
+if( $頁 == '3955' )
+{
+	//echo $詩文, NL;
+}
 	$空坐標 = "";
 	$句坐標 = "";
 	$詩文位置 = -1;
+	
+	if( preg_match( '|^\d+|', $詩文 ) )
+	{
+		return "〚${頁}:${詩文}〛";
+	}
 	
 	foreach( $内容[ "坐標_句" ] as $坐標 => $句 )
 	{
 		$詩文位置 = mb_strpos( $句, $詩文 ); // 0 based
 		
+if( $頁 == '3955' )
+{
+	echo $詩文, ' ', $句, NL;
+}
 		if( $詩文位置 !== false )
 		{
+
 			$句坐標 = $坐標;
 			// discount the brackets: - 2
 			if( mb_strlen( $〖詩文〗 ) - 2 > 1 )
@@ -676,13 +713,21 @@ function 提取〖詩文〗坐標( string $〖詩文〗, string $頁 ) : string
 			{
 				$詩文位置 = "." . $詩文位置 + 1;
 			}
-			$句坐標 = '〚' . trim( $句坐標, '〛' ) . 
+			//$句坐標 = '〚' . trim( $句坐標, '〛' ) . 
+			$句坐標 = '〚' . 
+				//trim( $句坐標, '〛' ) .
+				str_replace( '〛', '', $句坐標 ) .
 				$詩文位置 . '〛';
 			// get rid of sth invisible
 			$句坐標 = "〚" . trim( $句坐標, "〚〛" ) . "〛";
 
 			return $句坐標;
 		}
+		else
+		{
+			//return $空坐標;
+		}
+		//
 	}
 	
 	return $空坐標;

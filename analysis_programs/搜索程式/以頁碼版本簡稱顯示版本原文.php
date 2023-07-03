@@ -21,10 +21,14 @@ function 以頁碼版本簡稱顯示版本原文(
 	$異夾s = array();
 	$注釋s = array();
 	
+	//print_r( $版本陣列 );
+	
 	foreach( $坐標版本異文、夾注 as $坐標 => $版本異文、夾注 )
 	{
 		$parts = explode( '〗', $版本異文、夾注 );
-		$異夾s[ trim( $parts[ 0 ], '〖' ) ] = $parts[ 1 ];
+		
+		//$異夾s[ trim( $parts[ 0 ], '〖' ) ] = $parts[ 1 ];
+		$異夾s[ str_replace( '〖', '', $parts[ 0 ] ) ] = $parts[ 1 ];
 	}
 	//print_r( $異夾s );
 	$版本詩文 = '';
@@ -40,6 +44,11 @@ function 以頁碼版本簡稱顯示版本原文(
 	
 	foreach( $版本陣列[ 注釋 ] as $坐標 => $注釋 )
 	{
+		if( $頁碼 == '0076' )
+		{
+			echo $坐標, NL;
+			echo $注釋, NL;
+		}
 		$parts = explode( 冒號, $注釋 );
 		
 		if( sizeof( $parts ) == 1 ) // 題注
@@ -48,9 +57,18 @@ function 以頁碼版本簡稱顯示版本原文(
 		}
 		elseif( sizeof( $parts ) == 2 )
 		{
+			if( $頁碼 == '0076' )
+			{
+				echo $parts[ 0 ], NL;
+				echo $parts[ 1 ], NL;
+				
+			}
+			
 			$注釋s[ $parts[ 0 ] ] = $parts[ 1 ];
 		}
 	}
+	
+	//print_r( $注釋s );
 	$版本詩文 = $版本詩文 . NL . NL;
 
 	

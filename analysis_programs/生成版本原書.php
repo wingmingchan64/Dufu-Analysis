@@ -27,7 +27,6 @@ $版本目錄 = '';
 $版本詩文注釋 = '';
 $版本目錄_頁碼_詩題 = array();
 
-
 if( file_exists( $template ) )
 {
 	require_once( $template );
@@ -54,6 +53,8 @@ if( file_exists( $template ) )
 		{
 			require_once( 詩集文件夾 . $line . 程式後綴 );
 			require_once( $文件夾路徑 . $line . 程式後綴 );
+			
+			//print_r( $$列陣名 );
 			
 			if( array_key_exists( 詩題, $$列陣名 ) )
 			{

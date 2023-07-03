@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以詩題用字注音搜索詩題.php "fung6 sin1"
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以詩題用字注音搜索詩題.php "zang6 lei5"
 => Array
 (
     [jau4 lung4 mun4 fung6 sin1 zi6] => 0042 遊龍門奉先寺
@@ -22,12 +22,24 @@ foreach( $注音_詩題 as $注音 => $詩題 )
 {
 	if( containsPronunciation( $注音, $音 ) )
 	{
-		$result[ $注音 ] = $詩題_頁碼[ $詩題 ] . ' ' . $詩題;
+		if( is_string( $詩題_頁碼[ $詩題 ] ) )
+		{
+			$result[ $注音 ] = $詩題_頁碼[ $詩題 ] . ' ' . $詩題;
+		}
+		elseif( is_array( $詩題_頁碼[ $詩題 ] ) )
+		{
+			$result[ $注音 ] = array();
+			
+			foreach( $詩題_頁碼[ $詩題 ] as $頁 )
+			{
+				array_push( $result[ $注音 ], $頁 . ' ' . $詩題 );
+			}
+		}
 	}
 }
 if( sizeof( $result ) == 0 )
 {
-	array_push( 無結果 );
+	array_push( $result, 無結果 );
 }
 print_r( $result );
 ?>

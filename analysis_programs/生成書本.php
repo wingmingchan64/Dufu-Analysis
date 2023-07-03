@@ -100,7 +100,10 @@ $code = "<?php
 	foreach( $部分陣列 as $k => $子儲存 )
 	{
 		$題 = mb_substr( $k, 1, -1 ); // remove 【】
-		//echo $題, "\n";
+if( $頁 == '3955' )
+{
+	//echo 'L105', $題, NL;
+}
 		$補充説明 = ( $題 == '補充説明' );
 		$異文、夾注 = ( $題 == '異文、夾注' );
 		$體裁 = "";
@@ -278,6 +281,10 @@ if ( $頁 == '0943' )
 		{
 			foreach( $版本陣列[ "坐標版本異文、夾注" ] as $item )
 			{
+if( $頁 == '3955' )
+{
+	//echo "L284 $item", NL;
+}
 				if( str_starts_with( $item, '〖3〗' ) )
 				{
 					$版本序言 = trim( normalize( mb_substr( 
