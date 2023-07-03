@@ -46,8 +46,8 @@ function 以頁碼版本簡稱顯示版本原文(
 	{
 		if( $頁碼 == '0076' )
 		{
-			echo $坐標, NL;
-			echo $注釋, NL;
+			//echo $坐標, NL;
+			//echo $注釋, NL;
 		}
 		$parts = explode( 冒號, $注釋 );
 		
@@ -59,8 +59,8 @@ function 以頁碼版本簡稱顯示版本原文(
 		{
 			if( $頁碼 == '0076' )
 			{
-				echo $parts[ 0 ], NL;
-				echo $parts[ 1 ], NL;
+				//echo $parts[ 0 ], NL;
+				//echo $parts[ 1 ], NL;
 				
 			}
 			
