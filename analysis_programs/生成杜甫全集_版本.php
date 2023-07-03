@@ -316,13 +316,13 @@ foreach( $頁碼 as $頁 )
 							*/
 							
 							$temp_storage[ "3104:2:" ] =
-								$$陣列名[ "版本" ][ "詩文" ][ 1 ];
+								$$陣列名[ "版本" ][ "詩文" ][ 1 ] . NL . NL;
 						}
 						else
 						{
 							//echo $裸坐標, "\n";
-							$new_content = $new_content .
-								$temp_storage[ $裸坐標 ] . NL;
+							//$new_content = $new_content .
+								//$temp_storage[ $裸坐標 ] . NL;
 						}
 					}
 
