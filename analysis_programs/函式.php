@@ -133,7 +133,7 @@ function getExpandedPages( string $coor ) : array
 			return array( $coor );
 		}
 		
-		echo $pages, "\n";
+		//echo $pages, "\n";
 	}
 }
 
@@ -564,7 +564,7 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 				
 				if( $頁 == "3955" )
 				{
-					echo 'L567 ', $parts[ 0 ] . '〗', NL;
+					//echo 'L567 ', $parts[ 0 ] . '〗', NL;
 				}
 				
 				$坐標 = 提取〖詩文〗坐標( $parts[ 0 ] . '〗', $頁 );
@@ -661,7 +661,7 @@ function 提取〖詩文〗坐標( string $〖詩文〗, string $頁 ) : string
 {
 if( $頁 == '3955' )
 {
-	echo 'L664 ', $〖詩文〗, NL;
+	//echo 'L664 ', $〖詩文〗, NL;
 }
 	
 	$str = str_replace( '〛', '', str_replace( '〚', '', $〖詩文〗 ) );
@@ -697,7 +697,7 @@ if( $頁 == '3955' )
 		
 if( $頁 == '3955' )
 {
-	echo $詩文, ' ', $句, NL;
+	//echo $詩文, ' ', $句, NL;
 }
 		if( $詩文位置 !== false )
 		{

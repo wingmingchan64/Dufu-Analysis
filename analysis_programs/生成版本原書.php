@@ -86,6 +86,9 @@ if( file_exists( $template ) )
 	//echo $版本目錄;
 	
 	$版本内容 .= $版本目錄 . NL . $版本詩文注釋;
+	$msg = file_get_contents( 'msg.txt', true );
+	$版本内容 .= $msg;
+	$版本内容 = str_replace( '﻿', '', $版本内容 );
 	
 	file_put_contents( $文件夾路徑 . $書名 . '.txt', $版本内容 );
 	file_put_contents( 杜甫分析文件夾 . $書名 . "\\" . $書名 . '.txt', $版本内容 );
