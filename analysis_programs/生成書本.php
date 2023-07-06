@@ -41,6 +41,11 @@ $count = 0;
 //$頁 = "0167";
 foreach( $頁碼 as $頁 )
 {
+if( $前綴 == '粵' && intval( $頁 ) >= 500 )
+{ break; }
+	
+	require_once( 詩集文件夾 . $頁 . 程式後綴 );
+	$默認内容 = $内容;
 	require_once( 詩集文件夾 . "${頁}坐標_用字.php" );
 	// get the relevant section as an array
 	$text_array = getSection( $頁碼_路徑[ $頁 ], $簡稱 );
@@ -57,6 +62,7 @@ foreach( $頁碼 as $頁 )
 	$書名  = trim( $text_array[ 0 ] );
 	$部分陣列  = array();
 	$current = "";
+	$校記内容 = '';
 
 	//print_r( $text_array );
 
@@ -100,15 +106,16 @@ $code = "<?php
 	foreach( $部分陣列 as $k => $子儲存 )
 	{
 		$題 = mb_substr( $k, 1, -1 ); // remove 【】
-if( $頁 == '3955' )
+if( $頁 == '0173' )
 {
-	//echo 'L105', $題, NL;
+	//exit;
 }
-		$補充説明 = ( $題 == '補充説明' );
-		$異文、夾注 = ( $題 == '異文、夾注' );
+		$補充説明  = ( $題 == 補充説明 );
+		$異文、夾注 = ( $題 == 異文、夾注 );
+		$校記     = ( $題 == 校記 );
 		$體裁 = "";
 
-		if( $題 == '體裁' )
+		if( $題 == 體裁 )
 		{
 			$體裁 = $子儲存[ 0 ];
 		}
@@ -120,14 +127,14 @@ if( $頁 == '3955' )
 		// 岱宗夫如何？齊魯青未了。
 		// doi6 zung1 fu4 jyu4 ho4, cai4 lou5 cing1 mei6 liu5
 		// ---------------------------------------------
-		
 		if( mb_strpos( $内容, '--' ) !== false )//delimiter
 		{
 			$音_陣列 = explode( "\n", $内容  ); // lines
-		
+					
 			$sub_code = "array(\n";
 			$詩文注音 = '';
-
+			$詩題文 = ''; // for comparison
+			
 			for( $i = 0; $i < sizeof( $音_陣列 ); $i++ )
 			{
 				$音  = "";
@@ -138,6 +145,7 @@ if( $頁 == '3955' )
 				if( mb_strpos( 
 					$頁碼_詩題[ $頁 ], $音_陣列[ $i ] ) !== false )
 				{
+					$詩題文 = $音_陣列[ $i ];
 					//echo "inside\n";
 					$詩題_注音[ $頁碼_詩題[ $頁 ] ] = $音_陣列[ $i+1 ];
 					$詩文注音 .= $音_陣列[ $i+1 ] . NL . NL;
@@ -151,15 +159,25 @@ if( $頁 == '3955' )
 					continue;
 				}
 				// , used only in the pronunciation
-				elseif( strpos( 
-					$音_陣列[ $i ], ',' ) !== false )
+				elseif( mb_detect_encoding( 
+					trim( $音_陣列[ $i ], 數字 ), ASCII ) == ASCII )
+				//elseif( preg_match( '|\d|', $音_陣列[ $i ] ) )
 				{
 					// 詩文 preceding pronunciation
+					//echo $音_陣列[ $i ], NL;
 					$文 = normalize( $音_陣列[ $i-1 ] );
+					$詩題文 .= $文;
 					$parts[ $文 ] = array( $音_陣列[ $i ] );
 					
 					$音s = explode( ',', $音_陣列[ $i ] );
 					$句s = explode( '。', $文 );
+					
+					if( $頁 == '0136' )
+					{
+						//print_r( $音s );
+						//print_r( $句s );
+						//exit;
+					}
 				
 					$sub_code = $sub_code .
 						"\n\"${文}\"=>array(\"${音_陣列[ $i ]}\",";
@@ -183,7 +201,7 @@ if( $頁 == '3955' )
 					$count++;
 					$sub_code = $sub_code .
 						"\n\"${句s[ 0 ]}\"=>\"${音}\",";
-					if( sizeof( $音s ) > 1 )
+					if( sizeof( $音s ) > 1 && trim( $音s[ 1 ] ) != '' )
 					{
 						$音 = trim( $音s[ 1 ] );
 						$sub_code = $sub_code .
@@ -193,7 +211,6 @@ if( $頁 == '3955' )
 						$count++;
 					}
 				}
-			
 			}
 			//$sub_code = $sub_code . "\"$文\"=>\"$音\",";
 			//$sub_code = substr( $sub_code, 0, -2 );
@@ -203,27 +220,51 @@ if( $頁 == '3955' )
 			$内容 = $内容 . "\n\"詩文注音\"=>\"$詩文注音\",\n";
 			$字音 = array(); // store 字 and its 音
 			
+			//echo $詩題文;
+			/* */
+			$result = compareText( $默認内容[ 詩題 ] . $默認内容[ 詩文 ],
+				$詩題文, true );
+			/*
+			if( sizeof( $result ) == 0 )
+			{
+				continue;
+			}
+			else
+			{
+				echo $頁, NL;
+				print_r( $result );
+				exit;
+			}
+			*/
+			/* */
+				
 // break out of 北征
 if ( $頁 == '0943' )
 {
 	break;
 }
-		
+			
 			foreach( $parts as $行 => $行音 )
 			{
 				$行 = str_replace( "。", "", $行 );
+				//echo $行, NL;
 				$行音 = str_replace( ',', '', $行音 );
 				$行音陣列 = explode( ' ', $行音[ 0 ] );
 			
-				for( $i = 0; $i < mb_strlen( $行 ); $i++ )
+				//echo $行, NL;
+				//echo mb_strlen( $行 ), NL;
+			
+				for( $i = 0; $i < trim( mb_strlen( $行 ), 數字 ); $i++ )
 				{
 					if( !array_key_exists( mb_substr( $行, $i, 1 ), $字音 ) )
 					{
 						$字音[ mb_substr( $行, $i, 1 ) ] = array();
 					}
 						
+					//echo $i, ' ', $行音陣列[ $i ], NL;
+					//echo sizeof( $行音陣列 ), NL;
 					if( !in_array( 
-						$行音陣列[ $i ], 
+						$行音陣列[ $i ],
 						$字音[ mb_substr( $行, $i, 1 ) ] ) )
 					{
 						if( $行音陣列[ $i ] != "" )
@@ -264,7 +305,7 @@ if ( $頁 == '0943' )
 			//$subcode = substr( $subcode, 0, -1 );
 			$subcode = $subcode . "\n)";
 			$内容 = $内容 . $subcode;
-		}
+		} // end of 粵注音
 		// 補充説明
 		elseif( $補充説明 ) // a mixture of contents; just output it
 		{
@@ -363,6 +404,14 @@ if( $頁 == '3955' )
 		$内容 = $内容 . "),\n";
 		
 		$内容 = $内容 . ")";
+	} // 
+	elseif( 校記 )
+	{
+		//echo "Inside 校記: ", NL;
+		//echo $内容, NL;
+		//$校記内容 .= $内容;
+		$内容 = "\"$内容\"";
+		
 	}
 	// 坐標的轉換靠的是統一化詩文，因此出現在〖〗内的必須是
 	// 我的統一化後的詩文。
@@ -488,7 +537,6 @@ if( $頁 == '3955' )
 	
 		$code = $code . "\"$題\"=>\n$内容,\n";
 	}
-
 	$code = $code . "\n);\n?>";
 /*
 	if( $簡稱 == "=全" )

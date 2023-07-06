@@ -781,4 +781,21 @@ function containsPronunciation( string $haystack, string $needle ) : bool
 	}
 }
 
+function 移除詩文夾注( string $帶夾注詩文 ) : string
+{
+	return preg_replace( 夾注regex, '', $帶夾注詩文 );
+}
+function format詩文( string $詩文 ) : string
+{
+	return preg_replace( 四句regex, 第一組新行regex, $詩文 );
+}
+function 提取陣列値( array $陣列 ) : string
+{
+	$str = '';
+	foreach( $陣列 as $k => $v )
+	{
+		$str .= $v . NL;
+	}
+	return $str;
+}
 ?>
