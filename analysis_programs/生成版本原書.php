@@ -67,6 +67,16 @@ if( file_exists( $template ) )
 				$版本目錄_頁碼_詩題[ $line ] = $内容[ 詩題 ];
 			}
 
+			if( $line == '0084' )
+			{
+				$path = 新刊校定集注杜詩 . 
+					'登歷下古城貟外新𠅘北海太守李邕作.txt';
+				if( file_exists( $path ) )
+				{
+					$版本詩文注釋 .= file_get_contents( $path );
+				}
+			}
+
 			$版本詩文注釋 .= 
 				以頁碼版本簡稱顯示版本原文( $line, $内容, $$列陣名 );
 		}

@@ -1,6 +1,6 @@
 <?php
 require_once( "四角字典.php" );
-$out_file = 'h:\github\Dufu-Analysis\analysis_programs\buffer.txt';
+$out_file = 'h:\php809\code\buffer.txt';
 $input    = "";
 $buffer   = "";
 
@@ -127,10 +127,9 @@ while( true )
 
 function isAscii( string $str ) : bool
 {
-    return mb_check_encoding( $str, 'ASCII' );
+	return ( mb_detect_encoding( $str, 'ASCII' ) == 'ASCII' );
+    //return mb_check_encoding( $str, 'ASCII' );
 }
-
-
 
 function printBuffer( string $buffer )
 {

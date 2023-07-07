@@ -24,8 +24,16 @@ while( true )
 		if( $num >= 0 && $num < sizeof( $程式名 ) )
 		{
 			$程式 = $程式名[ $num ];
-			echo 搜索程式[ $程式 ];
-			$參數 = readline();
+			
+			if( 搜索程式[ $程式 ] != '' )
+			{
+				echo 搜索程式[ $程式 ];
+				$參數 = readline();
+			}
+			else
+			{
+				$參數 = '';
+			}
 			
 			$executable = "php " . 搜索程式文件夾 . $程式 . 程式後綴 . ' ' . $參數;
 			$output = null;

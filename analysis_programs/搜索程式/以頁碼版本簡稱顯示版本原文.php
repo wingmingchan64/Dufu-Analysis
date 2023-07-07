@@ -33,9 +33,9 @@ function 以頁碼版本簡稱顯示版本原文(
 	//print_r( $異夾s );
 	$版本詩文 = '';
 	
-	if( array_key_exists( 詩題, $版本陣列 ) )
+	if( array_key_exists( 詩題, $版本陣列[ 版本 ] ) )
 	{
-		$版本詩文 = $版本陣列[ 詩題 ];
+		$版本詩文 = $版本陣列[ 版本 ][ 詩題 ];
 	}
 	else
 	{
@@ -71,7 +71,6 @@ function 以頁碼版本簡稱顯示版本原文(
 	//print_r( $注釋s );
 	$版本詩文 = $版本詩文 . NL . NL;
 
-	
 	//print_r( $注釋s );
 
 	foreach( $默認陣列[ 詩句 ] as $句 )
