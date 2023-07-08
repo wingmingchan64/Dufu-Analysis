@@ -794,8 +794,142 @@ function 提取陣列値( array $陣列 ) : string
 	$str = '';
 	foreach( $陣列 as $k => $v )
 	{
-		$str .= $v . NL;
+		$str .= $v;
 	}
 	return $str;
 }
+function 坐標轉換成列陣路徑( string $坐標 ) : array
+{
+	$坐標 = str_replace( 坐標開括號, '', 
+			str_replace( 坐標關括號, '', $坐標 ) );
+	$坐標 = str_replace( ':', '-', $坐標 );
+	$坐標 = str_replace( '.', '-', $坐標 );
+	return explode( '-', trim( $坐標, ' -' ) );
+}
+function 顯示坐標值( array $杜甫詩陣列, string $坐標 ) 
+{
+	$路徑 = 坐標轉換成列陣路徑( $坐標 );
+	
+	if( sizeof( $路徑 ) == 4 )
+	{
+		$值 = $杜甫詩陣列[ $路徑[ 0 ] ]
+			[ $路徑[ 1 ] ]
+			[ $路徑[ 2 ] ]
+			[ $路徑[ 3 ] ];
+	}
+	elseif( sizeof( $路徑 ) == 3 )
+	{
+		$值 = $杜甫詩陣列[ $路徑[ 0 ] ]
+			[ $路徑[ 1 ] ]
+			[ $路徑[ 2 ] ];
+	}
+	elseif( sizeof( $路徑 ) == 2 )
+	{
+		$值 = $杜甫詩陣列[ $路徑[ 0 ] ]
+			[ $路徑[ 1 ] ];
+	}
+	elseif( sizeof( $路徑 ) == 1 )
+	{
+		$值 = $杜甫詩陣列[ $路徑[ 0 ] ];
+	}
+	
+	print_r( $值 );
+}
+function 顯示杜甫詩陣列詩文( 
+	array $詩組_詩題, string $頁碼,
+	array $頁列陣, bool $加句號 = true )
+{
+	$result = array();
+	// 首
+	if( in_array( $頁碼, array_keys( $詩組_詩題 ) ) )
+	{
+		$result = $頁列陣;
+	}
+	else
+	{
+		$result[ '1' ] = $頁列陣;
+	}
+	
+	if( array_key_exists( 詩題, $頁列陣 ) )
+	{
+		echo $頁列陣[ 詩題 ];
+	}
+	if( array_key_exists( 題注, $頁列陣 ) )
+	{
+		echo '[', $頁列陣[ 題注 ], ']', NL;
+	}
+	else
+	{
+		echo NL;
+	}
+	if( array_key_exists( 序言, $頁列陣 ) )
+	{
+		echo $頁列陣[ 序言 ], NL;
+	}
+	
+	foreach( $result as $首碼 => $行子陣列 )
+	{
+		if( is_string( $行子陣列 ) )
+		{
+			//echo $首碼, NL;
+			continue;
+		}
+		
+		foreach( $行子陣列 as $句碼 => $句子陣列 )
+		{
+			//print_r( $句子陣列 );
+			if( is_string( $句子陣列 ) )
+			{
+				if( sizeof( $result ) > 1 )
+				{
+					echo $句子陣列, NL;
+				}
+				continue;
+			}
+			$行文 = '';
+			
+			foreach( $句子陣列 as $字碼 => $字子陣列 )
+			{
+				$句文 = '';
+				
+				foreach( $字子陣列 as $字碼 => $字 )
+				{
+					$句文 .= $字;
+				}
+				if( $加句號 )
+				{
+					if( mb_strlen( $句文 ) == sizeof( $字子陣列 ) )
+					{
+						$句文 .= '。';
+					}
+				}
+				$行文 .= $句文;
+			}
+			echo $行文, NL;
+		}
+	}
+}
+function 杜甫詩陣列詩文替代( array &$頁陣列, array $替代 )
+{
+	foreach( $替代 as $坐標 => $替代文 )
+	{
+		$路徑陣列 = 坐標轉換成列陣路徑( $坐標 );
+		
+		if( sizeof( $路徑陣列 ) == 3 )
+		{
+			$頁陣列[ $路徑陣列[ 0 ] ]
+				[ $路徑陣列[ 1 ] ]
+				[ $路徑陣列[ 2 ] ] = $替代文;
+		}
+		elseif( sizeof( $路徑陣列 ) == 3 )
+		{
+			$頁陣列[ $路徑陣列[ 0 ] ]
+				[ $路徑陣列[ 1 ] ]
+				[ $路徑陣列[ 2 ] ] 
+				[ $路徑陣列[ 3 ] ] = $替代文;
+		}
+		//print_r( $路徑陣列 );
+	}
+}
+
 ?>
