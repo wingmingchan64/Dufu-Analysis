@@ -164,6 +164,7 @@ foreach( $杜甫詩陣列 as $頁 => $子列陣 )
 $code = $code . ");
 ?>" . NL;
 file_put_contents( 杜甫資料庫 . '杜甫詩陣列.php', $code );
+file_put_contents( 程式文件夾 . '杜甫詩陣列.php', $code );
 
 ?>
 
