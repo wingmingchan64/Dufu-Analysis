@@ -130,7 +130,7 @@ if( $頁 == '0173' )
 		// ---------------------------------------------
 		if( mb_strpos( $内容, '--' ) !== false )//delimiter
 		{
-			echo "L133", NL;
+			//echo "L133", NL;
 			$音_陣列 = explode( "\n", $内容  ); // lines
 					
 			$sub_code = "array(\n";
@@ -250,13 +250,17 @@ if ( $頁 == '0943' )
 			{
 				$行 = str_replace( "。", "", $行 );
 				//echo $行, NL;
-				$行音 = str_replace( ',', '', $行音 );
-				$行音陣列 = explode( ' ', $行音[ 0 ] );
+				$行音 = str_replace( ',', '', $行音[ 0 ] );
+				//echo $行音, NL;
+				//$行音陣列 = explode( ' ', $行音[ 0 ] );
+				$行音陣列 = explode( ' ', $行音 );
+				//print_r( $行音陣列 );
 			
 				//echo $行, NL;
 				//echo mb_strlen( $行 ), NL;
 			
-				for( $i = 0; $i < trim( mb_strlen( $行 ), 數字 ); $i++ )
+				//for( $i = 0; $i < trim( mb_strlen( $行 ), 數字 ); $i++ )
+				for( $i = 0; $i < mb_strlen( $行 ); $i++ )
 				{
 					if( !array_key_exists( mb_substr( $行, $i, 1 ), $字音 ) )
 					{
@@ -265,6 +269,7 @@ if ( $頁 == '0943' )
 						
 					//echo $i, ' ', $行音陣列[ $i ], NL;
 					//echo sizeof( $行音陣列 ), NL;
+					
 					if( !in_array( 
 						$行音陣列[ $i ],
 						$字音[ mb_substr( $行, $i, 1 ) ] ) )
