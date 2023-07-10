@@ -8,7 +8,7 @@ require_once( 杜甫資料庫 . '書目簡稱.php' );
 require_once( 杜甫資料庫 . '頁碼.php' );
 require_once( 杜甫資料庫 . '頁碼_詩題.php' );
 
-$簡稱s = array( '蕭', '全' );
+$簡稱s = array( '蕭', '全', '仇', '浦' );
 
 $code = "<?php
 /*
