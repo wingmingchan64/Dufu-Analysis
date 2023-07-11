@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\詩文用字🡒頁碼.php 我居南
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\詩文用字→頁碼.php 我居南
 =>
 Array
 (

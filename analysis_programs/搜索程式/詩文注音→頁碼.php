@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\詩文注音🡒頁碼.php "git3"
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\詩文注音→頁碼.php "git3"
 =>
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );

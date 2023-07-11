@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼、版本簡稱🡒版本頁碼.php 0013 今
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼、版本簡稱→版本頁碼.php 0013 今
 => 版本頁碼：題張氏隱居二首 張志烈主編《杜詩全集（今注本）》1.9,PDF75
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
