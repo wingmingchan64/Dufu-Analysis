@@ -41,8 +41,8 @@ $count = 0;
 //$頁 = "0167";
 foreach( $頁碼 as $頁 )
 {
-if( $前綴 == '粵' && intval( $頁 ) >= 500 )
-{ break; }
+//if( $前綴 == '粵' && intval( $頁 ) >= 940 )
+//{ break; }
 	
 	require_once( 詩集文件夾 . $頁 . 程式後綴 );
 	$默認内容 = $内容;
@@ -226,7 +226,7 @@ if( $頁 == '0173' )
 			/* */
 			$result = compareText( $默認内容[ 詩題 ] . $默認内容[ 詩文 ],
 				$詩題文, true );
-			/*
+			
 			if( sizeof( $result ) == 0 )
 			{
 				continue;
@@ -237,15 +237,8 @@ if( $頁 == '0173' )
 				print_r( $result );
 				exit;
 			}
-			*/
-			/* */
-				
-// break out of 北征
-if ( $頁 == '0943' )
-{
-	break;
-}
 			
+							
 			foreach( $parts as $行 => $行音 )
 			{
 				$行 = str_replace( "。", "", $行 );
