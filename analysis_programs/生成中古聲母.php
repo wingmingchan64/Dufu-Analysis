@@ -1,15 +1,20 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\生成中原音韻聲母.php
+php h:\github\Dufu-Analysis\analysis_programs\生成中古聲母.php
 */
 require_once( '常數.php' );
 require_once( '函式.php' );
-require_once( 杜甫資料庫 . '用字_頻率.php' );
-require_once( 杜甫資料庫 . '中原音韻\字_聲母.php' );
-
-$用字 = array_keys( $用字_頻率 );
+//require_once( 杜甫資料庫 . '用字_頻率.php' );
+require_once( 杜甫資料庫 . '中古聲母\字_聲母.php' );
 $字聲 = array_keys( $字_聲母 );
-print_r( array_diff( $字聲, $用字) );
+
+$中古聲母 = array(
+);
+
+
+
+//$用字 = array_keys( $用字_頻率 );
+//print_r( array_diff( $字聲, $用字) );
 /*
 $pattern = "|<p>\s+<a href=\".+?\">(\\X+?)</a>母|";
 $matches = array();

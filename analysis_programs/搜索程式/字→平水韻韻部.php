@@ -13,6 +13,13 @@ if( array_key_exists( $字, $字_韻部 ) )
 {
 	print_r( $字_韻部[ $字 ] );
 }
+elseif( mb_strlen( $字 ) == 2 )
+{
+	print_r( 
+		array( $字_韻部[ mb_substr( $字, 0, 1 ) ], 
+			$字_韻部[ mb_substr( $字, 1, 1 ) ] )
+	);
+}
 else
 {
 	echo 無結果, NL;
