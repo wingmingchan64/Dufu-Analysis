@@ -62,6 +62,15 @@ if( file_exists( $路徑 ) )
 		}
 		$韻 = '';
 	}
+	$output .= "
+【體裁】
+五律
+五古
+五排
+七律
+七古
+七排
+";
 	echo $output;
 }
 else

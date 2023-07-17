@@ -223,7 +223,7 @@ if( $頁 == '0173' )
 			$字音 = array(); // store 字 and its 音
 			
 			//echo $詩題文;
-			/* */
+			/* 
 			$result = compareText( $默認内容[ 詩題 ] . $默認内容[ 詩文 ],
 				$詩題文, true );
 			
@@ -237,7 +237,7 @@ if( $頁 == '0173' )
 				print_r( $result );
 				exit;
 			}
-			
+			*/
 							
 			foreach( $parts as $行 => $行音 )
 			{
@@ -259,9 +259,10 @@ if( $頁 == '0173' )
 					{
 						$字音[ mb_substr( $行, $i, 1 ) ] = array();
 					}
-						
-					//echo $i, ' ', $行音陣列[ $i ], NL;
-					//echo sizeof( $行音陣列 ), NL;
+					
+					echo $頁, NL;
+					echo $i, ' ', $行音陣列[ $i ], NL;
+					echo sizeof( $行音陣列 ), NL;
 					
 					if( !in_array( 
 						$行音陣列[ $i ],

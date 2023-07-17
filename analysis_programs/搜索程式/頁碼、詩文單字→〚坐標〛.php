@@ -12,7 +12,8 @@ $頁碼 = trim( $argv[ 1 ] );
 $用字 = trim( $argv[ 2 ] );
 
 $path = 詩集文件夾 . $頁碼 . '坐標_用字.php';
-$found = false;
+//$found = false;
+$result = array();
 
 if( !file_exists( $path ) )
 {
@@ -26,15 +27,26 @@ else
 	{
 		if( $用字 == $字 )
 		{
-			echo 坐標, '：', str_replace( "${頁碼}:", '', $坐 );
-			$found = true;
-			break;
+			//echo 坐標, '：', str_replace( "${頁碼}:", '', $坐 );
+			//$found = true;
+			array_push( $result, str_replace( "${頁碼}:", '', $坐 ) );
+			//break;
 		}
 	}
-	if( !$found )
+	$size = sizeof( $result );
+	if( $size == 0 )
 	{
 		echo 無結果, NL;
 	}
+	elseif( $size == 1 )
+	{
+		echo $result[ 0 ], NL;
+	}
+	else
+	{
+		print_r( $result );
+	}
+	
 }
 ?>
 
