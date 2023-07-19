@@ -15,52 +15,63 @@ if( sizeof( $argv ) < 2 )
 
 $頁碼 = trim( $argv[ 1 ] );
 $韻 = '';
-/*
-if( sizeof( $argv ) == 3 )
-{
-	$韻 = trim( $argv[ 2 ] );
-}
-*/
-	
-$路徑 = 詩集文件夾 . $頁碼 . 程式後綴;
 $output = '';
+
+$路徑    = 詩集文件夾 . $頁碼 . 程式後綴;
+$注音路徑 = 杜甫全集粵音注音文件夾 . $頁碼 . 程式後綴;
 
 if( file_exists( $路徑 ) )
 {
 	require_once( $路徑 );
-	
-	$output .= $内容[ 詩題 ] . NL;
-	$output .= '【韻部】' . NL;
-	
-	foreach( $内容[ 坐標_句 ] as $坐標 => $句 )
-	{
-		$坐標 = str_replace( '〚', '', str_replace( '〛', '', $坐標 ) );
-		$坐標 = str_replace( ':', '-', str_replace( '.', '-', $坐標 ) );
-		$坐標parts = explode( '-', $坐標 );
-		$字數 = mb_strlen( $句 );
-		
-		$末字 = mb_substr( $句, $字數 - 1, 1 );
-		
-		foreach( $字_韻部[ $末字 ] as $韻部 )
-		{
-			$韻部 = mb_substr( $韻部, mb_strlen( $韻部 ) - 1, 1 );
-			$韻 .= $韻部;
-		}
 
-		if( sizeof( $坐標parts ) == 3 && $坐標parts[ 2 ] == '2' )
+	if( file_exists( $注音路徑 ) )
+	{
+		require_once( $注音路徑 );
+		
+		if( array_key_exists( 韻部, $粵内容 ) )
 		{
-			$output .= "〚" . $坐標parts[ 1 ] . '.' . 
-				$坐標parts[ 2 ] . '.' . $字數 . "〛" .
-				$末字 . '：' . $韻 . '韻' . NL; 
+			$output .= $内容[ 詩題 ] . NL;
+			$output .= 【韻部】 . NL;
+
+			foreach( $粵内容[ 韻部 ] as $坐 => $韻 )
+			{
+				$output .= $坐 . $韻 . NL;
+			}
 		}
-		elseif( sizeof( $坐標parts ) == 4 && $坐標parts[ 3 ] == '2' )
+	}
+
+	if( $output == '' )
+	{
+		foreach( $内容[ 坐標_句 ] as $坐標 => $句 )
 		{
-			$output .= "〚" . $坐標parts[ 1 ] . ':' . 
-				$坐標parts[ 2 ] . '.' .
-					$坐標parts[ 3 ] . '.' . $字數 . "〛" .
-				mb_substr( $句, $字數 - 1, 1 ) . '：' . $韻 . '韻' . NL; 
+			$坐標 = str_replace( '〚', '', str_replace( '〛', '', $坐標 ) );
+			$坐標 = str_replace( ':', '-', str_replace( '.', '-', $坐標 ) );
+			$坐標parts = explode( '-', $坐標 );
+			$字數 = mb_strlen( $句 );
+			
+			$末字 = mb_substr( $句, $字數 - 1, 1 );
+			
+			foreach( $字_韻部[ $末字 ] as $韻部 )
+			{
+				$韻部 = mb_substr( $韻部, mb_strlen( $韻部 ) - 1, 1 );
+				$韻 .= $韻部;
+			}
+
+			if( sizeof( $坐標parts ) == 3 && $坐標parts[ 2 ] == '2' )
+			{
+				$output .= "〚" . $坐標parts[ 1 ] . '.' . 
+					$坐標parts[ 2 ] . '.' . $字數 . "〛" .
+					$末字 . '：' . $韻 . '韻' . NL; 
+			}
+			elseif( sizeof( $坐標parts ) == 4 && $坐標parts[ 3 ] == '2' )
+			{
+				$output .= "〚" . $坐標parts[ 1 ] . ':' . 
+					$坐標parts[ 2 ] . '.' .
+						$坐標parts[ 3 ] . '.' . $字數 . "〛" .
+					mb_substr( $句, $字數 - 1, 1 ) . '：' . $韻 . '韻' . NL; 
+			}
+			$韻 = '';
 		}
-		$韻 = '';
 	}
 	$output .= "
 【體裁】
