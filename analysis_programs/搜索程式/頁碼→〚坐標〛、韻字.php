@@ -24,7 +24,8 @@ if( file_exists( $路徑 ) )
 {
 	require_once( $路徑 );
 
-	if( file_exists( $注音路徑 ) )
+	//if( file_exists( $注音路徑 ) )
+	if( false )
 	{
 		require_once( $注音路徑 );
 		
@@ -33,15 +34,21 @@ if( file_exists( $路徑 ) )
 			$output .= $内容[ 詩題 ] . NL;
 			$output .= 【韻部】 . NL;
 
-			foreach( $粵内容[ 韻部 ] as $坐 => $韻 )
+			if( sizeof( $粵内容[ 韻部 ] ) > 0 )
 			{
-				$output .= $坐 . $韻 . NL;
+				foreach( $粵内容[ 韻部 ] as $坐 => $韻 )
+				{
+					$output .= $坐 . $韻 . NL;
+				}
 			}
 		}
 	}
 
 	if( $output == '' )
 	{
+		$output .= $内容[ 詩題 ] . NL;
+		$output .= 【韻部】 . NL;
+
 		foreach( $内容[ 坐標_句 ] as $坐標 => $句 )
 		{
 			$坐標 = str_replace( '〚', '', str_replace( '〛', '', $坐標 ) );

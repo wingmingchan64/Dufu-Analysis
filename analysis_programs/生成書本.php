@@ -237,7 +237,7 @@ if( $頁 == '0173' )
 				print_r( $result );
 				exit;
 			}
-			*/
+			 */
 							
 			foreach( $parts as $行 => $行音 )
 			{
