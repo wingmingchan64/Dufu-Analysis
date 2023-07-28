@@ -3,6 +3,7 @@
 php h:\github\Dufu-Analysis\analysis_programs\生成版本頁碼索引.php 蕭
 php h:\github\Dufu-Analysis\analysis_programs\生成版本頁碼索引.php 全
 php h:\github\Dufu-Analysis\analysis_programs\生成版本頁碼索引.php 今
+php h:\github\Dufu-Analysis\analysis_programs\生成版本頁碼索引.php 譯
 
 蕭滌非主編《杜甫全集校注》缺1989
 《全唐詩》缺2828，2845，5503
