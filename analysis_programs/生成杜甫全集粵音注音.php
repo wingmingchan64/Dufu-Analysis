@@ -41,7 +41,8 @@ foreach( $file_names as $頁碼 => $from_file )
 			continue;
 			//$text = $text . $line . NL;
 		}
-		elseif( mb_strpos( $line, $詩題 ) !== false )
+		//elseif( mb_strpos( $line, $詩題 ) !== false )
+		elseif( trim( $line ) == $詩題 )
 		{
 			$text = $text . $頁碼 . ' ' . $line . NL;
 		}
