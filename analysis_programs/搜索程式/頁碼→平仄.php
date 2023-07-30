@@ -1,6 +1,6 @@
 <?php
 /*
-
+// 決定用字平仄的根據是
 php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼→平仄.php 0034
 =>
 〚0034:3〛平仄仄◯平，平平仄仄平
