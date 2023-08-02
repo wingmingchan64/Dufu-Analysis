@@ -17,7 +17,7 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼→平仄.php 0
 驍騰有如此。萬里可橫行。
 平平仄◯仄，仄仄仄◯平
 
-// ◯代表該字可平可仄
+// ◯代表該字爲多音字，可平可仄
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
