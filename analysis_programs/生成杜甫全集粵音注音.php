@@ -52,11 +52,7 @@ foreach( $file_names as $頁碼 => $from_file )
 		}
 	}
 	
-	//if( sizeof( $text_array ) > 0 )
-	//{
 	$new_content = $new_content . $text . 分隔線;
-	//}
-	
 }
 
 // write content to file
