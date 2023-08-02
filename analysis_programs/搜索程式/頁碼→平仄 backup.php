@@ -24,64 +24,63 @@ $近體詩 = array(
 	'七絕','七律','七排',
 );
 
+
 if( file_exists( $路徑 ) )
 {
 	require_once( $路徑 );
 	require_once( $注音路徑 );
-	
-	foreach( $内容[ 行碼 ] as $坐 => $行 )
+
+	foreach( $内容[ 坐標_句 ] as $坐 => $句 )
 	{
-		if( $坐 == '〚1〛' || $行 ==  '' ) // 
+		$首句 = true;
+		$字數 = mb_strlen( $句 );
+		
+		if( mb_strpos( $坐, '.1' ) )
 		{
-			continue;
+			$平仄内容 = str_replace( '.1', '', $坐 );
 		}
 		else
 		{
-			$字數 = mb_strlen( $行 );
-			$平仄内容 = $行 . NL;
+			$首句 = false;
+		}
+		
+		for( $i = 0; $i < $字數; $i++ )
+		{
+			$韻部 = $字_韻部[ mb_substr( $句, $i, 1 ) ];
+			$result = array();
 			
-			for( $i = 0; $i < $字數; $i++ )
+			foreach( $韻部 as $韻 )
 			{
-				if( mb_substr( $行, $i, 1 ) == '。' )
+				if( !in_array( $韻部_平仄[ $韻 ], $result ) )
 				{
-					if( $i == $字數 - 1 )
-					{
-						continue;
-					}
-					$平仄内容 .= '，';
-					continue;
-				}
-			
-				$韻部 = $字_韻部[ mb_substr( $行, $i, 1 ) ];
-				$result = array();
-				
-				foreach( $韻部 as $韻 )
-				{
-					if( !in_array( $韻部_平仄[ $韻 ], $result ) )
-					{
-						array_push( $result, $韻部_平仄[ $韻 ] );
-					}
-				}
-				if( sizeof( $result ) == 1 )
-				{
-					$平仄内容 .= $result[ 0 ];
-				}
-				elseif( sizeof( $result ) == 2 )
-				{
-					if( $i == $字數 - 2 && // 對句末字
-						in_array( $粵内容[ 體裁 ], $近體詩 ) )
-					{
-						$平仄内容 .= '平';
-					}
-					else
-					{
-						$平仄内容 .= '◯';
-					}
+					array_push( $result, $韻部_平仄[ $韻 ] );
 				}
 			}
-			//$平仄内容 .= NL;
+			if( sizeof( $result ) == 1 )
+			{
+				$平仄内容 .= $result[ 0 ];
+			}
+			elseif( sizeof( $result ) == 2 )
+			{
+				if( !$首句 && $i == $字數 - 1 && // 對句末字
+					in_array( $粵内容[ 體裁 ], $近體詩 ) )
+				{
+					$平仄内容 .= '平';
+				}
+				else
+				{
+					$平仄内容 .= '◯';
+				}
+			}
 		}
-		echo $平仄内容, NL;
+		if( !$首句 )
+		{
+			echo $平仄内容, NL;
+		}
+		else
+		{
+			$平仄内容 .= '，';
+		}
 	}
 }
 else
