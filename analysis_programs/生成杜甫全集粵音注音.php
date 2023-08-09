@@ -34,6 +34,16 @@ foreach( $file_names as $頁碼 => $from_file )
 
 	foreach( $text_array as $line )
 	{
+		/*
+		if( $頁碼 == '2165' )
+		{
+			echo $詩題, NL;
+			echo trim( $line ), NL;
+
+			print_r( compareText( trim( $line ) , $詩題 ) );
+			//echo $詩題, NL;
+		}
+		*/
 		if( mb_strpos( 
 			$line, '陳永明《杜甫全集粵音注音》' ) !== false ||
 			mb_strpos( $line, '【注音】' ) !== false )
@@ -44,6 +54,7 @@ foreach( $file_names as $頁碼 => $from_file )
 		//elseif( mb_strpos( $line, $詩題 ) !== false )
 		elseif( trim( $line ) == $詩題 )
 		{
+			//if( $頁碼 == '2165' )echo "Hit $詩題", NL;
 			$text = $text . $頁碼 . ' ' . $line . NL;
 		}
 		else
