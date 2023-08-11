@@ -23,5 +23,6 @@ $code = "<?php
 	$code = substr( $code, 0, -2 );
 	$code = $code . ");\n?>";
 	file_put_contents( 杜甫資料庫 . '詩句.php', $code );
+	file_put_contents( 杜甫分析文件夾 . '詩句.php', $code );
 }
 ?>

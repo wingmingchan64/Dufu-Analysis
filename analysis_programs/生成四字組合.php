@@ -68,4 +68,5 @@ $code = "<?php
 */
 \$四字組合排序頻率=array(\n" . $code . ");\n?>";
 file_put_contents( 杜甫資料庫 . '四字組合排序頻率.php', $code );
+file_put_contents( 杜甫分析文件夾 . '四字組合排序頻率.php', $code );
 ?>

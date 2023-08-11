@@ -86,4 +86,5 @@ $code = "<?php
 */
 \$二字組合排序頻率=array(\n" . $code . ");\n?>";
 file_put_contents( 杜甫資料庫 . '二字組合排序頻率.php', $code );
+file_put_contents( 杜甫分析文件夾 . '二字組合排序頻率.php', $code );
 ?>

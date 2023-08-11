@@ -81,6 +81,8 @@ foreach( $頁碼_韻部陣列 as $頁 => $韻s )
 $code = $code . ");\n?>";
 $頁碼code = $頁碼code . $code;
 file_put_contents( $頁碼out_file, $頁碼code );
+$頁碼out_file = 杜甫分析文件夾 . '頁碼_韻部.php';
+file_put_contents( $頁碼out_file, $頁碼code );
 
 $code = "";
 foreach( $韻部_頁碼陣列 as $韻 => $頁s )
@@ -98,5 +100,6 @@ foreach( $韻部_頁碼陣列 as $韻 => $頁s )
 $code = $code . ");\n?>";
 $韻部code = $韻部code . $code;
 file_put_contents( $韻部out_file, $韻部code );
-
+$韻部out_file = 杜甫分析文件夾 . '韻部_頁碼.php';
+file_put_contents( $韻部out_file, $韻部code );
 ?>

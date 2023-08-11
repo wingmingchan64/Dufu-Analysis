@@ -44,4 +44,5 @@ $code = "<?php
 */
 \$排序頻率_用字=array(\n" . $code . ");\n?>";
 file_put_contents( 杜甫資料庫 . '排序頻率_用字.php', $code );
+file_put_contents( 杜甫分析文件夾 . '排序頻率_用字.php', $code );
 ?>

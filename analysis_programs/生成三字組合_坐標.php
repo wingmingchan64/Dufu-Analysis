@@ -65,4 +65,5 @@ $code = substr( $code, 0, -2 );
 $code = $code . "\n);\n?>";
 
 file_put_contents( 杜甫資料庫 . '三字組合_坐標.php', $code );
+file_put_contents( 杜甫分析文件夾 . '三字組合_坐標.php', $code );
 ?>

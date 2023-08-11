@@ -57,5 +57,6 @@ $code = $code .
 $code = substr( $code, 0, -1 );
 $code = $code . "\n);\n?>";
 file_put_contents( $out_file, $code );
+file_put_contents( 杜甫分析文件夾 . '詩句_頁碼_行碼.php', $code );
 //print_r( $temp );
 ?>

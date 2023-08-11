@@ -3,9 +3,9 @@ require_once( '常數.php' );
 require_once( '函式.php' );
 require_once( 杜甫資料庫 . '頁碼.php' );
 
-$文件夾 = 杜甫資料庫 . "陳永明《杜甫全集粵音注音》\\";
-$out_file = "${文件夾}陳永明《杜甫全集粵音注音》字音.php";
-$out_file2 = "${文件夾}陳永明《杜甫全集粵音注音》字音用字.php";
+$文件夾 = 杜甫全集粵音注音文件夾;
+$out_file = $文件夾 . "陳永明《杜甫全集粵音注音》字音.php";
+$out_file2 = $文件夾 . "陳永明《杜甫全集粵音注音》字音用字.php";
 
 $code = "<?php
 /*
@@ -83,6 +83,10 @@ foreach( $字音陣列 as $字 => $音陣列 )
 }
 $code = substr( $code, 0, -2 );		
 $code = $code . ");\n?>";
+
+
+file_put_contents( $out_file, $code );
+$out_file = 杜甫分析文件夾 . "陳永明《杜甫全集粵音注音》\\" ."陳永明《杜甫全集粵音注音》字音.php";
 file_put_contents( $out_file, $code );
 
 foreach( $音字陣列 as $音 => $字陣列 )
@@ -99,5 +103,6 @@ foreach( $音字陣列 as $音 => $字陣列 )
 $code2 = substr( $code2, 0, -2 );		
 $code2 = $code2 . ");\n?>";
 file_put_contents( $out_file2, $code2 );
-
+$out_file2 = 杜甫分析文件夾 . "陳永明《杜甫全集粵音注音》\\" . "陳永明《杜甫全集粵音注音》字音用字.php";
+file_put_contents( $out_file2, $code2 );
 ?>

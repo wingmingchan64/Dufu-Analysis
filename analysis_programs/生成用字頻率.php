@@ -39,7 +39,8 @@ $code = "<?php
 說明：單字=>詩中用此字的頻率，統計的資料來自 normalized.php。
 */
 \$用字_頻率=array(\n" . $code . ");\n?>";
-	// write file
+	// write files
 	file_put_contents( $c_out_path, $code );
+	file_put_contents( 杜甫分析文件夾 . '用字_頻率.php', $code );
 }
 ?>

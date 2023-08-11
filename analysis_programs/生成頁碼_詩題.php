@@ -94,5 +94,6 @@ foreach( $temp as $t => $ps )
 }
 $code = substr( $code, 0, -2 );
 $code = $code . "\n);\n?>";
-file_put_contents( 杜甫資料庫. '詩題_頁碼.php', $code );
+file_put_contents( 杜甫資料庫 . '詩題_頁碼.php', $code );
+file_put_contents( 杜甫分析文件夾 . '詩題_頁碼.php', $code );
 ?>

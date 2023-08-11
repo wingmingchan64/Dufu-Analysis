@@ -66,7 +66,7 @@ foreach( $file_names as $頁碼 => $from_file )
 	$new_content = $new_content . $text . 分隔線;
 }
 
-// write content to file
+// write content to files
 file_put_contents( 杜甫全集粵音注音, $new_content .
 	file_get_contents( 'msg.txt', true ) );
 file_put_contents( 杜甫全集粵音注音文件夾 . 
