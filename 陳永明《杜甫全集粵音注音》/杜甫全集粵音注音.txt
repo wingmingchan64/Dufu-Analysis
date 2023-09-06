@@ -22082,12 +22082,18 @@ tin1 ji3 cyun4 king1 fuk1, san4 gung1 zip3 wan6 mong4
 干戈連解纜，行止憶垂堂
 gon1 gwo1 lin4 gaai2 laam6, hang4 zi2 jik1 seoi4 tong4
 
+【韻部】
+〚3.2.5〛長：陽韻
+〚4.2.5〛航：陽韻
+〚5.2.5〛茫：陽韻
+〚6.2.5〛堂：陽韻
 
+【體裁】
+五律
 
 
 3740 白帝
 baak6 dai3
-
 
 白帝城中雲出門，白帝城下雨翻盆
 baak6 dai3 sing4 zung1 wan4 ceot1 mun4, baak6 dai3 sing4 haa6 jyu5 faan1 pun4
@@ -22101,7 +22107,6 @@ oi1 oi1 gwaa2 fu5 zyu1 kau4 zeon6, dung6 huk1 cau1 jyun4 ho4 cyu3 cyun1
 
 3743 黃草
 wong4 cou2
-
 
 黃草峽西船不歸，赤甲山下行人稀
 wong4 cou2 haap6 sai1 syun4 bat1 gwai1, cik3 gaap3 saan1 haa6 hang4 jan4 hei1
@@ -22220,80 +22225,79 @@ gon1 gwo1 mun5 dei6 haak3 sau4 po3, wan4 jat6 jyu4 fo2 jim4 tin1 loeng4
 3763 諸將五首
 zyu1 zoeng1 ng5 sau2
 
-
-
-
-
+其一
 
 漢朝陵墓對南山，胡虜千秋尙入關
 hon3 ziu1/ciu4 ling4 mou6 deoi3 naam4 saan1, wu4 lou5 cin1 cau1 soeng6 jap6 gwaan1
+-----------------------------------------------------
 昨日玉魚蒙葬地，早時金碗出人間
 zok3 jat6 juk6 jyu4 mung4 zong3 dei6, zou2 si4 gam1 wun2 ceot1 jan4 gaan1/gaan3
+-----------------------------------------------------
 見愁汗馬西戎逼，曾閃朱旗北斗殷
 gin3 sau4 hon6 maa5 sai1 jung4 bik1, zang1/cang4 sim2 zyu1 kei4 bak1 dau2/dau3 jan1/jin1
+-----------------------------------------------------
 多少材官守涇渭，將軍且莫破愁顏
 do1 siu2 coi4 gun1 sau2 ging1 wai6, zoeng1 gwan1 ce2 mok6 po3 sau4 ngaan4
 
-
-
-
-
+其二
 
 韓公本意築三城，擬絕天驕拔漢旌
 hon4 gung1 bun2 ji3 zuk1 saam1 sing4, ji5 zyut6 tin1 giu1 bat6 hon3 zing1/sing1
+-----------------------------------------------------
 豈謂盡煩回紇馬，翻然遠救朔方兵
 hei2 wai6 zeon6 faan4 wui4 hat6/gat1 maa5, faan1 jin4 jyun5 gau3 sok3 fong1 bing1
+-----------------------------------------------------
 胡來不覺潼關隘，龍起猶聞晉水清
 wu4 loi4 bat1 gaau3/gok3 tung4 gwaan1 aai3, lung4 hei2 jau4 man4 zeon3 seoi2 cing1
+-----------------------------------------------------
 獨使至尊憂社稷，諸君何以答升平
 duk6 si3 zi3 zyun1/zeon1 jau1 se5 zik1, zyu1 gwan1 ho4 ji5 daap3 sing1 ping4
 
-
-
-
-
+其三
 
 洛陽宮殿化爲烽，休道秦關百二重
 lok3 joeng4 gung1 din6 faa3 wai6/wai4 fung1, jau1 dou6 ceon4 gwaan1 baak3 ji6 cung4
+-----------------------------------------------------
 滄海未全歸禹貢，薊門何處盡堯封
 cong1 hoi2 mei6 cyun4 gwai1 jyu5 gung3, gai3 mun4 ho4 cyu3 zeon6 jiu4 fung1
+-----------------------------------------------------
 朝廷衮職雖多預，天下軍儲不自貢
 ziu1/ciu4 ting4 gwan2/kwan2 zik1 seoi1 do1 jyu6, tin1 haa6 gwan1 cyu5 bat1 zi6 gung3
+-----------------------------------------------------
 稍喜臨邊王相國，肯銷金甲事春農
 saau2 hei2 lam4 bin1 wong4 soeng1 gwok3, hang2 siu1 gam1 gaap3 si6 ceon1 nung4
 
-
-
-
-
+其四
 
 回首扶桑銅柱標，冥冥氛祲未全銷
 wui4 sau2 fu4 song1 tung4 cyu5 biu1, ming4/ming5 ming4/ming5 fan1 cam1/zam1 mei6 cyun4 siu1
+-----------------------------------------------------
 越裳翡翠無消息，南海明珠久寂寥
 jyut6 soeng4 fei2 ceoi3 mou4 siu1 sik1, naam4 hoi2 ming4 zyu1 gau2 zik6 liu4
+-----------------------------------------------------
 殊錫曾爲大司馬，總戎皆插侍中貂
-syu4 sek3/sik3 zang1/cang4 wai6/wai4 daai6 si1 maa5, zung2 jung4 gaai1 caap3 si6 zung1 diu1
+syu4 ci3 cang4 wai4 daai6 si1 maa5, zung2 jung4 gaai1 caap3 si6 zung1 diu1
+-----------------------------------------------------
 炎風朔雪天王地，只在忠臣翊聖朝
 jim4 fung1 sok3 syut3 tin1 wong4 dei6, zi2 zoi6 zung1 san4 jik6 sing3 ziu1/ciu4
 
-
-
-
-
+其五
 
 錦江春色逐人來，巫峽清秋萬壑哀
 gam2 gong1 ceon1 sik1 zuk6 jan4 loi4, mou4 haap6 cing1 cau1 maan6 kok3 oi1
+-----------------------------------------------------
 正憶往時嚴僕射，共迎中使望鄕臺
 zing3 jik1 wong5 si4 jim4 buk6 se6/je6, gung6 jing4 zung1 si3 mong6 hoeng1 toi4
+-----------------------------------------------------
 主恩前後三持節，軍令分明數舉杯
 zyu2 jan1 cin4 hau6 saam1 ci4 zit3, gwan1 ling6 fan1 ming4 sou3 geoi2 bui1
+-----------------------------------------------------
 西蜀地形天下險，安危須仗出羣材
 sai1 suk6 dei6 jing4 tin1 haa6 him2, on1 ngai4 seoi1 zoeng3/zoeng6 ceot1 kwan4 coi4
 
 
 3785 夜
 je6
-
 
 露下天高秋水清，空山獨夜旅魂驚
 lou6 haa6 tin1 gou1 cau1 seoi2 cing1, hung1 saan1 duk6 je6 leoi5 wan4 ging1
@@ -22308,10 +22312,7 @@ bou6 sim4/jim4 ji2 zoeng3/zoeng6 hon3/hon1 ngau4 dau2/dau3, ngan4 hon3 jiu4 jing
 3789 秋興八首
 cau1 hing1/hing3 baat3 sau2
 
-
-
-
-
+其一
 
 玉露凋傷楓樹林，巫山巫峽氣蕭森
 juk6 lou6 diu1 soeng1 fung1 syu6 lam4, mou4 saan1 mou4 haap6 hei3 siu1 sam1
@@ -22322,10 +22323,7 @@ cung4 guk1 loeng5 hoi1 taa1 jat6 leoi6, gu1 zau1 jat1 hai6 gu3 jyun4 sam1
 寒衣處處催刀尺，白帝城高急暮砧
 hon4 ji1 cyu3/cyu2 cyu3/cyu2 ceoi1 dou1 cek3, baak6 dai3 sing4 gou1 gap1 mou6 zam1
 
-
-
-
-
+其二
 
 夔府孤城落日斜，每依北斗望京華
 kwai4 fu2 gu1 sing4 lok6 jat6 ce4, mui5 ji1 bak1 dau2/dau3 mong6 ging1 waa4
@@ -22336,10 +22334,7 @@ waa6/waak6/waa2 saang2/sing2 hoeng1 lou4 wai4 fuk6 zam2/zam3, saan1 lau4 fan2 di
 請看石上藤蘿月，已映洲前蘆荻花
 cing2 hon3/hon1 sek6 soeng6/soeng5 tang4 lo4 jyut6, ji5 jing2 zau1 cin4 lou4 dik6 faa1
 
-
-
-
-
+其三
 
 千家山郭靜朝暉，日日江樓坐翠微
 cin1 gaa1 saan1 gwok3 zing6 ziu1/ciu4 fai1, jat6 jat6 gong1 lau4 zo6 ceoi3 mei4
@@ -22350,10 +22345,7 @@ hong1 hang4/waang4 kong3 so1 gung1 ming4 bok6, lau4 hoeng3 cyun4 ging1 sam1 si6 
 同學少年多不賤，五陵衣馬自輕肥
 tung4 hok6 siu2 nin4 do1 bat1 zin6, ng5 ling4 ji1 maa5 zi6 hing1 fei4
 
-
-
-
-
+其四
 
 聞道長安似弈棊，百年世事不勝悲
 man4 dou6 coeng4 on1 ci5 jik6 kei4, baak3 nin4 sai3 si6 bat1 sing3/sing1 bei1
@@ -22364,10 +22356,7 @@ zik6 bak1 gwaan1 saan1 gam1 gu2 zan3, zing1 sai1 ce1/geoi1 maa5 jyu5 syu1 ci4
 魚龍寂寞秋江冷，故國平居有所思
 jyu4 lung4 zik6 mok6 cau1 gong1 laang5, gu3 gwok3 ping4 geoi1 jau5 so2 si1
 
-
-
-
-
+其五
 
 蓬萊宮闕對南山，承露金莖霄漢間
 pung4 loi4 gung1 kyut3 deoi3 naam4 saan1, sing4 lou6 gam1 hang1/ging3 siu1 hon3 gaan1/gaan3
@@ -22378,10 +22367,7 @@ wan4 ji4 zi6 mei5 hoi1 gung1 sin3, jat6 jiu2/jiu5 lung4 leon4 sik1 sing3 ngaan4
 一臥滄江驚歲晚，幾迴青瑣點朝班
 jat1 ngo6 cong1 gong1 ging1 seoi3 maan5, gei2 wui4 cing1 so2 dim2 ziu1/ciu4 baan1
 
-
-
-
-
+其六
 
 瞿塘峽口曲江頭，萬里風煙接素秋
 keoi4 tong4 haap6 hau2 kuk1 gong1 tau4, maan6 lei5 fung1 jin1 zip3 sou3 cau1
@@ -22392,10 +22378,7 @@ zyu1 lim4 sau3 cyu5 wai4 wong4 guk1/huk6, gam2 laam6 ngaa4 coeng4 hei2 baak6 au1
 回首可憐歌舞地，秦中自古帝王州
 wui4 sau2 ho2 lin4 go1 mou5 dei6, ceon4 zung1 zi6 gu2 dai3 wong4 zau1
 
-
-
-
-
+其七
 
 昆明池水漢時功，武帝旌旗在眼中
 kwan1/gwan1 ming4 ci4 seoi2 hon3 si4 gung1, mou5 dai3 zing1/sing1 kei4 zoi6 ngaan5 zung1
@@ -22406,10 +22389,7 @@ bo1 piu1/piu3 gu1 mai5 cam4 wan4 hak1, lou6 laang5 lin4 fong4 zeoi6 fan2 hung4
 關塞極天唯鳥道，江湖滿地一漁翁
 gwaan1 coi3 gik6 tin1 wai4 niu5 dou6, gong1 wu4 mun5 dei6 jat1 jyu4 jung1
 
-
-
-
-
+其八
 
 昆吾御宿自逶迤，紫閣峯陰入渼陂
 kwan1/gwan1 ng4 jyu6 suk1 zi6 wai2/wai1 ji5/ji4, zi2 gok3 fung1 jam1 jap6 mei5 bo1/po1/pei4
@@ -25125,7 +25105,7 @@ zeoi3 wai6/wai4 maa5 zeoi6, kwan4 gung1 kwai4 zau2 soeng1 hon3/hon1
 
 甫也諸侯老賓客，罷酒酣歌拓金戟
 fu2/pou2 jaa5 zyu1 hau4 lou5 ban1 haak3, baa6 zau2 ham4 go1 tok3/taap3 gam1 gik1
-騎馬忽憶少年時，散蹄逬落瞿唐石
+騎馬忽憶少年時，散蹄逬落瞿塘石
 ke4/kei4 maa5 fat1 jik1 siu2 nin4 si4, saan3 tai4 bing2/ping3/bing3 lok6 keoi4 tong4 sek6
 白帝城門水雲外，低身直下八千尺
 baak6 dai3 sing4 mun4 seoi2 wan4 ngoi6, dai1 san1 zik6 haa6 baat3 cin1 cek3
@@ -26016,7 +25996,7 @@ ng4 coeng4 co2 to4/taai5/to5 hin1 baak3 zoeng6, nyun5 hoeng3 san4 dou1 hon4 mei6
 要路何日罷長戟，戰自青羌連百蠻
 jiu3/jiu1 lou6 ho4 jat6 baa6 coeng4 gik1, zin3 zi6 cing1 goeng1 lin4 baak3 maan4
 中巴不曾消息好，暝傳戍鼓長雲間
-zung1 baa1 bat1 zang1/cang4 siu1 sik1 hou2, ming6/ming5/ming4 cyun4 syu3 gu2 coeng4 wan4 gaan1/gaan3
+zung1 baa1 bat1 zang1/cang4 siu1 sik1 hou2, ming6 cyun4 syu3 gu2 coeng4 wan4 gaan1/gaan3
 
 
 
@@ -28193,7 +28173,7 @@ sap6 jyut6 gong1 ping4 wan2, hing1 zau1 zeon3 so2 jyu4
 wan4
 
 
-龍以瞿唐會，江依白帝深
+龍以瞿塘會，江依白帝深
 lung4 ji5 keoi4 tong4 wui6, gong1 ji1 baak6 dai3 sam1
 終年常起峽，每夜必通林
 zung1 nin4 soeng4 hei2 haap6, mui5 je6 bit1 tung1 lam4
@@ -29372,7 +29352,7 @@ fong1 dung1 hap6 daap6 jyun4 jam1 coi3, zok3 jat6 maan5 cing4 gam1 jat6 hak1
 萬里飛蓬映天過，孤城樹羽揚風直
 maan6 lei5 fei1 pung4 jing2 tin1 gwo3, gu1 sing4 syu6 jyu5 joeng4 fung1 zik6
 江濤簸岸黃沙走，雲雪埋山蒼兕吼
-gong1 tou4 bo3 ngon6 wong4 saa1 zau2, wan4 syut3 maai4 saan1 cong1 zi6 haau1/hau3
+gong1 tou4 bo3 ngon6 wong4 saa1 zau2, wan4 syut3 maai4 saan1 cong1 zi6 hau2
 君不見夔子之國杜陵翁，牙齒半落左耳聾
 gwan1 bat1 gin3 kwai4 zi2 zi1 gwok3 dou6 ling4 jung1, ngaa4 ci2 bun3 lok6 zo2 ji5 lung4
 
@@ -29424,7 +29404,7 @@ zoeng6 jan4 ling5 zung1 hing1, suk1 muk6 gu2 zai3 deon1
 先朝納諫諍，直氣橫乾坤
 sin1 ziu1/ciu4 naap6 gaan3 zang3, zik6 hei3 waang4 kin4 kwan1
 子建文筆壯，河間經術存
-zi2 gin3 man4 bat1 zong3, ho4 gaan1/gaan3 ging1 seot6 cyun4
+zi2 gin3 man4 bat1 zong3, ho4 gaan1 ging1 seot6 cyun4
 爾克富詩禮，骨清慮不喧
 ji5 hak1 fu3 si1 lai5, gwat1 cing1 leoi6 bat1 hyun1
 洗然遇知己，談論淮湖奔
@@ -31258,7 +31238,7 @@ sin6 zi1 jing1 zuk1/cuk1 leoi6, gok3 zik6/ze3 wing6 tyut3 sau2
 古來經濟才，何事獨罕有
 gu2 loi4 ging1 zai3/zai2 coi4, ho4 si6 duk6 hon2 jau5
 蒼蒼眾色晚，熊挂玄蛇吼
-cong1 cong1 zung3 sik1 maan5, hung4 gwaa3 jyun4 se4/ji4 haau1/hau3
+cong1 cong1 zung3 sik1 maan5, hung4 gwaa3 jyun4 se4/ji4 hau2
 黃羆在樹顚，正爲羣虎守
 wong4 bei1 zoi6 syu6 din1, zing3 wai6/wai4 kwan4 fu2 sau2
 羸骸將何適，履險顏益厚
@@ -32584,7 +32564,7 @@ ci3 man6 zeoi3 siu2 nin4, kau4 jim4 sap6 baat3 gau2
 子等成大名，皆因此人手
 zi2 dang2 sing4 daai6 ming4, gaai1 jan1 ci2 jan4 sau2
 下云風雲合，龍虎一吟吼
-haa6 wan4 fung1 wan4 hap6, lung4 fu2 jat1 jam4 haau1/hau3
+haa6 wan4 fung1 wan4 hap6, lung4 fu2 jat1 jam4 hau2
 願展丈夫雄，得辭兒女醜
 jyun6 zin2 zoeng6 fu1 hung4, dak1 ci4 ji4 neoi5 cau2
 秦王時在坐，眞氣驚戶牖
