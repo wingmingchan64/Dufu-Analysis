@@ -22957,82 +22957,110 @@ gang1 zyu2 cau1 tyun4/seon4 waat6/gwat1, bui1 jing4 lou6 guk1 san1
 fu3 si1 fan1 hei3 zoeng6, gaai1 geoi3 mok6 pan4 pan4
 
 
-3955 八哀詩[幷序]
+3955 八哀詩
 baat3 oi1 si1 unknown bing6/bing1/bing3 zeoi6 unknown
 
-
 傷時盜賊未息，興起王公，李公，歎舊懷賢，終于張相國，八公前後存歿，遂不詮次焉
-soeng1 si4 dou6 caak6 mei6 sik1, hing1/hing3 hei2 wong4 gung1, lei5 gung1, taan3 gau6 waai4 jin4, zung1 jyu1/jyu4 zoeng1 soeng1 gwok3, baat3 gung1 cin4 hau6 cyun4 mut6, seoi6 bat1 cyun4 ci3 jin4/jin1
-
+soeng1 si4 dou6 caak6 mei6 sik1, hing1 hei2 wong4 gung1, lei5 gung1, taan3 gau6 waai4 jin4, zung1 jyu1 zoeng1 soeng1 gwok3, baat3 gung1 cin4 hau6 cyun4 mut6, seoi6 bat1 cyun4 ci3 jin4
 
 贈司空王公思禮
 zang6 si1 hung1 wong4 gung1 si1 lai5
 
-
 司空出東夷，童稚刷勁翮
-si1 hung1 ceot1 dung1 ji4, tung4 zi6 caat3/saat3 ging6 gaak3/hat6/lik6
+si1 hung1 ceot1 dung1 ji4, tung4 zi6 caat3 ging6 hat6
+-----------------------------------------------------
 追隨燕薊兒，穎銳物不隔
-zeoi1 ceoi4 jin3 gai3 ji4, wing6 jeoi6 mat6 bat1 gaak3
+zeoi1 ceoi4 jin1 gai3 ji4, wing6 jeoi6 mat6 bat1 gaak3
+-----------------------------------------------------
 服事哥舒翰，意無流沙磧
-fuk6 si6 go1 syu1 hon6, ji3 mou4 lau4 saa1 zaak3/zik1/zaat3
+fuk6 si6 go1 syu1 hon6, ji3 mou4 lau4 saa1 zik1
+-----------------------------------------------------
 未甚拔行間，犬戎大充斥
-mei6 sam6 bat6 hang4 gaan1/gaan3, hyun2 jung4 daai6 cung1 cik1
+mei6 sam6 bat6 hang4 gaan1, hyun2 jung4 daai6 cung1 cik1
+-----------------------------------------------------
 短小精悍姿，屹然強寇敵
-dyun2 siu2 zing1 hon5/hon6 zi1, ngat6 jin4 koeng4/koeng5/goeng6 kau3 dik6
+dyun2 siu2 zing1 hon5 zi1, ngat6 jin4 koeng4 kau3 dik6
+-----------------------------------------------------
 貫穿百萬眾，出入由咫尺
 gun3 cyun1 baak3 maan6 zung3, ceot1 jap6 jau4 zi2 cek3
+-----------------------------------------------------
 馬鞍懸將首，甲外控鳴鏑
 maa5 on1 jyun4 zoeng1 sau2, gaap3 ngoi6 hung3 ming4 dik1
+-----------------------------------------------------
 洗劍青海水，刻銘天山石
-sai2 gim3 cing1 hoi2 seoi2, hak1 ming4/ming5 tin1 saan1 sek6
+sai2 gim3 cing1 hoi2 seoi2, hak1 ming4 tin1 saan1 sek6
+-----------------------------------------------------
 九曲非外藩，其王轉深壁
-gau2 kuk1 fei1 ngoi6 faan4, kei4 wong4 zyun2/zyun3 sam1 bik1
+gau2 kuk1 fei1 ngoi6 faan4, kei4 wong4 zyun2 sam1 bik1
+-----------------------------------------------------
 飛兔不近駕，鷙鳥資遠擊
-fei1 tou3 bat1 gan6 gaa3, zi6/zi3 niu5 zi1 jyun5 gik1
+fei1 tou3 bat1 gan6 gaa3, zi3 niu5 zi1 jyun5 gik1
+-----------------------------------------------------
 曉達兵家流，飽聞春秋癖
 hiu2 daat6 bing1 gaa1 lau4, baau2 man4 ceon1 cau1 pik1
+-----------------------------------------------------
 胸襟日沉靜，肅肅自有適
 hung1 kam1 jat6 cam4 zing6, suk1 suk1 zi6 jau5 sik1
+-----------------------------------------------------
 潼關初潰散，萬乘猶辟易
-tung4 gwaan1 co1 kui2/kui3 saan3, maan6 sing4/sing6 jau4 pik1/bik1 ji6
+tung4 gwaan1 co1 kui2 saan3, maan6 sing6 jau4 pik1 jik6
+-----------------------------------------------------
 偏裨無所施，元帥見手格
-pin1 bei1/pei4 mou4 so2 si1/ji6, jyun4 seoi3/seot1 gin3 sau2 gaak3
+pin1 bei1 mou4 so2 si1, jyun4 seoi3 gin3 sau2 gaak3
+-----------------------------------------------------
 太子入朔方，至尊狩梁益
-taai3 zi2 jap6 sok3 fong1, zi3 zyun1/zeon1 sau3 loeng4 jik1
+taai3 zi2 jap6 sok3 fong1, zi3 zyun1 sau3 loeng4 jik1
+-----------------------------------------------------
 胡馬纏伊洛，中原氣甚逆
 wu4 maa5 cin4 ji1 lok3, zung1 jyun4 hei3 sam6 jik6
+-----------------------------------------------------
 肅宗登寶位，塞望勢敦迫
-suk1 zung1 dang1 bou2 wai6, coi3 mong6 sai3 deon1 baak1/bik1
+suk1 zung1 dang1 bou2 wai6, coi3 mong6 sai3 deon1 bik1
+-----------------------------------------------------
 公時徒步至，請罪將厚責
-gung1 si4 tou4 bou6 zi3, cing2 zeoi6 zoeng1 hau5 zaak3/zaai3
+gung1 si4 tou4 bou6 zi3, cing2 zeoi6 zoeng1 hau5 zaak3
+-----------------------------------------------------
 際會清河公，間道傳玉冊
-zai3 wui6 cing1 ho4 gung1, gaan1/gaan3 dou6 cyun4 juk6 caak3
+zai3 wui6 cing1 ho4 gung1, gaan3 dou6 cyun4 juk6 caak3
+-----------------------------------------------------
 天王拜跪畢，讜議果冰釋
 tin1 wong4 baai3 gwai6 bat1, dong2 ji5 gwo2 bing1 sik1
+-----------------------------------------------------
 翠華卷飛雪，熊虎亙阡陌
 ceoi3 waa4 gyun2 fei1 syut3, hung4 fu2 gang2 cin1 mak6
+-----------------------------------------------------
 屯兵鳳凰山，帳殿涇渭闢
 tyun4 bing1 fung6 wong4 saan1, zoeng3 din6 ging1 wai6 pik1
+-----------------------------------------------------
 金城賊咽喉，詔鎭雄所搤
-gam1 sing4 caak6 jin1/jin3/jit3 hau4, ziu3 zan3 hung4 so2 aak1/ngak1/ak1
+gam1 sing4 caak6 jin1 hau4, ziu3 zan3 hung4 so2 ak1
+-----------------------------------------------------
 禁暴靖無雙，爽氣春淅瀝
 gam3 bou6/buk6 zing6 mou4 soeng1, song2 hei3 ceon1 sik1 lik6
+-----------------------------------------------------
 巷有從公歌，野多青青麥
 hong6 jau5 cung4 gung1 go1, je5 do1 cing1 cing1 mak6
+-----------------------------------------------------
 及夫哭廟後，復領太原役
 kap6 fu1 huk1 miu6 hau6, fau6 ling5 taai3 jyun4 jik6
+-----------------------------------------------------
 恐懼祿位高，悵望王土窄
-hung2 geoi6 luk6 wai6 gou1, coeng3/zoeng3 mong6 wong4 tou2 zaak3
+hung2 geoi6 luk6 wai6 gou1, coeng3 mong6 wong4 tou2 zaak3
+-----------------------------------------------------
 不得見清時，嗚呼就窀穸
 bat1 dak1 gin3 cing1 si4, wu1 fu1 zau6 zeon1 zik6
+-----------------------------------------------------
 永繫五湖舟，悲甚田橫客
 wing5 hai6 ng5 wu4 zau1, bei1 sam6 tin4 waang4 haak3
+-----------------------------------------------------
 千秋汾晉間，事與雲水白
-cin1 cau1 fan4 zeon3 gaan1/gaan3, si6 jyu5 wan4 seoi2 baak6
+cin1 cau1 fan4 zeon3 gaan1, si6 jyu5 wan4 seoi2 baak6
+-----------------------------------------------------
 昔觀文苑傳，豈述廉藺績
-sik1 gun1/gun3 man4 jyun2 cyun4, hei2 seot6 lim4 leon6 zik1
+sik1 gun1 man4 jyun2 cyun4, hei2 seot6 lim4 leon6 zik1
+-----------------------------------------------------
 嗟嗟鄧大夫，士卒終倒戟
-ze1 ze1 dang6 daai6 fu1, si6 zeot1/cyut3 zung1 dou2 gik1
+ze1 ze1 dang6 daai6 fu1, si6 zeot1 zung1 dou2 gik1
 
 
 故司徒李公光弼
@@ -23817,8 +23845,8 @@ ci4 mou6 ham1 wai4 ak1/aak1/ngak1, piu1 ling4 ce2 diu3 min4/fan1/man4
 hoeng3 loi4 jau1 gwok3 leoi6, zik6 mok6 saa2 ji1 gan1
 
 
-4161 夔府書懷[四十韻]
-kwai4 fu2 syu1 waai4 unknown sei3 sap6 wan6 unknown
+4161 夔府書懷
+kwai4 fu2 syu1 waai4
 
 
 昔罷河西尉，初興薊北師
@@ -24196,7 +24224,7 @@ ngo6 lung4 joek3/joek6 maa5 zung1 wong4 tou2, jan4 si6 ji1 ji1 maan6 zik6 liu4
 
 
 4268 瀼西寒望
-joeng5/joeng4 sai1 hon4 mong6
+joeng4 sai1 hon4 mong6
 
 
 水色含羣動，朝光切太虛
@@ -27588,7 +27616,7 @@ gaan2 ng4 long4 si1 faat3
 
 
 有客乘舸自忠州，遣騎安置瀼西頭
-jau5 haak3 sing4/sing6 go2 zi6 zung1 zau1, hin2 ke4/kei4 on1 zi3 joeng5/joeng4 sai1 tau4
+jau5 haak3 sing4/sing6 go2 zi6 zung1 zau1, hin2 kei4 on1 zi3 joeng5/joeng4 sai1 tau4
 古堂本買藉疏豁，借汝遷居停宴遊
 gu2 tong4 bun2 maai5 zik6/ze3 so1 kut3, ze3 jyu5 cin1 geoi1 ting4 jin3 jau4
 雲石熒熒高葉曙，風江颯颯亂帆秋
