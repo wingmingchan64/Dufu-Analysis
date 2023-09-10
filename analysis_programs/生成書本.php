@@ -42,8 +42,8 @@ $count = 0;
 foreach( $頁碼 as $頁 )
 {
 	
-	//if( $前綴 == '粵' && intval( $頁 ) <= 3900 )
-	//{ continue; }
+	if( $前綴 == '粵' && intval( $頁 ) <= 3900 )
+	{ continue; }
 	
 	require_once( 詩集文件夾 . $頁 . 程式後綴 );
 	$默認内容 = $内容;
