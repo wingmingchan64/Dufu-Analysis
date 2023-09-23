@@ -78,7 +78,12 @@ if( file_exists( $路徑 ) )
 				elseif( sizeof( $result ) == 2 )
 				{
 					if( $i == $字數 - 2 && // 對句末字
-						in_array( $粵内容[ 體裁 ], $近體詩 ) )
+						//in_array( $粵内容[ 體裁 ], $近體詩 ) )
+						(
+							in_array( str_replace( '〚1:〛', '', $粵内容[ 體裁 ] ), $近體詩 ) ||
+							in_array( str_replace( '〚2:〛', '', $粵内容[ 體裁 ] ), $近體詩 ) ||
+							in_array( str_replace( '〚3:〛', '', $粵内容[ 體裁 ] ), $近體詩 ) 
+						) )
 					{
 						$平仄内容 .= '平';
 					}
