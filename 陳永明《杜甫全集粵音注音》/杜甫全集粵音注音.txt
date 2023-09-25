@@ -28979,7 +28979,6 @@ jyun5 haak3 zung1 siu1 leoi6 zim1 jik1
 5265 錦樹行
 gam2 syu6 hang4
 
-
 今日苦短昨日休，歲云暮矣增離憂
 gam1 jat6 fu2 dyun2 zok3 jat6 jau1, seoi3 wan4 mou6 ji5 zang1 lei4 jau1
 霜凋碧樹作錦樹，萬壑東逝無停留
@@ -29004,7 +29003,6 @@ mok6 sau4 fu6/fu2 mou5 siu2 wong4 gam1, tin1 haa6 fung1 can4 ji4 jik6 dak1
 
 5269 自平
 zi6 ping4
-
 
 自平中官呂太一，收珠南海千餘日
 zi6 ping4 zung1 gun1 leoi5 taai3 jat1, sau1 zyu1 naam4 hoi2 cin1 jyu4 jat6
@@ -29327,31 +29325,30 @@ wai6/wai4 ngo5 man6 gu3 jan4, lou4 sam1 lin6 zing1 syu3
 
 
 5339 奉送韋中丞之晉赴湖南
-fung6 sung3 wai5/wai4 zung1 sing4 zi1 zeon3 fu6 wu4 naam4
+fung6 sung3 wai4 zung1 sing4 zi1 zeon3 fu6 wu4 naam4
 
 
 寵渥徵黃漸，權宜借寇頻
 cung2 ak1 zing1 wong4 zim6, kyun4 ji4 ze3 kau3 pan4
 湖南安背水，峽內憶行春
-wu4 naam4 on1 bui3/bui6 seoi2, haap6 noi6 jik1 hang4 ceon1
+wu4 naam4 on1 bui3 seoi2, haap6 noi6 jik1 hang4 ceon1
 王室仍多故，蒼生倚大臣
 wong4 sat1 jing4 do1 gu3, cong1 sang1 ji2 daai6 san4
 還將徐孺榻，處處待高人
-waan4 zoeng1 ceoi4 jyu4 taap3, cyu3/cyu2 cyu3/cyu2 doi6 gou1 jan4
+waan4 zoeng1 ceoi4 jyu4 taap3, cyu3 cyu3 doi6 gou1 jan4
 
 
 5342 送鮮于萬州遷巴州
-sung3 sin1/sin2 jyu1/jyu4 maan6 zau1 cin1 baa1 zau1
-
+sung3 sin1 jyu4 maan6 zau1 cin1 baa1 zau1
 
 京兆先時傑，琳琅照一門
 ging1 siu6 sin1 si4 git6, lam4 long4 ziu3 jat1 mun4
 朝廷偏注意，接近與名藩
-ziu1/ciu4 ting4 pin1 zyu3 ji3, zip3 gan6 jyu5 ming4 faan4
+ciu4 ting4 pin1 zyu3 ji3, zip3 gan6 jyu5 ming4 faan4
 祖帳排舟數，寒江觸石喧
-zou2 zoeng3 paai4 zau1 sou3, hon4 gong1 zuk1/cuk1 sek6 hyun1
+zou2 zoeng3 paai4 zau1 sou3, hon4 gong1 zuk1 sek6 hyun1
 看君妙爲政，他日有殊恩
-hon3/hon1 gwan1 miu6 wai6/wai4 zing3, taa1 jat6 jau5 syu4 jan1
+hon1 gwan1 miu6 wai4 zing3, taa1 jat6 jau5 syu4 jan1
 
 
 5345 奉送十七舅下邵桂
