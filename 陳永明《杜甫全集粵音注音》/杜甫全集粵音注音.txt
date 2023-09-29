@@ -29658,7 +29658,7 @@ gau6 si4 jyun4 jat6 wui6, hoeng1 dong2 sin6 ng4 lou4
 
 
 5393 續得觀書，迎就當陽居止，正月中旬定出三峽
-zuk6 dak1 gun1/gun3 syu1, jing4 zau6 dong1 joeng4 geoi1 zi2, zing3 jyut6 zung1 ceon4 ding6 ceot1 saam1 haap6
+zuk6 dak1 gun1 syu1, jing4 zau6 dong1 joeng4 geoi1 zi2, zing3 jyut6 zung1 ceon4 ding6 ceot1 saam1 haap6
 
 
 自汝到荆府，書來數喚吾
@@ -30034,45 +30034,78 @@ hang4 sik1 gim1 do1 bing6, cong1 mong4 faan3 oi3 cin4
 
 
 5458 乘雨入行軍六弟宅
-sing4/sing6 jyu5 jap6 hang4 gwan1 luk6 dai6 zaak6
-
+sing4 jyu5 jap6 hang4 gwan1 luk6 dai6 zaak6
 
 曙角凌雲罷，春城帶雨長
-cyu5/syu5 gok3 ling4 wan4 baa6, ceon1 sing4 daai3 jyu5 coeng4
+cyu5 gok3 ling4 wan4 baa6, ceon1 sing4 daai3 jyu5 coeng4
+-----------------------------------------------------
 水花分塹弱，巢燕得泥忙
 seoi2 faa1 fan1 cim3 joek6, caau4 jin3 dak1 nai4 mong4
+-----------------------------------------------------
 令弟雄軍佐，凡才污省郎
-ling6 dai6 hung4 gwan1 zo3/zo2, faan4 coi4 wu1 saang2/sing2 long4
+ling6 dai6 hung4 gwan1 zo3, faan4 coi4 wu3 saang2 long4
+-----------------------------------------------------
 萍漂忍流涕，衰颯近中堂
-ping4 piu1/piu3 jan2/jan5 lau4 tai3, seoi1 saap3 gan6 zung1 tong4
+ping4 piu1 jan2 lau4 tai3, seoi1 saap3 gan6 zung1 tong4
+
+【韻部】
+〚3.2.5〛長：陽韻
+〚4.2.5〛忙：陽韻
+〚5.2.5〛郎：陽韻
+〚6.2.5〛堂：陽韻
+
+【體裁】
+五律
 
 
 5460 上巳日徐司錄林園宴集
-soeng6/soeng5 zi6 jat6 ceoi4 si1 luk6 lam4 jyun4 jin3 zaap6
-
+soeng6 zi6 jat6 ceoi4 si1 luk6 lam4 jyun4 jin3 zaap6
 
 鬢毛垂領白，花蕊亞枝紅
 ban3 mou4 seoi4 ling5 baak6, faa1 jeoi5 aa3 zi1 hung4
+-----------------------------------------------------
 攲倒衰年廢，招尋令節同
-hei1/kei1/ji1 dou2 seoi1 nin4 fai3, ziu1 cam4 ling6 zit3 tung4
+kei1 dou2 seoi1 nin4 fai3, ziu1 cam4 ling6 zit3 tung4
+-----------------------------------------------------
 薄衣臨積水，吹面受和風
-bok6 ji1 lam4 zik1 seoi2, ceoi1 min6 sau6 wo4/wo6 fung1
+bok6 ji1 lam4 zik1 seoi2, ceoi1 min6 sau6 wo4 fung1
+-----------------------------------------------------
 有喜留攀桂，無勞問轉蓬
-jau5 hei2 lau4 paan1 gwai3, mou4 lou4 man6 zyun2/zyun3 pung4
+jau5 hei2 lau4 paan1 gwai3, mou4 lou4 man6 zyun2 pung4
+
+【韻部】
+〚3.2.5〛紅：東韻
+〚4.2.5〛同：東韻
+〚5.2.5〛風：東韻
+〚6.2.5〛蓬：東韻
+
+【體裁】
+五律
 
 
-5462 宴胡侍御書堂[李尙書之芳鄭祕監審同集歸字韻]
-jin3 wu4 si6 jyu6 syu1 tong4 unknown lei5 soeng6 syu1 zi1 fong1 zeng6 bei3 gaam1/gaam3 sam2 tung4 zaap6 gwai1 zi6 wan6 unknown
-
+5462 宴胡侍御書堂
+jin3 wu4 si6 jyu6 syu1 tong4
 
 江湖春欲暮，牆宇日猶微
 gong1 wu4 ceon1 juk6 mou6, coeng4 jyu5 jat6 jau4 mei4
+-----------------------------------------------------
 闇闇書籍滿，輕輕花絮飛
-am2/am1/ngam3 am2/am1/ngam3 syu1 zik6 mun5, hing1 hing1 faa1 seoi5/seoi6 fei1
+am3 am3 syu1 zik6 mun5, hing1 hing1 faa1 seoi5 fei1
+-----------------------------------------------------
 翰林名有素，墨客興無違
-hon6 lam4 ming4 jau5 sou3, mak6 haak3 hing1/hing3 mou4 wai4
+hon6 lam4 ming4 jau5 sou3, mak6 haak3 hing3 mou4 wai4
+-----------------------------------------------------
 今夜文星動，吾儕醉不歸
-gam1 je6 man4 sing1 dung6, ng4 caai4/cai4 zeoi3 bat1 gwai1
+gam1 je6 man4 sing1 dung6, ng4 caai4 zeoi3 bat1 gwai1
+
+【韻部】
+〚3.2.5〛微：微韻
+〚4.2.5〛飛：微韻
+〚5.2.5〛違：微韻
+〚6.2.5〛歸：微韻
+
+【體裁】
+五律
 
 
 5464 書堂飲旣夜復邀李尙書下馬月下賦絕句
@@ -30158,7 +30191,7 @@ zeng6 zong1 ban1 haak3 dei6, seoi1 baak6 jyun5 loi4 gwo3
 
 
 5477 宇文晁崔彧重泛鄭監前湖
-jyu5 man4 siu4/ciu4/ziu1 ceoi1 juk1 cung4 faan3 zeng6 gaam1/gaam3 cin4 wu4
+jyu5 man4 ciu4 ceoi1 juk1 cung4 faan3 zeng6 gaam1 cin4 wu4
 
 
 郊扉俗遠長幽寂，野水春來更接連
@@ -30387,7 +30420,6 @@ zik6 zok3 ji4 gan1 gei1, cau1 faan4 faat3 bai6 lou4
 5522 遣悶
 hin2 mun6
 
-
 地闊平沙岸，舟虛小洞房
 dei6 fut3 ping4 saa1 ngon6, zau1 heoi1 siu2 dung6 fong4
 使塵來驛道，城日避烏檣
@@ -30571,7 +30603,6 @@ zi6 gu2 gong1 wu4 haak3, ming4/ming5 sam1 joek6 sei2 fui1
 5557 秋日荆南送石首薛明府辭滿告別，奉寄薛尙書頌德敍懷斐然之作[三十韻]
 cau1 jat6 ging1 naam4 sung3 sek6 sau2 sit3 ming4 fu2 ci4 mun5 gou3 bit6, fung6 gei3 sit3 soeng4 syu1 zung6 dak1 zeoi6 waai4 fei2 jin4 zi1 zok3 unknown saam1 sap6 wan6 unknown
 
-
 南征爲客久，西侯別君初
 naam4 zing1 wai6/wai4 haak3 gau2, sai1 hau4 bit6 gwan1 co1
 歲滿歸鳧舄，秋來把雁書
@@ -30727,7 +30758,7 @@ nim6 ji5 ci2 si4 jau5 jat1 zaak6, sat1 sing1 zin3/zin1 hyut3 fei1 kei4 sam1
 
 
 5586 送覃二判官
-sung3 taam4/cam4 ji6 pun3 gun1
+sung3 taam4 ji6 pun3 gun1
 
 
 先帝弓劍遠，小臣餘此生
@@ -31180,7 +31211,6 @@ maan6 gwok3 sing4 tau4 ceoi1 waa6/waak6/waa2 gok3, ci2 kuk1 oi1 jyun3 ho4 si4 zu
 
 5667 泊岳陽城下
 bok6/baak3 ngok6 joeng4 sing4 haa6
-
 
 江國踰千里，山城僅百層
 gong1 gwok3 jyu4/jyu6 cin1 lei5, saan1 sing4 gan2 baak3 cang4
