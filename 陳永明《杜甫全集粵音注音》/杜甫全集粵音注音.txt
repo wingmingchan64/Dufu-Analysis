@@ -32073,7 +32073,7 @@ seoi1 mou4 naam4 gwo3 ngaan6, hon3/hon1 ceoi2 bak1 loi4 jyu4
 
 
 5826 樓上
-lau4 soeng6/soeng5
+lau4 soeng6
 
 
 天地空搔首，頻抽白玉簪
@@ -32261,19 +32261,18 @@ hin1 tang4 fong2 zi1 gei2, waai4 hoi2 mok6 co1 to4
 
 
 5855 蘇大侍御渙，靜者也，旅于江側，凡是不交州府之客，人事都絕久矣，肩輿江浦，忽訪老夫舟楫，而已茶酒內，余請誦近詩，肯吟數首，才力素壯，詞句動人，接對明日，憶其湧思雷出，書篋几杖之外，殷殷留金石聲，賦八韻記異，亦記老夫傾倒於蘇至矣
-sou1 daai6 si6 jyu6 wun6, zing6 ze2 jaa5, leoi5 jyu1/jyu4 gong1 zak1, faan4 si6 bat1 gaau1 zau1 fu2 zi1 haak3, jan4 si6 dou1 zyut6 gau2 ji5, gin1 jyu4 gong1 pou2, fat1 fong2 lou5 fu1 zau1 zip3, ji4 ji5 caa4 zau2 noi6, jyu4 cing2 zung6 gan6 si1, hang2 jam4 sou3 sau2, coi4 lik6 sou3 zong3, ci4 geoi3 dung6 jan4, zip3 deoi3 ming4 jat6, jik1 kei4 jung2 si1 leoi4 ceot1, syu1 gip6/haap3/gip1 gei1 zoeng6 zi1 ngoi6, jan1/jin1 jan1/jin1 lau4 gam1 sek6 sing1, fu3 baat3 wan6 gei3 ji6, jik6 gei3 lou5 fu1 king1 dou2 jyu1 sou1 zi3 ji5
-
+sou1 daai6 si6 jyu6 wun6, zing6 ze2 jaa5, leoi5 jyu1 gong1 zak1, faan4 si6 bat1 gaau1 zau1 fu2 zi1 haak3, jan4 si6 dou1 zyut6 gau2 ji5, gin1 jyu4 gong1 pou2, fat1 fong2 lou5 fu1 zau1 zip3, ji4 ji5 caa4 zau2 noi6, jyu4 cing2 zung6 gan6 si1, hang2 jam4 sou3 sau2, coi4 lik6 sou3 zong3, ci4 geoi3 dung6 jan4, zip3 deoi3 ming4 jat6, jik1 kei4 jung2 si1 leoi4 ceot1, syu1 haap6 gei2 zoeng6 zi1 ngoi6, jan1 jan1 lau4 gam1 sek6 sing1, fu3 baat3 wan6 gei3 ji6, jik6 gei3 lou5 fu1 king1 dou2 jyu1 sou1 zi3 ji5
 
 龐公不浪出，蘇氏今有之
-pong4 gung1 bat1 long6/long4 ceot1, sou1 si6 gam1 jau5 zi1
+pong4 gung1 bat1 long6 ceot1, sou1 si6 gam1 jau5 zi1
 再聞誦新作，突過黃初詩
 zoi3 man4 zung6 san1 zok3, dat6 gwo3 wong4 co1 si1
 乾坤幾反覆，揚馬宜同時
 kin4 kwan1 gei2 faan2 fuk1, joeng4 maa5 ji4 tung4 si4
 今晨清鏡中，勝食齋房芝
-gam1 san4 cing1 geng3 zung1, sing3/sing1 sik6 zaai1 fong4 zi1
+gam1 san4 cing1 geng3 zung1, sing3 sik6 zaai1 fong4 zi1
 余髮喜卻變，白間生黑絲
-jyu4 faat3 hei2 koek3 bin3, baak6 gaan1/gaan3 sang1 hak1 si1
+jyu4 faat3 hei2 koek3 bin3, baak6 gaan3 sang1 hak1 si1
 昨夜舟火滅，湘娥簾外悲
 zok3 je6 zau1 fo2 mit6, soeng1 ngo4 lim4 ngoi6 bei1
 百靈未敢散，風破寒江遲
@@ -32912,7 +32911,7 @@ wai6 oi3 naam4 jung1 jyut6, jyu4 bo1 kap6 lou5 san1
 
 
 5982 同豆盧峯貽主客李員外賢子棐知字韻
-tung4 dau6 lou4 fung1 ji4 zyu2 haak3 lei5 jyun4 ngoi6 jin4 zi2 fei2/fei1 zi1 zi6 wan6
+tung4 dau6 lou4 fung1 ji4 zyu2 haak3 lei5 jyun4 ngoi6 jin4 zi2 fei2 zi1 zi6 wan6
 
 
 煉金歐冶子，噴玉大宛兒
@@ -33040,7 +33039,7 @@ fung4 jing4 siu2 zong3 fei1 ng4 dou6, fong3 naai5 gam1 ziu1/ciu4 gang3 bat6/fat1
 
 
 6011 贈韋七贊善
-zang6 wai5/wai4 cat1 zaan3 sin6
+zang6 wai4 cat1 zaan3 sin6
 
 
 鄕里衣冠不乏賢，杜陵韋曲未央前
