@@ -3,7 +3,7 @@
 統計的資料來源：蕭滌非主編《杜甫全集校注》第一冊至第十冊（卷一至卷二十），不包括其餘兩冊
 統計的資料内容：只統計杜詩詩文，不包括主詩題、副詩題、序言、注
 
-主詩題數目： 1132 （見 https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%A9%A9%E9%A1%8C_%E9%A0%81%E7%A2%BC.php）
+主詩題數目： 1132 （見 https://github.com/wingmingchan64/DuFu/blob/master/%E7%9B%AE%E9%8C%84.txt ）
 或：《杜鵑行》（君不見）《杜甫全集校注》缺，因此主詩題數目或爲 1133。
 
 詩組數目：    135 （見 https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%A9%A9%E7%B5%84_%E8%A9%A9%E9%A1%8C.php）
