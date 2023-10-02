@@ -38,7 +38,7 @@ $詩句_注音 = array();
 $詩題_注音 = array();
 $count = 0;
 
-//$頁 = "0167";
+//$頁 = "2445";
 foreach( $頁碼 as $頁 )
 {
 	
@@ -93,6 +93,7 @@ foreach( $頁碼 as $頁 )
 			array_push( $部分陣列[ $current ], trim( $行 ) );
 		}
 	}
+	//print_r( $部分陣列 );exit;
 	// used in variable name like $蕭内容
 	$前綴 = trim( $簡稱, '=' );
 $code = "<?php
@@ -107,10 +108,6 @@ $code = "<?php
 	foreach( $部分陣列 as $k => $子儲存 )
 	{
 		$題 = mb_substr( $k, 1, -1 ); // remove 【】
-if( $頁 == '0173' )
-{
-	//exit;
-}
 		$補充説明  = ( $題 == 補充説明 );
 		$異文、夾注 = ( $題 == 異文、夾注 );
 		$校記     = ( $題 == 校記 );
@@ -131,7 +128,7 @@ if( $頁 == '0173' )
 		// ---------------------------------------------
 		if( mb_strpos( $内容, '--' ) !== false )//delimiter
 		{
-			//echo "L133", NL;
+			//echo "L131", NL;
 			$音_陣列 = explode( "\n", $内容  ); // lines
 					
 			$sub_code = "array(\n";
@@ -143,8 +140,9 @@ if( $頁 == '0173' )
 				$音  = "";
 				$文  = "";
 				$詩文注音 .= $音_陣列[ $i ] . "\n";
-			
 				// skip 詩題
+				//echo $頁碼_詩題[ $頁 ], NL;
+				//echo $音_陣列[ $i ], NL;
 				if( mb_strpos( 
 					$頁碼_詩題[ $頁 ], $音_陣列[ $i ] ) !== false )
 				{
@@ -204,7 +202,7 @@ if( $頁 == '0173' )
 					$count++;
 					$sub_code = $sub_code .
 						"\n\"${句s[ 0 ]}\"=>\"${音}\",";
-					print_r( $句s );
+					//print_r( $句s );
 					if( sizeof( $音s ) > 1 && trim( $音s[ 1 ] ) != '' )
 					{
 						$音 = trim( $音s[ 1 ] );
@@ -263,9 +261,9 @@ if( $頁 == '0173' )
 						$字音[ mb_substr( $行, $i, 1 ) ] = array();
 					}
 					
-					echo $頁, NL;
-					echo $i, ' ', $行音陣列[ $i ], NL;
-					echo sizeof( $行音陣列 ), NL;
+					//echo $頁, NL;
+					//echo $i, ' ', $行音陣列[ $i ], NL;
+					//echo sizeof( $行音陣列 ), NL;
 					
 					if( !in_array( 
 						$行音陣列[ $i ],

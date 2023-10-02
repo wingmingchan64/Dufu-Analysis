@@ -11,6 +11,8 @@ require_once( 異體字 );
 
 // 只在杜甫全集.txt 中搜尋異體字
 $詩文 = file_get_contents( 杜甫全集 );
+//require_once( 頁碼_詩題 );
+//$詩文 = implode( ' ', array_values( $頁碼_詩題 ) );
 $字數 = mb_strlen( $詩文 );
 $異體字陣列 = array();
 

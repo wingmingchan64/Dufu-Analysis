@@ -33505,3 +33505,6 @@ zin3 hyut3 lau4 ji1 gau6, gwan1 sing1 dung6 zi3 gam1
 got3 hung4 si1 ding6 gaai2, heoi2 zing6 lik6 waan4 jam6
 家事丹砂訣，無成涕作霖
 gaa1 si6 daan1 saa1 kyut3, mou4 sing4 tai3 zok3 lam4
+
+《杜甫全集粵音注音》詩文部分的初稿終於完成了！
+https://github.com/wingmingchan64/DuFu/blob/master/%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86%E7%B2%B5%E9%9F%B3%E6%B3%A8%E9%9F%B3.txt
