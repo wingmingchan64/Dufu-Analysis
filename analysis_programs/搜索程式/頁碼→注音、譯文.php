@@ -34,14 +34,11 @@ if( sizeof( $argv ) < 2 )
 
 $頁碼 = trim( $argv[ 1 ] );
 $output = '';
-
 $路徑    = 詩集文件夾    . $頁碼 . 程式後綴;
-
 
 if( file_exists( $路徑 ) )
 {
 	require_once( $路徑 );
-	
 	
 	foreach( $内容[ 行碼 ] as $碼 => $行 )
 	{
