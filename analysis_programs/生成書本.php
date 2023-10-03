@@ -42,8 +42,8 @@ $count = 0;
 foreach( $頁碼 as $頁 )
 {
 	
-	//if( $前綴 == '粵' && intval( $頁 ) <= 4700 )
-	//{ continue; }
+	if( $前綴 == '粵' && intval( $頁 ) > 20 )
+	{ exit; }
 	
 	require_once( 詩集文件夾 . $頁 . 程式後綴 );
 	$默認内容 = $内容;
@@ -105,6 +105,9 @@ $code = "<?php
 \$${前綴}内容=array(\n" .
 	"\"書名\"=>\"$書名\",\n";
 
+	//$行音陣列 = array();
+	//$平仄陣列 = array();
+	
 	foreach( $部分陣列 as $k => $子儲存 )
 	{
 		$題 = mb_substr( $k, 1, -1 ); // remove 【】
@@ -130,7 +133,7 @@ $code = "<?php
 		{
 			//echo "L131", NL;
 			$音_陣列 = explode( "\n", $内容  ); // lines
-					
+			print_r( $音_陣列 );
 			$sub_code = "array(\n";
 			$詩文注音 = '';
 			$詩題文 = ''; // for comparison
@@ -147,6 +150,7 @@ $code = "<?php
 					$頁碼_詩題[ $頁 ], $音_陣列[ $i ] ) !== false )
 				{
 					$詩題文 = $音_陣列[ $i ];
+					//$行音陣列[ '〖1〗' ] = $音_陣列[ $i ];
 					//echo "inside\n";
 					$詩題_注音[ $頁碼_詩題[ $頁 ] ] = $音_陣列[ $i+1 ];
 					$詩文注音 .= $音_陣列[ $i+1 ] . NL . NL;
@@ -173,7 +177,7 @@ $code = "<?php
 					$音s = explode( ',', $音_陣列[ $i ] );
 					$句s = explode( '。', $文 );
 					
-					if( $頁 == '0136' )
+					if( $頁 == '0013' )
 					{
 						//print_r( $音s );
 						//print_r( $句s );

@@ -42,6 +42,15 @@ foreach( $頁碼 as $頁 )
 		if( array_key_exists( $種類, $$陣列名 ) )
 		{
 			//echo $頁, "\n";
+			
+			if( $$陣列名[ $種類 ] == "" )
+			{
+				continue;
+			}
+			if( $頁 == '0107' )
+			{
+				print_r( $$陣列名[ $種類 ] );
+			}
 			foreach( $$陣列名[ $種類 ] as $坐標 => $内容 )
 			{
 				$坐標 = 生成完整坐標( $坐標, $頁 );
@@ -54,6 +63,9 @@ foreach( $頁碼 as $頁 )
 }
 
 $code = $code . ");\n?>";
+file_put_contents( $out_path . "${書目簡稱[ $簡稱 ]}${種類}.php", 
+	$code );
+$out_path = "h:\\github\Dufu-Analysis\\${書目簡稱[ $簡稱 ]}\\";
 file_put_contents( $out_path . "${書目簡稱[ $簡稱 ]}${種類}.php", 
 	$code );
 ?>
