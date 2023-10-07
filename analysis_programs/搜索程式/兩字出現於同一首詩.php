@@ -7,8 +7,8 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( "h:\\github\\Dufu-Analysis\\用字_頁碼.php" );
 //require_once( "h:\\github\\Dufu-Analysis\\坐標_詩句.php" );
 
-$字1 = "料";
-$字2 = "看";
+$字1 = "愁";
+$字2 = "酒";
 $字1_頁碼 = $用字_頁碼[ $字1 ];
 $字2_頁碼 = $用字_頁碼[ $字2 ];
 
