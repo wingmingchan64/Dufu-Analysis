@@ -59,6 +59,6 @@ foreach( $頁碼 as $頁 )
 		}
 	}
 }
-file_put_contents( 杜甫詩全譯 . '韓成武、張志民《杜甫詩全譯》詩文、譯文.php', $output );
-file_put_contents( "H:\\github\\Dufu-Analysis\\韓成武、張志民《杜甫詩全譯》\\韓成武、張志民《杜甫詩全譯》詩文、譯文.php", $output );
+file_put_contents( 杜甫詩全譯 . '韓成武、張志民《杜甫詩全譯》詩文、譯文.txt', $output );
+file_put_contents( "H:\\github\\Dufu-Analysis\\韓成武、張志民《杜甫詩全譯》\\韓成武、張志民《杜甫詩全譯》詩文、譯文.txt", $output );
 ?>
