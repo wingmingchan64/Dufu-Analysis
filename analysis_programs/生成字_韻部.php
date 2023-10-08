@@ -46,5 +46,4 @@ foreach( $字_韻部 as $字 => $韻部s )
 
 $code .= ");\n?>";
 file_put_contents( $out_file, $code );
-
 ?>

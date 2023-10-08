@@ -112,7 +112,6 @@ if( is_dir ( 詩集文件夾 ) )
 		
 		$poem  = getPoem( $page_path[ $p ] );
 		
-		
 		$normalized_text .= $poem;
 		// 句
 		$lines = explode( '。', $poem );
@@ -171,7 +170,7 @@ if( is_dir ( 詩集文件夾 ) )
 				$poem_lines[ trim( $ln, "〚〛" ) ] = trim( $l );
 				//array_push( $poem_lines, trim( $l ) );
 			}
-			$l = normalize( trim( $l ) );
+			$l = normalize( str_replace( '﻿', '', trim( $l ) ) );
 			$code = $code . "\"${ln}\"=>\"$l\",\n";
 		}
 		$code = substr( $code, 0, -1 );	

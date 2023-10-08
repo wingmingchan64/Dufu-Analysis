@@ -55,4 +55,3 @@ $code = $code . "\n); // size: ${size}
 file_put_contents( 杜甫資料庫 . '疊字_坐標.php', $code );
 file_put_contents( 杜甫分析文件夾 . '疊字_坐標.php', $code );
 ?>
-
