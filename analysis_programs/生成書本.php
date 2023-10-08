@@ -10,6 +10,7 @@ require_once( 杜甫資料庫 . '書目簡稱.php' );
 require_once( 杜甫資料庫 . '二字組合_坐標.php' );
 require_once( 杜甫資料庫 . '三字組合_坐標.php' );
 require_once( 杜甫資料庫 . '四字組合_坐標.php' );
+require_once( 杜甫資料庫 . '五字組合_坐標.php' );
 require_once( 杜甫資料庫 . '詩組_詩題.php' );
 require_once( 杜甫資料庫 . '詩句_坐標.php' );
 require_once( 杜甫資料庫 . '帶序文之詩歌.php' );
@@ -481,6 +482,10 @@ if( $頁 == '3955' )
 				elseif( $詞條長度 == 4 )
 				{
 					$坐標s = $四字組合_坐標[ $詞條 ];
+				}
+				elseif( $詞條長度 == 5 )
+				{
+					$坐標s = $五字組合_坐標[ $詞條 ];
 				}
 				elseif( $詞條 != "" )
 				{
