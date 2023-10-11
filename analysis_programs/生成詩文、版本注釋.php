@@ -9,7 +9,7 @@ require_once( 頁碼 );
 checkARGV( $argv, 2, 提供簡稱 );
 
 $output = '';
-$stop_page = 209;
+$stop_page = 280;
 
 $簡稱 = trim( $argv[ 1 ] );
 if( !array_key_exists( 等號 . $簡稱, $書目簡稱 ) )
