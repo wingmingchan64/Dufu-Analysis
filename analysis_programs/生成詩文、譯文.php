@@ -5,7 +5,6 @@ php h:\github\Dufu-Analysis\analysis_programs\生成詩文、譯文.php
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 頁碼 );
-//require_once( 詩組_詩題 );
 require_once( 杜甫詩全譯 . "韓成武、張志民《杜甫詩全譯》譯文.php" );
 
 $output = '';
