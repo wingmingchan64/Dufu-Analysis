@@ -15,7 +15,7 @@ foreach( $頁碼 as $頁 )
 {
 	if( intval( $頁 ) > $stop_page )
 	{
-		break;
+		//break;
 	}
 	require_once( 詩集文件夾 . $頁 . 程式後綴 );
 	
