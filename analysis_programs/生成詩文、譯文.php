@@ -9,7 +9,7 @@ require_once( 頁碼 );
 require_once( 杜甫詩全譯 . "韓成武、張志民《杜甫詩全譯》譯文.php" );
 
 $output = '';
-$stop_page = 100;
+$stop_page = 300;
 
 foreach( $頁碼 as $頁 )
 {
