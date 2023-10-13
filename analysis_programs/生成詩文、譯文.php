@@ -38,6 +38,8 @@ foreach( $頁碼 as $頁 )
 			
 			if( array_key_exists( $頁, $詩組_詩題 ) )
 			{
+				// 加副題！！
+				
 				foreach( $内容[ 坐標_句 ] as $坐標 => $句 )
 				{
 					if( mb_strpos( $行, $句 )!== false )
@@ -51,6 +53,12 @@ foreach( $頁碼 as $頁 )
 			{
 				$坐 = 生成完整坐標( $碼, $頁 );
 			}
+			
+			if( $頁 == '0204' )
+			{
+				echo "Hit $頁\n";
+			}
+			
 			if( array_key_exists( $坐, $韓成武、張志民《杜甫詩全譯》譯文 ) )
 			{
 				$output .= $韓成武、張志民《杜甫詩全譯》譯文[ $坐 ] . NL . NL;
