@@ -56,7 +56,7 @@ foreach( $頁碼 as $頁 )
 			
 			if( $頁 == '0204' )
 			{
-				echo "Hit $頁\n";
+				//echo "Hit $頁\n";
 			}
 			
 			if( array_key_exists( $坐, $韓成武、張志民《杜甫詩全譯》譯文 ) )
