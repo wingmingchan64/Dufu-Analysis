@@ -32,6 +32,7 @@ $code = "<?php
 */
 \$頁碼_${簡稱}頁碼=array(\n";
 $count = 0;
+
 foreach( $頁碼 as $頁 )
 {
 	$path = 杜甫資料庫 . $書名 . "\\${頁}.php";
