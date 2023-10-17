@@ -38,19 +38,38 @@ foreach( $頁碼 as $頁 )
 		
 		if( is_string( $$陣列名[ 評論 ] ) )
 		{
+			$code .= "'〚$頁:〛'=>array(,\n";
 			$parts = explode( "\n", $$陣列名[ 評論 ] );
 
 			foreach( $parts as $p )
 			{
-				$code .= "'〚$頁:〛'=>'$p',\n";
+				$code .= "'$p',\n";
 			}
+			$code .= "),\n";
 		}
 		elseif( is_array( $$陣列名[ 評論 ] ) )
 		{
-			foreach( $$陣列名[ 評論 ] as $頁首 => $評 )
+			$temp = array();
+			
+			foreach( $$陣列名[ 評論 ] as $頁首 => $評s )
 			{
-				$code .= "'${頁首}'=>'$評',\n";
+				if( !in_array( $頁首, $temp ) )
+				{
+					array_push( $temp, $頁首 );
+					$code .= "'${頁首}'=>array(\n";
+					$子評s = explode( "\n", $評s);
+					
+					foreach( $子評s as $子評 )
+					{
+						$code .= "'$子評',\n";
+					}
+				}
+				else
+				{
+					$code .= "'$評',\n";
+				}
 			}
+			$code .= "),\n";
 		}
 	}
 }
