@@ -38,7 +38,7 @@ foreach( $頁碼 as $頁 )
 		
 		if( is_string( $$陣列名[ 評論 ] ) )
 		{
-			$code .= "'〚$頁:〛'=>array(,\n";
+			$code .= "'〚$頁:〛'=>array(\n";
 			$parts = explode( "\n", $$陣列名[ 評論 ] );
 
 			foreach( $parts as $p )
@@ -68,8 +68,9 @@ foreach( $頁碼 as $頁 )
 				{
 					$code .= "'$評',\n";
 				}
+				$code .= "),\n";
 			}
-			$code .= "),\n";
+			//$code .= "),\n";
 		}
 	}
 }
