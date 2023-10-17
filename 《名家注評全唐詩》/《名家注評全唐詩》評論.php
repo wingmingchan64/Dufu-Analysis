@@ -1,8 +1,10 @@
 <?php
 /*
 生成：本文檔用 PHP 生成。
-程式：生成版本評論.php
-說明：本文檔儲存版本評論。
+程式： php H:\github\Dufu-Analysis\analysis_programs\生成版本評論.php 名
+說明：本文檔儲存《名家注評全唐詩》評論。
+應用程式： 
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼、簡稱→評論.php 0003 名
 */
 $名評論=array(
 '〚0003:〛'=>array(

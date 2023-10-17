@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\analysis_programs\生成版本評論.php
+php H:\github\Dufu-Analysis\analysis_programs\生成版本評論.php 名
 */
 require_once( '常數.php' );
 require_once( '函式.php' );
@@ -9,7 +9,6 @@ require_once( 頁碼 );
 
 checkARGV( $argv, 2, 提供簡稱 );
 $簡稱 = trim( $argv[ 1 ] );
-$書名 = 
 $result = array();
 
 if( !array_key_exists( 等號 . $簡稱, $書目簡稱 ) )
@@ -24,8 +23,10 @@ $陣列名 = $簡稱 . '内容';
 $code = "<?php
 /*
 生成：本文檔用 PHP 生成。
-程式：生成版本評論.php
-說明：本文檔儲存版本評論。
+程式： php H:\github\Dufu-Analysis\analysis_programs\生成版本評論.php $簡稱
+說明：本文檔儲存${書名}評論。
+應用程式： 
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼、簡稱→評論.php 0003 $簡稱
 */
 \$${簡稱}評論=array(\n";
 	
