@@ -1,5 +1,19 @@
 <?php
+/*
+php h:\github\Dufu-Analysis\analysis_programs\test.php
+*/
 require_once( "函式.php" );
+
+/*
+echo 提取詩句( "〚0022:5.2〛" ), NL;
+echo 提取詩句( "〚0013:2:12.1〛" ), NL;
+echo 提取頁碼( "〚0013:2:12.1〛" ), NL;
+echo 提取首碼( "〚0022:5.2〛" ), NL;
+echo 提取行碼( "〚0013:2:12.1〛" ), NL;
+echo 提取句碼( "〚0013:2:12.1〛" ), NL;
+*/
+echo 提取詩句( "〚0022:5.2〛" ), NL;
+echo 提取詩文( "〚0022:5.2.1-5〛" ), NL;
 
 /*
 php H:\github\Dufu-Analysis\analysis_programs\test.php
@@ -25,12 +39,12 @@ echo $詩文;
 
 東藩駐皂蓋。北渚淩青荷。海右此亭古。濟南名士多。雲山已發興。玉佩仍當謌。修竹不受暑。交流空湧波。蘊真愜所遇。落日將如何。貴賤俱物役。從公難重過。
 */
-
+/*
 $haystack = "sing4 hing3 miu5 jin4 mai4 ceot1 cyu5/cyu3";
 $needle   = "sing4 hing3 miu5 jin4";
 $needle   = "sing4 hing3 miu5 jin4 mai4 ceot1 cyu5";
 echo
 containsPronunciation( $haystack, $needle ) ? "yes" : "no", "\n";
-
+*/
 ?>
 

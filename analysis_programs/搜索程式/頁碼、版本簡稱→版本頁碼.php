@@ -5,11 +5,18 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼、版本簡稱
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
-require_once( 詩題_頁碼 );
+require_once( 頁碼 );
 require_once( 書目簡稱 );
 
 checkARGV( $argv, 3, 提供頁、簡 );
-$頁碼 = trim( $argv[ 1 ] );
+$頁 = trim( $argv[ 1 ] );
+
+if( $array_key_exists( $頁, $頁碼 ) )
+{
+	echo 無結果 . NL;
+	exit;
+}
+
 $簡稱 = trim( $argv[ 2 ] );
 
 if( !array_key_exists( 等號 . $簡稱, $書目簡稱 ) )
@@ -24,7 +31,7 @@ if( file_exists( $路徑 ) )
 {
 	require_once( $路徑 );
 	$列陣名 = "頁碼_${簡稱}頁碼";
-	echo 版本頁碼, 冒號, $頁碼_詩題[ $頁碼 ], ' ', $書名, $$列陣名[ $頁碼 ], "\n";
+	echo 版本頁碼, 冒號, $頁_詩題[ $頁 ], ' ', $書名, $$列陣名[ $頁 ], "\n";
 }
 else
 {

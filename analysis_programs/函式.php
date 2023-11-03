@@ -476,7 +476,62 @@ function 提取首碼( string $坐標 ) : string
 	{
 		return $str_array[ 0 ];
 	}
-	return $坐標;
+	return '';
+}
+
+// 提取行碼, garbage in, garbage out
+function 提取行碼( string $坐標 ) : string
+{
+	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
+	$str_array = explode( '.', $str );
+	
+	if( sizeof( $str_array ) >= 1 ) 
+	{
+		if( strpos( $str_array[ 0 ], ':' ) !== false )// 有頁碼
+		{
+			$parts = explode( ':', $str_array[ 0 ] );
+			
+			if( sizeof( $parts ) == 2 ) // 沒有首碼
+			{
+				return $parts[ 1 ];
+			}
+			elseif( sizeof( $parts ) == 3 ) // 有首碼
+			{
+				return $parts[ 2 ];
+			}
+		}
+		else // 沒有頁碼，沒有首碼
+		{
+			return $str_array[ 0 ];
+		}
+	}
+	return '';
+}
+
+// 提取句碼, garbage in, garbage out
+function 提取句碼( string $坐標 ) : string
+{
+	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
+	$str_array = explode( '.', $str );
+	
+	if( sizeof( $str_array ) >= 2 )
+	{
+		return $str_array[ 1 ];
+	}
+	return '';
+}
+
+// 提取字碼, garbage in, garbage out
+function 提取字碼( string $坐標 ) : string
+{
+	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
+	$str_array = explode( '.', $str );
+	
+	if( sizeof( $str_array ) >= 3 )
+	{
+		return $str_array[ 2 ];
+	}
+	return '';
 }
 
 function 生成完整坐標( string $坐標, string $頁碼 ) : string
@@ -780,6 +835,121 @@ function containsPronunciation( string $haystack, string $needle ) : bool
 		}
 	}
 }
+// 坐標必須是完整坐標
+function 提取詩句( string $坐標 ) : string
+{
+	$頁碼 = 提取頁碼( $坐標 );
+	//$首碼 = 提取首碼( $坐標 );
+	$行碼 = 提取行碼( $坐標 );
+	$句碼 = 提取句碼( $坐標 );
+	
+	if( $頁碼 == '' )
+	{
+		return '';
+	}
+	if( $行碼 == '' )
+	{
+		return '';
+	}
+	if( $句碼 == '' )
+	{
+		return '';
+	}
+	require_once( 詩集文件夾 . $頁碼 . 程式後綴 );
+	
+	if( array_key_exists( $坐標, $内容[ 坐標_句 ] ) )
+	{
+		return $内容[ 坐標_句 ][ $坐標 ];
+	}
+	return '';
+}
+
+// $句坐標、$詞組坐標 必須是完整坐標
+function 在句中( string $句坐標, string $詞組坐標 ) : bool
+{
+	$句 = 提取詩句( $句坐標 );
+	$詞組 = 提取詩文( $詞組坐標 );
+	
+	if( mb_strpos( $句, $詞組 ) !== false )
+	{
+		return true;
+	}
+	return false;
+}
+
+// $坐標 必須是完整坐標，必須有字碼
+function 提取詩文( string $坐標 ) : string
+{
+	$詩文頁碼 = 提取頁碼( $坐標 );
+	$詩文首碼 = 提取首碼( $坐標 );
+	$詩文行碼 = 提取行碼( $坐標 );
+	$詩文句碼 = 提取句碼( $坐標 );
+	$詩文字碼 = 提取字碼( $坐標 );
+	
+	if( $詩文頁碼 == '' || $詩文行碼 == '' || $詩文句碼 == '' || $詩文字碼 == '' )
+	{
+		return '';
+	}
+	// range
+	if( strpos( $詩文字碼, '-' ) !== false )
+	{
+		$字碼陣列 = explode( '-', $詩文字碼 );
+		
+		if( intval( $字碼陣列[ 0 ] ) >= intval( $字碼陣列[ 1 ] ) )
+		{
+			return '';
+		}
+		$字數 = intval( $字碼陣列[ 1 ] ) - intval( $字碼陣列[ 0 ] ) + 1 ;
+	}
+	else
+	{
+		$字數 = 1;
+	}
+		
+	if( $字數 == 1 )
+	{
+		require_once( 詩集文件夾 . $詩文頁碼 . '坐標_用字' . 程式後綴 );
+		return $坐標_用字[ $坐標 ];
+	}
+	elseif( $字數 > 1 && $字數 < 6 ) // 2 to 5
+	{
+		$文檔名 = '';
+		switch( $字數 )
+		{
+			case 2:
+				$文檔名 = '二字組合_坐標';
+				break;
+			case 3:
+				$文檔名 = '三字組合_坐標';
+				break;
+			case 4:
+				$文檔名 = '四字組合_坐標';
+				break;
+			case 5:
+				$文檔名 = '五字組合_坐標';
+				break;
+		}
+		if( $文檔名 != '' )
+		{
+			echo $文檔名, NL;
+			require_once( 杜甫資料庫 . $文檔名 . 程式後綴 );
+			
+			foreach( $$文檔名 as $組合 => $坐標陣列 )
+			{
+				if( in_array( $坐標, $坐標陣列 ) )
+				{
+					return $組合;
+				}
+			}
+		}
+		else
+		{
+			return '';
+		}
+	}
+
+	return '';
+}
 
 function 移除詩文夾注( string $帶夾注詩文 ) : string
 {
@@ -804,6 +974,7 @@ function 坐標轉換成列陣路徑( string $坐標 ) : array
 			str_replace( 坐標關括號, '', $坐標 ) );
 	$坐標 = str_replace( ':', '-', $坐標 );
 	$坐標 = str_replace( '.', '-', $坐標 );
+	
 	return explode( '-', trim( $坐標, ' -' ) );
 }
 function 顯示坐標值( array $杜甫詩陣列, string $坐標 ) 
