@@ -1,0 +1,52 @@
+H:\php809>php h:\github\Dufu-Analysis\analysis_programs\搜索程式\search.php
+要搜索甚麽？請輸入選項數字；用 exit 來結束。
+Array
+(
+    [0] => 輸入漢字
+)
+0
+Enter a command (load, save, clr, del, show, quit) or a key
+1040p
+=>平
+Enter a command (load, save, clr, del, show, quit) or a key
+7128z
+=>平仄
+Enter a command (load, save, clr, del, show, quit) or a key
+3410d
+=>平仄對
+Enter a command (load, save, clr, del, show, quit) or a key
+2520z
+Array
+(
+    [0] =>
+    [1] => 仗
+    [2] => 仲
+)
+1
+=>平仄對仗
+Enter a command (load, save, clr, del, show, quit) or a key
+save
+=>平仄對仗
+Enter a command (load, save, clr, del, show, quit) or a key
+clr
+=>
+Enter a command (load, save, clr, del, show, quit) or a key
+sjz
+=>·〘〙〚〛〖〗「」『』……
+市佳侍僞內句卽兗勳喩均室寄家姸尙巓弼幷後
+志意慨戲據摯敘棲閑槪欲歎於間泛注汲淒灼牆物旣
+玠眞皆當是疊殆祕
+築簾籙置綖繫羣脫考范荆衞複
+記託詩謂謫赴輒輿鄕迹遊遷里
+鎭館麼齊趙隅閱飄顏顚顦顇麒麟鶺鴒兗州
+Enter a command (load, save, clr, del, show, quit) or a key
+quit
+Bye!
+要搜索甚麽？請輸入選項數字；用 exit 來結束。
+Array
+(
+    [0] => 輸入漢字
+)
+exit
+
+H:\php809>
