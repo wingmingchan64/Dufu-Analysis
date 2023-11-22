@@ -38,7 +38,6 @@ foreach( $頁碼 as $頁 )
 		require_once( $頁路徑 );
 		//print_r( $$陣列名 );
 		
-		
 		if( array_key_exists( $種類, $$陣列名 ) )
 		{
 			//echo $頁, "\n";
