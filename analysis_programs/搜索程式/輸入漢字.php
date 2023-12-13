@@ -1,4 +1,8 @@
 <?php
+/*
+php H:\github\Dufu-Analysis\analysis_programs\搜索程式\輸入漢字.php
+*/
+
 require_once( "四角字典.php" );
 $out_file = 'h:\php809\code\buffer.txt';
 $input    = "";
