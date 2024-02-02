@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以頁碼提取詩題.php 0668
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼→詩題.php 0668
 => 詩題：自京赴奉先縣詠懷五百字
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
