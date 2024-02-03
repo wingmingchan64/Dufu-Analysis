@@ -1,5 +1,15 @@
+說明：此頁展示利用「輸入漢字」一選項，以提取《四角字典》所收的文字。
+1. 所有提取的文字，都存在 buffer 中（ => 後顯示的是 buffer 的内容）。
+2. 用「save」指令，把 buffer 的内容儲存於 buffer.txt 中。
+3. 用「load」指令，把 buffer.txt 的内容取代 buffer 的内容。
+4. 用「clr」指令，把 buffer 的内容清空，但 buffer.txt 的内容不變。
+5. 用「del」指令，把 buffer 的内容中最後一個字符去掉。
+6. 用「show」指令，顯示 buffer 當前的内容。
+7. 用「quit」指令，回到 search.php 的界面。
+
+
 H:\php809>php h:\github\Dufu-Analysis\analysis_programs\搜索程式\search.php
-要搜索甚麽？請輸入選項數字；用 exit 來結束。
+要搜索甚麼？請輸入選項數字；用 exit 來結束。
 Array
 (
     [0] => 輸入漢字
@@ -28,25 +38,25 @@ Enter a command (load, save, clr, del, show, quit) or a key
 save
 =>平仄對仗
 Enter a command (load, save, clr, del, show, quit) or a key
+del
+=>平仄對
+Enter a command (load, save, clr, del, show, quit) or a key
+load
+=>平仄對仗
+Enter a command (load, save, clr, del, show, quit) or a key
 clr
 =>
 Enter a command (load, save, clr, del, show, quit) or a key
-sjz
-=>·〘〙〚〛〖〗「」『』……
-市佳侍僞內句卽兗勳喩均室寄家姸尙巓弼幷後
-志意慨戲據摯敘棲閑槪欲歎於間泛注汲淒灼牆物旣
-玠眞皆當是疊殆祕
-築簾籙置綖繫羣脫考范荆衞複
-記託詩謂謫赴輒輿鄕迹遊遷里
-鎭館麼齊趙隅閱飄顏顚顦顇麒麟鶺鴒兗州
+show
+=>
+Enter a command (load, save, clr, del, show, quit) or a key
+load
+=>平仄對仗
 Enter a command (load, save, clr, del, show, quit) or a key
 quit
 Bye!
-要搜索甚麽？請輸入選項數字；用 exit 來結束。
+要搜索甚麼？請輸入選項數字；用 exit 來結束。
 Array
 (
     [0] => 輸入漢字
 )
-exit
-
-H:\php809>
