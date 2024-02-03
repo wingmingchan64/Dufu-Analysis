@@ -1,3 +1,5 @@
+說明：此頁展示利用「全集」一選項，提取默認版本的所有杜甫詩。
+
 H:\php809>php h:\github\Dufu-Analysis\analysis_programs\搜索程式\search.php
 要搜索甚麽？請輸入選項數字；用 exit 來結束。
 Array

@@ -1,32 +1,33 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0003
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0003:
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 〚0003〛
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 〚0003:〛
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php abcde
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 1234
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0003:10
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0013:10:
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0013:2:
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0013:2:a
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0003:1
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0003:5
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0003:5-8
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0013:2:1
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0013:2:12
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0013:2:17
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0003:2.1
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0013:1:2.1
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 4235:5.2.3
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 4235:15.2.3
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0003.3.1.2
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0003.3-5
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0003:3-5
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0003:3-7
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0013:2:12.1.3-5
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0013:2:12.1.5-7
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文.php 0013:2:
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0003
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0003:
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 〚0003〛
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 〚0003:〛
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php abcde
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 1234
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0003:10
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0013:10:
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0013:2:
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0013:2:a
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0003:1
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0003:5
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0003:5-8
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0013:2:1
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0013:2:12
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0013:2:17
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0003:2.1
+
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 1156:1:2.1
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 4235:5.2.3
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 4235:15.2.3
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0003.3.1.2
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0003.3-5
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0003:3-5
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0003:3-7
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0013:2:12.1.3-5
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0013:2:12.1.5-7
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0013:2:
 
 規則：
 1. 坐標可以帶、可以不帶（裸坐標）坐標括號： 0003 〚0003〛
@@ -52,9 +53,9 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以坐標提取詩文
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
-//checkARGV( $argv, 2, 提供坐標 );
-//$坐標 = trim( $argv[ 1 ], '〚〛' ); // 去掉〚〛
-//print_r( 以坐標提取詩文( $坐標 ) );
+checkARGV( $argv, 2, 提供坐標 );
+$坐標 = trim( $argv[ 1 ], '〚〛' ); // 去掉〚〛
+print_r( 以坐標提取詩文( $坐標 ) );
 
 function 以坐標提取詩文( string $坐標 ) : array
 {

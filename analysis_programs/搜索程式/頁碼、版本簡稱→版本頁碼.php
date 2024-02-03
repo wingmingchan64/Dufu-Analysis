@@ -11,7 +11,7 @@ require_once( 書目簡稱 );
 checkARGV( $argv, 3, 提供頁、簡 );
 $頁 = trim( $argv[ 1 ] );
 
-if( array_key_exists( $頁, $頁碼 ) )
+if( !in_array( $頁, $頁碼 ) )
 {
 	echo 無結果 . NL;
 	exit;
@@ -30,8 +30,18 @@ $路徑 = 杜甫資料庫 . $書名 . "\\" . "${書名}頁碼索引" . 程式後
 if( file_exists( $路徑 ) )
 {
 	require_once( $路徑 );
+	
 	$列陣名 = "頁碼_${簡稱}頁碼";
-	echo 版本頁碼, 冒號, $頁碼_詩題[ $頁 ], ' ', $書名, $$列陣名[ $頁 ], "\n";
+	
+	if( array_key_exists( $頁, $$列陣名 ) )
+	{
+		echo 版本頁碼, 冒號, $頁碼_詩題[ $頁 ], ' ', 
+			$書名, $$列陣名[ $頁 ], "\n";
+	}
+	else
+	{
+		echo "此版本缺《${頁碼_詩題[ $頁 ]}》一詩。", NL;
+	}
 }
 else
 {
