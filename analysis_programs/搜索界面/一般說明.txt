@@ -45,4 +45,8 @@ Array
     [1] => 頁碼→詩題
 )
 
-8. 由於 search.php 可以執行其他 PHP 程式，PHP 的執行引擎（executing engine）隨時可能當機（crashes），因此不要移動（don't move the window）、不要改變執行 search.php 的 Command prompt 視窗的大小(don't resize the window)。
+8. 重要：由於 search.php 可以執行其他 PHP 程式，PHP 的執行引擎（executing engine）可能隨時當機（crashes），因此不要移動（don't move the window）、不要改變執行 search.php 的 Command prompt 視窗的大小(don't resize the window)。
+
+9. 此處展示的所有搜索功能，都能改用於網頁上；只需把各程式輸出的文字資料，改用 HTML 的 格式來顯示。
+
+10. 各功能所需要的用者輸入資料，也可以用 HTML 的表格（form）來搜集。
