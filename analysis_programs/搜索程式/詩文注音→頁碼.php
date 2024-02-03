@@ -18,7 +18,7 @@ foreach( $注音_詩句 as $注音 => $詩句 )
 {
 	if( containsPronunciation( $注音, $音 ) )
 	{
-		echo "hit $音", NL;
+		//echo "hit $音", NL;
 		array_push( $result, $詩句_頁碼[ $詩句 ] . ' ' .
 			$頁碼_詩題[ $詩句_頁碼[ $詩句 ] ] );
 	}
