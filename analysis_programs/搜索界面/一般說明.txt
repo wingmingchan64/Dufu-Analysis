@@ -44,3 +44,5 @@ Array
     [0] => 輸入漢字
     [1] => 頁碼→詩題
 )
+
+8. 由於 search.php 可以執行其他 PHP 程式，PHP 的執行引擎（executing engine）隨時可能當機（crashes），因此不要移動（don't move the window）、不要改變執行 search.php 的 Command prompt 視窗的大小(don't resize the window)。

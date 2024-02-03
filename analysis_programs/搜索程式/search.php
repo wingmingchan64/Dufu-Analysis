@@ -149,7 +149,7 @@ while( true ) // code from 輸入漢字.php, 07/11/2023
 }//inner while
 		}
 		elseif( $num >= 1 && $num < sizeof( $程式名 ) )
-		{
+		{			
 			$程式 = $程式名[ $num ];
 			
 			if( 搜索程式[ $程式 ] != '' )
@@ -165,6 +165,8 @@ while( true ) // code from 輸入漢字.php, 07/11/2023
 			$executable = "php " . 搜索程式文件夾 . $程式 . 程式後綴 . ' ' . $參數;
 			$output = null;
 			$retval = null;
+			echo NL;
+
 			exec( $executable, $output, $retval );
 			
 			printOutput( $output );
