@@ -1,6 +1,7 @@
 <?php
 /*
 php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼、簡稱→詩文、夾注.php 0003 仇
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼、簡稱→詩文、夾注.php 0824 名
 =>
 望嶽
 [鶴注。公壯遊詩云忤下考功第。放蕩齊趙間。乃在開元二十四年後。當是其時作。元和郡縣志。㤗山一曰岱宗。在兗州乾封縣西北三十里。]
@@ -32,6 +33,7 @@ if( !in_array( $頁, $頁碼 ) )
 	echo 無頁碼, NL;
 	exit;
 }
+
 $簡稱 = trim( $argv[ 2 ] );
 if( !array_key_exists( 等號 . $簡稱, $書目簡稱 ) )
 {
@@ -60,6 +62,7 @@ foreach( array_values( $$陣列名[ 注釋 ] ) as $注 )
 		$詩文 = str_replace( $term, "〖${term}〗", $詩文 );
 	}
 }
+
 foreach( array_values( $$陣列名[ 注釋 ] ) as $注 )
 {
 	// 題注
@@ -71,12 +74,29 @@ foreach( array_values( $$陣列名[ 注釋 ] ) as $注 )
 	else
 	{
 		$note = explode( 冒號, $注 );
+		//print_r( $note );
 		$term = $note[ 0 ];
-		$exp  = trim( $note[ 1 ], '。' );
+		$exp  = $note[ 1 ];
+		
+		// 注釋中可能有冒號
+		if( sizeof( $note ) > 2 )
+		{
+			for( $i = 2; $i < sizeof( $note ); $i++ )
+			{
+				$exp = $exp . 冒號 . $note[ $i ];
+			}
+		}
+		// remove last 。
+		if( mb_strpos( $exp, '。', -1 ) !== false )
+		{
+			$exp = mb_substr( $exp, 0, mb_strlen( $exp ) - 1 );
+		}
+		//echo $exp, NL;
 		$詩文 = str_replace( "〖${term}〗", $term . "[" . $exp . ']', $詩文 );
 	}
 }
 print_r( $詩文 );
 /*
+0824 名
 2552, 2628 */
 ?>
