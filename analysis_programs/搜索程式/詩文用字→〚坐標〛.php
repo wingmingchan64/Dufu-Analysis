@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以詩文用字搜索坐標.php 遁
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\詩文用字→〚坐標〛.php 遁
 =>
 Array
 (
