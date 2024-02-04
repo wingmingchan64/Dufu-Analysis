@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以夾注形式顯示詩文、注釋.php 0003 仇
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼、簡稱→詩文、夾注.php 0003 仇
 =>
 望嶽
 [鶴注。公壯遊詩云忤下考功第。放蕩齊趙間。乃在開元二十四年後。當是其時作。元和郡縣志。㤗山一曰岱宗。在兗州乾封縣西北三十里。]
