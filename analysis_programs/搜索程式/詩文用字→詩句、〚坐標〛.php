@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以詩文用字搜索詩句.php 妻子
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\詩文用字→詩句、〚坐標〛.php 妻子
 => 
 Array
 (
