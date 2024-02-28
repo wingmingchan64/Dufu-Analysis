@@ -4,12 +4,11 @@ php h:\github\Dufu-Analysis\analysis_programs\process_杜臆.php
 */
 require_once( "常數.php" );
 require_once( "函式.php" );
-require_once( 頁碼_詩題 );
 
-$text = getFile( 'H:\杜甫資料庫\王嗣奭《杜臆》\text.txt' );
-$lines = explode( "\n", $text );
-$store = array();
-$i = 1;
+$text    = getFile( 'H:\杜甫資料庫\王嗣奭《杜臆》\text.txt' );
+$lines   = explode( "\n", $text );
+$store   = array();
+$content = '';
 
 foreach( $lines as $l )
 {
@@ -19,26 +18,39 @@ foreach( $lines as $l )
 	}
 	elseif( mb_strpos( $l, '//' ) === false )
 	{
-		continue;
+		$content = $content . $l . NL;
 	}
 	else
 	{
-		
 		$l = str_replace( '// ', '', $l );
 		$l_array = explode( ' ', $l );
-		//echo $l_array[ 0 ], NL;
-		//echo $l_array[ 1 ], NL;
+		
 		if( $l_array[ 1 ] == '6497' )
 		{
 			continue;
 		}
 		
-		$k = trim( $l_array[ 2 ] ) . ' ' . $l_array[ 0 ];
-		$v = $l_array[ 1 ] . ' ' . $頁碼_詩題[ $l_array[ 1 ] ];
-		$store[ $k ] = $v;
-		$i++;
+		$默認頁碼 = $l_array[ 1 ];
+		require_once( 詩集文件夾 . $默認頁碼 . 程式後綴 );
+		
+		$版本詩題 = $l_array[ 0 ];
+		$默認詩題 = $内容[ 詩題 ];
+		$默認詩文 = $内容[ 詩文 ];
+		
+		if( $版本詩題 != $默認詩題 )
+		{
+			$版本詩題 = '*' . $版本詩題;
+		}
+		
+		$版本詩題 = trim( $版本詩題 ) . ' ' . $l_array[ 2 ] . NL . NL;
+
+		$content = $content . $版本詩題;
+		$content = $content . $默認詩文 . NL . NL;
 	}
 }
-print_r( $store );
+
+$outfile = 杜臆 . "王嗣奭《杜臆》_帶詩文.txt";
+file_put_contents( $outfile, $content );
+
 ?>
 
