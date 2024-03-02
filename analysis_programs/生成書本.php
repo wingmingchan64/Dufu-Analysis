@@ -14,6 +14,7 @@ require_once( 杜甫資料庫 . '五字組合_坐標.php' );
 require_once( 杜甫資料庫 . '詩組_詩題.php' );
 require_once( 杜甫資料庫 . '詩句_坐標.php' );
 require_once( 杜甫資料庫 . '帶序文之詩歌.php' );
+require_once( 杜甫資料庫 . '詩行_行碼.php' );
 
 if( sizeof( $argv ) < 2 )
 {
@@ -500,7 +501,14 @@ if( $頁 == '3955' )
 				}
 				elseif( $詞條 != "" )
 				{
-					$坐標s = array( $詩句_坐標[ $詞條 ] );
+					if( array_key_exists( $詞條, $詩句_坐標 ) )
+					{
+						$坐標s = array( $詩句_坐標[ $詞條 ] );
+					}
+					elseif( array_key_exists( $詞條, $詩行_行碼 ) )
+					{
+						$坐標s = array( $詩行_行碼[ $詞條 ] );
+					}
 				}
 				// look for the first matching 坐標
 				foreach( $坐標s as $坐標 )
