@@ -1,13 +1,27 @@
-Run from h:\php809
-
 Test:
 php h:\github\Dufu-Analysis\analysis_programs\函式測試.php
+
+Reports:
+php h:\github\Dufu-Analysis\analysis_programs\異體字報告.php
+array(5) {
+  [0]=>
+  string(3) "祗"
+  [1]=>
+  string(3) "沈"
+  [2]=>
+  string(3) "昇"
+  [3]=>
+  string(3) "游"
+  [4]=>
+  string(3) "弊"
+}
 
 File generation:
 php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集.php
 php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_詩題.php
 php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集粵音注音.php
 php h:\github\Dufu-Analysis\analysis_programs\生成詩集頁.php
+php h:\github\Dufu-Analysis\analysis_programs\生成行碼_詩行.php
 php h:\github\Dufu-Analysis\analysis_programs\生成杜甫詩陣列.php
 php h:\github\Dufu-Analysis\analysis_programs\生成用字頻率.php
 php h:\github\Dufu-Analysis\analysis_programs\生成排序用字頻率.php
@@ -19,6 +33,7 @@ php h:\github\Dufu-Analysis\analysis_programs\生成詩句_頁碼_行碼.php
 php h:\github\Dufu-Analysis\analysis_programs\生成二字組合.php
 php h:\github\Dufu-Analysis\analysis_programs\生成三字組合.php
 php h:\github\Dufu-Analysis\analysis_programs\生成四字組合.php
+php h:\github\Dufu-Analysis\analysis_programs\生成五字組合.php
 php h:\github\Dufu-Analysis\analysis_programs\生成詩句_坐標.php
 php h:\github\Dufu-Analysis\analysis_programs\生成部首_用字.php
 php h:\github\Dufu-Analysis\analysis_programs\生成用字_部首.php
@@ -30,56 +45,45 @@ php h:\github\Dufu-Analysis\analysis_programs\生成疊字_坐標.php
 php h:\github\Dufu-Analysis\analysis_programs\生成二字組合_坐標.php
 php h:\github\Dufu-Analysis\analysis_programs\生成三字組合_坐標.php
 php h:\github\Dufu-Analysis\analysis_programs\生成四字組合_坐標.php
+php h:\github\Dufu-Analysis\analysis_programs\生成五字組合_坐標.php
 
 
-// requires 生成坐標_用字 run against 杜甫全集粵音注音
-// requires 生成書本 run against 杜甫全集粵音注音
-php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 默
-php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 粵
-php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 全
 php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 蕭
 php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 仇
 php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 浦
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 約
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 郭
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 名
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 粵
+php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集粵音注音.php
 
-php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集_版本.php 默
-php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集_版本.php 全
-{{*|}}
-php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集_版本.php 蕭
-php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集_版本.php 仇
-php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集_版本.php 浦
-
-php h:\github\Dufu-Analysis\analysis_programs\生成版本差異.php 全
-php h:\github\Dufu-Analysis\analysis_programs\生成版本差異.php 蕭
-
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 今
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 今 注釋
+php h:\github\Dufu-Analysis\analysis_programs\生成詩文、版本注釋.php 今
+php h:\github\Dufu-Analysis\analysis_programs\生成版本頁碼索引.php 今
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 今 大意
 php h:\github\Dufu-Analysis\analysis_programs\生成字典注釋.php 今 注釋
-php h:\github\Dufu-Analysis\analysis_programs\生成字典注釋.php 仇 注釋
 
-php h:\github\Dufu-Analysis\analysis_programs\比較詩文.php
-php h:\github\Dufu-Analysis\analysis_programs\比較詩文_不含標點.php
+//php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集_版本.php 今
 
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 譯
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 譯 譯文
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 譯 注釋
+php h:\github\Dufu-Analysis\analysis_programs\生成詩文、譯文.php
 
-https://gist.github.com/2ue/7deda3ee996a394ad2361580f58c0c45
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 名
+php h:\github\Dufu-Analysis\analysis_programs\生成版本評論.php 名
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 名 注釋
+php h:\github\Dufu-Analysis\analysis_programs\生成版本頁碼索引.php 名
 
-https://raw.githubusercontent.com/rime-aca/corpus/master/%E5%85%A8%E5%94%90%E8%A9%A9/%E5%8D%B7216-234%20%20%E6%9D%9C%E7%94%AB.txt
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 仇
+php h:\github\Dufu-Analysis\analysis_programs\生成版本評論.php 仇
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 仇 注釋
 
-=全====================================================
-《全唐詩》7.23
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 奭
+php h:\github\Dufu-Analysis\analysis_programs\生成版本評論.php 奭
 
-【異文、夾注】
-〖〗
-〖〗
-〖〗
-〖〗
-〖〗
-〖〗
-〖〗
-〖〗
-〖〗
-〖〗
-〖〗
-〖〗
-
-
-
-
-
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 楊
+php h:\github\Dufu-Analysis\analysis_programs\生成版本評論.php 楊
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 楊 注釋
+php h:\github\Dufu-Analysis\analysis_programs\生成版本頁碼索引.php 楊
