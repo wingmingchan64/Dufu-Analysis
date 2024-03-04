@@ -28,14 +28,27 @@ if( file_exists( $路徑 ) &&  file_exists( $杜臆路徑 ) )
 		//if( $文 == '' ) continue;
 		$content = $content . $文 . NL;
 	}
-	$content = NL . $content . NL . $奭内容[ 評論 ] . NL;
+	$content = NL . $content . NL;
+	
+	if( is_string( $奭内容[ 評論 ] ) )
+	{
+		$content = $content . $奭内容[ 評論 ] . NL;
+	}
+	elseif( is_array( $奭内容[ 評論 ] ) )
+	{
+		foreach( $奭内容[ 評論 ] as $評 )
+		{
+			$content = $content . $評. NL;
+		}
+	}
+	
+	$content = str_replace( "\n\n\n", "\n", $content );
+	$content = str_replace( $頁碼, "", $content );
+	echo $content;
 }
 else
 {
 	echo 無結果, NL;
 }
-$content = str_replace( "\n\n\n", "\n", $content );
-$content = str_replace( $頁碼, "", $content );
 
-echo $content;
 ?>
