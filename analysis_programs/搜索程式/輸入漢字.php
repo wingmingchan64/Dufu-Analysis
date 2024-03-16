@@ -2,7 +2,7 @@
 /*
 php H:\github\Dufu-Analysis\analysis_programs\搜索程式\輸入漢字.php
 */
-
+// 兩個字庫
 require_once( "四角字典.php" );
 require_once( "H:\github\unicode\粵音_常用字.php" );
 

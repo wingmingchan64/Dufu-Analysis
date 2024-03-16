@@ -5,6 +5,8 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\search.php
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( "四角字典.php" );
+require_once( "H:\github\unicode\粵音_常用字.php" );
+
 $out_file = 'h:\github\Dufu-Analysis\analysis_programs\搜索程式\buffer.txt';
 $input    = "";
 $buffer   = "";
@@ -134,6 +136,21 @@ while( true ) // code from 輸入漢字.php, 07/11/2023
 			{
 				$buffer .= $dict[ $input ];
 				printBuffer( $buffer );
+			}
+		}
+		elseif(array_key_exists( $input, $粵音_常用字 ) )
+		{
+			print_r( $粵音_常用字[ $input ] );
+			$num = intval( readline() );
+				
+			if( $num >= 0 && $num < sizeof( $粵音_常用字[ $input ] ) )
+			{
+				$buffer .= $粵音_常用字[ $input ][ $num ];
+				printBuffer( $buffer );
+			}
+			else
+			{
+				echo "Not a valid option. Try again.\n";
 			}
 		}
 		else
