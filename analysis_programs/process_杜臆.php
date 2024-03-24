@@ -31,7 +31,16 @@ foreach( $lines as $l )
 		}
 		
 		$默認頁碼 = $l_array[ 1 ];
+		//try
+		//{
+			//echo $默認頁碼, NL;
 		require_once( 詩集文件夾 . $默認頁碼 . 程式後綴 );
+		//}
+		//catch( ErrorException $e )
+		//{
+			//echo '頁碼', $默認頁碼;
+			//exit;
+		//}
 		
 		$版本詩題 = $l_array[ 0 ];
 		$默認詩題 = $内容[ 詩題 ];
@@ -42,7 +51,8 @@ foreach( $lines as $l )
 			$版本詩題 = '*' . $版本詩題;
 		}
 		
-		$版本詩題 = trim( $版本詩題 ) . ' ' . $l_array[ 2 ] . NL . NL;
+		$版本詩題 = trim( $版本詩題 ) . ' ' . $默認頁碼 . ' ' .
+			$l_array[ 2 ] . NL . NL;
 
 		$content = $content . $版本詩題;
 		$content = $content . $默認詩文 . NL . NL;
