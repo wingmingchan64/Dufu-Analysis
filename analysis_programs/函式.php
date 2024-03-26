@@ -480,6 +480,7 @@ function 提取首碼( string $坐標 ) : string
 }
 
 // 提取行碼, garbage in, garbage out
+// 〚0013:1:5.2.3-4〛
 function 提取行碼( string $坐標 ) : string
 {
 	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
@@ -1071,6 +1072,11 @@ function 顯示杜甫詩陣列詩文(
 				{
 					if( mb_strlen( $句文 ) == sizeof( $字子陣列 ) )
 					{
+						$句文 .= '。';
+					}
+					elseif( intval( $字碼 ) == sizeof( $字子陣列 ) )
+					{
+						//$句文 = str_replace( '[', '。[', $句文 );
 						$句文 .= '。';
 					}
 				}
