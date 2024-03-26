@@ -16,7 +16,7 @@ $資料陣列 = array(
 	),
 );
 
-等以後積纍足夠的資料，能展示的內容會很客觀。
+等以後積纍了足夠的資料，到時候能展示的內容會很可觀。
 
 H:\php809>php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼→資料匯總.php 0013
 
