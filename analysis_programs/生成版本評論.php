@@ -38,7 +38,8 @@ foreach( $頁碼 as $頁 )
 	{
 		require_once( 杜甫資料庫 . $書名 . "\\" . $頁 . 程式後綴 );
 		
-		if( is_string( $$陣列名[ 評論 ] ) )
+		if( array_key_exists( 評論, $$陣列名 ) && 
+			is_string( $$陣列名[ 評論 ] ) )
 		{
 			$code .= "'〚$頁:〛'=>array(\n";
 			$parts = explode( "\n", $$陣列名[ 評論 ] );
@@ -49,7 +50,8 @@ foreach( $頁碼 as $頁 )
 			}
 			$code .= "),\n";
 		}
-		elseif( is_array( $$陣列名[ 評論 ] ) )
+		elseif( array_key_exists( 評論, $$陣列名 ) && 
+			is_array( $$陣列名[ 評論 ] ) )
 		{
 			$temp = array();
 			

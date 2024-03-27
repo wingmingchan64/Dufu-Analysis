@@ -20,17 +20,22 @@ if( !array_key_exists( $頁碼, $頁碼_詩題 ) )
 // what to collect and show
 $資料陣列 = array(
 	'首'=>array( 
-		'粵'=>array( 詩文注音 ),
+		'粵'=>array(), // just on/off
 	),
 	'中'=>array( 
 		'楊'=>array( 注釋 ),
 		'仇'=>array( 注釋 ),
+		'蕭'=>array( 注釋 ),
 		'今'=>array( 注釋, 大意 ),
 		'譯'=>array( 譯文 ),
 	),
 	'尾'=>array(
+		'顧'=>array( 評論 ),
 		'楊'=>array( 評論 ),
 		'奭'=>array( 評論 ),
+		'仇'=>array( 評論 ),
+		'浦'=>array( 評論 ),
+		'蕭'=>array( 評論 ),
 	),
 );
 $中陣列 = array();
@@ -62,8 +67,8 @@ foreach( $詩文内容 as $行碼 => $詩文 )
 	echo $詩文, NL;
 }
 // 版本資料
-$中内容 = NL . 【分行討論】 . NL;
-$尾内容 = NL . 【通篇討論】 . NL;
+$中内容 = NL . 〖分行討論〗 . NL;
+$尾内容 =  〖通篇討論〗 . NL;
 
 foreach( $資料陣列 as $首中尾 => $版本内容 )
 {
@@ -87,10 +92,51 @@ foreach( $資料陣列 as $首中尾 => $版本内容 )
 				{
 					require_once( $file );
 					
+					echo NL, '陳永明《杜甫全集粵音注音》';
 					if( array_key_exists( 詩文注音, $$陣列名 ) )
 					{
 						echo NL, 【注音】, NL;
 						echo $$陣列名[ 詩文注音 ];
+					}
+					
+					if( array_key_exists( 韻部, $$陣列名 ) )
+					{
+						echo NL, 【韻部】, NL;
+						foreach( $$陣列名[ 韻部 ] as $坐標 => $韻 )
+						{
+							echo $韻, NL;
+						}
+					}
+					
+					if( array_key_exists( 體裁, $$陣列名 ) )
+					{
+						echo NL, 【體裁】, NL;
+						if( is_string( $$陣列名[ 體裁 ] ) )
+						{
+							echo $$陣列名[ 體裁 ], NL;
+						}
+						elseif( is_array( $$陣列名[ 體裁 ] ) )
+						{
+							foreach( $$陣列名[ 體裁 ] as $坐標 => $體裁 )
+							{
+								echo $坐標, $體裁, NL;
+							}
+						}
+					}
+					if( array_key_exists( 補充說明, $$陣列名 ) )
+					{
+						echo NL, 【補充說明】, NL;
+						if( is_string( $$陣列名[ 體裁 ] ) )
+						{
+							echo $$陣列名[ 補充說明 ], NL;
+						}
+						elseif( is_array( $$陣列名[ 補充說明 ] ) )
+						{
+							foreach( $$陣列名[ 補充說明 ] as $坐標 => $補充說明 )
+							{
+								echo $坐標, $補充說明, NL;
+							}
+						}
 					}
 				}
 			}
@@ -105,17 +151,16 @@ foreach( $資料陣列 as $首中尾 => $版本内容 )
 				{
 					require_once( $file );
 					$陣列名 = $書目簡稱[ '=' . $簡稱 ] . $部分;
-					//echo $陣列名, NL;
 					
 					foreach( array_keys( $$陣列名 )as $key )
 					{
+						
 						//echo $key, NL;
 						if( strpos( $key, "〚${頁碼}:" ) !== false )
 						{
 							if( !array_key_exists( $key, $中陣列 ) )
 							{
 								$中陣列[ $key ] = array();
-								//print_r( $中陣列 );
 							}
 							array_push( $中陣列[ $key ], 
 								"【${部分}】" . $簡稱 . "：" . $$陣列名[ $key ] ) ;
@@ -146,44 +191,47 @@ foreach( $資料陣列 as $首中尾 => $版本内容 )
 						{
 							array_push( 
 								$尾陣列[ $書目簡稱[ '=' . $簡稱 ] . $部分 ],
-								$$陣列名[ "$key" ][ 0 ] . NL );
+								$$陣列名[ "$key" ] );
 						}
 						elseif( strpos( $key, "〚${頁碼}:" ) !== false )
 						{
 							array_push( 
 								$尾陣列[ $書目簡稱[ '=' . $簡稱 ] . $部分 ],
-								$key . $$陣列名[ "$key" ][ 0 ] );
+								array( $key => $$陣列名[ "$key" ] ) );
 						}
 					}
-					//print_r( $$陣列名[ "〚${頁碼}:〛" ] );
-					//echo $$陣列名[ "〚${頁碼}:〛" ], NL;
 				}
 			}
 		}
 	}
 }
-//print_r( $中陣列 );
-
-//echo $中内容;
 
 foreach( $内容[ 行碼 ] as $行碼 => $詩文 )
 {
-	if( $行碼 == '〚1〛' || $詩文 == '' )
+	if( $詩文 == '' )
 	{
+		continue;
+	}
+	elseif( $行碼 == '〚1〛' &&
+		array_key_exists( "〚${頁碼}:1〛", $中陣列 ) )
+	{
+		echo  【題解】 , NL;
+		
+		foreach( $中陣列[ "〚${頁碼}:1〛" ] as $題解 )
+		{
+			echo str_replace( 【注釋】, '', $題解 ), NL;
+		}
+		echo NL;
+		echo 【詩句】, NL;
 		continue;
 	}
 
 	echo $詩文, NL;
-	//print_r( $中陣列 );
 	foreach( array_keys( $中陣列 ) as $坐標 )
 	{
 		$碼 = 提取行碼( $坐標 );
-		//echo $坐標, NL;
-		//echo $碼, NL;
 		if( "〚${碼}〛" == $行碼 )
 		{
-			//echo "〚${碼}〛", NL;
-			//echo $中陣列[ $坐標 ][ 0 ], NL;
 			$content = $中陣列[ $坐標 ];
 			foreach( $content as $line )
 			{
@@ -195,12 +243,38 @@ foreach( $内容[ 行碼 ] as $行碼 => $詩文 )
 }
 
 echo $尾内容;
+
 foreach( $尾陣列 as $書名 => $内容s )
 {
 	echo NL, $書名, NL;
+	
 	foreach( $内容s as $内容 )
 	{
-		echo $内容, NL;
+		if( is_string( $内容 ) )
+		{
+			echo $内容, NL;
+		}
+		elseif( is_array( $内容 ) ) // 坐標 => array
+		{
+			foreach( $内容 as $坐標 => $lines )
+			{
+				if( is_string( $坐標 ) )
+				{
+					echo $坐標;
+				}
+				if( is_string( $lines ) )
+				{
+					echo $lines, NL;
+				}
+				elseif( is_array( $lines ) )
+				{
+					foreach( $lines as $l )
+					{
+						echo $l, NL;
+					}
+				}
+			}
+		}
 	}
 }
 ?> 

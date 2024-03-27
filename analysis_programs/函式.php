@@ -568,6 +568,33 @@ function 生成完整坐標( string $坐標, string $頁碼 ) : string
 	}
 }
 
+function 提取詩文陣列( string $頁碼 ) : array
+{
+	global $頁碼_詩題;
+	global $詩組_詩題;
+	$默認路徑 = 詩集文件夾 . $頁碼 . 程式後綴;
+	require( $默認路徑 );
+	
+	// get poem
+	$詩文内容 = $内容[ 行碼 ];
+	// remove page number
+	$詩文内容[ '〚1〛' ] = preg_replace( '/\d{4}/', '', $詩文内容[ '〚1〛' ] );
+	// insert 副題
+	if( array_key_exists( $頁碼, $詩組_詩題 ) )
+	{
+		$副題s = $内容[ 副題 ];
+		$副題行碼 = $詩組_詩題[ $頁碼 ][ 1 ];
+		$index = 1;
+		
+		foreach( $副題行碼 as $行碼 )
+		{
+			$詩文内容[ "〚${行碼}〛" ] = $副題s[ "〚${頁碼}:${index}:〛" ];
+			$index++;
+		}
+	}
+	return $詩文内容;
+}
+
 function 提取版本詩文( string $版本, string $頁 ) : array
 {
 	require( "h:\\github\\Dufu-Analysis\\坐標_詩句.php" );

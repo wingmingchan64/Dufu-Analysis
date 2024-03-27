@@ -5,21 +5,22 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼→詩文.php 0
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
+require_once( 頁碼_詩題 );
 
 checkARGV( $argv, 2, 提供頁碼 );
 $頁碼 = trim( $argv[ 1 ] );
-$路徑 = 詩集文件夾 . $頁碼 . 程式後綴;
-
-if( file_exists( $路徑 ) )
+if( !array_key_exists( $頁碼, $頁碼_詩題 ) )
 {
-	require_once( $路徑 );
-	foreach( $内容[ 行碼 ] as $碼 => $文 )
-	{
-		echo $文, NL;
-	}
+	echo 無頁碼, NL;
 }
-else
+$result = 提取詩文陣列( $頁碼 );
+
+$默認路徑 = 詩集文件夾 . $頁碼 . 程式後綴;
+require_once( $默認路徑 );
+// output poem
+echo NL;
+foreach( $result as $行碼 => $詩文 )
 {
-	echo 無結果, NL;
+	echo $詩文, NL;
 }
 ?>
