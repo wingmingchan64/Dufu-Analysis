@@ -126,7 +126,7 @@ foreach( $資料陣列 as $首中尾 => $版本内容 )
 					if( array_key_exists( 補充說明, $$陣列名 ) )
 					{
 						echo NL, 【補充說明】, NL;
-						if( is_string( $$陣列名[ 體裁 ] ) )
+						if( is_string( $$陣列名[ 補充說明 ] ) )
 						{
 							echo $$陣列名[ 補充說明 ], NL;
 						}
@@ -178,6 +178,7 @@ foreach( $資料陣列 as $首中尾 => $版本内容 )
 				if( file_exists( $file ) )
 				{
 					require_once( $file );
+					
 					$陣列名 = "${簡稱}${部分}";
 					if( !array_key_exists( $書目簡稱[ '=' . $簡稱 ] . $部分, $尾陣列 ) )
 					{
@@ -246,7 +247,11 @@ echo $尾内容;
 
 foreach( $尾陣列 as $書名 => $内容s )
 {
-	echo NL, $書名, NL;
+	// when there is content to display
+	if( sizeof( $内容s ) > 0 )
+	{
+		echo NL, $書名, NL;
+	}
 	
 	foreach( $内容s as $内容 )
 	{
