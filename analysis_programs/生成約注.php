@@ -21,9 +21,9 @@ if( file_exists( $file ) )
 {
 	require_once( $file );
 	$陣列 = $$陣列名;
-	require_once( 'h:\github\Dufu-Analysis\analysis_programs\約注\2516.php' );
+	require_once( 'h:\github\Dufu-Analysis\analysis_programs\約注\0068.php' );
 	$result = 生成約注陣列( $杜甫詩陣列, $頁碼, $約注_陣列 );
-	print_r( $result );
+	//print_r( $result );
 	顯示杜甫詩陣列詩文( $詩組_詩題, $頁碼, $result );
 }
 
