@@ -12,6 +12,11 @@ require_once( 杜甫資料庫 . '頁碼_路徑.php' );
 require_once( 杜甫資料庫 . '書目簡稱.php' );
 require( 杜甫資料庫 . '坐標_詩句.php' );
 require_once( 杜甫資料庫 . '頁碼_詩題.php' );
+require_once( 杜甫資料庫 . '二字組合_坐標.php' );
+require_once( 杜甫資料庫 . '三字組合_坐標.php' );
+require_once( 杜甫資料庫 . '四字組合_坐標.php' );
+require_once( 杜甫資料庫 . '五字組合_坐標.php' );
+
 $path_for_file = '';
 $text_of_file  = '';
 
@@ -595,6 +600,55 @@ function 提取詩文陣列( string $頁碼 ) : array
 	return $詩文内容;
 }
 
+// $詩文: 2-5字
+function 提取詩文末字坐標( string $頁碼, string $詩文 ) : string
+{
+	global $二字組合_坐標;
+	global $三字組合_坐標;
+	global $四字組合_坐標;
+	global $五字組合_坐標;
+	$current = array();
+	$坐標s = array();
+	$坐 = '';
+	$字數 = mb_strlen( $詩文 );
+	switch( $字數 )
+	{
+		case 2:
+			$current = $二字組合_坐標;
+			break;
+		case 3:
+			$current = $三字組合_坐標;
+			break;
+		case 4:
+			$current = $四字組合_坐標;
+			break;
+		case 5:
+			$current = $五字組合_坐標;
+			break;
+	}
+	if( array_key_exists( $詩文, $current ) )
+	{
+		$坐標s = $current[ $詩文 ];
+	}
+	if( sizeof( $坐標s ) > 0 )
+	{
+		foreach( $坐標s as $坐標 )
+		{
+			if( 提取頁碼( $坐標 ) == $頁碼 )
+			{
+				$坐 = $坐標;
+			}
+		}
+	}
+	if( $坐 != '' )
+	{
+		$坐 = preg_replace( '/\d{4}:/', '', 
+			  preg_replace( '/\d-/', '', $坐 ) );
+	}
+	
+	return $坐;
+}
+
 function 提取版本詩文( string $版本, string $頁 ) : array
 {
 	require( "h:\\github\\Dufu-Analysis\\坐標_詩句.php" );
@@ -756,7 +810,6 @@ if( $頁 == '3955' )
 			//trim( $〖詩文〗, '〖〗' ) . "〛";
 			$str . "〛";
 	}
-	
 
 	require( 詩集文件夾 . "${頁}.php" );
 	//$詩文 = trim( $〖詩文〗, '〖〗' );
@@ -1117,31 +1170,41 @@ function 杜甫詩陣列詩文替代( array &$頁陣列, array $替代 )
 {
 	foreach( $替代 as $坐標 => $替代文 ) // $替代文 string
 	{
-		$路徑陣列 = 坐標轉換成列陣路徑( $坐標 );
-		
-		if( sizeof( $路徑陣列 ) == 3 ) // 行、句、字
+		if( mb_strpos( $坐標, '〚' ) !== false ) // 坐標
 		{
-			$頁陣列[ $路徑陣列[ 0 ] ]
-				[ $路徑陣列[ 1 ] ]
-				[ $路徑陣列[ 2 ] ] = $替代文;
+			$路徑陣列 = 坐標轉換成列陣路徑( $坐標 );
+			
+			if( sizeof( $路徑陣列 ) == 3 ) // 行、句、字
+			{
+				$頁陣列[ $路徑陣列[ 0 ] ]
+					[ $路徑陣列[ 1 ] ]
+					[ $路徑陣列[ 2 ] ] = $替代文;
+			}
+			elseif( sizeof( $路徑陣列 ) == 4 )
+			{
+				$頁陣列[ $路徑陣列[ 0 ] ]
+					[ $路徑陣列[ 1 ] ]
+					[ $路徑陣列[ 2 ] ] 
+					[ $路徑陣列[ 3 ] ] = $替代文;
+			}
 		}
-		elseif( sizeof( $路徑陣列 ) == 4 )
+		elseif( mb_strpos( $坐標, ':' ) !== false ) // 副題 1:
 		{
-			$頁陣列[ $路徑陣列[ 0 ] ]
-				[ $路徑陣列[ 1 ] ]
-				[ $路徑陣列[ 2 ] ] 
-				[ $路徑陣列[ 3 ] ] = $替代文;
+			$parts = explode( ':', $坐標 );
+			if( array_key_exists( intval( $parts[ 0 ] ), $頁陣列 ) )
+			{
+				$頁陣列[ intval( $parts[ 0 ] ) ][ '副題' ] = $替代文;
+			}
 		}
-		//print_r( $路徑陣列 );
+		else // 詩題 
+		{
+			if( array_key_exists( $坐標, $頁陣列 ) )
+			{
+				$頁陣列[ $坐標 ] = $替代文;
+			}
+		}
 	}
 }
 
-/*
-$約注_陣列 = array(
-'〚0003:3.2.5〛' => 提取内容( '楊',注釋,'〚0003:3.2.4-5〛' ) ),
-'〚0003:3.2.3〛' => '' ),
-
-);
-*/
 
 ?>
