@@ -156,7 +156,6 @@ foreach( $資料陣列 as $首中尾 => $版本内容 )
 					
 					foreach( array_keys( $$陣列名 )as $key )
 					{
-						
 						//echo $key, NL;
 						if( strpos( $key, "〚${頁碼}:" ) !== false )
 						{
@@ -230,7 +229,11 @@ foreach( $内容[ 行碼 ] as $行碼 => $詩文 )
 	}
 
 	echo $詩文, NL;
-	foreach( array_keys( $中陣列 ) as $坐標 )
+	//sort( $中陣列 );
+	$keys = array_keys( $中陣列 );
+	sort( $keys );
+
+	foreach( $keys as $坐標 )
 	{
 		$碼 = 提取行碼( $坐標 );
 		if( "〚${碼}〛" == $行碼 )
@@ -291,4 +294,9 @@ foreach( $書目簡稱 as $簡 => $書 )
 }
 echo NL, '〖參考書目〗';
 echo NL, $簡稱;
+
+$keys = array_keys( $中陣列 );
+sort( $keys );
+print_r( $keys );
+
 ?> 
