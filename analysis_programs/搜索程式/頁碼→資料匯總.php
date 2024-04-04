@@ -8,7 +8,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 頁碼_詩題 );
 require_once( 詩組_詩題 );
 require_once( 書目簡稱 );
-//require_once( 帶序文之詩歌 );
+require_once( 資料陣列 );
 
 checkARGV( $argv, 2, 提供頁碼 );
 $頁碼 = trim( $argv[ 1 ] );
@@ -17,29 +17,6 @@ if( !array_key_exists( $頁碼, $頁碼_詩題 ) )
 {
 	echo 無頁碼, NL;
 }
-// what to collect and show
-$資料陣列 = array(
-	'首'=>array( 
-		'粵'=>array(), // just on/off
-	),
-	'中'=>array( 
-		'楊'=>array( 注釋 ),
-		'錢'=>array( 注釋 ),
-		'朱'=>array( 注釋 ),
-		'仇'=>array( 注釋 ),
-		'蕭'=>array( 注釋 ),
-		'今'=>array( 注釋, 大意 ),
-		'譯'=>array( 注釋, 譯文 ),
-	),
-	'尾'=>array(
-		'顧'=>array( 評論 ),
-		'楊'=>array( 評論 ),
-		'奭'=>array( 評論 ),
-		'仇'=>array( 評論 ),
-		'浦'=>array( 評論 ),
-		'蕭'=>array( 評論 ),
-	),
-);
 $中陣列 = array();
 $尾陣列 = array();
 
@@ -292,11 +269,7 @@ foreach( $書目簡稱 as $簡 => $書 )
 {
 	$簡稱 .= str_replace( '=', '', $簡 ) . '：' . $書 . NL;
 }
-echo NL, '〖參考書目〗';
-echo NL, $簡稱;
-
-$keys = array_keys( $中陣列 );
-sort( $keys );
-print_r( $keys );
+//echo NL, '〖參考書目〗';
+//echo NL, $簡稱;
 
 ?> 

@@ -40,12 +40,12 @@ $詩句_注音 = array();
 $詩題_注音 = array();
 $count = 0;
 
-//$頁 = "2445";
+//$頁 = "4361";
 foreach( $頁碼 as $頁 )
 {
 	
-	if( $前綴 == '粵' && intval( $頁 ) > 20 )
-	{ exit; }
+	//if( $前綴 == '粵' && intval( $頁 ) > 20 )
+	//{ exit; }
 	
 	require_once( 詩集文件夾 . $頁 . 程式後綴 );
 	$默認内容 = $内容;
@@ -90,9 +90,10 @@ foreach( $頁碼 as $頁 )
 		{
 			//echo $頁, "\n";
 			//echo $current, "\n";
-			//echo $行, "\n";
+			//echo trim( $行 ), "\n";
 
 			array_push( $部分陣列[ $current ], trim( $行 ) );
+			//print_r( $部分陣列 );
 		}
 	}
 	//print_r( $部分陣列 );exit;
@@ -109,7 +110,7 @@ $code = "<?php
 
 	//$行音陣列 = array();
 	//$平仄陣列 = array();
-	
+	//print_r( $部分陣列 );
 	foreach( $部分陣列 as $k => $子儲存 )
 	{
 		$題 = mb_substr( $k, 1, -1 ); // remove 【】
@@ -128,16 +129,17 @@ $code = "<?php
 
 		$内容 = implode( "\n", $子儲存 ); // a string
 		$parts = array();
-
+		//print_r( $内容 );
+		
 		// 粵音: 【注音】,【韻部】
 		// 岱宗夫如何？齊魯青未了。
 		// doi6 zung1 fu4 jyu4 ho4, cai4 lou5 cing1 mei6 liu5
 		// ---------------------------------------------
 		if( mb_strpos( $内容, '--' ) !== false )//delimiter
 		{
-			//echo "L131", NL;
+			//echo "L138", NL;
 			$音_陣列 = explode( "\n", $内容  ); // lines
-			print_r( $音_陣列 );
+			//print_r( $音_陣列 );
 			$sub_code = "array(\n";
 			$詩文注音 = '';
 			$詩題文 = ''; // for comparison
@@ -181,7 +183,7 @@ $code = "<?php
 					$音s = explode( ',', $音_陣列[ $i ] );
 					$句s = explode( '。', $文 );
 					
-					if( $頁 == '0013' )
+					if( $頁 == '4361' )
 					{
 						//print_r( $音s );
 						//print_r( $句s );
@@ -543,6 +545,10 @@ if( $頁 == '3955' )
 	}
 	elseif( mb_strpos( $内容, '〚' ) !== false )
 	{
+		if( $頁碼 == '4361' )
+		{
+			echo 'here', NL;
+		}
 		$〚儲存 = explode( '〚', $内容 );
 		$sub_code = "array(\n";
 		
