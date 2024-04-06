@@ -268,8 +268,8 @@ foreach( $頁碼 as $頁 )
 	}
 	$msg = file_get_contents( 'msg.txt', true );
 	file_put_contents( 資料匯總文件夾 . $頁 . '.txt', 
-		str_replace( '﻿', "\n", $content . $msg ) );
+		str_replace( '﻿', NL, $content . $msg ) );
 	file_put_contents( "H:\\github\\Dufu-Analysis\\資料匯總\\" . $頁 . '.txt', 
-		str_replace( '﻿', "\n", $content . $msg ) );
+		str_replace( '﻿', NL, $content . $msg ) );
 }
 ?>
