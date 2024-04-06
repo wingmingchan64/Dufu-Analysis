@@ -85,7 +85,7 @@ $code = "<?php
 ";
 foreach( $杜甫詩陣列 as $頁 => $子列陣 )
 {
-	$code = $code . "\"${頁}\"=>array(\n";
+	$code = $code . "\"${頁}\"=>array(" . NL;
 	
 	if( in_array( $頁, array_keys( $詩組_詩題 ) ) )
 	{
@@ -94,10 +94,10 @@ foreach( $杜甫詩陣列 as $頁 => $子列陣 )
 			if( is_string( $行子列陣 ) )
 			{
 				$code = $code . 
-					" \"${首碼}\"=>\"${行子列陣}\",\n";
+					" \"${首碼}\"=>\"${行子列陣}\"," . NL;
 				continue;
 			}
-			$code = $code . " \"${首碼}\"=>array(\n";
+			$code = $code . " \"${首碼}\"=>array(" . NL;
 			//print_r( $行子列陣 );
 
 			foreach( $行子列陣 as $行碼 => $句子列陣 )
@@ -105,12 +105,12 @@ foreach( $杜甫詩陣列 as $頁 => $子列陣 )
 				if( is_string( $句子列陣 ) )
 				{
 					$code = $code . 
-						"  \"${行碼}\"=>\"${句子列陣}\",\n";
+						"  \"${行碼}\"=>\"${句子列陣}\"," . NL;
 					continue;
 				}
 
 				
-				$code = $code . "   \"${行碼}\"=>array(\n";
+				$code = $code . "   \"${行碼}\"=>array(" . NL;
 				foreach( $句子列陣 as $句碼 => $字子列陣 )
 				{
 					$code = $code . "\"${句碼}\"=>array(";
@@ -118,12 +118,12 @@ foreach( $杜甫詩陣列 as $頁 => $子列陣 )
 					{
 						$code = $code . "\"${字碼}\"=>\"${字}\",";
 					}
-					$code = $code . "),\n";
+					$code = $code . ")," . NL;
 				}
 				
-				$code = $code . "),\n";
+				$code = $code . ")," . NL;
 			}
-			$code = $code . "),\n";
+			$code = $code . ")," . NL;
 		}
 	}
 	else
@@ -133,17 +133,17 @@ foreach( $杜甫詩陣列 as $頁 => $子列陣 )
 			if( is_string( $句子列陣 ) )
 			{
 				$code = $code . 
-					" \"${行碼}\"=>\"${句子列陣}\",\n";
+					" \"${行碼}\"=>\"${句子列陣}\"," . NL;
 				continue;
 			}
 
-			$code = $code . " \"${行碼}\"=>array(\n";
+			$code = $code . " \"${行碼}\"=>array(" . NL;
 			foreach( $句子列陣 as $句碼 => $字子列陣 )
 			{
 				if( is_string( $字子列陣 ) )
 				{
 					$code = $code . 
-						"  \"${句碼}\"=>\"${字子列陣}\",\n";
+						"  \"${句碼}\"=>\"${字子列陣}\"," . NL;
 					continue;
 				}
 
@@ -152,13 +152,13 @@ foreach( $杜甫詩陣列 as $頁 => $子列陣 )
 				{
 					$code = $code . "\"${字碼}\"=>\"${字}\",";
 				}
-				$code = $code . "),\n";
+				$code = $code . ")," . NL;
 			}
 				
-			$code = $code . "),\n";
+			$code = $code . ")," . NL;
 		}
 	}
-	$code = $code . "),\n";
+	$code = $code . ")," . NL;
 }
 
 $code = $code . ");
