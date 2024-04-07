@@ -229,12 +229,29 @@ foreach( $頁碼 as $頁 )
 
 	$content .= $尾内容;
 
+	// 仇大意 not working
 	foreach( $尾陣列 as $書名 => $内容s )
 	{
 		// when there is content to display
 		if( sizeof( $内容s ) > 0 )
 		{
-			$content .= NL . $書名 . NL;
+			if( is_string( $内容s[ 0 ] ) && $内容s[ 0 ] !== '' )
+			{
+				$content .= NL . $書名 . NL;
+			}
+			elseif( is_array( $内容s[ 0 ] ) )
+			{
+				try{
+				if( is_string( $内容s[ 0 ][ 0 ] ) && $内容s[ 0 ][ 0 ] !== '' )
+				{
+					//print_r( $内容s[ 0 ] );
+				}
+				}catch( Exception $e ){ print_r( $内容s[ 0 ] ); }
+				
+				$content .= NL . $書名 . NL;
+			}
+			else
+				continue;
 		}
 		
 		foreach( $内容s as $内容 )
@@ -266,6 +283,15 @@ foreach( $頁碼 as $頁 )
 			}
 		}
 	}
+	
+	$簡稱 = '';
+	foreach( $書目簡稱 as $簡 => $書 )
+	{
+		$簡稱 .= str_replace( '=', '', $簡 ) . '：' . $書 . NL;
+	}
+	$content .= NL . '〖參考書目〗' . NL . $簡稱;
+	
+
 	$msg = file_get_contents( 'msg.txt', true );
 	file_put_contents( 資料匯總文件夾 . $頁 . '.txt', 
 		str_replace( '﻿', NL, $content . $msg ) );
