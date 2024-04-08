@@ -39,7 +39,7 @@ foreach( $頁碼 as $頁 )
 		}
 	}
 	// output poem
-	$content .= NL . 【詩文】 . NL;
+	//$content .= NL . 【詩文】 . NL;
 	foreach( $詩文内容 as $行碼 => $詩文 )
 	{
 		$content .= $詩文 . NL;
@@ -207,8 +207,8 @@ foreach( $頁碼 as $頁 )
 			$content .= 【詩句】 . NL;
 			continue;
 		}
-
-		$content .= $詩文 . NL;
+		// output 行碼
+		$content .= $行碼 . $詩文 . NL;
 		$keys = array_keys( $中陣列 );
 		sort( $keys );
 
