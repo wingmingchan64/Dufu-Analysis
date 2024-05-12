@@ -12,15 +12,11 @@ $content = '';
 
 foreach( $lines as $l )
 {
-	if( $l == '' )
+	if( $l == '' || mb_strpos( $l, '//' ) === false )
 	{
 		continue;
 	}
-	elseif( mb_strpos( $l, '//' ) === false )
-	{
-		$content = $content . $l . NL;
-	}
-	else
+	else // only lines with //
 	{
 		$l = str_replace( '// ', '', $l );
 		$l_array = explode( ' ', $l );
@@ -31,16 +27,16 @@ foreach( $lines as $l )
 		}
 		
 		$默認頁碼 = $l_array[ 1 ];
-		//try
-		//{
-			//echo $默認頁碼, NL;
+		try
+		{
+			echo $默認頁碼, NL;
 		require_once( 詩集文件夾 . $默認頁碼 . 程式後綴 );
-		//}
-		//catch( ErrorException $e )
-		//{
-			//echo '頁碼', $默認頁碼;
+		}
+		catch( ErrorException $e )
+		{
+			echo '頁碼', $默認頁碼;
 			//exit;
-		//}
+		}
 		
 		$版本詩題 = $l_array[ 0 ];
 		$默認詩題 = $内容[ 詩題 ];
@@ -52,10 +48,26 @@ foreach( $lines as $l )
 		}
 		
 		$版本詩題 = trim( $版本詩題 ) . ' ' . $默認頁碼 . ' ' .
-			$l_array[ 2 ] . NL . NL;
+			$l_array[ 2 ] . NL;
 
 		$content = $content . $版本詩題;
 		$content = $content . $默認詩文 . NL . NL;
+		
+		$版本路徑 = 杜臆 . $默認頁碼 . 程式後綴;
+		
+		if( file_exists( $版本路徑 ) )
+		{
+			require_once( $版本路徑 );
+			
+			if( is_string( $奭内容[ 評論 ] ) )
+			{
+				$content = $content . $奭内容[ 評論 ] . NL . NL;
+			}
+			elseif( is_array( $奭内容[ 評論 ] ) )
+			{
+				$content = $content . 提取陣列値( $奭内容[ 評論 ] ) . NL . NL;
+			}
+		}
 	}
 }
 
