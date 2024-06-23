@@ -73,6 +73,7 @@ foreach( $lines as $l )
 
 $outfile = 杜臆 . "王嗣奭《杜臆》_帶詩文.txt";
 file_put_contents( $outfile, $content );
-
+$outfile = "H:\\github\\Dufu-Analysis\\王嗣奭《杜臆》\\" . "王嗣奭《杜臆》_帶詩文.txt";
+file_put_contents( $outfile, $content );
 ?>
 
