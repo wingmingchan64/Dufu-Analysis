@@ -23,7 +23,7 @@ foreach( $lines as $l )
 		
 		if( $l_array[ 1 ] == '6497' )
 		{
-			$content = $content . "哭長孫侍御";
+			$content = $content . "哭長孫侍御 6497 PDF107,PDF1.156" . NL;
 			$content = $content . "道爲謀書重。名因賦頌雄。禮闈曾擢桂。憲府舊乘驄。流水生涯盡。浮雲世事空。唯餘舊臺柏。蕭瑟九原中。" . NL . NL;
 			
 			$content = $content . "「舊乘驄」、「舊臺柏」，不但字重而意亦重，他本作「屢乘驄」，當從之。" . NL . NL;
