@@ -23,18 +23,23 @@ foreach( $lines as $l )
 		
 		if( $l_array[ 1 ] == '6497' )
 		{
+			$content = $content . "哭長孫侍御";
+			$content = $content . "道爲謀書重。名因賦頌雄。禮闈曾擢桂。憲府舊乘驄。流水生涯盡。浮雲世事空。唯餘舊臺柏。蕭瑟九原中。" . NL . NL;
+			
+			$content = $content . "「舊乘驄」、「舊臺柏」，不但字重而意亦重，他本作「屢乘驄」，當從之。" . NL . NL;
+			
 			continue;
 		}
 		
 		$默認頁碼 = $l_array[ 1 ];
 		try
 		{
-			echo $默認頁碼, NL;
+			//echo $默認頁碼, NL;
 		require_once( 詩集文件夾 . $默認頁碼 . 程式後綴 );
 		}
 		catch( ErrorException $e )
 		{
-			echo '頁碼', $默認頁碼;
+			//echo '頁碼', $默認頁碼;
 			//exit;
 		}
 		
