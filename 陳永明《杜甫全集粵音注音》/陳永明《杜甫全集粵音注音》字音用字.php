@@ -1192,5 +1192,6 @@ $音字=array(
 "zyun3"=>array("轉"),
 "zyun6"=>array("傳","縳"),
 "zyut3"=>array("啜","拙","掇","輟"),
-"zyut6"=>array("絕"));
+"zyut6"=>array("絕"),
+"，gei1"=>array("飢"));
 ?>
