@@ -529,12 +529,12 @@ if( $頁 == '3955' )
 					}
 				}
 				} catch( Exception $e )
-				{ echo $頁; }
+				{ echo $頁, NL; }
 				
 				try{
 				$注釋 = $parts[ 0 ] . '：' . $parts[ 1 ];
 				} catch( Exception $e )
-				{ echo $頁; }
+				{ echo $頁, NL; }
 				
 			}
 			
