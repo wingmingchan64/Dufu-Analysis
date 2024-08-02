@@ -519,6 +519,7 @@ if( $頁 == '3955' )
 					}
 				}
 				// look for the first matching 坐標
+				try{
 				foreach( $坐標s as $坐標 )
 				{
 					if( str_starts_with( $坐標, '〚' . $頁 ) )
@@ -527,6 +528,9 @@ if( $頁 == '3955' )
 						break;
 					}
 				}
+				} catch( Exception $e )
+				{ echo $頁; }
+				
 				try{
 				$注釋 = $parts[ 0 ] . '：' . $parts[ 1 ];
 				} catch( Exception $e )
