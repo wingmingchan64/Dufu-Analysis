@@ -18,7 +18,6 @@ foreach( $頁碼 as $頁 )
 
 	$中陣列 = array();
 	$尾陣列 = array();
-
 	$默認路徑 = 詩集文件夾 . $頁 . 程式後綴;
 	require_once( $默認路徑 );
 	// get poem
@@ -215,9 +214,11 @@ foreach( $頁碼 as $頁 )
 		foreach( $keys as $坐標 )
 		{
 			$碼 = 提取行碼( $坐標 );
+			
 			if( "〚${碼}〛" == $行碼 )
 			{
 				$c = $中陣列[ $坐標 ];
+				
 				foreach( $c as $line )
 				{
 					$content .= $line . NL;

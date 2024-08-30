@@ -1,7 +1,7 @@
 <?php
 /*
 php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 今 注釋
-
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 楊 旁注
 */
 require_once( '常數.php' );
 require_once( '函式.php' );
@@ -43,6 +43,11 @@ foreach( $頁碼 as $頁 )
 			//echo $頁, "\n";
 			
 			if( $$陣列名[ $種類 ] == "" )
+			{
+				continue;
+			}
+			
+			if( $$陣列名[ $種類 ] == 旁注 && intval( $頁 ) >=  59 )
 			{
 				continue;
 			}

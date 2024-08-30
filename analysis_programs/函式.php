@@ -796,10 +796,10 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 }
 function 提取〖詩文〗坐標( string $〖詩文〗, string $頁 ) : string
 {
-if( $頁 == '3955' )
-{
-	//echo 'L664 ', $〖詩文〗, NL;
-}
+	if( $頁 == '3955' )
+	{
+		//echo 'L664 ', $〖詩文〗, NL;
+	}
 	
 	$str = str_replace( '〛', '', str_replace( '〚', '', $〖詩文〗 ) );
 	
@@ -868,6 +868,8 @@ if( $頁 == '3955' )
 	
 	return $空坐標;
 }
+
+
 
 function containsPronunciation( string $haystack, string $needle ) : bool
 {

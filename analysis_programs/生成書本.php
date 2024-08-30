@@ -43,7 +43,6 @@ $count = 0;
 //$頁 = "4361";
 foreach( $頁碼 as $頁 )
 {
-	
 	//if( $前綴 == '粵' && intval( $頁 ) > 20 )
 	//{ exit; }
 	
@@ -119,6 +118,7 @@ $code = "<?php
 		$評論     = ( $題 == 評論 );
 		$體裁 = "";
 		$附錄     = ( $題 == 附錄 );
+		$旁注     = ( $題 == 旁注 );
 		//echo "L117", NL;
 
 		if( $題 == 體裁 )
@@ -433,29 +433,64 @@ if( $頁 == '3955' )
 		{
 			continue;
 		}
-	// 坐標的轉換靠的是統一化詩文，因此出現在〖〗内的必須是
-	// 我的統一化後的詩文。
+		elseif( $旁注 )
+		{
+			//echo $内容, NL;
+			if(	mb_strpos( $内容, '〖' ) !== false )
+			{
+				$〖儲存 = explode( '〖', $内容 );
+				$sub_code = "array(\n";
+				
+				foreach( $〖儲存 as $l )
+				{
+					$l = trim( $l );
+				
+					if( $l == "" )
+					{
+						continue;
+					}
+					$parts = explode( '〗', $l );
+					$行 = $parts[ 0 ];
+					//$默認内容[ 行碼 ]
+					//echo $行, NL;
+					//print_r( $默認内容[ 行碼 ] );
+					$行碼 = array_flip( $默認内容[ 行碼 ] )[ $行 ];
+					//echo $行碼, NL;
+					//echo $parts[ 1 ], NL;
+					$注 = $parts[ 1 ];
+					$l = "\"${行碼}\"=>\"${注}\",\n";
+			
+					$sub_code = $sub_code . $l;
+				}
+				$sub_code = substr( $sub_code, 0, -2 );
+				$sub_code = $sub_code . ")\n";
+				$内容 = $sub_code;
+			}
+			//continue;
+		}
+		// 坐標的轉換靠的是統一化詩文，因此出現在〖〗内的必須是
+		// 我的統一化後的詩文。
 		// 注釋
 		elseif( mb_strpos( $内容, '〖' ) !== false )
 		{
 			//echo "L425", NL;
 			$〖儲存 = explode( '〖', $内容 );
-		$sub_code = "array(\n";
+			$sub_code = "array(\n";
 				
-		foreach( $〖儲存 as $l )
-		{
-			$l = trim( $l );
-			
-			if( $l == "" )
+			foreach( $〖儲存 as $l )
 			{
-				continue;
-			}
-			$parts = explode( '〗', $l );
-			// 計算坐標
+				$l = trim( $l );
+			
+				if( $l == "" )
+				{
+					continue;
+				}
+				$parts = explode( '〗', $l );
+				// 計算坐標
 
-			$詞條 = $parts[ 0 ];
-			$詞條長度 = mb_strlen( $詞條 );
-			$詞條坐標 = "";
+				$詞條 = $parts[ 0 ];
+				$詞條長度 = mb_strlen( $詞條 );
+				$詞條坐標 = "";
 			
 /*
 			if( $詞條 == 1 ) //〖1〗題解
@@ -464,31 +499,31 @@ if( $頁 == '3955' )
 				$注釋 = $parts[ 1 ];
 			}
 */
-			if( intval( $詞條 ) > 0 )
-			{
-				//echo $頁, "\n";
-				$詞條坐標 = "〚${頁}:${詞條}〛";
-				$注釋 = $parts[ 1 ];
-			}
-			elseif( $詞條長度 == 1 ) // 單字
-			{
-				foreach( $坐標_用字 as $坐標 => $用字 )
+				if( intval( $詞條 ) > 0 )
 				{
-					if( $詞條 == $用字 )
-					{
-						$詞條坐標 = $坐標;
-						break;
-					}
+					//echo $頁, "\n";
+					$詞條坐標 = "〚${頁}:${詞條}〛";
+					$注釋 = $parts[ 1 ];
 				}
-				$注釋 = $parts[ 0 ] . '：' . $parts[ 1 ];
-			}
-			elseif( mb_strpos( $詞條, '〚' ) !== false )
-			{
-				$詞條坐標 = $詞條;
-				$注釋 = $parts[ 1 ];
-			}
-			else  // 組合
-			{				
+				elseif( $詞條長度 == 1 ) // 單字
+				{
+					foreach( $坐標_用字 as $坐標 => $用字 )
+					{
+						if( $詞條 == $用字 )
+						{
+							$詞條坐標 = $坐標;
+							break;
+						}
+					}
+					$注釋 = $parts[ 0 ] . '：' . $parts[ 1 ];
+				}
+				elseif( mb_strpos( $詞條, '〚' ) !== false )
+				{
+					$詞條坐標 = $詞條;
+					$注釋 = $parts[ 1 ];
+				}
+				else  // 組合
+				{				
 				if( $詞條長度 == 2 )
 				{
 					$坐標s = $二字組合_坐標[ $詞條 ];
