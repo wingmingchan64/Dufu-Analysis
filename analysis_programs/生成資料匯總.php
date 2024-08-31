@@ -10,8 +10,6 @@ require_once( 詩組_詩題 );
 require_once( 書目簡稱 );
 require_once( 資料陣列 );
 
-//$頁 = '0013';
-
 foreach( $頁碼 as $頁 )
 {
 	$content = '';
@@ -19,6 +17,7 @@ foreach( $頁碼 as $頁 )
 	$中陣列 = array();
 	$尾陣列 = array();
 	$默認路徑 = 詩集文件夾 . $頁 . 程式後綴;
+	
 	require_once( $默認路徑 );
 	// get poem
 	$詩文内容 = $内容[ 行碼 ];
@@ -86,8 +85,9 @@ foreach( $頁碼 as $頁 )
 							}
 							} catch ( Exception $e ) {
 							echo $e, NL;
-							print_r( $$陣列名[ 韻部 ] );
-							echo $頁, NL; }
+							//print_r( $$陣列名[ 韻部 ] );
+							echo $頁, NL; 
+							}
 						}
 						
 						if( array_key_exists( 體裁, $$陣列名 ) )
@@ -154,12 +154,14 @@ foreach( $頁碼 as $頁 )
 				foreach( $部分s as $部分 )
 				{
 					$file = $版本文件夾 . $書目簡稱[ '=' . $簡稱 ] . $部分 . 程式後綴;
+					//echo $file, NL;
 					
 					if( file_exists( $file ) )
 					{
 						require_once( $file );
 						
 						$陣列名 = "${簡稱}${部分}";
+						
 						if( !array_key_exists( $書目簡稱[ '=' . $簡稱 ] . $部分, $尾陣列 ) )
 						{
 							$尾陣列[ $書目簡稱[ '=' . $簡稱 ] . $部分 ] = array();
@@ -209,6 +211,7 @@ foreach( $頁碼 as $頁 )
 		// output 行碼
 		$content .= $行碼 . $詩文 . NL;
 		$keys = array_keys( $中陣列 );
+		// use custom sorting!!!
 		sort( $keys );
 
 		foreach( $keys as $坐標 )
@@ -230,7 +233,6 @@ foreach( $頁碼 as $頁 )
 
 	$content .= $尾内容;
 
-	// 仇大意 not working
 	foreach( $尾陣列 as $書名 => $内容s )
 	{
 		// when there is content to display
@@ -242,12 +244,23 @@ foreach( $頁碼 as $頁 )
 			}
 			elseif( is_array( $内容s[ 0 ] ) )
 			{
+				/*
 				try{
-				if( is_string( $内容s[ 0 ][ 0 ] ) && $内容s[ 0 ][ 0 ] !== '' )
+					//print_r( array_keys( $内容s[ 0 ] ) );
+				
+				if( sizeof( $内容s[ 0 ] ) > 0 &&
+					!empty( $内容s[ 0 ][ 0 ] ) &&
+					is_string( $内容s[ 0 ][ 0 ] ) && 
+					$内容s[ 0 ][ 0 ] !== '' )
 				{
 					//print_r( $内容s[ 0 ] );
 				}
-				}catch( Exception $e ){ print_r( $内容s[ 0 ] ); }
+				
+				}catch( Exception $e ){ 
+					//echo $e, NL;
+					//echo $頁, NL;
+				}
+				*/
 				
 				$content .= NL . $書名 . NL;
 			}
