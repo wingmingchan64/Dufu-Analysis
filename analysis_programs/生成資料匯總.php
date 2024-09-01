@@ -222,8 +222,10 @@ foreach( $頁碼 as $頁 )
 			{
 				$c = $中陣列[ $坐標 ];
 				
+				
 				foreach( $c as $line )
 				{
+					//$line = preg_replace( 夾注regex, '', $line );
 					$content .= $line . NL;
 				}
 			}
@@ -231,6 +233,7 @@ foreach( $頁碼 as $頁 )
 		$content .= NL;
 	}
 
+	$尾内容 = preg_replace( 夾注regex, '', $尾内容 );
 	$content .= $尾内容;
 
 	foreach( $尾陣列 as $書名 => $内容s )
@@ -272,6 +275,7 @@ foreach( $頁碼 as $頁 )
 		{
 			if( is_string( $内容 ) )
 			{
+				$内容 = preg_replace( 夾注regex, '', $内容 );
 				$content .= $内容 . NL;
 			}
 			elseif( is_array( $内容 ) ) // 坐標 => array
@@ -284,12 +288,14 @@ foreach( $頁碼 as $頁 )
 					}
 					if( is_string( $lines ) )
 					{
+						$lines = preg_replace( 夾注regex, '', $lines );
 						$content .= $lines . NL;
 					}
 					elseif( is_array( $lines ) )
 					{
 						foreach( $lines as $l )
 						{
+							$l = preg_replace( 夾注regex, '', $l );
 							$content .= $l . NL;
 						}
 					}

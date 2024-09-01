@@ -41,8 +41,31 @@ foreach( $頁碼 as $頁 )
 		if( array_key_exists( 評論, $$陣列名 ) && 
 			is_string( $$陣列名[ 評論 ] ) )
 		{
+			$評論内容 = $$陣列名[ 評論 ]; // string
+			// insert 仇引
+			if( $簡稱 == '奭' && strpos( $評論内容, 仇引 ) !== false )
+			{
+				require_once( 杜詩詳註 . $頁 . 程式後綴 );
+				$仇評論 = $仇内容[ 評論 ];
+				
+				if( is_string( $仇評論 ) )
+				{
+					$lines = explode( "\n", $仇評論 );
+					
+					foreach( $lines as $l )
+					{
+						if( strpos( $l, 引奭 ) !== false )
+						{
+							$l = str_replace( 引奭, '', $l );
+							$l = 仇註引文 . $l;
+							$評論内容 = str_replace( 仇引, $l, $評論内容 );
+						}
+					}
+				}
+			}
 			$code .= "'〚$頁:〛'=>array(\n";
-			$parts = explode( "\n", $$陣列名[ 評論 ] );
+			//$parts = explode( "\n", $$陣列名[ 評論 ] );
+			$parts = explode( "\n", $評論内容 );
 
 			foreach( $parts as $p )
 			{
@@ -54,14 +77,42 @@ foreach( $頁碼 as $頁 )
 			is_array( $$陣列名[ 評論 ] ) )
 		{
 			$temp = array();
-			
+
 			foreach( $$陣列名[ 評論 ] as $頁首 => $評s )
 			{
+				$評論内容 = $評s;
+				/*
+				// insert 仇引
+				if( $簡稱 == '奭' && strpos( $評論内容, 仇引 ) !== false )
+				{
+					echo "Requiring 2", NL;
+
+					require_once( 杜詩詳註 . $頁 . 程式後綴 );
+					echo "Requiring", NL;
+				
+					$評論 = $仇内容[ 評論 ];
+				
+					if( is_string( $評論 ) )
+					{
+						$lines = explode( "\n", $評論 );
+						foreach( $lines as $l )
+						{
+							if( strpos( $l, 引奭 ) !== false )
+							{
+								$l = preg_replace( 夾注regex, '', $l );
+								$l = str_replace( 仇引, $l, $評論内容 );
+							}
+						}
+					}
+				}
+				*/
+				
 				if( !in_array( $頁首, $temp ) )
 				{
 					array_push( $temp, $頁首 );
 					$code .= "'${頁首}'=>array(\n";
-					$子評s = explode( "\n", $評s);
+					//$子評s = explode( "\n", $評s );
+					$子評s = explode( "\n", $評論内容 );
 					
 					foreach( $子評s as $子評 )
 					{
