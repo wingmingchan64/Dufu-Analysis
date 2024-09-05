@@ -52,8 +52,13 @@ foreach( $lines as $l )
 			$版本詩題 = '*' . $版本詩題;
 		}
 		
+		try {
 		$版本詩題 = trim( $版本詩題 ) . ' ' . $默認頁碼 . ' ' .
-			$l_array[ 2 ] . NL;
+			$l_array[ 2 ] . NL; }
+		catch( Exception $e )
+		{
+			echo $默認頁碼, NL;
+		}
 
 		$content = $content . $版本詩題;
 		$content = $content . $默認詩文 . NL . NL;
