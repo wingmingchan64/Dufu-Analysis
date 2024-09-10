@@ -500,7 +500,9 @@ $頁陣列 = $杜甫詩陣列[ $頁 ];
 <li>默認版本白文<br />
 <a href="https://github.com/wingmingchan64/DuFu/blob/master/%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86.txt">杜甫全集</a>
 </li>
-<li>《全唐詩》杜甫部分</li>
+<li>《全唐詩》杜甫部分<br />
+<a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E3%80%8A%E5%85%A8%E5%94%90%E8%A9%A9%E3%80%8B/%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86%E7%84%A1%E5%A4%BE%E6%B3%A8.txt">《全唐詩》杜甫部分</a>
+</li>
 <li>陳永明《杜甫全集粵音注音》（修訂中）</li>
 <li>鄒德金整理《名家注評全唐詩》（第483頁）</li>
 <li>王嗣奭《杜臆》二校進行中（2024/08/31)<br />
