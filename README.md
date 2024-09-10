@@ -511,7 +511,7 @@ $頁陣列 = $杜甫詩陣列[ $頁 ];
 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E7%8E%8B%E5%97%A3%E5%A5%AD%E3%80%8A%E6%9D%9C%E8%87%86%E3%80%8B/%E7%8E%8B%E5%97%A3%E5%A5%AD%E3%80%8A%E6%9D%9C%E8%87%86%E3%80%8B_%E5%B8%B6%E8%A9%A9%E6%96%87.txt">王嗣奭《杜臆》_帶詩文.txt</a><br />
 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E7%8E%8B%E5%97%A3%E5%A5%AD%E3%80%8A%E6%9D%9C%E8%87%86%E3%80%8B/%E7%8E%8B%E5%97%A3%E5%A5%AD%E3%80%8A%E6%9D%9C%E8%87%86%E3%80%8B%E9%A0%81%E7%A2%BC%E7%B4%A2%E5%BC%95.php">王嗣奭《杜臆》頁碼索引</a>
 </li>
-<li>2024/08/31 正式開始整理仇兆鰲《杜詩詳註》（完成卷之一）
+<li>2024/08/31 正式開始整理仇兆鰲《杜詩詳註》（完成卷之一）<br />
 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E4%BB%87%E5%85%86%E9%B0%B2%E3%80%8A%E6%9D%9C%E8%A9%A9%E8%A9%B3%E8%A8%BB%E3%80%8B/%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86.txt">仇兆鰲《杜詩詳註》詩文帶夾住</a>
 <br />
 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E4%BB%87%E5%85%86%E9%B0%B2%E3%80%8A%E6%9D%9C%E8%A9%A9%E8%A9%B3%E8%A8%BB%E3%80%8B/%E4%BB%87%E5%85%86%E9%B0%B2%E3%80%8A%E6%9D%9C%E8%A9%A9%E8%A9%B3%E8%A8%BB%E3%80%8B%E9%A0%81%E7%A2%BC%E7%B4%A2%E5%BC%95.php">仇兆鰲《杜詩詳註》頁碼索引</a>
