@@ -54,5 +54,6 @@ foreach( $頁碼 as $頁 )
 //echo $count, "\n";
 $code = $code . ");\n?>";
 file_put_contents( 杜甫資料庫 . $書名 . "\\${書名}頁碼索引.php", $code );
+file_put_contents( 杜甫分析文件夾 . $書名 . "\\${書名}頁碼索引.php", $code );
 ?>
 
