@@ -215,12 +215,14 @@ $code = "<?php
 					if( sizeof( $音s ) > 1 && trim( $音s[ 1 ] ) != '' )
 					{
 						$音 = trim( $音s[ 1 ] );
-						
+						try{
 						$sub_code = $sub_code .
 							"\n\"${句s[ 1 ]}\"=>\"${音}\",";
 						$注音_詩句[ $音 ] = $句s[ 1 ];
 						$詩句_注音[ $句s[ 1 ] ] = $音;
 						$count++;
+						} catch( Exception $e )
+						{ echo $頁, NL; }
 					}
 				}
 			}

@@ -495,7 +495,8 @@ $頁陣列 = $杜甫詩陣列[ $頁 ];
 </ul>
 <h2>資料輸入的進度</h2>
 <ul>
-<li>《杜甫全集校注》杜詩白文</li>
+<li>《杜甫全集校注》杜詩白文<br />
+<a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%95%AD%E6%BB%8C%E9%9D%9E%E4%B8%BB%E7%B7%A8%E3%80%8A%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86%E6%A0%A1%E6%B3%A8%E3%80%8B/%E6%9D%9C%E7%94%AB%E5%85%A8%E9%9B%86.txt">《杜甫全集校注》杜詩白文</a></li>
 <li>默認版本白文</li>
 <li>《全唐詩》杜甫部分</li>
 <li>陳永明《杜甫全集粵音注音》（修訂中）</li>
