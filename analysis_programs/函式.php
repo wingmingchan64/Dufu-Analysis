@@ -869,8 +869,6 @@ if( $頁 == '3955' )
 	return $空坐標;
 }
 
-
-
 function containsPronunciation( string $haystack, string $needle ) : bool
 {
 	if( strpos( $haystack, '/' ) === false )
@@ -1038,10 +1036,12 @@ function 移除詩文夾注( string $帶夾注詩文 ) : string
 {
 	return preg_replace( 夾注regex, '', $帶夾注詩文 );
 }
+
 function format詩文( string $詩文 ) : string
 {
 	return preg_replace( 四句regex, 第一組新行regex, $詩文 );
 }
+
 function 提取陣列値( array $陣列 ) : string
 {
 	$str = '';
@@ -1051,6 +1051,7 @@ function 提取陣列値( array $陣列 ) : string
 	}
 	return $str;
 }
+
 function 坐標轉換成列陣路徑( string $坐標 ) : array
 {
 	$坐標 = str_replace( 坐標開括號, '', 
@@ -1060,6 +1061,7 @@ function 坐標轉換成列陣路徑( string $坐標 ) : array
 	
 	return explode( '-', trim( $坐標, ' -' ) );
 }
+
 function 顯示坐標值( array $杜甫詩陣列, string $坐標 ) 
 {
 	$路徑 = 坐標轉換成列陣路徑( $坐標 );
@@ -1089,6 +1091,7 @@ function 顯示坐標值( array $杜甫詩陣列, string $坐標 )
 	
 	print_r( $值 );
 }
+
 function 顯示杜甫詩陣列詩文( 
 	array $詩組_詩題, string $頁碼,
 	array $頁列陣, bool $加句號 = true )
@@ -1168,6 +1171,7 @@ function 顯示杜甫詩陣列詩文(
 		}
 	}
 }
+
 function 杜甫詩陣列詩文替代( array &$頁陣列, array $替代 )
 {
 	foreach( $替代 as $坐標 => $替代文 ) // $替代文 string
@@ -1205,5 +1209,25 @@ function 杜甫詩陣列詩文替代( array &$頁陣列, array $替代 )
 	}
 }
 
-
+function fixPageNum( string $num ) : string
+{
+	$int_num = intval( $num );
+	
+	if( $int_num > 0 && $int_num < 10 )
+	{
+		return '000' . $num;
+	}
+	elseif( $int_num > 9 && $int_num < 100 )
+	{
+		return '00' . $num;
+	}
+	elseif( $int_num > 99 && $int_num < 1000 )
+	{
+		return '0' . $num;
+	}
+	else
+	{
+		return $num;
+	}
+}
 ?>

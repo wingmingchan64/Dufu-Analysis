@@ -7,7 +7,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
 checkARGV( $argv, 2, 提供頁碼 );
-$頁碼 = trim( $argv[ 1 ] );
+$頁碼 = fixPageNum( trim( $argv[ 1 ] ) );
 $路徑 = 詩集文件夾 . $頁碼 . 程式後綴;
 
 if( file_exists( $路徑 ) )

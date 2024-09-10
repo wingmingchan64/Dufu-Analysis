@@ -11,7 +11,7 @@ require_once( 頁碼_詩題 );
 // 參數
 checkARGV( $argv, 2, 提供頁碼 );
 $result = array();
-$頁 = trim( $argv[ 1 ] );
+$頁 = fixPageNum( trim( $argv[ 1 ] ) );
 if( !in_array( $頁, $頁碼 ) )
 {
 	echo 無頁碼, NL;

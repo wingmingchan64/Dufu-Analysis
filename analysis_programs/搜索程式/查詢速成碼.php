@@ -21,7 +21,7 @@ foreach( range( 0, $字數 - 1 ) as $位置 )
 {
 	$字 = mb_substr( $字詞, $位置, 1 );
 	$網址 = "https://www.xn--0vqu8au0tro7d.com/list/char/${字}";
-	$str = file_get_contents( $網址 );
+	$str  = file_get_contents( $網址 );
 	$有尾碼 = strpos( $str, "尾碼" );
 	
 	if( $有尾碼 !== false )
@@ -32,6 +32,7 @@ foreach( range( 0, $字數 - 1 ) as $位置 )
 	{
 		$pattern = $pattern2;
 	}
+	
 	preg_match_all( $pattern, $str, $matches );
 	$速成碼 .= mb_substr( $matches[ 0 ][ 0 ], 10, 1 );
 	

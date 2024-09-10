@@ -9,7 +9,7 @@ require_once( 頁碼 );
 
 checkARGV( $argv, 3, 提供頁、簡 );
 $result = array();
-$頁 = trim( $argv[ 1 ] );
+$頁 = fixPageNum( trim( $argv[ 1 ] ) );
 
 if( !in_array( $頁, $頁碼 ) )
 {
@@ -42,8 +42,11 @@ else
 
 if( is_array( $$陣列名[ 版本 ][ 詩文 ] ) )
 {
-	$content = 
-		$content . NL . NL . implode( $$陣列名[ 版本 ][ 詩文 ] );
+	foreach( $$陣列名[ 版本 ][ 詩文 ] as $詩 )
+	{
+		$content = 
+			$content . NL . NL . $詩;
+	}
 }
 elseif( is_string( $$陣列名[ 版本 ][ 詩文 ] ) )
 {

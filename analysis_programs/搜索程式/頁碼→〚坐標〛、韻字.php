@@ -13,7 +13,7 @@ if( sizeof( $argv ) < 2 )
 	exit;
 }
 
-$頁碼 = trim( $argv[ 1 ] );
+$頁碼 = fixPageNum( trim( $argv[ 1 ] ) );
 $韻 = '';
 $output = '';
 
