@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\詩文注音→頁碼.php "git3"
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\詩文注音→頁碼.php "sai3 cou2"
 =>
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
@@ -21,8 +21,16 @@ foreach( $注音_詩句 as $注音 => $詩句 )
 		//echo "hit $音", NL;
 		//array_push( $result, $詩句_頁碼[ $詩句 ] . ' ' .
 			//$頁碼_詩題[ $詩句_頁碼[ $詩句 ] ] );
-		$result[ $詩句_頁碼[ $詩句 ] ] =
-			$頁碼_詩題[ $詩句_頁碼[ $詩句 ] ];
+		try {
+			$result[ $詩句_頁碼[ $詩句 ] ] = $頁碼_詩題[ $詩句_頁碼[ $詩句 ] ];
+		}
+		catch( Exception $e )
+		{
+			//echo $詩句_頁碼[ $詩句 ], NL;
+			echo $詩句, NL;
+			echo $e, NL;
+			exit;
+		}
 	}
 }
 

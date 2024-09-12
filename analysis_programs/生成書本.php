@@ -175,6 +175,17 @@ $code = "<?php
 				{
 					// 詩文 preceding pronunciation
 					//echo $音_陣列[ $i ], NL;
+					// skip 序文
+					if( $頁 == '3428' )
+					{
+						//echo $音_陣列[ $i-1 ], NL;
+					}
+					if( ( in_array( 序言, array_keys( $默認内容 ) ) ) &&
+						$音_陣列[ $i-1 ] == $默認内容[ 序言 ] )
+					{
+						//echo $音_陣列[ $i-1 ], NL;
+						continue;
+					}
 					$文 = normalize( $音_陣列[ $i-1 ] );
 					$詩題文 .= $文;
 					$parts[ $文 ] = array( $音_陣列[ $i ] );
@@ -212,17 +223,31 @@ $code = "<?php
 					$sub_code = $sub_code .
 						"\n\"${句s[ 0 ]}\"=>\"${音}\",";
 					//print_r( $句s );
-					if( sizeof( $音s ) > 1 && trim( $音s[ 1 ] ) != '' )
+					if( sizeof( $音s ) > 1 )
 					{
-						$音 = trim( $音s[ 1 ] );
-						try{
-						$sub_code = $sub_code .
-							"\n\"${句s[ 1 ]}\"=>\"${音}\",";
-						$注音_詩句[ $音 ] = $句s[ 1 ];
-						$詩句_注音[ $句s[ 1 ] ] = $音;
-						$count++;
-						} catch( Exception $e )
-						{ echo $頁, NL; }
+						foreach( range( 0, sizeof( $音s ) - 1 ) as $pos )
+						{
+							$音 = trim( $音s[ $pos ] );
+						
+							if( $音 != '' )
+							{
+								try{
+								$sub_code = $sub_code .
+									"\n\"${句s[ $pos ]}\"=>\"${音}\",";
+								$注音_詩句[ $音 ] = $句s[ $pos ];
+								$詩句_注音[ $句s[ $pos ] ] = $音;
+								/*
+								if( $頁 == "3428" )
+								{
+									echo $音, NL;
+									echo $句s[ $pos ], NL;
+								}
+								*/
+								$count++;
+								} catch( Exception $e )
+								{ echo $頁, NL; }
+							}
+						}
 					}
 				}
 			}
