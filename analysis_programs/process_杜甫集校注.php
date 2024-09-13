@@ -25,7 +25,7 @@ foreach( $lines as $l )
 		$l_array = explode( ' ', $l );
 		$題 = $l_array[ 0 ];
 		$頁 = $l_array[ 1 ];
-		//echo $題, ' ', $頁, ' ';
+		echo $題, ' ', $頁, ' ';
 		$版本頁 = $l_array[ 2 ];
 		//echo $版本頁, NL;
 		if( !in_array( $頁, $頁碼 ) )

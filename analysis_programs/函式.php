@@ -16,6 +16,7 @@ require_once( 杜甫資料庫 . '二字組合_坐標.php' );
 require_once( 杜甫資料庫 . '三字組合_坐標.php' );
 require_once( 杜甫資料庫 . '四字組合_坐標.php' );
 require_once( 杜甫資料庫 . '五字組合_坐標.php' );
+require_once( 杜甫資料庫 . '異體字.php' );
 
 $path_for_file = '';
 $text_of_file  = '';
@@ -1215,19 +1216,42 @@ function fixPageNum( string $num ) : string
 	
 	if( $int_num > 0 && $int_num < 10 )
 	{
-		return '000' . $num;
+		return '000' . $int_num;
 	}
 	elseif( $int_num > 9 && $int_num < 100 )
 	{
-		return '00' . $num;
+		return '00' . $int_num;
 	}
 	elseif( $int_num > 99 && $int_num < 1000 )
 	{
-		return '0' . $num;
+		return '0' . $int_num;
 	}
 	else
 	{
 		return $num;
 	}
+}
+
+function fixText( string $str ) : string
+{
+	global $異體字;
+	$len = mb_strlen( $str );
+	$temp = '';
+	$ytz = array_keys( $異體字 );
+	
+	foreach( range( 0, $len - 1 ) as $pos )
+	{
+		$字 = mb_substr( $str, $pos, 1 );
+		
+		if( in_array( $字, $ytz ) )
+		{
+			$temp .= $異體字[ $字 ];
+		}
+		else
+		{
+			$temp .= $字;
+		}
+	}
+	return $temp;
 }
 ?>

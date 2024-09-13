@@ -16,7 +16,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
 checkARGV( $argv, 2, 提供詩文 );
-$字  = trim( $argv[ 1 ] );
+$字  = fixText( trim( $argv[ 1 ] ) );
 $字數 = mb_strlen( $字 );
 $result = array();
 

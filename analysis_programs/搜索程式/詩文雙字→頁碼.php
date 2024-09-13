@@ -11,8 +11,8 @@ require_once( 頁碼_詩題 );
 
 
 checkARGV( $argv, 3, 提供雙字 );
-$首字 = trim( $argv[ 1 ] );
-$次字 = trim( $argv[ 2 ] );
+$首字 = fixText( trim( $argv[ 1 ] ) );
+$次字 = fixText( trim( $argv[ 2 ] ) );
 $result = array();
 
 foreach( $頁碼 as $頁 )

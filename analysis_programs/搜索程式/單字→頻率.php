@@ -7,7 +7,8 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 用字_頻率 );
 
 checkARGV( $argv, 2, 提供單字 );
-$字 = trim( $argv[ 1 ] );
+// standardize the text
+$字 = fixText( trim( $argv[ 1 ] ) );
 
 if( array_key_exists( $字, $用字_頻率 ) )
 {

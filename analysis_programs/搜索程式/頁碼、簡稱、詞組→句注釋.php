@@ -8,8 +8,8 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
 checkARGV( $argv, 4, 提供頁、簡、詞 );
 $頁碼 = fixPageNum( trim( $argv[ 1 ] ) );
-$簡稱 = trim( $argv[ 2 ] );
-$詞組 = trim( $argv[ 3 ] );
+$簡稱 = fixText( trim( $argv[ 2 ] ) );
+$詞組 = fixText( trim( $argv[ 3 ] ) );
 
 if( !array_key_exists( 等號 . $簡稱, $書目簡稱 ) )
 {

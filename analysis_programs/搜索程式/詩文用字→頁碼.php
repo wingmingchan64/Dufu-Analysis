@@ -21,7 +21,7 @@ require_once( 詩句_頁碼 );
 require_once( 頁碼_詩題 );
 
 checkARGV( $argv, 2, 提供詩文 );
-$句 = trim( $argv[ 1 ] );
+$句 = fixText( trim( $argv[ 1 ] ) );
 $result = array();
 
 foreach( $詩句_頁碼 as $詩句 => $頁碼 )

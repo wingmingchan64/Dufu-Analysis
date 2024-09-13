@@ -15,7 +15,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 詩題_頁碼 );
 
 checkARGV( $argv, 2, 提供詩題 );
-$題 = trim( $argv[ 1 ] );
+$題 = fixText( trim( $argv[ 1 ] ) );
 $result = array();
 
 foreach( $詩題_頁碼 as $詩題 => $頁碼 )

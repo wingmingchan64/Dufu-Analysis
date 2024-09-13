@@ -21,7 +21,7 @@ if( !in_array( $頁, $頁碼 ) )
 	exit;
 }
 */
-$簡稱s = trim( $argv[ 2 ] );
+$簡稱s = fixText( trim( $argv[ 2 ] ) );
 $簡稱陣列 = explode( ',', $簡稱s );
 
 foreach( $簡稱陣列 as $簡稱 )

@@ -18,7 +18,7 @@ if( !in_array( $頁, $頁碼 ) )
 	echo 無頁碼, NL;
 	exit;
 }
-$簡稱 = trim( $argv[ 2 ] );
+$簡稱 = fixText( trim( $argv[ 2 ] ) );
 if( !array_key_exists( 等號 . $簡稱, $書目簡稱 ) )
 {
 	echo 無簡稱, NL;

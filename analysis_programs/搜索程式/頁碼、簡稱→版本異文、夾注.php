@@ -18,7 +18,7 @@ if( !in_array( $頁, $頁碼 ) )
 }
 require_once( 詩集文件夾 . $頁 . 程式後綴 );
 
-$簡稱 = trim( $argv[ 2 ] );
+$簡稱 = fixText( trim( $argv[ 2 ] ) );
 
 if( !array_key_exists( 等號 . $簡稱, $書目簡稱 ) )
 {
