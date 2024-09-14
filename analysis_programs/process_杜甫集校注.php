@@ -12,7 +12,7 @@ $lines   = explode( "\n", $text );
 $store   = array();
 $content = '';
 $詩組頁碼 = array_keys( $詩組_詩題 );
-$counter = 0;
+$content = '';
 
 foreach( $lines as $l )
 {
@@ -27,11 +27,15 @@ foreach( $lines as $l )
 		// space-separated page info
 		$l_array = explode( ' ', $l );
 		$題 = $l_array[ 0 ];
-		$頁 = $l_array[ 1 ];
+		$頁 = trim( $l_array[ 1 ] );
+		$謝頁 = trim( $l_array[ 2 ] );
 		
 		if( $頁 == '' )
 			continue;
 		
+		$content .= "'${頁}'=>'${謝頁}'," . NL;
+		
+/*		
 		try {
 			require_once( 詩集文件夾 . $頁 . 程式後綴 );
 		} catch( Exception $e ) { echo $e, NL, $頁, NL; }
@@ -67,7 +71,9 @@ foreach( $lines as $l )
 			$counter++;
 			echo "'〚$頁:〛'=>'" . $内容[ 詩句 ][ 0 ] . "',", NL;
 		}
+*/
 	}
 }
+echo $content;
 ?>
 
