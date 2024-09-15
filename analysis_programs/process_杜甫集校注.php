@@ -14,6 +14,13 @@ $content = '';
 $詩組頁碼 = array_keys( $詩組_詩題 );
 $content = '';
 
+for( $i = 1; $i < 1456; $i++ )
+{
+	echo "'" . fixPageNum( $i ) . "'=>'',", NL;
+}
+
+
+/*
 foreach( $lines as $l )
 {
 	if( $l == '' || mb_strpos( $l, '//' ) === false )
@@ -34,7 +41,7 @@ foreach( $lines as $l )
 			continue;
 		
 		$content .= "'${頁}'=>'${謝頁}'," . NL;
-		
+*/		
 /*		
 		try {
 			require_once( 詩集文件夾 . $頁 . 程式後綴 );
@@ -72,8 +79,10 @@ foreach( $lines as $l )
 			echo "'〚$頁:〛'=>'" . $内容[ 詩句 ][ 0 ] . "',", NL;
 		}
 */
+/*
 	}
 }
 echo $content;
+*/
 ?>
 
