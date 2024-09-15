@@ -11,7 +11,7 @@
 <p>聯繫資料庫各個部分的關鍵是一個坐標系統。請從<a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E9%97%9C%E6%96%BC%E5%9D%90%E6%A8%99%E7%9A%84%E8%AA%AA%E6%98%8E.txt">關於坐標的說明</a>開始。</p>
 
 <h2>杜甫詩資料庫</h2>
-<p>我原來的打算是把我生成的所有 PHP 程式一個一個上傳到 github，讓 github 去 index 這些資料，以便資料搜尋。可是，最後把我的戶口擠爆了。後來（二三年四月二十八日）改變了主意，決定把資料庫壓縮打包再上傳，這樣，資料庫就變得小多了，從 33.7MB 縮成 3.75MB，上傳就沒有問題了，只是犧牲了 github 的搜索功能。壓縮包見 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E6%9D%9C%E7%94%AB%E8%B3%87%E6%96%99%E5%BA%AB.rar">杜甫資料庫.rar</a> （更新：2024/08/26，包含王嗣奭《杜臆》電子書）
+<p>我原來的打算是把我生成的所有 PHP 程式一個一個上傳到 github，讓 github 去 index 這些資料，以便資料搜尋。可是，最後把我的戶口擠爆了。後來（二三年四月二十八日）改變了主意，決定把資料庫壓縮打包再上傳，這樣，資料庫就變得小多了，從 33.7MB 縮成 3.75MB，上傳就沒有問題了，只是犧牲了 github 的搜索功能。壓縮包見 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E6%9D%9C%E7%94%AB%E8%B3%87%E6%96%99%E5%BA%AB.rar">杜甫資料庫.rar</a> （更新：2024/09/15，包含王嗣奭《杜臆》電子書）
 <p><a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/_%E6%9D%9C%E8%A9%A9%E8%B3%87%E6%96%99%E5%BA%AB%E6%96%87%E6%AA%94%E4%B8%80%E8%A6%BD.txt">杜詩資料庫文檔一覽</a> （有待更新）</p>
 <p><a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/_exec.txt">_exec.txt</a>： 執行這些程式的順序</p>
 <p></p>
