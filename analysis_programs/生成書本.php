@@ -56,7 +56,7 @@ foreach( $頁碼 as $頁 )
 	// nothing to process
 	if( mb_strpos( implode( $text_array ), '【' ) === false )
 	{
-		//echo $頁, "\n";
+		//echo $頁, NL;
 		continue;
 	}
 	
@@ -77,7 +77,7 @@ foreach( $頁碼 as $頁 )
 		{
 			// functional headers like 【異文、夾注】,【注釋】
 			$current = trim( $行 ); 
-			//echo $current, "\n";
+			//echo $current, NL;
 			$部分陣列[ $current ] = array();
 		}
 		// skip empty line
@@ -87,9 +87,9 @@ foreach( $頁碼 as $頁 )
 		}
 		else
 		{
-			//echo $頁, "\n";
-			//echo $current, "\n";
-			//echo trim( $行 ), "\n";
+			//echo $頁, NL;
+			//echo $current, NL;
+			//echo trim( $行 ), NL;
 			array_push( $部分陣列[ $current ], trim( $行 ) );
 			//print_r( $部分陣列 );
 		}

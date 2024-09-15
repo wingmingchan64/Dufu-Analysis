@@ -11,7 +11,7 @@
 <p>聯繫資料庫各個部分的關鍵是一個坐標系統。請從<a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E9%97%9C%E6%96%BC%E5%9D%90%E6%A8%99%E7%9A%84%E8%AA%AA%E6%98%8E.txt">關於坐標的說明</a>開始。</p>
 
 <h2>杜甫詩資料庫</h2>
-<p>我原來的打算是把我生成的所有 PHP 程式一個一個上傳到 github，讓 github 去 index 這些資料，以便資料搜尋。可是，最後把我的戶口擠爆了。後來（二三年四月二十八日）改變了主意，決定把資料庫壓縮打包再上傳，這樣，資料庫就變得小多了，從 33.7MB 縮成 3.75MB，上傳就沒有問題了，只是犧牲了 github 的搜索功能。壓縮包見 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E6%9D%9C%E7%94%AB%E8%B3%87%E6%96%99%E5%BA%AB.rar">杜甫資料庫.rar</a> （更新：2024/09/15，包含王嗣奭《杜臆》電子書）
+<p>我原來的打算是把我生成的所有 PHP 程式一個一個上傳到 github，讓 github 去 index 這些資料，以便資料搜尋。可是，最後把我的戶口擠爆了。後來（2023/04/28）改變了主意，決定把資料庫壓縮打包再上傳，這樣，資料庫就變得小多了，從 33.7MB 縮成 3.75MB，上傳就沒有問題了，只是犧牲了 github 的搜索功能。壓縮包見 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E6%9D%9C%E7%94%AB%E8%B3%87%E6%96%99%E5%BA%AB.rar">杜甫資料庫.rar</a> （更新：2024/09/15，包含王嗣奭《杜臆》電子書）
 <p><a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/_%E6%9D%9C%E8%A9%A9%E8%B3%87%E6%96%99%E5%BA%AB%E6%96%87%E6%AA%94%E4%B8%80%E8%A6%BD.txt">杜詩資料庫文檔一覽</a> （有待更新）</p>
 <p><a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/_exec.txt">_exec.txt</a>： 執行這些程式的順序</p>
 <p></p>
@@ -518,6 +518,14 @@ $頁陣列 = $杜甫詩陣列[ $頁 ];
 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E4%BB%87%E5%85%86%E9%B0%B2%E3%80%8A%E6%9D%9C%E8%A9%A9%E8%A9%B3%E8%A8%BB%E3%80%8B/%E4%BB%87%E5%85%86%E9%B0%B2%E3%80%8A%E6%9D%9C%E8%A9%A9%E8%A9%B3%E8%A8%BB%E3%80%8B%E6%B3%A8%E9%87%8B.php">仇兆鰲《杜詩詳註》注釋</a><br />
 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E4%BB%87%E5%85%86%E9%B0%B2%E3%80%8A%E6%9D%9C%E8%A9%A9%E8%A9%B3%E8%A8%BB%E3%80%8B/%E4%BB%87%E5%85%86%E9%B0%B2%E3%80%8A%E6%9D%9C%E8%A9%A9%E8%A9%B3%E8%A8%BB%E3%80%8B%E8%A9%95%E8%AB%96.php">仇兆鰲《杜詩詳註》評論</a><br />
 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E4%BB%87%E5%85%86%E9%B0%B2%E3%80%8A%E6%9D%9C%E8%A9%A9%E8%A9%B3%E8%A8%BB%E3%80%8B/%E4%BB%87%E5%85%86%E9%B0%B2%E3%80%8A%E6%9D%9C%E8%A9%A9%E8%A9%B3%E8%A8%BB%E3%80%8B%E9%A0%81%E7%A2%BC%E7%B4%A2%E5%BC%95.php">仇兆鰲《杜詩詳註》頁碼索引</a>
+</li>
+<li>2024/09/10 加入謝思煒《杜甫集校注》的目錄及相關資料<br />
+<a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/%E8%AC%9D%E6%80%9D%E7%85%92%E3%80%8A%E6%9D%9C%E7%94%AB%E9%9B%86%E6%A0%A1%E6%B3%A8%E3%80%8B/%E9%A0%81%E7%A2%BC_%E8%AC%9D%E9%A0%81%E7%A2%BC.php">頁碼_謝頁碼</a><br />
+<!--
+<a href=""></a><br />
+<a href=""></a><br />
+<a href=""></a><br />
+-->
 </li>
 <li>楊倫《杜詩鏡銓》（暫緩）</li>
 <li>張志烈主編《杜詩全集（今注本）》（暫緩）</li>

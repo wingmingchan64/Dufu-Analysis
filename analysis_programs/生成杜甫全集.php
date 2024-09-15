@@ -24,7 +24,7 @@ foreach( $file_names as $from_file )
 			}
 			else
 			{
-				$new_content .= "\n";
+				$new_content .= NL;
 				break;
 			}
 		}
