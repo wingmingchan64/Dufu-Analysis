@@ -6,7 +6,7 @@ require_once( "常數.php" );
 require_once( "函式.php" );
 require_once( 書目簡稱 );
 
-$簡字 = "謝";
+$簡字 = "錢";
 $簡稱 = "=${簡字}";
 $書名 = $書目簡稱[ $簡稱 ];
 $目錄文檔 = 杜甫資料庫 . $書名 . "\\" . "${簡字}目錄.txt";
@@ -64,6 +64,15 @@ foreach( $lines as $l )
 			$content .= 【注釋】 . NL . '〖1〗' . NL . $〖詩句〗 . NL . 
 				【評論】 . NL . '〚〛' . NL . NL . 
 				【按語】 . NL;
+		}
+		elseif( $頁 == '6497' )
+		{
+			continue;
+		}
+		else
+		{
+			echo $頁, NL;
+			exit;
 		}
 	}
 }
