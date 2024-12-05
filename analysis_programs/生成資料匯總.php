@@ -127,7 +127,8 @@ foreach( $頁碼 as $頁 )
 			{
 				foreach( $部分s as $部分 )
 				{
-					$file = $版本文件夾 . $書目簡稱[ '=' . $簡稱 ] . $部分 . 程式後綴;
+					$file = $版本文件夾 . 
+						str_replace( ' ', '_',$書目簡稱[ '=' . $簡稱 ] ) . $部分 . 程式後綴;
 				
 					if( file_exists( $file ) )
 					{
