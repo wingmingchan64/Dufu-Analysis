@@ -6,10 +6,11 @@ require_once( "常數.php" );
 require_once( "函式.php" );
 require_once( 書目簡稱 );
 
-$簡字 = "錢";
+$簡字 = "訳";
 $簡稱 = "=${簡字}";
 $書名 = $書目簡稱[ $簡稱 ];
 $目錄文檔 = 杜甫資料庫 . $書名 . "\\" . "${簡字}目錄.txt";
+
 
 $text    = getFile( $目錄文檔 );
 $lines   = explode( "\n", $text );
