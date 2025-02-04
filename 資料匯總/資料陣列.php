@@ -9,6 +9,7 @@ $資料陣列 = array(
 		'粵'=>array(), // just on/off
 	),
 	'中'=>array(
+		'趙'=>array( 注釋 ),
 		'黃'=>array( 注釋 ),
 		'郭'=>array( 注釋 ),
 		'楊'=>array( 注釋 ),
