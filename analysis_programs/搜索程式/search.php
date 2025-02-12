@@ -13,7 +13,15 @@ require_once( "H:\github\unicode\粵音_常用字.php" );
 $out_file = 'h:\github\Dufu-Analysis\analysis_programs\搜索程式\buffer.txt';
 $input    = "";
 $buffer   = "";
-$dict = array_merge( $dict, $速成粵, $速成詞 );
+// don't use array_merge
+foreach( $速成粵 as $k => $v )
+{
+	$dict[ $k ] = $v;
+}
+foreach( $速成詞 as $k => $v )
+{
+	$dict[ $k ] = $v;
+}
 
 while( true )
 {
