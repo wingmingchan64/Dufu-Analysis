@@ -4,9 +4,38 @@ php h:\github\Dufu-Analysis\analysis_programs\函式測試.php
 */
 require_once( '常數.php' );
 require_once( '函式.php' );
-require_once( 詩組_詩題 );
-require_once( 頁碼_路徑 );
+require_once( 杜甫詩陣列 );
+//require_once( 詩組_詩題 );
+//require_once( 頁碼_路徑 );
 
+$頁 = '0042';
+$詩陣列 = $杜甫詩陣列[ $頁 ];
+
+
+$版本異文、夾注 = array(
+"〚0042:4.1.1-5〛"=>"〖陰壑生虛籟〗陰壑生虛[一作靈]籟",
+"〚0042:5.1.1-5〛"=>"〖天闕象緯逼〗天闕[《正異》作闚，姜氏作開]象緯逼",
+"〚0042:6.1.1-5〛"=>"〖欲覺聞晨鐘〗欲覺[古效切]聞晨鐘",
+"〚0042:6.2.1-5〛"=>"〖令人發深省〗令[平聲]人發深省[悉井切]",
+);
+
+echo 提取版本詩文含夾注( $詩陣列, $版本異文、夾注, true, false );
+
+/*
+$result = array();
+
+foreach( $版本異文、夾注 as $key => $value )
+{
+	echo $value, NL;
+	$異文、夾注 = trim( explode( '〗', $value )[ 1 ] );
+	$行碼 = 提取行碼( $key );
+	$句碼 = 提取句碼( $key );
+	$詩陣列[ $行碼 ][ $句碼 ] = 分割異文、夾注( $異文、夾注 );
+}
+$result[ '1' ] = $詩陣列;
+$詩文 = 提取杜甫詩陣列詩文( $result, true, false );
+echo $詩文;
+*/
 /*
 // test getAnnotation
 // 員外季弟執金吾，見知於代，故有下句
@@ -101,7 +130,7 @@ var_dump( getExpandedPages( '〚4.1.3-5〛' ) );
 //var_dump( getExpandedPages( '〚4.1.4-5〛' ) );
 //ar_dump( getExpandedPages( '〚4.1.4-5〛' ) );
 
-echo 提取〖詩文〗坐標( "〖出處〗", "0013" ), "\n";
+//echo 提取〖詩文〗坐標( "〖出處〗", "0013" ), "\n";
 
 //print_r( 提取版本詩文( '今', '0003' ) );
 ?>

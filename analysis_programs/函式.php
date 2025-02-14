@@ -795,6 +795,91 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 	//print_r( $版本陣列 );
 	return $版本陣列;
 }
+
+function 提取版本詩文含夾注陣列( 
+	array $詩陣列, 
+	array $版本異文、夾注, 
+	array $版本注釋,
+	bool $加句號 = true, 
+	bool $加新行 = true ) : array
+{
+	$首碼 = '';
+	foreach( $版本異文、夾注 as $key => $value )
+	{
+		//echo $value, NL;
+		$異文、夾注 = trim( explode( '〗', $value )[ 1 ] );
+		$首碼 = 提取首碼( $key );
+		if( $首碼 == '' )
+		{
+			$首碼 = '1';
+		}
+		$行碼 = 提取行碼( $key );
+		$句碼 = 提取句碼( $key );
+		$異文、夾注陣列 = 分割異文、夾注( $異文、夾注 );
+		//print_r( $異文、夾注陣列 );
+		
+		if( $首碼 == '1' )
+		{
+			//print_r( $異文、夾注陣列 );
+			
+			foreach( $異文、夾注陣列 as $字碼 => $字 )
+			{
+				$詩陣列[ $行碼 ][ $句碼 ][ $字碼 ] = $字;
+			}
+		}
+		else
+		{
+			foreach( $異文、夾注陣列 as $字碼 => $字 )
+			{
+				$詩陣列[ $首碼 ][ $行碼 ][ $句碼 ][ $字碼 ] = $字;
+			}
+		}
+	}
+	
+	//print_r( $詩陣列 );
+	// 首碼已知
+	$counter = 1;
+	foreach( $版本注釋 as $key => $value )
+	{
+		if( $首碼 != '1' )
+		{
+			$詩陣列 = $詩陣列[ $首碼 ];
+		}
+		$行碼 = 提取行碼( $key );
+		$句碼 = 提取句碼( $key );
+		$字碼 = 提取字碼( $key );
+		
+		if( $行碼 == '1' )
+		{
+			continue;
+		}
+		if( mb_strpos( $字碼, '-' ) !== false )
+		{
+			$parts = explode( '-', $字碼 );
+			$字碼 = trim( $parts[ sizeof( $parts ) - 1 ] );
+			//echo $字碼, NL;
+		}
+		$詩陣列[ $行碼 ][ $句碼 ][ $字碼 ] =
+			$詩陣列[ $行碼 ][ $句碼 ][ $字碼 ] . '[' . $counter . ']';
+		$counter++;
+	}
+	//print_r( $result );
+	$result[ $首碼 ] = $詩陣列;
+	return $result;
+	//return 提取杜甫詩陣列詩文( $result, $加句號, $加新行 );
+}
+
+function 提取版本詩文含夾注( 
+	array $詩陣列, 
+	array $版本異文、夾注, 
+	array $版本注釋,
+	bool $加句號 = true, 
+	bool $加新行 = true ) : string
+{
+	$result = 提取版本詩文含夾注陣列( $詩陣列, $版本異文、夾注, $版本注釋, $加句號, $加新行 );
+	return 提取杜甫詩陣列詩文( $result, $加句號, $加新行 );
+}
+
 function 提取〖詩文〗坐標( string $〖詩文〗, string $頁 ) : string
 {
 	if( $頁 == '3955' )
@@ -868,6 +953,48 @@ if( $頁 == '3955' )
 	}
 	
 	return $空坐標;
+}
+
+function 分割異文、夾注( string $異文、夾注 ) : array
+{
+	$净文 = 移除詩文夾注( $異文、夾注 );
+	$净文len = mb_strlen( $净文 );
+	$result = array();
+	$store = '';
+	$異文len = mb_strlen( $異文、夾注 );
+	$inbracket = false;
+	$current_index = 0;
+	
+	for( $i = 1; $i<=$異文len; $i++ )
+	{
+		$current_char = mb_substr( $異文、夾注, $i-1, 1 );
+		
+		if( $current_char == '['  )
+		{
+			$inbracket = true;
+			$result[ "$current_index" ] = 
+				$result[ "$current_index" ] . $current_char;
+		}
+		elseif( $current_char == ']' )
+		{
+			$inbracket = false;
+			$result[ "$current_index" ] = 
+				$result[ "$current_index" ] . $current_char;
+		}
+		elseif( $inbracket )
+		{
+			$result[ "$current_index" ] = 
+				$result[ "$current_index" ] . $current_char;
+		}
+		else
+		{
+			$current_index++;
+			$result[ "$current_index" ] = $current_char;
+		}
+	}
+	//echo "From 分割異文、夾注: ", NL;
+	//print_r( $result );
+	return $result;
 }
 
 function containsPronunciation( string $haystack, string $needle ) : bool
@@ -1093,9 +1220,72 @@ function 顯示坐標值( array $杜甫詩陣列, string $坐標 )
 	print_r( $值 );
 }
 
+// 必須包括首碼
+function 提取杜甫詩陣列詩文( array $詩文陣列, 
+	bool $加句號 = true,
+	bool $加新行 = true ) : string
+{
+	$contents = '';
+	
+	foreach( $詩文陣列 as $首碼 => $行子陣列 )
+	{
+		if( is_string( $行子陣列 ) )
+		{
+			//echo $首碼, NL;
+			continue;
+		}
+		
+		foreach( $行子陣列 as $句碼 => $句子陣列 )
+		{
+			//print_r( $句子陣列 );
+			if( is_string( $句子陣列 ) )
+			{
+				if( sizeof( $詩文陣列 ) > 1 )
+				{
+					$contents .= $句子陣列 . NL;
+				}
+				continue;
+			}
+			$行文 = '';
+			
+			foreach( $句子陣列 as $字碼 => $字子陣列 )
+			{
+				$句文 = '';
+				
+				foreach( $字子陣列 as $字碼 => $字 )
+				{
+					$句文 .= $字;
+				}
+				if( $加句號 )
+				{
+					$句文 .= '。';
+					/*
+					if( mb_strlen( $句文 ) == sizeof( $字子陣列 ) )
+					{
+						$句文 .= '。';
+					}
+					elseif( intval( $字碼 ) == sizeof( $字子陣列 ) )
+					{
+						//$句文 = str_replace( '[', '。[', $句文 );
+						$句文 .= '。';
+					}
+					*/
+				}
+				$行文 .= $句文;
+			}
+			$contents .=  $行文;
+			if( $加新行 )
+			{
+				$contents .= NL;
+			}
+		}
+	}
+	return $contents;
+}
+
 function 顯示杜甫詩陣列詩文( 
 	array $詩組_詩題, string $頁碼,
-	array $頁列陣, bool $加句號 = true )
+	array $頁列陣, bool $加句號 = true, bool $加新行 = true )
 {
 	$result = array();
 	// 首
@@ -1168,7 +1358,11 @@ function 顯示杜甫詩陣列詩文(
 				}
 				$行文 .= $句文;
 			}
-			echo $行文, NL;
+			echo $行文;
+			if( $加新行 )
+			{
+				echo NL;
+			}
 		}
 	}
 }
