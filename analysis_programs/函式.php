@@ -804,30 +804,30 @@ function 提取版本詩文含夾注陣列(
 	bool $加新行 = true ) : array
 {
 	$首碼 = '';
+	$是詩組 = array_key_exists( '1', $詩陣列 );
+
 	foreach( $版本異文、夾注 as $key => $value )
 	{
 		//echo $value, NL;
 		$異文、夾注 = trim( explode( '〗', $value )[ 1 ] );
 		$首碼 = 提取首碼( $key );
-		if( $首碼 == '' )
+		
+		if( !$是詩組 && $首碼 == '' )
 		{
 			$首碼 = '1';
 		}
 		$行碼 = 提取行碼( $key );
 		$句碼 = 提取句碼( $key );
 		$異文、夾注陣列 = 分割異文、夾注( $異文、夾注 );
-		//print_r( $異文、夾注陣列 );
 		
-		if( $首碼 == '1' )
+		if( !$是詩組 && $首碼 == '1' )
 		{
-			//print_r( $異文、夾注陣列 );
-			
 			foreach( $異文、夾注陣列 as $字碼 => $字 )
 			{
 				$詩陣列[ $行碼 ][ $句碼 ][ $字碼 ] = $字;
 			}
 		}
-		else
+		elseif( $是詩組 )
 		{
 			foreach( $異文、夾注陣列 as $字碼 => $字 )
 			{
@@ -837,17 +837,24 @@ function 提取版本詩文含夾注陣列(
 	}
 	
 	//print_r( $詩陣列 );
-	// 首碼已知
 	$counter = 1;
+	
+	//foreach( $詩陣列 as $key => 
 	foreach( $版本注釋 as $key => $value )
 	{
+		/*
 		if( $首碼 != '1' )
 		{
 			$詩陣列 = $詩陣列[ $首碼 ];
 		}
+		*/
+		$首碼 = 提取首碼( $key );
 		$行碼 = 提取行碼( $key );
 		$句碼 = 提取句碼( $key );
 		$字碼 = 提取字碼( $key );
+		echo "行碼 $行碼", NL;
+		echo "句碼 $句碼", NL;
+		echo "字碼 $字碼", NL;
 		
 		if( $行碼 == '1' )
 		{
@@ -859,12 +866,29 @@ function 提取版本詩文含夾注陣列(
 			$字碼 = trim( $parts[ sizeof( $parts ) - 1 ] );
 			//echo $字碼, NL;
 		}
-		$詩陣列[ $行碼 ][ $句碼 ][ $字碼 ] =
-			$詩陣列[ $行碼 ][ $句碼 ][ $字碼 ] . '[' . $counter . ']';
+		if( !$是詩組 )
+		{
+			$詩陣列[ $行碼 ][ $句碼 ][ $字碼 ] =
+				$詩陣列[ $行碼 ][ $句碼 ][ $字碼 ] . '[' . $counter . ']';
+		}
+		else
+		{
+			$詩陣列[ $首碼 ][ $行碼 ][ $句碼 ][ $字碼 ] =
+				$詩陣列[ $首碼 ][ $行碼 ][ $句碼 ][ $字碼 ] . 
+				'[' . $counter . ']';
+		}
 		$counter++;
 	}
+	$result = $詩陣列;
+	if( array_key_exists( '詩題', $result ) )
+	{
+		$result[ '詩題' ] = '';
+	}
+	if( !$是詩組 )
+	{
+		$result[ '1' ] = $詩陣列;
+	}
 	//print_r( $result );
-	$result[ $首碼 ] = $詩陣列;
 	return $result;
 	//return 提取杜甫詩陣列詩文( $result, $加句號, $加新行 );
 }
@@ -1226,6 +1250,7 @@ function 提取杜甫詩陣列詩文( array $詩文陣列,
 	bool $加新行 = true ) : string
 {
 	$contents = '';
+	//print_r( $詩文陣列 );
 	
 	foreach( $詩文陣列 as $首碼 => $行子陣列 )
 	{
@@ -1248,28 +1273,22 @@ function 提取杜甫詩陣列詩文( array $詩文陣列,
 			}
 			$行文 = '';
 			
+			//print_r( $句子陣列 );
+			
 			foreach( $句子陣列 as $字碼 => $字子陣列 )
 			{
 				$句文 = '';
 				
-				foreach( $字子陣列 as $字碼 => $字 )
+				if( is_array( $字子陣列 ) )
 				{
-					$句文 .= $字;
-				}
-				if( $加句號 )
-				{
-					$句文 .= '。';
-					/*
-					if( mb_strlen( $句文 ) == sizeof( $字子陣列 ) )
+					foreach( $字子陣列 as $字碼 => $字 )
+					{
+						$句文 .= $字;
+					}
+					if( $加句號 )
 					{
 						$句文 .= '。';
 					}
-					elseif( intval( $字碼 ) == sizeof( $字子陣列 ) )
-					{
-						//$句文 = str_replace( '[', '。[', $句文 );
-						$句文 .= '。';
-					}
-					*/
 				}
 				$行文 .= $句文;
 			}
@@ -1358,13 +1377,139 @@ function 顯示杜甫詩陣列詩文(
 				}
 				$行文 .= $句文;
 			}
-			echo $行文;
+			//echo $行文;
 			if( $加新行 )
 			{
 				echo NL;
 			}
 		}
 	}
+}
+
+function 杜甫詩陣列句ToString( array $句 ) : string
+{
+	//print_r( $句 );
+	return implode( $句 );
+}
+
+function 杜甫詩陣列行ToString(
+	array $行, 
+	bool $加句號=true, 
+	bool $加新行=false, 
+	bool $加行碼=false,
+ 	int $行碼 = 0
+) : string
+{
+	$行内容 = '';
+	$句内容 = '';
+	//print_r( $行 );
+	foreach( $行 as $碼 => $句 )
+	{
+		if( is_array( $句 ) )
+		{
+			//echo "array", NL;
+			$句内容 = implode( $句 );
+			//echo '句内容' . $句内容, NL;
+		}
+		//print_r( $句 );
+		
+		/*
+		foreach( $句s as $句 )
+		{
+			if( is_array( $句 ) )
+			{
+				$句内容 .= 杜甫詩陣列句ToString( $句 );
+				
+			}
+		}
+		*/
+		if( $加句號 ){ $句内容 .= '。'; }
+		if( $加新行 )
+		{ 
+			if( $碼 == sizeof( $行 ) )
+			{
+				$句内容 .= NL;
+			}
+		}
+		if( $加行碼 )
+		{ 
+			// 行碼 available only in a new line
+			if( intval( $行碼 ) != 0 && $加新行 && $碼 != sizeof( $行 ) )
+			{
+				$句内容 = "〚${行碼}〛" . $句内容;
+			}
+		}
+		$行内容 .= $句内容;
+	}
+	return $行内容;
+}
+
+function 杜甫詩陣列首ToString(
+	array $首,
+	bool $加句號=true, 
+	bool $加新行=false, 
+	bool $加行碼=false,
+) : string
+{
+	//echo "Printing from 杜甫詩陣列首ToString", NL;
+	//print_r( $首 );
+	$首内容 = '';
+	foreach( $首 as $行碼 => $行 )
+	{
+		if( $行碼 == 1 || is_string( $行 ) ) // skip 詩題、副題、序文
+		{
+			continue;
+		}
+		$首内容 .= 杜甫詩陣列行ToString( $行, $加句號, $加新行, $加行碼, $行碼 );
+	}
+	return $首内容;
+}
+
+function 杜甫詩陣列行至行ToString(
+	array $首,
+	string $行至行,
+	bool $加句號=true, 
+	bool $加新行=false, 
+	bool $加行碼=false,
+) : string
+{
+	//print_r( $首 );
+	//echo $行至行, NL;
+	if( mb_strpos( $行至行, '〚' ) === false ||
+		mb_strpos( $行至行, '〛' ) === false ||
+		mb_strpos( $行至行, '-' ) === false )
+	{
+		return '';
+	}
+	$行至行 = str_replace( '〚', '', 
+		str_replace( '〛', '', $行至行 ) );
+	$行至行 = explode( ':', $行至行 )[ 1 ];
+	$範圍 = explode( '-', $行至行 );
+	$起 = intval( $範圍[ 0 ] );
+	$止 = intval( $範圍[ 1 ] );
+
+	$行至行内容 = '';
+	
+	foreach( $首 as $行碼 => $行 )
+	{
+		//echo $行碼, NL;
+		//print_r( $行 );
+		if( is_string( $行 ) ) // skip 詩題、副題、序文
+		{
+			//echo $行,  NL;
+			continue;
+		}
+		if( intval( $行碼 ) < $起 || intval( $行碼 ) > $止 )
+		{
+			//echo "Should see sth $行碼", NL;
+			continue;
+		}
+		//print_r( $行 );
+		//echo 杜甫詩陣列行ToString( $行, $加句號, $加新行, $加行碼, $行碼 );
+		$行至行内容 .= 杜甫詩陣列行ToString( $行, $加句號, $加新行, $加行碼, $行碼 );
+	}
+	//echo $行至行内容, NL;
+	return $行至行内容;
 }
 
 function 杜甫詩陣列詩文替代( array &$頁陣列, array $替代 )
@@ -1402,6 +1547,68 @@ function 杜甫詩陣列詩文替代( array &$頁陣列, array $替代 )
 			$頁陣列[ $坐標 ] = $替代文;
 		}
 	}
+}
+
+function 分割注釋( array $keys, array $版本注釋 ) : array
+{
+	$result = array();
+	$是詩組 = false;
+	
+	if( in_array( 1, $keys ) )
+	{
+		$是詩組 = true;
+	}
+	
+	foreach( $keys as $key )
+	{
+		if( $key == '詩題' || $key == '副題' )
+		{
+			continue;
+		}
+		$result[ $key ] = array();
+	}
+	
+	foreach( $版本注釋 as $key => $注釋 )
+	{
+		// keys are either string or int
+		// 詩組
+		if( $是詩組 )
+		{
+			$首碼 = 提取首碼( $key );
+			array_push( $result[ $首碼 ], $注釋 );
+		}
+		else
+		{
+			$行碼 = 提取行碼( $key );
+			//echo "行碼" . $行碼 . NL;
+			$坐標s = array_keys( $result );
+			
+			foreach( $坐標s as $坐標 )
+			{
+				if( 在行至行範圍内( $坐標, $行碼 ) )
+				{
+					array_push( $result[ $坐標 ], $注釋 );
+					break;
+				}
+			}
+		}	
+	}
+	
+	return $result;
+}
+
+function 在行至行範圍内( string $行至行範圍, int $行 ) : bool
+{
+	//echo "行碼" . $行 . NL;
+	//echo "範圍" . $行至行範圍 . NL;
+	$行至行範圍 = 
+		str_replace( '〚', '', str_replace( '〛', '', $行至行範圍 ) );
+	$行至行 = explode( '-', 提取行碼( $行至行範圍 ) );
+	$起 = intval( $行至行[ 0 ] );
+	$止 = intval( $行至行[ 1 ] );
+	//echo "起" . $起 . NL;
+	//echo "止" . $止 . NL;
+	return ( $行 >= $起 && $行 <= $止 );
 }
 
 function fixPageNum( string $num ) : string
