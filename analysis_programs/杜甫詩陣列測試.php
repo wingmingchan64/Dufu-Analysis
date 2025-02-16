@@ -19,7 +19,7 @@ echo 杜甫詩陣列首ToString( $詩陣列, true, true, true );
 $詩陣列 = $杜甫詩陣列[ '0013' ][ 1 ];
 echo 杜甫詩陣列首ToString( $詩陣列, true, true, true );
 */
-$詩陣列 = $杜甫詩陣列[ '5308' ];
+$詩陣列 = $杜甫詩陣列[ '0062' ];
 print_r( $詩陣列 );
 
 
