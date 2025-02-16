@@ -304,7 +304,7 @@ try
 				$contents .= 【注釋】 . NL;
 				$contents .= implode( NL, $分段注釋[ $i ] ) . NL . NL;
 				$contents .= 【評論】 . NL;
-				$contents .= $仇内容[ '評論' ][ $碼 ] . NL;
+				$contents .= $仇内容[ '評論' ][ $碼 ] . NL . NL;
 				
 			}
 			//$contents .= 分隔線;
