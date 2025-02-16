@@ -304,7 +304,7 @@ try
 				$contents .= 【注釋】 . NL;
 				$contents .= implode( NL, $分段注釋[ $i ] ) . NL . NL;
 				$contents .= 【評論】 . NL;
-				$contents .= $仇内容[ '評論' ][ $碼 ] . NL . NL;
+				$contents .= $仇内容[ '評論' ][ $碼 ] . NL;
 				
 			}
 			//$contents .= 分隔線;
@@ -340,7 +340,7 @@ try
 				!is_array( $仇内容[ '評論' ] ) )
 			{
 				$contents .= 【評論】 . NL;
-				$contents .= $仇内容[ '評論' ] . NL . NL;
+				$contents .= $仇内容[ '評論' ] . NL;
 			}
 		}
 		// 大部分
@@ -365,9 +365,9 @@ try
 				$contents .= NL . 【評論】 . NL;
 				$contents .= $仇内容[ '評論' ];
 			}
-			//$contents .= 分隔線;
+			$contents .= NL;
 		}
-		$contents .= NL . 分隔線 . NL;
+		$contents .= 分隔線 . NL;
 	}
 	catch( ErrorException $e )
 	{
