@@ -40,6 +40,7 @@ wui6 dong1 ling4 zyut6 ding2, jat1 laam5 zung3 saan1 siu2
 今：這首詩當是杜甫於開元二十四年（736）第一次漫遊齊趙間時所作，是詩人現存詩作中最早的一首詩，其時他的父親杜閑任兗州（今山東兗州市）司馬。嶽，古代山之高而尊者皆稱嶽，我國自周朝卽有「五嶽」之說，這裏杜甫所望的是東嶽泰山。全詩圍繞「望」字馳神運思，讚美了泰山的高峻雄偉，抒寫了青年詩人抱負非凡的胸襟和豪邁超羣的氣勢，造語警拔，意境開闊，已顯示出詩人「驚人」的才華。
 名：嶽：指東嶽泰山。
 譯：此詩當於開元二十四年（736）杜甫遊齊趙時作。望嶽的「嶽」，指東嶽泰山。詩中熱情讚美了泰山的雄偉氣象，表現了作者的凌雲壯志。
+歐：Before setting out in earnest to seek advancement, Du Fu traveled in the east of China, travels he wrote about often in his later years. No poems survive from his travels in the lower Yangzi, but a number of pieces remain from his tour of the region centered in modern Shandong. Mount Tai was the “Eastern Marchmount,” one of the five symbolic mountains that defined Chinese territory  —  a Marchmount for each of the four directions and one for the center.
 
 【詩句】
 〚3〛岱宗夫如何。齊魯青未了。
@@ -49,6 +50,7 @@ wui6 dong1 ling4 zyut6 ding2, jat1 laam5 zung3 saan1 siu2
 【注釋】今：岱宗：泰山。宗，長。泰山爲五嶽之長。
 【注釋】名：岱宗：卽泰山。《前漢·郊祀誌》：「岱宗，泰山也。」鄭昂曰：「王者升中告代必於此山，又是山爲五嶽之長，故曰岱宗。」
 【注釋】譯：岱宗：泰山。
+【注釋】歐：岱宗夫如何：The Peak in question is Mount Tai, here referred to by it honorific name Daizong.
 【注釋】蕭：夫：夫（ㄈㄨˊ），指代詞，指泰山。
 【注釋】今：夫：指代詞。
 【大意】今：這裏是自己問自己。
@@ -59,6 +61,7 @@ wui6 dong1 ling4 zyut6 ding2, jat1 laam5 zung3 saan1 siu2
 【注釋】譯：齊魯：春秋時二國名。齊國在泰山之北，魯國在泰山之南。
 【注釋】黃：齊魯青未了：洙曰書岱宗泰山爲四嶽所宗風俗通云泰山山之尊者一曰岱宗岱始也宗長也鄭曰升中告代于此是山爲五嶽之長故曰岱宗師曰岱宗天猶云楚天之類徐曰按王原叔呂居仁王彥輔魯訔並作夫獨師本作天字說師曰泰山跨齊魯二國之境眺望其山之青已窮齊魯而其山之青未窮故曰青未了也。◯補注。希曰爾雅中有岱嶽釋曰岱嶽泰山也此言中國也泰山東近海禹貢海岱惟青州然則齊魯青殆是指三州言岱嶽跨三州之境而青未了也。
 【注釋】郭：齊魯青未了：書岳宗。㤗山爲四岳所宗。風俗通云。㤗山。山之尊者。一曰岱宗。岱。始也。宗。長也。萬物之始。陰陽交代。爲五岳之長◯趙云。言其山之長大。東岳謂之岱宗。書云。東巡狩至于岱宗是也。
+【注釋】歐：齊魯青未了：The north side of  Mount Tai was the ancient state of Qi; its south side was the state of Lu.
 【注釋】今：齊：春秋國名。在泰山之北。
 【注釋】今：魯：春秋國名。在泰山之南。
 【注釋】仇：青未了：《子夜歌》：寒衣尙未了。
@@ -68,6 +71,7 @@ wui6 dong1 ling4 zyut6 ding2, jat1 laam5 zung3 saan1 siu2
 【注釋】今：未了：沒完，未盡。
 【大意】今：此句說走出齊魯國境，還能望見泰山青鬱的山色。此是自答，極寫泰山的高大。
 【譯文】譯：泰山的高大究竟如何？走遍齊魯大地都能看到它的青色。
+【譯文】歐：And what then is Daizong like? — over Qi and Lu, green unending.
 
 〚4〛造化鍾神秀。陰陽割昏曉。
 【注釋】仇：造化：《莊子》：造化之所始，陰陽之所變。
@@ -99,6 +103,7 @@ wui6 dong1 ling4 zyut6 ding2, jat1 laam5 zung3 saan1 siu2
 【旁注】楊：割字奇險
 【大意】蕭：此二句是承上高大之義也。
 【譯文】譯：天地把神奇和秀美聚集在它身上，那高大的山峯陰面是黃昏，陽面卻是清曉。
+【譯文】歐：Creation compacted spirit splendors here, Dark and Light, riving dusk and dawn.
 
 〚5〛盪胸生曾雲。決眥入歸鳥。
 【注釋】楊：盪胸：張衡《南都賦》：淯水盪其胸。
@@ -125,6 +130,7 @@ wui6 dong1 ling4 zyut6 ding2, jat1 laam5 zung3 saan1 siu2
 【大意】今：張大眼睛，全神貫注地望著飛鳥歸山。
 【大意】蕭：朱注：「觀層雲之出其上，則胸搖；送歸鳥之入其中，則眥裂。極言所望之高且遠也。」
 【譯文】譯：山間雲氣生騰，層層疊疊，令我心胸激蕩；我極盡目力，追羨那飛入山間的歸鳥。
+【譯文】歐：Exhilirating the breast, it produces layers of cloud; splitting eye-pupils, it has homing birds entering.
 
 〚6〛會當凌絕頂。一覽眾山小。
 【注釋】蕭：會當：定要。
@@ -136,10 +142,12 @@ wui6 dong1 ling4 zyut6 ding2, jat1 laam5 zung3 saan1 siu2
 【注釋】仇：一覽：《世說》：王珣曰：「若使阡陌條暢，則一覽而盡。」
 【注釋】黃：一覽眾山小：師曰登臨山之絕頂俯視眾山其培塿歟眾山知尊乎大嶽眾流知宗乎滄海當安史之亂僣稱尊號天子蒙塵其朝宗之義爲如何甫望嶽之作末章云一覽眾山小固知安史之徒乃培塿之細者又何足以上抗巖巖之大也哉。◯補注。希曰公爲此詩時安史未亂師注未是。
 【注釋】郭：一覽眾山小：孟子曰。孔子登東山而小魯。登㤗山而小天下。揚子升東岳而知眾山之迤邐也。漢官儀。及㤗山盤道屈曲上。凡五十餘盤。經小天門。大天門。如從穴中視天窻也◯趙云。沉休文早發定山詩云。絕頂復孤圓。劉義慶世說載云。江左地促。不如中國。若使阡陌滌暢。則一覽而盡。
+【注釋】歐：一覽眾山小：Echoing Mencius (VIIA), telling how Confucius, when he climbed Mount Tai, thought all the world small.
 【注釋】仇：眾山小：《揚子法言》：登東嶽者，然後知眾山之峛崺也。
 【注釋】今：眾山小：此化用《孟子·盡心上》「孔子登東山而小魯，登泰山而小天下」之意。
 【大意】今：詩人極願登臨泰山頂峰，俯視羣山的雄心壯志和積極向上的精神境界。
 【譯文】譯：啊，定會有一天登上絕頂，俯看腳下羣山的渺小！
+【譯文】歐：Someday may I climb up to its highest summit, with one sweeping view see how small all other mountains are.
 
 〖通篇討論〗
 

@@ -44,6 +44,7 @@ cung4 loi4 do1 gu2 ji3, lam4 tiu3 duk6 cau4 cyu4
 仇：邵注：兗州，魯所都，漢以封共王餘。《唐書》：兗州，魯郡，屬河南道。顧宸注：兗州，隋改為魯郡，唐武德間復曰兗州，天寶元年又改魯郡。此云兗州，當是開元二十五年，公下第後遊齊趙時所作。鰲按：唐之兗州治瑕丘縣，即今之嵫陽縣也。蔡夢弼曰：公父閑嘗爲兗州司馬，公時省侍，故有「趨庭」句。
 今：這首詩與《望嶽》當同是第一次遊齊趙時所作，是現存最早的一首五言律詩。全詩寫登樓的所見所感，結構嚴謹，格律工穩。張綖曰：「凡詩體欲去〘原文無「去」字〙其宏。而思欲其密。廣大精微。此詩兼之矣。」（見仇兆鰲《杜詩詳註》引）
 譯：此詩當作於開元二十四年（736），時杜甫東遊齊趙。杜甫之父杜閑當時任兗州（今屬山東）司馬。詩人探親之際，初登兗州城樓。憑高騁目，收千里之遙；觸目感懷，思千年之古。抒發了物是人非的惆悵之情。
+歐：Du Fu’s father held a minor position at Yanzhou, and this was his base for Du Fu’s travels in eastern China.
 
 【詩句】
 〚3〛東郡趨庭日。南樓縱目初。
@@ -51,6 +52,7 @@ cung4 loi4 do1 gu2 ji3, lam4 tiu3 duk6 cau4 cyu4
 【注釋】今：東郡：兗州爲漢之東郡。
 【注釋】名：東郡：秦置，屬兗州。
 【注釋】譯：東郡：兗州。
+【注釋】歐：東郡趨庭日：“Rushing through the yard” refers to receiving instruction from one’s father, based on a passage in the Analects in which Confucius’s son Li was rushing through the yard, and Confucius asked him if he had studied the Poems. Du Fu’s father was an assistant in Yanzhou.
 【注釋】仇：趨庭：隋孫萬壽詩：趨庭尊教義。
 【注釋】今：趨庭：子承父教。
 【注釋】名：趨庭：承受父親的教誨。《論語·季氏》:「（孔子）嘗獨立，鯉（孔子之子）趨而過庭。」孔子教以學詩、學禮。
@@ -61,6 +63,7 @@ cung4 loi4 do1 gu2 ji3, lam4 tiu3 duk6 cau4 cyu4
 【注釋】今：初：初次。
 【大意】今：點出登樓。
 【譯文】譯：來兗州探望父親的日子裏，我初次登上城南樓。
+【譯文】歐：An eastern province, days of “rushing through the yard,” from its south tower I first let my eyes roam free.
 
 〚4〛浮雲連海岱。平野入青徐。
 【注釋】仇：浮雲：古詩：浮雲蔽白日。
@@ -70,6 +73,7 @@ cung4 loi4 do1 gu2 ji3, lam4 tiu3 duk6 cau4 cyu4
 【注釋】譯：岱：泰山。
 【注釋】仇：平野：鮑照詩：平野起秋塵。
 【注釋】今：平野：平坦的曠野。
+【注釋】歐：平野入青徐：The two prefectures Qingzhou and Xuzhou.
 【注釋】今：入：一直延伸到。
 【注釋】楊：青徐：《唐書》：青州北海郡，徐州彭城郡，俱屬河南道。
 【注釋】仇：青徐：海賦：西薄青徐。《唐書》：青州北海郡、徐州彭城郡，俱屬河南道。
@@ -78,17 +82,20 @@ cung4 loi4 do1 gu2 ji3, lam4 tiu3 duk6 cau4 cyu4
 【注釋】譯：青徐：二州名，均與兗州鄰境。
 【大意】今：寫登樓縱目所見之遠景。
 【譯文】譯：縱目遠望，浮雲連綿於大海、泰山的上空，平野一直伸展到青徐二州。
+【譯文】歐：Drifting clouds stretch to Mount Tai and the sea, the level moors go off into Qing and Xu.
 
 〚5〛孤嶂秦碑在。荒城魯殿餘。
 【注釋】仇：孤嶂：唐太宗《小山賦》：寸中孤嶂連還斷。
 【注釋】名：孤嶂：指鄒嶧山。又名鄒山、嶧山，在山東鄒縣東南。
 【注釋】譯：孤嶂：嶧山，在山東鄒縣東南。
+【注釋】歐：孤嶂秦碑在：The inscription on Mount Yi by the First Emperor, when he made the tour of his newly conquered empire.
 【注釋】今：嶂：本指形勢高險像屛障的山，此指碑像屛障一樣聳立。永明按：這裏說孤嶂、秦碑同指一物，與下句不成對（荒城、魯殿非指一物）。
 【注釋】楊：秦碑：《秦本紀》：始皇東行郡縣，上鄒嶧山刻石頌秦德。
 【注釋】仇：秦碑：《秦本紀》：始皇二十八年，東行郡縣，上鄒嶧山，刻石頌秦德。
 【注釋】今：秦碑：秦始皇登嶧山所刻石碑。
 【注釋】仇：荒城：謝玄暉詩：荒城迥易陰。
 【注釋】譯：荒城：曲阜故城。
+【注釋】歐：荒城魯殿餘：The famous Lingguang Palace constructed by Prince Gong of Lu in the Han.
 【注釋】楊：魯殿：王延壽《魯靈光殿賦》：殿本景帝子魯共王所立，遭漢中微，未央建章悉隳，而靈光巋然獨存。《後漢書注》：殿在兗州曲阜縣城中。
 【注釋】仇：魯殿：徐摛詩：列楹登魯殿。王延壽《魯靈光殿賦》：殿本景帝子魯共王所立。《後漢書注》：殿在兗州曲阜縣城中。
 【注釋】今：魯殿：魯靈光殿，漢景帝魯共王所建。
@@ -97,6 +104,7 @@ cung4 loi4 do1 gu2 ji3, lam4 tiu3 duk6 cau4 cyu4
 【注釋】今：餘：殘餘。
 【大意】今：寫登樓縱目所見的古跡。
 【譯文】譯：孤高的嶧山上依舊矗立著秦皇的石碑，荒涼的曲阜城內還存留著魯共王的宮殿。
+【譯文】歐：The Qin stele is still there on the lonely cliff, an overgrown wall, ruins of the Lu palace.
 
 〚6〛從來多古意。臨眺獨躊躇。
 【注釋】仇：從來：《史記·龜策傳》：所從來久矣。
@@ -106,6 +114,7 @@ cung4 loi4 do1 gu2 ji3, lam4 tiu3 duk6 cau4 cyu4
 【注釋】仇：躊躇：《莊子》：聖人躊躇以興事。薛君曰：躊躇，躑躅也。《玉篇》：猶豫也。
 【大意】今：登臨遠眺，憑高懷古，不免躊躇惆悵。
 【譯文】譯：我素來多有懷古之意，當此登臨之際獨自生出萬千感慨。
+【譯文】歐：Ever many thoughts of ancient times, looking out, alone, I hesitate uncertain.
 
 〖通篇討論〗
 
