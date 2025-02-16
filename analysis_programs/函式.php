@@ -913,7 +913,6 @@ function 提取版本詩文含夾注陣列(
 	}
 	//print_r( $result );
 	return $result;
-	//return 提取杜甫詩陣列詩文( $result, $加句號, $加新行 );
 }
 
 function 提取版本詩文含夾注( 
