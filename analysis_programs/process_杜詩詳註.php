@@ -20,7 +20,7 @@ require_once( 杜甫詩陣列 );
 $特別詩題 = array(
 '0062',
 );
-$text     = getFile( 'H:\杜甫資料庫\仇兆鰲《杜詩詳註》\仇目錄.txt' );
+$text     = getFile( 'H:\github\Dufu-Analysis\仇兆鰲《杜詩詳註》\仇目錄.txt' );
 $lines    = explode( "\n", $text );
 $store    = array();
 $contents = '';
@@ -28,25 +28,31 @@ $file_name = '';
 
 foreach( $lines as $l )
 {
-	/*
-	if( $l == '' && $file_name != '' )
+	$l = trim( $l );
+
+	if( $l == '' )
 	{
-		$outfile = 杜詩詳註 . "${file_name}.txt";
-		file_put_contents( $outfile, $contents . 分隔線 );
-		$contents = '';
+		$outfile = 杜甫分析文件夾 . "仇兆鰲《杜詩詳註》\\${file_name}.txt";
+		file_put_contents( $outfile, $contents . 
+			file_get_contents( 程式文件夾 . 'msg.txt' ) );
+		continue;
 	}
 	elseif( mb_strpos( $l, '//' ) === false && 
 		mb_strpos( $l, '卷之' ) !== false )
 	{
-		$file_name = trim( $l );
+		$file_name = $l;
+		$contents = $l . NL . NL;
+		continue;
 	}
-	*/
+/*
 	if( $l == '' || mb_strpos( $l, '//' ) === false )
 	{
 		continue;
 	}
+*/
 	else // only lines with //
 	{
+		//continue;
 		$l       = str_replace( '// ', '', $l );
 		$l_array = explode( ' ', $l );
 		$默認頁碼  = trim( $l_array[ 1 ] );
@@ -61,7 +67,8 @@ foreach( $lines as $l )
 		//   0161 0209
 		//if( $默認頁碼 != '0209' )
 		//{ continue; }
-	
+		
+		// stop at a new 卷
 		if( $默認頁碼 == '0136' )
 		{ break; }
 	
@@ -282,7 +289,7 @@ try
 			$版本詩題 = implode( ' ', $舊詩題 );
 		}
 		
-		$contents .= $版本詩題;
+		$contents .= $版本詩題 . NL;
 		$contents .= $題解 . NL;
 		
 		if( $是詩組 )
@@ -307,7 +314,6 @@ try
 				$contents .= $仇内容[ '評論' ][ $碼 ] . NL . NL;
 				
 			}
-			//$contents .= 分隔線;
 		}
 		elseif( $是分段 && !$是詩組 )
 		{
@@ -340,7 +346,7 @@ try
 				!is_array( $仇内容[ '評論' ] ) )
 			{
 				$contents .= 【評論】 . NL;
-				$contents .= $仇内容[ '評論' ] . NL;
+				$contents .= $仇内容[ '評論' ] . NL . NL;
 			}
 		}
 		// 大部分
@@ -363,7 +369,7 @@ try
 				is_string( $仇内容[ '評論' ] ) )
 			{	
 				$contents .= NL . 【評論】 . NL;
-				$contents .= $仇内容[ '評論' ];
+				$contents .= $仇内容[ '評論' ] . NL;
 			}
 			$contents .= NL;
 		}
@@ -384,9 +390,9 @@ try
 
 //$outfile = 杜詩詳註 . "杜詩詳註.txt";
 //file_put_contents( $outfile, $contents );
-$outfile = 杜甫分析文件夾 . "仇兆鰲《杜詩詳註》\\" . "杜詩詳註卷之一.txt";
-file_put_contents( $outfile, $contents . 
-	file_get_contents( 程式文件夾 . 'msg.txt' )
- );
+//$outfile = 杜甫分析文件夾 . "仇兆鰲《杜詩詳註》\\" . "杜詩詳註卷之一.txt";
+//file_put_contents( $outfile, $contents . 
+//	file_get_contents( 程式文件夾 . 'msg.txt' )
+//);
 ?>
 
