@@ -382,10 +382,11 @@ try
 	}
 }
 
-$outfile = 杜詩詳註 . "杜詩詳註.txt";
-file_put_contents( $outfile, $contents );
-/*$outfile = "H:\\github\\Dufu-Analysis\\王嗣奭《杜臆》\\" . "王嗣奭《杜臆》_帶詩文.txt";
-file_put_contents( $outfile, $contents );
-*/
+//$outfile = 杜詩詳註 . "杜詩詳註.txt";
+//file_put_contents( $outfile, $contents );
+$outfile = 杜甫分析文件夾 . "仇兆鰲《杜詩詳註》\\" . "杜詩詳註卷之一.txt";
+file_put_contents( $outfile, $contents . 
+	file_get_contents( 程式文件夾 . 'msg.txt' )
+ );
 ?>
 
