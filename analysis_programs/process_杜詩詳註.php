@@ -2,10 +2,10 @@
 /*
 php h:\github\Dufu-Analysis\analysis_programs\process_杜詩詳註.php
 */
-require_once( "常數.php" );
+//require_once( "常數.php" );
 require_once( "函式.php" );
-require_once( 詩組_詩題 );
-require_once( 帶序文之詩歌 );
+//require_once( 詩組_詩題 );
+//require_once( 帶序文之詩歌 );
 require_once( 杜甫詩陣列 );
 
 // 目錄 used to direct the program
