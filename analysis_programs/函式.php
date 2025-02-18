@@ -1677,4 +1677,13 @@ function fixText( string $str ) : string
 	}
 	return $temp;
 }
+
+function printOutput( array $output )
+{
+	foreach( $output as $i => $l )
+	{
+		echo $l, NL;
+	}
+	echo NL;
+}
 ?>
