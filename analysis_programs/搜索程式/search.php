@@ -206,14 +206,6 @@ while( true ) // code from 輸入漢字.php, 07/11/2023
 		}
 	}
 }
-function printOutput( array $output )
-{
-	foreach( $output as $i => $l )
-	{
-		echo $l, "\n";
-	}
-	echo "\n";
-}
 function isAscii( string $str ) : bool
 {
 	return ( mb_detect_encoding( $str, 'ASCII' ) == 'ASCII' );
