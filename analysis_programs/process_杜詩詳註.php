@@ -47,7 +47,7 @@ foreach( $lines as $l )
 		}
 				
 		// stop at a new 卷
-		if( $默認頁碼 == '0136' )
+		if( $默認頁碼 == '1064' )
 		{ break; }
 	
 		// read 詩 array 
@@ -273,19 +273,37 @@ foreach( $lines as $l )
 					$contents .= 【注釋】 . NL;
 					$contents .= implode( NL, $分段注釋[ $i ] ) . NL . NL;
 					$contents .= 【評論】 . NL;
-					$contents .= $仇内容[ '評論' ][ $碼 ] . NL . NL;
-					
+					if( array_key_exists( $碼, $仇内容[ '評論' ] ) )
+					{
+						$contents .= $仇内容[ '評論' ][ $碼 ] . NL . NL;
+					}
 				}
 			}
 			elseif( $是分段 && !$是詩組 )
 			{
 				$段數 = sizeof( array_keys( $分段注釋 ) );
+				if( $默認頁碼 == '0136' )
+				{
+					//echo "段數: $段數", NL;
+				}
 				$段落坐標 = array_keys( $仇内容[ '大意' ] );
+				if( $默認頁碼 == '0136' )
+				{
+					//print_r( $段落坐標 );
+				}
 				$評論 = '';
 				
 				for( $i = 1; $i <= $段數; $i++ )
 				{
 					$contents .= 【詩文】 . NL;
+					/*
+					if( $默認頁碼 == '0136' )
+					{
+						echo $段落坐標[ $i - 1 ], NL;
+						echo 杜甫詩陣列行至行ToString( 
+							$版本詩文陣列, $段落坐標[ $i - 1 ], true, false ) . NL;
+					}
+					*/
 					$contents .= 杜甫詩陣列行至行ToString( 
 							$版本詩文陣列, $段落坐標[ $i - 1 ], true, false ) . NL . NL;
 						//$詩陣列
@@ -300,7 +318,11 @@ foreach( $lines as $l )
 						is_array( $仇内容[ '評論' ] ) )
 					{
 						$contents .= 【評論】 . NL;
-						$contents .= $仇内容[ '評論' ][ $段落坐標[ $i - 1 ] ] . NL . NL;
+						if( array_key_exists( 
+							$段落坐標[ $i - 1 ], $仇内容[ '評論' ] ) )
+						{
+							$contents .= $仇内容[ '評論' ][ $段落坐標[ $i - 1 ] ] . NL . NL;
+						}
 					}
 				}
 				

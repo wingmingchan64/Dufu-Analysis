@@ -1498,17 +1498,25 @@ function 杜甫詩陣列行至行ToString(
 	//print_r( $首 );
 	//echo $行至行, NL;
 	if( mb_strpos( $行至行, '〚' ) === false ||
-		mb_strpos( $行至行, '〛' ) === false ||
-		mb_strpos( $行至行, '-' ) === false )
+		mb_strpos( $行至行, '〛' ) === false )
 	{
 		return '';
 	}
 	$行至行 = str_replace( '〚', '', 
 		str_replace( '〛', '', $行至行 ) );
 	$行至行 = explode( ':', $行至行 )[ 1 ];
-	$範圍 = explode( '-', $行至行 );
-	$起 = intval( $範圍[ 0 ] );
-	$止 = intval( $範圍[ 1 ] );
+	if( strpos( $行至行, '-' ) !== false )
+	{
+		$範圍 = explode( '-', $行至行 );
+		$起 = intval( $範圍[ 0 ] );
+		$止 = intval( $範圍[ 1 ] );
+	}
+	else
+	{
+		$起 = intval( $行至行 );
+		//echo "杜甫詩陣列行至行ToString: ", $起, NL;
+		$止 = intval( $行至行 );
+	}
 
 	$行至行内容 = '';
 	
@@ -1625,9 +1633,22 @@ function 在行至行範圍内( string $行至行範圍, int $行 ) : bool
 	//echo "範圍" . $行至行範圍 . NL;
 	$行至行範圍 = 
 		str_replace( '〚', '', str_replace( '〛', '', $行至行範圍 ) );
-	$行至行 = explode( '-', 提取行碼( $行至行範圍 ) );
-	$起 = intval( $行至行[ 0 ] );
-	$止 = intval( $行至行[ 1 ] );
+	$行至行 = explode( ':', $行至行範圍 )[ 1 ];
+	if( strpos( $行至行, '-' ) !== false )
+	{
+		$行至行 = explode( '-', 提取行碼( $行至行範圍 ) );
+		$起 = intval( $行至行[ 0 ] );
+		$止 = intval( $行至行[ 1 ] );
+	}
+	else
+	{
+		//echo "在行至行範圍内: 行", $行, NL;
+		$起 = intval( $行至行 );
+		//echo "在行至行範圍内: 起", $起, NL;
+		$止 = intval( $行至行 );
+		//echo "在行至行範圍内: 止", $止, NL;
+		//echo ( $行 >= $起 && $行 <= $止 ) ? "true" : "false", NL;
+	}
 	//echo "起" . $起 . NL;
 	//echo "止" . $止 . NL;
 	return ( $行 >= $起 && $行 <= $止 );
