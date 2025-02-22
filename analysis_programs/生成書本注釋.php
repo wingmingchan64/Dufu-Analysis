@@ -66,8 +66,11 @@ foreach( $頁碼 as $頁 )
 			}
 			else
 			{
-				echo $頁, NL;
-				echo $$陣列名[ $種類 ], NL;
+				//echo $頁, NL;
+				//echo $$陣列名[ $種類 ], NL;
+				$content = $$陣列名[ $種類 ];
+				$line = "\"〚${頁}:〛\"=>\"${content}\",\r\n";
+				$code = $code . $line . NL;
 			}
 		}
 	}

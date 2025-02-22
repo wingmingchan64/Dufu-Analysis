@@ -23,7 +23,7 @@ foreach( $lines as $l )
 	{
 		$outfile = 杜甫分析文件夾 . "仇兆鰲《杜詩詳註》\\${file_name}.txt";
 		file_put_contents( $outfile, $contents . 
-			file_get_contents( 程式文件夾 . 'msg.txt' ) );
+			str_replace( '﻿', '', file_get_contents( 程式文件夾 . 'msg.txt' ) ) );
 		continue;
 	}
 	// the 卷 line is the file name
@@ -272,9 +272,10 @@ foreach( $lines as $l )
 					//echo "2", NL;
 					$contents .= 【注釋】 . NL;
 					$contents .= implode( NL, $分段注釋[ $i ] ) . NL . NL;
-					$contents .= 【評論】 . NL;
+					
 					if( array_key_exists( $碼, $仇内容[ '評論' ] ) )
 					{
+						$contents .= 【評論】 . NL;
 						$contents .= $仇内容[ '評論' ][ $碼 ] . NL . NL;
 					}
 				}
@@ -359,7 +360,20 @@ foreach( $lines as $l )
 			
 			// 【附錄】
 			
+			// 【按語】
+			if( array_key_exists( 按語, $仇内容 ) )
+			{
+				$contents .= NL . 【按語】 . NL;
+				$contents .= $仇内容[ 按語 ] . NL . NL;
+			}
 			
+			// 【校記】
+			if( array_key_exists( 校記, $仇内容 ) )
+			{
+				$contents .= NL . 【校記】 . NL;
+				$contents .= $仇内容[ 校記 ] . NL . NL;
+			}
+
 			$contents .= 分隔線 . NL;
 		}
 		catch( ErrorException $e )
