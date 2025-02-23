@@ -12,6 +12,8 @@ require_once( 書目簡稱 );
 
 $簡稱 = '訳';
 $簡稱 = '仇';
+$簡稱 = '謝';
+
 $路徑 = 杜甫分析文件夾 . $書目簡稱[ '=' . $簡稱 ] . "\\${簡稱}目錄.txt";
 $file = file_get_contents( $路徑 );
 $lines = explode( NL, $file );
