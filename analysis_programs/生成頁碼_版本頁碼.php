@@ -5,31 +5,52 @@ php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_版本頁碼.php
 require_once( "函式.php" );
 require_once( 書目簡稱 );
 
-$簡稱 = '謝';
-$路徑 = 杜甫分析文件夾 . $書目簡稱[ '=' . $簡稱 ] . "\\${簡稱}目錄.txt";
-$file = file_get_contents( $路徑 );
-$lines = explode( NL, $file );
-$counter = 0;
-$contents = "<?php
-/*
-php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_版本頁碼.php
-*/
-\$頁碼_${簡稱}頁碼=array(
-";
+//$result = array();
 
-foreach( $lines as $line )
+foreach( $書目簡稱 as $簡稱 => $書目)
 {
-	if( $line == '' || strpos( $line, '//' ) === false )
+
+	$簡稱 = str_replace( '=', '', $簡稱 );
+	$路徑 = 杜甫分析文件夾 . $書目簡稱[ '=' . $簡稱 ] . "\\${簡稱}目錄.txt";
+	if( file_exists( $路徑 ) )
 	{
-		continue;
+		$file = file_get_contents( $路徑 );
+		$lines = explode( NL, $file );
+		$counter = 0;
+		$contents = "<?php
+		/*
+		php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_版本頁碼.php
+		*/
+		\$頁碼_${簡稱}頁碼=array(
+		";
+
+		foreach( $lines as $line )
+		{
+			if( $line == '' || strpos( $line, '//' ) === false )
+			{
+				continue;
+			}
+			$parts = explode( ' ', $line );
+			$默認頁碼 = trim( $parts[ 2 ] );
+			$版本頁碼 = trim( $parts[ 3 ] );
+			/*
+			if( !array_key_exists( $默認頁碼, $result ) )
+			{
+				$result[ $默認頁碼 ] = array();
+			}
+			if( !array_key_exists( $簡稱, $result[ $默認頁碼 ] ) )
+			{
+				$result[ $默認頁碼 ][ $簡稱 ] = $版本頁碼;
+			}
+			*/
+			$contents .= "\"$默認頁碼\"=>\"$版本頁碼\",\r\n";
+		}
+		$contents .= ");
+		?>";
+		file_put_contents( 杜甫分析文件夾 . 
+			$書目簡稱[ '=' . $簡稱 ] . "\\頁碼_${簡稱}頁碼.php", $contents );
 	}
-	$parts = explode( ' ', $line );
-	$默認頁碼 = trim( $parts[ 2 ] );
-	$版本頁碼 = trim( $parts[ 3 ] );
-	$contents .= "\"$默認頁碼\"=>\"$版本頁碼\",\r\n";
 }
-$contents .= ");
-?>";
-file_put_contents( 杜甫分析文件夾 . 
-	$書目簡稱[ '=' . $簡稱 ] . "\\頁碼_${簡稱}頁碼.php", $contents );
+
+
 ?>
