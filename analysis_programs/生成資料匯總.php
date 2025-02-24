@@ -312,6 +312,11 @@ foreach( $頁碼 as $頁 )
 	}
 	$content .= NL . '〖參考書目〗' . NL . $簡稱;
 	
+	$executable = "php h:\\github\\Dufu-Analysis\\analysis_programs\\搜索程式\\頁碼→版本頁碼.php ${頁}";
+	$output = null;
+	$retval = null;
+	exec( $executable, $output, $retval );
+	$content .= getOutput( $output );;
 
 	$msg = file_get_contents( 'msg.txt', true );
 	file_put_contents( 資料匯總文件夾 . $頁 . '.txt', 

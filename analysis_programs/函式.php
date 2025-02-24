@@ -1699,12 +1699,19 @@ function fixText( string $str ) : string
 	return $temp;
 }
 
-function printOutput( array $output )
+function getOutput( array $output ) : string
 {
+	$contents = '';
 	foreach( $output as $i => $l )
 	{
-		echo $l, NL;
+		$contents .= $l . NL;
 	}
-	echo NL;
+	$contents .= NL;
+	return $contents;
+}
+
+function printOutput( array $output )
+{
+	echo getOutput( $output );
 }
 ?>

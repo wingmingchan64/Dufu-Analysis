@@ -88,6 +88,21 @@ saau2 doi6 cau1 fung1 loeng4 laang5 hau6, gou1 cam4 baak6 dai3 man6 zan1 jyun4
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+Array
+(
+    [1144] => Array
+        (
+            [黃] => PDF581
+            [郭] =>
+            [朱] => PDF251,哈PDF238
+            [仇] => 2.485,PDF2.53,津PDF4.85,PDF1.487
+            [謝] => 1630
+            [訳] => 0230,1.656
+            [歐] =>
+        )
+
+)
+
 
 =====================================================
 

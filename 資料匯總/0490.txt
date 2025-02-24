@@ -89,6 +89,22 @@ nim6 zi1 hung1 zoeng2 daai6 zi1 jip6, git3 gan1 sat1 so2 maai4 fung1 soeng1
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+Array
+(
+    [0490] => Array
+        (
+            [黃] => PDF120
+            [郭] => PDF1.119
+            [奭] => PDF82,PDF1.203
+            [朱] => PDF131,哈PDF108
+            [仇] => 1.210,PDF1.283,津PDF3.30,PDF1.262
+            [謝] => 64
+            [訳] => 0106,1.296
+            [歐] =>
+        )
+
+)
+
 
 =====================================================
 

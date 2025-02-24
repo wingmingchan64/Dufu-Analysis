@@ -94,6 +94,22 @@ gung1 zung1 mui5 ceot1 gwai1 dung1 saang2, wui6 sung3 kwai4 lung4 zaap6 fung6 ci
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+Array
+(
+    [1017] => Array
+        (
+            [黃] => PDF568
+            [郭] =>
+            [奭] => PDF116,PDF1.174
+            [朱] => PDF232,哈PDF216
+            [仇] => 2.436,PDF2.4,津PDF4.55,PDF1.447
+            [謝] => 1576
+            [訳] => 0200,1.584
+            [歐] =>
+        )
+
+)
+
 
 =====================================================
 

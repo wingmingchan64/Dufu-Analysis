@@ -158,6 +158,22 @@ gwan1 bat1 gin3 coi4 si6 kap1 jan5 naan4, hung2 geoi6 hei3 gyun1 jan2 gei1 leoi5
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+Array
+(
+    [0319] => Array
+        (
+            [黃] => PDF117
+            [郭] => PDF1.114
+            [奭] => PDF71,PDF1.77
+            [朱] => PDF121,哈PDF98
+            [仇] => 1.144,PDF1.217,津PDF2.94,PDF1.206
+            [謝] => 55
+            [訳] => 0067,1.209
+            [歐] =>
+        )
+
+)
+
 
 =====================================================
 
