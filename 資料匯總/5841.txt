@@ -158,6 +158,21 @@ dong1 bui1 deoi3 haak3 jan2 tai3 leoi6, gwan1 bat1 gok3 lou5 fu1 san4 noi6 soeng
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+Array
+(
+    [5841] => Array
+        (
+            [郭] =>
+            [奭] => PDF433,PDF5.178
+            [朱] => PDF912
+            [仇] => 5.2004,PDF5.92,津PDF13.111,PDF3.381
+            [謝] => 2812
+            [訳] => 1407,4.877
+            [歐] =>
+        )
+
+)
+
 
 =====================================================
 

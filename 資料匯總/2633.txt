@@ -74,6 +74,22 @@ loeng4 gaan1 jin3 zoek3 jau1 ging1 paa3, jik6 mei6 tyun4 hung1 soeng5 gau2 tin1
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+Array
+(
+    [2633] => Array
+        (
+            [黃] => PDF330
+            [郭] => PDF1.451
+            [奭] => PDF204,PDF3.5
+            [朱] => PDF431
+            [仇] => 2.924,PDF2.492,津PDF7.23,PDF2.183
+            [謝] => 777
+            [訳] => 0565,2.474
+            [歐] =>
+        )
+
+)
+
 
 =====================================================
 

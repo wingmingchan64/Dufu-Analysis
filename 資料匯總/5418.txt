@@ -85,6 +85,21 @@ jung4 maa5 soeng1 fung4 gang3 ho4 jat6, ceon1 fung1 wui4 sau2 zung6 syun1 lau4
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+Array
+(
+    [5418] => Array
+        (
+            [黃] => PDF703
+            [郭] =>
+            [朱] => PDF503
+            [仇] => 3.1097,PDF3.119,津PDF9.16,PDF2.324
+            [謝] => 2023
+            [訳] => 0724,2.756
+            [歐] =>
+        )
+
+)
+
 
 =====================================================
 

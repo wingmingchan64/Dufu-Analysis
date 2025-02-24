@@ -88,6 +88,22 @@ gu3 pang4 gam2 seoi2 zoeng1 soeng1 leoi6, hou2 gwo3 keoi4 tong4 jim6 jyu6 deoi1
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+Array
+(
+    [2306] => Array
+        (
+            [黃] => PDF622
+            [郭] =>
+            [奭] => PDF191,PDF2.158
+            [朱] => PDF396,哈PDF386
+            [仇] => 2.821,PDF2.389,津PDF6.69,PDF2.99
+            [謝] => 1773
+            [訳] => 0478,2.335
+            [歐] =>
+        )
+
+)
+
 
 =====================================================
 

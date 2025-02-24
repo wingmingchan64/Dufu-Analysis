@@ -93,6 +93,22 @@ zik1 cung4 baa1 haap6 cyun1 mou4 haap6, bin6 haa6 soeng1 joeng4 hoeng3 lok3 joen
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+Array
+(
+    [2747] => Array
+        (
+            [黃] => PDF679
+            [郭] =>
+            [奭] => PDF213,PDF3.20
+            [朱] => PDF450
+            [仇] => 2.968,PDF2.536,津PDF7.50,PDF2.218
+            [謝] => 1955
+            [訳] => 0601,2.547
+            [歐] =>
+        )
+
+)
+
 
 =====================================================
 

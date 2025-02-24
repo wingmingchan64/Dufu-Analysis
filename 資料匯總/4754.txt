@@ -79,6 +79,22 @@ sam1 saan1 kung4 guk1 bat1 ho2 cyu2, pik1 lik1 mong5 loeng5 gim1 kwong4 fung1
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+Array
+(
+    [4754] => Array
+        (
+            [黃] => PDF447
+            [郭] =>
+            [奭] => PDF309,PDF4.62
+            [朱] => PDF724
+            [仇] => 4.1546,PDF4.94,津PDF11.60,PDF3.8
+            [謝] => 1190
+            [訳] => 1029,4.44
+            [歐] =>
+        )
+
+)
+
 
 =====================================================
 

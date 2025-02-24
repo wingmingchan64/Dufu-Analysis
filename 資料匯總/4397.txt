@@ -76,6 +76,21 @@ wai4 gwan1 zeoi3 oi3 cing1 kwong4 haak3, baak3 pin3 soeng1 gwo1 ji3 mei6 laan4
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+Array
+(
+    [4397] => Array
+        (
+            [郭] =>
+            [奭] => PDF298,PDF4.39
+            [朱] => PDF918
+            [仇] => 4.1602,PDF4.150,津PDF11.95,PDF3.55
+            [謝] => 2837
+            [訳] => 1074,4.136
+            [歐] =>
+        )
+
+)
+
 
 =====================================================
 
