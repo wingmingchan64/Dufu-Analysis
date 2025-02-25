@@ -1,9 +1,9 @@
 <?php
-		/*
-		php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_版本頁碼.php
-		*/
-		$頁碼_仇頁碼=array(
-		"0042"=>"1.1,PDF1.74,津PDF2.2,PDF1.82",
+/*
+php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_版本頁碼.php
+*/
+$頁碼_仇頁碼=array(
+"0042"=>"1.1,PDF1.74,津PDF2.2,PDF1.82",
 "0003"=>"1.3,PDF1.76,津PDF2.4,PDF1.84",
 "0008"=>"1.5,PDF1.78,津PDF2.5,PDF1.86",
 "0013"=>"1.8,PDF1.81,津PDF2.7,PDF1.88",
@@ -1139,4 +1139,4 @@
 "6090"=>"5.2090,PDF5.178,津PDF14.53,PDF3.451",
 "6093"=>"5.2091,PDF5.179,津PDF14.54,PDF3.452",
 );
-		?>
+?>

@@ -1,9 +1,9 @@
 <?php
-		/*
-		php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_版本頁碼.php
-		*/
-		$頁碼_朱頁碼=array(
-		"0042"=>"PDF75,哈PDF50",
+/*
+php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_版本頁碼.php
+*/
+$頁碼_朱頁碼=array(
+"0042"=>"PDF75,哈PDF50",
 "0003"=>"PDF76,哈PDF51",
 "0008"=>"PDF76,哈PDF51",
 "0013"=>"PDF77,哈PDF52",
@@ -1103,7 +1103,7 @@
 "0896"=>"PDF914,哈PDF926",
 "2651"=>"PDF914,哈PDF927",
 "2949"=>"PDF915,哈PDF927",
-"2823"=>"PDF915,哈PDF927",
+"2823"=>"PDF431,哈PDF424,PDF915,哈PDF927",
 "2828"=>"PDF915,哈PDF928",
 "2761"=>"PDF916,哈PDF928",
 "2764"=>"PDF916,哈PDF928",
@@ -1141,4 +1141,4 @@
 "3234"=>"PDF929,哈PDF940",
 "1994"=>"PDF929,哈PDF940,哈PDF940",
 );
-		?>
+?>

@@ -1,9 +1,9 @@
 <?php
-		/*
-		php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_版本頁碼.php
-		*/
-		$頁碼_黃頁碼=array(
-		"0276"=>"PDF95",
+/*
+php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_版本頁碼.php
+*/
+$頁碼_黃頁碼=array(
+"0276"=>"PDF95",
 "0388"=>"PDF99",
 "0076"=>"PDF102",
 "0042"=>"PDF103",
@@ -1121,4 +1121,4 @@
 "6083"=>"PDF968",
 "4486"=>"PDF968",
 );
-		?>
+?>

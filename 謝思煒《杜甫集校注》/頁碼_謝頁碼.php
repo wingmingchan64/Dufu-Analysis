@@ -1,9 +1,9 @@
 <?php
-		/*
-		php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_版本頁碼.php
-		*/
-		$頁碼_謝頁碼=array(
-		"0276"=>"1",
+/*
+php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_版本頁碼.php
+*/
+$頁碼_謝頁碼=array(
+"0276"=>"1",
 "0388"=>"9",
 "0076"=>"14",
 "0042"=>"18",
@@ -1143,4 +1143,4 @@
 "3234"=>"2863",
 "1994"=>"2864",
 );
-		?>
+?>
