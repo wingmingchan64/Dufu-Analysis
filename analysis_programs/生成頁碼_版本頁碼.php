@@ -4,6 +4,7 @@ php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_版本頁碼.php
 */
 require_once( "函式.php" );
 require_once( 書目簡稱 );
+$counter = 0;
 
 //$result = array();
 
@@ -25,11 +26,19 @@ php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_版本頁碼.php
 
 		foreach( $lines as $line )
 		{
+			$counter++;
 			if( $line == '' || strpos( $line, '//' ) === false )
 			{
 				continue;
 			}
+			
 			$parts = explode( ' ', $line );
+			if( sizeof( $parts ) < 4 )
+			{
+				echo $counter, NL;
+				echo $簡稱, NL;
+				continue;
+			}
 			$默認頁碼 = trim( $parts[ 2 ] );
 			$版本頁碼 = trim( $parts[ 3 ] );
 			/*
