@@ -8,7 +8,7 @@
 陳永明《杜甫全集粵音注音》
 【注音】
 奉酬寇十侍御錫見寄四韻復寄寇
-fung6 cau4 kau3 sap6 si6 jyu6 sek3/sik3 gin3 gei3 sei3 wan6 fau6 gei3 kau3
+fung6 cau4 kau3 sap6 si6 jyu6 ci3 gin3 gei3 sei3 wan6 fau6 gei3 kau3
 
 往別郇瑕地，於今四十年
 wong5 bit6 seon1 haa4 dei6, jyu1 gam1 sei3 sap6 nin4
@@ -78,8 +78,8 @@ Array
     [6014] => Array
         (
             [黃] => PDF967
-            [郭] =>
-            [朱] => PDF901
+            [郭] => 臺PDF3.434
+            [朱] => PDF901,哈PDF912
             [仇] => 5.2066,PDF5.154,津PDF14.38,PDF3.431
             [謝] => 2804
             [訳] => 1444,4.991
