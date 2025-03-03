@@ -22,7 +22,7 @@
 陳永明《杜甫全集粵音注音》
 【注音】
 太子張舍人遺織成褥段
-taai3 zi2 zoeng1 se3 jan4 wai4 zik1 sing4 juk6 dyun6
+taai3 zi2 zoeng1 se3 jan4 gwai6 zik1 sing4 juk6 dyun6
 
 客從西北來，遺我翠織成
 haak3 cung4 sai1 bak1 loi4, wai4 ngo5 ceoi3 zik1 sing4
@@ -207,10 +207,13 @@ Array
             [黃] => PDF272
             [郭] => 臺PDF1.375,中PDF4.135
             [奭] => PDF260,PDF3.113
+            [錢] => 1.165,PDF1.263
             [朱] => PDF519,哈PDF512
+            [楊] => PDF1.604
             [仇] => 3.1158,PDF3.180,津PDF9.53,PDF2.375
             [謝] => 604
             [訳] => 0771,2.861
+            [趙] => PDF730
             [歐] =>
         )
 

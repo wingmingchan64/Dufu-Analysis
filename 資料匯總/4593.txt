@@ -59,7 +59,7 @@ bit1 jim6 sing1 cam4 tai2, jyu4 zi1 zeon3 teoi3 cing4
 bat1 wai4 ngan4 hon3 lok6, jik6 bun6 juk6 sing4 waang4
 仄平平仄仄，仄仄仄平平
 其三
-萬里瞿唐峽，春來六上弦
+萬里瞿塘峽，春來六上弦
 maan6 lei5 keoi4 tong4 haap6, ceon1 loi4 luk6 soeng6 jin4
 仄仄平平仄，平平仄仄平
 -----------------------------------------------------
@@ -167,10 +167,13 @@ Array
             [黃] => PDF773
             [郭] => 臺PDF3.96
             [奭] => PDF364,PDF5.28
+            [錢] => 2.549,PDF2.183
             [朱] => PDF694,哈PDF699
+            [楊] => PDF2.193
             [仇] => 4.1629,PDF4.177,津PDF11.112,PDF3.77
             [謝] => 2223
             [訳] => 1111,4.187,1112,4.189,1113,4.190
+            [趙] => PDF1330
             [歐] =>
         )
 

@@ -572,7 +572,7 @@
 過南鄰朱山人水亭 // 3160 臺PDF2.482
 恨別 // 2040 臺PDF2.482
 寄賀蘭銛 // 3333 臺PDF2.483
-寄楊五桂州因州參軍段子之任  // 2076 臺PDF2.483
+寄楊五桂州因州參軍段子之任 // 2076 臺PDF2.483
 逢唐興劉主簿弟 // 2395 臺PDF2.484
 和裴迪登新津寺寄王侍郎 // 2027 臺PDF2.485
 敬簡王明府 // 2398 臺PDF2.485
@@ -1221,4 +1221,4 @@
 臺PDF3.437 臺北故宮博物館藏本（三冊）電子書冊碼.頁碼
 中PDF12. 北京中華書局影印本（十六冊）電子書冊碼.頁碼
 四 四庫全書（十五冊）電子書冊碼.頁碼
-https://commons.wikimedia.org/wiki/Commons:Library_back_up_project/file_list/SSID/undated/01
+https://commons.wikimedia.org/wiki/Commons:Library_back_up_project/file_list/SSID/undated/01 
