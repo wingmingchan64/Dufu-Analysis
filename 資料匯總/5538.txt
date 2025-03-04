@@ -116,6 +116,7 @@ haak3 sau4 syu4 mei6 ji5, taa1 zik6 ci2 soeng1 sin1
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+莫：莫礪鋒、童強《杜甫詩選》
 Array
 (
     [5538] => Array

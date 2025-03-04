@@ -74,6 +74,7 @@ lei5 dou6 cai4 ming4 zan1 tim2 sit3, sok3 wan4 hon4 guk1 pui5 lei4 jau1
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+莫：莫礪鋒、童強《杜甫詩選》
 Array
 (
     [6090] => Array

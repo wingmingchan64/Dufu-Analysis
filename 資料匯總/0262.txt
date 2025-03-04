@@ -128,6 +128,7 @@ gwan1 bat1 gin3 hung1 coeng4 jat6 sik1 maan5, ci2 lou5 mou4 seng1 leoi6 seoi4 hy
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+莫：莫礪鋒、童強《杜甫詩選》
 Array
 (
     [0262] => Array

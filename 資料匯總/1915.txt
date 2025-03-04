@@ -67,6 +67,7 @@ ho4 joeng4 jyun6 leoi5 seoi1 mou4 sou3, zok6 gam2 gong1 bin1 mei6 mun5 jyun4
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+莫：莫礪鋒、童強《杜甫詩選》
 Array
 (
     [1915] => Array

@@ -200,6 +200,7 @@ jim4 geoi1 seoi1 bun6 kei3, ming4 si6 hon3 ting4 loi4
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+莫：莫礪鋒、童強《杜甫詩選》
 Array
 (
     [0062] => Array

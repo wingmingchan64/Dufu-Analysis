@@ -94,6 +94,7 @@ mei6 si3 nong4 zung1 caan1 juk6 faat3, ming4 ziu1 ce2 jap6 laam4 tin4 saan1
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+莫：莫礪鋒、童強《杜甫詩選》
 Array
 (
     [0652] => Array

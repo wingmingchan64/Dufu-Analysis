@@ -230,6 +230,7 @@ cau1 loi4 mei6 cang4 gin3 baak6 jat6, nai4 wu1 hau6 tou2 ho4 si4 gon1
 訳：下定雅弘、松原 朗《杜甫全詩訳注》
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
+莫：莫礪鋒、童強《杜甫詩選》
 Array
 (
     [0465] => Array
