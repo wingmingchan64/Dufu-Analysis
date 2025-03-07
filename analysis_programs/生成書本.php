@@ -90,7 +90,19 @@ foreach( $頁碼 as $頁 )
 			//echo $頁, NL;
 			//echo $current, NL;
 			//echo trim( $行 ), NL;
-			array_push( $部分陣列[ $current ], trim( $行 ) );
+			try
+			{
+				array_push( $部分陣列[ $current ], trim( $行 ) );
+			}
+			catch( TypeError $e )
+			{
+				//echo $e;
+				if( $簡稱 == '=浦' )
+				{
+					//continue;
+				}
+				echo $e;
+			}
 			//print_r( $部分陣列 );
 		}
 	}
@@ -125,8 +137,15 @@ $code = "<?php
 		{
 			$體裁 = $子儲存[ 0 ];
 		}
-
-		$内容 = implode( "\n", $子儲存 ); // a string
+		
+		try
+		{
+			$内容 = implode( "\n", $子儲存 ); // a string
+		}
+		catch( TypeError $e )
+		{
+			echo $e;
+		}
 		$parts = array();
 		//print_r( $内容 );
 		

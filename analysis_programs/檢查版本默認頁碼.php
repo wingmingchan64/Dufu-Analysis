@@ -1,6 +1,7 @@
 <?php
 /*
 php h:\github\Dufu-Analysis\analysis_programs\檢查版本默認頁碼.php
+php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_版本頁碼.php
 
 檢查以下事項：
 1. 目錄内默認頁碼是否正確
