@@ -20,7 +20,7 @@ foreach( $lines as $line )
 	$slashes = trim( $parts[ 1 ] );
 	$頁 = trim( $parts[ 2 ] );
 	$contents .= $題 . ' ' . $slashes . ' ' . $頁 . ' ' . 
-	'上PDF,內PDF' . NL;
+	'PDF' . NL;
 }
 file_put_contents( 'H:\github\Dufu-Analysis\林繼中輯校《杜詩趙次公先後解輯校》\趙注篇目.txt', $contents );
 ?>
