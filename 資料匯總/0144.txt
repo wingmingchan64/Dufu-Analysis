@@ -27,6 +27,7 @@ jing1 hung4 jau5 si4 jik6 jyu4 ci2, haai5 hau6 hei2 zik1 fei1 loeng4 tou4
 gwan1 mok6 siu3 lau4 ngai6 cung4 loi4 bou3 ji1 jyun6, gaa1 mou4 daam1 daam3 syu1 baak3 maan6
 
 【韻部】
+上平聲七虞
 徂：虞韻
 孤：虞韻
 無：虞韻
@@ -138,8 +139,9 @@ gwan1 mok6 siu3 lau4 ngai6 cung4 loi4 bou3 ji1 jyun6, gaa1 mou4 daam1 daam3 syu1
 〖參考書目〗
 全：《全唐詩》
 地：《地名詞典》
-黃：黃希、黃鶴《黃氏補千家註紀年杜工部詩史》
 郭：郭知達《新刊校定集注杜詩》
+黃：黃希、黃鶴《黃氏補千家註紀年杜工部詩史》
+蔡：蔡梦弼《杜工部草堂詩箋》
 奭：王嗣奭《杜臆》
 顧：顧宸《辟疆園杜詩註解》
 錢：錢謙益《錢注杜詩》
@@ -165,8 +167,8 @@ Array
 (
     [0144] => Array
         (
-            [黃] => PDF110
             [郭] => 臺PDF1.104,中PDF2.42
+            [黃] => PDF110
             [奭] => PDF63,PDF1.59
             [錢] => 1.8,PDF1.106
             [朱] => PDF98,哈PDF72

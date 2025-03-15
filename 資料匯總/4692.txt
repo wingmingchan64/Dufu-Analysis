@@ -27,6 +27,7 @@ cong1 gong1 baak6 faat3 sau4 hon1 jyu5, loi4 seoi3 jyu4 gam1 gwai1 mei6 gwai1
 平平仄仄平平仄，平仄平平平仄平
 
 【韻部】
+上平聲五微
 飛：微韻
 衣：微韻
 稀：微韻
@@ -35,6 +36,9 @@ cong1 gong1 baak6 faat3 sau4 hon1 jyu5, loi4 seoi3 jyu4 gam1 gwai1 mei6 gwai1
 
 【體裁】
 七律
+
+【補充說明】
+〚4692:3〛首聯本當仄起，出句用平起，不合律。
 
 〖分行討論〗
 〚1〛4692見螢火
@@ -55,8 +59,9 @@ cong1 gong1 baak6 faat3 sau4 hon1 jyu5, loi4 seoi3 jyu4 gam1 gwai1 mei6 gwai1
 〖參考書目〗
 全：《全唐詩》
 地：《地名詞典》
-黃：黃希、黃鶴《黃氏補千家註紀年杜工部詩史》
 郭：郭知達《新刊校定集注杜詩》
+黃：黃希、黃鶴《黃氏補千家註紀年杜工部詩史》
+蔡：蔡梦弼《杜工部草堂詩箋》
 奭：王嗣奭《杜臆》
 顧：顧宸《辟疆園杜詩註解》
 錢：錢謙益《錢注杜詩》
@@ -82,8 +87,8 @@ Array
 (
     [4692] => Array
         (
-            [黃] => PDF771
             [郭] => 臺PDF3.93
+            [黃] => PDF771
             [奭] => PDF362,PDF5.22
             [錢] => 2.584,PDF2.218
             [朱] => PDF716,哈PDF721
