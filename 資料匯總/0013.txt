@@ -84,6 +84,7 @@ cin4 cyun1 saan1 lou6 him2, gwai1 zeoi3 mui5 mou4 sau4
 蕭：此亦甫始遊齊趙時所作。張氏，殆指張玠。蔡夢弼云：「公父閑，嘗爲兗州司馬，公時省侍之，故云『趨庭』。是時張玠亦客兗州，有分好。玠子乃建封也。」《舊唐書·張建封傳》：「父玠，少豪俠，輕財重士」，嘗客兗州。《新唐書張建封傳》亦謂建封曾「客隱兗州」。後甫於大曆四年（七六九），流寓潭州（今湖南長沙）時，有《別張十三建封》詩，中云：「相逢長沙亭，乍問緒業餘。乃吾故人子，童丱聯居諸。」「故人」卽指張玠，「童丱」卽指建封。據本傳，建封卒於德宗貞元十六年（八〇〇），年六十六，逆推則生年爲開元二十三年（七三五）。定此詩作於開元二十八或二十九年，差近之矣。蓋甫遊兗州時，與玠交遊，而時建封亦以童稚相隨也。有謂「張氏」爲「竹溪六逸」之張叔明者，有謂卽張山人彪者，證之杜詩及其行迹，似皆欠妥。詩二首，其一爲七律，其二爲五律。金聖歎曰：「前首標隱居之勝，後首紀張氏之情。」張綖曰：「前詩但述隱居孤寂以美張氏，未言相留款曲之情，故次詩盡之。可見古人作二首者，不徒然也。」（《杜律本義》卷一）
 今：張氏，殆指張玠。蔡夢弼云：杜甫父杜閑「嘗爲兗州司馬，公時省侍之。……是時張玠亦客兗州，有分好。玠子乃建封也。」《舊唐書·張建封傳》謂玠嘗客兗州，《新唐書·張建封傳》亦謂建封曾「客隱兗州」。杜甫《別張十三建封》詩云：「乃吾故人子，童丱聯居諸。」「故人」卽指張玠，「童丱」卽指建封。此詩當作於開元二十八九年遊齊趙時，蓋甫遊兗州，與交遊，而建封時亦以童稚相隨。有謂「張氏」爲「竹溪六逸」之張叔明，或謂指張山人彪，証之杜詩，考其行迹，皆未合。詩二首，其一爲七律，標隱居之勝以美張氏。其二爲五律，記張氏之情。張綖曰：「前詩但述隱居孤寂以美張氏，未言相留款曲之情，故次詩盡之。可見古人作二首者，不徒然也。」
 譯：這組詩當作於開元二十四年（736），時杜甫遊齊趙間。張氏，可能指張玠，杜甫晚年有《別張十三建封》詩。張建封，兗州人，父張玠。詩中描繪了張氏隱居的幽美環境，讚美了他的良好品德，謳歌了二人的親密友誼。
+歐：
 
 【詩句】
 〚5〛春山無伴獨相求。伐木丁丁山更幽。
@@ -99,6 +100,7 @@ cin4 cyun1 saan1 lou6 him2, gwai1 zeoi3 mui5 mou4 sau4
 【注釋】郭：伐木丁丁山更幽：師云。宋王藉入若耶溪詩。蟬噪林逾靜。鳥鳴山更幽。趙云。劉越石四言詩云。獨坐無伴也。詩。伐木丁丁。公今此句亦喧中有靜矣。
 【注釋】楊：伐木丁丁山更幽：與鳥鳴山更幽同旨。
 【譯文】譯：漫遊春山卻無伴侶，因而特意把您訪求，丁丁的伐木聲，更顯出山谷的清幽。
+【譯文】歐：Without companion in spring mountains I came alone seeking you, the thunk of axes hewing wood, the mountains grew still more secluded.
 
 〚6〛澗道餘寒歷冰雪。石門斜日到林丘。
 【注釋】仇：澗道：王臺卿詩：飛梁通澗道。
@@ -117,6 +119,7 @@ cin4 cyun1 saan1 lou6 him2, gwai1 zeoi3 mui5 mou4 sau4
 【注釋】郭：石門斜日到林丘：陸機苦寒行。凝冰結重澗。積雪被長巒。謝惠連詩。落雪灑林丘。趙云。此在春時言之。故首句言春山。莊子。肌膚若冰雪。舊注合字非是也。
 【大意】今：言路之僻遠，寫隱居。
 【譯文】譯：走過澗道上殘留的凍雪，穿過斜陽輝映的石門，終於來到您的林中茅屋。
+【譯文】歐：In lingering chill on the road by a torrent I passed through ice and snow, with sinking sunlight on Stonegate Mountain, I reached your wooded hill.
 【旁注】楊：王阮亭云情景俱佳
 
 〚7〛不貪夜識金銀氣。遠害朝看麋鹿遊。
@@ -141,6 +144,7 @@ cin4 cyun1 saan1 lou6 him2, gwai1 zeoi3 mui5 mou4 sau4
 【注釋】蕭：遠害朝看麋鹿遊：《孟子·盡心上》：「舜之居深山之中，與木石居，與鹿豕遊，其所以異於深山之野人者幾希；及其聞一善言，見一善行，若決江河，沛然莫之能禦也。」仇注引《關中記》：「辛孟年七十，與麋鹿同羣，世謂鹿仙。」
 【大意】今：頌揚張氏無機詐之心。
 【譯文】譯：您不貪戀財物，夜間不去觀察金銀之氣；只願躲避災禍，每天欣賞麋鹿閑遊。
+【譯文】歐：Not coveting, by night I recognized the aura of silver and gold, far from harm, at dawn I looked on the deer roaming.
 【旁注】楊：邵子湘云中有至理
 
 〚8〛乘興杳然迷出處。對君疑是泛虛舟。
@@ -155,6 +159,7 @@ cin4 cyun1 saan1 lou6 him2, gwai1 zeoi3 mui5 mou4 sau4
 【注釋】譯：出處：出仕與隱居。
 【注釋】郭：乘興杳然迷出處：言不以出處介意也。
 【注釋】楊：乘興杳然迷出處：謂如入桃源。
+【注釋】歐：乘興杳然迷出處：*Wang Huizhi.
 【注釋】仇：對君：庾信詩：對君俗人眼。
 【注釋】朱：虛舟：《莊子》：方舟而濟於河，有虛船來觸舟，雖𥚹心之人不怒。
 【注釋】仇：虛舟：《莊子》：方舟而濟於河，有虛船來觸舟，雖褊心之人不怒。虛舟。謂空無所繫。
@@ -166,6 +171,8 @@ cin4 cyun1 saan1 lou6 him2, gwai1 zeoi3 mui5 mou4 sau4
 【注釋】楊：對君疑是泛虛舟：謂無心與化。《莊子》：方舟而濟於河，有虛船來觸舟，雖褊心之人不怒。
 【大意】今：詩人乘興而來，見此隱居之地，心已杳然若失，出處兩忘；與張君同坐，更慕其若虛舟無繫而往來自由。
 【譯文】譯：我乘興而來，被您的淡泊情懷所感，以致迷失了出處。同您在一起漫遊，彷彿是坐上一隻隨意飄浮的小舟。
+【譯文】歐：Following my whim to the distance, I lose thought of service and
+retirement — facing you, it seems you are an empty boat adrift.
 
 〚12〛之子時相見。邀人晚興留。
 【注釋】仇：之子：之子指張公。《詩》：彼其之子。
@@ -178,6 +185,7 @@ cin4 cyun1 saan1 lou6 him2, gwai1 zeoi3 mui5 mou4 sau4
 【注釋】仇：晚興留：杜審言詩：聖情留晚興。
 【大意】今：張氏與詩人常相往來，常邀詩人留到晚作客家中。
 【譯文】譯：這位張先生經常與我相見，眼下天色已晚，卻仍然邀我留下，以盡晚間之興。
+【譯文】歐：This gentleman meets me from time to time, invited, I stay on impulse late in the day.
 
 〚13〛霽潭鱣發發。春草鹿呦呦。
 【旁注】楊：用經不腐
@@ -195,12 +203,14 @@ cin4 cyun1 saan1 lou6 him2, gwai1 zeoi3 mui5 mou4 sau4
 【注釋】名：發發：魚兒跳動狀。一說盛貌。
 【注釋】仇：春草：謝靈運詩：萋萋春草繁。
 【注釋】郭：春草鹿呦呦：呦呦鹿鳴。食野之萍。注。鹿得草。呦呦然鳴而相呼也。趙云。之子出詩。言此子也。
+【注釋】歐：春草鹿呦呦：The affective image in the Classic of  Poetry for welcoming a guest.
 【注釋】仇：鹿呦呦：《詩》：呦呦鹿鳴。蘇武詩：鹿鳴思野草，可以喩嘉賓。
 【注釋】蕭：呦呦：鹿鳴聲。《詩·小雅·鹿鳴》：「呦呦鹿鳴，食野之萍。」
 【注釋】今：呦呦：鹿鳴聲。
 【注釋】名：呦呦：鹿鳴聲。
 【大意】今：以鹿鳴喩設宴招待嘉賓。
 【譯文】譯：晴明的潭水上，鱣魚游躍，弄出「發發」的聲響。春天的草野間，傳來「呦呦」的鹿鳴。
+【譯文】歐：A pool under clearing skies, sturgeon abound, among spring plants the deer cry out.
 
 〚14〛杜酒偏勞勸。張梨不外求。
 【注釋】楊：杜酒：《急就篇》注：杜康作秫酒。
@@ -211,6 +221,7 @@ cin4 cyun1 saan1 lou6 him2, gwai1 zeoi3 mui5 mou4 sau4
 【注釋】名：杜酒：《急就篇註》：「古者儀狄作酒醪，杜康又作秫酒。」
 【注釋】譯：杜酒：史稱杜康爲釀酒的發明者。
 【注釋】郭：杜酒偏勞勸：魏武帝樂府。何以解我憂。唯有杜康酒。康。造酒者。
+【注釋】歐：杜酒偏勞勸：Du Kang was the legendary inventor of ale.
 【注釋】楊：張梨：潘岳《閒居賦》：張公大谷之梨。
 【注釋】仇：張梨：潘岳《閒居賦》：張公大谷之梨。
 【注釋】浦：張梨：潘岳《閑居賦》：張公大谷之梨。
@@ -218,9 +229,11 @@ cin4 cyun1 saan1 lou6 him2, gwai1 zeoi3 mui5 mou4 sau4
 【注釋】今：張梨：張公梨。
 【注釋】譯：張梨：張公大谷之梨。此借指張氏所產之梨。
 【注釋】郭：張梨不外求：潘安仁閑居賦。張公大谷之梨。
+【注釋】歐：張梨不外求：These are mentioned in Pan Yue’s (247–300) “Poetic Exposition on Living at Leisure,” but nothing is known about them except that the pear trees were near Luoyang and that there was supposed to be only one tree in the whole world that bore them. Du Fu is playing on his surname and Zhang’s.
 【注釋】仇：不外求：謝靈運詩：得性非外求。
 【注釋】蕭：不外求：趙次公曰：「言不必求之大谷也。」
 【譯文】譯：這酒啊，說來本是我們杜家釀造的，現在卻要勞您相勸；晉代的張公之梨當是美味，恰好您也姓張，所以也就不必到大谷求購。
+【譯文】歐：He particularly urges Du’s ale on me, for Zhang’s pears do not seek elsewhere.
 
 〚15〛前村山路險。歸醉每無愁。
 【注釋】仇：前村：沈炯詩：火炬前村發。
@@ -231,6 +244,7 @@ cin4 cyun1 saan1 lou6 him2, gwai1 zeoi3 mui5 mou4 sau4
 【注釋】今：每：常常。
 【大意】今：言醉歸忘險，極盡主人之興。
 【譯文】譯：前村的山路雖然艱險，卻已在醉中走熟；讓我們盡情地喝吧，來個一醉方休。
+【譯文】歐：Perilous, the mountain road to the village ahead, yet going home drunk, I am always free of worries.
 
 〖通篇討論〗
 
@@ -310,6 +324,7 @@ cin4 cyun1 saan1 lou6 him2, gwai1 zeoi3 mui5 mou4 sau4
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [0013] => Array

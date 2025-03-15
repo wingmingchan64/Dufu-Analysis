@@ -46,6 +46,7 @@ maan5 loi4 waang4 ceoi3 hou2, wang4 haa6 jik6 lung4 jam4
 今：法曹，官名，唐代府州各有法曹參軍事。瑕丘，地名，唐代兗州治瑕丘縣。鄭應是瑕丘縣令。石門在兗州東，與瑕丘相鄰。此寫詩人與劉九、鄭瑕丘於石門設筵的盛況，亦當作於早年遊齊趙時。
 名：法曹：官名。《海錄碎事》：「魏置理曹掾，法曹也。」瑕丘：山東兗州府治。石門：山名。在兗州府平陰縣。
 譯：此詩當作於開元二十四年（736）之後，時杜甫遊齊趙間。劉九法曹、鄭瑕丘，是作者友人。石門，山名，在今曲阜城東北約60里。詩中描寫與友人石門宴會的勝景，讚美了友人的盛情。
+歐：Xiaqiu and Stonegate Mountain were both in the territory of  Yanzhou.
 
 【詩句】
 〚3〛秋水清無底。蕭然淨客心。
@@ -56,6 +57,7 @@ maan5 loi4 waang4 ceoi3 hou2, wang4 haa6 jik6 lung4 jam4
 【注釋】今：淨：乾淨，清潔。
 【大意】今：點題石門宴集。
 【譯文】譯：秋水清清深不見底，清淨冷落得令人心無雜念。
+【譯文】歐：The autumn waters are clear and bottomless, the briskness cleanses the hearts of the guests.
 
 〚4〛掾曹乘逸興。鞍馬到荒林。
 【注釋】仇：掾曹：洙曰：漢制以曹官爲掾，如屋之有椽，言其有所負荷也。《西京雜記》：京兆有古生者爲都掾史，至今稱古掾曹。
@@ -66,14 +68,17 @@ maan5 loi4 waang4 ceoi3 hou2, wang4 haa6 jik6 lung4 jam4
 【注釋】今：逸興：清閑脫俗的興致。
 【注釋】仇：鞍馬：阮籍詩：鞍馬去行遊。
 【注釋】今：鞍馬：乘馬。
+【注釋】歐：鞍馬到荒林：That is, Liu went to find Zheng.
 【注釋】仇：荒林：謝靈運詩：荒林紛沃若。
 【大意】今：寫劉九乘興騎馬到石門。
 【譯文】譯：劉、鄭二位屬官乘著雅興，騎馬來到郊野山林。
+【譯文】歐：The administrator follows his free whim, on a saddled horse he went off to find someone.
 
 〚5〛能吏逢聯璧。華筵直一金。
 【注釋】仇：能吏：《後漢書》曹騰字季興，桓帝時封費亭侯。种暠劾騰，騰不爲纖介，嘗稱暠能吏。
 【注釋】今：能吏：有才能的官吏。
 【注釋】名：能吏：《後漢書》載，曹騰字季興，桓帝時封費亭侯。種暠劾騰，騰不爲纖介，嘗稱暠能吏。
+【注釋】歐：能吏逢聯璧：A figure for a pair of fine gentlemen, here Liu and Zheng.
 【注釋】楊：聯璧：《北史》：韋孝寬從荆州刺史源子恭鎭穰城，時獨孤信爲新野郡守，與孝寬情好甚密，政術俱美，荆部吏人號爲聯璧。
 【注釋】仇：聯璧：聯璧，兼稱劉鄭。《晉書》：潘岳、夏侯湛，美丰容，行止同輿接茵。人謂之聯璧。《南史》：韋孝寬從荆州刺史源子恭鎭襄城，時獨孤信爲新野郡守，與孝寬情好甚密，政術俱美，荆部吏人號爲聯璧。
 【注釋】今：聯璧：本指幷列的美玉，常比喩兩者可相媲美。此指劉九與鄭兩人。
@@ -90,6 +95,7 @@ maan5 loi4 waang4 ceoi3 hou2, wang4 haa6 jik6 lung4 jam4
 【注釋】浦：《淮南子》：秦以一鎰爲一金。漢以一斤爲一金。《漢·食貨志》：黃金方寸
 重一斤。
 【譯文】譯：二位賢能有如一雙美玉，今日得以欣逢；舉辦如此盛大的筵席，其價可値錢幣一金。
+【譯文】歐：An able clerk meets the “linked pair of jade disks,” this splendid banquet costs a whole silver tael.
 
 〚6〛晚來橫吹好。泓下亦龍吟。
 【注釋】仇：晚來：李百藥詩：晚來風景麗。
@@ -107,6 +113,7 @@ maan5 loi4 waang4 ceoi3 hou2, wang4 haa6 jik6 lung4 jam4
 【注釋】浦：化用游魚出聽事。
 【大意】今：極言筵中音樂的美妙。
 【譯文】譯：晚來橫笛吹起美好的樂曲，深水裏的蛟龍也隨之長吟。
+【譯文】歐：As the day grows late, the flute playing is good, and under the flood the dragon too hums.
 
 〖通篇討論〗
 
@@ -150,6 +157,7 @@ maan5 loi4 waang4 ceoi3 hou2, wang4 haa6 jik6 lung4 jam4
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [0022] => Array
