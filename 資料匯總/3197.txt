@@ -86,6 +86,7 @@ jyun6 keoi1 zung3 syu3 daai3 gwan1 wong4, wan6 jat1 geoi1 syu1 hei3 gam1 juk6
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [3197] => Array

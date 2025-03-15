@@ -63,6 +63,7 @@ fung6 wong4 ci4 soeng6 jing1 wui4 sau2, wai6 bou3 lung4 ceoi4 wong4 jau6 gwan1
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [2834] => Array

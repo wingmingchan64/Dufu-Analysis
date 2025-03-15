@@ -78,6 +78,7 @@ sam1 zi1 hou2 ngaan4 sik1, mok6 zok3 wai2 nai4 saa1
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [2761] => Array

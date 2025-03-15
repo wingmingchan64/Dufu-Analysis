@@ -110,6 +110,7 @@ gwan1 hang4 se6 hung4 jyun6, wai6 ngo5 jat1 saan1 jin4
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [2615] => Array

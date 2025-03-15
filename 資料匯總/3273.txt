@@ -43,8 +43,8 @@ ji5 jan2 ling4 ping1 sap6 nin4 si6, koeng5 ji4 cai1 sik1 jat1 zi1 on1
 
 〖分行討論〗
 【題解】
-黃：
 郭：
+黃：
 
 【詩句】
 〚3〛清秋幕府井梧寒。獨宿江城蠟炬殘。
@@ -108,6 +108,7 @@ PDF3.176
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [3273] => Array

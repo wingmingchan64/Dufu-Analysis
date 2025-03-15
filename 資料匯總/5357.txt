@@ -78,6 +78,7 @@ baak6 tau4 lou5 baa6 mou5 fau6 go1, zoeng6 lai4 bat1 seoi6 seoi4 nang4 no6
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [5357] => Array

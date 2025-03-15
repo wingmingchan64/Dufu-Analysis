@@ -79,6 +79,7 @@ joeng4 hung4 gang3 jau5 ho4 dung1 fu3, wai4 doi6 ceoi1 heoi1 sung3 soeng5 tin1
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [0536] => Array

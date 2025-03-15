@@ -102,6 +102,7 @@ gei2 si4 gou1 ji5 paai4 gam1 mun4, gok3 si3 cong1 sang1 jau5 waan4 dou2
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [5110] => Array

@@ -79,6 +79,7 @@ gang3 juk6 tai4 si1 mun5 cing1 zuk1, maan5 loi4 jau1 duk6 hung2 soeng1 san4
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [1139] => Array

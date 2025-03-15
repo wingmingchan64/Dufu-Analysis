@@ -60,6 +60,7 @@ soeng6 jau5 sai1 gaau1 zyu1 got3 miu6, ngo6 lung4 mou4 sau2 deoi3 gong1 fan4
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [5247] => Array

@@ -81,6 +81,7 @@ sam1 saan1 kung4 guk1 bat1 ho2 cyu2, pik1 lik1 mong5 loeng5 gim1 kwong4 fung1
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [4754] => Array

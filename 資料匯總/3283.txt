@@ -78,6 +78,7 @@ ho4 dong1 jat1 baak3 zoeng6, kei1 goi3 jung2 gou1 jim4
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [3283] => Array

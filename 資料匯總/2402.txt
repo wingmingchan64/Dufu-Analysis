@@ -75,6 +75,7 @@ gwan1 ting1 hung4 ngaan6 hoeng2, hung2 zi3 dou6 loeng4 naan4
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [2402] => Array

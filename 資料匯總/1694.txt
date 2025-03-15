@@ -130,6 +130,7 @@ soeng1 hon1 keoi1 seoi1 nin4, ceot1 cyu2 gok3 nou5 lik6
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [1694] => Array

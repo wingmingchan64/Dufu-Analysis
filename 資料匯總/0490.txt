@@ -91,6 +91,7 @@ nim6 zi1 hung1 zoeng2 daai6 zi1 jip6, git3 gan1 sat1 so2 maai4 fung1 soeng1
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [0490] => Array

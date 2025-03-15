@@ -81,6 +81,7 @@ taa1 hoeng1 wai4 biu2 dai6, waan4 wong5 mok6 ci4 jiu4
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [1912] => Array

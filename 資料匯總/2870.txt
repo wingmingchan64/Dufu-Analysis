@@ -88,6 +88,7 @@ kim4 joeng4 seon3 si3 jing1 hei1 siu2, mok6 gwaai3 pan4 pan4 hyun3 zau2 bui1
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [2870] => Array

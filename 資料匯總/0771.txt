@@ -186,6 +186,7 @@ oi1 zoi1 wong4 syun1 san6 mat6 so1, ng5 ling4 gaai1 hei3 mou4 si4 mou4
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [0771] => Array

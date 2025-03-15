@@ -99,6 +99,7 @@ bat1 jim4 je5 ngoi6 mou4 gung1 kap1, sing4 hing3 waan4 loi4 hon3 joek6 laan4
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [1947] => Array

@@ -75,6 +75,7 @@ bat1 daan6 zaap6 ci4 gwai1 ming5 ding2, gwan1 hon1 zeng6 guk1 heoi3 jan4 jyun4
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [5477] => Array

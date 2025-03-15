@@ -180,6 +180,7 @@ bou3 zi1 ji5 mei4 hon4, gung6 kap1 zau2 jat1 huk6
 趙：林繼中輯校《杜詩趙次公先後解輯校》
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
+典：《引典出處》
 Array
 (
     [4556] => Array
