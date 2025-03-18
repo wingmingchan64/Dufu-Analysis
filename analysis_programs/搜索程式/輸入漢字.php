@@ -2,24 +2,35 @@
 /*
 php H:\github\Dufu-Analysis\analysis_programs\搜索程式\輸入漢字.php
 */
-// 兩個字庫
+require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
+require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( "四角字典.php" );
+require_once( "速成粵.php" );
+require_once( "速成詞.php" );
 require_once( "H:\github\unicode\粵音_常用字.php" );
 
-$out_file = 'h:\php809\code\buffer.txt';
+$out_file = 'h:\buffer.txt';
 $input    = "";
 $buffer   = "";
 
+foreach( $速成粵 as $k => $v )
+{
+	$dict[ $k ] = $v;
+}
+foreach( $速成詞 as $k => $v )
+{
+	$dict[ $k ] = $v;
+}
+
 while( true )
 {
-	// load: load the content of buffer.txt to memory
-	// save: save the content in memory to buffer.txt
 	// clr: clear the buffer in memory
 	// del: remove the last unicode char from memory
 	// show: show the content in memory
 	// exit: terminate the program
+	// log: log the content in memory to buffer.txt
 	// key: a key in the dictionary
-	echo "Enter a command (load, save, clr, del, show, exit) or a key\n";
+	echo "Enter a command (log, clr, del, show, exit) or a key\n";
 	$input = readline();
 	
 	// command or key
@@ -30,20 +41,16 @@ while( true )
 			echo "Bye!\n";
 			exit;
 		}
-		elseif( $input == "save" )
+		elseif( $input == "log" )
 		{
-			file_put_contents( $out_file, $buffer );
+			logToFile( $out_file, $buffer );
+			$buffer = '';
 			printBuffer( $buffer );
 		}
 		elseif( $input == "del" )
 		{
 			$buffer = mb_substr( 
 				$buffer, 0, mb_strlen( $buffer ) - 1 );
-			printBuffer( $buffer );
-		}
-		elseif( $input == "load" )
-		{
-			$buffer = file_get_contents( $out_file );
 			printBuffer( $buffer );
 		}
 		elseif( $input == "show" )

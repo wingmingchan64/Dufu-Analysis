@@ -1,5 +1,4 @@
 <?php
-
 $速成詞 = array(
 'aevl'=>'閿鄕', // man4
 'bggruo'=>'瞿塘峽',

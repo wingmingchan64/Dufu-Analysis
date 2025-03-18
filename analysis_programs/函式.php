@@ -323,6 +323,14 @@ function getSection( string $path, string $prefix ) : array
 	return $text_array;
 }
 
+function logToFile( string $file, string $content )
+{
+	file_put_contents(
+		$file, 
+		$content.PHP_EOL, 
+		FILE_APPEND | LOCK_EX );
+}
+
 function normalize(
 	string $text,
 	bool $removeSpace = false,

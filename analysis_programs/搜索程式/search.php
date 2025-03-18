@@ -7,7 +7,6 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( "四角字典.php" );
 require_once( "速成粵.php" );
 require_once( "速成詞.php" );
-
 require_once( "H:\github\unicode\粵音_常用字.php" );
 
 $out_file = 'h:\github\Dufu-Analysis\analysis_programs\搜索程式\buffer.txt';
