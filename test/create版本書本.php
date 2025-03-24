@@ -103,140 +103,15 @@ foreach( $lines as $l )
 					foreach( $版本異文、夾注 as $key => $value )
 					{
 						replaceText( $詩陣列, $key, $value );
-						/*
-						$value = mb_substr( $value, mb_strpos( $value, '〗' ) + 1 );
-
-						if( $是詩組 )
-						{
-							if( 提取行碼( $key ) == '1' )
-							{
-								continue;
-							}
-							else
-							{
-								$首碼 = 提取首碼( $key );
-							}
-						}
-						$行碼 = 提取行碼( $key );
-						echo 行碼 . $行碼 . NL;
-						
-						if( $行碼 == '1' )
-						{
-							continue;
-						}
-				
-						$句碼 = 提取句碼( $key );
-						echo '句碼', $句碼, NL;
-						
-						
-						$字碼 = 提取字碼( $key );
-						if( strpos( $字碼, '-' ) !== false )
-						{
-							$字碼 = explode( '-', $字碼 )[ 1 ];
-						}
-						elseif( $首碼 == '' && $字碼 == '' )
-						{
-							echo 'here' . NL;
-							$字碼 = sizeof( $詩陣列[ $行碼 ][ $句碼 ] );
-						}
-						elseif( $首碼 != '' && $字碼 == '' )
-						{
-							$字碼 = sizeof( $詩陣列[ $首碼 ][ $行碼 ][ $句碼 ] );
-						}
-				
-						if( intval( $行碼 ) > 1 && $句碼 != '' && $字碼 != '' )
-						{
-							//echo $value, NL;
-							if( $是詩組 )
-							{
-								//$字碼 = sizeof( 
-									//$詩陣列[ $首碼 ][ $行碼 ][ $句碼 ] );
-								$詩陣列[ $首碼 ][ $行碼 ][ $句碼 ][ $字碼 ] =
-									 $value;
-								//echo $詩陣列[ $首碼 ][ $行碼 ][ $句碼 ][ $字碼 ], NL;
-							}
-							else
-							{
-								//$字碼 = sizeof( 
-									//$詩陣列[ $行碼 ][ $句碼 ] );
-								$詩陣列[ $行碼 ][ $句碼 ][ $字碼 ] =
-									$value;
-								//echo $詩陣列[ $行碼 ][ $句碼 ][ $字碼 ], NL;
-							}
-						}*/
 					}
 				}
-			//}
 								
-			foreach( $版本注釋 as $key => $value )
-			{
-				insertText( $詩陣列, $key, $value, false );
-				/*
-				$value = mb_substr( $value, mb_strpos( $value, '：' ) + 1 );
-				echo $key, NL;
-				echo $value, NL;
-				if( $是詩組 )
+				foreach( $版本注釋 as $key => $value )
 				{
-					if( 提取行碼( $key ) == '1' )
-					{
-						continue;
-					}
-					else
-					{
-						$首碼 = 提取首碼( $key );
-					}
-				}
-				$行碼 = 提取行碼( $key );
-				//echo 行碼 . $行碼 . NL;
-				
-				if( $行碼 == '1' )
-				{
-					continue;
-				}
-				
-				$句碼 = 提取句碼( $key );
-				$字碼 = 提取字碼( $key );
-				if( strpos( $字碼, '-' ) !== false )
-				{
-					$字碼 = explode( '-', $字碼 )[ 1 ];
-				}
-				elseif( !$是詩組 && $字碼 == '' )
-				{
-					echo 'here' . NL;
-					$字碼 = sizeof( $詩陣列[ $行碼 ][ $句碼 ] );
-				}
-				elseif( $是詩組 && $字碼 == '' )
-				{
-					$字碼 = sizeof( $詩陣列[ $首碼 ][ $行碼 ][ $句碼 ] );
-				}
-				
-				
-				if( intval( $行碼 ) > 1 && $句碼 != '' && $字碼 != '' )
-				{
-					//echo $value, NL;
-					if( $是詩組 )
-					{
-						//$字碼 = sizeof( 
-							//$詩陣列[ $首碼 ][ $行碼 ][ $句碼 ] );
-						$詩陣列[ $首碼 ][ $行碼 ][ $句碼 ][ $字碼 ] =
-							$詩陣列[ $首碼 ][ $行碼 ][ $句碼 ][ $字碼 ] . $value;
-						//echo $詩陣列[ $首碼 ][ $行碼 ][ $句碼 ][ $字碼 ], NL;
-					}
-					else
-					{
-						//$字碼 = sizeof( 
-							//$詩陣列[ $行碼 ][ $句碼 ] );
-						$詩陣列[ $行碼 ][ $句碼 ][ $字碼 ] =
-							$詩陣列[ $行碼 ][ $句碼 ][ $字碼 ] . $value;
-						//echo $詩陣列[ $行碼 ][ $句碼 ][ $字碼 ], NL;
-						
-					}*/
+					insertText( $詩陣列, $key, $value, false );
 				}
 			}
 		}
-		
-		//echo mb_strlen( 提取詩文文字( $詩陣列, $是詩組 ) );
-		//echo 提取詩文文字( $詩陣列, $是詩組 );
 		
 		if( $in && $默認頁碼 == $end_page )
 		{
@@ -244,14 +119,13 @@ foreach( $lines as $l )
 			$contents .= getMergedText( $詩陣列 );
 			break;
 		}
-		
 	}
 }
 if( array_key_exists( 詩題, $詩陣列 ) )
 {
 	$contents = $詩陣列[ 詩題 ] . $contents;
 }
-echo clearUp( $contents ), NL;
+echo $contents, NL;
 //print_r( $詩陣列 );
 
 function replaceText( array &$詩陣列, string $坐標, string $文字 )
@@ -270,9 +144,9 @@ function replaceText( array &$詩陣列, string $坐標, string $文字 )
 	catch( ErrorException $e )
 	{
 	}
-	echo '行碼 ', $行碼, NL;
-	echo '句碼 ', $句碼, NL;
-	echo '字碼 ', $字碼, NL;
+	//echo '行碼 ', $行碼, NL;
+	//echo '句碼 ', $句碼, NL;
+	//echo '字碼 ', $字碼, NL;
 	
 	// prepare $文字
 	if( mb_strpos( $文字, '〗' ) !== false )
@@ -341,10 +215,9 @@ function replaceText( array &$詩陣列, string $坐標, string $文字 )
 
 function clearUp( string $str ) : string
 {
-	return str_replace( '◯', '',
-		str_replace( '[', '',
+	return str_replace( '[', '',
 			str_replace( ']', '',
-				normalize( $str, true, true, true ) ) ) );
+				normalize( $str, true, true, true ) ) );
 }
 
 ?>
