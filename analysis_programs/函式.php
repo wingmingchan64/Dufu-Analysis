@@ -883,11 +883,11 @@ function 提取版本詩文含夾注陣列(
 		// no 字碼
 		try
 		{
-			if( $首碼 == '' && $行碼 != '' && $字碼 == '' )
+			if( $首碼 == '' && $行碼 != '' && $句碼 != '' && $字碼 == '' )
 			{
 				$字碼 = sizeof( $詩陣列[ $行碼 ][ $句碼 ] );
 			}
-			elseif( $首碼 != '' && $行碼 != '' && $字碼 == '' )
+			elseif( $首碼 != '' && $行碼 != '' && $句碼 != '' && $字碼 == '' )
 			{
 				$字碼 = sizeof( $詩陣列[ $首碼 ][ $行碼 ][ $句碼 ] );
 			}
@@ -1254,8 +1254,10 @@ function 提取陣列値( array $陣列 ) : string
 
 function 坐標轉換成列陣路徑( string $坐標 ) : array
 {
+	// remove brackets
 	$坐標 = str_replace( 坐標開括號, '', 
 			str_replace( 坐標關括號, '', $坐標 ) );
+	// hyphen only
 	$坐標 = str_replace( ':', '-', $坐標 );
 	$坐標 = str_replace( '.', '-', $坐標 );
 	
@@ -1298,7 +1300,6 @@ function 提取杜甫詩陣列詩文( array $詩文陣列,
 	bool $加新行 = true ) : string
 {
 	$contents = '';
-	//print_r( $詩文陣列 );
 	
 	foreach( $詩文陣列 as $首碼 => $行子陣列 )
 	{
@@ -1740,4 +1741,96 @@ function printOutput( array $output )
 {
 	echo getOutput( $output );
 }
+
+// 用於生成版本文本
+function insertText(
+	array &$詩陣列, string $坐標, string $文字, bool $replace = false )
+{
+	// prepare $坐標
+	$坐標陣列 = getCoordArray( $坐標 );
+	$size = sizeof( $坐標陣列 );
+	$字碼 = $坐標陣列[ $size - 1 ];
+	$句碼 = $坐標陣列[ $size - 2 ];
+	try
+	{
+		$行碼 = $坐標陣列[ $size - 3 ];
+		$首碼 = $坐標陣列[ $size - 4 ]; // possibly $首碼 = $頁碼
+	}
+	catch( ErrorException $e )
+	{
+		
+	}
+	// prepare $文字
+	if( mb_strpos( $文字, '〗' ) !== false )
+	{
+		$文字 = mb_substr( $文字, mb_strpos( $文字, '〗' ) + 1 );
+	}
+	elseif( mb_strpos( $文字, '：' ) !== false )
+	{
+		$文字 = mb_substr( $文字, mb_strpos( $文字, '：' ) + 1 );
+	}
+	$文字 = normalize( $文字, true, true, true );
+	$remove = array( '[',']','◯','·' );
+	// remove all punctuations
+	foreach( $remove as $char )
+	{
+		$文字 = str_replace( $char, '', $文字 );
+	}
+
+	if( !$replace )
+	{
+		if( $size == 5 )
+		{
+			$詩陣列[ $首碼 ][ $行碼 ][ $句碼 ][ $字碼 ] =
+				$詩陣列[ $首碼 ][ $行碼 ][ $句碼 ][ $字碼 ] . $文字;
+		}
+		elseif( $size == 4 )
+		{
+			$詩陣列[ $行碼 ][ $句碼 ][ $字碼 ] =
+				$詩陣列[ $行碼 ][ $句碼 ][ $字碼 ] . $文字;
+		}
+	}
+	else
+	{
+		if( $size == 5 )
+		{
+			$詩陣列[ $首碼 ][ $行碼 ][ $句碼 ][ $字碼 ] = $文字;
+		}
+		elseif( $size == 4 )
+		{
+			$詩陣列[ $行碼 ][ $句碼 ][ $字碼 ] = $文字;
+		}
+	}
+}
+
+function getCoordArray( string $坐標 ) : array
+{
+	$hyphen_regex = '/\d-(\d)/';
+	$replacement = '$1';
+	$temp = preg_replace( $hyphen_regex, $replacement, $坐標 );
+	return 坐標轉換成列陣路徑( $temp );
+}
+
+function getMergedText( array $詩陣列, string $punc = '' ) : string
+{
+	$text = '';
+	
+	foreach( $詩陣列 as $key => $value )
+	{
+		if( intval( $key ) > 0  && is_string( $value ) )
+		{
+			$text .= $value;
+		}
+		elseif( intval( $key ) > 0 && is_array( $value ) )
+		{
+			$text .= getMergedText( $value );
+		}
+	}
+	if( array_key_exists( '副題', $詩陣列 ) )
+	{
+		$text = $詩陣列[ '副題' ] . $text;
+	}
+	return $text;
+}
+
 ?>

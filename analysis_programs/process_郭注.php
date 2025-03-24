@@ -174,9 +174,6 @@ foreach( $lines as $l )
 						}
 					}
 				}
-				
-				
-				
 
 				$counter = 1;
 				$注釋陣列 = array();
