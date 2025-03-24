@@ -1767,17 +1767,8 @@ function insertText(
 	}
 	elseif( mb_strpos( $文字, '：' ) !== false )
 	{
-		$文字 = mb_substr( $文字, mb_strpos( $文字, '：' ) + 1 );
+		$文字 = '[' . mb_substr( $文字, mb_strpos( $文字, '：' ) + 1 );
 	}
-	/*
-	$文字 = normalize( $文字, true, true, true );
-	$remove = array( '·' );
-	// remove all punctuations
-	foreach( $remove as $char )
-	{
-		$文字 = str_replace( $char, '', $文字 );
-	}
-	*/
 
 	if( !$replace )
 	{

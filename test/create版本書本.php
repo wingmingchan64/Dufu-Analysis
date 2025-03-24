@@ -92,7 +92,7 @@ foreach( $lines as $l )
 				
 				if( array_key_exists( $坐標, $版本注釋 ) )
 				{
-					$詩陣列[ 詩題 ] = $詩陣列[ 詩題 ] . $版本注釋[ $坐標 ];
+					$詩陣列[ 詩題 ] = $詩陣列[ 詩題 ] . '[' . $版本注釋[ $坐標 ] . ']';
 				}
 				
 				if( array_key_exists( 版本, $郭内容 ) &&
@@ -108,7 +108,8 @@ foreach( $lines as $l )
 								
 				foreach( $版本注釋 as $key => $value )
 				{
-					insertText( $詩陣列, $key, $value, false );
+					insertText( $詩陣列, $key, 
+						$value . ']', false ); // [ added later
 				}
 			}
 		}
