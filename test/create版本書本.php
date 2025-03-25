@@ -11,8 +11,8 @@ $lines     = explode( "\n", $text );
 $store     = array();
 $contents  = '';
 $file_name = 'H:\github\Dufu-Analysis\test\版本.txt';
-$start_page = '0388';
-$end_page   = '0388';
+$start_page = '0076';
+$end_page   = '0076';
 $in = false;
 
 foreach( $lines as $l )
@@ -92,7 +92,7 @@ foreach( $lines as $l )
 				
 				if( array_key_exists( $坐標, $版本注釋 ) )
 				{
-					$詩陣列[ 詩題 ] = $詩陣列[ 詩題 ] . '[' . $版本注釋[ $坐標 ] . ']';
+					$詩陣列[ 詩題 ] = $詩陣列[ 詩題 ] . '[' . $版本注釋[ $坐標 ] . ']' . NL;
 				}
 				
 				if( array_key_exists( 版本, $郭内容 ) &&
