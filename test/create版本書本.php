@@ -11,8 +11,8 @@ $lines     = explode( "\n", $text );
 $store     = array();
 $contents  = '';
 $file_name = 'H:\github\Dufu-Analysis\test\版本.txt';
-$start_page = '0076';
-$end_page   = '0076';
+$start_page = '0084';
+$end_page   = '0084';
 $in = false;
 
 foreach( $lines as $l )
