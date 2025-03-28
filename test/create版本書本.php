@@ -11,8 +11,8 @@ $lines     = explode( "\n", $text );
 $store     = array();
 $contents  = '';
 $file_name = 'H:\github\Dufu-Analysis\test\版本.txt';
-$start_page = '0167';
-$end_page   = '0167';
+$start_page = '0484';
+$end_page   = '0484';
 $in = false;
 
 foreach( $lines as $l )
@@ -126,12 +126,24 @@ if( array_key_exists( 詩題, $詩陣列 ) )
 {
 	$contents = $詩陣列[ 詩題 ] . $contents;
 }
+print_r( $郭内容 );
+if( array_key_exists( 按語, $郭内容 ) )
+{
+	$contents .= NL . NL . 【按語】 . NL . $郭内容[ 按語 ];
+}
+if( array_key_exists( 校記, $郭内容 ) )
+{
+	$contents .= NL . NL . 【校記】 . NL . $郭内容[ 校記 ] ;
+}
+
+$contents .= NL . 分隔線 . NL;
+
 echo $contents, NL;
 //print_r( $詩陣列 );
 
 function replaceText( array &$詩陣列, string $坐標, string $文字 )
 {
-	echo $坐標, $文字, NL;
+	//echo $坐標, $文字, NL;
 	// prepare $坐標
 	$坐標陣列 = getCoordArray( $坐標 );
 	$size = sizeof( $坐標陣列 );
@@ -157,6 +169,7 @@ function replaceText( array &$詩陣列, string $坐標, string $文字 )
 	$in = false;
 	$len = mb_strlen( $文字 );
 	$temp = array();
+	//echo $文字, NL;
 	
 	for( $i = 0; $i < $len; $i++ )
 	{
@@ -164,7 +177,7 @@ function replaceText( array &$詩陣列, string $坐標, string $文字 )
 		
 		if( $char != '[' && $char != ']' && !$in )
 		{
-			echo $char, NL;
+			//echo $char, NL;
 			array_push( $temp, $char );
 		}
 		elseif( $char == '[' )
@@ -197,7 +210,11 @@ function replaceText( array &$詩陣列, string $坐標, string $文字 )
 	//print_r( $temp );
 	if( $size == 5 )
 	{
-		$字數 = mb_strlen( $詩陣列[ $首碼 ][ $行碼 ][ $句碼 ] );
+		//echo '首碼 ' . $首碼 . NL;
+		//echo '行碼 ' . $行碼 . NL;
+		//echo '句碼 ' . $句碼 . NL;
+		//print_r( $詩陣列[ $首碼 ][ $行碼 ][ $句碼 ] );
+		$字數 = sizeof( $詩陣列[ $首碼 ][ $行碼 ][ $句碼 ] );
 		for( $i = 0; $i<$字數; $i++ )
 		{
 			$詩陣列[ $首碼 ][ $行碼 ][ $句碼 ][ $i+1 ] = $temp[ $i ];
@@ -208,6 +225,10 @@ function replaceText( array &$詩陣列, string $坐標, string $文字 )
 		$字數 = sizeof( $詩陣列[ $行碼 ][ $句碼 ] );
 		for( $i = 0; $i<$字數; $i++ )
 		{
+			//echo '行碼 ' . $行碼 . NL;
+			//echo '句碼 ' . $句碼 . NL;
+			//print_r( $temp );
+			
 			$詩陣列[ $行碼 ][ $句碼 ][ $i+1 ] = $temp[ $i ];
 		}
 	}

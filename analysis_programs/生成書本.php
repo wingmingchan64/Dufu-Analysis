@@ -94,8 +94,10 @@ foreach( $頁碼 as $頁 )
 			{
 				array_push( $部分陣列[ $current ], trim( $行 ) );
 			}
+			
 			catch( TypeError $e )
 			{
+				//echo '頁: ' , $頁, "\n";
 				//echo $e;
 				if( $簡稱 == '=浦' )
 				{
@@ -103,6 +105,7 @@ foreach( $頁碼 as $頁 )
 				}
 				echo $e;
 			}
+			
 			//print_r( $部分陣列 );
 		}
 	}
