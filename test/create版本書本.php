@@ -11,7 +11,7 @@ $lines     = explode( "\n", $text );
 $store     = array();
 $contents  = '';
 $file_name = 'H:\github\Dufu-Analysis\test\版本.txt';
-$start_page = '0484';
+$start_page = '0276';
 $end_page   = '0484';
 $in = false;
 
