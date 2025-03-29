@@ -11,8 +11,8 @@ $lines     = explode( "\n", $text );
 $store     = array();
 $contents  = '';
 $file_name = 'H:\github\Dufu-Analysis\test\版本.txt';
-$start_page = '0111';
-$end_page   = '0111';
+$start_page = '0136';
+$end_page   = '0136';
 $in = false;
 
 foreach( $lines as $l )
@@ -126,7 +126,7 @@ if( array_key_exists( 詩題, $詩陣列 ) )
 {
 	$contents = $詩陣列[ 詩題 ] . $contents;
 }
-print_r( $郭内容 );
+//print_r( $郭内容 );
 if( array_key_exists( 按語, $郭内容 ) )
 {
 	$contents .= NL . NL . 【按語】 . NL . $郭内容[ 按語 ];
