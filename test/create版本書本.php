@@ -1,18 +1,42 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\test\create版本書本.php
+php H:\github\Dufu-Analysis\test\create版本書本.php 136 郭
+php H:\github\Dufu-Analysis\test\create版本書本.php 3 浦
 */
 require_once( "H:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
+require_once( 書目簡稱 );
+require_once( 頁碼 );
 require_once( 杜甫詩陣列 );
 
+checkARGV( $argv, 3, 提供頁、簡 );
+$result = array();
+$頁 = fixPageNum( trim( $argv[ 1 ] ) );
+if( !in_array( $頁, $頁碼 ) )
+{
+	echo 無頁碼, NL;
+	exit;
+}
+$簡稱 = fixText( trim( $argv[ 2 ] ) );
+if( !array_key_exists( 等號 . $簡稱, $書目簡稱 ) )
+{
+	echo 無簡稱, NL;
+	exit;
+}
+$書名 = $書目簡稱[ 等號 . $簡稱 ];
+$陣列名 = "${簡稱}内容";
+$目錄名 = "${簡稱}目錄";
+//require_once( 杜甫資料庫 . $書名 . "\\" . $頁 . 程式後綴 );
+$content = '';
+
+
 // 目錄 used to direct the program
-$text      = getFile( 'H:\github\Dufu-Analysis\郭知達《新刊校定集注杜詩》\郭目錄.txt' );
+$text      = getFile( 杜甫資料庫 . $書名 . "\\${目錄名}.txt" );
 $lines     = explode( "\n", $text );
 $store     = array();
 $contents  = '';
 $file_name = 'H:\github\Dufu-Analysis\test\版本.txt';
-$start_page = '0136';
-$end_page   = '0136';
+$start_page = $頁; //'0136';
+$end_page   = $頁; // '0136';
 $in = false;
 
 foreach( $lines as $l )
@@ -50,7 +74,7 @@ foreach( $lines as $l )
 			// read 詩 array 
 			$詩陣列 = $杜甫詩陣列[ $默認頁碼 ];
 			// 提取版本資料
-			$版本路徑 = 新刊校定集注杜詩 . $默認頁碼 . 程式後綴;
+			$版本路徑 = 杜甫資料庫 . $書名 . "\\" . $默認頁碼 . 程式後綴;
 			//try
 			//{
 			if( file_exists( $版本路徑 ) )
@@ -59,11 +83,12 @@ foreach( $lines as $l )
 				
 				// 準備各個部分
 				require_once( $版本路徑 );
+				
 				// 詩題
-				if( array_key_exists( 版本, $郭内容 ) &&
-					array_key_exists( 詩題, $郭内容[ 版本 ] ) )
+				if( array_key_exists( 版本, $$陣列名 ) &&
+					array_key_exists( 詩題, $$陣列名[ 版本 ] ) )
 				{
-					$版本詩題 = $郭内容[ 版本 ][ 詩題 ];
+					$版本詩題 = $$陣列名[ 版本 ][ 詩題 ];
 				}
 				else
 				{
@@ -82,9 +107,9 @@ foreach( $lines as $l )
 				$帶序文 = in_array( $默認頁碼, $帶序文之詩歌[ '頁碼' ] );
 
 				// 【注釋】
-				if( array_key_exists( 注釋, $郭内容 ) )
+				if( array_key_exists( 注釋, $$陣列名 ) )
 				{
-					$版本注釋 = $郭内容[ 注釋 ]; // array
+					$版本注釋 = $$陣列名[ 注釋 ]; // array
 				}
 				// 【題解】:坐標第一行
 				$題解 = '';
@@ -95,10 +120,10 @@ foreach( $lines as $l )
 					$詩陣列[ 詩題 ] = $詩陣列[ 詩題 ] . '[' . $版本注釋[ $坐標 ] . ']' . NL;
 				}
 				
-				if( array_key_exists( 版本, $郭内容 ) &&
-					array_key_exists( 坐標版本異文、夾注, $郭内容[ 版本 ] ) )
+				if( array_key_exists( 版本, $$陣列名 ) &&
+					array_key_exists( 坐標版本異文、夾注, $$陣列名[ 版本 ] ) )
 				{
-					$版本異文、夾注 = $郭内容[ 版本 ][ 坐標版本異文、夾注 ];
+					$版本異文、夾注 = $$陣列名[ 版本 ][ 坐標版本異文、夾注 ];
 					
 					foreach( $版本異文、夾注 as $key => $value )
 					{
@@ -111,6 +136,24 @@ foreach( $lines as $l )
 					insertText( $詩陣列, $key, 
 						$value . ']', false ); // [ added later
 				}
+				
+				if( array_key_exists( 詩題, $詩陣列 ) )
+				{
+					$contents = $詩陣列[ 詩題 ] . $contents;
+				}
+				
+				if( array_key_exists( 按語, $$陣列名 ) )
+				{
+					//$contents .= NL . NL . 【校記】 . NL . $$陣列名[ 校記 ] ;
+					//$詩陣列[ 按語 ] . $$陣列名[ 按語 ];
+				}
+				if( array_key_exists( 校記, $$陣列名 ) )
+				{
+					//$contents .= NL . NL . 【校記】 . NL . $$陣列名[ 校記 ] ;
+					//$詩陣列[ 按語 ] . $$陣列名[ 按語 ];
+				}
+				
+
 			}
 		}
 		
@@ -118,26 +161,16 @@ foreach( $lines as $l )
 		{
 			$in = false;
 			$contents .= getMergedText( $詩陣列 );
+			if( array_key_exists( 評論, $$陣列名 ) )
+			{
+				$contents .= NL . NL . 【評論】 . NL . $$陣列名[ 評論 ] ;
+			}
 			break;
 		}
 	}
 }
-if( array_key_exists( 詩題, $詩陣列 ) )
-{
-	$contents = $詩陣列[ 詩題 ] . $contents;
-}
-//print_r( $郭内容 );
-if( array_key_exists( 按語, $郭内容 ) )
-{
-	$contents .= NL . NL . 【按語】 . NL . $郭内容[ 按語 ];
-}
-if( array_key_exists( 校記, $郭内容 ) )
-{
-	$contents .= NL . NL . 【校記】 . NL . $郭内容[ 校記 ] ;
-}
 
 $contents .= NL . 分隔線 . NL;
-
 echo $contents, NL;
 //print_r( $詩陣列 );
 
@@ -169,7 +202,7 @@ function replaceText( array &$詩陣列, string $坐標, string $文字 )
 	$in = false;
 	$len = mb_strlen( $文字 );
 	$temp = array();
-	//echo $文字, NL;
+	//echo '文字 ', $文字, NL;
 	
 	for( $i = 0; $i < $len; $i++ )
 	{
@@ -223,10 +256,13 @@ function replaceText( array &$詩陣列, string $坐標, string $文字 )
 	elseif( $size == 4 )
 	{
 		$字數 = sizeof( $詩陣列[ $行碼 ][ $句碼 ] );
-		for( $i = 0; $i<$字數; $i++ )
+		//for( $i = 0; $i<$字數; $i++ )
+		for( $i = 0; $i<$字數&&$i<sizeof($temp); $i++ )
 		{
 			//echo '行碼 ' . $行碼 . NL;
 			//echo '句碼 ' . $句碼 . NL;
+			//echo $i, NL;
+			
 			//print_r( $temp );
 			
 			$詩陣列[ $行碼 ][ $句碼 ][ $i+1 ] = $temp[ $i ];
