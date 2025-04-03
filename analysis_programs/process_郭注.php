@@ -47,7 +47,7 @@ foreach( $lines as $l )
 		}
 				
 		// stop at a new 卷
-		if( $默認頁碼 == '0111' )
+		if( $默認頁碼 == '0841' )
 		{ break; }
 	
 		// read 詩 array 
@@ -261,6 +261,7 @@ foreach( $lines as $l )
 			if( array_key_exists( 按語, $郭内容 ) )
 			{
 				$contents .= NL . 【按語】 . NL;
+				print_r( $郭内容[ 按語 ] );
 				$contents .= $郭内容[ 按語 ] . NL . NL;
 			}
 			
