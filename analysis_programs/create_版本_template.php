@@ -7,13 +7,13 @@ require_once( "函式.php" );
 require_once( 書目簡稱 );
 
 $簡字 = "郭";
-$簡字 = "楊";
-$簡字 = "黃";
-$簡字 = "浦";
+//$簡字 = "楊";
+//$簡字 = "黃";
+//$簡字 = "浦";
 
 $簡稱 = "=${簡字}";
 $書名 = $書目簡稱[ $簡稱 ];
-$目錄文檔 = 杜甫資料庫 . $書名 . "\\" . "${簡字}目錄.txt";
+$目錄文檔 = 杜甫分析文件夾 . $書名 . "\\" . "${簡字}目錄.txt";
 
 $text    = getFile( $目錄文檔 );
 $lines   = explode( "\n", $text );
@@ -22,7 +22,11 @@ $content = '本文檔以 h:\github\Dufu-Analysis\analysis_programs\create_版本
 
 foreach( $lines as $l )
 {
-	if( $l == '' || mb_strpos( $l, '//' ) === false )
+	if( mb_strpos( $l, '===' ) !== false )
+	{
+		break;
+	}
+	elseif( $l == '' || mb_strpos( $l, '//' ) === false )
 	{
 		continue;
 	}
@@ -35,6 +39,7 @@ foreach( $lines as $l )
 		// 詩題
 		$題 = $l_array[ 0 ];
 		// 默認頁碼
+		echo $題, NL;
 		$頁 = trim( $l_array[ 1 ] );
 		// 版本頁碼
 		$版本頁 = trim( $l_array[ 2 ] );
@@ -48,6 +53,29 @@ foreach( $lines as $l )
 		if( file_exists( $路徑 ) )
 		{
 			require_once( $路徑 );
+			
+			if( $簡字 == "郭" )
+			{
+				$content .= NL .
+"=典====================================================
+《引典出處》
+
+【注釋】
+";
+				if( $内容[ 詩題 ] != $題 )
+				{
+					$content .= '〖1〗' . $題 . NL;
+				}
+				else
+				{
+					$content .= '〖1〗' . NL;
+				}
+
+				foreach( $内容[ 詩句 ] as $句 )
+				{
+					$content .= "〖${句}〗" . NL;
+				}
+			}
 			
 			$content .= NL . $頁 . ' ' . $内容[ 詩題 ] . NL .
 				"${簡稱}===================================================" . 
