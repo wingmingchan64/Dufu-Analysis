@@ -1816,9 +1816,14 @@ function getMergedText( array $詩陣列, string $punc = '' ) : string
 		}
 		elseif( intval( $key ) > 0 && is_array( $value ) )
 		{
-			$text .= getMergedText( $value );
+			$text .= getMergedText( $value, $punc );
 		}
 	}
+	if( mb_substr( $text, mb_strlen( $text ) - 1 ) != $punc )
+	{
+		$text .= $punc;
+	}
+	
 	if( array_key_exists( '副題', $詩陣列 ) )
 	{
 		$text = $詩陣列[ '副題' ] . $text;

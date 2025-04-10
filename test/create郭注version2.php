@@ -14,7 +14,7 @@ $store     = array();
 $contents  = '';
 $file_name = 'H:\github\Dufu-Analysis\test\版本.txt';
 $start_page = '0276';
-$end_page   = '0144';
+$end_page   = '0111'; // exclusive
 $in = false;
 
 foreach( $lines as $l )
@@ -55,10 +55,13 @@ foreach( $lines as $l )
 			$in = false;
 		}
 		
+		if( $in )
+		{
 			// read 詩 array 
 			$詩陣列 = $杜甫詩陣列[ $默認頁碼 ];
 			// 提取版本資料
 			$版本路徑 = 新刊校定集注杜詩 . "\\" . $默認頁碼 . 程式後綴;
+			//echo $版本路徑, NL;
 			//try
 			//{
 			if( file_exists( $版本路徑 ) )
@@ -78,6 +81,7 @@ foreach( $lines as $l )
 				{
 					$版本詩題 = $詩陣列[ 詩題 ];
 				}
+				//echo $版本詩題, NL;
 				$詩陣列[ 詩題 ] = $版本詩題;
 				
 				$是詩組 = array_key_exists( $默認頁碼, $詩組_詩題 );
@@ -123,8 +127,9 @@ foreach( $lines as $l )
 				
 				if( array_key_exists( 詩題, $詩陣列 ) )
 				{
-					$contents = $詩陣列[ 詩題 ] . $contents;
+					$contents .= $詩陣列[ 詩題 ] . NL;
 				}
+				$contents .= getMergedText( $詩陣列, '。' );
 				
 				if( array_key_exists( 按語, $郭内容 ) )
 				{
@@ -137,21 +142,14 @@ foreach( $lines as $l )
 					//$詩陣列[ 按語 ] . $郭内容[ 按語 ];
 				}
 			}
-		}
-		
-		if( $in && $默認頁碼 == $end_page )
-		{
-			$in = false;
-			$contents .= getMergedText( $詩陣列 );
-			
-			break;
+			$contents .= NL . 分隔線 . NL;
+			//print_r( $詩陣列 );
 		}
 	}
 }
 
-$contents .= NL . 分隔線 . NL;
-echo $contents, NL;
-//print_r( $詩陣列 );
+//echo $contents, NL;
+file_put_contents( 'h:\github\Dufu-Analysis\郭知達《新刊校定集注杜詩》\新刊校定集注杜詩卷一_version2.txt', $contents );
 
 function replaceText( array &$詩陣列, string $坐標, string $文字 )
 {
