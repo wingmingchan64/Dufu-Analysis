@@ -47,7 +47,7 @@ foreach( $lines as $l )
 		}
 				
 		// stop at a new 卷
-		if( $默認頁碼 == '0841' )
+		if( $默認頁碼 == '1190' )
 		{ break; }
 	
 		// read 詩 array 
