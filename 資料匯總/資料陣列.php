@@ -32,6 +32,7 @@ $資料陣列 = array(
 		'顧'=>array( 評論 ),
 		'奭'=>array( 評論 ),
 		'楊'=>array( 評論 ),
+		'錢'=>array( 評論 ),
 		'仇'=>array( 評論 ),
 		'浦'=>array( 評論 ),
 		'名'=>array( 評論 ),
