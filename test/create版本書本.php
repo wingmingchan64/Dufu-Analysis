@@ -2,6 +2,8 @@
 /*
 php H:\github\Dufu-Analysis\test\create版本書本.php 136 郭
 php H:\github\Dufu-Analysis\test\create版本書本.php 3 浦
+php H:\github\Dufu-Analysis\test\create版本書本.php 3789 錢
+
 */
 require_once( "H:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 書目簡稱 );
@@ -35,8 +37,8 @@ $lines     = explode( "\n", $text );
 $store     = array();
 $contents  = '';
 $file_name = 'H:\github\Dufu-Analysis\test\版本.txt';
-$start_page = $頁; //'0136';
-$end_page   = $頁; // '0136';
+$start_page = '3789';//$頁; 
+$end_page   = '3789';
 $in = false;
 
 foreach( $lines as $l )
@@ -161,9 +163,21 @@ foreach( $lines as $l )
 		{
 			$in = false;
 			$contents .= getMergedText( $詩陣列 );
-			if( array_key_exists( 評論, $$陣列名 ) )
+			
+			if( array_key_exists( 評論, $$陣列名 )  )
 			{
-				$contents .= NL . NL . 【評論】 . NL . $$陣列名[ 評論 ] ;
+				if( is_string( $$陣列名[ 評論 ] ) )
+				{
+					$contents .= NL . NL . 【評論】 . NL . $$陣列名[ 評論 ];
+				}
+				elseif( is_array( $$陣列名[ 評論 ] ) )
+				{
+					$contents .= NL . NL . 【評論】 . NL;
+					foreach( $$陣列名[ 評論 ] as $comment )
+					{
+						$contents .= $comment . NL;
+					}
+				}
 			}
 			break;
 		}
