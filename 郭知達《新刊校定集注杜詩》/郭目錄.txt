@@ -1216,10 +1216,14 @@
 
 =====
 頁碼說名：
-4486 臺PDF3.437,中,四
-4486 蕭滌非主編《杜甫全集校注》頁碼
-臺PDF3.437 臺北故宮博物館藏本（三冊）電子書冊碼.頁碼
-中PDF12. 北京中華書局影印本（十六冊）電子書冊碼.頁碼
-四 四庫全書第一〇六八冊電子書冊碼-頁碼
+0276 臺PDF1.84,中PDF2.3,四1068-3
+0276 蕭滌非主編《杜甫全集校注》頁碼
+臺PDF1.84 臺北故宮博物館藏本（三冊）電子書冊碼.頁碼
+中PDF2.3 北京中華書局影印本（十六冊）電子書冊碼.頁碼
+四1068-3 四庫全書第一〇六八冊電子書冊碼-頁碼
+九家集注杜詩卷一
 https://www.shidianguji.com/zh/book/SK2227/chapter/1kfp92jqnybz9?page_from=searching_page&version=3
+九家集注杜詩 (四庫全書本)
 https://zh.wikisource.org/zh-hant/%E4%B9%9D%E5%AE%B6%E9%9B%86%E6%B3%A8%E6%9D%9C%E8%A9%A9_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)
+書籍下載（用簡體字搜索）
+https://al.chirmyram.com/doc/%E7%BB%BC%E5%90%88
