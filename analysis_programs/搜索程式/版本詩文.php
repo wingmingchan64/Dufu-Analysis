@@ -2,7 +2,7 @@
 /*
 php h:\github\Dufu-Analysis\analysis_programs\搜索程式\版本詩文.php
 */
-require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
+//require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 //require_once( "h:\\github\\Dufu-Analysis\\書目簡稱.php" );
 //require_once( "h:\\github\\Dufu-Analysis\\坐標_詩句.php" );
@@ -80,5 +80,6 @@ foreach( $版本異文、夾注 as $異文、夾注坐標 => $異文、夾注 )
 }
 echo $版本詩文, 新行;
 */
-print_r( 提取版本詩文($版本, $頁) );
+print_r( 提取版本詩文( $版本, $頁) );
+print_r( 提取版本坐標版本異文、夾注( $版本, $頁) );
 ?>

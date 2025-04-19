@@ -2,7 +2,6 @@
 /*
 php h:\github\Dufu-Analysis\analysis_programs\函式測試.php
 */
-require_once( '常數.php' );
 require_once( '函式.php' );
 require_once( 杜甫詩陣列 );
 //require_once( 詩組_詩題 );
@@ -10,16 +9,38 @@ require_once( 杜甫詩陣列 );
 
 $頁 = '0042';
 $詩陣列 = $杜甫詩陣列[ $頁 ];
-
-
 $版本異文、夾注 = array(
 "〚0042:4.1.1-5〛"=>"〖陰壑生虛籟〗陰壑生虛[一作靈]籟",
 "〚0042:5.1.1-5〛"=>"〖天闕象緯逼〗天闕[《正異》作闚，姜氏作開]象緯逼",
 "〚0042:6.1.1-5〛"=>"〖欲覺聞晨鐘〗欲覺[古效切]聞晨鐘",
 "〚0042:6.2.1-5〛"=>"〖令人發深省〗令[平聲]人發深省[悉井切]",
 );
+$test_case = 3;
 
-echo 提取版本詩文含夾注( $詩陣列, $版本異文、夾注, true, false );
+switch( $test_case )
+{
+	case 1: // compareText
+		print_r( compareText( '天闕象緯逼欲覺聞晨鐘', '天闚象緯逼欲覺聞晨鍾' ) );
+		break;
+	case 2: // getAnnotation
+		echo getAnnotation( 'h:\github\DuFu\01 卷一 3-270\0048 過宋員外之問舊莊.txt' );
+		break;
+	case 3: // getExpandedPages
+		print_r( getExpandedPages( '〚0013:1:5.2.3-4〛' ) );
+		print_r( getExpandedPages( '〚0013:1:5-6〛' ) );
+		var_dump( getExpandedPages( '〚4〛' ) );
+		var_dump( getExpandedPages( '〚4.1〛' ) );
+		var_dump( getExpandedPages( '〚4.1.5〛' ) );
+		var_dump( getExpandedPages( '〚4.1.3-5〛' ) );
+
+		break;
+
+
+
+	default:
+		break;
+}
+//echo 提取版本詩文含夾注( $詩陣列, $版本異文、夾注, true, false );
 
 /*
 $result = array();
@@ -119,10 +140,6 @@ echo 生成完整坐標( "〚12:45.2.2〛", "0013" ), 新行;
 echo 生成完整坐標( "〚0003:12:45.2.2〛", "0013" ), 新行;
 */
 /*
-var_dump( getExpandedPages( '〚4〛' ) );
-var_dump( getExpandedPages( '〚4.1〛' ) );
-var_dump( getExpandedPages( '〚4.1.5〛' ) );
-var_dump( getExpandedPages( '〚4.1.3-5〛' ) );
 */
 //var_dump( getExpandedPages( '〚4.1.4-5〛' ) );
 //var_dump( getExpandedPages( '〚4.1.4-5〛' ) );
