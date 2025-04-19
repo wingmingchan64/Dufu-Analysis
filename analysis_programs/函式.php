@@ -720,29 +720,34 @@ function 提取版本陣列( string $版本, string $頁 ) : array
 	return array();
 }
 
-function 提取版本詩文( string $版本, string $頁 ) : array
+/*
+提取某版本（'X内容[版本]'中的詩文）
+*/
+function 提取版本詩文( string $版本, string $頁 ) : string
 {
 	$temp = 提取版本陣列( $版本, $頁 );
-	$版本陣列 = array();
 		
 	if( array_key_exists( 詩文, $temp ) )
 	{
-		$版本陣列[ 詩文 ] = $temp[ 詩文 ];
+		return $temp[ 詩文 ];
 	}
 	
-	return $版本陣列;
+	return '';
 }
+
+/*
+提取某版本（'X内容[版本]'中的坐標版本異文、夾注）
+*/
 function 提取版本坐標版本異文、夾注( string $版本, string $頁 ) : array
 {
 	$temp = 提取版本陣列( $版本, $頁 );
-	$版本陣列 = array();
-		
+
 	if( array_key_exists( 坐標版本異文、夾注, $temp ) )
 	{
-		$版本陣列[ 坐標版本異文、夾注 ] = $temp[ 坐標版本異文、夾注 ];
+		return $temp[ 坐標版本異文、夾注 ];
 	}
-	
-	return $版本陣列;
+
+	return array();
 }
 
 function 提取版本詩文含夾注陣列( 
