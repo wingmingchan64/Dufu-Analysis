@@ -58,7 +58,6 @@ function compareText(
 		
 		if( $char1 != $char2 )
 		{
-			// $i is the position of the char
 			$difference[ $i ] = array( $char1, $char2 );
 		}
 	}
@@ -66,9 +65,8 @@ function compareText(
 	return $difference; // could be empty
 }
 
-/*
-提取題注（原注）
-*/
+
+// 提取題注（原注）
 // $file_path: h:\github\DuFu\01 卷一 3-270\0048 過宋員外之問舊莊.txt
 function getAnnotation( string $file_path ) : string
 {
@@ -97,14 +95,11 @@ function getAnnotation( string $file_path ) : string
 	return $annotation;
 }
 
-/*
-
-*/
 function getExpandedPages( string $coor ) : array
 {
 	$parts = explode( '.', $coor );
 	
-	if( sizeof( $parts ) < 3 ) // 沒有字碼
+	if( sizeof( $parts ) < 3 )
 	{
 		return array( $coor );
 	}
@@ -122,7 +117,7 @@ function getExpandedPages( string $coor ) : array
 				$pre_parts = $pre_parts . '.' . $parts[ $i ];
 			}
 			$pre_parts = trim( $pre_parts, '.' );
-			$page_range = explode( '-', $pages );
+			$page_range = explode( '-', $pages );			
 
 			if( sizeof( $page_range ) == 2 )
 			{
@@ -336,9 +331,6 @@ function logToFile( string $file, string $content )
 		FILE_APPEND | LOCK_EX );
 }
 
-/*
-標準化之前，清理不用的東西
-*/
 function normalize(
 	string $text,
 	bool $removeSpace = false,
@@ -390,8 +382,7 @@ function normalize(
 		str_replace( "其十八", "",
 		str_replace( "其十九", "",
 		str_replace( "其二十", "", $text
-		))))))))))))))))))))))))))))))))))));
-	// 夾注
+		))))))))))))))))))))))))))))))))))));  
 	$text = preg_replace( '/[\d]+ [\P{M}]+?\n/', "", $text );
 	$text = preg_replace( '/[\s]+/', "", $text );
 	
@@ -403,9 +394,6 @@ function normalize(
 	return $text;
 }
 
-/*
-提取杜甫文件夾內的文檔名稱
-*/
 function 提取杜甫文件名稱() : array
 {
 	$sub_folder_array = array();
@@ -450,9 +438,7 @@ function 提取杜甫文件名稱() : array
 	return $file_names;
 }
 
-/*
-去掉完整坐標的頁碼，只剩下首碼以下的部分 garbage in, garbage out
-*/
+// 去掉頁碼, garbage in, garbage out
 function 提取簡化坐標( string $坐標 ) : string
 {
 	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
@@ -467,9 +453,7 @@ function 提取簡化坐標( string $坐標 ) : string
 		坐標關括號;
 }
 
-/*
-提取坐標中的頁碼,〚 後面的四個數字, garbage in, garbage out
-*/
+// 提取頁碼,〚 後面的四個數字, garbage in, garbage out
 function 提取頁碼( string $坐標 ) : string
 {
 	//$str = trim( $坐標, 坐標括號 );
@@ -485,9 +469,7 @@ function 提取頁碼( string $坐標 ) : string
 	return $str_array[ 0 ];
 }
 
-/*
-提取坐標中的首碼, 1-20, garbage in, garbage out
-*/
+// 提取首碼, 1-20, garbage in, garbage out
 function 提取首碼( string $坐標 ) : string
 {
 	//$str = trim( $坐標, 坐標括號 );
@@ -511,11 +493,8 @@ function 提取首碼( string $坐標 ) : string
 	return '';
 }
 
-/*
-提取坐標中的行碼, garbage in, garbage out
-*/
+// 提取行碼, garbage in, garbage out
 // 〚0013:1:5.2.3-4〛
-// 〚0013:1:5.2-3〛
 function 提取行碼( string $坐標 ) : string
 {
 	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
@@ -544,9 +523,7 @@ function 提取行碼( string $坐標 ) : string
 	return '';
 }
 
-/*
-提取坐標中的句碼, garbage in, garbage out
-*/
+// 提取句碼, garbage in, garbage out
 function 提取句碼( string $坐標 ) : string
 {
 	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
@@ -559,9 +536,7 @@ function 提取句碼( string $坐標 ) : string
 	return '';
 }
 
-/*
-提取坐標中的字碼, garbage in, garbage out
-*/
+// 提取字碼, garbage in, garbage out
 function 提取字碼( string $坐標 ) : string
 {
 	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
@@ -574,9 +549,6 @@ function 提取字碼( string $坐標 ) : string
 	return '';
 }
 
-/*
-把簡化的坐標回復到包含頁碼的完整坐標
-*/
 function 生成完整坐標( string $坐標, string $頁碼 ) : string
 {
 	//$str = trim( $坐標, 坐標括號 );
@@ -610,9 +582,6 @@ function 生成完整坐標( string $坐標, string $頁碼 ) : string
 	}
 }
 
-/*
-從詩文陣列中，提取某頁碼的詩文陣列
-*/
 function 提取詩文陣列( string $頁碼 ) : array
 {
 	global $頁碼_詩題;
@@ -689,65 +658,150 @@ function 提取詩文末字坐標( string $頁碼, string $詩文 ) : string
 	return $坐;
 }
 
-/*
-提取某版本（'X内容'中的版本陣列）
-*/
-function 提取版本陣列( string $版本, string $頁 ) : array
+function 提取版本詩文( string $版本, string $頁 ) : array
 {
+	require( "h:\\github\\Dufu-Analysis\\坐標_詩句.php" );
 	global $書目簡稱;
+	//global $坐標_詩句;
+	global $頁碼_詩題;
+	global $頁碼_路徑;
+	global $詩組_詩題;
+	
+	// 讀取想要版本的異文、夾注
+	$section = getSection( $頁碼_路徑[ $頁 ], $版本 );
+	$版本異文、夾注 = array();
+	$in_異文、夾注 = false;
+	$坐標版本異文、夾注 = array();
+	
+	foreach( $section as $l )
+	{
+		if( mb_strpos( $l, "【異文、夾注】" ) !== false )
+		{
+			$in_異文、夾注 = true;
+			continue;
+		}
+		elseif( $in_異文、夾注 && trim( $l ) === "" )
+		{
+			$in_異文、夾注 = false;
+			break;
+		}
+		//
+		if( $in_異文、夾注 )
+		{
+			if( mb_strpos( $l, '〛' ) !== false )
+			{
+				$parts = explode( '〛', $l );
+				$版本異文、夾注[ '〚' . $頁 . ':' .
+					str_replace( '〚', '', $parts[ 0 ] ) .
+					//trim( $parts[ 0 ], '〚' ) .
+					'〛' ] = $parts[ 1 ];
+			}
+			elseif( mb_strpos( $l, '〗' ) !== false )
+			{
+				
+				$parts = explode( '〗', $l );
+				
+				if( $頁 == "3955" )
+				{
+					//print_r( $parts );
+				}
+				
+				$默認詩文 = mb_substr( $parts[ 0 ], 1 );
+				
+				if( $頁 == "3955" )
+				{
+					//echo 'L567 ', $parts[ 0 ] . '〗', NL;
+				}
+				
+				$坐標 = 提取〖詩文〗坐標( $parts[ 0 ] . '〗', $頁 );
+				
+				
+				$坐標版本異文、夾注[ $坐標 ] = trim( $l );
+				$版本異文、夾注[ $坐標 ] = 
+					array( $默認詩文, $parts[ 1 ] );
+			}
+		}
+	}
+	
 	$版本陣列 = array();
+	// 讀取默認版本
+	$詩文路徑 = 詩集文件夾 . "\\" . $頁 . '.php';
+	require( $詩文路徑 );
 	
-	if( !array_key_exists( $版本, $書目簡稱 ) )
+	if( !array_key_exists( $頁, $詩組_詩題 ) )
 	{
-		echo "此版本 $版本 不存在。", NL;
-		exit;
+		$版本詩文 = $内容[ "詩文" ];
 	}
-	
-	$路徑 = 杜甫資料庫 . $書目簡稱[ $版本 ] . "\\${頁}.php";
-	if( !file_exists( $路徑 ) )
+	else
 	{
-		echo "此頁碼 $頁 不存在。", NL;
-		exit;
-	}
-	require( $路徑 );
-	$版本陣列名 = str_replace( '=', '', $版本 ) . '内容';
-	
-	if( array_key_exists( 版本, $$版本陣列名 ) )
-	{
-		return $$版本陣列名[ 版本 ];
-	}
+		$版本詩文 = $内容[ "詩歌" ];
+		$新版本詩文 = array();
+				
+		foreach( $版本詩文 as $題 => $列陣 )
+		{
+			$副詩 = normalize( implode( $列陣 ) );
+			array_push( $新版本詩文, $副詩 );
+		}
+		$版本詩文 = $新版本詩文;
 
-	return array();
-}
-
-/*
-提取某版本（'X内容[版本]'中的詩文）
-*/
-function 提取版本詩文( string $版本, string $頁 ) : string
-{
-	$temp = 提取版本陣列( $版本, $頁 );
-		
-	if( array_key_exists( 詩文, $temp ) )
-	{
-		return $temp[ 詩文 ];
 	}
 	
-	return '';
-}
-
-/*
-提取某版本（'X内容[版本]'中的坐標版本異文、夾注）
-*/
-function 提取版本坐標版本異文、夾注( string $版本, string $頁 ) : array
-{
-	$temp = 提取版本陣列( $版本, $頁 );
-
-	if( array_key_exists( 坐標版本異文、夾注, $temp ) )
+	// 讀取默認版本的坐標_用字
+	//$坐標_用字路徑 = 詩集文件夾 . "\\" . $頁 . '坐標_用字.php';
+	//require( $坐標_用字路徑 );
+					
+	// 以想要版本的異文、夾注，代替默認版本相對應的用字
+	foreach( $版本異文、夾注 as $異文、夾注坐標 => $異文、夾注 )
 	{
-		return $temp[ 坐標版本異文、夾注 ];
+		if( $異文、夾注坐標 == "" )
+		{
+			continue;
+		}
+		elseif( $異文、夾注坐標 == "〚${頁}:1〛" )
+		{
+			//〖1〗
+			$版本陣列[ "詩題" ] = trim( $異文、夾注[ 1 ] );
+			continue; 
+		}
+		elseif( $異文、夾注坐標 == "〚${頁}:3〛" )
+		{
+			//〖3〗
+			$版本陣列[ "詩序" ] = trim( $異文、夾注[ 1 ] );
+			continue; 
+		}		
+		else
+		{
+			if( !array_key_exists( $頁, $詩組_詩題 ) )
+			{
+				$版本詩文 = str_replace(
+					trim( $異文、夾注[ 0 ] ),
+					trim( $異文、夾注[ 1 ] ),
+					$版本詩文 );
+			}
+			else
+			{
+				$新版本詩文 = array();
+				
+				foreach( $版本詩文 as $副詩 )
+				{
+					$副詩 = str_replace(
+						trim( $異文、夾注[ 0 ] ),
+						trim( $異文、夾注[ 1 ] ),
+						$副詩 );
+					array_push( $新版本詩文, $副詩 );
+				}
+				$版本詩文 = $新版本詩文;
+				//print_r( $版本詩文 );
+				//exit;
+			}
+		}
 	}
-
-	return array();
+	
+	$版本陣列[ "詩文" ] = $版本詩文;
+	$版本陣列[ "坐標版本異文、夾注" ] = $坐標版本異文、夾注;
+	
+	//print_r( $版本陣列 );
+	return $版本陣列;
 }
 
 function 提取版本詩文含夾注陣列( 
