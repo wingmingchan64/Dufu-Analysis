@@ -9,6 +9,7 @@ require_once( 頁碼_詩題 );
 require_once( 詩組_詩題 );
 require_once( 書目簡稱 );
 require_once( 資料陣列 );
+require_once( 頁碼_詞條 );
 
 foreach( $頁碼 as $頁 )
 {
@@ -304,6 +305,43 @@ foreach( $頁碼 as $頁 )
 			}
 		}
 	}
+	
+	// 地名
+	if( array_key_exists( intval( $頁 ), $頁碼_詞條 ) )
+	{
+		$content .= NL .〖地名〗 . NL ;
+		$詞條陣列 = $頁碼_詞條[ intval( $頁 ) ];
+		
+		foreach( $詞條陣列 as $詞條 )
+		{
+			if( file_exists( 地名詞典 . "${詞條}.php" ) )
+			{
+				require( 地名詞典 . "${詞條}.php" );
+				$詞條陣列名 = $詞條;
+				if( array_key_exists( 定義, $$詞條陣列名 ) )
+				{
+					$content .= NL . $詞條陣列名 . NL;
+					$content .= $$詞條陣列名[ 定義 ] . NL;
+				}
+				if( array_key_exists( 參考, $$詞條陣列名 ) )
+				{
+					foreach( $$詞條陣列名[ 參考 ] as $參考條目 )
+					{
+						if( file_exists( 地名詞典 . "${參考條目}.php" ) )
+						{
+							require( 地名詞典 . "${參考條目}.php" );
+							$參考條目名 = $參考條目;
+							$content .= NL . $參考條目名 . NL;
+							$content .= $$參考條目名[ 定義 ] . NL;
+						}
+					}
+				}
+			}
+		}
+			
+	}
+	
+	
 	
 	$簡稱 = '';
 	foreach( $書目簡稱 as $簡 => $書 )
