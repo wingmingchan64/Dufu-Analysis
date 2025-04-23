@@ -323,11 +323,13 @@ foreach( $頁碼 as $頁 )
 					$content .= NL . $詞條陣列名 . NL;
 					$content .= $$詞條陣列名[ 定義 ] . NL;
 				}
+				
 				if( array_key_exists( 參考, $$詞條陣列名 ) )
 				{
 					foreach( $$詞條陣列名[ 參考 ] as $參考條目 )
 					{
-						if( file_exists( 地名詞典 . "${參考條目}.php" ) )
+						if( trim( $參考條目 ) != '' &&
+							file_exists( 地名詞典 . "${參考條目}.php" ) )
 						{
 							require( 地名詞典 . "${參考條目}.php" );
 							$參考條目名 = $參考條目;
