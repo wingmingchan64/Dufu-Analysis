@@ -2,6 +2,8 @@
 $赤谷=array(
 定義=>"地理位置：今天水西南暖和灣
 坐標：34.54859159624519, 105.68263631096008
+《晨發赤谷亭》
+http://www.tianshui.com.cn/news/zjts/2006110611554080623.htm
 《沿著杜甫入蜀之路探尋隴蜀古道》
 https://www.wccdaily.com.cn/shtml/hxdsb/20231227/206285.shtml
 百度《赤谷西崦人家》
