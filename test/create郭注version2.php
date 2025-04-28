@@ -13,8 +13,8 @@ $lines     = explode( "\n", $text );
 $store     = array();
 $contents  = '';
 $file_name = 'H:\github\Dufu-Analysis\test\版本.txt';
-$start_page = '0276';
-$end_page   = '0111'; // exclusive
+$start_page = '0111';
+$end_page   = '0841'; // exclusive
 $in = false;
 
 foreach( $lines as $l )
@@ -149,7 +149,7 @@ foreach( $lines as $l )
 }
 
 //echo $contents, NL;
-file_put_contents( 'h:\github\Dufu-Analysis\郭知達《新刊校定集注杜詩》\新刊校定集注杜詩卷一_version2.txt', $contents );
+file_put_contents( 'h:\github\Dufu-Analysis\郭知達《新刊校定集注杜詩》\新刊校定集注杜詩卷二_version2.txt', $contents );
 
 function replaceText( array &$詩陣列, string $坐標, string $文字 )
 {
