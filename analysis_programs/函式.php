@@ -1212,7 +1212,7 @@ function 提取詩文( string $坐標 ) : string
 		}
 		if( $文檔名 != '' )
 		{
-			echo $文檔名, NL;
+			//echo $文檔名, NL;
 			require_once( 杜甫資料庫 . $文檔名 . 程式後綴 );
 			
 			foreach( $$文檔名 as $組合 => $坐標陣列 )
@@ -1398,7 +1398,7 @@ function 顯示杜甫詩陣列詩文(
 			{
 				if( sizeof( $result ) > 1 )
 				{
-					echo $句子陣列, NL;
+					//echo $句子陣列, NL;
 				}
 				continue;
 			}

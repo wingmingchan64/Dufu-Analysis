@@ -12,6 +12,8 @@ $五盤=array(
 綿谷縣（廣元市朝天區東北及陝西寧強縣）
 四川廣元市 32.42837051199977, 105.78911349603857
 http://scdfz.sc.gov.cn/whzh/slzc1/content_133024
+七盤關
+https://www.jendow.com.tw/wiki/%E4%B8%83%E7%9B%A4%E9%97%9C
 ",
 參考=>array("")
 );
