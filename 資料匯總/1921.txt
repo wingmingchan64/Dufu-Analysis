@@ -60,6 +60,7 @@ juk6 cyun4 lou5 goi3 cin1 nin4 ji3, wai6 mik6 soeng1 gan1 sou3 cyun3 zoi1
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
 典：《引典出處》
+增：陳貽焮主編《增訂注釋全唐詩》
 Array
 (
     [1921] => Array

@@ -294,6 +294,7 @@ bat1 seoi1 man4 ci2 ji3 caam2 cong3, sang1 cin4 soeng1 jyu6 ce2 haam4 bui1
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
 典：《引典出處》
+增：陳貽焮主編《增訂注釋全唐詩》
 Array
 (
     [0409] => Array

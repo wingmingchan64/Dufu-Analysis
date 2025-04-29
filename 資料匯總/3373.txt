@@ -106,6 +106,7 @@ gei3 ze6 jau4 jau4 sai3 soeng6 ji4, bat1 zang1 hou2 wu3 mok6 soeng1 ji4
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
 典：《引典出處》
+增：陳貽焮主編《增訂注釋全唐詩》
 Array
 (
     [3373] => Array

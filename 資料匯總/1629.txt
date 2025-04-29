@@ -314,6 +314,7 @@ wui5 doi6 jiu1 fan1 zing6, leon4 man4 zaam6 gwo2 loeng4
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
 典：《引典出處》
+增：陳貽焮主編《增訂注釋全唐詩》
 Array
 (
     [1629] => Array

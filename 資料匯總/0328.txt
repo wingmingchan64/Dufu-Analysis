@@ -290,6 +290,7 @@ jau5 jyu4 sau4 ngo6 sei2, zou2 maan5 bou3 ping4 zeon1
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
 典：《引典出處》
+增：陳貽焮主編《增訂注釋全唐詩》
 Array
 (
     [0328] => Array

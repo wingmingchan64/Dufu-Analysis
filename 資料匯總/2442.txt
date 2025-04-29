@@ -76,6 +76,7 @@ ji4 si4 hyun3 saan1 gaan2, tau4 baak6 hung2 fung1 hon4
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
 典：《引典出處》
+增：陳貽焮主編《增訂注釋全唐詩》
 Array
 (
     [2442] => Array

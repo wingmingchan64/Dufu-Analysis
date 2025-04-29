@@ -123,6 +123,7 @@ co2 gong1 mou4 haap6 bun3 wan4 jyu5, cing1 tim5 so1 lim4 hon3 jik6 kei4
 歐：Stephen_Owen_The_Poetry_of_Du_Fu
 莫：莫礪鋒、童強《杜甫詩選》
 典：《引典出處》
+增：陳貽焮主編《增訂注釋全唐詩》
 Array
 (
     [4634] => Array
