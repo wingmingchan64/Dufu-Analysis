@@ -85,9 +85,9 @@ foreach( $頁碼 as $頁 )
 								$content .= $韻 . NL;
 							}
 							} catch ( Exception $e ) {
-							echo $e, NL;
-							//print_r( $$陣列名[ 韻部 ] );
-							echo $頁, NL; 
+								echo $e, NL;
+								//print_r( $$陣列名[ 韻部 ] );
+								echo $頁, NL; 
 							}
 						}
 						

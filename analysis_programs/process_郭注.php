@@ -39,6 +39,7 @@ foreach( $lines as $l )
 		$l       = str_replace( '// ', '', $l );
 		$l_array = explode( ' ', $l );
 		$默認頁碼  = trim( $l_array[ 1 ] );
+		//echo $默認頁碼, NL;
 		
 		// deal with this later
 		if( $l_array[ 1 ] == '6497' )
@@ -47,7 +48,7 @@ foreach( $lines as $l )
 		}
 				
 		// stop at a new 卷
-		if( $默認頁碼 == '1982' )
+		if( $默認頁碼 == '2364' )
 		{ break; }
 	
 		// read 詩 array 
@@ -55,7 +56,11 @@ foreach( $lines as $l )
 		
 		// 詩題 from 異文、夾注〖1〗 or from $詩陣列
 		// 加版本頁碼
-		$版本詩題 = ' ' . $默認頁碼 . ' ' . $l_array[ 2 ] . NL; 
+		$版本詩題 = ' ' . $默認頁碼 . ' ' . $l_array[ 2 ] . NL;
+		if( $默認頁碼 == '1998' )
+		{
+			//print_r( $詩陣列 );
+		}
 		// 提取版本資料
 		$版本路徑 = 新刊校定集注杜詩 . $默認頁碼 . 程式後綴;
 
