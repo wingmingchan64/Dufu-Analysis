@@ -52,7 +52,7 @@ wo4 tau4 sang1 ji5 syu2 seoi6 hak1, nung4 fu1 tin4 fu2 mou4 siu1 sik1
 sing4 zung1 dau2 mai5 wun6 kam1 cau4, soeng1 heoi2 ning4 leon4 loeng5 soeng1 zik6
 其三
 長安布衣誰比數，反鎖衡門守環堵。
-coeng4 on1 bou3 ji1 seoi4 bei2 sou3, faan2 so2 hang4 mun4 sau2 waan4 dou2
+coeng4 on1 bou3 ji1 seoi4 bei2 sou2, faan2 so2 hang4 mun4 sau2 waan4 dou2
 -----------------------------------------------------
 老夫不出長蓬蒿，稚子無憂走風雨。
 lou5 fu1 bat1 ceot1 zoeng2 pung4 hou1, zi6 zi2 mou4 jau1 zau2 fung1 jyu5
@@ -75,6 +75,7 @@ cau1 loi4 mei6 cang4 gin3 baak6 jat6, nai4 wu1 hau6 tou2 ho4 si4 gon1
 黑：職韻
 息：職韻
 直：職韻
+數：麌韻
 堵：麌韻
 雨：麌韻
 寒：寒韻
@@ -88,8 +89,6 @@ cau1 loi4 mei6 cang4 gin3 baak6 jat6, nai4 wu1 hau6 tou2 ho4 si4 gon1
 
 【補充說明】
 〚0465:2:12.2〛趙注云：一本作四海萬里，則聲律不穩，而萬里字卻小矣。「四海萬里」，四字皆仄聲，故云不穩。四海遠過萬里，八荒又在四海之外，故云萬里字卻小矣。
-〚0465:3:19.1.6-7〛「比數」之「數」讀去聲。上聲之「數」屬麌韻，可能只是巧合。第一首首句「秋爛死」
-〚0465:1:5.1.5-7〛不入韻，故「誰比數」亦不必入韻。
 
 〖分行討論〗
 【題解】
