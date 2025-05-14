@@ -149,7 +149,7 @@ https://zh.wikisource.org/wiki/%E5%8F%A4%E8%A9%A9%E5%8D%81%E4%B9%9D%E9%A6%96
 引領還入房，淚下沾裳衣
 
 
-陽曆十二月，北斗斗柄指向東北偏北(ChatGPT)，成倒挂狀（斗上柄下）。陽曆三月，斗柄向西。陽曆六月，斗柄向西南偏南。陽曆六月，斗柄向東。
+陽曆十二月二十二日午夜，北斗斗柄指向東北偏北(ChatGPT)，成倒挂狀（斗上柄下）。陽曆三月二十二日午夜，斗柄向東。陽曆六月二十二日午夜，斗柄向南。陽曆九月二十二日午夜，斗柄向西。一年下來，斗柄逆時針方向轉一圈。
 
 https://upload.wikimedia.org/wikipedia/commons/5/54/Sagittarius_IAU.svg
 南箕/箕宿，南斗 Sagittarius 射手座/人馬座
@@ -158,4 +158,6 @@ https://upload.wikimedia.org/wikipedia/commons/5/54/Sagittarius_IAU.svg
 
 牽牛星/河鼓二 Altair，天鷹座α
 織女星/織女一 Vega，天琴座α
-老人星 Canopus，Carina 船底座α
+老人星 Canopus，Carina 船底座α，天狼星之南。
+
+https://stellarium-web.org/
