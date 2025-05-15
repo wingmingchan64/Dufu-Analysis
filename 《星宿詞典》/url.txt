@@ -1,0 +1,15 @@
+星象圖
+https://upload.wikimedia.org/wikipedia/commons/3/3c/%E6%98%9F%E8%B1%A1%E5%9B%BE.svg
+
+The 88 Constellations
+https://theskylive.com/sky/constellations/
+https://theskylive.com/planetarium
+
+RA/DEC
+https://sky-map.org/
+
+With RA/DEC, identify the object
+http://simbad.u-strasbg.fr/simbad/
+
+Date, Time, Place, to observe the night sky
+https://stellarium-web.org/
