@@ -520,20 +520,39 @@ if( $頁 == '3955' )
 		// 坐標的轉換靠的是統一化詩文，因此出現在〖〗内的必須是
 		// 我的統一化後的詩文。
 		// 注釋
-		elseif( mb_strpos( $内容, '〖' ) !== false )
+		elseif( mb_strpos( $内容, '〖' ) !== false ) 
 		{
+			$sub_code = "array(\n";
 			//echo "L425", NL;
 			$〖儲存 = explode( '〖', $内容 );
-			$sub_code = "array(\n";
 				
 			foreach( $〖儲存 as $l )
 			{
+				// 含坐標
+				$含坐標 = false;
+				
+				if( mb_strpos( $l, '〚' ) !== false )
+				{
+					$含坐標 = true;
+					//$〚儲存 = explode( '〛', $内容 );
+					//$詞條坐標 = $〚儲存[ 0 ] . '〛';
+					//$注釋 = $〚儲存[ 1 ];
+					//$l = "\"${詞條坐標}\"=>\"${注釋}\",\n";
+					//$sub_code = $sub_code . $l;
+				}
+
 				$l = trim( $l );
 			
 				if( $l == "" )
 				{
 					continue;
 				}
+				if( $含坐標 )
+				{
+					$〚儲存 = explode( '〚', $l );
+					$l = trim( $〚儲存[ 0 ] );
+				}
+				
 				$parts = explode( '〗', $l );
 				// 計算坐標
 
@@ -573,105 +592,111 @@ if( $頁 == '3955' )
 				}
 				else  // 組合
 				{				
-				if( $詞條長度 == 2 )
-				{
-					$坐標s = $二字組合_坐標[ $詞條 ];
-				}
-				elseif( $詞條長度 == 3 )
-				{
-					$坐標s = $三字組合_坐標[ $詞條 ];
-				}
-				elseif( $詞條長度 == 4 )
-				{
-					$坐標s = $四字組合_坐標[ $詞條 ];
-				}
-				elseif( $詞條長度 == 5 )
-				{
-					//try{
-					$坐標s = $五字組合_坐標[ $詞條 ];
-					//} catch ( Exception $e ) { echo $頁; }
-				}
-				// $詞條長度 6 or above
-				elseif( $詞條 != "" )
-				{
-					
-					if( array_key_exists( $詞條, $詩句_坐標 ) )
+					if( $詞條長度 == 2 )
 					{
-						$坐標s = array( $詩句_坐標[ $詞條 ] );
+						$坐標s = $二字組合_坐標[ $詞條 ];
 					}
-					elseif( array_key_exists( $詞條, $詩行_行碼 ) )
+					elseif( $詞條長度 == 3 )
 					{
-						$坐標s = array( $詩行_行碼[ $詞條 ] );
+						$坐標s = $三字組合_坐標[ $詞條 ];
 					}
-					
-				}
-				// look for the first matching 坐標
-				try{
-				foreach( $坐標s as $坐標 )
-				{
-					if( str_starts_with( $坐標, '〚' . $頁 ) )
+					elseif( $詞條長度 == 4 )
 					{
-						$詞條坐標 = $坐標;
-						if( $詞條長度 > 5 )
+						$坐標s = $四字組合_坐標[ $詞條 ];
+					}
+					elseif( $詞條長度 == 5 )
+					{
+						//try{
+						$坐標s = $五字組合_坐標[ $詞條 ];
+						//} catch ( Exception $e ) { echo $頁; }
+					}
+					// $詞條長度 6 or above
+					elseif( $詞條 != "" )
+					{
+						
+						if( array_key_exists( $詞條, $詩句_坐標 ) )
 						{
-							$詞條坐標 = str_replace( '〛', "${補字碼}〛",
-								$詞條坐標 );
+							$坐標s = array( $詩句_坐標[ $詞條 ] );
 						}
-						break;
+						elseif( array_key_exists( $詞條, $詩行_行碼 ) )
+						{
+							$坐標s = array( $詩行_行碼[ $詞條 ] );
+						}
+						
 					}
+					// look for the first matching 坐標
+					try{
+					foreach( $坐標s as $坐標 )
+					{
+						if( str_starts_with( $坐標, '〚' . $頁 ) )
+						{
+							$詞條坐標 = $坐標;
+							
+							if( $詞條長度 > 5 )
+							{
+								$詞條坐標 = str_replace( '〛', "${補字碼}〛",
+									$詞條坐標 );
+							}
+							break;
+						}
+					}
+					} catch( Exception $e )
+					{ echo $頁, NL; }
+					
+					try{
+					$注釋 = $parts[ 0 ] . '：' . $parts[ 1 ];
+					} catch( Exception $e )
+					{ echo $頁, NL; }
 				}
-				} catch( Exception $e )
-				{ echo $頁, NL; }
-				
-				try{
-				$注釋 = $parts[ 0 ] . '：' . $parts[ 1 ];
-				} catch( Exception $e )
-				{ echo $頁, NL; }
-				
-			}
-			
-			$l = "\"${詞條坐標}\"=>\"${注釋}\",\n";
-			
-			$sub_code = $sub_code . $l;
-		}
-		$sub_code = substr( $sub_code, 0, -2 );
-		$sub_code = $sub_code . ")\n";
-		$内容 = $sub_code;
-	}
-	elseif( mb_strpos( $内容, '〚' ) !== false )
-	{
-		if( $頁碼 == '4361' )
-		{
-			echo 'here', NL;
-		}
-		$〚儲存 = explode( '〚', $内容 );
-		$sub_code = "array(\n";
-		
-		foreach( $〚儲存 as $l )
-		{
-			$l = trim( $l );
-			
-			if( $l == "" )
-			{
-				continue;
-			}
-
-			//echo $頁, "\n";
-			//$l = '〚' . $l ; // add 〚 back
-			$parts = explode( '〛', $l );
-			//print_r( $parts );
-			
-			if( sizeof( $parts ) > 1 )
-			{
-				$l = "\"〚" . $頁 . ':' . $parts[ 0 ] . "〛\"=>\"" .
-				$parts[ 1 ] . "\",\n";
+				$l = "\"${詞條坐標}\"=>\"${注釋}\",\n";
 				$sub_code = $sub_code . $l;
+				$nextline = '';
+				if( $含坐標 )
+				{
+					$nextline = trim( $〚儲存[ 1 ] );
+					$〛儲存 = explode( '〛', $nextline );
+					$nextline = "\"〚" . $〛儲存[ 0 ] . "〛\"=>\"" . $〛儲存[ 1 ] . "\",\n";
+					$sub_code = $sub_code . $nextline;
+				}
 			}
+			$sub_code = substr( $sub_code, 0, -2 );
+			$sub_code = $sub_code . ")\n";
+			$内容 = $sub_code;
 		}
-		$sub_code = substr( $sub_code, 0, -2 );
-		$sub_code = $sub_code . ")\n";
-		$内容 = $sub_code;
-	}
+		elseif( mb_strpos( $内容, '〚' ) !== false )
+		{
+			if( $頁碼 == '4361' )
+			{
+				echo 'here', NL;
+			}
+			$〚儲存 = explode( '〚', $内容 );
+			$sub_code = "array(\n";
+			
+			foreach( $〚儲存 as $l )
+			{
+				$l = trim( $l );
+				
+				if( $l == "" )
+				{
+					continue;
+				}
+
+				//echo $頁, "\n";
+				//$l = '〚' . $l ; // add 〚 back
+				$parts = explode( '〛', $l );
+				//print_r( $parts );
+				
+				if( sizeof( $parts ) > 1 )
+				{
+					$l = "\"〚" . $頁 . ':' . $parts[ 0 ] . "〛\"=>\"" .
+					$parts[ 1 ] . "\",\n";
+					$sub_code = $sub_code . $l;
+				}
+			}
+			$sub_code = substr( $sub_code, 0, -2 );
+			$sub_code = $sub_code . ")\n";
+			$内容 = $sub_code;
+		}
 		elseif( $體裁 != "" )
 		{
 			$内容 = "\"$内容\"";
