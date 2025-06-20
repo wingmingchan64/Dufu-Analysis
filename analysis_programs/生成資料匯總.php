@@ -130,10 +130,23 @@ foreach( $頁碼 as $頁 )
 				{
 					$file = $版本文件夾 . 
 						str_replace( ' ', '_',$書目簡稱[ '=' . $簡稱 ] ) . $部分 . 程式後綴;
-				
+					/*
+					if( $簡稱 == '訳' && $頁 == '0042' )
+					{
+						echo '訳0042', NL;
+						echo $file . NL;
+					}
+					*/
+					
 					if( file_exists( $file ) )
 					{
 						require_once( $file );
+						
+						if( $簡稱 == '訳' && $頁 == '0042' )
+						{
+							echo '訳0042', NL;
+							echo $file . NL;
+						}
 						$陣列名 = $書目簡稱[ '=' . $簡稱 ] . $部分;
 						
 						foreach( array_keys( $$陣列名 )as $key )
