@@ -1,49 +1,75 @@
 <?php
+/*
+ * Script: 生成杜甫全集.php
+ * Usage:  php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集.php
+ * Author: Wing Ming Chan
+ * Updated: 2025-06-24
+ */
 require_once( '常數.php' );
 require_once( '函式.php' );
 
-// get all text file names
-$file_names  = 提取杜甫文件名稱();
-$new_content = "";
-
-// the first section isn't marked, and getSection doesn't work
-// open each text file, read and store text up to
-// the first maker
-foreach( $file_names as $from_file )
-{
-	$handle = fopen( $from_file, "r" );
-
-	if( $handle )
-	{
-		// read a line at a time and store it
-		while ( ( $line = fgets( $handle ) ) !== false )
-		{
-			if( substr( $line, 0, 1 ) != '=' )
-			{
-				$new_content .= $line;
-			}
-			else
-			{
-				$new_content .= NL;
-				break;
-			}
-		}
-		fclose( $handle );
-	}
-}
-
 function truncate_path( $path )
 {
-	return substr( $path, strlen( 杜甫文件夾 ) );
+    return substr( $path, strlen( 杜甫文件夾 ) );
 }
 
-// add msg and write to files
-$msg = file_get_contents( 'msg.txt', true );
-file_put_contents( 杜甫全集, $new_content . $msg );
-file_put_contents( 杜甫資料庫 . "杜甫全集_默認版本.php", $new_content . $msg );
-file_put_contents( "h:\\github\\Dufu-Analysis\\" . "杜甫全集_默認版本.php", $new_content . $msg );
+function extract_main_text_from_files( $file_names )
+{
+    $content = "";
 
-$files = array_map( "truncate_path", $file_names );
-file_put_contents( 目錄, implode( "\n", $files ) .
-	"\n\n" . $msg );
+    foreach( $file_names as $from_file )
+	{
+        $handle = @fopen( $from_file, "r" );
+        if( !$handle )
+		{
+            error_log( "⚠️ Cannot open file: $from_file" );
+            continue;
+        }
+
+        while( ( $line = fgets( $handle ) ) !== false )
+		{
+            if( substr( $line, 0, 1 ) != '=' )
+			{
+                $content .= $line;
+            }
+			else
+			{
+                $content .= NL;
+                break;
+            }
+        }
+
+        fclose( $handle );
+    }
+
+    return $content;
+}
+
+function write_output_files( $content, $msg, $file_names )
+{
+    $output = $content . $msg;
+
+    // Output text files
+    file_put_contents( 杜甫全集, $output );
+    file_put_contents( 杜甫資料庫 . "杜甫全集_默認版本.php", $output );
+    file_put_contents( 
+		"h:" . DIRECTORY_SEPARATOR . "github" .
+		DIRECTORY_SEPARATOR . "Dufu-Analysis" .
+		DIRECTORY_SEPARATOR . "杜甫全集_默認版本.php", 
+		$output );
+
+    // Write relative paths of processed files
+    $files = array_map( "truncate_path", $file_names );
+    file_put_contents( 目錄, implode( NL, $files ) . NL . 
+		NL . $msg );
+}
+
+// MAIN EXECUTION
+$file_names   = 提取杜甫文件名稱();
+$main_content = extract_main_text_from_files( $file_names );
+$msg          = file_get_contents( 'msg.txt', true );
+
+write_output_files( $main_content, $msg, $file_names );
+echo "✅ 成功處理 " . count( $file_names ) . 
+	" 首詩，整合文本已生成。" . NL;
 ?>

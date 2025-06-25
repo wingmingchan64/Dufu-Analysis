@@ -20,7 +20,8 @@ const 資料陣列       = 資料匯總文件夾 . '資料陣列.php';
 const 分隔線 =
 "\r\n=====================================================\r\n";
 const 新行 = "\r\n";
-const NL  = "\r\n";
+//const NL  = "\r\n";
+define( 'NL', PHP_EOL ); // System-independent newline
 const 等號 = '=';
 const 坐標開括號 = '〚';
 const 坐標關括號 = '〛';
