@@ -1,6 +1,9 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\analysis_programs\搜索程式\輸入漢字.php
+ * Script: 輸入漢字.php
+ * Usage:  php h:\github\Dufu-Analysis\analysis_programs\搜索程式\輸入漢字.php
+ * Author: Wing Ming Chan
+ * Updated: 2025-07-11
 */
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
@@ -30,8 +33,15 @@ while( true )
 	// exit: terminate the program
 	// log: log the content in memory to buffer.txt
 	// key: a key in the dictionary
+	// --- STEP 1: Prompt user for key ---
+	// --- STEP 2: Match key in dictionary ---
+	// --- STEP 3: If 1 result, print ---
+	// --- STEP 4: If multiple, offer choice ---
+	// --- STEP 5: Allow re-entry or exit ---
+	// 注意：index 0 reserved (empty / unselectable), to avoid right-hand use
 	echo "Enter a command (log, clr, del, show, exit) or a key\n";
 	$input = readline();
+	$input = strtolower( trim( $input ) );
 	
 	// command or key
 	if( isAscii( $input ) )
@@ -166,4 +176,17 @@ function printBuffer( string $buffer )
 	// display
 	echo "=>", $buffer, "\n";
 }
+/*
+from AI
+🔚 Summary: Suggested Enhancements
+項目	類型	說明
+✅ Auto-select if one match	UX	Skip index prompt
+✅ Show key+value together	UX	Better disambiguation
+✅ Input validation	Robustness	Avoid index out-of-bounds
+✅ Modular dictionary loading	Structure	Cleaner reuse
+✅ mb_strpos()	Unicode safety	Better for multibyte keys
+⛳ Optional regex support	Flexibility	Advanced querying
+🧪 Wrapping in function	Testability	Future expansion
+💾 Clipboard/file output	Optional	Integration with other tools
+*/
 ?>

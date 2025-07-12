@@ -61,6 +61,22 @@
 - ChatGPT 協助：
   - 辨識濁音・半濁音轉換誤讀模式
   - 提出「兩階段清理」策略：先清 OCR 垃圾 → 再轉換為中文
+  
+### CLI工具：漢字選取器 `輸入漢字.php`
+
+**目的**：從自建字典中快速查詢一個或多個鍵對應的漢字，用於難輸入字的人工選取與貼上。
+
+**功能特點**：
+- 支援模糊鍵匹配（以鍵包含為準）
+- 若結果唯一則直接輸出；若有多個候選，列出選單供選擇（排除 index 0）
+- 可連續查詢，輸入 `exit` 結束
+- 適用於個人使用，字典為硬編碼，便於穩定管理
+
+**使用方式**：
+h:\github\Dufu-Analysis\analysis_programs\搜索程式\輸入漢字.php
+
+**附加文件**：
+常用字集.txt：人工編輯的常用字備查表（依康熙部首排列）
 
 ---
 
@@ -86,3 +102,5 @@
 Text to be put on the top of a new discussion:
 🧠 [Load context] Please refer to AI貢獻記錄（ChatGPT）/AI協助之程式設計與文件整理記錄.md on GitHub for full context. We are now continuing the Du Fu database programming audit and documentation.
 https://github.com/wingmingchan64/Dufu-Analysis/tree/main/AI%E8%B2%A2%E7%8D%BB%E8%A8%98%E9%8C%84%EF%BC%88ChatGPT%EF%BC%89
+
+[CONTINUE: 杜甫詩歌資料庫程式設計審查計劃]
