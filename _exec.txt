@@ -19,7 +19,6 @@ array(5) {
 File generation:
 php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集.php
 php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_詩題.php
-php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集粵音注音.php
 php h:\github\Dufu-Analysis\analysis_programs\生成詩集頁.php
 php h:\github\Dufu-Analysis\analysis_programs\生成行碼_詩行.php
 php h:\github\Dufu-Analysis\analysis_programs\生成杜甫詩陣列.php
@@ -38,7 +37,6 @@ php h:\github\Dufu-Analysis\analysis_programs\生成詩句_坐標.php
 php h:\github\Dufu-Analysis\analysis_programs\生成部首_用字.php
 php h:\github\Dufu-Analysis\analysis_programs\生成用字_部首.php
 php h:\github\Dufu-Analysis\analysis_programs\生成字音.php
-php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_韻部.php	
 php h:\github\Dufu-Analysis\analysis_programs\生成字典.php
 php h:\github\Dufu-Analysis\analysis_programs\生成坐標_用字.php
 php h:\github\Dufu-Analysis\analysis_programs\生成疊字_坐標.php
@@ -52,13 +50,28 @@ php h:\github\Dufu-Analysis\analysis_programs\生成五字組合_坐標.php
 php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 粵
 php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集粵音注音.php
 
-// 黃希、黃鶴《黃氏補千家註紀年杜工部詩史》
-php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 黃
-php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 黃 注釋
+// 林繼中輯校《杜詩趙次公先後解輯校》
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 趙
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 趙 注釋
 
 // 郭知達《新刊校定集注杜詩》
 php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 郭
 php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 郭 注釋
+
+=增====================================================
+陳貽焮主編《增訂注釋全唐詩》PDF2.
+
+// 陳貽焮主編《增訂注釋全唐詩》
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 增
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 增 注釋
+
+// 黃希、黃鶴《黃氏補千家註紀年杜工部詩史》
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 黃
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 黃 注釋
+
+// 徐居仁編次《集千家註分類杜工部詩》
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 徐
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 徐 注釋
 
 // 王嗣奭《杜臆》
 php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 奭
@@ -66,24 +79,19 @@ php h:\github\Dufu-Analysis\analysis_programs\生成版本評論.php 奭
 php h:\github\Dufu-Analysis\analysis_programs\process_杜臆.php
 php h:\github\Dufu-Analysis\analysis_programs\生成版本頁碼索引.php 奭
 
+// 錢謙益《錢注杜詩》
+php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 錢
+php h:\github\Dufu-Analysis\analysis_programs\生成版本評論.php 錢
+php h:\github\Dufu-Analysis\analysis_programs\生成版本大意.php 錢
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 錢 注釋
+
 // 仇兆鰲《杜詩詳註》
 php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 仇
 php h:\github\Dufu-Analysis\analysis_programs\生成版本評論.php 仇
 php h:\github\Dufu-Analysis\analysis_programs\生成版本大意.php 仇
 php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 仇 注釋
+php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 仇 校記
 php h:\github\Dufu-Analysis\analysis_programs\生成版本頁碼索引.php 仇
-
-// 蕭滌非
-php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 蕭
-php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 蕭 大意
-php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 蕭 注釋
-php h:\github\Dufu-Analysis\analysis_programs\生成版本評論.php 蕭
-php h:\github\Dufu-Analysis\analysis_programs\生成版本頁碼索引.php 蕭
-
-// 謝思煒《杜甫集校注》
-php h:\github\Dufu-Analysis\analysis_programs\生成書本.php 謝
-php h:\github\Dufu-Analysis\analysis_programs\生成書本注釋.php 謝 注釋
-php h:\github\Dufu-Analysis\analysis_programs\生成版本頁碼索引.php 謝
 
 // run 生成書本、生成書本注釋 first!
 php H:\github\Dufu-Analysis\analysis_programs\生成資料匯總.php
