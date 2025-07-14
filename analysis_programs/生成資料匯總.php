@@ -7,9 +7,9 @@ require_once( '函式.php' );
 require_once( 頁碼 );
 require_once( 頁碼_詩題 );
 require_once( 詩組_詩題 );
+require_once( 頁碼_詞條 );
 require_once( 書目簡稱 );
 require_once( 資料陣列 );
-require_once( 頁碼_詞條 );
 
 foreach( $頁碼 as $頁 )
 {
@@ -141,12 +141,13 @@ foreach( $頁碼 as $頁 )
 					if( file_exists( $file ) )
 					{
 						require_once( $file );
-						
+						/*
 						if( $簡稱 == '訳' && $頁 == '0042' )
 						{
 							echo '訳0042', NL;
 							echo $file . NL;
 						}
+						*/
 						$陣列名 = $書目簡稱[ '=' . $簡稱 ] . $部分;
 						
 						foreach( array_keys( $$陣列名 )as $key )
@@ -353,10 +354,7 @@ foreach( $頁碼 as $頁 )
 				}
 			}
 		}
-			
 	}
-	
-	
 	
 	$簡稱 = '';
 	foreach( $書目簡稱 as $簡 => $書 )

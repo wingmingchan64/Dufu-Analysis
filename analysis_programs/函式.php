@@ -66,7 +66,7 @@ function compareText(
 }
 
 
-// 提取題注（原注）
+// 提取題注（杜甫原注）
 // $file_path: h:\github\DuFu\01 卷一 3-270\0048 過宋員外之問舊莊.txt
 function getAnnotation( string $file_path ) : string
 {
@@ -95,6 +95,9 @@ function getAnnotation( string $file_path ) : string
 	return $annotation;
 }
 
+// given 〚0013:1:5.2.3-4〛, returns array containing
+// 〚0013:1:5.2.3〛,〚0013:1:5.2.4〛
+// only expands 字碼
 function getExpandedPages( string $coor ) : array
 {
 	$parts = explode( '.', $coor );
@@ -105,7 +108,9 @@ function getExpandedPages( string $coor ) : array
 	}
 	else
 	{
-		$pages = str_replace( '〛', '', $parts[ sizeof( $parts ) - 1 ] );
+		$pages = 
+			str_replace( 
+				'〛', '', $parts[ sizeof( $parts ) - 1 ] );
 			
 		if( strpos( $pages, '-' ) !== false )
 		{
@@ -143,6 +148,7 @@ function getExpandedPages( string $coor ) : array
 	}
 }
 
+// gets the file contents
 function getFile( $file_path ) : string
 {
 	$text_of_file = file_get_contents( $file_path );
@@ -323,6 +329,7 @@ function getSection( string $path, string $prefix ) : array
 	return $text_array;
 }
 
+// add a line to the end of a file
 function logToFile( string $file, string $content )
 {
 	file_put_contents(
@@ -382,7 +389,7 @@ function normalize(
 		str_replace( "其十八", "",
 		str_replace( "其十九", "",
 		str_replace( "其二十", "", $text
-		))))))))))))))))))))))))))))))))))));  
+			))))))))))))))))))))))))))))))))))));  
 	$text = preg_replace( '/[\d]+ [\P{M}]+?\n/', "", $text );
 	$text = preg_replace( '/[\s]+/', "", $text );
 	

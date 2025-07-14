@@ -1,7 +1,10 @@
 <?php
 /*
-
-*/
+ * Script: 生成頁碼_詩題.php，生成兩個文檔
+ * Usage:  php h:\github\Dufu-Analysis\analysis_programs\生成頁碼_詩題.php
+ * Author: Wing Ming Chan
+ * Updated: 2025-07-12
+ */
 require_once( '常數.php' );
 require_once( '函式.php' );
 require_once( 杜甫資料庫 . '詩文件夾路徑.php' );
@@ -21,6 +24,7 @@ if( is_dir( 杜甫文件夾 ) )
 				str_contains( $file, '.txt' )
 			)
 			{
+				// dddd 詩題XX
 				$頁碼_詩題[ substr( $file, 0, 4 ) ] =
 					substr( $file, 5, -4 );
 			}

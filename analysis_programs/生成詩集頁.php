@@ -1,4 +1,10 @@
 <?php
+/*
+ * Script: 生成詩集頁.php
+ * Usage:  php h:\github\Dufu-Analysis\analysis_programs\生成詩集頁.php
+ * Author: Wing Ming Chan
+ * Updated: 2025-07-12
+ */
 require_once( '常數.php' );
 require_once( '函式.php' );
 require_once( 杜甫資料庫 . '詩組_詩題.php' );
