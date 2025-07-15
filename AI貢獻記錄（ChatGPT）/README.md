@@ -48,3 +48,9 @@ Dufu-Analysis
 <p>若未來有任何提示詞模板、詩歌註釋格式、異文對照表等，也可一併補錄於此文檔或其子目錄中。</p>
 
 <p>本檔案為「AI君的記憶補丁」，每次開啟新話題時可提示：「請參考《AI貢獻記錄（ChatGPT）》主檔」，以確保對話銜接。</p>
+
+<h2>與AI君的對話</h2>
+<p>與 ChatGPT 討論杜甫資料庫與設計的記錄，經刪節整理。</p>
+<ul>
+<li><a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/AI%E8%B2%A2%E7%8D%BB%E8%A8%98%E9%8C%84%EF%BC%88ChatGPT%EF%BC%89/%E8%88%87AI%E5%90%9B%E7%9A%84%E5%B0%8D%E8%A9%B1%EF%BC%8825%E5%B9%B46%E3%80%817%E6%9C%88%EF%BC%89.txt">與AI君的對話（25年6、7月）</a></li>
+</ul>
