@@ -558,5 +558,6 @@ against H:\杜甫資料庫\in.txt</li>
 <li>When Japanese is wanted, comment out the line (11):<br />
 $目的 = '日語_漢語';
 </li>
+<li>Add new entries to dictionaries （H:\杜甫資料庫\下定雅弘、松原_朗《杜甫全詩訳注》\OCR日語_日語.php and H:\杜甫資料庫\下定雅弘、松原_朗《杜甫全詩訳注》\日語_漢語.php）</li>
 <li>Run the program on one poem at a time so that modification of both dictionaries can be accumulated on later works</li>
 </ul>
