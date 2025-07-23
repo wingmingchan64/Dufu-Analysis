@@ -548,5 +548,15 @@ OCR： 〇〇四八<br />
 <li>韓成武、張志民《杜甫詩全譯》（暫緩）</li>
 <li>浦起龍《讀杜心解》（暫緩）</li>
 <!--<li></li>-->
-
+</ul>
+<h2>Using Capture2Text</h2>
+<ul>
+<li>Settings: OCR 1 -> Slot 1: Japanese Vertical</li>
+<li>Run:<br />
+php H:\杜甫資料庫\convert.php<br />
+against H:\杜甫資料庫\in.txt</li>
+<li>When Japanese is wanted, comment out the line (11):<br />
+$目的 = '日語_漢語';
+</li>
+<li>Run the program on one poem at a time so that modification of both dictionaries can be accumulated on later works</li>
 </ul>
