@@ -13,6 +13,10 @@ const 程式文件夾     = "h:\\github\\Dufu-Analysis\\analysis_programs\\";
 const 杜甫文件夾     = "h:\\github\\Dufu\\";
 // 文檔
 const 杜甫全集       = 'h:\github\DuFu\杜甫全集.txt';
+//const NL  = "\r\n";
+define( 'NL', PHP_EOL ); // System-independent newline
+const 等號 = '=';
+const 坐標開括號 = '〚';
 const 杜甫全集粵音注音 = 'h:\github\DuFu\杜甫全集粵音注音.txt';
 const 目錄          = 'h:\github\DuFu\目錄.txt';
 const 資料陣列       = 資料匯總文件夾 . '資料陣列.php';
@@ -20,10 +24,6 @@ const 資料陣列       = 資料匯總文件夾 . '資料陣列.php';
 const 分隔線 =
 "\r\n=====================================================\r\n";
 const 新行 = "\r\n";
-//const NL  = "\r\n";
-define( 'NL', PHP_EOL ); // System-independent newline
-const 等號 = '=';
-const 坐標開括號 = '〚';
 const 坐標關括號 = '〛';
 const 坐標括號 = "〚〛";
 const 冒號 = '：'; // UNICODE!!!
