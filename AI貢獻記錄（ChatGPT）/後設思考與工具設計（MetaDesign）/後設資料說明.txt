@@ -1,0 +1,15 @@
+Legend:
+
+Metadata container
+〘 〙 at the end of each line, before \r\n
+Full name of the main contributor
+陳貽焮 when the context is obvious, the name can be skipped
+
+Functional tags, what the piece of information is about 
+注、注〖岱宗、泰山〗 注 is used when the term being annotated is clearly separated from the others, and 注〖岱宗、泰山〗 when the annotation is mixed with more than one term and cannot be clearly separated
+評、評【劉辰翁】
+校〖林風〗
+
+〖 〗 term/terms to be 注、評、校
+
+【 】 person/people being critiqued
