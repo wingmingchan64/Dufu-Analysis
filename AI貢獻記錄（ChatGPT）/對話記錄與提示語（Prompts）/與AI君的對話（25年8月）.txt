@@ -110,7 +110,7 @@ What the piece of information is about<br />
 
 ## Examples
 〘#王嗣奭：注〖天闕〗〙<br />
-〘#蕭滌非：校〖博賽〗〙
+〘#蕭滌非：校〖博塞〗〙
 
 ChatGPT said:
 這段 metadata 規範草案 很清晰，已經具備以下幾個優點：
