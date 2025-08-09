@@ -654,3 +654,355 @@ ChatGPT said:
 
 你說過，「再給我一、兩年吧」，我會等。
 
+You said:
+我在重新考量一個我們曾經討論過的問題：零分割/多分割的問題，想聽聽你的意見。
+
+我們都認爲，在把各類資料分解、分割以後，必須留一個渠道，讓我們可以把資料重新整合，放回原來的地方，恢復原來的面貌。當時我的想法是用一句詩文，表示合并後的資料歸到這句詩文之後。可是，我現在的想法是，把資料原來的出處，放在 metadata set 裏。以蕭滌非《杜甫全集校注》的 0003《望嶽》爲例：
+
+〖1〗題注。〘注詩題：位置〚1〛〙
+〖岱宗〗岱宗注。〘注〖岱宗〗：位置〚3〛〙
+〖夫如何〗夫如何注。〘注〖夫如何〗：位置〚3〛〙
+〖齊魯〗齊魯注。〘注〖齊魯〗：位置〚3〛〙
+〖青未了〗青未了注。〘注〖青未了〗：位置〚3〛〙
+〖造化鍾神秀〗造化鍾神秀注。〘注〖造化、鍾、神秀〗：位置〚4〛〙
+〖陰陽割昏曉〗陰陽割昏曉注。〘注〖陰陽、割、昏曉〗：位置〚4〛〙
+
+「位置〚3〛」有兩個作用：一、所有帶「位置〚3〛」的注都應該合并到一塊；二、這一整塊資料該放在第三行最後的地方。位置後的資料也可以是〚3:〛。這表示某塊資料（可能是一組詩裏對第三首詩的評論）該放在第三首詩後面。
+
+
+ChatGPT said:
+
+Thought for a few seconds
+我懂你的轉向了：與其在正文裡用「一句作錨點」去合併，不如把「放回哪裡」這件事交給 metadata（位置標記）來管。這其實更乾淨，也更可擴充。我的看法：可行，而且更穩。下面給你一個最小但完整的設計，兼顧零分割/多分割與「可還原」。
+
+為什麼用「位置」放進 metadata 更好
+分工清楚：正文只負責分割（零/多都行），還原位置交給 metadata 的 位置〚…〛。
+
+多視圖輸出：同一套分割資料，靠不同「placement 規則」就能輸出「句後合併版」「聯後合併版」「原書樣式版」。
+
+避免手工星號：不再在正文加 ** 之類提示，校對負擔下降，程式更容易。
+
+最小字段集合（你現在就能用）
+每條注釋（不管是詞注還是句注）後面加一個容器：
+
+bash
+Copy
+Edit
+〘類型:注；對象〈…〉；位置〚…〛；組id:…；序:…〙
+類型：注 / 評 / 校（沿用你現有分類）
+
+對象：詞條或句子（可多個：〈岱宗〉、〈陰陽〉…）
+
+位置：放回去的錨點（例：〚3〛、〚4.1〛、〚3:〛、〚詩尾〛）
+
+組id（可選）：同一「原大注」被你多分割後，用同一組id標記，方便再合攏
+
+序（可選）：同一錨點下的顯示順序（你不標也行，預設按出現順）
+
+你的例子可這樣寫：
+
+bash
+Copy
+Edit
+〖岱宗〗岱宗注。    〘類型:注；對象〈岱宗〉；位置〚3〛；組id:G1；序:1〙
+〖夫如何〗夫如何注。〘類型:注；對象〈夫如何〉；位置〚3〛；組id:G1；序:2〙
+〖齊魯〗齊魯注。    〘類型:注；對象〈齊魯〉；位置〚3〛；組id:G1；序:3〙
+〖青未了〗青未了注。〘類型:注；對象〈青未了〉；位置〚3〛；組id:G1；序:4〙
+同一位置〚3〛 ⇒ 自動「句後合併」成一塊
+
+同一組 id ⇒ 你要的是「來源屬同一原大注」的可回溯性；需要時可一鍵「合攏」
+
+「位置」的語法建議（簡單到可正則）
+行/聯/句級：
+
+〚3〛 = 第3行（聯）之後
+
+〚3.1〛 = 第3行上句之後
+
+〚3.2〛 = 第3行下句之後
+
+整首：〚詩首〛 / 〚詩尾〛
+
+跨詩（你提到的一組詩的評論）：〚3:〛 = 「本組第3首」之後
+
+段內排序：同一 位置 下用 序 ；若無，採出現順
+
+合併與還原的「機械規則」（生成 view 的算法）
+讀入一首詩的所有注釋分片（零/多皆可）。
+
+依 位置 分桶（例：〚3〛一桶、〚4.1〛一桶…）。
+
+同桶內：
+
+如有 組id，可先將同組合併為「原大注」，再與其他片段按 序 拼接；
+
+無 組id 就按 序 或出現順；
+
+把每桶合併結果，插入對應錨點後，得到「句後/聯後合併版」；
+
+若要「原書樣式版」：同桶內按你的「原注順序策略」（比如按來源書內標號、或你早先的 ** 規則對應的 序）輸出即可。
+
+這樣你可以一鍵切換：
+
+View A：每句後合併（學界常見）
+
+View B：每聯後合併
+
+View C：書影復原順（原書樣式）
+
+幾個邊界情況 & 對策
+聯注 vs 句注：
+
+句注 ⇒ 位置〚3.1〛 / 〚3.2〛
+
+聯注 ⇒ 位置〚3〛
+
+全詩總注 ⇒ 位置〚詩尾〛
+
+跨句的單條評論：拆成多片，同組 id，位置各自標到 〚3.1〛、〚3.2〛；生成「原書樣式」時可按 組id 合攏顯示為一條。
+
+需要維持原書內部序號（（一）（二））：用 序 直接承載；或加 原序:1/2/3…，方便復刻。
+
+你不想手工決序：可以先不填，預設「出現順」，等第二/第三階段細修時再補。
+
+和你舊方案的對比
+舊方案（在正文加 **）是視圖導向，好讀但難維護；
+
+新方案（metadata 記 位置）是資料導向，還原、轉出、重組都靠生成器決定，更靈活。
+
+總結一句：
+把「放哪裡」寫進 metadata 的 位置，再用 組id/序 提供可合攏與排序的鉤子。這樣你的零分割/多分割可以共存，且隨時「完好復原」或「不同視圖重組」，而不用在正文裡插人工標記。
+
+要不要我幫你寫一個極簡「合併生成器」的偽代碼（或 PHP 小雛形）？只吃上面那幾個字段，就能產出 A/B/C 三種 view。
+
+You said:
+好哇。試試看。
+
+ChatGPT said:
+
+Thought for a few seconds
+太好了！給你一個極簡 PHP 雛形：吃你加在注釋後的 metadata（類型/對象/位置/組id/序），就能把「零分割」的碎片在輸出時自動合併，並支援三種視圖（句後、聯後、原書順）。
+
+下面代碼只有一個小陣列當示例（取《望嶽》的一部分），你可以直接替換為真實資料。
+
+php
+Copy
+Edit
+<?php
+/* ====== 示例輸入 ====== */
+
+// 詩的結構（最少需要能標出「聯」與「句」的坐標）
+$poem = [
+  'title' => '望嶽',
+  // 行（聯）→ 句
+  'lines' => [
+    3 => ['3.1' => '岱宗夫如何', '3.2' => '齊魯青未了'],
+    4 => ['4.1' => '造化鍾神秀', '4.2' => '陰陽割昏曉'],
+  ],
+];
+
+// 多分割後的注釋碎片（每片帶 metadata）
+$notes = [
+  // 同屬「原書中的同一大注」→ 用同一 組id
+  ['text'=>'岱宗，《書·舜典》《漢書》皆稱泰山。', 'type'=>'注', 'targets'=>['岱宗'], 'pos'=>'3',   'group'=>'G1', 'seq'=>1],
+  ['text'=>'夫：指代詞，指岱宗。',                 'type'=>'注', 'targets'=>['夫如何'], 'pos'=>'3',   'group'=>'G1', 'seq'=>2],
+  ['text'=>'齊魯：兩國名，今山東境內。',           'type'=>'注', 'targets'=>['齊魯'],   'pos'=>'3',   'group'=>'G1', 'seq'=>3],
+  ['text'=>'青未了：山色連綿不盡之意。',           'type'=>'注', 'targets'=>['青未了'], 'pos'=>'3',   'group'=>'G1', 'seq'=>4],
+
+  // 另一聯
+  ['text'=>'造化：自然之創造化育。',               'type'=>'注', 'targets'=>['造化'],   'pos'=>'4.1', 'group'=>'G2', 'seq'=>1],
+  ['text'=>'鍾：聚也；神秀：神奇峻秀。',           'type'=>'注', 'targets'=>['鍾','神秀'], 'pos'=>'4.1','group'=>'G2','seq'=>2],
+  ['text'=>'陰陽：山之背向日為陰，向日為陽。',     'type'=>'注', 'targets'=>['陰陽'],   'pos'=>'4.2', 'group'=>'G3', 'seq'=>1],
+  ['text'=>'割：斬截，兩不相混；昏曉：日色之變。', 'type'=>'注', 'targets'=>['割','昏曉'], 'pos'=>'4.2','group'=>'G3','seq'=>2],
+];
+
+/* ====== 核心：把 notes 依「位置」分桶，並在桶內按 group/seq 合併 ====== */
+
+function bucket_by_pos(array $notes): array {
+  $buckets = [];
+  foreach ($notes as $n) {
+    $pos = $n['pos'];             // 例：'3' / '3.1' / '4.2' / '詩尾' / '3:'
+    $buckets[$pos][] = $n;
+  }
+  return $buckets;
+}
+
+function merge_in_bucket(array $bucket): array {
+  // 先按 group 分組；無 group 視為自身一組
+  $byGroup = [];
+  foreach ($bucket as $n) {
+    $gid = $n['group'] ?? ('__solo__'.spl_object_id((object)$n));
+    $byGroup[$gid][] = $n;
+  }
+  // 組內按 seq 排序並合併 text
+  $merged = [];
+  foreach ($byGroup as $gid => $items) {
+    usort($items, fn($a,$b)=>($a['seq']??PHP_INT_MAX)<=>($b['seq']??PHP_INT_MAX));
+    $text = implode(' ', array_column($items, 'text'));
+    // 也可保留 targets/type 等，用於之後更精緻的輸出
+    $merged[] = [
+      'group'=>$gid,
+      'text'=>$text,
+      'items'=>$items,
+    ];
+  }
+  // 若需要，這裡可再對 $merged 做二次排序（比如原書序號）
+  return $merged;
+}
+
+/* ====== 三種視圖的簡單渲染 ====== */
+
+// A) 句後合併：在每句之後附上對應桶（位置=句坐標，如 '3.1'、'3.2'）以及該行（位置='3'）的聯注
+function render_view_sentence(array $poem, array $buckets): string {
+  $out = "《{$poem['title']}》——句後合併視圖\n";
+  foreach ($poem['lines'] as $lineNo => $sentences) {
+    foreach ($sentences as $sc => $text) {
+      $out .= "{$text}\n";
+      // 同句注
+      if (isset($buckets[$sc])) {
+        foreach (merge_in_bucket($buckets[$sc]) as $blk) {
+          $out .= "  └ 注：{$blk['text']}\n";
+        }
+      }
+      // 聯注（位置=行號）
+      if (isset($buckets[(string)$lineNo])) {
+        foreach (merge_in_bucket($buckets[(string)$lineNo]) as $blk) {
+          $out .= "  └〔聯注〕：{$blk['text']}\n";
+        }
+      }
+    }
+  }
+  // 詩尾注
+  if (isset($buckets['詩尾'])) {
+    $out .= "——詩尾——\n";
+    foreach (merge_in_bucket($buckets['詩尾']) as $blk) {
+      $out .= "  注：{$blk['text']}\n";
+    }
+  }
+  return $out;
+}
+
+// B) 聯後合併：每聯兩句之後，將該聯下所有片段合為一大塊顯示（含各句與聯注）
+function render_view_line(array $poem, array $buckets): string {
+  $out = "《{$poem['title']}》——聯後合併視圖\n";
+  foreach ($poem['lines'] as $lineNo => $sentences) {
+    // 顯示兩句
+    foreach ($sentences as $sc => $text) {
+      $out .= "{$text}\n";
+    }
+    // 收集本聯相關桶：行桶（聯注）+ 兩句桶
+    $toMerge = [];
+    if (isset($buckets[(string)$lineNo])) $toMerge[] = $buckets[(string)$lineNo];
+    foreach (array_keys($sentences) as $sc) {
+      if (isset($buckets[$sc])) $toMerge[] = $buckets[$sc];
+    }
+    // 合併顯示
+    if ($toMerge) {
+      $out .= "  — 本聯注：\n";
+      // 展平成一個桶
+      $flat = array_merge(...$toMerge);
+      foreach (merge_in_bucket($flat) as $blk) {
+        $out .= "    * {$blk['text']}\n";
+      }
+    }
+  }
+  return $out;
+}
+
+// C) 原書樣式（簡化版）：僅依「位置」自然順序與 group/seq 邏輯拼接（你可換成真實的原序策略）
+function render_view_original(array $poem, array $buckets): string {
+  $out = "《{$poem['title']}》——原書順（簡化示例）\n";
+  // 假定原書順：行序 3,4,…；同一行內先聯注(行號)，再上句、下句
+  ksort($poem['lines'], SORT_NUMERIC);
+  foreach ($poem['lines'] as $lineNo => $sentences) {
+    $out .= "【聯 {$lineNo}】\n";
+    $order = array_merge(
+      isset($buckets[(string)$lineNo]) ? [$buckets[(string)$lineNo]] : [],
+      array_map(fn($sc)=>$buckets[$sc]??[], array_keys($sentences))
+    );
+    if ($order) {
+      $flat = [];
+      foreach ($order as $arr) if ($arr) $flat = array_merge($flat, $arr);
+      foreach (merge_in_bucket($flat) as $blk) {
+        $out .= "  - {$blk['text']}\n";
+      }
+    }
+  }
+  return $out;
+}
+
+/* ====== 跑一下 ====== */
+
+$buckets = bucket_by_pos($notes);
+
+echo render_view_sentence($poem, $buckets), "\n\n";
+echo render_view_line($poem, $buckets), "\n\n";
+echo render_view_original($poem, $buckets), "\n";
+用法說明（對齊你的設計）
+你在原始資料中維持零/多分割，每片段後面掛一個 〘…〙，程式只要能解析出：
+
+type（注/評/校）
+
+targets（〈岱宗〉…）
+
+pos（位置：3 / 3.1 / 4.2 / 詩尾 / 3:）
+
+group（同屬一條「原大注」就給同一組 id）
+
+seq（組內排序；沒給就用出現順）
+
+視圖只是「生成規則」：不改動原始資料，可以自由切換（句後／聯後／原書樣式）。
+
+如果這個雛形方向 OK，我可以幫你：
+
+把 〘…〙 的字串解析寫成正則 parser，直接把你現有文本讀進 $notes；
+
+加入「評」「校」在渲染時區分呈現；
+
+加一個「跨詩位置 3:」的示例與處理。
+
+You said:
+還是我以前說過的，現在不急，我只是想跟你“腦衝擊”一下，也好把我的想法記下來。具體的做法，留到以後吧。
+
+ChatGPT said:
+明白，你現在就是要把構想先“冷凍”起來，等到合適的階段再解凍。
+腦衝擊的好處就是先把路標立好，等你走到那一步，不會臨時摸黑找方向。
+
+我已經把你這套思路的關鍵點記下來了：
+
+零分割／多分割後的重組靠 metadata 裏的 位置、group、seq 來完成
+
+位置不只標句，也能標聯、標跨詩位置
+
+重組規則可以有多種視圖（句後、聯後、原書順）
+
+原始資料不動，post-processing 階段自由生成不同呈現
+
+markup 由文獻工作者完成，技術細節由後處理負責
+
+等你哪天覺得時機成熟，我們就能用這套規劃直接開工。
+你要不要我幫你把這套想法整理成一張簡化的 metadata 流程圖，方便你日後快速喚醒記憶？
+
+You said:
+不用。雖然我還在整理原始資料，可是腦子裏想的都是如何利用這些原始資料的問題。我會不斷回到 metadata 這個話題。
+
+ChatGPT said:
+對，你這就是典型的「邊開礦，邊想煉金法」的模式。
+原始資料階段雖然是體力活，但腦子提前琢磨 metadata，等資料一到位，就能直接進入加工期，不用臨時摸索。
+
+你這種反覆回到同一個主題的方式，其實能讓 metadata 設計更成熟，因為每次的想法都會吸收你最新的整理經驗。
+等到進入二、三階段，你的 metadata 架構就會比現在更貼近實際需求，而且錯誤率低很多。
+
+看你現在的節奏，metadata 很可能會在你完成蕭滌非初校之前，就已經雛形穩定。
+
+You said:
+但願如此。
+
+ChatGPT said:
+按你現在的節奏和習慣，其實很有可能會如此。
+因為你不是那種等到資料全做完才開始想的人，而是邊做邊積累觀察，等正式動手時，框架已經在腦子裡成型。
+
+等那天來臨，你的 metadata 設計應該會像量身定做一樣貼合你的杜甫資料庫。
+
+ChatGPT can make mistakes. C
+
