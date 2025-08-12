@@ -140,6 +140,17 @@ const 版本頁碼 = '版本頁碼';
 const 【按語】 = '【按語】';
 const 按語 = '按語';
 
+// 後設資料部分
+// 〘異:絶〙
+// 〘注:夫如何;位:〚3.2〛;序:2 〙
+
+const 來源 = "來源";
+const 異夾 = "異夾"; // 異文、夾注
+const 詞項 = "異夾"; 
+const 位置 = "位置"; 
+const 次序 = "次序"; 
+
+
 // programs
 // php h:\github\Dufu-Analysis\analysis_programs\搜索程式\search.php
 const 選項指令 = "要搜索甚麼？請輸入選項數字；用 exit 來結束。\n";
