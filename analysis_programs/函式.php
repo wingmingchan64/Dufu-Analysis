@@ -617,12 +617,17 @@ function 提取詩文陣列( string $頁碼 ) : array
 }
 
 // $詩文: 2-5字
-function 提取詩文末字坐標( string $頁碼, string $詩文 ) : string
+function 提取詩文末字坐標( string $頁碼, string $詩文, $保留頁碼 = false ) : string
 {
 	global $二字組合_坐標;
 	global $三字組合_坐標;
 	global $四字組合_坐標;
 	global $五字組合_坐標;
+	
+	if( mb_strpos( $詩文, 坐標開括號 ) !== false )
+	{
+		return 生成完整坐標( $詩文, $頁碼 );
+	}
 	$current = array();
 	$坐標s = array();
 	$坐 = '';
@@ -658,8 +663,12 @@ function 提取詩文末字坐標( string $頁碼, string $詩文 ) : string
 	}
 	if( $坐 != '' )
 	{
-		$坐 = preg_replace( '/\d{4}:/', '', 
-			  preg_replace( '/\d-/', '', $坐 ) );
+		$坐 = preg_replace( '/\d-/', '', $坐 );
+		if( !$保留頁碼 )
+		{
+			$坐 = 
+				preg_replace( '/\d{4}:/', '', $坐 );
+		}
 	}
 	
 	return $坐;
@@ -1837,5 +1846,7 @@ function getMergedText( array $詩陣列, string $punc = '' ) : string
 	}
 	return $text;
 }
-
+// 生成完整坐標
+// 提取詩文末字坐標
+// 提取〖詩文〗坐標
 ?>
