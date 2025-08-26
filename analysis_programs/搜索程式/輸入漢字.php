@@ -8,14 +8,19 @@
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( "四角字典.php" );
-require_once( "速成粵.php" );
-require_once( "速成詞.php" );
-require_once( "H:\github\unicode\粵音_常用字.php" );
+//require_once( "速成粵.php" );
+//require_once( "速成詞.php" );
+require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\搜索程式\\粵音_常用字.php" );
 
 $out_file = 'h:\buffer.txt';
 $input    = "";
 $buffer   = "";
 
+foreach( $粵音_常用字 as $k => $v )
+{
+	$dict[ $k ] = $v;
+}
+/*
 foreach( $速成粵 as $k => $v )
 {
 	$dict[ $k ] = $v;
@@ -24,7 +29,7 @@ foreach( $速成詞 as $k => $v )
 {
 	$dict[ $k ] = $v;
 }
-
+*/
 while( true )
 {
 	// clr: clear the buffer in memory

@@ -27,14 +27,24 @@ $content = "<?php
 ";
 foreach( $result as $音 => $字s )
 {
+	$content = $content . "'$音'=>'";
+	foreach( $字s as $字 )
+	{
+		$content = $content . "$字";
+	}
+	$content = $content . "',\n";
+
+	/*
 	$content = $content . "'$音'=>array(";
 	foreach( $字s as $字 )
 	{
 		$content = $content . "'$字',";
 	}
 	$content = $content . "),\n";
+	*/
 }
 $content = $content . "\n);\n?>\n";
-file_put_contents( "H:\\github\\unicode\\粵音_常用字.php", $content );
+//file_put_contents( "H:\\github\\unicode\\粵音_常用字.php", $content );
+file_put_contents( "H:\\github\\Dufu-Analysis\\analysis_programs\\搜索程式\\粵音_常用字.php", $content );
 
 ?>
