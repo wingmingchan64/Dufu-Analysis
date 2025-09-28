@@ -1,0 +1,649 @@
+前言：與 ChatGPT 對話（始於2025/06），討論杜甫詩與杜甫資料庫的構建。以下是對話的部分内容，公諸同好。
+
+Chat history
+
+You said:
+A progress report. I have just finished 0710《送率府程錄事還鄕》. I have also given a thought on how to proceed with my processing code. I don't plan to rewrite all the PHP code I have written so far. But since almost everything on metadata will be new, I will need to write new code to process this part anyway. I think that it might be a good time to start programming using python. Besides processing metadata, I may also want to venture a bit into the understanding of how AI looks at the database I am building. I have already found a few books by Mark Lutz and will start reading.
+
+ChatGPT said:
+Congrats on hitting 0710—and on deciding to spin up Python for the metadata side. That’s a great boundary: keep your mature PHP for text + pipeline, and let Python own the new metadata parsing/validation/query/AI experiments.
+
+Here’s a compact, no-regrets way to start.
+
+1) Minimal project shape
+dufu-meta/
+  pyproject.toml        # poetry or hatch; pin Python 3.11+
+  dufu_meta/
+    __init__.py
+    model.py            # dataclasses / pydantic models
+    keys.py             # the allowed key set (mirror of 後設資料鍵.php)
+    parser.py           # parse 〘...〙 blocks from lines
+    validator.py        # field checks, ord sequencing, required combos
+    normalizer.py       # unify id, a_pos forms, grp parsing
+    store.py            # SQLite (with FTS5) or JSONL sink
+    views.py            # “原書面貌”、匯總視圖的重組器
+  tests/
+    test_parser.py
+    test_validator.py
+  scripts/
+    ingest_file.py      # CLI to parse a .txt and load into DB
+
+2) Data model (clear and strict)
+
+Use pydantic (or stdlib dataclasses if you prefer). Keep it tiny at first:
+
+# model.py
+from typing import Optional, Literal, Dict
+from pydantic import BaseModel, field_validator
+
+Cat = Literal["異", "大", "注", "評", "備"]
+
+class MetaEntry(BaseModel):
+    id: Optional[str] = None       # 0276 etc.
+    src: Optional[str] = None
+    r: Optional[str] = None
+    pg: Optional[str] = None
+    grp: Optional[str] = None
+    cat: Optional[Cat] = None
+    a_pos: Optional[str] = None
+    a_ord: Optional[int] = None
+    ma_pos: Optional[str] = None
+    ma_ord: Optional[int] = None
+    oa_pos: Optional[str] = None
+    oa_ord: Optional[int] = None
+    trg: Optional[str] = None
+    qid: Optional[str] = None
+    a_b: Optional[str] = None
+    quote: Optional[str] = None
+    ch: Optional[str] = None
+    text: str
+
+    @field_validator("a_pos", "ma_pos", "oa_pos", "grp")
+    @classmethod
+    def strip_ws(cls, v):
+        return v.strip() if isinstance(v, str) else v
+
+3) Parser (no regex gyms)
+
+Your line structure is stable: TEXT〘k:v;...;〙. Split once on 〘 / 〙, then split pairs on the first : only. Ignore empty pairs.
+
+# parser.py
+from .model import MetaEntry
+from .keys import ALLOWED_KEYS
+
+def parse_block(line: str) -> MetaEntry | None:
+    if "〘" not in line or "〙" not in line:
+        return None
+    left, right = line.split("〘", 1)
+    payload = right.split("〙", 1)[0]
+    pairs = {}
+    for raw in payload.split(";"):
+        raw = raw.strip()
+        if not raw or ":" not in raw: 
+            continue
+        k, v = raw.split(":", 1)
+        k, v = k.strip(), v.strip()
+        if k not in ALLOWED_KEYS:
+            raise ValueError(f"Unknown key: {k}")
+        if v != "":
+            pairs[k] = v
+    pairs["text"] = left.strip()
+    return MetaEntry(**pairs)
+
+Tip: keep your allowed key list in keys.py so it mirrors your PHP $後設資料鍵—this gives immediate, loud validation when someone drifts.
+
+4) Validation rules (small, helpful)
+
+If cat ∈ {"大","注","評","備"} → require a_pos.
+
+If multiple entries share the same (id, cat, a_pos) → a_ord must be unique and contiguous.
+
+If cat:"異" and trg present → text should contain the replacement note (human check later).
+
+If id missing in content entries → allow, but inherit current file’s id from a header item (id/src/r/pg/grp row).
+
+Put these in validator.py so you can run scripts/ingest_file.py and get a crisp error list instead of silent failures.
+
+5) Position normalization
+
+You already have 提取詩文末字坐標(...) in PHP. Two options:
+
+Bridge first, rewrite later: call your PHP via subprocess to normalize a_pos/ma_pos/oa_pos while you keep moving.
+
+Reimplement later in Python once stable (unit tests first).
+
+6) Storage that’s future-proof
+
+Start with SQLite + FTS5 (no external services; great performance; easy to ship):
+
+Table meta_entries (columns mirror MetaEntry)
+
+FTS table on text, plus a light tokenizer.
+
+Index on (id, cat, a_pos, a_ord) for deterministic regrouping.
+
+This gives you:
+
+fast “匯總視圖”（按聯聚合、按 a_pos 排序）
+
+“原書面貌重組”（用 grp、pg、r 做渲染）
+
+7) Views/renderers（兩個初始目標）
+
+匯總視圖：按詩 → 按聯 → 依 a_pos/a_ord 把【異/大/注/評/備】一排排放好。
+
+原書面貌：以來源 src/r/pg/grp 遵守原序拼回（先不追排版；先到段落粒度）。
+
+8) Tests（start tiny）
+
+# tests/test_parser.py
+from dufu_meta.parser import parse_block
+
+def test_basic():
+    line = "首用議論總提。〘cat:大;a_pos:〚0276:3-4〛;a_ord:1〙"
+    m = parse_block(line)
+    assert m.cat == "大"
+    assert m.a_pos == "〚0276:3-4〛"
+    assert m.a_ord == 1
+    assert m.text.startswith("首用議論")
+
+9) A gentle bridge to “AI looks at the DB”
+
+You don’t need to jump to fancy models yet. Two pragmatic steps:
+
+Retrieval baseline: use SQLite FTS to answer “show me all 注 for a_pos=〚0276:3.1.5〛”, or “find 所有評論含 ‘浩蕩’ 且屬 0276”。
+
+Embeddings later: when ready, generate embeddings for text + a compact metadata string (id|cat|a_pos|a_b|src) and store alongside. Then you can do hybrid search (FTS + cosine). Packages to look at (when you wish): sentence-transformers, faiss or qdrant-client. No rush.
+
+10) What to do this week (small, done-is-better)
+
+Scaffold repo & install pydantic + pytest.
+
+Implement parse_block + MetaEntry.
+
+Port your allowed-key list.
+
+Add 3–5 validator rules.
+
+Write scripts/ingest_file.py to parse one of your 0276 samples → JSONL and/or SQLite.
+
+Produce one 匯總視圖 for a single poem to prove end-to-end.
+
+If you want, I can draft:
+
+a pyproject.toml
+
+the MetaEntry + parser + a very small SQLite schema
+
+and a one-file demo that ingests your 0276 sample and prints “聯→注/評”樹狀視圖。
+
+Either way, switching to Python for the metadata layer is the right call. You keep your PHP asset intact, and you gain a clean sandbox for parsing, validating, and (later) retrieval + AI.
+
+You said:
+I need to read more on python to better understand your code. And please remember, I am still focusing my effort on inputting raw data. While I am doing this, I will pick up python bit by bit. I won
+ChatGPT said:
+
+That sounds like a very steady, well-paced plan. You’re right: no need to rush into rewriting all your PHP tools. They already serve your current focus (getting the raw data in). For the new part — metadata — moving into Python is a smart idea. It will let you:
+
+Experiment freely without disturbing your PHP workflow.
+
+Test data validation (flagging malformed metadata, alien keys, missing anchors) with less boilerplate.
+
+Lay the groundwork for more advanced exploration later (like search, NLP, AI analysis).
+
+Mark Lutz’s Learning Python (and Programming Python) are solid choices — they’re thorough, so you can dip into them at your own pace while still focusing on data entry.
+
+Maybe think of Python here as your “metadata sandbox”:
+
+Step 1: Read your metadata blocks into Python dicts (very similar to what you just did in PHP).
+
+Step 2: Add small validators (check if keys belong to 後設資料鍵, report unknown ones).
+
+Step 3: As you get comfortable, try connecting those dicts to more flexible search/analysis functions.
+
+That way, when you’re ready to “see how AI looks at the database,” you’ll already have your metadata in Python structures that are easy to work with.
+
+Would you like me to show you a minimal Python version of your process_metadata.php — something that just reads your metadata file, splits it, and validates keys — so you have a starting point when you begin reading?
+
+You said:
+Give me some time. I still need to spend a year or two on 《杜甫全集校注》 before I start working on metadata.
+
+ChatGPT said:
+Got it — that’s a very reasonable pace. One or two years spent carefully inputting and proofing 《杜甫全集校注》 will give you a clean foundation, and by then your metadata ideas will have matured naturally.
+
+In other words:
+
+Now → focus on raw data input + 校注初校/二校。
+
+Later → begin experimenting with metadata, validation code, and maybe Python.
+
+Future → build the larger metadata framework and processing tools once you have a substantial base of text.
+
+This way, when you eventually return to metadata, you’ll already have:
+
+A big enough dataset (so experiments are meaningful).
+
+A clear sense of recurring problems (so your metadata design solves real issues).
+
+A bit of Python familiarity (so you can work comfortably).
+
+Would you like me, in the meantime, to keep sketching out light prototypes (in Python or pseudocode) for metadata handling, so you’ll have a “starter kit” waiting when you’re ready? Or would you prefer I just stick with discussions and design notes until you actually start that phase?
+
+You said:
+Exactly, though a python prototype wouldn't hurt.
+
+Awesome — here’s a compact, no-dependency Python prototype you can drop into a single file (e.g., metadata_proto.py). It does four things:
+
+Parse your 〘…〙 blocks (and the leading text)
+
+Validate against a whitelist of keys
+
+Normalize positions like 〚0276:3.1.5〛 / 〚0276:3-4〛
+
+Assemble a per-poem, per-line view (group by a_pos, order by a_ord), ready for your “資料匯總” view
+
+# metadata_proto.py
+# Minimal prototype for parsing, validating, normalizing, and assembling metadata.
+
+import re
+from dataclasses import dataclass, field
+from typing import List, Dict, Any, Tuple, Optional, Iterable
+
+# ---------- 1) CONFIG / SCHEMA ----------
+
+ALLOWED_KEYS = {
+    'id','src','r','pg','grp',
+    'cat','a_pos','a_ord','a_b',
+    'ma_pos','ma_ord','oa_pos','oa_ord',
+    'trg','qid','quote','ch'
+}
+
+# Categories you currently use; extend as needed
+CAT_ORDER = {'異': 0, '大': 1, '注': 2, '評': 3, '備': 4, '校': 5}
+
+# ---------- 2) POSITION PARSER ----------
+
+_POS_TOKEN = r'(?:\d+|\d+\.\d+(?:\.\d+)?)'    # e.g., 3, 3.1, 3.1.5
+_POS_RANGE = re.compile(r'^〚(\d+):(' + _POS_TOKEN + r')(?:-(' + _POS_TOKEN + r'))?〛$')
+_SIMPLE_POS = re.compile(r'^〚(' + _POS_TOKEN + r')〛$')  # when poem id is implicit or added later
+
+def _parse_dotnum(s: str) -> Tuple[int, ...]:
+    """ '3' -> (3,), '3.1' -> (3,1), '3.1.5' -> (3,1,5) """
+    return tuple(int(p) for p in s.split('.'))
+
+@dataclass(frozen=True)
+class PosRef:
+    poem_id: Optional[str]
+    start: Tuple[int, ...]
+    end: Optional[Tuple[int, ...]] = None
+
+    def is_range(self) -> bool:
+        return self.end is not None
+
+    def sort_key(self) -> Tuple[Tuple[int, ...], Tuple[int, ...]]:
+        return (self.start, self.end or self.start)
+
+def parse_pos(raw: str, default_poem_id: Optional[str]=None) -> PosRef:
+    """
+    Accept:
+      〚0276:3-4〛, 〚0276:3.1.5〛, 〚3.2.5〛 (with default id), 〚3-10〛 (with default id)
+    """
+    m = _POS_RANGE.match(raw)
+    if m:
+        pid, p1, p2 = m.groups()
+        return PosRef(poem_id=pid, start=_parse_dotnum(p1), end=_parse_dotnum(p2) if p2 else None)
+    m2 = _SIMPLE_POS.match(raw)
+    if m2:
+        if default_poem_id is None:
+            raise ValueError(f"Position '{raw}' lacks poem id and no default provided.")
+        p = m2.group(1)
+        # could be single or a range like '3-4' (rare in simple form, but allow)
+        if '-' in p:
+            a, b = p.split('-', 1)
+            return PosRef(poem_id=default_poem_id, start=_parse_dotnum(a), end=_parse_dotnum(b))
+        return PosRef(poem_id=default_poem_id, start=_parse_dotnum(p))
+    raise ValueError(f"Unrecognized position format: {raw}")
+
+# ---------- 3) PARSER FOR 〘…〙 BLOCKS + LEADING TEXT ----------
+
+BLOCK_RE = re.compile(r'(?P<text>.*?)〘(?P<meta>[^〙]*)〙', re.DOTALL)
+
+def parse_keyvals(s: str) -> Dict[str, str]:
+    """
+    Parse 'k:v; k2:v2; ...' (values may contain commas/spaces/Chinese text).
+    This is intentionally lenient; validation happens later.
+    """
+    out: Dict[str, str] = {}
+    # split on semicolons that separate pairs
+    parts = [p.strip() for p in s.split(';') if p.strip()]
+    for part in parts:
+        if ':' not in part:
+            # Soft-fail: ignore malformed pair
+            continue
+        k, v = part.split(':', 1)
+        out[k.strip()] = v.strip()
+    return out
+
+@dataclass
+class Entry:
+    text: str
+    meta: Dict[str, Any] = field(default_factory=dict)
+    raw_meta: str = ""
+
+def parse_blocks(doc: str) -> List[Entry]:
+    """
+    Extracts entries like: <text>〘k:v; k2:v2〙
+    If multiple blocks exist on a line, each becomes an Entry.
+    """
+    entries: List[Entry] = []
+    for m in BLOCK_RE.finditer(doc):
+        text = m.group('text').strip()
+        meta_raw = m.group('meta').strip()
+        kv = parse_keyvals(meta_raw)
+        entries.append(Entry(text=text, meta=kv, raw_meta=meta_raw))
+    return entries
+
+# ---------- 4) VALIDATION & NORMALIZATION ----------
+
+def validate_and_normalize(entries: List[Entry], default_poem_id: Optional[str]=None) -> List[Entry]:
+    problems: List[str] = []
+    for e in entries:
+        # unknown keys
+        for k in list(e.meta.keys()):
+            if k not in ALLOWED_KEYS:
+                problems.append(f"Unknown key '{k}' in: 〘{e.raw_meta}〙")
+        # normalize category
+        cat = e.meta.get('cat')
+        if cat:
+            # keep original; you may decide to normalize variants
+            pass
+        # normalize positions
+        for pos_key in ('a_pos','ma_pos','oa_pos'):
+            if pos_key in e.meta:
+                try:
+                    e.meta[pos_key] = parse_pos(e.meta[pos_key], default_poem_id=default_poem_id)
+                except Exception as ex:
+                    problems.append(f"{pos_key} parse error in 〘{e.raw_meta}〙 :: {ex}")
+        # normalize orders to int
+        for ord_key in ('a_ord','ma_ord','oa_ord'):
+            if ord_key in e.meta:
+                try:
+                    e.meta[ord_key] = int(str(e.meta[ord_key]).strip())
+                except Exception:
+                    problems.append(f"{ord_key} not int in 〘{e.raw_meta}〙")
+        # id presence check
+        if 'id' in e.meta:
+            # If an id is given at top-level “header” entry, we can adopt it as the default for later blocks
+            default_poem_id = e.meta['id']
+    if problems:
+        # For a prototype, just print; your production can raise or log
+        print("Validation warnings:")
+        for p in problems:
+            print(" -", p)
+    return entries
+
+# ---------- 5) GROUPING / ASSEMBLY FOR 資料匯總 ----------
+
+def _cat_sort_key(cat: Optional[str]) -> int:
+    return CAT_ORDER.get(cat or '', 99)
+
+def assemble_by_anchor(entries: List[Entry], poem_id: str) -> Dict[Tuple[int, ...], Dict[str, List[Entry]]]:
+    """
+    Returns: { anchor_start_tuple: { cat: [entries ordered by a_ord] } }
+    Uses a_pos.start as the primary anchor bucket.
+    """
+    idx: Dict[Tuple[int, ...], Dict[str, List[Entry]]] = {}
+    for e in entries:
+        a_pos: Optional[PosRef] = e.meta.get('a_pos')  # type: ignore
+        if not isinstance(a_pos, PosRef):
+            continue
+        if a_pos.poem_id and a_pos.poem_id != poem_id:
+            # skip other poems (or decide to include and merge)
+            continue
+        cat = e.meta.get('cat', '')
+        bucket = idx.setdefault(a_pos.start, {}).setdefault(cat, [])
+        bucket.append(e)
+
+    # sort each bucket by a_ord (then by text for stability)
+    for anchor, cats in idx.items():
+        for cat, items in cats.items():
+            items.sort(key=lambda x: (
+                int(x.meta.get('a_ord', 9999999)),
+                x.text
+            ))
+    return idx
+
+# ---------- 6) SIMPLE RENDERERS ----------
+
+def render_anchor(anchor: Tuple[int, ...]) -> str:
+    # You can tune this to your display (“3.1.5” or “line 3, word 1, char 5” etc.)
+    return '.'.join(str(n) for n in anchor)
+
+def render_summary(idx: Dict[Tuple[int, ...], Dict[str, List[Entry]]]) -> str:
+    """
+    Produce a compact text view: per-anchor, categories in CAT_ORDER, entries ordered.
+    """
+    out: List[str] = []
+    for anchor in sorted(idx.keys()):
+        out.append(f"== Anchor {render_anchor(anchor)} ==")
+        cat_groups = idx[anchor]
+        for cat in sorted(cat_groups.keys(), key=_cat_sort_key):
+            out.append(f"[{cat}]")
+            for e in cat_groups[cat]:
+                ab = e.meta.get('a_b')
+                prefix = f"{ab}：" if ab else ""
+                out.append(f" - {prefix}{e.text}")
+        out.append("")  # blank line
+    return '\n'.join(out)
+
+# ---------- 7) MINI DEMO ----------
+
+if __name__ == '__main__':
+    sample = (
+        "首用議論總提。〘cat:大;a_pos:〚0276:3-4〛;a_ord:1〙"
+        "◯《杜臆》：儒冠誤身…〘cat:大;a_pos:〚0276:3-4〛;a_ord:2;a_b:《杜臆》〙"
+        "《漢書》：班伯在綺襦紈袴…〘cat:注;a_pos:〚0276:3.1.2〛;a_ord:1〙"
+        "《漢書》：鄧通相當餓死。〘cat:注;a_pos:〚0276:3.1.5〛;a_ord:2〙"
+    )
+    es = parse_blocks(sample)
+    es = validate_and_normalize(es, default_poem_id='0276')
+    idx = assemble_by_anchor(es, poem_id='0276')
+    print(render_summary(idx))
+
+How you might use it
+
+For each poem file, read the raw text (your combined “原文 + 〘…〙”).
+
+Run parse_blocks() → validate_and_normalize() → assemble_by_anchor().
+
+Use render_summary() to get a compact “資料匯總” preview (per anchor、按 a_ord 排序、按 cat 分組）。
+
+Later, plug in your real “render to original book” logic by reading grp/pg when you’re ready.
+
+Extending (when you’re ready)
+
+Add a QuoteCatalog (dict keyed by qid) and resolve them during assembly.
+
+Add a RendererOriginal() that places blocks back per grp / pg with your layout rules.
+
+Expand ALLOWED_KEYS, and add strict type checks where you want them stricter.
+
+Store warnings to a log file instead of printing.
+
+If you want, I can also give you a tiny unit-test-style snippet next, so you can run a quick check against one of your actual 0276 samples.
+
+You said:
+An update on my python learning process. I have bought Mark Lutz' Learning Python 6th Edition ebook and started reading.
+
+My plan:
+1. I want to use Chinese when creating identifiers (variable and function names, mostly) to avoid clashes of keywords and for better documentation
+2. I want to start small, just to pick up the basic structures and classes first
+3. There is one thing that I need your help. I always want to write something like this. When I use a text editor like Notepad++, I can turn on language input, for example, and use pinyin to input Chinese characters. I want to be able to create a python component (or whatever you call it), hook it up with my dictionary, accept keys as input, create a list of options, and output the choice of options to the text editor directly, without my constant copying and pasting.
+4. I am also keeping a log of this conversation so that I can come back to revisit the code you are giving me later in the future.
+
+ChatGPT said:
+Love this plan—and Lutz is a great pick.
+
+Here’s how I’d tackle your four points fast and pragmatically.
+
+1) 用中文當識別符（Python 3）
+
+Python 3 原生支援 Unicode 識別符（PEP 3131）。UTF-8 是預設，不必再寫 # -*- coding: utf-8 -*-。
+
+實務：你自己的專案用中文 OK；要做成公共庫時，仍建議英文化以便協作。
+
+小範例（資料類＋函式名都用中文）：
+
+from dataclasses import dataclass
+from typing import List, Dict
+
+@dataclass
+class 詞條:
+    鍵: str
+    候選: List[str]
+
+class 詞典:
+    def __init__(self, 數據: Dict[str, List[str]]):
+        self.數據 = 數據
+
+    def 查(self, 鍵: str) -> List[str]:
+        return self.數據.get(鍵, [])
+
+2) 先學基本結構 → 再到 class
+
+你的方向對：先玩 list/dict/comprehensions、函式、例外處理；再上 dataclass / typing；最後再摸 I/O、GUI、OS 互動。
+
+3) 做一個「迷你輸入器」（不改系統 IME，先可用）
+
+做原生 IME（Windows TSF / macOS InputMethod Kit）工程量很大；先來一個「全域熱鍵 + 候選窗 + 貼上」的小工具，對 Notepad++、Word 等都能用。
+
+流程
+
+你在任何編輯器按下熱鍵（例如 Ctrl+;）。
+
+跳出一個小窗，輸入 key（拼音/自定鍵），即時列出候選。
+
+按數字選中；程式把文字貼回目前的游標位置（用剪貼簿短暫替換後還原）。
+
+需要的套件（Windows）
+pip install keyboard pyperclip pynput
+
+
+（註：keyboard 在某些系統要管理員權限；若不行可改用 pynput 監聽。）
+
+最小可用原型（單檔）
+
+# mini_ime.py
+import json, threading, time
+import tkinter as tk
+from tkinter import ttk
+import keyboard, pyperclip
+from pynput.keyboard import Controller, Key
+
+鍵盤 = Controller()
+
+# 你的詞典：可改成讀 json 檔
+詞典 = {
+    "du": ["杜甫", "杜詩", "杜臆"],
+    "df": ["杜甫", "杜甫全集校注", "杜詩詳註"],
+    "wy": ["王嗣奭", "《杜臆》"],
+}
+
+class 候選窗:
+    def __init__(self):
+        self.root = tk.Tk()
+        self.root.title("候選")
+        self.root.attributes("-topmost", True)
+        self.root.geometry("+300+200")
+        self.輸入 = tk.StringVar()
+        self.輸入.trace_add("write", self.刷新)
+        ent = ttk.Entry(self.root, textvariable=self.輸入, width=30)
+        ent.pack(padx=8, pady=6)
+        self.清單 = tk.Listbox(self.root, width=40, height=6)
+        self.清單.pack(padx=8, pady=6)
+        self.清單.bind("<Return>", self.回車)
+        self.root.bind("<Escape>", lambda e: self.關閉())
+        for i in range(1,10):
+            self.root.bind(str(i), self.數字選)
+
+        ent.focus()
+        self.候選項 = []
+
+    def 列出(self, 鍵):
+        候選 = []
+        if 鍵:
+            for k,v in 詞典.items():
+                if k.startswith(鍵):
+                    候選.extend(v)
+        return 候選[:9]
+
+    def 刷新(self, *_):
+        k = self.輸入.get().strip()
+        self.候選項 = self.列出(k)
+        self.清單.delete(0, tk.END)
+        for i,項 in enumerate(self.候選項, 1):
+            self.清單.insert(tk.END, f"{i}. {項}")
+
+    def 數字選(self, event):
+        idx = int(event.keysym) - 1
+        if 0 <= idx < len(self.候選項):
+            self.插入(self.候選項[idx])
+
+    def 回車(self, event):
+        sel = self.清單.curselection()
+        if sel:
+            self.插入(self.候選項[sel[0]])
+
+    def 插入(self, 文字: str):
+        原剪貼 = pyperclip.paste()
+        try:
+            pyperclip.copy(文字)
+            # 模擬 Ctrl+V
+            with 鍵盤.pressed(Key.ctrl):
+                鍵盤.press('v'); 鍵盤.release('v')
+        finally:
+            time.sleep(0.05)
+            pyperclip.copy(原剪貼)
+        self.關閉()
+
+    def 關閉(self):
+        self.root.quit()
+        self.root.destroy()
+
+def 顯示候選窗():
+    win = 候選窗()
+    win.root.mainloop()
+
+def 主循環():
+    keyboard.add_hotkey('ctrl+;', 顯示候選窗)
+    keyboard.wait()  # 阻塞等待
+
+if __name__ == "__main__":
+    主循環()
+
+使用方式：執行 python mini_ime.py，在 Notepad++（或任何文字框）按 Ctrl+;，輸入 du，按 1..9 或 Enter 插入。
+之後你可以：
+
+把 詞典 改為讀外部 JSON/YAML 檔（可自動重載）。
+
+改成「拼音 → 多音／多詞候選」；或支援模糊匹配。
+
+在候選清單上顯示來源（如《杜詩詳註》）當作提示。
+
+換成系統層級更穩定的注入方式（pywin32 直接發送文字，而非剪貼簿）。
+
+如果你想原生 IME（真正取代系統輸入法）：
+
+Windows：走 TSF，一般用 C++/C#；或考慮 PIME (Python Input Method Editor) 框架（社群專案，能用 Python 寫引擎，外殼仍處理 TSF 溝通）。
+
+macOS：要寫 InputMethod（Swift/Obj-C）；或改造 Rime（中州韻）方案，直接做你自己的詞庫與詞頻。
+
+Linux：fcitx5 / ibus 都可自製表格輸入法或外掛。
+
+建議先用上面的小工具把「工作流」跑通；覺得順手後，再考慮落地到 Rime/PIME 這類正式方案。
+
+4) 日誌
+
+你已經在做的「追加式日誌 + 歸檔」很棒。等你願意時，我可以給一個極簡 log.md 範本（日期錨點 + 變更片段 + 決策摘要），方便未來回溯。
+
+如果你要把這個小工具與 Notepad++ 更緊密整合，也可以考慮裝 PythonScript 外掛，用其 API 直接在編輯器插入文字（少一次剪貼簿往返）。等你覺得合適，我再給對應的腳本版本。
