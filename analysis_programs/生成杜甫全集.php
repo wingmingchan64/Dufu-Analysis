@@ -8,11 +8,18 @@
 require_once( '常數.php' );
 require_once( '函式.php' );
 
+/*
+returns a path string like:
+01 卷一 3-270\0003 望嶽.txt
+*/
 function truncate_path( $path )
 {
     return substr( $path, strlen( 杜甫文件夾 ) );
 }
 
+/*
+returns the text by 杜甫, including title, text, etc.
+*/
 function extract_main_text_from_files( $file_names )
 {
     $content = "";
