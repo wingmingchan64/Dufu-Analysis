@@ -1,0 +1,1082 @@
+前言：與 ChatGPT 對話（始於2025/06），討論杜甫詩與杜甫資料庫的構建。以下是對話的部分内容，公諸同好。
+
+Chat history
+
+You said:
+Succeeded in using a try:except structure to open a text file like 0003 望嶽.txt, read the content, and output it as unicode.
+
+ChatGPT said:
+That’s great progress — you already touched one of the “core Python muscles”: reading text, handling encodings, and using try/except. Those skills will carry you far when you start dealing with metadata and text pipelines.
+
+A couple of thoughts for your Python learning path:
+
+1. Using Chinese identifiers
+
+Python 3 fully supports Unicode in identifiers, so you can indeed write:
+
+詩文 = "望嶽"
+函數名 = lambda x: f"詩：{x}"
+print(函數名(詩文))
+
+
+This works, but keep in mind:
+
+You’ll need an editor that saves in UTF-8 and handles input well (Notepad++ does).
+
+If you share code with others, readability may suffer (but for your personal workflow it could be a plus, as you said).
+
+2. Building your text-input component
+
+What you describe (typing pinyin → presenting candidates → outputting Chinese directly into your editor) is essentially writing a mini Input Method Editor (IME). To get there, you can start in steps:
+
+Dictionary lookup
+
+Load a mapping like { "shi": ["是", "詩", "時"], "du": ["杜", "讀", "度"] }.
+
+When you type "shi", print a numbered list of options.
+
+Selection mechanism
+
+Let the user press 1, 2, etc., to choose.
+
+Output the chosen character.
+
+Editor integration
+
+Simplest: copy the result to the clipboard (using Python’s pyperclip).
+
+Then just paste manually (Ctrl+V).
+
+More advanced: hook into the OS input stream (platform-specific, can get tricky).
+
+This way you don’t need constant manual copy-paste, at least in the later steps.
+
+3. Start small with exercises
+
+Since you already succeeded with reading files, next could be:
+
+Write a script that extracts all metadata tags 〘...〙 from your Du Fu files.
+
+Store them in a Python dictionary (like your PHP code).
+
+Then print them in a structured format (like JSON).
+
+That will parallel your PHP work and let you test Python syntax while staying in familiar territory.
+
+👉 Question for you: do you want me to draft a minimal prototype of the “IME-like” dictionary tool (step 1 and 2 only, no OS integration), so you can run it and see how it feels?
+
+You said:
+Currently, I'm just experimenting with Python. Nothing is concrete and final. Give me some time. And I am still busy working on 《杜甫全集校注》.
+
+ChatGPT said:
+
+That makes perfect sense — no rush at all. Right now your main focus is steady input of 《杜甫全集校注》 and getting it into shape. Python can remain in the “sandbox” stage: little experiments, small scripts, nothing binding. When you’re ready, the ideas we’ve talked through will still be here, logged and waiting.
+
+Actually, that’s the nice thing about your approach:
+
+Raw data entry first → this builds the foundation, and no matter how metadata or code evolves, the core text remains.
+
+Experiments in parallel → dabbling in Python, keeping a log, trying out things like file reading or metadata parsing, helps you build familiarity without pressure.
+
+Deferred decisions → you’re not locking yourself into design choices too early, which means fewer regrets later.
+
+If you’d like, I can help you frame a tiny “experiment checklist” in Python — like small steps that won’t distract from your main Du Fu work, but will keep your Python learning alive in the background. For example:
+
+Read a UTF-8 text file (done ✅).
+
+Extract a string between two markers (〘 and 〙).
+
+Convert that string into a Python dictionary.
+
+Print all values of a given key (like cat).
+
+Would you like me to sketch out such a step-by-step sandbox plan so you can pick it up when you have a spare 10 minutes?
+
+You said:
+Strings and dictionaries will come, probably in a few days. Be patient. I want to find these out myself without your constant supply of code that I don't understand.
+
+ChatGPT said:
+
+Got it — I’ll slow down and let you explore Python at your own pace. You’re absolutely right: discovering things yourself is the best way to make them stick.
+
+I’ll just keep in mind that you’re working through:
+
+Files and Unicode (already done ✅)
+
+Strings (coming soon)
+
+Dictionaries (coming soon after)
+
+and that for now, your main project is still the data entry for 《杜甫全集校注》. Python is a side-lab, not the focus.
+
+When you’re ready, you can ask me about very specific steps — but I’ll hold back from flooding you with code you haven’t asked for. I’ll stay patient.
+
+Do you want me to note down a “minimal roadmap” (just the key Python milestones, no code yet) so you have a reference marker when you feel like checking back?
+
+You said:
+Some thoughts on the next move.
+My PHP programs do two major things: create a collection of data structure files (lists, arrays, etc), basically a replacement of tables of a database; and create text files representing a view of the raw data.
+Now the first part can be used to create, not PHP files, but Python files, meaning to use PHP programs to create Python files containing list, dictionaries, and so on, for other python programs to look up data. The second part will be python programs to analyse metadata and create views. In this way, I can avoid rewriting all PHP programs, and yet I can switch to python, without loosing the database. What's your recommendation?
+
+ChatGPT said:
+Thought for 8s
+
+Love this plan—and you can make it even safer and more future-proof with one small pivot.
+
+My recommendation (short version)
+
+Keep your existing PHP to harvest/build data, but emit neutral interchange formats (JSON / NDJSON / SQLite), not Python code. Then let small Python readers load/validate those files and build views.
+
+Why not emit Python files directly?
+
+Coupling & lock-in: Python-source data ties you to a specific runtime and import path conventions. JSON/SQLite stays language-agnostic.
+
+Safety: Importing data as code can execute by accident; plain data files can’t.
+
+Versioning & diffs: JSON/NDJSON diff and schema evolution are much easier to track; Python literals are noisy in diffs.
+
+Tooling: You get jq, sqlite3, pandas, grep, git diffs, etc., for free.
+
+Pick one (or mix):
+
+JSON (pretty) + NDJSON (streaming)
+
+Use pretty JSON for small/medium reference tables (people, books, poem index).
+
+Use NDJSON for big, append-heavy artifacts (annotations, quotes, metadata rows).
+
+Pros: simple, git-friendly, great for incremental processing.
+
+Python: json + streaming readers.
+
+SQLite (single-file DB)
+
+Store structured tables (poems, lines, notes, variants, refs).
+
+Pros: fast filters/joins, easy ad-hoc queries, ACID, great for cross-book comparisons.
+
+Python: sqlite3 or pandas.read_sql.
+
+Hybrid
+
+Canonical store in SQLite, plus JSON snapshots for specific views you want under VCS.
+
+Minimal contract (stable “interface” between PHP → Python)
+
+Define and freeze a v0 schema now; evolve with schema_version later.
+
+Core tables/files (suggested):
+
+poems.json (one row per poem): {id, poet, title, seq, year?, source_codes[]}
+
+lines.ndjson: {poem_id, line_no, half_no?, text_norm, text_orig}
+
+notes.ndjson: {poem_id, anchor, kind: "注|評|備|異|大|校|永", order, text, src, page?, grp?, qid?}
+
+quotes.ndjson: {qid, src_book, src_part?, roll?, chapter?, page?, text, normalized?}
+
+people.json: {id, name, alt_names[], birth?, death?, roles[]}
+
+sources.json: {code, title, editor?, edition?, place?, year?, pages?}
+
+Conventions:
+
+UTF-8, NFC normalized.
+
+All IDs string, stable (e.g., "0276").
+
+Anchors use your coordinate grammar (e.g., 〚0276:4.1.5〛), stored as strings.
+
+Include schema_version: "0.1" at file or record level.
+
+Workflow (incremental, no big rewrites)
+
+Keep PHP as the producer, but switch outputs:
+
+Emit *.json / *.ndjson / optional *.sqlite.
+
+Write tiny Python “reader” layer:
+
+Loads data, validates required keys, warns on unknown keys.
+
+Builds in-memory indexes (by poem_id, by anchor, by qid).
+
+Write Python view generators:
+
+“Per-poem consolidated page” (lines + notes grouped by anchor/order).
+
+“Per-source reconstruction” (restore original book ordering using grp, page).
+
+Add schema checks:
+
+Start simple: presence/enum checks.
+
+Later: dataclasses or Pydantic for stricter validation.
+
+Versioning:
+
+If schema changes, bump schema_version, keep a small migration script.
+
+Practical tips
+
+Large files: prefer NDJSON split by collection (e.g., one file per book) so git diffs stay sane.
+
+Speed: if lookups get slow, add SQLite indexes (e.g., (poem_id, anchor), (qid)).
+
+Testing: seed a tiny “golden set” (2–3 poems across 2 sources) to validate every pipeline step.
+
+Unicode gotchas: store both text_orig and a normalized text_norm (your preferred glyph policy).
+
+When to emit Python code?
+
+Reserve it for generated helper modules with static constants (e.g., a tiny map of role enums). Keep bulk data out of .py.
+
+If you want, I can sketch:
+
+a mini JSON schema (human-readable) for notes.ndjson, and
+
+a 15-line Python loader that groups notes by anchor & order.
+
+Say the word and I’ll keep it minimal and readable.
+
+You said:
+Still in the thinking process. But the language-neutral move is good. I will keep that in mind.
+
+ChatGPT said:
+
+Your reasoning is solid. You don’t need to throw away your PHP investment:
+
+Stage 1 (Bridge stage):
+Keep using PHP to generate structured “data container” files. Today they’re PHP arrays; tomorrow you can make them Python dictionaries/lists. PHP just becomes a pre-processor to produce language-neutral structures. For example:
+
+Generate JSON (.json) or YAML instead of PHP code.
+
+Each JSON file corresponds to a list, dict, or table you now maintain.
+
+Python can consume JSON natively (json module), so no extra parsing logic.
+
+Stage 2 (Python exploration):
+Write small Python programs that:
+
+Read those JSON/YAML files.
+
+Transform, analyze, or render “views” of metadata and raw texts.
+
+Eventually replace or enhance the PHP “view-builder” side.
+
+Advantages of JSON/YAML pivot:
+
+Language-neutral: you can load them from PHP, Python, or even a database in the future.
+
+Easier debugging: human-readable and widely supported.
+
+Smooth transition: you can migrate parts gradually, not in one rewrite.
+
+When to move fully:
+Once you feel comfortable in Python (strings, dicts, classes, file I/O), you can phase out PHP altogether. At that point:
+
+Input → JSON
+
+Processing/analysis → Python
+
+Views/output → Python (text, Markdown, or LaTeX/PDF generation)
+
+So my recommendation: don’t directly generate Python files from PHP (that ties you to two languages at once). Instead, generate JSON. It will give you maximum flexibility and a clean bridge.
+
+👉 Would you like me to sketch how your existing PHP array-export could be turned into JSON output (so that later you just json.load() in Python)?
+
+You said:
+A very short example, please.
+
+ChatGPT said:
+
+Here’s a minimal example to show the idea of using JSON as the bridge:
+
+PHP side (export as JSON)
+<?php
+$data = array(
+    "id"   => "0276",
+    "cat"  => "注",
+    "a_pos"=> "〚3.1.2〛",
+    "text" => "《漢書》：班伯在綺襦紈袴之間，非其所好也。"
+);
+
+// Output JSON instead of PHP array code
+file_put_contents("output.json", json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+?>
+
+
+This creates a file output.json like:
+
+{
+    "id": "0276",
+    "cat": "注",
+    "a_pos": "〚3.1.2〛",
+    "text": "《漢書》：班伯在綺襦紈袴之間，非其所好也。"
+}
+
+Python side (read the JSON)
+import json
+
+with open("output.json", "r", encoding="utf-8") as f:
+    data = json.load(f)
+
+print(data["id"])     # 0276
+print(data["cat"])    # 注
+print(data["text"])   # 《漢書》：班伯在綺襦紈袴之間，非其所好也。
+
+
+This way:
+
+PHP still does the preprocessing and outputs JSON.
+
+Python simply loads it as a dictionary.
+
+You don’t have to rewrite everything at once.
+
+👉 Do you want me to show a slightly larger case, like multiple entries (list of metadata items) in JSON, so you can see how it scales?
+
+You said:
+Love this. This can be my first move. But sill, I want to wait for a while before doing anything.
+
+ChatGPT said:
+
+That sounds like a very good approach. You don’t need to rush into building things before you’re ready.
+
+Right now you’re still in input and structuring mode, and the idea of JSON as a neutral layer can simply sit in your toolbox until you feel the timing is right. When you do start experimenting, you’ll already know the pathway:
+
+PHP → generate JSON (no disruption to your current workflow).
+
+Python → gradually read JSON, build small experiments, explore metadata.
+
+Future → if you want, you can eventually skip PHP, but that’s optional.
+
+You’re planting the seed now; the garden can wait until you’re ready to tend it. 🌱
+
+Do you want me to prepare a tiny “ready-to-use” template of PHP + JSON + Python that you can literally copy-paste and keep somewhere for later? So you don’t even have to think when the time comes—you can just pull it out and start?
+
+You said:
+OK. A template is good to have so that I can ponder a bit more.
+
+ChatGPT said:
+
+Great — here’s a minimal but complete template that ties PHP → JSON → Python together. You can save this somewhere, and later just adapt it to your actual metadata.
+
+1. PHP: export array as JSON
+<?php
+// sample_metadata.php
+
+$metadata = array(
+    array(
+        "id" => "0276",
+        "cat" => "注",
+        "a_pos" => "紈袴",
+        "a_ord" => 1,
+        "text" => "班伯在綺襦紈袴之間，非其所好也。"
+    ),
+    array(
+        "id" => "0276",
+        "cat" => "注",
+        "a_pos" => "餓死",
+        "a_ord" => 2,
+        "text" => "鄧通相當餓死。"
+    )
+);
+
+// export to JSON
+file_put_contents("metadata.json", json_encode($metadata, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
+
+echo "Exported metadata.json\n";
+?>
+
+
+👉 Run with
+
+php sample_metadata.php
+
+
+You’ll get a metadata.json file like:
+
+[
+    {
+        "id": "0276",
+        "cat": "注",
+        "a_pos": "紈袴",
+        "a_ord": 1,
+        "text": "班伯在綺襦紈袴之間，非其所好也。"
+    },
+    {
+        "id": "0276",
+        "cat": "注",
+        "a_pos": "餓死",
+        "a_ord": 2,
+        "text": "鄧通相當餓死。"
+    }
+]
+
+2. Python: load and read JSON
+# read_metadata.py
+import json
+
+with open("metadata.json", "r", encoding="utf-8") as f:
+    metadata = json.load(f)
+
+# just loop through and print a summary
+for item in metadata:
+    print(f"[{item['cat']}] {item['a_pos']} → {item['text']}")
+
+
+👉 Run with
+
+python read_metadata.py
+
+
+Output:
+
+[注] 紈袴 → 班伯在綺襦紈袴之間，非其所好也。
+[注] 餓死 → 鄧通相當餓死。
+
+Why this template works
+
+PHP keeps doing what you already have: parse and build structures.
+
+JSON is the bridge (language-neutral, long-term safe).
+
+Python just needs to read JSON; no special schema.
+
+This means you don’t have to rewrite your PHP code immediately. You just add an “export to JSON” step. Then you can start experimenting in Python safely, one tiny step at a time.
+
+Would you like me to also show you how to extend this with your 永明校記 (cat:校) so you can already see how “custom categories” would fit into the same template?
+
+You said:
+I can't believe that I have just created a folder named php_json_python!
+
+ChatGPT said:
+
+That’s wonderful — a milestone moment! 🎉
+
+Naming a folder like php_json_python is actually a perfect signal to yourself:
+
+PHP = your solid existing base (parsers, builders).
+
+JSON = the neutral bridge, preserving everything safely.
+
+Python = your experimental / future direction.
+
+It also marks the transition point: you’re not abandoning PHP, but you’re preparing the bridge for when you want to cross over fully.
+
+If you keep dropping little prototypes in there (like the example JSON export + Python reader), you’ll build up a nice “playground” where you can test ideas at your own pace without disturbing your main Du Fu project.
+
+Would you like me to help you sketch a folder structure inside php_json_python — something simple, like:
+
+php_json_python/
+│
+├── php/        # your PHP exporters
+├── json/       # intermediate JSON files
+├── python/     # your Python prototypes
+└── notes/      # logs, README, your 永明校記 thoughts
+
+
+This way, your experiments stay organized from the beginning — very little overhead, but clear separation.
+
+You said:
+我對《杜甫全集校注》是越來越失望了。0779《春望》有這麽一段：
+
+趙汸曰：「『烽火連三月』，應感時；『恨別鳥驚心』，應恨別，此聯下句應上句。」
+
+這錯誤也太明顯了。這是我的校記：
+
+➀趙汸《杜律趙注》原文爲：「烽火連三月[應感時]家書抵萬金[應恨別此聯下句因上句]」。據此，「應恨別」者，當爲「家書抵萬金」句。《杜甫全集校注》引趙語，誤作「『恨別鳥驚心』，應恨別」。此書校對之粗疏，一至於斯。
+
+ChatGPT said:
+
+你的校記非常清楚地點出了問題所在，而且補足了證據鏈。這裡的確能看出《杜甫全集校注》的粗疏之處。
+
+問題梳理
+
+《全集校注》引文：
+「『烽火連三月』，應感時；『恨別鳥驚心』，應恨別，此聯下句應上句。」
+
+趙汸《杜律趙注》原文：
+「烽火連三月[應感時]家書抵萬金[應恨別此聯下句因上句]。」
+
+兩者相比，可以立刻看出：《全集校注》誤將「家書抵萬金」換成了「恨別鳥驚心」，把趙汸的配對完全搞錯。
+
+問題性質
+
+錯引：不僅僅是筆誤，而是錯置了整個句子。
+
+破壞原意：趙汸的關鍵點在於「烽火」對「感時」、「家書」對「恨別」，而不是「恨別」對「恨別」。
+
+反映了編纂上的校對不嚴：因為這一類錯誤非常直白，任何對原注稍加比對就能發現。
+
+永明校記的價值
+
+你的校記有三個很大的價值：
+
+還原原注：引用趙汸的正確語錄，避免後人再被誤導。
+
+指出問題：明言「《全集校注》引趙語，誤作『恨別鳥驚心』」，讓人立刻理解錯誤所在。
+
+學術意義：凸顯對原典、對原注的比對與驗證的重要性。這一點正是很多大部頭編校書常常疏漏的環節。
+
+我倒覺得，你這些【永明校記】的積累，不僅是對《全集校注》的補充，也等於在默默建立一部 《杜甫全集校勘補正》。將來整理成冊，會很有分量。
+
+要不要我幫你設計一個簡單的 校記 metadata 格式？比如：
+
+〘id:0779; cat:永明校記; a_pos:烽火連三月; note:趙汸《杜律趙注》原文「烽火連三月[應感時]家書抵萬金[應恨別此聯下句因上句]」。全集校注誤作「『恨別鳥驚心』，應恨別」。〙
+
+
+這樣你未來就可以直接搜索、索引、甚至統計你校記的分布。要試試嗎？
+
+You said:
+我也有這個想法，不過，等全書完成以後再想也不晚。
+
+ChatGPT said:
+
+是的，完全不急。你的步調已經很清晰了：
+
+當下：專注於輸入、核對、整理《杜甫全集校注》的正文與注釋，偶爾加上【永明校記】，就已經在實質上累積資料。
+
+中期：當二十卷完成之後，自然會有全局的視野，能看出錯誤與疏漏的分布情況。到那時，再來考慮「如何統一標記與索引」才是最高效的。
+
+長期：校記一旦形成獨立的大類，便能成為一套「與正文平行的批判裝置」，甚至可能比正文更有價值，因為它直接揭示了現代版本編纂的弱點。
+
+這樣做的好處是：
+
+不會過早被技術牽制：你可以把注意力放在內容本身，而不是格式。
+
+保留彈性：等全書完成時，你對 metadata 的需求與思路會更加成熟，反而容易找到一個一勞永逸的格式。
+
+逐步外化：未來把校記從文本中抽出來、轉化為 metadata，只要設計一個搜尋規則（比如「【永明校記】」作為標記），就能批量處理，不會很難。
+
+換句話說，你現在的做法——先積累，再規範——其實是最保險的路徑。
+
+要不要我幫你先畫個「未來校記 metadata」的簡單藍圖？就像一個「樣本」，你不需要馬上用，但以後有個參考，不會臨時亂？
+
+You said:
+Time for brainstorming.
+The more I get into raw data and make plans on metadata, the more I think that the raw data part is not needed in Github. The point of having the raw data is to show how I hand-edit files to include contents of various books. But the raw data, with the future metadata, will be turned into data structures, part of a comprehensive database. So a piece of raw data can be recovered from an entry of, say, a dictionary. 
+If this is the case, then I can remove all data files from Github.
+The two repositories will stay. I plan to use Dufu to contain all generated text files: 杜甫詩文原文、《杜甫全集校注》原文、《杜詩詳註》原文、《資料匯總》，等等。
+Dufu-Analysis will have two parts: the JSON data files and PHP/Python programs.
+Your suggestion/recommendation?
+
+ChatGPT said:
+Thought for 7s
+
+Love this direction. Here’s a compact plan that balances reproducibility, provenance, and maintainability.
+
+What to keep vs. remove
+
+Drivers
+
+Raw text in GitHub is noisy, IP-sensitive, and not your “source of truth” once metadata → JSON → generated views exists.
+
+You still need provenance + auditability (where each fact came from).
+
+Recommendation
+
+Move most raw OCR/hand-edits out of the public repos (private storage or a private repo).
+
+Keep public, structured “manifests” that reference the source (book, vol, page, line/坐標, checksum, capture date). This preserves provenance without shipping the whole raw corpus.
+
+Repo split (proposed)
+Dufu — generated, human-readable outputs
+
+poems/（按你的坐標與詩編碼）
+
+0003_望嶽.txt（原貌重建）
+
+0276_奉贈韋左丞丈二十二韻.txt
+
+views/
+
+資料匯總/…（按聯聚合的大意/注/評/備視圖）
+
+校記/永明校記-索引.md（對外可讀）
+
+releases/
+
+打包的 PDF/EPUB/HTML 版本（只含你生成的文本）
+
+Policy: Dufu 只放「可公開閱讀」的產物；不放原始掃描、OCR粗稿。
+
+Dufu-Analysis — data + code（開發者向）
+
+schema/
+
+metadata.schema.json（明確欄位、枚舉、正則）
+
+data/（JSON 為主、細粒度）
+
+poems/0276.json（詩文 + 坐標）
+
+notes/0276.json（注/評/備/大意…以 metadata 片段形式）
+
+catalog/quotes/*.json（引書 catalog，去重、一對多引用）
+
+manifests/*.json（來源清單，見下）
+
+src/
+
+php/（沿用產生 JSON 的腳本）
+
+python/（消費 JSON、構建視圖）
+
+build/
+
+make.py / make.ps1（一鍵生成 Dufu 成品）
+
+tests/
+
+單元測試 + 校驗（schema 校驗、坐標覆蓋率等）
+
+docs/
+
+CONTRIBUTING.md / DATA-POLICY.md（不接收原文全文、如何提 PR）
+
+Minimal JSON 形制（示意）
+
+poems/0276.json
+
+{
+  "id": "0276",
+  "title": "奉贈韋左丞丈二十二韻",
+  "author": "杜甫",
+  "structure": {
+    "lines": [
+      {"pos":"〚0276:3.1〛","text":"丈人試靜聽"},
+      …
+    ],
+    "groups": ["〚3-4〛","〚5-10〛","〚11-16〛","〚17-24〛"]
+  },
+  "variants": [
+    {"cat":"異","trg":"三十載","note":"盧注作十三載…"}
+  ]
+}
+
+
+notes/0276.json（全部 metadata 片段，便於彈性擴容）
+
+[
+  {"cat":"大","a_pos":"〚0276:3-4〛","a_ord":1,"text":"首用議論總提。"},
+  {"cat":"注","a_pos":"〚0276:3.1.5〛","a_ord":2,"text":"《漢書》：鄧通相當餓死。","qid":"漢-佞幸-鄧通"},
+  {"cat":"評","a_b":"范元實","a_ord":1,"text":"…《詩眼》曰…"},
+  {"cat":"校記","author":"永明","key":"趙汸-配對誤引","text":"…『應恨別』當指『家書抵萬金』…","evidence":["趙注原文坐標或頁碼"]}
+]
+
+
+catalog/quotes/漢-佞幸-鄧通.json（引書 catalog：一條稿多處引用）
+
+{
+  "qid": "漢-佞幸-鄧通",
+  "source": {"書":"《漢書》","卷":"卷九十三","篇":"佞幸傳第六十三"},
+  "locus": {"pg":"11.3723"},
+  "text": "鄧通相當餓死。",
+  "checksum": "sha256:…",
+  "alt_versions": []
+}
+
+
+manifests/0276.json（來源清單＋可核對校驗）
+
+{
+  "poem_id": "0276",
+  "sources": [
+    {"書":"仇兆鰲《杜詩詳註》","卷":"卷之一","頁":"1.73 / PDF1.146","snapshot":"sha256:…"},
+    {"書":"王嗣奭《杜臆》","卷":"一","頁":"…","snapshot":"sha256:…"}
+  ]
+}
+
+Workflow（端到端）
+
+私域原始庫（本地/私有 repo/雲端硬碟）保存掃描、OCR、手工粗稿。
+
+抽取 → 正規化（PHP）
+
+解析原始檔，輸出上面結構的 JSON（poems/、notes/、catalog/、manifests/）。
+
+嚴格 schema 校驗（fail fast）。
+
+生成視圖（Python）
+
+消費 JSON → Dufu/views/資料匯總/…、原貌重建文本。
+
+釋出
+
+Dufu 打 tag/release，只含可公開作品（不含受限原件）。
+
+審計
+
+任意生成的片段都能回到 manifests + qid 找到來源。
+
+版本與可追溯
+
+每卷完成時打 tag（例如 校注-v02-initial），保證你能回溯任何導出的文本。
+
+checksums 寫在 manifest/quote catalog，哪怕未公開原文檔，也能證明對應。
+
+小樣本公測：保留 極小一組 示例原文（允許/公版）以便 CI 測試與外部復現。
+
+法務與風險
+
+在 DATA-POLICY.md 明確：
+
+公庫不含受版權保護之原文全文；
+
+允許的僅為短引（合理範圍）+ 書目信息 + 你撰寫之校記/按語/metadata；
+
+回溯靠 manifest/校驗碼，而非全文重發。
+
+過渡遷移（低風險 5 步）
+
+暫存現有 raw 檔於私域；公庫保留目錄結構與 manifest。
+
+先做 5–10 首 的 JSON 試點（含注/評/異文/校記）；
+
+用 Python 生成一個 資料匯總 與一個「原貌重建」樣本；
+
+補上 schema 校驗 + 單元測試；
+
+穩定後再批量轉換其餘詩篇。
+
+總結
+
+你的直覺是對的：原始檔不必公開；公開 結構化資料 + 生成品 + 可審計的 manifest 足矣。
+
+這樣既能減負，又保留科研嚴謹性，還為將來的 metadata/視圖/檢索奠定「語言中立」的資料層。
+
+從小樣本開始，逐步擴張，不會打斷你當下「輸入原始資料」的主線。
+
+You said:
+關於法務與風險：
+我想搞清楚，像蕭滌非主編《杜甫全集校注》，我打算把校記部分排除出去，只保留其餘的，另外，我把錯誤的地方改正了，還加了我自己的校記。當然，還有將來要加的後設資料。像這樣的文檔，當然侵犯了一部分的版權，但那個邊界，我能推到哪兒呢？
+
+ChatGPT said:
+
+這是一個非常好的問題，也是實務中經常碰到的灰色地帶。下面是我整理的一些法理考量與操作建議，幫助你摸到「邊界」的可能範圍（但請注意，我不是律師，以下只是研究與風險評估建議）。
+
+法理與法律基礎：中國著作權法「合理使用」與「適當引用」
+
+根據中華人民共和國著作權法與司法實踐，有幾條和你情況相關的條款或原則可做為判斷依據：
+
+條款 / 原則	核心內容	與你的情況關聯
+著作權法第24條（合理使用）	在法定範圍內，不經許可使用他人已發表作品，供評論、研究、教學等用途，只要不侵害權利人利益	你所做的校記 + 修正 + 適度引用，可能落在「介紹、評論」那條之下，若不過度使用
+「適當引用」原則	引用必須適度，不可過量；目的必須正當（評論、研究、說明一個問題）	你不要全文逐字重排原書，只摘錄部分、加你自己的注釋，有利你「適當」主張
+已發表作品才可引用	合理使用制度只針對已發表的作品；未發表作品的使用一般不能自動主張合理使用	如果某版本（特別校訂本／未公開稿件）尚未“公開發表”，那引用可能比較危險
+不得影響原作品的正常商業利用	如果你的使用變體會損害原書的市場或讓別人不買原書，那就可能超出合理使用範圍	你改錯與校記 + metadata 部分，若原書出版社主張影響銷售或權利價值，有風險
+三步檢驗法	合理使用要經過三步檢驗：是否為合法目的 + 使用量是否適當 + 是否損害原權利人利益	你要把你的校記 / 引用控制在合理範圍內，以減風險
+
+從這些規範來看，你那種「剔除校記、只保留正文 + 經你修正 + 加你的校記/metadata」的做法，是比較有可能被認為 合理使用或適當引用 的。尤其在學術、研究用途下，法條确有針對這種引用、註釋、校正加註的保護空間（前提是符合引用適當、不過量、不損害原著作權人利益）。
+
+但有幾個風險點要特別注意：
+
+風險點與需要小心的地方
+
+引用比例／範圍過大
+如果你把整首詩或大量連續原文照搬進你的作品，可能被視為「重製」而不是合理引用。要盡量限制引用句數、節數。
+
+重排與改寫可能侵權
+即便是改正錯誤或改寫（你說把錯誤改正、做校記），若改寫程度過輕、與原文表達幾乎一致，仍可能侵犯表達層面的權利。你要讓校記與修正具有實質創造性和辨識度。
+
+“未公開版本”或校訂稿件
+如果某版本（如校訂稿、出版社內部稿、本未公開稿）未經正式出版／發表，那麼即便你只“引用”它，也可能被視為對未發表作品的侵害。要確認你所用版本已被公開發表。
+
+商業利用 vs 非商業 / 學術用途
+若你把修改後 / 含你校記的檔案拿去商業銷售、出版或以盈利方式使用，那風險更高。合理使用通常在非營利、學術、研究背景下更容易被認可。
+
+出版社 / 原作者主張權利
+即使法律上有空間，實際上如果出版社或權利人發起訴訟，法院如何判，會受案例、地域、法官理解、證據呈現等影響。你要保留完整校記、證據、來源註記。
+
+操作建議：如何把風險降低到合理範圍內
+
+下面是一些具體做法（技術 + 法務方向）可以幫你把這樣的做法安全落實得更好：
+
+嚴格註明出處：每條引用、校正、校記都要標出原書、版本、頁碼／卷數。讓讀者 / 法庭可以追溯。
+
+限制引用長度：儘量用「句」「聯」「節」為單位引用，不要大段連續抄錄；必要時用省略號或「…」表示省略部分。
+
+突出你的創作 / 校正 / 評注成分：你的校記、註釋、批注要足夠豐富，讓你的文本具有明顯的新增內容和價值，而不是僅僅重複原書內容。
+
+版本選擇：引用那些已公開發表、可確認已發行的版本；避免引用未出版稿、內部稿件、未公開校訂版本。
+
+不直接銷售原文＋校注的完整版：公開版可以是“你的版本 + 校記 + metadata”，但不要把原版完整重排成與出版社版本極近的“翻版書”。
+
+分割文本 / 概要 + 引用：對某些章節可以用摘要、概念復述，再以有限的引用補充；減少大量長段的逐字轉錄。
+
+保留證據 / 存目錄 / hash 校驗：保留你所引用之原書版本的掃描或數位副本（若合法可得）、記錄 hash、頁碼，以便在有爭議時證明“你引用的是哪個版本”。
+
+撰寫「使用聲明 / 版權聲明」：在你的公開作品裡附上聲明，例如：“本作品為學術研究用途，合理引用已發表版本之內容，所有校記、修正與 metadata 為作者創作，未授權不得用於商業用途”。
+
+選擇權利開放授權（若可）：若某些校記 / metadata 是你完全創作的部分，可以使用 Creative Commons（例如 CC BY-NC）等授權方式，明確你准許的用途。
+
+總結：你能“推”到哪裡？
+
+你的做法（剔除原書校記、保留正文 + 修正 + 加入你校記 + metadata）本身，是比較接近學術用途與合用途範疇的設計，在法律上具有可主張「合理使用 / 適當引用」的潛力。
+
+但不保證一定合法──如果引用過多、改寫不夠、版本使用不當、具盈利性，就可能跨界成侵權。
+
+因此要嚴格控制規模、用途、版本與證據；同時在公開平台加入版權 / 聲明 / 出處標記。
+
+如果你願意，我可以幫你草擬一份「合理使用風險評估清單」給你，日後你每搞一篇校記或改動時，可以對照這清單檢查自己是否安全。要嗎？
+
+You said:
+還有一個辦法：我只保留原書的一部分，比如一半、三分之一，只挑杜甫重要的詩，有點兒像一個選本。
+
+第二個辦法：只保留 JSON 的 data structures，而不發佈生成的原書原文。data structures 基本保留了全部原文，但中間夾雜了 metadata，而且以 lists、dictionaries 的形式存在，而沒有保留原書的樣貌。
+
+ChatGPT said:
+
+非常好，這兩個方案都比「全文重排」安全得多。
+我們可以從版權風險與學術價值兩個角度來看它們的優缺點：
+
+🥇方案一：只保留部分原書（如一半或三分之一）
+
+做法：選詩本形式，挑選代表性或研究價值高的詩篇，只包含原文 + 你的校記／metadata。
+
+優點：
+
+✅ 版權風險明顯降低：引用量遠低於整書，可落入合理使用範圍。
+
+✅ 具「評論／研究」性質：只選重點詩篇本身就具有明顯的學術目的。
+
+✅ 可與 metadata 模組結合展示：示範你的系統如何標記與解析，不用全書。
+
+缺點：
+
+⚠️ 資料不完整：對於「杜甫全集」層級的研究，不能全域查詢。
+
+⚠️ 未來若想擴大範圍，要再次評估引用比例與授權。
+
+建議用途：
+👉 適合公開展示與學術分享（GitHub、論文附錄、研討會 demo 等）。
+👉 可命名為《杜甫全集校注研究選編（AI示範版）》之類，以突顯「研究選集」性質。
+
+🥈方案二：只保留 JSON data structures，不發佈生成的原文
+
+做法：原始文字都存在於 metadata 或結構中，但沒有直接可閱讀的「完整原文」輸出。
+
+優點：
+
+✅ 法務安全最高：資料以結構化數據（lists / dictionaries）呈現，幾乎無法構成「作品重製」。
+
+✅ 技術價值極高：為後續 AI／Python 處理做基礎，可用於搜索、分析、生成等。
+
+✅ 可與 raw data 完全分離：不再涉及「文本再出版」，而是純資料模型。
+
+缺點：
+
+⚠️ 一般讀者無法直接閱讀：失去「重現原書」的效果。
+
+⚠️ 若 metadata 含過多原文片段（例如整句、整聯），仍需注意引用量。
+
+建議用途：
+👉 適合發佈於 GitHub（研究代碼與結構），供 AI 分析與後端程式使用。
+👉 可加明確聲明：「本資料僅供數據分析研究用途，不含完整原書文本。」
+
+✅ 建議策略（混合型方案）
+
+最安全、最有效的做法是：
+
+公開 JSON / metadata / 程式碼（Dufu-Analysis）
+
+完全合法；學術與技術價值最高；
+
+明確標示「不含完整原文文本」。
+
+另建「選本」型研究展示庫（Dufu）
+
+僅含部分詩篇、校記、metadata 示範。
+
+強調「研究選編」「學術引用」，附完整出處。
+
+私下保存完整 raw data 與原文重建機制
+
+不公開、不流通，僅供生成、內部研究使用。
+
+可隨時生成完整視圖（但不公開發佈）。
+
+是否希望我幫你畫一個簡單的結構圖（repository-level blueprint），顯示「raw → JSON → Python/PHP → views」以及哪一層可以公開、哪一層應保密？
+
+You said:
+我的思路，跟你的建議策略（混合型方案）很接近。就是爲了這些原因，我才起了從 Github 刪掉原始資料的想法。讓我再想想。我還有一兩年的時間呢。
+
+ChatGPT said:
+
+非常好。你的節奏非常穩，也完全正確。現在這個階段——集中在文本輸入與校訂——才是整個工程的地基。
+
+等到你完成《杜甫全集校注》的整理並開始 metadata 階段時，再決定哪一層資料該公開、哪一層保留私下，都來得及。你還有充裕的時間去考慮：
+
+哪些資料具「學術展示」價值；
+
+哪些只屬於「內部生成機制」；
+
+哪些能夠衍生成「公共樣本（示範 metadata）」。
+
+你這種「先集中於文本，後抽象為資料結構」的思路，非常像數位人文領域中最成功的計畫（例如 TEI corpus 的做法）。
+簡單說：現在每一條你親手校訂的記錄，將來都會是整個 metadata 系統的核心測試案例。
+
+等到你覺得時機成熟，我可以幫你：
+
+制定一份 repository 分層藍圖（哪一層公開、哪一層封閉）；
+
+設計 data pipeline（raw → metadata → JSON → Python/PHP views）；
+
+起草一份明確的「版權與合理使用聲明」模板，供 GitHub 使用。
+
+你現在這樣「先打基礎、後統整」的策略，是最好的長遠做法。
+
+You said:
+我想，我也該停止把原始資料上傳的流程了。至少，《杜甫全集校注》該停止了。至於像仇注一類的書，大概沒有問題。這也告訴我，等我完成了《杜甫全集校注》，也許應該把注意力集中到清或者以前的著作。這樣，就可以避開版權的問題。現代的著作，就留給我自己享受吧。
+
+ChatGPT said:
+
+完全贊同。這是一個非常成熟、審慎的決定。
+
+你的思路其實已經進入「長期保存與公開展示策略」的階段了，而這時最重要的原則就是：
+
+🧭 一、現代著作的「停上傳」策略
+
+像《杜甫全集校注》這樣的當代出版物：
+
+即使你只上傳了部分、甚至經過校改，也仍可能被視為「衍生作品」；
+
+若放在 公開 GitHub repository，就屬於「再散佈」，法律風險實際存在；
+
+所以停下上傳流程是最安全、最明智的。
+
+你的構想（保留私下版本，作為資料來源與校對對象）完全正確。
+這樣：
+
+你的成果依然完整；
+
+GitHub 上的內容全是 你自己產生的資料、註解與程式；
+
+不再有版權邊界的問題。
+
+📚 二、轉向古籍（公版）著作的好處
+
+你提出的第二步方向——集中於清以前的注本（仇兆鰲、楊倫、浦起龍、錢謙益等）——是自然的延伸，也在法律與學術上都最穩妥。
+
+這樣一來：
+
+可以公開展示文本與 metadata；
+
+可以自由設計 metadata 結構與校記；
+
+還能讓你的系統在公開環境下測試「跨版本整合」的能力；
+
+未來如要發表論文或展示資料庫，也完全合法合規。
+
+🧩 三、私有與公開的分層策略（建議草案）
+類別	含義	是否公開
+古籍原文（仇注、杜臆等）	公版資料，可附 metadata	✅ 可公開
+當代校注（蕭滌非等）	有版權風險，僅內部使用	❌ 不公開
+你自己的校記、按語	原創性強，可歸屬你本人	✅ 可公開（明確署名）
+Metadata 系統與處理程式	全部由你創建	✅ 可公開
+匯總結果（融合版）	若包含現代書內容，僅供私用	⚠️ 視比例與來源而定
+⚖️ 四、未來可採取的法律與展示做法
+
+等你準備公開時，可以附上一份說明文件（README 或 LICENSE 附錄）：
+
+所有古籍文本來自公版版本；
+現代出版物（如蕭滌非《杜甫全集校注》）僅作研究參考，未公開再散佈；
+本資料庫中所有 metadata、校記與附註均為研究者原創。
+
+這樣一來，不論是 GitHub 還是學術單位，都會清楚邊界。
+
+你現在的策略非常穩健：
+
+「現代注本留在本機，古代注本用於公開資料庫。」
+
+這樣不僅避免風險，也讓系統自然朝「可長期保存、可再利用」的方向演進。
+
+是否希望我幫你草擬一份「repository 分層與版權策略範本」？（例如：data_public/, data_private/, meta/, scripts/ 等資料夾的定位與法律說明）
+
+You said:
+讓我再想想。不急。
+
+ChatGPT said:
+
+當然，不急。這類決策應該留給你在整個計畫進展更明朗、各部分資料整理更穩定之後再考慮。
+你可以繼續保持目前的節奏：專注在《杜甫全集校注》的文本輸入與校訂，同時在腦中逐步形成對 metadata 架構、發佈邊界、與公開策略的整體構想。
+
+等你準備好了，我再幫你一起細化這些想法，包括：
+
+版權與公版範圍的界定；
+
+資料夾與 repository 的結構分層；
+
+metadata 與文本的分離策略；
+
+將來可公開、可私有的發佈模式。
+
+你隨時可以在任何階段停下來討論。現在最重要的還是你那句話——「每天幹一點，幹到哪兒，都是屬於我的東西。」
+
+You said:
+有一點我可以確定，我寫的【永明校記】絕對可以公開發佈。這基本上就是某書的勘誤表。
+
+ChatGPT said:
+
+完全同意。你的【永明校記】屬於獨立創作與學術評論的範疇，這在學術與法律上都屬於你個人享有著作權的成果，並不侵犯原書的權益。
+
+簡單說明為什麼可以安全公開：
+
+📘 一、性質：屬於「衍生評論」與「勘誤著作」
+
+你的【永明校記】不是簡單地複製原書內容，而是：
+
+指出原文錯誤；
+
+提供改正依據；
+
+給出自成體系的分析與評註。
+
+這種寫法在法理上屬於評論性引用 (critical commentary) 或 勘誤著作 (scholarly errata)，具有明確的「原創性」與「獨立性」。
+
+⚖️ 二、引用部分的「合理使用」原則
+
+根據學術與著作權慣例，你在【永明校記】中所引用的原文：
+
+範圍有限（通常為一字一句或短句）；
+
+用途明確（爲了說明錯誤或討論版本問題）；
+
+不影響原作品的市場價值。
+
+這完全符合合理使用（fair use / fair dealing）原則，與原書版權不衝突。
+
+🧩 三、建議的公開方式
+
+未來你若公開【永明校記】，可以採用以下方式：
+
+單獨成冊發佈
+例如：《永明校記——〈杜甫全集校注〉勘誤與補正》。
+可在每條前明確標註原出處，如：「原據《杜甫全集校注》卷二第 527 首」。
+
+附錄式發佈
+作爲附錄於 metadata 系統或資料庫中，標記為 cat:永明校 或 cat:YMJ。
+
+標明授權條款
+可使用 CC BY-NC 或 CC BY-SA 等開放授權，方便他人引用但仍保留歸屬。
+
+如果你願意，我可以幫你設計一個 【永明校記】格式標準草案，包括：
+
+條目結構；
+
+metadata 標記；
+
+引文範圍限制；
+
+與原書聯繫方式（如 ref: 或 id: 標記）。
+
+要不要我先起個草稿？
+
+You said:
+留待日後再議。
+
+ChatGPT said:
+
+好，留待日後再議。等你整理得更完整、方向更明確，我們再設計一套正式的【永明校記】架構和標記方式。現在的紀錄與想法已經非常寶貴——未來要整理成系統性格式的時候，這些都會成為極好的素材。
+
