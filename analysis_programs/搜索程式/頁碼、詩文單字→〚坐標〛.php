@@ -46,7 +46,6 @@ else
 	{
 		print_r( $result );
 	}
-	
 }
 ?>
 

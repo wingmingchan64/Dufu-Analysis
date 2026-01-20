@@ -1,13 +1,13 @@
 <?php
 /**
- * 將 PHP array 轉為 JSON（保留 key、UTF-8、穩定排序）
+ * 將 PHP list 轉為 JSON（保留 key、UTF-8、穩定排序）
  *
  * 用法：
- *   php H:\github\Dufu-Analysis\JSON\list_to_json.php H:\github\Dufu-Analysis\analysis_programs\杜甫詩陣列.php H:\github\Dufu-Analysis\JSON\杜甫全集\杜甫詩陣列.json
+ *   php H:\github\Dufu-Analysis\JSON\list_to_json.php H:\github\Dufu-Analysis\頁碼.php H:\github\Dufu-Analysis\JSON\杜甫全集\頁碼.json
  */
 
 /*
-php H:\\github\\Dufu-Analysis\\JSON\\array_to_json.php H:\\github\\Dufu-Analysis\\頁碼_詩題.php H:\\github\\Dufu-Analysis\\JSON\\頁碼_詩題.json
+php H:\\github\\Dufu-Analysis\\JSON\\array_to_json.php H:\\github\\Dufu-Analysis\\頁碼.php H:\\github\\Dufu-Analysis\\JSON\\頁碼.json
 */
 // check and log errors
 if( $argc < 3 )
@@ -33,15 +33,36 @@ $data = ( function() use ( $input )
 {
     require $input;
 	
-    foreach( get_defined_vars() as $v )
+	$vs = get_defined_vars();
+	
+	//print_r( $vs );
+
+	foreach( $vs as $k => $v )
 	{
-        if( is_array( $v ) )
+		//echo $k, ',', "\r\n";
+		//print_r( $v );
+		if( is_array( $v ) )
 		{
-            return $v;
-        }
-    }
+			return $v;
+		}
+		/*
+		if( is_array( $v ) )
+		{
+			foreach( $v as $key => $value )
+			{
+				return $value;
+			}
+		}
+		*/
+		
+	}
+	
     return null;
 } )();
+
+echo "data:\r";
+print_r( $data );
+
 
 if( !is_array( $data ) )
 {
@@ -53,7 +74,7 @@ if( !is_array( $data ) )
 /**
  * 依 key 排序（確保 Git diff 穩定）
  */
-ksort( $data, SORT_STRING );
+//ksort( $data, SORT_STRING );
 
 /**
  * 輸出 JSON（UTF-8、漂亮縮排、不轉義中文）
