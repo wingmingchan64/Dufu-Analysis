@@ -10,6 +10,6 @@
 </ul>
 <p>兩個步驟：</p>
 <ul>
-<li>改寫生成 data structures 的程式，把資料儲存在 JSON 文檔裏</li>
-<li>如果要利用這些 data structures，則先把 JSON 文檔內容轉換成合用的 PHP 或者 Python data structures</li>
+<li>改寫生成數據結構的程式，把資料儲存在 JSON 文檔裏</li>
+<li>如果要利用這些數據結構，則先把 JSON 文檔內容轉換成合用的 PHP 或者 Python 的數據結構</li>
 </ul>
