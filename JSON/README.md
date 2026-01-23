@@ -5,4 +5,11 @@
 <li>在原始資料中加入大量的後設資料</li>
 <li>處理過的、生成的資料，以 JSON 的格式儲存，以維持其語言的獨立性</li>
 <li>生成 view 文檔的程式，仍以 PHP 爲主，但我也會嘗試用 Python 來生成 view 的文檔</li>
+<li>view 文檔的格式，仍以 .txt 爲主</p>
+
+</ul>
+<p>兩個步驟：</p>
+<ul>
+<li>改寫生成 data structures 的程式，把資料儲存在 JSON 文檔裏</li>
+<li>如果要利用這些 data structures，則先把 JSON 文檔內容轉換成合用的 PHP 或者 Python data structures</li>
 </ul>
