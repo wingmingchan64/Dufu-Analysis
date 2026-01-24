@@ -54,7 +54,8 @@ function extract_main_text_from_files( $file_names )
 
 function write_output_files( $content, $msg, $file_names )
 {
-    $output = $content . $msg;
+    $output = 
+		str_replace( '﻿', '', $content . $msg );
 
     // Output text files
     file_put_contents( 杜甫全集, $output );
