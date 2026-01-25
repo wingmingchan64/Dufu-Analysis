@@ -29,7 +29,7 @@ $詩_BASE =
 
 $DATA = new JsonDataLoader( $JSON_BASE );
 $詩頁碼 = $DATA->get( "詩頁碼" );
-$帶序文之詩歌 = $DATA->get( "帶序文之詩歌" );
+$詩頁碼_序文 = $DATA->get( "詩頁碼_序文" );
 
 $create_pages     = true;
 //$create_pages     = false;

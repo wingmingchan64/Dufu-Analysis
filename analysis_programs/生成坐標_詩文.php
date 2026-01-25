@@ -19,8 +19,8 @@ $JSON_BASE =
 	"杜甫全集";
 $JSON_詩BASE = 
 	$JSON_BASE . DIRECTORY_SEPARATOR . "詩";
-$JSON_行碼_詩文BASE = 
-	$JSON_詩BASE . DIRECTORY_SEPARATOR . "行碼_詩文";
+//$JSON_行碼_詩文BASE = 
+	//$JSON_詩BASE . DIRECTORY_SEPARATOR . "行碼_詩文";
 $DATA = new JsonDataLoader( $JSON_BASE );
 $詩頁碼 = $DATA->get( "詩頁碼" );
 $詩組_詩題 = $DATA->get( "詩組_詩題" );
@@ -30,7 +30,7 @@ $詩_BASE =
 	"DuFu" . DIRECTORY_SEPARATOR .
 	"杜甫全集" . DIRECTORY_SEPARATOR .
 	"詩" . DIRECTORY_SEPARATOR;
-$result = array();
+$行碼_詩文 = array();
 $副題 = array();
 $詩句 = array();
 $詩字 = array();
@@ -43,6 +43,11 @@ $七字組合 = array();
 
 foreach( $詩頁碼 as $頁 )
 {
+	if( !array_key_exists( $頁, $行碼_詩文 ) )
+	{
+		$行碼_詩文[ $頁 ] = array();
+	}
+	
 	$首 = 0;
 	$行 = 0;
 	$詩組 = false;
@@ -64,6 +69,11 @@ foreach( $詩頁碼 as $頁 )
 	{
 		if( $詩組 )
 		{
+			if( !array_key_exists( $頁, $副題 ) )
+			{
+				$副題[ $頁 ] = array();
+			}
+			
 			$行++;
 			if( in_array( 
 				intval( $行 ), $詩組_詩題[ $頁 ][ 1 ] ) )
@@ -83,7 +93,7 @@ foreach( $詩頁碼 as $頁 )
 			if( in_array( 
 				intval( $行 ), $詩組_詩題[ $頁 ][ 1 ] ) )
 			{
-				$副題[ $行碼template ] = trim( $line );
+				$副題[ $頁 ][ $行碼template ] = trim( $line );
 			}
 		}
 		else
@@ -93,10 +103,12 @@ foreach( $詩頁碼 as $頁 )
 		}
 
 		$line = trim( $line );
-		$result[ $行碼template ] = trim( $line );
+		$行碼_詩文[ $頁 ][ $行碼template ] = trim( $line );
 		
 		if( $行碼template != "〚${頁}:1〛" && // not 詩題
-			!in_array( $行碼template, $副題 ) &&
+			( !array_key_exists( $頁, $副題 ) ||
+				!in_array( $行碼template, $副題[ $頁 ] ) 
+			) &&
 			$line != ''
 		)
 		{
@@ -105,6 +117,10 @@ foreach( $詩頁碼 as $頁 )
 			
 			for( $i = 0; $i<count( $句s ); $i++ )
 			{
+				if( !array_key_exists( $頁, $詩句 ) )
+				{
+					$詩句[ $頁 ] = array();
+				}
 				if( mb_strlen( $句s[ $i ] ) > 0 )
 				{
 					//$句 = $i + 1;
@@ -114,10 +130,10 @@ foreach( $詩頁碼 as $頁 )
 							'.' . $i + 1 . '〛' ,  
 							$行碼template );
 					//echo $句碼, NL;
-					$詩句[ $句碼 ] = $句s[ $i ];
+					$詩句[ $頁 ][ $句碼 ] = $句s[ $i ];
 					
 					if( !array_key_exists( 
-						$句s[ $i ], $詩句 ) )
+						$句s[ $i ], $詩句[ $頁 ] ) )
 					{
 						$詩句[ $句s[ $i ] ] = array();
 					}
@@ -125,13 +141,17 @@ foreach( $詩頁碼 as $頁 )
 					
 					for( $j = 0; $j < mb_strlen( $句s[ $i ] ); $j++ )
 					{
+						if( !array_key_exists( $頁, $詩字 ) )
+						{
+							$詩字[ $頁 ] = array();
+						}
 						$字碼 = 
 							str_replace(
 								'〛', 
 								'.' . $j + 1 .
 								'〛' ,  
 							$句碼 );
-						$詩字[ $字碼 ] =
+						$詩字[ $頁 ][ $字碼 ] =
 							mb_substr( $句s[ $i ], $j, 1 );
 							
 						if( !array_key_exists( 
@@ -271,7 +291,7 @@ print_r( $七字組合 );
 */
 
 $json = json_encode(
-	$result,
+	$行碼_詩文,
 	JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
 );
 
