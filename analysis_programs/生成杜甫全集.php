@@ -3,10 +3,19 @@
  * Script: 生成杜甫全集.php
  * Usage:  php h:\github\Dufu-Analysis\analysis_programs\生成杜甫全集.php
  * Author: Wing Ming Chan
- * Updated: 2025-06-24
+ * Updated: 2026-01-24
  */
 require_once( '常數.php' );
 require_once( '函式.php' );
+require_once( 
+	"H:\\github\\Dufu-Analysis\\JSON\\程式\\" . 
+	"loader.php" );
+$JSON_BASE = 
+	"H:\\github\\Dufu-Analysis\\JSON\\杜甫全集";
+$DATA = new JsonDataLoader( $JSON_BASE );
+$詩頁碼   = $DATA->get( "詩頁碼" );
+//$頁碼_路徑 = $DATA->get( "頁碼_路徑" );
+
 
 /*
 returns a path string like:
@@ -52,7 +61,7 @@ function extract_main_text_from_files( $file_names )
     return $content;
 }
 
-function write_output_files( $content, $msg, $file_names )
+function write_output_files( $content, $msg )
 {
     $output = 
 		str_replace( '﻿', '', $content . $msg );
@@ -67,17 +76,32 @@ function write_output_files( $content, $msg, $file_names )
 		$output );
 
     // Write relative paths of processed files
-    $files = array_map( "truncate_path", $file_names );
-    file_put_contents( 目錄, implode( NL, $files ) . NL . 
-		NL . $msg );
+    //$files = array_map( "truncate_path", $file_names );
+    //file_put_contents( 目錄, implode( NL, $files ) . NL . NL . $msg );
 }
 
 // MAIN EXECUTION
-$file_names   = 提取杜甫文件名稱();
-$main_content = extract_main_text_from_files( $file_names );
-$msg          = file_get_contents( 'msg.txt', true );
+$content = '';
+$詩路徑  = "H:\\github\\DuFu\\杜甫全集\\詩\\";
+//$文賦路徑 = "H:\\github\\DuFu\\杜甫全集\\文賦\\";
 
-write_output_files( $main_content, $msg, $file_names );
-echo "✅ 成功處理 " . count( $file_names ) . 
+foreach( $詩頁碼 as $頁 )
+{
+	$file_path = $詩路徑 . $頁 . ".txt";
+	if( file_exists( $file_path ) )
+	{
+		$content .= file_get_contents( $file_path ) .
+			NL . NL;
+	}
+}
+//echo $content;
+
+//$file_names   = 提取杜甫文件名稱();
+//$main_content = extract_main_text_from_files( $file_names );
+
+$msg = file_get_contents( 'msg.txt', true );
+write_output_files( $content, $msg );
+echo "✅ 成功處理 " . count( $詩頁碼 ) . 
 	" 首詩，整合文本已生成。" . NL;
+
 ?>
