@@ -7,9 +7,29 @@
  */
 require_once( '常數.php' );
 require_once( '函式.php' );
-require_once( 杜甫資料庫 . '詩組_詩題.php' );
-require_once( 杜甫資料庫 . '詩文件夾路徑.php' );
-require_once( 杜甫資料庫 . '帶序文之詩歌.php' );
+require_once( 
+	"H:" . DIRECTORY_SEPARATOR .
+	"github" . DIRECTORY_SEPARATOR .
+	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
+	"JSON" . DIRECTORY_SEPARATOR .
+	"程式" . DIRECTORY_SEPARATOR .
+	"loader.php" );
+$JSON_BASE = 
+	"H:" . DIRECTORY_SEPARATOR .
+	"github" . DIRECTORY_SEPARATOR .
+	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
+	"JSON" . DIRECTORY_SEPARATOR .	
+	"杜甫全集";
+$詩_BASE = 
+	"H:" . DIRECTORY_SEPARATOR .
+	"github" . DIRECTORY_SEPARATOR .
+	"DuFu" . DIRECTORY_SEPARATOR .
+	"杜甫全集" . DIRECTORY_SEPARATOR .
+	"詩" . DIRECTORY_SEPARATOR;
+
+$DATA = new JsonDataLoader( $JSON_BASE );
+$詩頁碼 = $DATA->get( "詩頁碼" );
+$帶序文之詩歌 = $DATA->get( "帶序文之詩歌" );
 
 $create_pages     = true;
 //$create_pages     = false;

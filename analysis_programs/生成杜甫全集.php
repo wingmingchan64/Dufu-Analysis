@@ -71,10 +71,6 @@ function write_output_files( $content, $msg )
 		DIRECTORY_SEPARATOR . "Dufu-Analysis" .
 		DIRECTORY_SEPARATOR . "杜甫全集_默認版本.php", 
 		$output );
-
-    // Write relative paths of processed files
-    //$files = array_map( "truncate_path", $file_names );
-    //file_put_contents( 目錄, implode( NL, $files ) . NL . NL . $msg );
 }
 
 // MAIN EXECUTION
