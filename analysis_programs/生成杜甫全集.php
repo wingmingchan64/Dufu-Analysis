@@ -8,24 +8,21 @@
 require_once( '常數.php' );
 require_once( '函式.php' );
 require_once( 
-	"H:\\github\\Dufu-Analysis\\JSON\\程式\\" . 
+	"H:" . DIRECTORY_SEPARATOR .
+	"github" . DIRECTORY_SEPARATOR .
+	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
+	"JSON" . DIRECTORY_SEPARATOR .
+	"程式" . DIRECTORY_SEPARATOR .
 	"loader.php" );
 $JSON_BASE = 
-	"H:\\github\\Dufu-Analysis\\JSON\\杜甫全集";
+	"H:" . DIRECTORY_SEPARATOR .
+	"github" . DIRECTORY_SEPARATOR .
+	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
+	"JSON" . DIRECTORY_SEPARATOR .	
+	"杜甫全集";
 $DATA = new JsonDataLoader( $JSON_BASE );
 $詩頁碼   = $DATA->get( "詩頁碼" );
 //$頁碼_路徑 = $DATA->get( "頁碼_路徑" );
-
-
-/*
-returns a path string like:
-01 卷一 3-270\0003 望嶽.txt
-*/
-function truncate_path( $path )
-{
-    return substr( $path, strlen( 杜甫文件夾 ) );
-}
-
 /*
 returns the text by 杜甫, including title, text, etc.
 */
@@ -82,8 +79,10 @@ function write_output_files( $content, $msg )
 
 // MAIN EXECUTION
 $content = '';
-$詩路徑  = "H:\\github\\DuFu\\杜甫全集\\詩\\";
-//$文賦路徑 = "H:\\github\\DuFu\\杜甫全集\\文賦\\";
+$詩路徑  = $JSON_BASE . DIRECTORY_SEPARATOR .
+	"詩" . DIRECTORY_SEPARATOR;
+$文賦路徑  = $JSON_BASE . DIRECTORY_SEPARATOR .
+	"文賦" . DIRECTORY_SEPARATOR;
 
 foreach( $詩頁碼 as $頁 )
 {
@@ -94,14 +93,9 @@ foreach( $詩頁碼 as $頁 )
 			NL . NL;
 	}
 }
-//echo $content;
-
-//$file_names   = 提取杜甫文件名稱();
-//$main_content = extract_main_text_from_files( $file_names );
 
 $msg = file_get_contents( 'msg.txt', true );
 write_output_files( $content, $msg );
 echo "✅ 成功處理 " . count( $詩頁碼 ) . 
 	" 首詩，整合文本已生成。" . NL;
-
 ?>

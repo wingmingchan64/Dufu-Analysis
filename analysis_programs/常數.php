@@ -27,6 +27,7 @@ const 新行 = "\r\n";
 const 坐標關括號 = '〛';
 const 坐標括號 = "〚〛";
 const 冒號 = '：'; // UNICODE!!!
+// preg_replace( 夾注regex, '', $ )
 const 夾注regex = '/\[\X+?]/';
 const 兩句regex = "/(\\X+?。\\X+?。)/";
 const 四句regex = "/(\\X+?。\\X+?。\\X+?。\\X+?。)/";
