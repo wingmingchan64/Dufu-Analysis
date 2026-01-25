@@ -30,12 +30,11 @@ $詩_BASE =
 	"DuFu" . DIRECTORY_SEPARATOR .
 	"杜甫全集" . DIRECTORY_SEPARATOR .
 	"詩" . DIRECTORY_SEPARATOR;
+$result = array();
 $副題 = array();
 
 foreach( $詩頁碼 as $頁 )
 {
-	$result = array();
-	//$temp = array();
 	$首 = 0;
 	$行 = 0;
 	$詩組 = false;
@@ -83,16 +82,16 @@ foreach( $詩頁碼 as $頁 )
 
 	fclose( $handle );
 	
-	$json = json_encode(
-		$result,
-		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
-	);
-
-	file_put_contents(
-		$JSON_行碼_詩文BASE . DIRECTORY_SEPARATOR .
-		$頁 . ".json",
-		$json . PHP_EOL );
 }
+$json = json_encode(
+	$result,
+	JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	$JSON_BASE . DIRECTORY_SEPARATOR .
+	"行碼_詩文.json",
+	$json . PHP_EOL );
 
 $json = json_encode(
     $副題,
