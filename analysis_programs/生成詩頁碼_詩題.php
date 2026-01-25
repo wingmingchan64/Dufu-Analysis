@@ -56,7 +56,6 @@ foreach( $詩頁碼 as $頁 )
 		if( $result && count( $題注 ) > 0 )
 		{
 			$詩頁碼_題注[ $頁 ] = $題注[ 0 ];
-			//print_r( $題注 );
 		}
 		
 		$line = 
