@@ -3,12 +3,8 @@
  * 將 PHP array 轉為 JSON（保留 key、UTF-8、穩定排序）
  *
  * 用法：
- *   php H:\github\Dufu-Analysis\JSON\list_to_json.php H:\github\Dufu-Analysis\analysis_programs\杜甫詩陣列.php H:\github\Dufu-Analysis\JSON\杜甫全集\杜甫詩陣列.json
+ *   php H:\github\Dufu-Analysis\JSON\程式\array_to_json.php H:\github\Dufu-Analysis\詩組_詩題.php H:\github\Dufu-Analysis\JSON\杜甫全集\詩組_詩題.json
  */
-
-/*
-php H:\\github\\Dufu-Analysis\\JSON\\array_to_json.php H:\\github\\Dufu-Analysis\\頁碼_詩題.php H:\\github\\Dufu-Analysis\\JSON\\頁碼_詩題.json
-*/
 // check and log errors
 if( $argc < 3 )
 {

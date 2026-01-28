@@ -968,13 +968,9 @@ function 提取版本詩文含夾注(
 	return 提取杜甫詩陣列詩文( $result, $加句號, $加新行 );
 }
 
+// $〖詩文〗中第一字坐標
 function 提取〖詩文〗坐標( string $〖詩文〗, string $頁 ) : string
 {
-	if( $頁 == '3955' )
-	{
-		//echo 'L664 ', $〖詩文〗, NL;
-	}
-	
 	$str = str_replace( '〛', '', str_replace( '〚', '', $〖詩文〗 ) );
 	
 	//if( intval( trim( $〖詩文〗, '〖〗' ) ) > 0 )
@@ -1514,6 +1510,7 @@ function 杜甫詩陣列首ToString(
 	bool $加句號=true, 
 	bool $加新行=false, 
 	bool $加行碼=false,
+	bool $加詩題等=false
 ) : string
 {
 	//echo "Printing from 杜甫詩陣列首ToString", NL;
@@ -1523,6 +1520,10 @@ function 杜甫詩陣列首ToString(
 	{
 		if( $行碼 == 1 || is_string( $行 ) ) // skip 詩題、副題、序文
 		{
+			if( $加詩題等 )
+			{
+				$首内容 .= $行 . NL;
+			}
 			continue;
 		}
 		$首内容 .= 杜甫詩陣列行ToString( $行, $加句號, $加新行, $加行碼, $行碼 );
@@ -1849,4 +1850,107 @@ function getMergedText( array $詩陣列, string $punc = '' ) : string
 // 生成完整坐標
 // 提取詩文末字坐標
 // 提取〖詩文〗坐標
+
+// JSON GROUP
+function 提取數據結構( string $結構 ) : array
+{
+	require_once( 
+		"H:" . DIRECTORY_SEPARATOR .
+		"github" . DIRECTORY_SEPARATOR .
+		"Dufu-Analysis" . DIRECTORY_SEPARATOR .
+		"JSON" . DIRECTORY_SEPARATOR .
+		"程式" . DIRECTORY_SEPARATOR .
+		"loader.php" );
+	$JSON_BASE = 
+		"H:" . DIRECTORY_SEPARATOR .
+		"github" . DIRECTORY_SEPARATOR .
+		"Dufu-Analysis" . DIRECTORY_SEPARATOR .
+		"JSON" . DIRECTORY_SEPARATOR .	
+		"數據結構";
+	$DATA = new JsonDataLoader( $JSON_BASE );
+	
+	return $DATA->get( $結構 );;
+}
+// 一個詞組的坐標
+function 提取詩文坐標( $詩文 ) : array
+{
+	$字數 = mb_strlen( $詩文 );
+	$結構 = 提取數據結構( 數字對照陣列[ $字數 ] );
+	if( array_key_exists( $詩文, $結構 ) )
+	{
+		return $結構[ $詩文 ];
+	}
+	else
+	{
+		return array( "杜甫詩中無「${詩文}」。" );
+	}
+}
+
+// 這些詩中，都有$詩文s
+function 提取詩文默詩碼( array $詩文s ) : array
+{
+	$temp1 = array();
+	$temp2 = array();
+	$temp3 = array();
+	$result = array();
+	$默詩碼 = array();
+	
+	foreach( $詩文s as $詩文 )
+	{
+		if( !array_key_exists( $詩文, $temp1 ) )
+		{
+			$temp1[ $詩文 ] = array();
+			$temp2[ $詩文 ] = array();
+			$result[ $詩文 ] = array();
+		}
+		$temp1[ $詩文 ] = 提取詩文坐標( $詩文 );
+	}
+	
+	foreach( $temp1 as $文 => $標s )
+	{
+		foreach( $標s as $標 )
+		{
+			if( mb_strpos( $標, '〚' ) === false )
+			{
+				array_push( $result[ $文 ],  
+					"杜甫詩中無「${文}」。" );
+				return $result;
+			}
+			
+			array_push( $temp2[ $文 ], 提取頁碼( $標 ) );
+		}
+	}
+
+	foreach( $詩文s as $詩文 )
+	{
+		array_push( $temp3, $temp2[ $詩文 ] );
+	}
+	print_r( sizeof( $temp3 ) );
+	if( sizeof( $temp3 ) == 1 )
+	{
+		return $temp3;
+	}
+	return array_intersect( ...$temp3 );
+}
+
+// 提取一首詩的陣列
+function 提取詩陣列( $詩碼 ) : array
+{
+	$默認版本詩碼 = 提取數據結構( 默認版本詩碼 );
+	
+	if( !in_array( $詩碼, $默認版本詩碼 ) )
+	{
+		echo "${詩碼} 不存在。";
+		return array();
+	}
+		
+	$杜甫詩陣列 = 提取數據結構( 杜甫詩陣列 );
+	
+	if( mb_strpos( $詩碼, '-' ) !== false )
+	{
+		$頁_首 = explode( '-', $詩碼 );
+		return $杜甫詩陣列[ $頁_首[ 0 ] ][ $頁_首[ 1 ] ];
+	}
+	return $杜甫詩陣列[ $詩碼 ];
+}
 ?>
