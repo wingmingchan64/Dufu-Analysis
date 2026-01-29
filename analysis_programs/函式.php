@@ -68,6 +68,7 @@ function compareText(
 
 // 提取題注（杜甫原注）
 // $file_path: h:\github\DuFu\01 卷一 3-270\0048 過宋員外之問舊莊.txt
+/*
 function getAnnotation( string $file_path ) : string
 {
 	global $path_for_file;
@@ -94,10 +95,11 @@ function getAnnotation( string $file_path ) : string
 
 	return $annotation;
 }
-
+*/
 // given 〚0013:1:5.2.3-4〛, returns array containing
 // 〚0013:1:5.2.3〛,〚0013:1:5.2.4〛
 // only expands 字碼
+/*
 function getExpandedPages( string $coor ) : array
 {
 	$parts = explode( '.', $coor );
@@ -143,11 +145,9 @@ function getExpandedPages( string $coor ) : array
 		{
 			return array( $coor );
 		}
-		
-		//echo $pages, "\n";
 	}
 }
-
+*/
 // gets the file contents
 function getFile( $file_path ) : string
 {
@@ -1264,6 +1264,7 @@ function 提取陣列値( array $陣列 ) : string
 	return $str;
 }
 
+// 完整坐標，其中不能有 - 
 function 坐標轉換成列陣路徑( string $坐標 ) : array
 {
 	// remove brackets
@@ -1274,6 +1275,32 @@ function 坐標轉換成列陣路徑( string $坐標 ) : array
 	$坐標 = str_replace( '.', '-', $坐標 );
 	
 	return explode( '-', trim( $坐標, ' -' ) );
+}
+
+// 〚0276:20.2.2-4〛
+function 範圍字碼坐標轉換成列陣路徑( string $坐標 ): array
+{
+	$temp = array();
+	$result = array();
+	$match = array();
+	$範圍_regex = '/\.([\d+])-([\d+])/';
+	
+	$r = preg_match_all( $範圍_regex, "〚0276:20.2.2-4〛",
+		$match );
+	if( $r && sizeof( $match ) > 2 )
+	{
+		//print_r( $match );
+		$字碼s = range( 
+			intval( $match[ 1 ][ 0 ] ), 
+			intval( $match[ 2 ][ 0 ] ) );
+		foreach( $字碼s as $字碼 )
+		{
+			array_push( $temp,
+				str_replace( $match[ 0 ][ 0 ],
+				'.' . $字碼, $坐標 ) );
+		}
+	}
+	return $temp;
 }
 
 function 顯示坐標值( array $杜甫詩陣列, string $坐標 ) 
