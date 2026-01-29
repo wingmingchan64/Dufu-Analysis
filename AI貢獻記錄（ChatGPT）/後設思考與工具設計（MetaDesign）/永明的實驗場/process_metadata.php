@@ -2,13 +2,26 @@
 /*
 php H:\github\Dufu-Analysis\AI貢獻記錄（ChatGPT）\後設思考與工具設計（MetaDesign）\永明的實驗場\process_metadata.php
 */
-require_once( "H:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
-require_once( "H:\\github\\Dufu-Analysis\\analysis_programs\\後設資料鍵.php" );
+require_once(
+	"H:" . DIRECTORY_SEPARATOR .
+	"github" . DIRECTORY_SEPARATOR .
+	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
+	"JSON" . DIRECTORY_SEPARATOR .
+	"程式" . DIRECTORY_SEPARATOR .
+	"to_be_included_for_json.php" );
 
-$metadata = array();
+$詩碼 = '0001';
+$默詩碼 = '0276';
+$後設資料 = array();
+$後設資料集 = array();
+$後設資料_原文 = array();
+if( !array_key_exists( $詩碼, $後設資料集 ) )
+{
+	$後設資料集[ $詩碼 ] = array();
+}
 
 $str = 
-	file_get_contents( "H:\\github\Dufu-Analysis\\AI貢獻記錄（ChatGPT）\\後設思考與工具設計（MetaDesign）\\永明的實驗場\\仇注奉贈韋左丞丈二十二韻_後設資料.txt" );
+	file_get_contents( "H:\\github\\Dufu-Analysis\\AI貢獻記錄（ChatGPT）\\後設思考與工具設計（MetaDesign）\\永明的實驗場\\《全唐詩》\\${詩碼}.txt" );
 
 $strings = explode( "〙", $str );
 
@@ -20,17 +33,22 @@ foreach( $strings as $line )
 
 	if( sizeof( $parts ) == 2 )
 	{
-		$ary = create_array( $parts[ 1 ] );
-		$ary[ 'text' ] = trim( $parts[ 0 ] );
-		array_push( $metadata, $ary );
+		$tag = "〘id:${詩碼};" . trim( $parts[ 1 ] ) . "〙";
+		$後設資料_原文[ $tag ] = trim( $parts[ 0 ] );
+		$ary = create_array( $詩碼, $parts[ 1 ] );
+		//$ary[ 'text' ] = trim( $parts[ 0 ] );
+		array_push( $後設資料, $ary );
 	}
 }
-print_r( $metadata );
+$後設資料集[ $詩碼 ] = $後設資料;
+print_r( $後設資料集 );
+print_r( $後設資料_原文 );
 
-function create_array( string $str ) : array
+function create_array( string $id, string $str ) : array
 {
-	global $後設資料鍵;
+	//global $後設資料鍵;
 	$temp = array();
+	//$temp[ 'id' ] = $id;
 	$parts = explode( ";", $str );
 	
 	foreach( $parts as $part )
@@ -40,12 +58,6 @@ function create_array( string $str ) : array
 			$k_v = explode( ':', $part );
 			$key   = $k_v[ 0 ];
 			$value = trim( $k_v[ 1 ] );
-			
-			if( !in_array( $key, $後設資料鍵 ) )
-			{
-				echo "$key not a value key", NL;
-				exit;
-			}
 			
 			if( $value != '' )
 			{
