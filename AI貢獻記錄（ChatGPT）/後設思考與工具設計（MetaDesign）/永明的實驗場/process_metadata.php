@@ -45,6 +45,8 @@ $後設資料集[ $詩碼 ] = $後設資料;
 print_r(
 json_encode( $後設資料集, JSON_UNESCAPED_UNICODE )
 );
+/*
+*/
 //print_r( $後設資料_原文 );
 //print_r( 坐標轉換成列陣路徑( '〚0276:20.2〛' ) );
 $範圍 = 範圍字碼坐標轉換成列陣路徑( "〚0276:20.2.2-4〛" );
@@ -63,7 +65,21 @@ foreach( $範圍 as $坐標 )
 		$詩陣列[ $路徑[0] ][ $路徑[1] ][ $路徑[2] ][ $路徑[3] ] = '';
 }
 //print_r( $詩陣列 );
-
+/*
+$strs = array(
+	"",
+	"〚276:16.2.3-5〛",
+	"〚0276:16.2.3〛",
+	"〚0276:16.2.3-5〛",
+	"〚0013:1:16.2.3-5〛",
+	"〚0013:1:16.2.〛",
+	"〚0013:5.16.2",
+);
+foreach( $strs as $str )
+{
+	echo $str, ( 是完整坐標( $str ) ? "是完整坐標" : "不是完整坐標" ), NL;
+}
+*/
 function create_array( string $id, string $str ) : array
 {
 	//global $後設資料鍵;
@@ -84,8 +100,7 @@ function create_array( string $id, string $str ) : array
 				if( strpos( $key, 'pos' ) !== false )
 				{
 					$value = 
-						提取詩文末字坐標(
-						$id, $value, true );
+						提取默詩碼詩文坐標( $id, $value );
 				}
 				$temp[ $key ] = $value;
 			}

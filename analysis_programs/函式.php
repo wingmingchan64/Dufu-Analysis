@@ -1879,6 +1879,47 @@ function getMergedText( array $詩陣列, string $punc = '' ) : string
 // 提取〖詩文〗坐標
 
 // JSON GROUP
+/*
+to work with 杜甫詩陣列:
+1. from 坐標 to array path
+2. to assign empty string to a cell
+3. to attach a string to the last cell
+4. to attach a string to 詩題、副題、序文
+詩題 第一行
+1-副題
+序文 第三行
+*/
+function 是完整坐標( string $str ) : bool
+{
+	// 4 or 5 parts within 〚〛
+	if( mb_strpos( $str, '〚' ) === false ||
+		mb_strpos( $str, '〛' ) === false
+	)
+	{
+		return false;
+	}
+	
+	$str = str_replace( '〚', '', 
+		str_replace( '〛', '', $str ) );
+	$match = array();
+	$regex1 = '/\d{4}:\d+\.\d.\d+(-\d)?/';
+	$regex2 = '/\d{4}:\d+:\d+\.\d.\d+(-\d)?/';
+	
+	$r = preg_match( $regex1, $str, $match );
+
+	if( $r && $match[ 0 ] == $str )
+	{
+		return true;
+	}
+	$r = preg_match( $regex2, $str, $match );
+
+	if( $r && $match[ 0 ] == $str )
+	{
+		return true;
+	}
+	return false;
+}
+// 以數據結構名稱，提取該結構
 function 提取數據結構( string $結構 ) : array
 {
 	require_once( 
@@ -1898,11 +1939,12 @@ function 提取數據結構( string $結構 ) : array
 	
 	return $DATA->get( $結構 );;
 }
-// 一個詞組的坐標
-function 提取詩文坐標( $詩文 ) : array
+// 提取一個詩文詞組的坐標 〚0276:12.2.2〛,〚0276:12.2.2-4〛
+function 提取詩文坐標( string $詩文 ) : array
 {
 	$字數 = mb_strlen( $詩文 );
 	$結構 = 提取數據結構( 數字對照陣列[ $字數 ] );
+	
 	if( array_key_exists( $詩文, $結構 ) )
 	{
 		return $結構[ $詩文 ];
@@ -1913,7 +1955,41 @@ function 提取詩文坐標( $詩文 ) : array
 	}
 }
 
-// 這些詩中，都有$詩文s
+// 如果多於一個坐標，提取第一個
+function 提取默詩碼詩文坐標( string $默詩碼, string $詩文 ) : string
+{
+	if( $詩文 == 詩題 || $詩文 == 序文 )
+	{
+		return $詩文;
+	}
+	
+	$match = array();
+	$r = preg_match( '/\d-副題/', $詩文, $match );
+	
+	if( $r && $match[ 0 ] == $詩文 )
+	{
+		return $詩文;
+	}
+	
+	$result = array();
+	$坐標s = 提取詩文坐標( $詩文 );
+	
+	if( $坐標s[ 0 ] != "杜甫詩中無「${詩文}」。"  )
+	{
+		foreach( $坐標s as $坐標 )
+		{
+			if( 提取頁碼( $坐標 ) == $默詩碼 )
+			{
+				array_push( $result, $坐標 );
+			}
+		}
+		if( sizeof( $result ) > 0 )
+			return $result[ 0 ];
+	}
+	return "${默詩碼}中無「${詩文}」。";
+}
+
+// 提取一組詩碼，每首詩中，都有「$詩文s」
 function 提取詩文默詩碼( array $詩文s ) : array
 {
 	$temp1 = array();
@@ -1960,7 +2036,7 @@ function 提取詩文默詩碼( array $詩文s ) : array
 	return array_intersect( ...$temp3 );
 }
 
-// 提取一首詩的陣列
+// 提取一首詩的陣列，該詩可以是詩組中的一首；「$詩碼」必須是默認詩碼
 function 提取詩陣列( $詩碼 ) : array
 {
 	$默認版本詩碼 = 提取數據結構( 默認版本詩碼 );
@@ -1980,4 +2056,5 @@ function 提取詩陣列( $詩碼 ) : array
 	}
 	return $杜甫詩陣列[ $詩碼 ];
 }
+
 ?>
