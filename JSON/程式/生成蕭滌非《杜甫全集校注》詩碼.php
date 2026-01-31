@@ -12,9 +12,12 @@ require_once(
 
 $詩碼_詩頁碼 = array();
 $詩頁碼_詩碼 = array();
+$蕭詩碼_詩題 = array();
+$詩題_蕭詩碼 = array();
+
 $counter = 1;
 
-foreach( $詩頁碼 as $頁 )
+foreach( $默認詩文檔碼 as $頁 )
 {
 	// skip 1989, this does not exist in 蕭
 	if( $頁 == '1989' )
@@ -30,13 +33,13 @@ foreach( $詩頁碼 as $頁 )
 		{
 			$詩碼 = pad_with_zeros( $counter ) .
 				"-${i}";
-			$詩碼_詩頁碼[ $詩碼 ] = $頁;
+			$詩碼_詩頁碼[ $詩碼 ] = $頁 . "-${i}";
 			
 			if( !array_key_exists( $頁, $詩頁碼_詩碼 ) )
 			{
-				$詩頁碼_詩碼[ $頁 ] = array();
+				$詩頁碼_詩碼[ $頁 . "-${i}" ] = array();
 			}
-			array_push( $詩頁碼_詩碼[ $頁 ], $詩碼 );
+			array_push( $詩頁碼_詩碼[ $頁 . "-${i}" ], $詩碼 );
 		}
 	}
 	else
@@ -48,6 +51,30 @@ foreach( $詩頁碼 as $頁 )
 	
 	$counter++;
 }
+
+$蕭詩碼s = array_keys( $詩碼_詩頁碼 );
+
+foreach( $蕭詩碼s as $蕭碼 )
+{
+	$碼regex = '/-\d+/';
+	$默碼 = preg_replace( $碼regex, '', $詩碼_詩頁碼[ $蕭碼 ] );
+	//$蕭碼 = preg_replace( $碼regex, '', $蕭碼 );
+	
+	if( !array_key_exists( $蕭碼, $蕭詩碼_詩題 ) )
+	{
+		$蕭詩碼_詩題[ $蕭碼 ] = $默認詩文檔碼_詩題[ $默碼 ];
+	}
+}
+
+foreach( $蕭詩碼_詩題 as $蕭詩碼 => $詩題 )
+{
+	if( !array_key_exists( $詩題, $詩題_蕭詩碼 ) )
+	{
+		$詩題_蕭詩碼[ $詩題 ] = array();
+	}
+	array_push( $詩題_蕭詩碼[ $詩題 ], $蕭詩碼 );
+}
+//print_r( $蕭詩碼_詩題 );
 
 function pad_with_zeros( int $v ) : string
 {
@@ -65,7 +92,7 @@ file_put_contents(
 	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
 	"JSON" . DIRECTORY_SEPARATOR .
 	"蕭滌非《杜甫全集校注》" . DIRECTORY_SEPARATOR .
-	"詩碼_詩頁碼.json",
+	"蕭詩碼_默詩碼.json",
 	$json . PHP_EOL );
 
 $json = json_encode(
@@ -79,7 +106,35 @@ file_put_contents(
 	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
 	"JSON" . DIRECTORY_SEPARATOR .
 	"蕭滌非《杜甫全集校注》" . DIRECTORY_SEPARATOR .
-	"詩頁碼_詩碼.json",
+	"默詩碼_蕭詩碼.json",
+	$json . PHP_EOL );
+
+$json = json_encode(
+    $蕭詩碼_詩題,
+    JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	"H:" . DIRECTORY_SEPARATOR .
+	"github" . DIRECTORY_SEPARATOR .
+	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
+	"JSON" . DIRECTORY_SEPARATOR .
+	"蕭滌非《杜甫全集校注》" . DIRECTORY_SEPARATOR .
+	"蕭詩碼_詩題.json",
+	$json . PHP_EOL );
+
+$json = json_encode(
+    $詩題_蕭詩碼,
+    JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	"H:" . DIRECTORY_SEPARATOR .
+	"github" . DIRECTORY_SEPARATOR .
+	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
+	"JSON" . DIRECTORY_SEPARATOR .
+	"蕭滌非《杜甫全集校注》" . DIRECTORY_SEPARATOR .
+	"詩題_蕭詩碼.json",
 	$json . PHP_EOL );
 
 ?>
