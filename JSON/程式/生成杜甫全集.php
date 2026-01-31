@@ -70,9 +70,9 @@ $詩路徑  = $JSON_BASE . DIRECTORY_SEPARATOR .
 $文賦路徑  = $JSON_BASE . DIRECTORY_SEPARATOR .
 	"文賦" . DIRECTORY_SEPARATOR;
 
-foreach( $詩頁碼 as $頁 )
+foreach( $默認詩文檔碼 as $文檔 )
 {
-	$file_path = $詩路徑 . $頁 . ".txt";
+	$file_path = $詩路徑 . $文檔 . ".txt";
 	if( file_exists( $file_path ) )
 	{
 		$content .= file_get_contents( $file_path ) .
@@ -82,6 +82,6 @@ foreach( $詩頁碼 as $頁 )
 
 $msg = file_get_contents( 'msg.txt', true );
 write_output_files( $content, $msg );
-echo "✅ 成功處理 " . count( $詩頁碼 ) . 
+echo "✅ 成功處理 " . count( $默認詩文檔碼 ) . 
 	" 首詩，整合文本已生成。" . NL;
 ?>

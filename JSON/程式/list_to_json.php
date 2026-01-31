@@ -45,25 +45,13 @@ $data = ( function() use ( $input )
 		{
 			return $v;
 		}
-		/*
-		if( is_array( $v ) )
-		{
-			foreach( $v as $key => $value )
-			{
-				return $value;
-			}
-		}
-		*/
-		
 	}
 	
     return null;
 } )();
 
-echo "data:\r";
-print_r( $data );
-
-
+//echo "data:\r";
+//print_r( $data );
 if( !is_array( $data ) )
 {
     fwrite( STDERR, 

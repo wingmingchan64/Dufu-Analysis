@@ -16,28 +16,33 @@ $詩_BASE =
 	"默認版本" . DIRECTORY_SEPARATOR .
 	"詩" . DIRECTORY_SEPARATOR;
 $行碼_詩文 = array();
-$副題 = array();
+$行碼_副題 = array();
 $詩句 = array();
 $詩字 = array();
+$詩字_字碼 = array();
 $二字組合 = array();
 $三字組合 = array();
 $四字組合 = array();
 $五字組合 = array();
 $六字組合 = array();
 $七字組合 = array();
+$八字組合 = array();
+$九字組合 = array();
+$十字組合 = array();
+$十一字組合 = array();
 
-foreach( $詩頁碼 as $頁 )
+foreach( $默認詩文檔碼 as $文檔 )
 {
-	if( !array_key_exists( $頁, $行碼_詩文 ) )
+	if( !array_key_exists( $文檔, $行碼_詩文 ) )
 	{
-		$行碼_詩文[ $頁 ] = array();
+		$行碼_詩文[ $文檔 ] = array();
 	}
 	
 	$首 = 0;
 	$行 = 0;
-	$詩組 = false;
+	$組詩 = false;
 	
-	$詩文檔 = $詩_BASE . $頁 . ".txt";
+	$詩文檔 = $詩_BASE . $文檔 . ".txt";
 	$handle = @fopen( $詩文檔, "r" );
 	
 	if( !$handle )
@@ -45,80 +50,138 @@ foreach( $詩頁碼 as $頁 )
 		error_log( "⚠️ Cannot open file: $from_file" );
 		continue;
 	}
-	if( array_key_exists( $頁, $詩組_詩題 ) )
+	if( array_key_exists( $文檔, $組詩_副題 ) )
 	{
-		$詩組 = true;
+		$組詩 = true;
 	}
 
 	while( ( $line = fgets( $handle ) ) !== false )
 	{
-		if( $詩組 )
+		if( $組詩 )
 		{
-			if( !array_key_exists( $頁, $副題 ) )
+			$行++; // start with 1
+
+			if( !array_key_exists( $文檔, $行碼_副題 ) )
 			{
-				$副題[ $頁 ] = array();
+				$行碼_副題[ $文檔 ] = array();
 			}
 			
-			$行++;
+			// skip 詩題
+			if( $行 == 1 )
+			{
+				continue;
+			}
+			// skip 序文
+			if( in_array( "$文檔", $帶序文之詩 ) &&
+				$行 == 3 )
+			{
+				//echo "$文檔:$行";
+				continue;
+			}
+			
+			//print_r( $組詩_副題[ $文檔 ][ 1 ] );
+			/*
+			if( array_key_exists( "$文檔", $組詩_副題 )
+				&& in_array( "$行", $組詩_副題[ $文檔 ][ 1 ] ) 
+			)
+			{
+				continue;
+			}
+			*/
 			if( in_array( 
-				intval( $行 ), $詩組_詩題[ $頁 ][ 1 ] ) )
+				intval( $行 ), $組詩_副題[ $文檔 ][ 1 ] ) )
 			{
 				$首++;
-			}
-			
-			if( $首 == 0 )
+				$行碼template = "〚${文檔}:${首}:${行}〛";
+
+			if( $文檔 == '0013' )
 			{
-				$行碼template = "〚${頁}:${行}〛";
+				//echo $行碼template, NL;
 			}
-			else
+				$行碼_副題[ $文檔 ][ $行碼template ] = trim( $line );
+				
+			if( $文檔 == '0013' )
 			{
-				$行碼template = "〚${頁}:${首}:${行}〛";
+				//echo $行, NL;
+				print_r( $組詩_副題[ $文檔 ][ 1 ] );
 			}
-			
-			if( in_array( 
-				intval( $行 ), $詩組_詩題[ $頁 ][ 1 ] ) )
-			{
-				$副題[ $頁 ][ $行碼template ] = trim( $line );
+				
+				continue;
 			}
 		}
 		else
 		{
-			$行++;
-			$行碼template = "〚${頁}:${行}〛";
+			$行++;			
+			$行碼template = "〚${文檔}:${行}〛";
+			// skip 詩題
+			if( $行 == 1 )
+			{
+				continue;
+			}
+			
+			if( in_array( "$文檔", $帶序文之詩 ) &&
+				$行 == 3 )
+			{
+				//echo "$文檔:$行";
+				continue;
+			}
+			
+			if( array_key_exists( "$文檔", $組詩_副題 )
+				&& in_array( "$文檔", $組詩_副題[ $文檔 ][ 1 ] ) 
+			)
+			{
+				continue;
+			}
 		}
-
+		// update the template
+		if( $組詩 )
+		{
+			$行碼template = "〚${文檔}:${首}:${行}〛";
+		}
+		else
+		{
+			$行碼template = "〚${文檔}:${行}〛";
+		}
 		$line = trim( $line );
-		$行碼_詩文[ $頁 ][ $行碼template ] = trim( $line );
+		$行碼_詩文[ $文檔 ][ $行碼template ] = trim( $line );
 		
-		if( $行碼template != "〚${頁}:1〛" && // not 詩題
-			( !array_key_exists( $頁, $副題 ) ||
-				!in_array( $行碼template, $副題[ $頁 ] ) 
+		if( $行碼template != "〚${文檔}:1〛" && // not 詩題
+			( !array_key_exists( $文檔, $行碼_副題 ) ||
+				!in_array( $行碼template, $行碼_副題[ $文檔 ] ) 
 			) &&
 			$line != ''
 		)
 		{
 			$句s = explode( '。', normalize( $line ) );
+			if( $文檔 == '0013' )
+			{
+				print_r( $句s );
+			}
 			//print_r( count( $句s ) );
 			
 			for( $i = 0; $i<count( $句s ); $i++ )
 			{
-				if( !array_key_exists( $頁, $詩句 ) )
+				if( !array_key_exists( $文檔, $詩句 ) )
 				{
-					$詩句[ $頁 ] = array();
+					$詩句[ $文檔 ] = array();
 				}
 				if( mb_strlen( $句s[ $i ] ) > 0 )
 				{
 					//$句 = $i + 1;
+					
 					$句碼 = 
 						str_replace(
 							'〛', 
 							'.' . $i + 1 . '〛' ,  
 							$行碼template );
-					//echo $句碼, NL;
-					$詩句[ $頁 ][ $句碼 ] = $句s[ $i ];
+					if( $文檔 == '0013' )
+					{
+						echo $句碼, NL;
+					}
+					$詩句[ $文檔 ][ $句碼 ] = $句s[ $i ];
 					
 					if( !array_key_exists( 
-						$句s[ $i ], $詩句[ $頁 ] ) )
+						$句s[ $i ], $詩句[ $文檔 ] ) )
 					{
 						$詩句[ $句s[ $i ] ] = array();
 					}
@@ -126,9 +189,9 @@ foreach( $詩頁碼 as $頁 )
 					
 					for( $j = 0; $j < mb_strlen( $句s[ $i ] ); $j++ )
 					{
-						if( !array_key_exists( $頁, $詩字 ) )
+						if( !array_key_exists( $文檔, $詩字 ) )
 						{
-							$詩字[ $頁 ] = array();
+							$詩字[ $文檔 ] = array();
 						}
 						$字碼 = 
 							str_replace(
@@ -136,7 +199,7 @@ foreach( $詩頁碼 as $頁 )
 								'.' . $j + 1 .
 								'〛' ,  
 							$句碼 );
-						$詩字[ $頁 ][ $字碼 ] =
+						$詩字[ $文檔 ][ $字碼 ] =
 							mb_substr( $句s[ $i ], $j, 1 );
 							
 						if( !array_key_exists( 
@@ -252,7 +315,78 @@ foreach( $詩頁碼 as $頁 )
 							$句碼 );
 						array_push( $七字組合[ $combo ], $字碼 );
 					}
+					
+					for( $k = 0; $k < mb_strlen( $句s[ $i ] ) - 7; $k++ )
+					{
+						$combo = mb_substr( $句s[ $i ], $k, 8 );
+						if( !array_key_exists(
+						$combo, $八字組合 ) )
+						{
+							$八字組合[ $combo ] = array();
+						}
+						$字碼 = 
+							str_replace(
+								'〛', 
+								'.' . $k + 1 . '-' .
+								$k + 8 .
+								'〛' ,  
+							$句碼 );
+						array_push( $八字組合[ $combo ], $字碼 );
+					}
 
+					for( $k = 0; $k < mb_strlen( $句s[ $i ] ) - 8; $k++ )
+					{
+						$combo = mb_substr( $句s[ $i ], $k, 9 );
+						if( !array_key_exists(
+						$combo, $九字組合 ) )
+						{
+							$九字組合[ $combo ] = array();
+						}
+						$字碼 = 
+							str_replace(
+								'〛', 
+								'.' . $k + 1 . '-' .
+								$k + 9 .
+								'〛' ,  
+							$句碼 );
+						array_push( $九字組合[ $combo ], $字碼 );
+					}
+
+					for( $k = 0; $k < mb_strlen( $句s[ $i ] ) - 9; $k++ )
+					{
+						$combo = mb_substr( $句s[ $i ], $k, 10 );
+						if( !array_key_exists(
+						$combo, $十字組合 ) )
+						{
+							$十字組合[ $combo ] = array();
+						}
+						$字碼 = 
+							str_replace(
+								'〛', 
+								'.' . $k + 1 . '-' .
+								$k + 10 .
+								'〛' ,  
+							$句碼 );
+						array_push( $十字組合[ $combo ], $字碼 );
+					}
+
+					for( $k = 0; $k < mb_strlen( $句s[ $i ] ) - 10; $k++ )
+					{
+						$combo = mb_substr( $句s[ $i ], $k, 11 );
+						if( !array_key_exists(
+						$combo, $十一字組合 ) )
+						{
+							$十一字組合[ $combo ] = array();
+						}
+						$字碼 = 
+							str_replace(
+								'〛', 
+								'.' . $k + 1 . '-' .
+								$k + 11 .
+								'〛' ,  
+							$句碼 );
+						array_push( $十一字組合[ $combo ], $字碼 );
+					}
 				}
 			}
 		}
@@ -260,12 +394,22 @@ foreach( $詩頁碼 as $頁 )
 
 	fclose( $handle );
 	
-	//if( $頁 == '0013' )
-		//break;
-	
 }
 ksort( $詩句 );
 ksort( $詩字 );
+
+foreach( $詩字 as $默認詩文檔碼 => $碼_字 )
+{
+	foreach( $碼_字 as $碼 => $字 )
+	{
+		if( !array_key_exists( $字, $詩字_字碼 ) )
+		{
+			$詩字_字碼[ $字 ] = array();
+		}
+		array_push( $詩字_字碼[ $字 ], $碼 );
+	}
+}
+
 /*
 print_r( $二字組合 );
 print_r( $三字組合 );
@@ -286,7 +430,7 @@ file_put_contents(
 	$json . PHP_EOL );
 
 $json = json_encode(
-    $副題,
+    $行碼_副題,
     JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
 );
 
@@ -313,6 +457,16 @@ $json = json_encode(
 file_put_contents(
 	$JSON_BASE . DIRECTORY_SEPARATOR .
 	"字碼_詩字.json",
+	$json . PHP_EOL );
+
+$json = json_encode(
+    $詩字_字碼,
+    JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	$JSON_BASE . DIRECTORY_SEPARATOR .
+	"詩字_字碼.json",
 	$json . PHP_EOL );
 
 $json = json_encode(
@@ -373,5 +527,45 @@ $json = json_encode(
 file_put_contents(
 	$JSON_BASE . DIRECTORY_SEPARATOR .
 	"七字組合_坐標.json",
+	$json . PHP_EOL );
+
+$json = json_encode(
+    $八字組合,
+    JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	$JSON_BASE . DIRECTORY_SEPARATOR .
+	"八字組合_坐標.json",
+	$json . PHP_EOL );
+
+$json = json_encode(
+    $九字組合,
+    JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	$JSON_BASE . DIRECTORY_SEPARATOR .
+	"九字組合_坐標.json",
+	$json . PHP_EOL );
+
+$json = json_encode(
+    $十字組合,
+    JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	$JSON_BASE . DIRECTORY_SEPARATOR .
+	"十字組合_坐標.json",
+	$json . PHP_EOL );
+
+$json = json_encode(
+    $十一字組合,
+    JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	$JSON_BASE . DIRECTORY_SEPARATOR .
+	"十一字組合_坐標.json",
 	$json . PHP_EOL );
 ?>

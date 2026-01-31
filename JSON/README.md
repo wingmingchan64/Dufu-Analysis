@@ -18,13 +18,10 @@
 <ul>
 <li>以 <code>程式\array_to_json.php</code> 生成：
 <ul>
-<li><code>數據結構\詩頁碼.json</code></li>
-<li><code>數據結構\詩組_詩題.json</code></li>
-<li><code>數據結構\帶序文之詩歌.json</code></li>
+<li><code>數據結構\默認詩文檔碼.json</code></li>
+<li><code>數據結構\組詩_副題.json</code></li>
+<li><code>數據結構\帶序文之詩.json</code></li>
 <li><code>數據結構\書目簡稱.json</code></li>
-<li><code>數據結構\詩題_詩頁碼.json</code></li>
-<li><code>數據結構\詩頁碼_題注.json</code></li>
-<li><code></code></li>
 <li><code></code></li>
 <li><code></code></li>
 <li><code></code></li>
@@ -32,9 +29,11 @@
 </li>
 <li>執行以下程式：
 <ul>
+
+<li><code>程式\生成默認詩文檔碼_序文.php</code></li>
 <li><code>程式\生成默認版本詩碼.php</code></li>
 <li><code>程式\生成杜甫全集.php</code></li>
-<li><code>程式\生成詩頁碼_詩題.php</code></li>
+<li><code>程式\生成詩題_默認詩文檔碼_題注.php</code></li>
 <li><code>程式\生成坐標_詩文.php</code></li>
 <li><code></code></li>
 <li><code></code></li>
