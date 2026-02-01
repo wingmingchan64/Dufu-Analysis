@@ -11,9 +11,12 @@ const 資料匯總文件夾 = 杜甫資料庫 . '資料匯總' . DS;
 const 杜甫分析文件夾 = 'h:'.DS.'github'.DS.'Dufu-Analysis'.DS;
 const 程式文件夾 = 'h:'.DS.'github'.DS.'Dufu-Analysis'.DS.'analysis_programs'.DS;
 const 杜甫文件夾 = 'h:'.DS.'github'.DS.'Dufu'.DS;
+const 默認版本文件夾 = 杜甫文件夾.'默認版本'.DS;
+const 默認版本詩文件夾 = 杜甫文件夾.'默認版本'.DS.'詩'.DS;
 // 文檔
 const 杜甫全集       = 'h:\github\DuFu\杜甫全集.txt';
-//const NL  = "\r\n";
+
+
 define( 'NL', PHP_EOL ); // System-independent newline
 const 等號 = '=';
 const 坐標開括號 = '〚';
