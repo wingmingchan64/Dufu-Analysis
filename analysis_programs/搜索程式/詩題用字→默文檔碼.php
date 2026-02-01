@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\詩題用字→頁碼.php 奉先
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\詩題用字→默文檔碼.php 奉先
 =>
 Array
 (
@@ -10,19 +10,23 @@ Array
     [自京赴奉先縣詠懷五百字] => 0668
 )
 */
-require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
-require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
-require_once( 詩題_頁碼 );
+require_once(
+	"H:" . DIRECTORY_SEPARATOR .
+	"github" . DIRECTORY_SEPARATOR .
+	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
+	"JSON" . DIRECTORY_SEPARATOR .
+	"程式" . DIRECTORY_SEPARATOR .
+	"to_be_included_for_json.php" );
 
 checkARGV( $argv, 2, 提供詩題 );
 $題 = fixText( trim( $argv[ 1 ] ) );
 $result = array();
 
-foreach( $詩題_頁碼 as $詩題 => $頁碼 )
+foreach( $詩題_默認詩文檔碼 as $詩題 => $默文檔碼 )
 {
 	if( mb_strpos( $詩題, $題 ) !== false )
 	{
-		$result[ $詩題 ] = $頁碼;
+		$result[ $詩題 ] = $默文檔碼;
 	}
 }
 if( sizeof( $result ) == 0 )

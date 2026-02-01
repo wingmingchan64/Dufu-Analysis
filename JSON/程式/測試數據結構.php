@@ -28,6 +28,6 @@ $詞 = "胡馬大宛名";
 
 //print_r( 提取詩文默詩碼( array( "乾坤", "醉", "大" ) ) );
 //print_r( 提取詩陣列( "0013-1" ) );
-echo 杜甫詩陣列首ToString( 提取詩陣列( "0003" ), true, false, true, true );
+echo 杜甫詩陣列首ToString( 提取詩陣列( "0013-1" ), true, false, true, true );
 ?>
 

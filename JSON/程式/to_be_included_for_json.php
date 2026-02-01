@@ -25,6 +25,8 @@ $JSON_BASE =
 $DATA = new JsonDataLoader( $JSON_BASE );
 $默認詩文檔碼 = $DATA->get( 默認詩文檔碼 );
 $默認詩文檔碼_詩題 = $DATA->get( 默認詩文檔碼_詩題 );
+$詩題_默認詩文檔碼 = $DATA->get( 詩題_默認詩文檔碼 );
+
 $默認詩文檔碼_題注 = $DATA->get( 默認詩文檔碼_題注 );
 $默認詩文檔碼_序文 = $DATA->get( 默認詩文檔碼_序文 );
 $組詩_副題 = $DATA->get( 組詩_副題 );

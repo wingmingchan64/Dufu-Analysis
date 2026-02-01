@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\詩文用字→頁碼.php 我居南
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\詩文用字→默文檔碼.php 我居南
 =>
 Array
 (
@@ -15,14 +15,34 @@ Array
     [乾坤幾反覆] => 5855 蘇大侍御渙，靜者也，旅于江 側，凡是不交州府之客，人事都絕久矣。肩輿江浦，忽訪老夫舟楫，而已茶酒內，余請誦近詩，肯吟數首，才力素壯，詞句動人。接對明日，憶其湧思雷出，書篋几杖之外，殷殷留金石聲，賦八韻記異，亦記老夫傾倒於蘇至矣
 )
 */
-require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
-require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
-require_once( 詩句_頁碼 );
-require_once( 頁碼_詩題 );
+require_once(
+	"H:" . DIRECTORY_SEPARATOR .
+	"github" . DIRECTORY_SEPARATOR .
+	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
+	"JSON" . DIRECTORY_SEPARATOR .
+	"程式" . DIRECTORY_SEPARATOR .
+	"to_be_included_for_json.php" );
+//require_once( 詩句_頁碼 );
+//require_once( 頁碼_詩題 );
 
 checkARGV( $argv, 2, 提供詩文 );
 $句 = fixText( trim( $argv[ 1 ] ) );
 $result = array();
+
+$坐標s = 提取詩文坐標( $句 );
+$result = array();
+$temp = array();
+
+foreach( $坐標s as $坐標 )
+{
+	$默文檔碼 = 提取頁碼( $坐標 );
+	if( !in_array( $坐標, $temp ) )
+	{
+		array_push( $temp, $默文檔碼 );
+	}
+}
+print_r( $temp );
+exit;
 
 foreach( $詩句_頁碼 as $詩句 => $頁碼 )
 {
