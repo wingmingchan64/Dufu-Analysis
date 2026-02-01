@@ -1,6 +1,7 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\默文檔碼→字詞組合重現.php 3
+分開七次，生成七個文檔，再合并在一起。
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\默文檔碼→字詞組合重現.php
 => 
 */
 require_once(
@@ -28,6 +29,33 @@ if( !in_array( $默文檔碼, $默認詩文檔碼 ) )
 $temp1 = array();
 $temp2 = array();
 $temp3 = array();
+$file = $list = 7;
+switch( $file )
+{
+	case 1:
+		$JSON_文檔 = $詩字_字碼;
+		break;
+	case 2:
+		$JSON_文檔 = $二字組合_坐標;
+		break;
+	case 3:
+		$JSON_文檔 = $三字組合_坐標;
+		break;
+	case 4:
+		$JSON_文檔 = $四字組合_坐標;
+		break;
+	case 5:
+		$JSON_文檔 = $五字組合_坐標;
+		break;
+	case 6:
+		$JSON_文檔 = $六字組合_坐標;
+		break;
+	case 7:
+		$JSON_文檔 = $七字組合_坐標;
+		break;
+	default:
+		$JSON_文檔 = $詩字_字碼;
+}
 // 1: 1171 items
 //foreach( $詩字_字碼 as $詩字 => $字碼s )
 // 2: 237 items
@@ -45,7 +73,7 @@ $temp3 = array();
 // 8: 0 items
 //foreach( $八字組合_坐標 as $詩字 => $字碼s )
 // 9: 0 items
-foreach( $九字組合_坐標 as $詩字 => $字碼s )
+foreach( $JSON_文檔 as $詩字 => $字碼s )
 {
 	if( !array_key_exists( $詩字, $temp1 ) )
 	{
@@ -106,8 +134,35 @@ foreach(  $temp2 as $詩字 => $文檔碼s )
 		// 8
 		//$to_look_list = $八字組合_坐標[ $詩字 ];
 		// 9
-		$to_look_list = $九字組合_坐標[ $詩字 ];
+		//$to_look_list = $九字組合_坐標[ $詩字 ];
 		
+switch( $list )
+{
+	case 1:
+		$to_look_list = $詩字_字碼[ $詩字 ];
+		break;
+	case 2:
+		$to_look_list = $二字組合_坐標[ $詩字 ];
+		break;
+	case 3:
+		$to_look_list = $三字組合_坐標[ $詩字 ];
+		break;
+	case 4:
+		$to_look_list = $四字組合_坐標[ $詩字 ];
+		break;
+	case 5:
+		$to_look_list = $五字組合_坐標[ $詩字 ];
+		break;
+	case 6:
+		$to_look_list = $六字組合_坐標[ $詩字 ];
+		break;
+	case 7:
+		$to_look_list = $七字組合_坐標[ $詩字 ];
+		break;
+	default:
+		$to_look_list = $詩字_字碼[ $詩字 ];
+}
+
 		foreach( $to_look_list as $item )
 		{
 			if( mb_strpos( $item, "〚${文檔碼}:" ) !== false )
@@ -119,9 +174,9 @@ foreach(  $temp2 as $詩字 => $文檔碼s )
 }
 
 //print_r( $temp3 );
-echo sizeof( array_keys( $temp3 ) );
+//echo sizeof( array_keys( $temp3 ) );
+//exit;
 
-exit;
 $json = json_encode(
 	$temp3,
 	JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
