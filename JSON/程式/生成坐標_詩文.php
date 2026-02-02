@@ -18,8 +18,11 @@ $詩_BASE =
 $行碼_詩文 = array();
 $行碼_副題 = array();
 $詩句 = array();
-$詩字 = array();
+$文檔碼_碼_字 = array();
+$文檔碼_字_碼 = array();
+//$詩字_碼
 $詩字_字碼 = array();
+$字碼_詩字 = array();
 $二字組合 = array();
 $三字組合 = array();
 $四字組合 = array();
@@ -31,26 +34,26 @@ $九字組合 = array();
 $十字組合 = array();
 $十一字組合 = array();
 
-foreach( $默認詩文檔碼 as $文檔 )
+foreach( $默認詩文檔碼 as $文檔碼 )
 {
-	if( !array_key_exists( $文檔, $行碼_詩文 ) )
+	if( !array_key_exists( $文檔碼, $行碼_詩文 ) )
 	{
-		$行碼_詩文[ $文檔 ] = array();
+		$行碼_詩文[ $文檔碼 ] = array();
 	}
 	
 	$首 = 0;
 	$行 = 0;
 	$組詩 = false;
 	
-	$詩文檔 = $詩_BASE . $文檔 . ".txt";
-	$handle = @fopen( $詩文檔, "r" );
+	$詩文檔碼 = $詩_BASE . $文檔碼 . ".txt";
+	$handle = @fopen( $詩文檔碼, "r" );
 	
 	if( !$handle )
 	{
 		error_log( "⚠️ Cannot open file: $from_file" );
 		continue;
 	}
-	if( array_key_exists( $文檔, $組詩_副題 ) )
+	if( array_key_exists( $文檔碼, $組詩_副題 ) )
 	{
 		$組詩 = true;
 	}
@@ -61,9 +64,9 @@ foreach( $默認詩文檔碼 as $文檔 )
 		{
 			$行++; // start with 1
 
-			if( !array_key_exists( $文檔, $行碼_副題 ) )
+			if( !array_key_exists( $文檔碼, $行碼_副題 ) )
 			{
-				$行碼_副題[ $文檔 ] = array();
+				$行碼_副題[ $文檔碼 ] = array();
 			}
 			
 			// skip 詩題
@@ -72,38 +75,38 @@ foreach( $默認詩文檔碼 as $文檔 )
 				continue;
 			}
 			// skip 序文
-			if( in_array( "$文檔", $帶序文之詩 ) &&
+			if( in_array( "$文檔碼", $帶序文之詩 ) &&
 				$行 == 3 )
 			{
-				//echo "$文檔:$行";
+				//echo "$文檔碼:$行";
 				continue;
 			}
 			
-			//print_r( $組詩_副題[ $文檔 ][ 1 ] );
+			//print_r( $組詩_副題[ $文檔碼 ][ 1 ] );
 			/*
-			if( array_key_exists( "$文檔", $組詩_副題 )
-				&& in_array( "$行", $組詩_副題[ $文檔 ][ 1 ] ) 
+			if( array_key_exists( "$文檔碼", $組詩_副題 )
+				&& in_array( "$行", $組詩_副題[ $文檔碼 ][ 1 ] ) 
 			)
 			{
 				continue;
 			}
 			*/
 			if( in_array( 
-				intval( $行 ), $組詩_副題[ $文檔 ][ 1 ] ) )
+				intval( $行 ), $組詩_副題[ $文檔碼 ][ 1 ] ) )
 			{
 				$首++;
-				$行碼template = "〚${文檔}:${首}:${行}〛";
+				$行碼template = "〚${文檔碼}:${首}:${行}〛";
 
-			if( $文檔 == '0013' )
+			if( $文檔碼 == '0013' )
 			{
 				//echo $行碼template, NL;
 			}
-				$行碼_副題[ $文檔 ][ $行碼template ] = trim( $line );
+				$行碼_副題[ $文檔碼 ][ $行碼template ] = trim( $line );
 				
-			if( $文檔 == '0013' )
+			if( $文檔碼 == '0013' )
 			{
 				//echo $行, NL;
-				print_r( $組詩_副題[ $文檔 ][ 1 ] );
+				print_r( $組詩_副題[ $文檔碼 ][ 1 ] );
 			}
 				
 				continue;
@@ -112,22 +115,22 @@ foreach( $默認詩文檔碼 as $文檔 )
 		else
 		{
 			$行++;			
-			$行碼template = "〚${文檔}:${行}〛";
+			$行碼template = "〚${文檔碼}:${行}〛";
 			// skip 詩題
 			if( $行 == 1 )
 			{
 				continue;
 			}
 			
-			if( in_array( "$文檔", $帶序文之詩 ) &&
+			if( in_array( "$文檔碼", $帶序文之詩 ) &&
 				$行 == 3 )
 			{
-				//echo "$文檔:$行";
+				//echo "$文檔碼:$行";
 				continue;
 			}
 			
-			if( array_key_exists( "$文檔", $組詩_副題 )
-				&& in_array( "$文檔", $組詩_副題[ $文檔 ][ 1 ] ) 
+			if( array_key_exists( "$文檔碼", $組詩_副題 )
+				&& in_array( "$文檔碼", $組詩_副題[ $文檔碼 ][ 1 ] ) 
 			)
 			{
 				continue;
@@ -136,24 +139,29 @@ foreach( $默認詩文檔碼 as $文檔 )
 		// update the template
 		if( $組詩 )
 		{
-			$行碼template = "〚${文檔}:${首}:${行}〛";
+			$行碼template = "〚${文檔碼}:${首}:${行}〛";
 		}
 		else
 		{
-			$行碼template = "〚${文檔}:${行}〛";
+			$行碼template = "〚${文檔碼}:${行}〛";
 		}
 		$line = trim( $line );
-		$行碼_詩文[ $文檔 ][ $行碼template ] = trim( $line );
 		
-		if( $行碼template != "〚${文檔}:1〛" && // not 詩題
-			( !array_key_exists( $文檔, $行碼_副題 ) ||
-				!in_array( $行碼template, $行碼_副題[ $文檔 ] ) 
+		if( $line == '' )
+		{
+			continue;
+		}
+		$行碼_詩文[ $文檔碼 ][ $行碼template ] = trim( $line );
+		
+		if( $行碼template != "〚${文檔碼}:1〛" && // not 詩題
+			( !array_key_exists( $文檔碼, $行碼_副題 ) ||
+				!in_array( $行碼template, $行碼_副題[ $文檔碼 ] ) 
 			) &&
 			$line != ''
 		)
 		{
 			$句s = explode( '。', normalize( $line ) );
-			if( $文檔 == '0013' )
+			if( $文檔碼 == '0013' )
 			{
 				print_r( $句s );
 			}
@@ -161,9 +169,9 @@ foreach( $默認詩文檔碼 as $文檔 )
 			
 			for( $i = 0; $i<count( $句s ); $i++ )
 			{
-				if( !array_key_exists( $文檔, $詩句 ) )
+				if( !array_key_exists( $文檔碼, $詩句 ) )
 				{
-					$詩句[ $文檔 ] = array();
+					$詩句[ $文檔碼 ] = array();
 				}
 				if( mb_strlen( $句s[ $i ] ) > 0 )
 				{
@@ -174,14 +182,14 @@ foreach( $默認詩文檔碼 as $文檔 )
 							'〛', 
 							'.' . $i + 1 . '〛' ,  
 							$行碼template );
-					if( $文檔 == '0013' )
+					if( $文檔碼 == '0013' )
 					{
 						echo $句碼, NL;
 					}
-					$詩句[ $文檔 ][ $句碼 ] = $句s[ $i ];
+					$詩句[ $文檔碼 ][ $句碼 ] = $句s[ $i ];
 					
 					if( !array_key_exists( 
-						$句s[ $i ], $詩句[ $文檔 ] ) )
+						$句s[ $i ], $詩句[ $文檔碼 ] ) )
 					{
 						$詩句[ $句s[ $i ] ] = array();
 					}
@@ -189,9 +197,9 @@ foreach( $默認詩文檔碼 as $文檔 )
 					
 					for( $j = 0; $j < mb_strlen( $句s[ $i ] ); $j++ )
 					{
-						if( !array_key_exists( $文檔, $詩字 ) )
+						if( !array_key_exists( $文檔碼, $文檔碼_碼_字 ) )
 						{
-							$詩字[ $文檔 ] = array();
+							$文檔碼_碼_字[ $文檔碼 ] = array();
 						}
 						$字碼 = 
 							str_replace(
@@ -199,15 +207,15 @@ foreach( $默認詩文檔碼 as $文檔 )
 								'.' . $j + 1 .
 								'〛' ,  
 							$句碼 );
-						$詩字[ $文檔 ][ $字碼 ] =
+						$文檔碼_碼_字[ $文檔碼 ][ $字碼 ] =
 							mb_substr( $句s[ $i ], $j, 1 );
 							
 						if( !array_key_exists( 
-						mb_substr( $句s[ $i ], $j, 1 ), $詩字 ) )
+						mb_substr( $句s[ $i ], $j, 1 ), $文檔碼_字_碼 ) )
 					{
-						$詩字[ mb_substr( $句s[ $i ], $j, 1 ) ] = array();
+						$文檔碼_字_碼[ mb_substr( $句s[ $i ], $j, 1 ) ] = array();
 					}
-					array_push( $詩字[ mb_substr( $句s[ $i ], $j, 1 ) ], $字碼 );
+					array_push( $文檔碼_字_碼[ mb_substr( $句s[ $i ], $j, 1 ) ], $字碼 );
 
 					}
 					
@@ -396,9 +404,31 @@ foreach( $默認詩文檔碼 as $文檔 )
 	
 }
 ksort( $詩句 );
-ksort( $詩字 );
+//ksort( $文檔碼_碼_字 );
 
-foreach( $詩字 as $默認詩文檔碼 => $碼_字 )
+//print_r( $文檔碼_碼_字 );
+
+$json = json_encode(
+	$文檔碼_碼_字,
+	JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	$JSON_BASE . DIRECTORY_SEPARATOR .
+	"文檔碼_碼_字.json",
+	$json . PHP_EOL );
+
+$json = json_encode(
+	$文檔碼_字_碼,
+	JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	$JSON_BASE . DIRECTORY_SEPARATOR .
+	"字_碼.json",
+	$json . PHP_EOL );
+
+foreach( $文檔碼_碼_字 as $默認詩文檔碼碼 => $碼_字 )
 {
 	foreach( $碼_字 as $碼 => $字 )
 	{
@@ -450,7 +480,7 @@ file_put_contents(
 	$json . PHP_EOL );
 
 $json = json_encode(
-    $詩字,
+    $文檔碼_碼_字,
     JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
 );
 
@@ -466,7 +496,7 @@ $json = json_encode(
 
 file_put_contents(
 	$JSON_BASE . DIRECTORY_SEPARATOR .
-	"詩字_字碼.json",
+	"一字組合_坐標.json",
 	$json . PHP_EOL );
 
 $json = json_encode(

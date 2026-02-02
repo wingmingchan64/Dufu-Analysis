@@ -5,7 +5,9 @@ set_error_handler( function (
     throw new \ErrorException( $message, $severity, 	
 		$severity, $file, $line );
 });
+
 require_once( '常數.php' );
+/*
 require_once( 杜甫資料庫 . '詩組_詩題.php' );
 require_once( 杜甫資料庫 . '帶序文之詩歌.php' );
 require_once( 杜甫資料庫 . '頁碼_路徑.php' );
@@ -16,6 +18,7 @@ require_once( 杜甫資料庫 . '二字組合_坐標.php' );
 require_once( 杜甫資料庫 . '三字組合_坐標.php' );
 require_once( 杜甫資料庫 . '四字組合_坐標.php' );
 require_once( 杜甫資料庫 . '五字組合_坐標.php' );
+*/
 require_once( 杜甫資料庫 . '異體字.php' );
 
 $path_for_file = '';
@@ -96,58 +99,114 @@ function getAnnotation( string $file_path ) : string
 	return $annotation;
 }
 */
+
+// given 〚0013:1:5-6〛, returns array containing
+// 〚0013:1:5〛,〚0013:1:6〛
+// only expands 行碼
+// 只接受完整坐標
+function 提取擴充行碼坐標( string $坐標 ) : array
+{
+	if( 是完整坐標( $坐標 ) === false )
+	{
+		return array( "不是完整坐標。" );
+	}
+	$regex1 = '/\d{4}:\d+-\d+/'; // 〚0003:5.1-4〛
+	$regex2 = '/\d{4}:\d+:\d+-\d+/'; // 〚0013:2:11-13〛
+	$裸坐標 = str_replace( '〚', '', 
+		str_replace( '〛', '', $坐標 ) );
+	$match = array();
+	
+	$r = preg_match( $regex1, $裸坐標, $match );
+	if( !$r || $match[ 0 ] != $裸坐標 )
+	{
+		$match = array();
+		$r = preg_match( $regex2, $裸坐標, $match );
+		if( !$r || $match[ 0 ] != $裸坐標 )
+		{
+			return array( "字碼沒有範圍數字。" );
+		}
+	}
+	// $parts[2], the last part
+	$parts = explode( '.', $裸坐標 );
+	$last = $parts[ 2 ];
+	$first = $parts[ 0 ] . '.' . $parts[ 1 ] . '.';
+	
+	$坐標陣列 = array();
+	$pre_parts = "";
+	$行範圍 = explode( '-', $last );
+	
+	if( intval( $行範圍[ 0 ] ) >= 
+		intval( $行範圍[ 1 ] ) )
+	{
+		return array( "字碼範圍數字不合規範。" );
+	}
+	$字碼範圍陣列 = 
+		range( intval( $行範圍[ 0 ] ), intval( $行範圍[ 1 ] ) );
+	
+	foreach( $字碼範圍陣列 as $字碼 )
+	{
+		array_push(
+			$坐標陣列,
+			'〚' . $first . $字碼 . '〛' );
+	}
+			
+	return $坐標陣列;
+}
+
+
 // given 〚0013:1:5.2.3-4〛, returns array containing
 // 〚0013:1:5.2.3〛,〚0013:1:5.2.4〛
 // only expands 字碼
-/*
-function getExpandedPages( string $coor ) : array
+// 只接受完整坐標
+function 提取擴充字碼坐標( string $坐標 ) : array
 {
-	$parts = explode( '.', $coor );
+	if( 是完整坐標( $坐標 ) === false )
+	{
+		return array( "不是完整坐標。" );
+	}
+	$regex1 = '/\d{4}:\d+\.\d.\d+-\d+/'; // 〚0003:5.1.2-4〛
+	$regex2 = '/\d{4}:\d+:\d+\.\d.\d+-\d+/'; // 〚0013:2:11.2.1-3〛
+	$裸坐標 = str_replace( '〚', '', 
+		str_replace( '〛', '', $坐標 ) );
+	$match = array();
 	
-	if( sizeof( $parts ) < 3 )
+	$r = preg_match( $regex1, $裸坐標, $match );
+	if( !$r || $match[ 0 ] != $裸坐標 )
 	{
-		return array( $coor );
-	}
-	else
-	{
-		$pages = 
-			str_replace( 
-				'〛', '', $parts[ sizeof( $parts ) - 1 ] );
-			
-		if( strpos( $pages, '-' ) !== false )
+		$match = array();
+		$r = preg_match( $regex2, $裸坐標, $match );
+		if( !$r || $match[ 0 ] != $裸坐標 )
 		{
-			$page_array = array();
-			$pre_parts = "";
-			
-			for( $i = 0; $i < sizeof( $parts ) - 1; $i ++ )
-			{
-				$pre_parts = $pre_parts . '.' . $parts[ $i ];
-			}
-			$pre_parts = trim( $pre_parts, '.' );
-			$page_range = explode( '-', $pages );			
-
-			if( sizeof( $page_range ) == 2 )
-			{
-				$page_range_array = 
-					range( $page_range [ 0 ], $page_range [ 1 ] );
-				
-				foreach( $page_range_array as $p )
-				{
-					array_push(
-						$page_array,
-						$pre_parts . '.' . $p . '〛' );
-				}
-			}
-			
-			return $page_array;
-		}
-		else
-		{
-			return array( $coor );
+			return array( "字碼沒有範圍數字。" );
 		}
 	}
+	// $parts[2], the last part
+	$parts = explode( '.', $裸坐標 );
+	$last = $parts[ 2 ];
+	$first = $parts[ 0 ] . '.' . $parts[ 1 ] . '.';
+	
+	$坐標陣列 = array();
+	$pre_parts = "";
+	$行範圍 = explode( '-', $last );
+	
+	if( intval( $行範圍[ 0 ] ) >= 
+		intval( $行範圍[ 1 ] ) )
+	{
+		return array( "字碼範圍數字不合規範。" );
+	}
+	$字碼範圍陣列 = 
+		range( intval( $行範圍[ 0 ] ), intval( $行範圍[ 1 ] ) );
+	
+	foreach( $字碼範圍陣列 as $字碼 )
+	{
+		array_push(
+			$坐標陣列,
+			'〚' . $first . $字碼 . '〛' );
+	}
+			
+	return $坐標陣列;
 }
-*/
+
 // gets the file contents
 function getFile( $file_path ) : string
 {
@@ -1891,7 +1950,7 @@ to work with 杜甫詩陣列:
 */
 function 是完整坐標( string $str ) : bool
 {
-	// 4 or 5 parts within 〚〛
+	// 必須有坐標括號
 	if( mb_strpos( $str, '〚' ) === false ||
 		mb_strpos( $str, '〛' ) === false
 	)
@@ -1899,24 +1958,68 @@ function 是完整坐標( string $str ) : bool
 		return false;
 	}
 	
+	// strip the brackets
 	$str = str_replace( '〚', '', 
 		str_replace( '〛', '', $str ) );
 	$match = array();
-	$regex1 = '/\d{4}:\d+\.\d.\d+(-\d)?/';
-	$regex2 = '/\d{4}:\d+:\d+\.\d.\d+(-\d)?/';
-	
+	// 4 or 5 parts within 〚〛
+	$regex1 = '/\d{4}:/'; // 〚0003:〛
+	$regex2 = '/\d{4}:\d+:/'; // 〚0013:2:〛
+	$regex3 = '/\d{4}:\d+/'; // 〚0003:3〛
+	$regex4 = '/\d{4}:\d+:\d+/'; // 〚0013:2:11〛
+	$regex5 = '/\d{4}:\d+\.\d/'; // 〚0003:4.2〛
+	$regex6 = '/\d{4}:\d+:\d+\.\d/'; // 〚0013:2:11.1〛
+	$regex7 = '/\d{4}:\d+\.\d.\d+(-\d+)?/'; // 〚0003:5.1.2〛〚0003:5.1.2-4〛
+	$regex8 = '/\d{4}:\d+:\d+\.\d.\d+(-\d+)?/'; // 〚0013:2:11.2.5〛〚0013:2:11.2.1-3〛
+
 	$r = preg_match( $regex1, $str, $match );
-
 	if( $r && $match[ 0 ] == $str )
 	{
 		return true;
 	}
+
 	$r = preg_match( $regex2, $str, $match );
-
 	if( $r && $match[ 0 ] == $str )
 	{
 		return true;
 	}
+	
+	$r = preg_match( $regex3, $str, $match );
+	if( $r && $match[ 0 ] == $str )
+	{
+		return true;
+	}
+	
+	$r = preg_match( $regex4, $str, $match );
+	if( $r && $match[ 0 ] == $str )
+	{
+		return true;
+	}
+	
+	$r = preg_match( $regex5, $str, $match );
+	if( $r && $match[ 0 ] == $str )
+	{
+		return true;
+	}
+	
+	$r = preg_match( $regex6, $str, $match );
+	if( $r && $match[ 0 ] == $str )
+	{
+		return true;
+	}
+	
+	$r = preg_match( $regex7, $str, $match );
+	if( $r && $match[ 0 ] == $str )
+	{
+		return true;
+	}
+	
+	$r = preg_match( $regex8, $str, $match );
+	if( $r && $match[ 0 ] == $str )
+	{
+		return true;
+	}
+
 	return false;
 }
 // 以數據結構名稱，提取該結構

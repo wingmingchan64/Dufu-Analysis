@@ -1,9 +1,7 @@
-《山海經·海外東經》：「朝陽之谷有神曰天吳，是爲水伯，虎身人面，八手八足八尾，背青黃色。」〘cat:注;a_pos:天吳;src:《山海經》;mb_pos:裋褐;mb_ord:1;......〙
-「丹穴之山，有鸑鷟，鳳之屬也。如鳳，五色而多紫。」〘cat:注;a_pos:紫鳳;mb_pos:裋褐;mb_ord:2;......〙
-《方言》：「關西謂襜褕短者爲裋褐。」〘cat:注;a_pos:裋褐;a_ord:1;mb_pos:裋褐;mb_ord:3;......〙
-《漢書·貢禹傳》：「妻子糠豆不贍，裋褐不完。」顏師古注：「裋者，謂僮豎所著布長襦也。褐，毛布之衣也。」〘cat:注;a_pos:裋褐;a_ord:2;mb_pos:裋褐;mb_ord:4;......〙
-趙次公曰：「天吳，海圖所畫之物；紫鳳，舊繡所刺之物也。剪舊物以補豎衣，故拆移而顚倒也。」〘cat:大意;a_pos:裋褐;a_ord:3;mb_pos:裋褐;mb_ord:5;......〙
-蔡夢弼曰：「言妻子寒凍，以圖障舊繡補綻而爲小兒短衣，故波濤爲之拆，繡紋爲之移，天吳及紫鳳之類，或顚或倒，其貧苦可知也。」〘cat:大意;a_pos:裋褐;a_ord:4;mb_pos:裋褐;mb_ord:6;......〙
-王嗣奭曰：「四句，寫故家窮狀如畫。」〘cat:大意;a_pos:裋褐;a_ord:5;mb_pos:裋褐;mb_ord:7;......〙
-李長祥曰：「移曲折，則文理失；顚倒，則形影非，又是在短褐上，旣可笑，又可憐，想見舊家貧困。」〘cat:評;a_pos:裋褐;a_ord:6;mb_pos:裋褐;mb_ord:8;......〙
-范輦雲曰：「亂後家業凋喪，實有此景，但他人不能說得如此透快。」〘cat:評;a_pos:裋褐;a_ord:7;mb_pos:裋褐;mb_ord:9;......〙
+I ran your program. No duplicates. But the total is a bit bigger.
+
+total=381324
+unique=381324
+duplicates=0
+
+I made the mistake of counting only '〛",', having left out all '〛"'.
