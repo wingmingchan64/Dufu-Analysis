@@ -7,6 +7,7 @@ set_error_handler( function (
 });
 
 require_once( '常數.php' );
+require_once( '函式文檔\是合法完整坐標.php' );
 /*
 require_once( 杜甫資料庫 . '詩組_詩題.php' );
 require_once( 杜甫資料庫 . '帶序文之詩歌.php' );
@@ -1955,8 +1956,8 @@ to work with 杜甫詩陣列:
 1-副題
 序文 第三行
 */
-
-function 是合法坐標( array $坐標陣列, string $str ) : bool
+/*
+function 是合法完整坐標( array $坐標陣列, string $str ) : bool
 {
 	$文檔碼 = 提取頁碼( $str );
 	
@@ -1970,7 +1971,7 @@ function 是合法坐標( array $坐標陣列, string $str ) : bool
 	}
 	return true;
 }
-
+*/
 function 是完整坐標( string $str ) : bool
 {
 	// 必須有坐標括號
@@ -2159,7 +2160,11 @@ function 提取詩文默詩碼( array $詩文s ) : array
 	{
 		return $temp3;
 	}
-	return array_intersect( ...$temp3 );
+	$dummy = array(); // fix the indexes
+	return array_merge( 
+		$dummy,
+		array_unique( 
+			array_intersect( ...$temp3 ) ) );
 }
 
 // 提取一首詩的陣列，該詩可以是詩組中的一首；「$詩碼」必須是默認詩碼
@@ -2182,5 +2187,4 @@ function 提取詩陣列( $詩碼 ) : array
 	}
 	return $杜甫詩陣列[ $詩碼 ];
 }
-
 ?>
