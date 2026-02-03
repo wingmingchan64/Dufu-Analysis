@@ -55,18 +55,4 @@ while( true )
 		}
 	}
 }
-function isAscii( string $str ) : bool
-{
-	return ( mb_detect_encoding( $str, 'ASCII' ) == 'ASCII' );
-    //return mb_check_encoding( $str, 'ASCII' );
-}
-
-function printBuffer( string $buffer )
-{
-	// remove space
-	$buffer = str_replace( ' ', '', $buffer );
-	// display
-	echo "=>", $buffer, "\n";
-}
-
 ?>

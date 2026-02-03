@@ -522,6 +522,13 @@ function 提取簡化坐標( string $坐標 ) : string
 // 提取頁碼,〚 後面的四個數字, garbage in, garbage out
 function 提取頁碼( string $坐標 ) : string
 {
+	$坐標regex = '/〚\d{4}:/';
+	$match = array();
+	$r = preg_match( $坐標regex, $坐標 );
+	if( !$r )
+	{
+		return "${坐標} 不是完整坐標。";
+	}
 	//$str = trim( $坐標, 坐標括號 );
 	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
 
@@ -1948,6 +1955,22 @@ to work with 杜甫詩陣列:
 1-副題
 序文 第三行
 */
+
+function 是合法坐標( array $坐標陣列, string $str ) : bool
+{
+	$文檔碼 = 提取頁碼( $str );
+	
+	if( !array_key_exists( $文檔碼, $坐標陣列 ) )
+	{
+		return false;
+	}
+	if( !in_array( $str, $坐標陣列[ $文檔碼 ] ) )
+	{
+		return false;
+	}
+	return true;
+}
+
 function 是完整坐標( string $str ) : bool
 {
 	// 必須有坐標括號
