@@ -7,9 +7,24 @@ set_error_handler( function (
 });
 
 require_once( '常數.php' );
+
+$dir = 'H:'.DS.'github'.DS.'Dufu-Analysis'.DS.
+	'analysis_programs'.DS.'函式文檔'.DS;
+$files = scandir( $dir );
+
+foreach( $files as $file )
+{
+	if( $file != '.' && $file != '..' )
+	{
+		require_once( $dir . $file );
+		//echo $dir . $file . NL;
+	}
+}
+
+/*
 require_once( '函式文檔\是合法完整坐標.php' );
 require_once( '函式文檔\是合法非完整坐標.php' );
-
+*/
 /*
 require_once( 杜甫資料庫 . '詩組_詩題.php' );
 require_once( 杜甫資料庫 . '帶序文之詩歌.php' );
