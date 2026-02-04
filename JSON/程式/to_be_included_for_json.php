@@ -17,12 +17,14 @@ require_once(
 	"analysis_programs" . DIRECTORY_SEPARATOR .
 	"常數.php" );
 require_once( 程式文件夾 . "函式.php" );
+
 require_once( 
 	杜甫分析文件夾 .
 	"JSON" . DS . "程式" . DS . "loader.php" );
 $JSON_BASE = 
 	杜甫分析文件夾 . "JSON" . DS . "數據結構";
 $DATA = new JsonDataLoader( $JSON_BASE );
+/*
 $默認詩文檔碼 = $DATA->get( 默認詩文檔碼 );
 $默認詩文檔碼_詩題 = $DATA->get( 默認詩文檔碼_詩題 );
 $默認詩文檔碼_詩文 = $DATA->get( 默認詩文檔碼_詩文 );
@@ -47,5 +49,5 @@ $默詩碼_蕭詩碼 = $蕭DATA->get( 默詩碼_蕭詩碼 );
 $蕭詩碼_默詩碼 = $蕭DATA->get( 蕭詩碼_默詩碼 );
 $詩題_蕭詩碼 = $蕭DATA->get( 詩題_蕭詩碼 );
 $蕭詩碼_詩題 = $蕭DATA->get( 蕭詩碼_詩題 );
-
+*/
 ?>

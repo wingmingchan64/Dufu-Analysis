@@ -7,6 +7,8 @@ set_error_handler( function (
 });
 
 require_once( '常數.php' );
+require_once( 程式文件夾 . "InvalidAnchorValueException.php" );
+
 
 $dir = 'H:'.DS.'github'.DS.'Dufu-Analysis'.DS.
 	'analysis_programs'.DS.'函式文檔'.DS;

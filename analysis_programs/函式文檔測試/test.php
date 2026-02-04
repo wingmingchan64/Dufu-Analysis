@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\analysis_programs\函式文檔測試\test.php
+php H:\github\Dufu-Analysis\analysis_programs\函式文檔測試\Test.php
 */
 require_once(
 	"H:" . DIRECTORY_SEPARATOR .
@@ -22,6 +22,5 @@ echo 是合法完整坐標( '〚0003:5.1.1-3〛' ), NL;
 
 echo 是合法非完整坐標( '〚5.1.1-3〛' ), NL;
 
-echo 
 ?>
 
