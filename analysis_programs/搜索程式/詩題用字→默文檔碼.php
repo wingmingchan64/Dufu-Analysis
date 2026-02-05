@@ -20,6 +20,9 @@ require_once(
 
 checkARGV( $argv, 2, 提供詩題 );
 $題 = fixText( trim( $argv[ 1 ] ) );
+
+$詩題_默認詩文檔碼 = 提取數據結構( 詩題_默認詩文檔碼 );
+
 $result = array();
 
 foreach( $詩題_默認詩文檔碼 as $詩題 => $默文檔碼 )

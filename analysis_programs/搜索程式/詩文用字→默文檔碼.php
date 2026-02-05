@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\詩文用字→默文檔碼.php 我居南
+php h:\github\Dufu-Analysis\analysis_programs\搜索程式\詩文用字→默文檔碼.php 反覆
 =>
 Array
 (
@@ -22,46 +22,20 @@ require_once(
 	"JSON" . DIRECTORY_SEPARATOR .
 	"程式" . DIRECTORY_SEPARATOR .
 	"to_be_included_for_json.php" );
-//require_once( 詩句_頁碼 );
-//require_once( 頁碼_詩題 );
 
 checkARGV( $argv, 2, 提供詩文 );
-$句 = fixText( trim( $argv[ 1 ] ) );
+$詩文 = fixText( trim( $argv[ 1 ] ) );
 $result = array();
 
-$坐標s = 提取詩文坐標( $句 );
-$result = array();
-$temp = array();
+$字數 = mb_strlen( $詩文 );
+$文_碼 = 提取數據結構( 數字對照陣列[ $字數 ] );
 
-foreach( $坐標s as $坐標 )
+if( array_key_exists( $詩文, $文_碼 ) )
 {
-	$默文檔碼 = 提取頁碼( $坐標 );
-	if( !in_array( $坐標, $temp ) )
-	{
-		array_push( $temp, $默文檔碼 );
-	}
+	$result = $文_碼[ $詩文 ];
+	//foreach( $碼s
 }
-print_r( $temp );
-exit;
-
-foreach( $詩句_頁碼 as $詩句 => $頁碼 )
-{
-	if( mb_strpos( $詩句, $句 ) !== false )
-	{
-		if( is_string( $頁碼 ) )
-		{
-			$result[ $詩句 ] = $頁碼 . ' ' . $頁碼_詩題[ $頁碼 ];
-		}
-		elseif( is_array( $頁碼 ) )
-		{
-			foreach( $頁碼 as $k => $頁 )
-			{
-				$result[ $詩句 ] = $頁 . ' ' . $頁碼_詩題[ $頁 ];
-			}
-		}
-	}
-}
-if( sizeof( $result ) == 0 )
+else
 {
 	array_push( $result, 無結果 );
 }
