@@ -1,7 +1,1 @@
-I ran your program. No duplicates. But the total is a bit bigger.
-
-total=381324
-unique=381324
-duplicates=0
-
-I made the mistake of counting only '〛",', having left out all '〛"'.
+ 
