@@ -10,18 +10,31 @@ require_once(
 	"程式" . DIRECTORY_SEPARATOR .
 	"to_be_included_for_json.php" );
 
-$默認詩文檔碼_詩題 = 提取數據結構( 默認詩文檔碼_詩題 );
 $content = file_get_contents(
 'H:\github\Dufu-Analysis\《全唐詩》\全目錄.txt' );
 $lines = explode( NL, $content );
 $content = '';
+$temp = array();
 
 foreach( $lines as $line )
 {
-	$文檔碼 = mb_substr( $line, 0, 4 );
-	$詩題 = $默認詩文檔碼_詩題[ $文檔碼 ];
-	echo $詩題, NL;
-	$content .= $詩題 . ' ' . '// ' . $line . NL;
+	$parts = explode( ' ', $line );
+	//echo $line, NL;
+	//echo $parts[3], NL;
+	$number = substr( $parts[3], 2, 4 );
+	
+	if( !array_key_exists( $number, $temp ) )
+	{
+		$temp[ $number ] = array();
+	}
+	array_push( $temp[ $number ], $line );
 }
-echo $content;
+ksort( $temp );
+foreach( $temp as $number => $lines )
+{
+	foreach( $lines as $line )
+	{
+		echo $line, NL;
+	}
+}
 ?>

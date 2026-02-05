@@ -2086,6 +2086,7 @@ function 提取數據結構( string $結構 ) : array
 	return $DATA->get( $結構 );;
 }
 // 提取一個詩文詞組的坐標 〚0276:12.2.2〛,〚0276:12.2.2-4〛
+/*
 function 提取詩文坐標( string $詩文 ) : array
 {
 	$字數 = mb_strlen( $詩文 );
@@ -2100,6 +2101,7 @@ function 提取詩文坐標( string $詩文 ) : array
 		return array( "杜甫詩中無「${詩文}」。" );
 	}
 }
+*/
 
 // 如果多於一個坐標，提取第一個
 function 提取默詩碼詩文坐標( string $默詩碼, string $詩文 ) : string
