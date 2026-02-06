@@ -1,0 +1,141 @@
+核心原則（讓亂象停住）
+
+程式、資料、產物嚴格分家
+“每本書/每個版本”一個 edition pack：其內自帶 mapping / 目錄 / 後設資料 / 規格
+JSON 只存「正式資產」：所有可重建的輸出（view、cache、臨時索引）不入庫或只存少量“入口級索引”
+任何 JSON 都必須有 schema / meta-metadata（最少也要有 schema_version + generator + generated_at + source_hash）
+
+Dufu-Analysis 建議目錄樹（第二層）
+（我用你習慣的中英混合命名：中文可讀、英文不歧義、路徑可穩定）
+Dufu-Analysis/
+  README.md
+  CHANGELOG.md
+  AI貢獻記錄（ChatGPT）/
+    對話記錄與提示語（Prompts）/
+    AI協助之程式設計與文件整理記錄.md
+    （其他你已經在用的結構保持不動）
+  specs/                          # 規格與 meta-metadata（“語言本身”）
+    schema_versions.md
+    anchors/                      # a 值域、黑名單、坐標表等“語法資產”
+      a_value_domain.json
+      a_blacklist.json
+      coordinate_tables/          # 你說的兩個坐標表
+    json_schemas/                 # JSON schema（或你自定的規格檔）
+      annotation.schema.json
+      poem_index.schema.json
+      mapping.schema.json
+    conventions/                  # 命名、鍵域、值域、cat 枚舉等
+      metadata_keys.json
+      cat_enum.json
+  programs/                       # 生成/檢驗/匯出/搜索 的程式（工廠）
+    php/
+      lib/                        # 常數.php、函式.php、驗證函式（含 InvalidAnchorValueException）
+      generate/                   # 生成 JSON/索引/目錄
+      validate/                   # 批量驗證（a 值、mapping、一致性）
+      export/                     # 匯出 view（HTML/TXT/CSV…）
+      search/                     # CLI 搜索、反向索引查詢
+      tools/                      # 一次性工具、修復腳本
+    python/
+      pipelines/
+      search/
+      notebooks/                  # 若有（可選）
+  editions/                       # 每本書/每版本的“專屬包”（核心！）
+    QTS/                          # 全唐詩
+      README.md
+      meta.json                   # 此 edition 的 meta-metadata（版本、來源、生成規則）
+      mappings/
+        doc_to_doc.json           # 文檔碼↔文檔碼（多對多）
+        poem_to_poem.json         # 詩碼↔詩碼（一對一，預留 rel/note 欄位作保險絲）
+      catalogs/
+        toc.json                  # 目錄（你剛編完的）
+        order.json                # 版本內排序（顛倒問題在這裡處理）
+      annotations/
+        marks.jsonl               # 〘〙標記“正式集”（建議 jsonl，利於增量與 diff）
+      indexes/                    # edition 內“入口級索引”（少量、必要才入庫）
+        by_poem.json              # poem_id -> [mark_ids]
+        by_cat.json               # cat -> [mark_ids]
+        by_anchor.json            # a -> [mark_ids]（若很大可分片）
+      views/                      # 若你要存少量人讀文檔（可選，且要克制）
+        overview.md
+    Duyi/                         # 《杜臆》
+      ...（同上）
+    ZhaoCigong/
+      ...
+    DuFuYueYin/                   # 你的《粵音注音》（原文可公開的 edition）
+      ...
+  assets/                         # 跨 edition 共用的資料（非原始文本）
+    dictionaries/
+    variant_tables/
+    stoplists/
+  build/                          # 生成產物（預設 gitignore）
+    editions/
+      QTS/
+        views/                    # 逐詩完整 view（HTML/TXT）
+        cache/
+        tmp/
+    logs/
+  tests/                          # 驗證規則、回歸測試（非常建議）
+    fixtures/
+    phpunit/ or simple scripts
+  .gitignore
+  
+你列的「必須有」逐條對應
+
+✅ AI貢獻記錄（ChatGPT）：原地保留成頂層資產（不跟程式/JSON 混）
+✅ 生成數據結構的 PHP 程式：programs/php/generate/ + programs/php/lib/
+✅ JSON 數據結構（正式資產）：放在 editions/<ED>/annotations/、catalogs/、mappings/、indexes/
+✅ 某本書專屬文檔（mapping/目錄/後設資料）：全部收進 editions/<ED>/...
+✅ 搜索程式（PHP、Python）：programs/php/search/、programs/python/search/
+✅ 其他 view 文檔：
+若是“入口級、小量、對外說明用” → editions/<ED>/views/
+若是“逐詩全文 view、大量可重建” → build/（gitignore）
+
+立刻能止亂的兩條硬規矩
+1) JSON 的「正式存放點」只能在兩處
+- specs/：語法/規格/值域（封閉的）
+- editions/：某版本的 assets（mapping/目錄/標記/index）
+其他地方出現 JSON，一律視作：
+- 臨時
+- cache
+- build artifact
+→ 放 build/ 或 programs/.../tmp，並 gitignore。
+2) 〘〙標記集建議改用 jsonl
+你現在的結構很適合 marks.jsonl：每行一條 record（含 id, a, cat, ...）。好處：
+增量生成容易
+diff 乾淨（不會整檔重排）
+批量驗證/索引生成非常快
+
+Examples:
+{"name": "Alice", "age": 30, "skills": ["Python", "JavaScript"]}
+
+.gitignore 建議（關鍵）
+
+把“可重建、會爆量”的東西擋在 repo 外：
+
+/build/
+/programs/**/tmp/
+/programs/**/__pycache__/
+大型索引分片若你決定不入庫（例如 by_anchor 巨大）也可改放 build
+
+但：mapping、目錄、標記集（jsonl）、入口級索引我建議入庫，這些是第二層核心資產。
+
+最後：你現在真正需要的「重建順序」（不問你確認，給最佳路徑）
+1. 先把 specs/ 定下來（鍵域/值域/黑名單/坐標表/基本 schema 版本）
+2. 把 editions/QTS/ 做成第一個標準包（目錄、mapping、標記集、入口索引）
+3. 把兩個驗證函式（含 Exception）升級成「批量驗證工具」掛到 programs/php/validate/
+4. 再擴展第二個 edition（如《杜臆》）驗證架構通用性
+5. 最後才談大規模 view 生成（全部進 build，不入庫）
+
+如果你願意，我下一步可以直接幫你把：
+
+editions/<ED>/meta.json 應該包含哪些 meta-metadata 欄位
+poem_to_poem.json / doc_to_doc.json 的最小欄位集（含你說的一對一/多對多）
+marks.jsonl 每條 record 的“允許鍵域清單”（封閉鍵域）
+
+這三件一旦定稿，你的「JSON-related 亂象」會立刻收斂。
+
+
+
+list( $text, $meta ) = explode( NL, $line, 2 );
+$meta = rtrim( ltrim( $meta, '〘'), '〙' );
+$data = json_decode( $meta, true );

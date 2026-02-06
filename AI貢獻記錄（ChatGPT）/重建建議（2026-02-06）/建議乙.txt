@@ -1,0 +1,183 @@
+你兩個 repo 的定位（用一句話釘死）
+
+-DuFu（第一層）：原始材料倉庫（你輸入/整理/創作的文本與最貼近來源的檔案），以「可追溯」為核心。
+-Dufu-Analysis（第二層）：衍生材料工廠（目錄、索引、mapping、JSON 數據結構、生成器、搜索工具、報表與 view），以「可再生」為核心。
+
+這樣一來，Dufu-Analysis 裡的任何東西都可以問一句：它是 source（不能丟）還是 artifact（可重建可丟）？
+
+Dufu-Analysis 建議目錄骨架（能容納你列的必需品）
+0) 最頂層（只放“導航與規範”）
+Dufu-Analysis/
+  README.md
+  CHANGELOG.md
+  LICENSE
+  docs/
+  AI貢獻記錄（ChatGPT）/
+  tools/
+  data/
+  packages/
+  views/
+  tmp/   (gitignore)
+
+1) 必須保留：AI貢獻記錄（ChatGPT）
+
+你已經把它當作工程的一部分了，就應該當作一級公民：
+
+AI貢獻記錄（ChatGPT）/
+
+✅ 全部進 repo（這是你的工程史與設計史）
+
+2) 生成數據結構的 PHP 程式（你說的“工廠機器”）
+
+我建議把「程式」集中到 tools/，並強制分層，不要再散落各處：
+
+tools/
+  php/
+    lib/                 # 純函式/類：坐標、錨點驗證、讀寫JSON、共用工具
+    bin/                 # 可執行入口：generate_xxx.php、build_xxx.php
+    pipelines/           # 明確的流程編排：build_index.php 之類（可選）
+  python/
+    lib/
+    bin/
+  schemas/
+    json/                # JSON schema 或你自訂的結構定義、欄位字典
+
+✅ tools/php/lib、tools/php/bin、tools/python/...、tools/schemas/... 進 repo
+✅ 任何跑出來的中間檔（cache/log）不進 repo
+
+你提到的兩個函式 是合法錨值()、是可用錨值() 就應該屬於 tools/php/lib/anchors.php 這一層。
+
+3) JSON 數據結構（第二層的“產品核心”）
+
+你說「已經出現亂象」，通常原因是：
+JSON 混了“源資料”和“生成物”
+或同一類 JSON 沒有固定位置與命名規則
+
+我建議把 JSON 先分成兩個大類：
+
+A. 可發布、可引用的“數據集”（進 repo）放在 data/：
+
+data/
+  global/                # 跨書、跨來源通用：坐標表、黑名單、欄位字典、枚舉等
+    anchors/
+      a_value_domain.json
+      a_blacklist.json
+    coords/
+      coord_table_1.json
+      coord_table_2.json
+    enums/
+      cat_enum.json
+      line_type_enum.json
+
+  indexes/               # 生成後要長期用、且體量可控的索引（進 repo 或按需）
+    by_poem.json
+    by_cat.json
+    by_anchor.json
+
+  registry/              # “書目登記”：有哪些 package、版本、代號（強烈建議）
+    packages.json
+	
+B. 每本書/版本的專屬 JSON（進 repo）
+
+這一塊我建議用「package」的概念（下面第 4 點），不要直接散在 data 根目錄。
+
+4) 專屬某本書的文檔（mapping、目錄、後設資料…）＝ packages/
+
+你列的「某本書的 mapping、目錄、後設資料（〘〙標記）」最適合做成 package，每個 package 自己帶清楚：
+
+-我是什麼書
+-我用什麼版本
+-我如何對到默認座標
+-我的 metadata / mapping / 目錄在哪
+
+建議結構：
+
+packages/
+  QTS/                         # 全唐詩
+    meta/
+      package.json             # 這個 package 的自我描述：代號、來源、版本、生成日期等
+    mapping/
+      doc2doc.json             # 文檔碼↔文檔碼（多對多）
+      poem2poem.json            # 詩碼↔詩碼（一對一）
+    catalogs/
+      toc.json                  # 目錄（你剛編完的）
+    annotations/
+      marks.json                # 〘〙標記生成後的主陣列（你示例那種）
+      marks_by_id.json          # 可選：by_id view
+    notes/
+      README.md                 # 本書特有規則/例外記錄
+
+packages/
+  杜甫全集校注/
+    meta/
+    mapping/
+    catalogs/
+    annotations/
+    notes/
+packages/
+  趙次公注/
+  杜臆/
+  杜甫全集粵音注音/
+  
+✅ packages/*/meta、mapping、catalogs、annotations、notes 進 repo（如果不涉版權內容）
+⚠️ 若某 package 的 annotations/notes 可能含受版權原文，立刻分成：
+
+packages/.../annotations_public/（只含可公開結構）
+packages/.../annotations_private/（你本地用，gitignore）
+
+5) 搜索程式（PHP、Python）
+
+這類工具應該是跨 package 的，不要放在某本書裡。放回 tools/ 最乾淨：
+
+tools/
+  php/
+    bin/
+      search.php
+      list_poem.php
+      render_view.php
+  python/
+    bin/
+      search.py
+      stats.py
+
+✅ 進 repo
+
+6) 其他 view 文檔（你說“要大很多”，這裡要分清楚：入口 vs 產物）
+我建議把 view 分成兩類：
+
+A. 規範與模板（進 repo）
+views/
+  templates/
+    poem.html.php
+    index.html.php
+  specs/
+    view_types.md            # 有哪些 view？每種輸入/輸出是什麼？
+B. 大量生成結果（通常不進 repo）
+views/
+  build/                    # 生成出的 html/txt/json 報表等（gitignore）
+
+這樣你就不會因為 view 文檔越來越多而拖垮倉庫。
+
+gitignore 建議（避免你說的“亂象”加劇）
+
+在 Dufu-Analysis 裡，只要是可重建的產物，一律 ignore：
+
+tmp/
+views/build/
+cache/
+logs/
+packages/**/private/（若你要保留私用原文/私用映射）
+
+你甚至可以定一條硬規則：
+
+repo 只收「規則、映射、索引、結構化標記」；不收「大量渲染輸出」。
+
+你問的「我需要重新設計 Dufu-Analysis 的文檔結構」：我建議你用這個搬家順序
+
+先把 AI貢獻記錄 固定在頂層（不用動它）
+把所有程式收攏到 tools/（先收斂“機器”）
+把「書本資料」全部收進 packages/（一書一包，從 QTS 開始）
+data/global/ 放你剛生成的：坐標表、a 黑名單、enum 等
+最後才處理 view：把生成結果踢出 repo（或只留少量索引級 view）
+
+如果你願意把你目前 Dufu-Analysis 現有的頂層目錄（只要貼一段 ls 的結果或大概列表）丟出來，我可以在不改你命名習慣的前提下，給你一個**“舊 → 新”搬遷對照表**（每個舊目錄要移到哪裡、哪些要拆成 package、哪些要改名、哪些要 gitignore）。这会比重新想象更省力，而且不会打断你正在写的 JSON code。
