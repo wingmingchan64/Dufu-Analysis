@@ -9,18 +9,21 @@ set_error_handler( function (
 require_once( '常數.php' );
 require_once( 程式文件夾 . "InvalidAnchorValueException.php" );
 
-
-$dir = 'H:'.DS.'github'.DS.'Dufu-Analysis'.DS.
-	'analysis_programs'.DS.'函式文檔'.DS;
+$dir = __DIR__ . DS . '函式文檔' . DS;
 $files = scandir( $dir );
+sort( $files, SORT_STRING );
 
 foreach( $files as $file )
 {
-	if( $file != '.' && $file != '..' )
-	{
-		require_once( $dir . $file );
-		//echo $dir . $file . NL;
-	}
+    $path = $dir . $file;
+
+    if(
+        is_file( $path )
+        && preg_match( '/\.php$/i', $file )
+    )
+    {
+        require_once( $path );
+    }
 }
 
 /*
@@ -2068,6 +2071,7 @@ function 是完整坐標( string $str ) : bool
 // 以數據結構名稱，提取該結構
 function 提取數據結構( string $結構 ) : array
 {
+	static $DATA = null;
 	require_once( 
 		"H:" . DIRECTORY_SEPARATOR .
 		"github" . DIRECTORY_SEPARATOR .
@@ -2081,7 +2085,11 @@ function 提取數據結構( string $結構 ) : array
 		"Dufu-Analysis" . DIRECTORY_SEPARATOR .
 		"JSON" . DIRECTORY_SEPARATOR .	
 		"數據結構";
-	$DATA = new JsonDataLoader( $JSON_BASE );
+		if( $DATA === null )
+		{
+			//$JSON_BASE = JSON_BASE;
+			$DATA = new JsonDataLoader( $JSON_BASE );
+		}
 	
 	return $DATA->get( $結構 );;
 }

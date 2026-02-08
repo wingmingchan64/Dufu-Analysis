@@ -1,6 +1,7 @@
 <?php
 /*
 杜甫資料庫編程部分所應用的常數
+用 /u
 */
 // 文件夾
 const DS = DIRECTORY_SEPARATOR;
@@ -31,9 +32,9 @@ const 坐標關括號 = '〛';
 const 坐標括號 = "〚〛";
 const 冒號 = '：'; // UNICODE!!!
 // preg_replace( 夾注regex, '', $ )
-const 夾注regex = '/\[\X+?]/';
-const 兩句regex = "/(\\X+?。\\X+?。)/";
-const 四句regex = "/(\\X+?。\\X+?。\\X+?。\\X+?。)/";
+const 夾注regex = '/\[\X+?]/u';
+const 兩句regex = "/(\\X+?。\\X+?。)/u";
+const 四句regex = "/(\\X+?。\\X+?。\\X+?。\\X+?。)/u";
 const 第一組新行regex = "$1\n";
 const ASCII = 'ASCII';
 const 數字 = '[0123456789 ]';
