@@ -13,7 +13,9 @@ class JsonDataLoader
 
     public function __construct( string $baseDir )
     {
-        if ( !is_dir( $baseDir ) ) {
+        if ( !is_dir( $baseDir ) ) 
+		{
+			echo $baseDir, NL;
             throw new RuntimeException( "JSON 目錄不存在：$baseDir" );
         }
         $this->baseDir = rtrim( $baseDir, DIRECTORY_SEPARATOR );

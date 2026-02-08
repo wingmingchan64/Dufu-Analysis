@@ -18,6 +18,8 @@ define( 'PHP_EXCEPTIONS_DIR', PHP_CODE_BASE_LIB_DIR . EXCEPTIONS_DIR );
 define( 'JSON_DATA_LOADER', 
 	PHP_CODE_BASE_LIB_DIR . 'JsonDataLoader.class.php' );
 
+define( 'JSON_BASE_DIR', dirname( __DIR__, 2 ) . DS .
+	'schemas' . DS . 'json' . DS );
 
 // load functions
 $func_dir = __DIR__ . DS . FUNCTIONS_DIR;
@@ -65,13 +67,21 @@ foreach( $files as $file )
 	}
 }
 
-
 // load json loader
 if( ! is_file( JSON_DATA_LOADER ) )
 {
     throw new RuntimeException( 'JsonDataLoader 未找到: ' . JSON_DATA_LOADER );
 }
 require_once( JSON_DATA_LOADER );
+echo JSON_BASE_DIR, NL;
+$DATA = new JsonDataLoader( JSON_BASE_DIR );
+
+
+
+
+
+
+
 
 
 require_once( 杜甫資料庫 . '異體字.php' );
@@ -2099,24 +2109,6 @@ function 是完整坐標( string $str ) : bool
 	}
 
 	return false;
-}
-// 以數據結構名稱，提取該結構
-function 提取數據結構( string $結構 ) : array
-{
-	static $DATA = null;
-	$JSON_BASE = 
-		"H:" . DIRECTORY_SEPARATOR .
-		"github" . DIRECTORY_SEPARATOR .
-		"Dufu-Analysis" . DIRECTORY_SEPARATOR .
-		"JSON" . DIRECTORY_SEPARATOR .	
-		"數據結構";
-		if( $DATA === null )
-		{
-			//$JSON_BASE = JSON_BASE;
-			$DATA = new JsonDataLoader( $JSON_BASE );
-		}
-	
-	return $DATA->get( $結構 );;
 }
 // 提取一個詩文詞組的坐標 〚0276:12.2.2〛,〚0276:12.2.2-4〛
 /*

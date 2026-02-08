@@ -1,13 +1,4 @@
 <?php
-/*
-require_once(
-	"H:" . DIRECTORY_SEPARATOR .
-	"github" . DIRECTORY_SEPARATOR .
-	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
-	"JSON" . DIRECTORY_SEPARATOR .
-	"程式" . DIRECTORY_SEPARATOR .
-	"to_be_included_for_json.php" );
-*/
 declare( strict_types = 1 );
 
 require_once( 
@@ -21,9 +12,11 @@ require_once( 程式文件夾 . "函式.php" );
 require_once( 
 	杜甫分析文件夾 .
 	"JSON" . DS . "程式" . DS . "loader.php" );
+/*
 $JSON_BASE = 
 	杜甫分析文件夾 . "JSON" . DS . "數據結構";
 $DATA = new JsonDataLoader( $JSON_BASE );
+*/
 /*
 $默認詩文檔碼 = $DATA->get( 默認詩文檔碼 );
 $默認詩文檔碼_詩題 = $DATA->get( 默認詩文檔碼_詩題 );

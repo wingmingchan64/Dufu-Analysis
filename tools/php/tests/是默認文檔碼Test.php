@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\tests\常數Test.php
+php H:\github\Dufu-Analysis\tools\php\tests\是默認文檔碼Test.php
 */
 require_once(
 	"H:" . DIRECTORY_SEPARATOR .
@@ -10,20 +10,8 @@ require_once(
 	"php" . DIRECTORY_SEPARATOR .
 	"lib" . DIRECTORY_SEPARATOR .
 	"常數.php" );
-
 require_once( PHP_GLOBAL_FUNCTIONS );
-echo JSON_BASE_DIR, NL;
 
-/*
-
-try
-{
-	throw new InvalidCoordinateException( '「Just a test of 常數。」' );
-}
-catch( InvalidCoordinateException $e )
-{
-	echo $e, NL;
-	echo '「完成測試。」', NL;
-}
-*/
+顯示布爾値( 是默認文檔碼( '0003' ), '0003 是默認文檔碼:' );
+顯示布爾値( 是默認文檔碼( '0004' ), '0004 是默認文檔碼:' );
 ?>
