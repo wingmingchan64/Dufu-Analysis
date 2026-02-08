@@ -7,9 +7,11 @@ require_once(
 	"H:" . DIRECTORY_SEPARATOR .
 	"github" . DIRECTORY_SEPARATOR .
 	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
-	"JSON" . DIRECTORY_SEPARATOR .
-	"程式" . DIRECTORY_SEPARATOR .
-	"to_be_included_for_json.php" );
+	"tools" . DIRECTORY_SEPARATOR .
+	"php" . DIRECTORY_SEPARATOR .
+	"lib" . DIRECTORY_SEPARATOR .
+	"常數.php" );
+require_once( PHP_GLOBAL_FUNCTIONS );
 
 checkARGV( $argv, 2, 提供默文檔碼 );
 $默文檔碼 = fixPageNum( trim( $argv[ 1 ] ) );
