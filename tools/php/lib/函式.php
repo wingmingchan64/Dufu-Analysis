@@ -1,4 +1,8 @@
 <?php
+/*
+函式
+
+*/
 set_error_handler( function ( 
 	$severity, $message, $file, $line )
 {
@@ -7,64 +11,69 @@ set_error_handler( function (
 });
 
 // load constants
-require_once( '常數.php' );
+require_once( __DIR__ . DS . '常數.php' );
+define( 'PHP_CODE_BASE_DIR', dirname( __DIR__ ) . DS );
+define( 'PHP_FUNCTIONS_DIR', PHP_CODE_BASE_LIB_DIR . FUNCTIONS_DIR );
+define( 'PHP_EXCEPTIONS_DIR', PHP_CODE_BASE_LIB_DIR . EXCEPTIONS_DIR );
+define( 'JSON_DATA_LOADER', 
+	PHP_CODE_BASE_LIB_DIR . 'JsonDataLoader.class.php' );
+
 
 // load functions
 $func_dir = __DIR__ . DS . FUNCTIONS_DIR;
+
+if( ! is_dir( $func_dir ) )
+{
+    throw new RuntimeException( '函式目錄不存在: ' . $func_dir );
+}
 $files = scandir( $func_dir );
 sort( $files, SORT_STRING );
 
 foreach( $files as $file )
 {
-    $path = $func_dir . $file;
+	$path = $func_dir . $file;
 
-    if(
-        is_file( $path )
-        && preg_match( '/\.php$/i', $file )
-    )
-    {
-        require_once( $path );
-    }
+	if(
+		is_file( $path )
+		&& preg_match( '/\.php$/i', $file )
+	)
+	{
+		require_once( $path );
+	}
 }
+
 
 // load exceptions
 $excep_dir = __DIR__ . DS . EXCEPTIONS_DIR;
+if( ! is_dir( $excep_dir ) )
+{
+    throw new RuntimeException( 'exceptions 目錄不存在: ' . $excep_dir );
+}
 $files = scandir( $excep_dir );
 sort( $files, SORT_STRING );
 
 foreach( $files as $file )
 {
-    $path = $excep_dir . $file;
+	$path = $excep_dir . $file;
 
-    if(
-        is_file( $path )
-        && preg_match( '/\.class\.php$/i', $file )
-    )
-    {
-        require_once( $path );
-    }
+	if(
+		is_file( $path )
+		&& preg_match( '/\.class\.php$/i', $file )
+	)
+	{
+		require_once( $path );
+	}
 }
 
+
 // load json loader
+if( ! is_file( JSON_DATA_LOADER ) )
+{
+    throw new RuntimeException( 'JsonDataLoader 未找到: ' . JSON_DATA_LOADER );
+}
 require_once( JSON_DATA_LOADER );
 
 
-/*
-require_once( '函式文檔\是合法完整坐標.php' );
-require_once( '函式文檔\是合法非完整坐標.php' );
-*/
-/*
-require_once( 杜甫資料庫 . '詩組_詩題.php' );
-require_once( 杜甫資料庫 . '帶序文之詩歌.php' );
-require_once( 杜甫資料庫 . '頁碼_路徑.php' );
-require_once( 杜甫資料庫 . '書目簡稱.php' );
-require( 杜甫資料庫 . '坐標_詩句.php' );
-require_once( 杜甫資料庫 . '頁碼_詩題.php' );
-require_once( 杜甫資料庫 . '二字組合_坐標.php' );
-require_once( 杜甫資料庫 . '三字組合_坐標.php' );
-require_once( 杜甫資料庫 . '四字組合_坐標.php' );
-require_once( 杜甫資料庫 . '五字組合_坐標.php' );
-*/
 require_once( 杜甫資料庫 . '異體字.php' );
 
 $path_for_file = '';
@@ -2095,13 +2104,6 @@ function 是完整坐標( string $str ) : bool
 function 提取數據結構( string $結構 ) : array
 {
 	static $DATA = null;
-	require_once( 
-		"H:" . DIRECTORY_SEPARATOR .
-		"github" . DIRECTORY_SEPARATOR .
-		"Dufu-Analysis" . DIRECTORY_SEPARATOR .
-		"JSON" . DIRECTORY_SEPARATOR .
-		"程式" . DIRECTORY_SEPARATOR .
-		"loader.php" );
 	$JSON_BASE = 
 		"H:" . DIRECTORY_SEPARATOR .
 		"github" . DIRECTORY_SEPARATOR .

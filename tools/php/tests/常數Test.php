@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\test\常數Test.php
+php H:\github\Dufu-Analysis\tools\php\tests\常數Test.php
 */
 require_once(
 	"H:" . DIRECTORY_SEPARATOR .
@@ -13,6 +13,8 @@ require_once(
 
 require_once( PHP_GLOBAL_FUNCTIONS );
 
+
+
 try
 {
 	throw new InvalidCoordinateException( '「Just a test of 常數。」' );
@@ -22,4 +24,5 @@ catch( InvalidCoordinateException $e )
 	echo $e, NL;
 	echo '「完成測試。」', NL;
 }
+
 ?>

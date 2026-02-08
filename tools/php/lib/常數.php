@@ -8,16 +8,11 @@ const LIB = 'lib' . DS;
 const BIN = 'bin' . DS;
 const EXCEPTIONS_DIR = 'exceptions' . DS;
 const FUNCTIONS_DIR = 'functions' . DS;
-const PHP_CODE_BASE_DIR = 
-	'H:' . DS . 'github' . DS . 'Dufu-Analysis' . DS .
-	'tools' . DS . 'php' . DS;
-const PHP_CODE_BASE_LIB_DIR = PHP_CODE_BASE_DIR . LIB;
-const PHP_CODE_BASE_BIN_DIR = PHP_CODE_BASE_DIR . BIN;
-const PHP_GLOBAL_FUNCTIONS  = PHP_CODE_BASE_LIB_DIR . '函式.php';
-const PHP_FUNCTIONS_DIR     = PHP_CODE_BASE_LIB_DIR . FUNCTIONS_DIR;
-const PHP_EXCEPTIONS_DIR    = PHP_CODE_BASE_LIB_DIR . EXCEPTIONS_DIR;
-const JSON_DATA_LOADER           = PHP_CODE_BASE_LIB_DIR . 
-	'JsonDataLoader.class.php';
+const PHP_CODE_BASE_LIB_DIR = __DIR__ . DS;
+const PHP_GLOBAL_FUNCTIONS = PHP_CODE_BASE_LIB_DIR . '函式.php';
+
+
+
 
 
 
