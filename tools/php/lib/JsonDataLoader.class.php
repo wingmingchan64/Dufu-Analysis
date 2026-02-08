@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare( strict_types = 1 );
 
 /**
  * JSON Loader for 杜甫資料

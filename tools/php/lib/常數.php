@@ -1,10 +1,26 @@
 <?php
 /*
-杜甫資料庫編程部分所應用的常數
-用 /u
+杜甫資料庫編程部分所應用的 PHP 常數
 */
-// 文件夾
+// 程式文件夾
 const DS = DIRECTORY_SEPARATOR;
+const LIB = 'lib' . DS;
+const BIN = 'bin' . DS;
+const EXCEPTIONS_DIR = 'exceptions' . DS;
+const FUNCTIONS_DIR = 'functions' . DS;
+const PHP_CODE_BASE_DIR = 
+	'H:' . DS . 'github' . DS . 'Dufu-Analysis' . DS .
+	'tools' . DS . 'php' . DS;
+const PHP_CODE_BASE_LIB_DIR = PHP_CODE_BASE_DIR . LIB;
+const PHP_CODE_BASE_BIN_DIR = PHP_CODE_BASE_DIR . BIN;
+const PHP_GLOBAL_FUNCTIONS  = PHP_CODE_BASE_LIB_DIR . '函式.php';
+const PHP_FUNCTIONS_DIR     = PHP_CODE_BASE_LIB_DIR . FUNCTIONS_DIR;
+const PHP_EXCEPTIONS_DIR    = PHP_CODE_BASE_LIB_DIR . EXCEPTIONS_DIR;
+const JSON_DATA_LOADER           = PHP_CODE_BASE_LIB_DIR . 
+	'JsonDataLoader.class.php';
+
+
+
 const 杜甫資料庫 = 'h:'.DS.'杜甫資料庫'.DS;
 const 平水韻文件夾 = 杜甫資料庫.'平水韻'.DS;
 const 中古聲母文件夾 = 杜甫資料庫.'中古聲母'.DS;

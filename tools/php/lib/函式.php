@@ -6,16 +6,17 @@ set_error_handler( function (
 		$severity, $file, $line );
 });
 
+// load constants
 require_once( '常數.php' );
-require_once( 程式文件夾 . "InvalidAnchorValueException.php" );
 
-$dir = __DIR__ . DS . '函式文檔' . DS;
-$files = scandir( $dir );
+// load functions
+$func_dir = __DIR__ . DS . FUNCTIONS_DIR;
+$files = scandir( $func_dir );
 sort( $files, SORT_STRING );
 
 foreach( $files as $file )
 {
-    $path = $dir . $file;
+    $path = $func_dir . $file;
 
     if(
         is_file( $path )
@@ -25,6 +26,28 @@ foreach( $files as $file )
         require_once( $path );
     }
 }
+
+// load exceptions
+$excep_dir = __DIR__ . DS . EXCEPTIONS_DIR;
+$files = scandir( $excep_dir );
+sort( $files, SORT_STRING );
+
+foreach( $files as $file )
+{
+    $path = $excep_dir . $file;
+
+    if(
+        is_file( $path )
+        && preg_match( '/\.class\.php$/i', $file )
+    )
+    {
+        require_once( $path );
+    }
+}
+
+// load json loader
+require_once( JSON_DATA_LOADER );
+
 
 /*
 require_once( '函式文檔\是合法完整坐標.php' );
