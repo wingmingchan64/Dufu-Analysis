@@ -1,1 +1,53 @@
-詩選/
+# =========================
+# Build / generated outputs
+# =========================
+
+# All build artifacts (views, exports, caches)
+build/
+
+# Package-local build outputs (if any)
+packages/**/build/
+
+# Large generated views / exports
+packages/**/views/*.txt
+packages/**/views/*.json
+packages/**/views/*.md
+
+# =========================
+# Generated indexes (rebuildable)
+# =========================
+
+packages/**/indexes/
+packages/**/indexes/*.json
+packages/**/indexes/*.jsonl
+
+# =========================
+# Generated data caches
+# =========================
+
+data/cache/
+cache/
+
+# =========================
+# Logs
+# =========================
+
+logs/
+*.log
+
+# =========================
+# OS / editor noise
+# =========================
+
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+
+# =========================
+# Large generated JSON/JSONL
+# (keep generators, ignore products)
+# =========================
+
+*.jsonl
+*.jsonl.gz
