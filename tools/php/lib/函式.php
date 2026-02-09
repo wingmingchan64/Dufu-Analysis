@@ -15,10 +15,10 @@ require_once( __DIR__ . DIRECTORY_SEPARATOR . '常數.php' );
 define( 'PHP_CODE_BASE_DIR', dirname( __DIR__ ) . DS );
 define( 'PHP_FUNCTIONS_DIR', PHP_CODE_BASE_LIB_DIR . FUNCTIONS_DIR );
 define( 'PHP_EXCEPTIONS_DIR', PHP_CODE_BASE_LIB_DIR . EXCEPTIONS_DIR );
-define( 'JSON_DATA_LOADER', 
+define( 'JSON_DATA_LOADER',
 	PHP_CODE_BASE_LIB_DIR . 'JsonDataLoader.class.php' );
 
-define( 'JSON_BASE_DIR', dirname( __DIR__, 2 ) . DS .
+define( 'JSON_BASE_DIR', dirname( __DIR__, 3 ) . DS .
 	'schemas' . DS . 'json' . DS );
 
 // load functions
