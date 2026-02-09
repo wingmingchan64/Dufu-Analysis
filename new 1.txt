@@ -1,0 +1,4 @@
+還有一組很重要的文檔：
+
+1. 生成像「默認詩文檔碼」（JSON） 的 PHP: 我假設是放在 tools\php\bin\
+2. 默認詩文檔碼：我假設是放在 tools\schemas\json

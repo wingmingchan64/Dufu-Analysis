@@ -11,7 +11,7 @@ set_error_handler( function (
 });
 
 // load constants
-require_once( __DIR__ . DS . '常數.php' );
+require_once( __DIR__ . DIRECTORY_SEPARATOR . '常數.php' );
 define( 'PHP_CODE_BASE_DIR', dirname( __DIR__ ) . DS );
 define( 'PHP_FUNCTIONS_DIR', PHP_CODE_BASE_LIB_DIR . FUNCTIONS_DIR );
 define( 'PHP_EXCEPTIONS_DIR', PHP_CODE_BASE_LIB_DIR . EXCEPTIONS_DIR );
@@ -73,7 +73,6 @@ if( ! is_file( JSON_DATA_LOADER ) )
     throw new RuntimeException( 'JsonDataLoader 未找到: ' . JSON_DATA_LOADER );
 }
 require_once( JSON_DATA_LOADER );
-echo JSON_BASE_DIR, NL;
 $DATA = new JsonDataLoader( JSON_BASE_DIR );
 
 

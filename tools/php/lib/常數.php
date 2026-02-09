@@ -176,17 +176,8 @@ const 次序 = "次序";
 const 選項指令 = "要搜索甚麼？請輸入選項數字；用 exit 來結束。\n";
 const 搜索程式文件夾 = "h:\\github\\Dufu-Analysis\\analysis_programs\\搜索程式\\";
 const 默認版本選項指令 = array(
-// php h:\github\Dufu-Analysis\analysis_programs\搜索程式\search.php
-
-/*
-	// 一般參考
-	'目錄' => '',
-	'全集' => '',
-*/
-	// 用頁碼搜索
 	'默文檔碼→詩題'        => "請輸入默文檔碼：\n",
 	'默文檔碼→詩文'        => "請輸入默文檔碼：\n",
-	
 	'詩題用字→默文檔碼' => "請輸入詩題用字:\n",
 	'詩文用字→默文檔碼' => "請輸入詩文用字:\n",
 	//'詩題注音→默文檔碼' => "請輸入\"si1 tai4 zyu3 jam1\":\n",

@@ -1,14 +1,10 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\analysis_programs\搜索程式\搜索默認版本.php 
+php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\搜索默認版本.php
 */
-require_once(
-	"H:" . DIRECTORY_SEPARATOR .
-	"github" . DIRECTORY_SEPARATOR .
-	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
-	"JSON" . DIRECTORY_SEPARATOR .
-	"程式" . DIRECTORY_SEPARATOR .
-	"to_be_included_for_json.php" );
+require_once( 
+	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
+	'lib' . DIRECTORY_SEPARATOR . '函式.php' );
 
 while( true )
 {
@@ -40,7 +36,7 @@ while( true )
 				$參數 = '';
 			}
 			
-			$executable = "php " . 搜索程式文件夾 . $程式 . 程式後綴 . ' ' . $參數;
+			$executable = "php " . __DIR__ . DS . $程式 . 程式後綴 . ' ' . $參數;
 			$output = null;
 			$retval = null;
 			echo NL;
