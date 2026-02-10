@@ -101,7 +101,7 @@ foreach( $默認詩文檔碼 as $文檔 )
 			{
 				$文檔名 = "${文檔}-${首碼}.json";
 				$temp = array();
-				$temp[ $文檔 ] = $杜甫詩陣列[ $文檔 ][ $首碼 ];
+				$temp[ $文檔 ][ $首碼 ] = $杜甫詩陣列[ $文檔 ][ $首碼 ];
 				$json = json_encode(
 					$temp,
 					JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
@@ -138,12 +138,10 @@ $json = json_encode(
     JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
 );
 
-
 file_put_contents(
 	dirname( __DIR__, 4 ) . DS .
 	SCHEMAS_JSON_BASE_TEXT_DIR .
 	"杜甫詩陣列.json",
 	$json . PHP_EOL );
-
 ?>
 
