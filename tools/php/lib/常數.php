@@ -2,17 +2,80 @@
 /*
 杜甫資料庫編程部分所應用的 PHP 常數
 */
-// 程式文件夾
+// 系統文件夾
 const DS = DIRECTORY_SEPARATOR;
-const LIB = 'lib' . DS;
-const BIN = 'bin' . DS;
+// packages
+const PACKAGES_DIR = 'packages' . DS;
+// schemas
+const SCHEMAS_DIR = 'schemas' . DS;
+const SCHEMAS_JSON_DIR = SCHEMAS_DIR . 'json' . DS;
+// 錨
+const SCHEMAS_JSON_ANCHORS_DIR = SCHEMAS_JSON_DIR . 'anchors' . DS;
+// 基文
+const SCHEMAS_JSON_BASE_TEXT_DIR = SCHEMAS_JSON_DIR . 'base_text' . DS;
+// 坐標
+const SCHEMAS_JSON_COORDS_DIR = SCHEMAS_JSON_DIR . 'coords' . DS;
+// 身份
+const SCHEMAS_JSON_IDS_DIR = SCHEMAS_JSON_DIR . 'ids' . DS;
+// 映射
+const SCHEMAS_JSON_MAPPING_DIR = SCHEMAS_JSON_DIR . 'mapping' . DS;
+// 籍
+const SCHEMAS_JSON_REGISTRY_DIR = SCHEMAS_JSON_DIR . 'registry' . DS;
+// 集合
+const SCHEMAS_JSON_SETS_DIR = SCHEMAS_JSON_DIR . 'sets' . DS;
+const ANCHORS_DIR = 'anchors' . DS;
+const BASE_TEXT_DIR = 'base_text' . DS;
+const COORDS_DIR = 'coords' . DS;
+const IDS_DIR = 'ids' . DS;
+const MAPPING_DIR = 'mapping' . DS;
+const REGISTRY_DIR = 'registry' . DS;
+const SETS_DIR = 'sets' . DS;
+
+// tests
+const TESTS_DIR = 'tests' . DS;
+const TESTS_PHP_DIR = TESTS_DIR . 'php' . DS;
+const TESTS_PYTHON_DIR = TESTS_DIR . 'python' . DS;
+// tools
+const TOOLS_DIR = 'tools' . DS;
+const TOOLS_PHP_DIR = TOOLS_DIR . 'php' . DS;
+const TOOLS_PHP_BIN_DIR = TOOLS_PHP_DIR . 'bin' . DS;
+const TOOLS_PHP_BIN_ANNOTATIONS_DIR = TOOLS_PHP_BIN_DIR . 'annotations' . DS;
+const TOOLS_PHP_BIN_BASE_TEXT_DIR = TOOLS_PHP_BIN_DIR . 'base_text' . DS;
+const TOOLS_PHP_BIN_CATALOG_DIR = TOOLS_PHP_BIN_DIR . 'catalog' . DS;
+const TOOLS_PHP_BIN_SCHEMAS_DIR = TOOLS_PHP_BIN_DIR . 'schemas' . DS;
+const TOOLS_PHP_BIN_VIEWS_DIR = TOOLS_PHP_BIN_DIR . 'views' . DS;
+const TOOLS_PHP_LIB_DIR = TOOLS_PHP_DIR . 'lib' . DS;
+const TOOLS_PHP_LIB_EXCEPTIONS_DIR = TOOLS_PHP_LIB_DIR . 'exceptions' . DS;
+const TOOLS_PHP_LIB_FUNCTIONS_DIR = TOOLS_PHP_LIB_DIR . 'functions' . DS;
+const TOOLS_PYTHON_DIR = TOOLS_DIR . 'python' . DS;
+const LIB_DIR = 'lib' . DS;
+const BIN_DIR = 'bin' . DS;
 const EXCEPTIONS_DIR = 'exceptions' . DS;
 const FUNCTIONS_DIR = 'functions' . DS;
 const PHP_CODE_BASE_LIB_DIR = __DIR__ . DS;
 const PHP_GLOBAL_FUNCTIONS = PHP_CODE_BASE_LIB_DIR . '函式.php';
 
+// JSON data structures
+const 默認詩文檔碼 = IDS_DIR . '默認詩文檔碼'; // 0013
+const 默認版本詩碼 = IDS_DIR . '默認版本詩碼'; // 0013-1
+const 帶序言之詩 = IDS_DIR . '帶序言之詩';
+const 默認詩文檔碼_詩題 = MAPPING_DIR . '默認詩文檔碼_詩題';
+const 詩題_默認詩文檔碼 = MAPPING_DIR . '詩題_默認詩文檔碼';
+const 組詩_副題       = MAPPING_DIR . '組詩_副題';
+const 默認詩文檔碼_詩文 = MAPPING_DIR . '默認詩文檔碼_詩文';
+const 默認詩文檔碼_序言 = MAPPING_DIR . '默認詩文檔碼_序言';
+const 默認詩文檔碼_題注 = MAPPING_DIR . '默認詩文檔碼_題注';
+const 默認詩文檔碼_行碼_內容 = MAPPING_DIR . '默認詩文檔碼_行碼_內容';
 
+const 句碼_詩句 = COORDS_DIR .'句碼_詩句';
 
+const 行碼_詩文 = '行碼_詩文';
+const 字碼_詩字 = '字碼_詩字';
+const 詩字_字碼 = '詩字_字碼';
+const 杜甫詩陣列 = '杜甫詩陣列';
+const 文檔碼_碼_字 = '文檔碼_碼_字';
+const 默認詩文檔碼_詩文重見名單 = '默認詩文檔碼_詩文重見名單';
+const 默認詩文檔碼_詩文_坐標 = '默認詩文檔碼_詩文_坐標';
 
 
 
@@ -311,31 +374,14 @@ const 無字碼   = '無此字碼。';
 // 新增： JSON
 const 數據結構 = '數據結構';
 const 數據結構文件夾 = 杜甫分析文件夾.'JSON'.DS.數據結構.DS;
-const 組詩_副題 = '組詩_副題';
-const 帶序文之詩 = '帶序文之詩';
 const 書目簡稱 = '書目簡稱';
 const 默認版本 = '默認版本';
-const 默認版本詩碼 = '默認版本詩碼'; // 0013-1
-const 默認詩文檔碼 = '默認詩文檔碼'; // 0013
 const 默認詩文檔碼_空陣列 = '默認詩文檔碼_空陣列';
-const 默認詩文檔碼_詩題 = '默認詩文檔碼_詩題';
-const 默認詩文檔碼_詩文 = '默認詩文檔碼_詩文';
-const 詩題_默認詩文檔碼 = '詩題_默認詩文檔碼';
-const 默認詩文檔碼_序文 = '默認詩文檔碼_序文';
-const 默認詩文檔碼_題注 = '默認詩文檔碼_題注';
 const 默認詩文檔碼_完整坐標表 = '默認詩文檔碼_完整坐標表';
 const 完整坐標表 = '完整坐標表';
 const 非完整坐標表 = '非完整坐標表';
 const 詩文組合 = '詩文組合';
-const 默認詩文檔碼_詩文重見名單 = '默認詩文檔碼_詩文重見名單';
-const 默認詩文檔碼_詩文_坐標 = '默認詩文檔碼_詩文_坐標';
 
-const 行碼_詩文 = '行碼_詩文';
-const 句碼_詩句 = '句碼_詩句';
-const 字碼_詩字 = '字碼_詩字';
-const 詩字_字碼 = '詩字_字碼';
-const 杜甫詩陣列 = '杜甫詩陣列';
-const 文檔碼_碼_字 = '文檔碼_碼_字';
 /*
 const  = '';
 const  = '';
