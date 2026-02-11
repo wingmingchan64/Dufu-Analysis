@@ -1,7 +1,6 @@
 <?php
 /*
 函式
-
 */
 set_error_handler( function ( 
 	$severity, $message, $file, $line )
@@ -20,6 +19,9 @@ define( 'JSON_DATA_LOADER',
 
 define( 'JSON_BASE_DIR', dirname( __DIR__, 3 ) . DS .
 	'schemas' . DS . 'json' . DS );
+define( 'PACKAGES_JSON_DIR', dirname( __DIR__, 3 ) . DS .
+	'packages' . DS );
+
 
 // load functions
 $func_dir = __DIR__ . DS . FUNCTIONS_DIR;
@@ -74,13 +76,7 @@ if( ! is_file( JSON_DATA_LOADER ) )
 }
 require_once( JSON_DATA_LOADER );
 $DATA = new JsonDataLoader( JSON_BASE_DIR );
-
-
-
-
-
-
-
+$CATALOG = new JsonDataLoader( PACKAGES_JSON_DIR );
 
 
 require_once( 杜甫資料庫 . '異體字.php' );

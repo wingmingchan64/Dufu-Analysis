@@ -135,7 +135,7 @@ foreach( $默認詩文檔碼 as $文檔 )
 
 $json = json_encode(
     $杜甫詩陣列,
-    JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+    JSON_UNESCAPED_UNICODE //| JSON_PRETTY_PRINT
 );
 
 file_put_contents(
