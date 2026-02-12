@@ -12,7 +12,7 @@ require_once(
 	"to_be_included_for_json.php" );
 
 checkARGV( $argv, 2, 提供默文檔碼 );
-$默文檔碼 = fixPageNum( trim( $argv[ 1 ] ) );
+$默文檔碼 = fixDocID( trim( $argv[ 1 ] ) );
 
 $默認詩文檔碼 = 提取數據結構( 默認詩文檔碼 );
 $重見名單 = 提取數據結構( 默認詩文檔碼_詩文重見名單 );

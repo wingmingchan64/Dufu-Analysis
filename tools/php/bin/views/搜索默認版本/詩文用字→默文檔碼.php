@@ -15,27 +15,22 @@ Array
     [乾坤幾反覆] => 5855 蘇大侍御渙，靜者也，旅于江 側，凡是不交州府之客，人事都絕久矣。肩輿江浦，忽訪老夫舟楫，而已茶酒內，余請誦近詩，肯吟數首，才力素壯，詞句動人。接對明日，憶其湧思雷出，書篋几杖之外，殷殷留金石聲，賦八韻記異，亦記老夫傾倒於蘇至矣
 )
 */
-require_once(
-	"H:" . DIRECTORY_SEPARATOR .
-	"github" . DIRECTORY_SEPARATOR .
-	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
-	"tools" . DIRECTORY_SEPARATOR .
-	"php" . DIRECTORY_SEPARATOR .
-	"lib" . DIRECTORY_SEPARATOR .
-	"常數.php" );
-require_once( PHP_GLOBAL_FUNCTIONS );
+require_once( 
+	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
+	'lib' . DIRECTORY_SEPARATOR . '函式.php' );
 
 checkARGV( $argv, 2, 提供詩文 );
 $詩文 = fixText( trim( $argv[ 1 ] ) );
 $result = array();
+$temp = array();
 
 $字數 = mb_strlen( $詩文 );
 $文_碼 = 提取數據結構( 數字對照陣列[ $字數 ] );
 
 if( array_key_exists( $詩文, $文_碼 ) )
 {
-	$result = $文_碼[ $詩文 ];
-	//foreach( $碼s
+	$temp = $文_碼[ $詩文 ];
+	//foreach( $temp 
 }
 else
 {

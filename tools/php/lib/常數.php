@@ -56,9 +56,45 @@ const PHP_CODE_BASE_LIB_DIR = __DIR__ . DS;
 const PHP_GLOBAL_FUNCTIONS = PHP_CODE_BASE_LIB_DIR . '函式.php';
 
 // JSON data structures
+
+//const 詩字_字碼 = '詩字_字碼';
+
+// anchors
+const 默認詩文檔碼_詩文重見名單 = 
+	ANCHORS_DIR . '默認詩文檔碼_詩文重見名單';
+// coords
+// coords 坐標
+const 一字組合_坐標 = COORDS_DIR . '一字組合_坐標';
+const 二字組合_坐標 = COORDS_DIR . '二字組合_坐標';
+const 三字組合_坐標 = COORDS_DIR . '三字組合_坐標';
+const 四字組合_坐標 = COORDS_DIR . '四字組合_坐標';
+const 五字組合_坐標 = COORDS_DIR . '五字組合_坐標';
+const 六字組合_坐標 = COORDS_DIR . '六字組合_坐標';
+const 七字組合_坐標 = COORDS_DIR . '七字組合_坐標';
+const 八字組合_坐標 = COORDS_DIR . '八字組合_坐標';
+const 九字組合_坐標 = COORDS_DIR . '九字組合_坐標';
+const 十字組合_坐標 = COORDS_DIR . '十字組合_坐標';
+const 十一字組合_坐標 = COORDS_DIR . '十一字組合_坐標';
+const 數字對照陣列 = array(
+	"1"=>一字組合_坐標, // 單字字碼
+	"2"=>二字組合_坐標, "3"=>三字組合_坐標,
+	"4"=>四字組合_坐標, "5"=>五字組合_坐標,
+	"6"=>六字組合_坐標, "7"=>七字組合_坐標,
+	"8"=>八字組合_坐標, "9"=>九字組合_坐標,
+	"10"=>十字組合_坐標, "11"=>十一字組合_坐標,
+);
+const 句碼_詩句 = COORDS_DIR . '句碼_詩句';
+const 行碼_詩文 = COORDS_DIR . '行碼_詩文';
+const 字碼_詩字 = COORDS_DIR . '字碼_詩字';
+const 默認詩文檔碼_完整坐標表 = COORDS_DIR . '默認詩文檔碼_完整坐標表';
+const 完整坐標表 = COORDS_DIR . '完整坐標表';
+const 非完整坐標表 = COORDS_DIR . '非完整坐標表';
+
+// ids
 const 默認詩文檔碼 = IDS_DIR . '默認詩文檔碼'; // 0013
 const 默認版本詩碼 = IDS_DIR . '默認版本詩碼'; // 0013-1
 const 帶序言之詩 = IDS_DIR . '帶序言之詩';
+// mapping
 const 默認詩文檔碼_詩題 = MAPPING_DIR . '默認詩文檔碼_詩題';
 const 詩題_默認詩文檔碼 = MAPPING_DIR . '詩題_默認詩文檔碼';
 const 組詩_副題       = MAPPING_DIR . '組詩_副題';
@@ -66,15 +102,10 @@ const 默認詩文檔碼_詩文 = MAPPING_DIR . '默認詩文檔碼_詩文';
 const 默認詩文檔碼_序言 = MAPPING_DIR . '默認詩文檔碼_序言';
 const 默認詩文檔碼_題注 = MAPPING_DIR . '默認詩文檔碼_題注';
 const 默認詩文檔碼_行碼_內容 = MAPPING_DIR . '默認詩文檔碼_行碼_內容';
+const 詩文組合 = SETS_DIR . '詩文組合';
 
-const 句碼_詩句 = COORDS_DIR .'句碼_詩句';
-
-const 行碼_詩文 = '行碼_詩文';
-const 字碼_詩字 = '字碼_詩字';
-const 詩字_字碼 = '詩字_字碼';
 const 杜甫詩陣列 = '杜甫詩陣列';
 const 文檔碼_碼_字 = '文檔碼_碼_字';
-const 默認詩文檔碼_詩文重見名單 = '默認詩文檔碼_詩文重見名單';
 const 默認詩文檔碼_詩文_坐標 = '默認詩文檔碼_詩文_坐標';
 
 
@@ -373,14 +404,10 @@ const 無字碼   = '無此字碼。';
 
 // 新增： JSON
 const 數據結構 = '數據結構';
-const 數據結構文件夾 = 杜甫分析文件夾.'JSON'.DS.數據結構.DS;
+//const 數據結構文件夾 = 杜甫分析文件夾.'JSON'.DS.數據結構.DS;
 const 書目簡稱 = '書目簡稱';
 const 默認版本 = '默認版本';
 const 默認詩文檔碼_空陣列 = '默認詩文檔碼_空陣列';
-const 默認詩文檔碼_完整坐標表 = '默認詩文檔碼_完整坐標表';
-const 完整坐標表 = '完整坐標表';
-const 非完整坐標表 = '非完整坐標表';
-const 詩文組合 = '詩文組合';
 
 /*
 const  = '';
@@ -388,25 +415,6 @@ const  = '';
 const  = '';
 const  = '';
 */
-const 一字組合_坐標 = '一字組合_坐標';
-const 二字組合_坐標 = '二字組合_坐標';
-const 三字組合_坐標 = '三字組合_坐標';
-const 四字組合_坐標 = '四字組合_坐標';
-const 五字組合_坐標 = '五字組合_坐標';
-const 六字組合_坐標 = '六字組合_坐標';
-const 七字組合_坐標 = '七字組合_坐標';
-const 八字組合_坐標 = '八字組合_坐標';
-const 九字組合_坐標 = '九字組合_坐標';
-const 十字組合_坐標 = '十字組合_坐標';
-const 十一字組合_坐標 = '十一字組合_坐標';
-const 數字對照陣列 = array(
-	"1"=>一字組合_坐標, // 單字字碼
-	"2"=>二字組合_坐標, "3"=>三字組合_坐標,
-	"4"=>四字組合_坐標, "5"=>五字組合_坐標,
-	"6"=>六字組合_坐標, "7"=>七字組合_坐標,
-	"8"=>八字組合_坐標, "9"=>九字組合_坐標,
-	"10"=>十字組合_坐標, "11"=>十一字組合_坐標,
-);
 
 // 坐標
 

@@ -25,7 +25,7 @@ require_once( 字_韻部 );
 require_once( 平水韻文件夾 . '韻部_平仄' . 程式後綴 );
 
 checkARGV( $argv, 2, 提供頁碼 );
-$頁碼 = fixPageNum( trim( $argv[ 1 ] ) );
+$頁碼 = fixDocID( trim( $argv[ 1 ] ) );
 $路徑 = 詩集文件夾 . $頁碼 . 程式後綴;
 $注音路徑 = 杜甫全集粵音注音文件夾 . $頁碼 . 程式後綴;
 $近體詩 = array(

@@ -16,7 +16,7 @@ $content = '';
 
 for( $i = 1; $i < 1456; $i++ )
 {
-	echo "'" . fixPageNum( $i ) . "'=>'',", NL;
+	echo "'" . fixDocID( $i ) . "'=>'',", NL;
 }
 
 

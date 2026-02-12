@@ -9,7 +9,7 @@ require_once( 頁碼 );
 
 checkARGV( $argv, 3, 提供頁、簡 );
 $result = array();
-$頁 = fixPageNum( trim( $argv[ 1 ] ) );
+$頁 = fixDocID( trim( $argv[ 1 ] ) );
 
 if( !in_array( $頁, $頁碼 ) )
 {

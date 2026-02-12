@@ -1,6 +1,6 @@
 <?php
 /*
- *
+ * 詩文片段是否存在於詩中。
  */
 function 是合法詩文( string $詩文 ) : bool
 {

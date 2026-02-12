@@ -22,6 +22,27 @@ define( 'JSON_BASE_DIR', dirname( __DIR__, 3 ) . DS .
 define( 'PACKAGES_JSON_DIR', dirname( __DIR__, 3 ) . DS .
 	'packages' . DS );
 
+// load exceptions before loading functions
+$excep_dir = __DIR__ . DS . EXCEPTIONS_DIR;
+if( ! is_dir( $excep_dir ) )
+{
+    throw new RuntimeException( 'exceptions 目錄不存在: ' . $excep_dir );
+}
+$files = scandir( $excep_dir );
+sort( $files, SORT_STRING );
+
+foreach( $files as $file )
+{
+	$path = $excep_dir . $file;
+
+	if(
+		is_file( $path )
+		&& preg_match( '/\.class\.php$/i', $file )
+	)
+	{
+		require_once( $path );
+	}
+}
 
 // load functions
 $func_dir = __DIR__ . DS . FUNCTIONS_DIR;
@@ -46,29 +67,6 @@ foreach( $files as $file )
 	}
 }
 
-
-// load exceptions
-$excep_dir = __DIR__ . DS . EXCEPTIONS_DIR;
-if( ! is_dir( $excep_dir ) )
-{
-    throw new RuntimeException( 'exceptions 目錄不存在: ' . $excep_dir );
-}
-$files = scandir( $excep_dir );
-sort( $files, SORT_STRING );
-
-foreach( $files as $file )
-{
-	$path = $excep_dir . $file;
-
-	if(
-		is_file( $path )
-		&& preg_match( '/\.class\.php$/i', $file )
-	)
-	{
-		require_once( $path );
-	}
-}
-
 // load json loader
 if( ! is_file( JSON_DATA_LOADER ) )
 {
@@ -78,6 +76,8 @@ require_once( JSON_DATA_LOADER );
 $DATA = new JsonDataLoader( JSON_BASE_DIR );
 $CATALOG = new JsonDataLoader( PACKAGES_JSON_DIR );
 
+// global array for storing test results
+$test_results = array();
 
 require_once( 杜甫資料庫 . '異體字.php' );
 
@@ -579,8 +579,8 @@ function 提取簡化坐標( string $坐標 ) : string
 		坐標關括號;
 }
 
-// 提取頁碼,〚 後面的四個數字, garbage in, garbage out
-function 提取頁碼( string $坐標 ) : string
+// 提取文檔碼,〚 後面的四個數字, garbage in, garbage out
+function 提取文檔碼( string $坐標 ) : string
 {
 	$坐標regex = '/〚\d{4}:/';
 	$match = array();
@@ -781,7 +781,7 @@ function 提取詩文末字坐標( string $頁碼, string $詩文, $保留頁碼
 	{
 		foreach( $坐標s as $坐標 )
 		{
-			if( 提取頁碼( $坐標 ) == $頁碼 )
+			if( 提取文檔碼( $坐標 ) == $頁碼 )
 			{
 				$坐 = $坐標;
 			}
@@ -959,7 +959,7 @@ function 提取版本詩文含夾注陣列(
 	
 	foreach( $版本異文、夾注 as $key => $value )
 	{
-		$頁碼 = 提取頁碼( $key );
+		$頁碼 = 提取文檔碼( $key );
 		if( $頁碼 != '' )
 		{
 			$題碼 = "〚{$頁碼}:1〛";
@@ -1257,7 +1257,7 @@ function containsPronunciation( string $haystack, string $needle ) : bool
 // 坐標必須是完整坐標
 function 提取詩句( string $坐標 ) : string
 {
-	$頁碼 = 提取頁碼( $坐標 );
+	$頁碼 = 提取文檔碼( $坐標 );
 	//$首碼 = 提取首碼( $坐標 );
 	$行碼 = 提取行碼( $坐標 );
 	$句碼 = 提取句碼( $坐標 );
@@ -1299,7 +1299,7 @@ function 在句中( string $句坐標, string $詞組坐標 ) : bool
 // $坐標 必須是完整坐標，必須有字碼
 function 提取詩文( string $坐標 ) : string
 {
-	$詩文頁碼 = 提取頁碼( $坐標 );
+	$詩文頁碼 = 提取文檔碼( $坐標 );
 	$詩文首碼 = 提取首碼( $坐標 );
 	$詩文行碼 = 提取行碼( $坐標 );
 	$詩文句碼 = 提取句碼( $坐標 );
@@ -1851,27 +1851,6 @@ function 在行至行範圍内( string $行至行範圍, int $行 ) : bool
 	return ( $行 >= $起 && $行 <= $止 );
 }
 
-function fixPageNum( string $num ) : string
-{
-	$int_num = intval( $num );
-	
-	if( $int_num > 0 && $int_num < 10 )
-	{
-		return '000' . $int_num;
-	}
-	elseif( $int_num > 9 && $int_num < 100 )
-	{
-		return '00' . $int_num;
-	}
-	elseif( $int_num > 99 && $int_num < 1000 )
-	{
-		return '0' . $int_num;
-	}
-	else
-	{
-		return $num;
-	}
-}
 
 function fixText( string $str ) : string
 {
@@ -2018,7 +1997,7 @@ to work with 杜甫詩陣列:
 /*
 function 是合法完整坐標( array $坐標陣列, string $str ) : bool
 {
-	$文檔碼 = 提取頁碼( $str );
+	$文檔碼 = 提取文檔碼( $str );
 	
 	if( !array_key_exists( $文檔碼, $坐標陣列 ) )
 	{
@@ -2146,7 +2125,7 @@ function 提取默詩碼詩文坐標( string $默詩碼, string $詩文 ) : stri
 	{
 		foreach( $坐標s as $坐標 )
 		{
-			if( 提取頁碼( $坐標 ) == $默詩碼 )
+			if( 提取文檔碼( $坐標 ) == $默詩碼 )
 			{
 				array_push( $result, $坐標 );
 			}
@@ -2188,7 +2167,7 @@ function 提取詩文默詩碼( array $詩文s ) : array
 				return $result;
 			}
 			
-			array_push( $temp2[ $文 ], 提取頁碼( $標 ) );
+			array_push( $temp2[ $文 ], 提取文檔碼( $標 ) );
 		}
 	}
 

@@ -39,7 +39,7 @@ else
 	foreach( array_keys( $result ) as $詩句 )
 	{
 		$坐標 = $詩句_坐標[ $詩句 ];
-		$頁碼 = 提取頁碼( $坐標 );
+		$頁碼 = 提取文檔碼( $坐標 );
 		$裸坐標 = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
 		
 		if( file_exists( 杜甫資料庫 . $書目簡稱[ "=${簡稱}" ] . "\\" . $頁碼 . ".php" ) )

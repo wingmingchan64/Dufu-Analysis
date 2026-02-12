@@ -3,12 +3,11 @@
 php h:\github\Dufu-Analysis\JSON\程式\生成完整坐標.php
 */
 require_once(
-	"H:" . DIRECTORY_SEPARATOR .
-	"github" . DIRECTORY_SEPARATOR .
-	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
-	"JSON" . DIRECTORY_SEPARATOR .
-	"程式" . DIRECTORY_SEPARATOR .
-	"to_be_included_for_json.php" );
+	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
+	'tools' . DIRECTORY_SEPARATOR .
+	"php" . DIRECTORY_SEPARATOR .
+	"lib" . DIRECTORY_SEPARATOR .
+	"函式.php" );
 $默認詩文檔碼 = 提取數據結構( 默認詩文檔碼 );
 $默認詩文檔碼_完整坐標表 = 提取數據結構( 默認詩文檔碼_完整坐標表 );
 

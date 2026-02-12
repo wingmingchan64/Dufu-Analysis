@@ -7,7 +7,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 書目簡稱 );
 
 checkARGV( $argv, 2, 提供頁碼 );
-$頁碼 = fixPageNum( trim( $argv[ 1 ] ) );
+$頁碼 = fixDocID( trim( $argv[ 1 ] ) );
 
 if( !array_key_exists( $頁碼, $頁碼_詩題 ) )
 {

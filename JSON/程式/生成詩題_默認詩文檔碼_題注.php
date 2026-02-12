@@ -6,12 +6,11 @@
  * Updated: 2026-01-25
  */
 require_once(
-	"H:" . DIRECTORY_SEPARATOR .
-	"github" . DIRECTORY_SEPARATOR .
-	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
-	"JSON" . DIRECTORY_SEPARATOR .
-	"程式" . DIRECTORY_SEPARATOR .
-	"to_be_included_for_json.php" );
+	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
+	'tools' . DIRECTORY_SEPARATOR .
+	"php" . DIRECTORY_SEPARATOR .
+	"lib" . DIRECTORY_SEPARATOR .
+	"函式.php" );
 $詩_BASE = 
 	"H:" . DIRECTORY_SEPARATOR .
 	"github" . DIRECTORY_SEPARATOR .
