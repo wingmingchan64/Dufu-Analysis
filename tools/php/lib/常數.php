@@ -102,7 +102,14 @@ const 默認詩文檔碼_詩文 = MAPPING_DIR . '默認詩文檔碼_詩文';
 const 默認詩文檔碼_序言 = MAPPING_DIR . '默認詩文檔碼_序言';
 const 默認詩文檔碼_題注 = MAPPING_DIR . '默認詩文檔碼_題注';
 const 默認詩文檔碼_行碼_內容 = MAPPING_DIR . '默認詩文檔碼_行碼_內容';
+// registry
+const 書目簡稱 = REGISTRY_DIR . '書目簡稱';
+const 異體字 = REGISTRY_DIR . '異體字';
+// sets
 const 詩文組合 = SETS_DIR . '詩文組合';
+// 
+
+
 
 const 杜甫詩陣列 = '杜甫詩陣列';
 const 文檔碼_碼_字 = '文檔碼_碼_字';
@@ -405,7 +412,6 @@ const 無字碼   = '無此字碼。';
 // 新增： JSON
 const 數據結構 = '數據結構';
 //const 數據結構文件夾 = 杜甫分析文件夾.'JSON'.DS.數據結構.DS;
-const 書目簡稱 = '書目簡稱';
 const 默認版本 = '默認版本';
 const 默認詩文檔碼_空陣列 = '默認詩文檔碼_空陣列';
 
