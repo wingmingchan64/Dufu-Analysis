@@ -13,7 +13,6 @@ if( !file_exists( $file_name ) )
 	throw new RumtimeException( "File not found." );
 }
 $file = file_get_contents( $file_name );
-//echo $file;
 $lines = explode( NL, $file );
 $contents = '[';
 

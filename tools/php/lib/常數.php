@@ -9,8 +9,6 @@ const PACKAGES_DIR = 'packages' . DS;
 // schemas
 const SCHEMAS_DIR = 'schemas' . DS;
 const SCHEMAS_JSON_DIR = SCHEMAS_DIR . 'json' . DS;
-// 錨
-const SCHEMAS_JSON_ANCHORS_DIR = SCHEMAS_JSON_DIR . 'anchors' . DS;
 // 基文
 const SCHEMAS_JSON_BASE_TEXT_DIR = SCHEMAS_JSON_DIR . 'base_text' . DS;
 // 坐標
@@ -19,6 +17,8 @@ const SCHEMAS_JSON_COORDS_DIR = SCHEMAS_JSON_DIR . 'coords' . DS;
 const SCHEMAS_JSON_IDS_DIR = SCHEMAS_JSON_DIR . 'ids' . DS;
 // 映射
 const SCHEMAS_JSON_MAPPING_DIR = SCHEMAS_JSON_DIR . 'mapping' . DS;
+// 後設資料
+const SCHEMAS_JSON_METADATA_DIR = SCHEMAS_JSON_DIR . 'metadata' . DS;
 // 籍
 const SCHEMAS_JSON_REGISTRY_DIR = SCHEMAS_JSON_DIR . 'registry' . DS;
 // 集合
@@ -59,10 +59,6 @@ const PHP_GLOBAL_FUNCTIONS = PHP_CODE_BASE_LIB_DIR . '函式.php';
 
 //const 詩字_字碼 = '詩字_字碼';
 
-// anchors
-const 默認詩文檔碼_詩文重見名單 = 
-	ANCHORS_DIR . '默認詩文檔碼_詩文重見名單';
-// coords
 // coords 坐標
 const 一字組合_坐標 = COORDS_DIR . '一字組合_坐標';
 const 二字組合_坐標 = COORDS_DIR . '二字組合_坐標';
@@ -102,6 +98,10 @@ const 默認詩文檔碼_詩文 = MAPPING_DIR . '默認詩文檔碼_詩文';
 const 默認詩文檔碼_序言 = MAPPING_DIR . '默認詩文檔碼_序言';
 const 默認詩文檔碼_題注 = MAPPING_DIR . '默認詩文檔碼_題注';
 const 默認詩文檔碼_行碼_內容 = MAPPING_DIR . '默認詩文檔碼_行碼_內容';
+const 默認詩文檔碼_詩文重見名單 = 
+	MAPPING_DIR . '默認詩文檔碼_詩文重見名單';
+// metadata
+
 // registry
 const 書目簡稱 = REGISTRY_DIR . '書目簡稱';
 const 異體字 = REGISTRY_DIR . '異體字';
