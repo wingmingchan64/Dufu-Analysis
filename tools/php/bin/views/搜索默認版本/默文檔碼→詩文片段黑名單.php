@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\默文檔碼→詩文.php 3
+php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\默文檔碼→詩文片段黑名單.php 3
 => 
 */
 require_once( 
@@ -15,6 +15,14 @@ if( !in_array( $默文檔碼, $默認詩文檔碼 ) )
 {
 	echo 無頁碼, NL;
 }
-$詩文文檔路徑 = 默認版本詩文件夾 . $默文檔碼 . '.txt';
-echo NL, file_get_contents( $詩文文檔路徑 );
+$黑名單 = 提取數據結構( 默認詩文檔碼_詩文重見名單 );
+
+if( !array_key_exists( $默文檔碼, $黑名單 ) )
+{
+	echo "此文檔中任何詩文片段均可用作錨値。", NL;
+}
+else
+{
+	print_r( $黑名單[ $默文檔碼 ] );
+}
 ?>

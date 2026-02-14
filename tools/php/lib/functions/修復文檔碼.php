@@ -37,6 +37,6 @@ function 修復文檔碼( string $num ) : string
 
 function fix_doc_id( string $num ) : string
 {
-	return fix_doc_id( $num );
+	return 修復文檔碼( $num );
 }
 ?>
