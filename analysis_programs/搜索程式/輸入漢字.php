@@ -5,8 +5,12 @@
  * Author: Wing Ming Chan
  * Updated: 2025-07-11
 */
-require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
-require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
+require_once(
+	dirname( __DIR__, 2 ) . DIRECTORY_SEPARATOR .
+	'tools' . DIRECTORY_SEPARATOR .
+	'php' . DIRECTORY_SEPARATOR .
+	'lib' . DIRECTORY_SEPARATOR .
+	'函式.php' );
 require_once( "四角字典.php" );
 //require_once( "速成粵.php" );
 //require_once( "速成詞.php" );
