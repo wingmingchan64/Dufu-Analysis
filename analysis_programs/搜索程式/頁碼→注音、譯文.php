@@ -32,7 +32,7 @@ if( sizeof( $argv ) < 2 )
 	exit;
 }
 
-$頁碼 = fixDocID( trim( $argv[ 1 ] ) );
+$頁碼 = fix_doc_id( trim( $argv[ 1 ] ) );
 $output = '';
 $路徑    = 詩集文件夾 . $頁碼 . 程式後綴;
 

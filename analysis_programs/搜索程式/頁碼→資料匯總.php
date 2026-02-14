@@ -7,7 +7,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
 checkARGV( $argv, 2, 提供頁碼 );
-$頁碼 = fixDocID( trim( $argv[ 1 ] ) );
+$頁碼 = fix_doc_id( trim( $argv[ 1 ] ) );
 // wrong page number
 if( !array_key_exists( $頁碼, $頁碼_詩題 ) )
 {

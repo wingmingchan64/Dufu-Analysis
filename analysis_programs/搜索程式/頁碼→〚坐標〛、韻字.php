@@ -13,7 +13,7 @@ if( sizeof( $argv ) < 2 )
 	exit;
 }
 
-$頁碼 = fixDocID( trim( $argv[ 1 ] ) );
+$頁碼 = fix_doc_id( trim( $argv[ 1 ] ) );
 $韻 = '';
 $output = '';
 

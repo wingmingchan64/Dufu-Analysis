@@ -1,6 +1,6 @@
 <?php
 /*
-php h:\github\Dufu-Analysis\JSON\程式\生成非完整坐標.php
+H:\github\Dufu-Analysis\tools\php\bin\coords\生成非完整坐標.php
 */
 require_once(
 	"H:" . DIRECTORY_SEPARATOR .

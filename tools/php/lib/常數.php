@@ -28,6 +28,7 @@ const BASE_TEXT_DIR = 'base_text' . DS;
 const COORDS_DIR = 'coords' . DS;
 const IDS_DIR = 'ids' . DS;
 const MAPPING_DIR = 'mapping' . DS;
+const METADATA_DIR = 'metadata' . DS;
 const REGISTRY_DIR = 'registry' . DS;
 const SETS_DIR = 'sets' . DS;
 
@@ -58,7 +59,7 @@ const PHP_GLOBAL_FUNCTIONS = PHP_CODE_BASE_LIB_DIR . '函式.php';
 // JSON data structures
 
 //const 詩字_字碼 = '詩字_字碼';
-
+// base_text
 // coords 坐標
 const 一字組合_坐標 = COORDS_DIR . '一字組合_坐標';
 const 二字組合_坐標 = COORDS_DIR . '二字組合_坐標';
@@ -85,6 +86,9 @@ const 字碼_詩字 = COORDS_DIR . '字碼_詩字';
 const 默認詩文檔碼_完整坐標表 = COORDS_DIR . '默認詩文檔碼_完整坐標表';
 const 完整坐標表 = COORDS_DIR . '完整坐標表';
 const 非完整坐標表 = COORDS_DIR . '非完整坐標表';
+const 詩碼坐標 = COORDS_DIR . '詩碼坐標';
+const 含範圍字碼完整坐標 = COORDS_DIR . '含範圍字碼完整坐標';
+const 默認詩文檔碼_詩文_坐標 = COORDS_DIR . '默認詩文檔碼_詩文_坐標';
 
 // ids
 const 默認詩文檔碼 = IDS_DIR . '默認詩文檔碼'; // 0013
@@ -101,7 +105,7 @@ const 默認詩文檔碼_行碼_內容 = MAPPING_DIR . '默認詩文檔碼_行�
 const 默認詩文檔碼_詩文重見名單 = 
 	MAPPING_DIR . '默認詩文檔碼_詩文重見名單';
 // metadata
-
+const 版文檔碼_後設標記紀錄 = METADATA_DIR . '版文檔碼_後設標記紀錄';
 // registry
 const 書目簡稱 = REGISTRY_DIR . '書目簡稱';
 const 異體字 = REGISTRY_DIR . '異體字';
@@ -111,9 +115,7 @@ const 詩文組合 = SETS_DIR . '詩文組合';
 
 
 
-const 杜甫詩陣列 = '杜甫詩陣列';
 const 文檔碼_碼_字 = '文檔碼_碼_字';
-const 默認詩文檔碼_詩文_坐標 = '默認詩文檔碼_詩文_坐標';
 
 
 
@@ -364,9 +366,17 @@ const 默認版本選項指令 = array(
 	//'以頁碼版本簡稱顯示版本原文' => "請輸入頁碼、版本簡稱:\n", // 改成 function
 );
 
-const 搜索坐標程式 = array(
-	'頁碼→詩題'        => "請輸入頁碼:\n",
+const 搜索坐標選項 = array(
+	
 );
+
+const 搜索目錄選項 = array(
+	'簡稱、版本詩碼→默認版本詩碼' => "請輸入簡稱、詩碼:\n",
+	'默認版本詩碼、簡稱→版本詩碼' => "請輸入詩碼、簡稱:\n",
+	'默認版本詩碼→各版本書頁碼' => "請輸入詩碼:\n",
+	
+);
+
 
 const 程式後綴 = '.php';
 
@@ -393,7 +403,12 @@ const 提供行碼     = '必須最後一個行碼。';
 const 提供雙字 = '必須提供兩個單字。';
 const 提供字詞 = '必須提供一或多個單字。';
 const 輸入程式名稱 = '必須提供程式名稱。';
-const 提供詩文陣列 = '必須提供詩文陣列（如：酒,髮）';
+const 提供詩文陣列 = '必須提供詩文陣列（如：酒,髮）。';
+// 目錄
+const 提供默詩碼、簡稱 = '必須提供默認版本詩碼、書目簡稱。';
+const 提供簡稱、版本詩碼 = '必須提供書目簡稱、版本詩碼。';
+const 提供默詩碼 = '必須提供默認版本詩碼。';
+
 
 const 無結果   = '沒有結果。';
 const 無頁碼   = '無此頁碼。';

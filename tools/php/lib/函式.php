@@ -24,7 +24,7 @@ define( 'PACKAGES_JSON_DIR', dirname( __DIR__, 3 ) . DS .
 
 // load exceptions before loading functions
 $excep_dir = __DIR__ . DS . EXCEPTIONS_DIR;
-if( ! is_dir( $excep_dir ) )
+if( !is_dir( $excep_dir ) )
 {
     throw new RuntimeException( 'exceptions 目錄不存在: ' . $excep_dir );
 }
@@ -47,7 +47,7 @@ foreach( $files as $file )
 // load functions
 $func_dir = __DIR__ . DS . FUNCTIONS_DIR;
 
-if( ! is_dir( $func_dir ) )
+if( !is_dir( $func_dir ) )
 {
     throw new RuntimeException( '函式目錄不存在: ' . $func_dir );
 }
@@ -68,7 +68,7 @@ foreach( $files as $file )
 }
 
 // load json loader
-if( ! is_file( JSON_DATA_LOADER ) )
+if( !is_file( JSON_DATA_LOADER ) )
 {
     throw new RuntimeException( 'JsonDataLoader 未找到: ' . JSON_DATA_LOADER );
 }
@@ -1295,7 +1295,7 @@ function 在句中( string $句坐標, string $詞組坐標 ) : bool
 	}
 	return false;
 }
-
+/*
 // $坐標 必須是完整坐標，必須有字碼
 function 提取詩文( string $坐標 ) : string
 {
@@ -1369,7 +1369,7 @@ function 提取詩文( string $坐標 ) : string
 
 	return '';
 }
-
+*/
 function 移除詩文夾注( string $帶夾注詩文 ) : string
 {
 	return preg_replace( 夾注regex, '', $帶夾注詩文 );
@@ -1390,131 +1390,38 @@ function 提取陣列値( array $陣列 ) : string
 	return $str;
 }
 
-// 完整坐標，其中不能有 - 
-function 坐標轉換成列陣路徑( string $坐標 ) : array
-{
-	// remove brackets
-	$坐標 = str_replace( 坐標開括號, '', 
-			str_replace( 坐標關括號, '', $坐標 ) );
-	// hyphen only
-	$坐標 = str_replace( ':', '-', $坐標 );
-	$坐標 = str_replace( '.', '-', $坐標 );
-	
-	return explode( '-', trim( $坐標, ' -' ) );
-}
+
 
 // 〚0276:20.2.2-4〛
-function 範圍字碼坐標轉換成列陣路徑( string $坐標 ): array
-{
-	$temp = array();
-	$result = array();
-	$match = array();
-	$範圍_regex = '/\.([\d+])-([\d+])/';
-	
-	$r = preg_match_all( $範圍_regex, "〚0276:20.2.2-4〛",
-		$match );
-	if( $r && sizeof( $match ) > 2 )
-	{
-		//print_r( $match );
-		$字碼s = range( 
-			intval( $match[ 1 ][ 0 ] ), 
-			intval( $match[ 2 ][ 0 ] ) );
-		foreach( $字碼s as $字碼 )
-		{
-			array_push( $temp,
-				str_replace( $match[ 0 ][ 0 ],
-				'.' . $字碼, $坐標 ) );
-		}
-	}
-	return $temp;
-}
-
-function 顯示坐標值( array $杜甫詩陣列, string $坐標 ) 
+function 顯示坐標値( array $杜甫詩陣列, string $坐標 ) 
 {
 	$路徑 = 坐標轉換成列陣路徑( $坐標 );
 	
-	if( sizeof( $路徑 ) == 4 )
+	switch( sizeof( $路徑 ) )
 	{
-		$值 = $杜甫詩陣列[ $路徑[ 0 ] ]
-			[ $路徑[ 1 ] ]
-			[ $路徑[ 2 ] ]
-			[ $路徑[ 3 ] ];
+		case 4:
+			$値 = $杜甫詩陣列[ $路徑[ 0 ] ]
+				[ $路徑[ 1 ] ]
+				[ $路徑[ 2 ] ]
+				[ $路徑[ 3 ] ];
+			break;
+		case 3:
+			$値 = $杜甫詩陣列[ $路徑[ 0 ] ]
+				[ $路徑[ 1 ] ]
+				[ $路徑[ 2 ] ];
+			break;
+		case 2:
+			$値 = $杜甫詩陣列[ $路徑[ 0 ] ]
+				[ $路徑[ 1 ] ];
+			break;
+		case 1:
+			$値 = $杜甫詩陣列[ $路徑[ 0 ] ];
+			break;
 	}
-	elseif( sizeof( $路徑 ) == 3 )
-	{
-		$值 = $杜甫詩陣列[ $路徑[ 0 ] ]
-			[ $路徑[ 1 ] ]
-			[ $路徑[ 2 ] ];
-	}
-	elseif( sizeof( $路徑 ) == 2 )
-	{
-		$值 = $杜甫詩陣列[ $路徑[ 0 ] ]
-			[ $路徑[ 1 ] ];
-	}
-	elseif( sizeof( $路徑 ) == 1 )
-	{
-		$值 = $杜甫詩陣列[ $路徑[ 0 ] ];
-	}
-	
-	print_r( $值 );
+
+	print_r( $値 );
 }
 
-// 必須包括首碼
-function 提取杜甫詩陣列詩文( array $詩文陣列, 
-	bool $加句號 = true,
-	bool $加新行 = true ) : string
-{
-	$contents = '';
-	
-	foreach( $詩文陣列 as $首碼 => $行子陣列 )
-	{
-		if( is_string( $行子陣列 ) )
-		{
-			//echo $首碼, NL;
-			continue;
-		}
-		
-		foreach( $行子陣列 as $句碼 => $句子陣列 )
-		{
-			//print_r( $句子陣列 );
-			if( is_string( $句子陣列 ) )
-			{
-				if( sizeof( $詩文陣列 ) > 1 )
-				{
-					$contents .= $句子陣列 . NL;
-				}
-				continue;
-			}
-			$行文 = '';
-			
-			//print_r( $句子陣列 );
-			
-			foreach( $句子陣列 as $字碼 => $字子陣列 )
-			{
-				$句文 = '';
-				
-				if( is_array( $字子陣列 ) )
-				{
-					foreach( $字子陣列 as $字碼 => $字 )
-					{
-						$句文 .= $字;
-					}
-					if( $加句號 )
-					{
-						$句文 .= '。';
-					}
-				}
-				$行文 .= $句文;
-			}
-			$contents .=  $行文;
-			if( $加新行 )
-			{
-				$contents .= NL;
-			}
-		}
-	}
-	return $contents;
-}
 
 function 顯示杜甫詩陣列詩文( 
 	array $詩組_詩題, string $頁碼,
@@ -2025,14 +1932,14 @@ function 是完整坐標( string $str ) : bool
 		str_replace( '〛', '', $str ) );
 	$match = array();
 	// 4 or 5 parts within 〚〛
-	$regex1 = '/\d{4}:/'; // 〚0003:〛
-	$regex2 = '/\d{4}:\d+:/'; // 〚0013:2:〛
-	$regex3 = '/\d{4}:\d+/'; // 〚0003:3〛
-	$regex4 = '/\d{4}:\d+:\d+/'; // 〚0013:2:11〛
-	$regex5 = '/\d{4}:\d+\.\d/'; // 〚0003:4.2〛
-	$regex6 = '/\d{4}:\d+:\d+\.\d/'; // 〚0013:2:11.1〛
-	$regex7 = '/\d{4}:\d+\.\d.\d+(-\d+)?/'; // 〚0003:5.1.2〛〚0003:5.1.2-4〛
-	$regex8 = '/\d{4}:\d+:\d+\.\d.\d+(-\d+)?/'; // 〚0013:2:11.2.5〛〚0013:2:11.2.1-3〛
+	$regex1 = '/\d{4}:/u'; // 〚0003:〛
+	$regex2 = '/\d{4}:\d+:/u'; // 〚0013:2:〛
+	$regex3 = '/\d{4}:\d+/u'; // 〚0003:3〛
+	$regex4 = '/\d{4}:\d+:\d+/u'; // 〚0013:2:11〛
+	$regex5 = '/\d{4}:\d+\.\d/u'; // 〚0003:4.2〛
+	$regex6 = '/\d{4}:\d+:\d+\.\d/u'; // 〚0013:2:11.1〛
+	$regex7 = '/\d{4}:\d+\.\d.\d+(-\d+)?/u'; // 〚0003:5.1.2〛〚0003:5.1.2-4〛
+	$regex8 = '/\d{4}:\d+:\d+\.\d.\d+(-\d+)?/u'; // 〚0013:2:11.2.5〛〚0013:2:11.2.1-3〛
 
 	$r = preg_match( $regex1, $str, $match );
 	if( $r && $match[ 0 ] == $str )
@@ -2186,7 +2093,7 @@ function 提取詩文默詩碼( array $詩文s ) : array
 		array_unique( 
 			array_intersect( ...$temp3 ) ) );
 }
-
+/*
 // 提取一首詩的陣列，該詩可以是詩組中的一首；「$詩碼」必須是默認詩碼
 function 提取詩陣列( $詩碼 ) : array
 {
@@ -2207,4 +2114,5 @@ function 提取詩陣列( $詩碼 ) : array
 	}
 	return $杜甫詩陣列[ $詩碼 ];
 }
+*/
 ?>

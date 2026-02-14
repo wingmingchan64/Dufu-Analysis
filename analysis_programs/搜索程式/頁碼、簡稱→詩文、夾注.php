@@ -26,7 +26,7 @@ require_once( 頁碼_詩題 );
 
 checkARGV( $argv, 3, 提供頁、簡 );
 $result = array();
-$頁 = fixDocID( trim( $argv[ 1 ] ) );
+$頁 = fix_doc_id( trim( $argv[ 1 ] ) );
 
 if( !in_array( $頁, $頁碼 ) )
 {

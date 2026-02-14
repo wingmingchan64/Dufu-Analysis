@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\JSON\程式\生成默認詩文檔碼_完整坐標表.php
+H:\github\Dufu-Analysis\tools\php\bin\coords\生成默認詩文檔碼_完整坐標表.php
 */
 ini_set('memory_limit', '2048M'); 
 require_once(

@@ -8,7 +8,7 @@ require_once(
 	'lib' . DIRECTORY_SEPARATOR . '函式.php' );
 
 checkARGV( $argv, 2, 提供默文檔碼 );
-$默文檔碼 = fixDocID( trim( $argv[ 1 ] ) );
+$默文檔碼 = fix_doc_id( trim( $argv[ 1 ] ) );
 $默認詩文檔碼 = 提取數據結構( 默認詩文檔碼 );
 
 if( !in_array( $默文檔碼, $默認詩文檔碼 ) )

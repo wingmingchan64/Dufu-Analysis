@@ -16,7 +16,7 @@ $content = '';
 
 for( $i = 1; $i < 1456; $i++ )
 {
-	echo "'" . fixDocID( $i ) . "'=>'',", NL;
+	echo "'" . fix_doc_id( $i ) . "'=>'',", NL;
 }
 
 
