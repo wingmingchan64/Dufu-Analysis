@@ -125,7 +125,9 @@ $json = json_encode(
 // catch errors from artificial ids
 
 file_put_contents(
-	__DIR__ . DS . "${簡稱}目錄.json",
+		dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
+	$書名 . DS .
+	"${簡稱}目錄.json",
 	$json . PHP_EOL );
 
 /*
