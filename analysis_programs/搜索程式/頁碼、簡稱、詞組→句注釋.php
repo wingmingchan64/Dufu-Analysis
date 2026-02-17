@@ -6,7 +6,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 //require_once(  );
 
-checkARGV( $argv, 4, 提供頁、簡、詞 );
+check_argv( $argv, 4, 提供頁、簡、詞 );
 $頁碼 = fix_doc_id( trim( $argv[ 1 ] ) );
 $簡稱 = fixText( trim( $argv[ 2 ] ) );
 $詞組 = fixText( trim( $argv[ 3 ] ) );

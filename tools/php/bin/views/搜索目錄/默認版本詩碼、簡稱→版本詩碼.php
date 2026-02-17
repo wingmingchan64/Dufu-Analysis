@@ -8,7 +8,7 @@ require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR . '函式.php' );
 
-checkARGV( $argv, 3, 提供默詩碼、簡稱 );
+check_argv( $argv, 3, 提供默詩碼、簡稱 );
 
 $默詩碼 = 修復文檔碼( trim( $argv[ 1 ] ) );
 echo $默詩碼, NL;

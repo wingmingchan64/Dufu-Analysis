@@ -7,7 +7,7 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼、詩文單字
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
-checkARGV( $argv, 3, 提供頁、字 );
+check_argv( $argv, 3, 提供頁、字 );
 $頁碼 = fix_doc_id( trim( $argv[ 1 ] ) );
 $用字 = fixText( trim( $argv[ 2 ] ) );
 

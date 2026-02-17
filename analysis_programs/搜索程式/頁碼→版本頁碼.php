@@ -6,7 +6,7 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\頁碼→版本頁碼
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 書目簡稱 );
 
-checkARGV( $argv, 2, 提供頁碼 );
+check_argv( $argv, 2, 提供頁碼 );
 $頁碼 = fix_doc_id( trim( $argv[ 1 ] ) );
 
 if( !array_key_exists( $頁碼, $頁碼_詩題 ) )

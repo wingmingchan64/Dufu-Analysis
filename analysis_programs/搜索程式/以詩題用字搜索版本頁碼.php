@@ -12,7 +12,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 詩題_頁碼 );
 require_once( 書目簡稱 );
 
-checkARGV( $argv, 3, 提供題、簡 );
+check_argv( $argv, 3, 提供題、簡 );
 $題   = trim( $argv[ 1 ] );
 $簡稱 = trim( $argv[ 2 ] );
 $陣列命 = $簡稱 . "内容";

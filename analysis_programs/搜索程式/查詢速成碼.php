@@ -7,7 +7,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
 // 參數
-checkARGV( $argv, 2, 提供字詞 );
+check_argv( $argv, 2, 提供字詞 );
 $字詞 = trim( $argv[ 1 ] );
 $字數 = mb_strlen( $字詞 );
 $pattern1 = "|速成碼: 首碼 \X+? 尾碼 \X+? 更新時間|";

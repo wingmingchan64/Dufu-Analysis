@@ -9,7 +9,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 詩題_頁碼 );
 //require_once( 頁碼_詩題 );
 
-checkARGV( $argv, 2, 提供詩題 );
+check_argv( $argv, 2, 提供詩題 );
 
 $題 = fixText( trim( $argv[ 1 ] ) );
 $result = array();

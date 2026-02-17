@@ -25,7 +25,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 注音_詩句 );
 require_once( 詩句_坐標 );
 
-checkARGV( $argv, 2, 提供詩文注音 );
+check_argv( $argv, 2, 提供詩文注音 );
 $粵音注音 = trim( $argv[ 1 ] );
 $result = array();
 $result[ 詩句 ] = array();

@@ -1,0 +1,24 @@
+{
+	"全":[
+		{
+			"abbr":"中",
+			"title":"《全唐詩》",
+			"info":"第七冊，北京中華書局1980年4月第1版",
+			"type":"PDF"
+		},
+		{
+			"abbr":"揚",
+			"title":"《御定全唐詩》",
+			"info":"第三十一至三十四冊，清康熙四十四年至四十六年揚州詩局刊本",
+			"type":"PDF",
+			"url":{
+				"description":
+				"https://data.library.sh.cn/gj/resource/instance/zo7se435fydwdbnb",
+				"download(31)":"https://upload.wikimedia.org/wikipedia/commons/a/ac/NLC892-411999031629-13919_%E5%85%A8%E5%94%90%E8%A9%A9_%E7%AC%AC31%E5%86%8A.pdf",
+				"download(32)":"https://commons.wikimedia.org/wiki/File:NLC892-411999031629-13966_%E5%85%A8%E5%94%90%E8%A9%A9_%E7%AC%AC32%E5%86%8A.pdf",
+				"download(33)":"https://commons.wikimedia.org/wiki/File:NLC892-411999031629-13964_%E5%85%A8%E5%94%90%E8%A9%A9_%E7%AC%AC33%E5%86%8A.pdf",
+				"download(34)":"https://commons.wikimedia.org/wiki/File:NLC892-411999031629-13965_%E5%85%A8%E5%94%90%E8%A9%A9_%E7%AC%AC34%E5%86%8A.pdf"
+			}
+		}
+	]
+}

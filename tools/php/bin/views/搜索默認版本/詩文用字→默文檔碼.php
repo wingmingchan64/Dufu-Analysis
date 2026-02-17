@@ -19,7 +19,7 @@ require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR . '函式.php' );
 
-checkARGV( $argv, 2, 提供詩文 );
+check_argv( $argv, 2, 提供詩文 );
 $詩文 = fixText( trim( $argv[ 1 ] ) );
 $result = array();
 $temp = array();
@@ -29,7 +29,7 @@ $文_碼 = 提取數據結構( 數字對照陣列[ $字數 ] );
 
 if( array_key_exists( $詩文, $文_碼 ) )
 {
-	$temp = $文_碼[ $詩文 ];
+	$result = $文_碼[ $詩文 ];
 	//foreach( $temp 
 }
 else

@@ -7,7 +7,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 詩句_注音 );
 
-checkARGV( $argv, 2, 提供詩句 );
+check_argv( $argv, 2, 提供詩句 );
 $句 = fixText( trim( $argv[ 1 ] ) );
 $result = array();
 

@@ -20,7 +20,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 詩句_頁碼 );
 require_once( 頁碼_詩題 );
 
-checkARGV( $argv, 2, 提供詩文 );
+check_argv( $argv, 2, 提供詩文 );
 $句 = trim( $argv[ 1 ] );
 $result = array();
 

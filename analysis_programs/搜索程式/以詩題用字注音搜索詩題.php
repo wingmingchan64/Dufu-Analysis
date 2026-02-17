@@ -13,7 +13,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 詩題_注音 );
 require_once( 詩題_頁碼 );
 
-checkARGV( $argv, 2, 提供題音 );
+check_argv( $argv, 2, 提供題音 );
 $音 = trim( $argv[ 1 ] );
 $result = array();
 $注音_詩題 = array_flip( $詩題_注音 );

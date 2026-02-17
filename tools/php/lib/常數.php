@@ -60,6 +60,7 @@ const PHP_GLOBAL_FUNCTIONS = PHP_CODE_BASE_LIB_DIR . '函式.php';
 
 //const 詩字_字碼 = '詩字_字碼';
 // base_text
+
 // coords 坐標
 const 一字組合_坐標 = COORDS_DIR . '一字組合_坐標';
 const 二字組合_坐標 = COORDS_DIR . '二字組合_坐標';
@@ -82,13 +83,16 @@ const 數字對照陣列 = array(
 );
 const 句碼_詩句 = COORDS_DIR . '句碼_詩句';
 const 行碼_詩文 = COORDS_DIR . '行碼_詩文';
+const 行碼_副題 = COORDS_DIR . '行碼_副題';
 const 字碼_詩字 = COORDS_DIR . '字碼_詩字';
 const 默認詩文檔碼_完整坐標表 = COORDS_DIR . '默認詩文檔碼_完整坐標表';
+const 默認詩文檔碼_碼_字 = COORDS_DIR . '文檔碼_碼_字';
 const 完整坐標表 = COORDS_DIR . '完整坐標表';
 const 非完整坐標表 = COORDS_DIR . '非完整坐標表';
 const 詩碼坐標 = COORDS_DIR . '詩碼坐標';
 const 含範圍字碼完整坐標 = COORDS_DIR . '含範圍字碼完整坐標';
 const 默認詩文檔碼_詩文_坐標 = COORDS_DIR . '默認詩文檔碼_詩文_坐標';
+
 
 // ids
 const 默認詩文檔碼 = IDS_DIR . '默認詩文檔碼'; // 0013
@@ -117,7 +121,6 @@ const 詩文組合 = SETS_DIR . '詩文組合';
 
 
 
-const 文檔碼_碼_字 = '文檔碼_碼_字';
 
 
 
@@ -284,6 +287,7 @@ const 默認版本選項指令 = array(
 	'默文檔碼→詩題'        => "請輸入默文檔碼：\n",
 	'默文檔碼→詩文'        => "請輸入默文檔碼：\n",
 	'詩題用字→默文檔碼' => "請輸入詩題用字:\n",
+	'詩題用字→詩文' => "請輸入詩題用字:\n",
 	'詩文用字→默文檔碼' => "請輸入詩文用字:\n",
 	'默文檔碼→詩文片段黑名單' => "請輸入默文檔碼：\n",
 	'默詩碼→詩首句'         => "請輸入默詩碼：\n",
@@ -401,7 +405,7 @@ const 提供詩文注音 = '必須提供詩文用字注音。';
 const 提供單字 = '必須提供詩文單字。';
 const 提供頁、字 = '必須提供頁碼、詩文單字。';
 const 提供音、簡 = '必須提供詩文注音、版本簡稱。';
-const 提供坐標 = '必須提供完整坐標。';
+const 提供完整坐標 = '必須提供完整坐標。';
 const 提供簡稱 = '必須提供版本簡稱。';
 const 提供簡稱、頁碼 = '必須提供版本簡稱、版本頁碼。';
 const 提供行碼     = '必須最後一個行碼。';

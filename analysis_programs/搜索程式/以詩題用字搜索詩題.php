@@ -21,7 +21,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 詩題_頁碼 );
 
-checkARGV( $argv, 2, 提供詩題 );
+check_argv( $argv, 2, 提供詩題 );
 $題 = trim( $argv[ 1 ] );
 $result = array();
 $詩題s = array_keys( $詩題_頁碼 );

@@ -8,7 +8,7 @@ require_once( 頁碼 );
 require_once( 頁碼_詩題 );
 require_once( 書目簡稱 );
 
-checkARGV( $argv, 3, 提供頁、簡 );
+check_argv( $argv, 3, 提供頁、簡 );
 $result = array();
 
 $頁 = fix_doc_id( trim( $argv[ 1 ] ) );

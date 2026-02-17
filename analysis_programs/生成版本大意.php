@@ -7,7 +7,7 @@ require_once( '函式.php' );
 require_once( 書目簡稱 );
 require_once( 頁碼 );
 
-checkARGV( $argv, 2, 提供簡稱 );
+check_argv( $argv, 2, 提供簡稱 );
 $簡稱 = trim( $argv[ 1 ] );
 $result = array();
 

@@ -8,7 +8,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 詩題_頁碼 );
 
-checkARGV( $argv, 3, 提供雙字 );
+check_argv( $argv, 3, 提供雙字 );
 $首字 = fixText( trim( $argv[ 1 ] ) );
 $次字 = fixText( trim( $argv[ 2 ] ) );
 $result = array();

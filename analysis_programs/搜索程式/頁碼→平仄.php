@@ -24,7 +24,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 字_韻部 );
 require_once( 平水韻文件夾 . '韻部_平仄' . 程式後綴 );
 
-checkARGV( $argv, 2, 提供頁碼 );
+check_argv( $argv, 2, 提供頁碼 );
 $頁碼 = fix_doc_id( trim( $argv[ 1 ] ) );
 $路徑 = 詩集文件夾 . $頁碼 . 程式後綴;
 $注音路徑 = 杜甫全集粵音注音文件夾 . $頁碼 . 程式後綴;

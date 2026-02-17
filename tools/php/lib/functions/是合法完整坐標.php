@@ -12,6 +12,7 @@ function 是合法完整坐標( string $str ) : bool
 	{
 		return false;
 	}
+	
 	return true;
 }
 ?>

@@ -13,7 +13,7 @@ require_once(
 	"常數.php" );
 require_once( PHP_GLOBAL_FUNCTIONS );
 
-checkARGV( $argv, 2, 提供詩題 );
+check_argv( $argv, 2, 提供詩題 );
 
 $題 = fixText( trim( $argv[ 1 ] ) );
 $result = array();

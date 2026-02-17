@@ -7,7 +7,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 書目簡稱 );
 
-checkARGV( $argv, 3, 提供頁、簡 );
+check_argv( $argv, 3, 提供頁、簡 );
 $頁碼 = trim( $argv[ 1 ] );
 $簡稱 = trim( $argv[ 2 ] );
 

@@ -15,7 +15,7 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\以頁碼提取詩文
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
-checkARGV( $argv, 2, 提供頁碼 );
+check_argv( $argv, 2, 提供頁碼 );
 $頁碼 = trim( $argv[ 1 ] );
 $path = 詩集文件夾 . $頁碼 . 程式後綴;
 

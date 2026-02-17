@@ -59,7 +59,7 @@ require_once( 頁碼 );
 require_once( 頁碼_詩題 );
 
 // 參數
-checkARGV( $argv, 3, 提供頁、簡 );
+check_argv( $argv, 3, 提供頁、簡 );
 $result = array();
 $頁 = trim( $argv[ 1 ] );
 if( !in_array( $頁, $頁碼 ) )

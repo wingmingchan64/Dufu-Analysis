@@ -14,7 +14,7 @@ require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR . '函式.php' );
 
-checkARGV( $argv, 2, 提供詩題 );
+check_argv( $argv, 2, 提供詩題 );
 $題 = fixText( trim( $argv[ 1 ] ) );
 
 $詩題_默認詩文檔碼 = 提取數據結構( 詩題_默認詩文檔碼 );

@@ -53,7 +53,7 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\坐標→詩文.php 0
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
-checkARGV( $argv, 2, 提供坐標 );
+check_argv( $argv, 2, 提供坐標 );
 $坐標 = trim( $argv[ 1 ], '〚〛' ); // 去掉〚〛
 print_r( 以坐標提取詩文( $坐標 ) );
 

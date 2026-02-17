@@ -5,13 +5,12 @@
 function 確認會丟( 
 	callable $fn, // name of function that can throw exception
 	string $exception_class, // name of exception
-	string $msg = '',
-	... $args ) 
+	string $msg = '' ) 
 	: bool
 {
 	try
     {
-        $fn( $args );
+        $fn();
     }
     catch( Throwable $e )
     {
@@ -24,8 +23,5 @@ function 確認會丟(
             $msg . ' (got ' . get_class( $e ) . ')'
         );
     }
-
-    throw new ConfirmationFailureException(
-		$msg . ' (no exception thrown)' );
 }
 ?>

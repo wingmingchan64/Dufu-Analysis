@@ -8,7 +8,7 @@ php h:\github\Dufu-Analysis\analysis_programs\搜索程式\生成行碼.php
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
-checkARGV( $argv, 2, 提供行碼 );
+check_argv( $argv, 2, 提供行碼 );
 $行碼 = trim( $argv[ 1 ] );
 $行 = intval( $行碼 );
 

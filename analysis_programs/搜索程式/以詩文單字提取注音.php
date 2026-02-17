@@ -8,7 +8,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 杜甫全集粵音注音文件夾 . '陳永明《杜甫全集粵音注音》字音.php' );
 require_once( 杜甫資料庫 . '修正統一碼字_粵音.php' );
 
-checkARGV( $argv, 2, 提供單字 );
+check_argv( $argv, 2, 提供單字 );
 $字 = trim( $argv[ 1 ] );
 $result = array();
 

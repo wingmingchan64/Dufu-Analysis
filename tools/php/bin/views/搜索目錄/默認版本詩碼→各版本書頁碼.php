@@ -8,7 +8,7 @@ require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR . '函式.php' );
 
-checkARGV( $argv, 2, 提供默詩碼 );
+check_argv( $argv, 2, 提供默詩碼 );
 
 $默詩碼 = 修復文檔碼( trim( $argv[ 1 ] ) );
 $版本資料 = 提取目錄( "版本目錄對照表" );
@@ -18,11 +18,9 @@ $json = json_encode(
 $json = preg_replace( '/{/', '', $json );
 $json = preg_replace( '/\s+}/', '', $json );
 $json = str_replace( ',', '', $json );
-	
+$json = preg_replace( '/\[/', '', $json );
+$json = preg_replace( '/\s+\]/', '', $json );
+
 print_r( $json );
-
-
-
-
 //print_r( $result );
 ?>

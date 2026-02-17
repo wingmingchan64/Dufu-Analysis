@@ -17,7 +17,7 @@ require_once( 注音_詩句 );
 require_once( 詩句_坐標 );
 require_once( 書目簡稱 );
 
-checkARGV( $argv, 3, 提供音、簡 );
+check_argv( $argv, 3, 提供音、簡 );
 $音 = trim( $argv[ 1 ] );
 $簡稱 = trim( $argv[ 2 ] );
 $result = array();

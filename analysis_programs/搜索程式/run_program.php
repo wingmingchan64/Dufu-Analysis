@@ -8,7 +8,7 @@ The execution of the program can have its own runtime parameters.
 */
 require_once( 'H:\github\Dufu-Analysis\analysis_programs\函式.php' );
 
-checkARGV( $argv, 2, 輸入程式名稱 );
+check_argv( $argv, 2, 輸入程式名稱 );
 // store program name
 $程式 = trim( $argv[ 1 ] );
 $additional = '';

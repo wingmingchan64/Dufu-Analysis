@@ -84,15 +84,6 @@ require_once( 杜甫資料庫 . '異體字.php' );
 $path_for_file = '';
 $text_of_file  = '';
 
-// check argv
-function checkARGV( array $argv, int $num, string $msg )
-{
-	if( sizeof( $argv ) != $num )
-	{
-		echo $msg, NL;
-		exit;
-	}
-}
 
 // 比較兩段文字。如果字數不同，不比較。
 function compareText(
@@ -160,120 +151,13 @@ function getAnnotation( string $file_path ) : string
 }
 */
 
-// given 〚0013:1:5-6〛, returns array containing
-// 〚0013:1:5〛,〚0013:1:6〛
-// only expands 行碼
-// 只接受完整坐標
-function 提取擴充行碼坐標( string $坐標 ) : array
-{
-	if( 是完整坐標( $坐標 ) === false )
-	{
-		return array( "不是完整坐標。" );
-	}
-	$regex1 = '/\d{4}:\d+-\d+/'; // 〚0003:5.1-4〛
-	$regex2 = '/\d{4}:\d+:\d+-\d+/'; // 〚0013:2:11-13〛
-	$裸坐標 = str_replace( '〚', '', 
-		str_replace( '〛', '', $坐標 ) );
-	$match = array();
-	
-	$r = preg_match( $regex1, $裸坐標, $match );
-	if( !$r || $match[ 0 ] != $裸坐標 )
-	{
-		$match = array();
-		$r = preg_match( $regex2, $裸坐標, $match );
-		if( !$r || $match[ 0 ] != $裸坐標 )
-		{
-			return array( "字碼沒有範圍數字。" );
-		}
-	}
-	// $parts[2], the last part
-	$parts = explode( '.', $裸坐標 );
-	$last = $parts[ 2 ];
-	$first = $parts[ 0 ] . '.' . $parts[ 1 ] . '.';
-	
-	$坐標陣列 = array();
-	$pre_parts = "";
-	$行範圍 = explode( '-', $last );
-	
-	if( intval( $行範圍[ 0 ] ) >= 
-		intval( $行範圍[ 1 ] ) )
-	{
-		return array( "字碼範圍數字不合規範。" );
-	}
-	$字碼範圍陣列 = 
-		range( intval( $行範圍[ 0 ] ), intval( $行範圍[ 1 ] ) );
-	
-	foreach( $字碼範圍陣列 as $字碼 )
-	{
-		array_push(
-			$坐標陣列,
-			'〚' . $first . $字碼 . '〛' );
-	}
-			
-	return $坐標陣列;
-}
-
-
-// given 〚0013:1:5.2.3-4〛, returns array containing
-// 〚0013:1:5.2.3〛,〚0013:1:5.2.4〛
-// only expands 字碼
-// 只接受完整坐標
-function 提取擴充字碼坐標( string $坐標 ) : array
-{
-	if( 是完整坐標( $坐標 ) === false )
-	{
-		return array( "不是完整坐標。" );
-	}
-	$regex1 = '/\d{4}:\d+\.\d.\d+-\d+/'; // 〚0003:5.1.2-4〛
-	$regex2 = '/\d{4}:\d+:\d+\.\d.\d+-\d+/'; // 〚0013:2:11.2.1-3〛
-	$裸坐標 = str_replace( '〚', '', 
-		str_replace( '〛', '', $坐標 ) );
-	$match = array();
-	
-	$r = preg_match( $regex1, $裸坐標, $match );
-	if( !$r || $match[ 0 ] != $裸坐標 )
-	{
-		$match = array();
-		$r = preg_match( $regex2, $裸坐標, $match );
-		if( !$r || $match[ 0 ] != $裸坐標 )
-		{
-			return array( "字碼沒有範圍數字。" );
-		}
-	}
-	// $parts[2], the last part
-	$parts = explode( '.', $裸坐標 );
-	$last = $parts[ 2 ];
-	$first = $parts[ 0 ] . '.' . $parts[ 1 ] . '.';
-	
-	$坐標陣列 = array();
-	$pre_parts = "";
-	$行範圍 = explode( '-', $last );
-	
-	if( intval( $行範圍[ 0 ] ) >= 
-		intval( $行範圍[ 1 ] ) )
-	{
-		return array( "字碼範圍數字不合規範。" );
-	}
-	$字碼範圍陣列 = 
-		range( intval( $行範圍[ 0 ] ), intval( $行範圍[ 1 ] ) );
-	
-	foreach( $字碼範圍陣列 as $字碼 )
-	{
-		array_push(
-			$坐標陣列,
-			'〚' . $first . $字碼 . '〛' );
-	}
-			
-	return $坐標陣列;
-}
-
 // gets the file contents
 function getFile( $file_path ) : string
 {
 	$text_of_file = file_get_contents( $file_path );
 	return $text_of_file;
 }
-
+/*
 // 決定一行詩在詩組中，屬於哪一首，用於計算首碼
 // titles: 詩組_詩題, example: ( 3, 10, 13, 20 )
 // $l_int: 詩句的行碼
@@ -290,7 +174,8 @@ function getOrderOfPoem( array $titles, int $l_int ) : int
 	}
 	return $count;
 }
-
+*/
+/*
 // 提取詩文
 // $file_path: h:\github\DuFu\01 卷一 3-270\0048 過宋員外之問舊莊.txt
 // 宋公舊池館。零落首陽阿。枉道祗從入。吟詩許更過。
@@ -350,7 +235,7 @@ function getPoem( string $path ) : string
 	}
 	return normalize( implode( $text_array ) );
 }
-
+*/
 // 在詩文之前加上行碼
 /*
 Array
@@ -363,6 +248,7 @@ Array
     [〚6〛] => 更識將軍樹，悲風日暮多。
 )
 */
+/*
 function getLN( string $path ) : array
 {
 	$text  = getFile( $path );
@@ -381,15 +267,16 @@ function getLN( string $path ) : array
 	}
 	return $ln_array;
 }
-
+*/
 // 提取序文
 // $帶序文之詩歌
+/*
 function getPreface( string $path ) : string
 {
 	global $帶序文之詩歌;
 	$preface = "";
 	//echo $path;
-/*	
+	
 	if( in_array( $path, $帶序文之詩歌 ) )
 	{
 		$preface_line = 3;
@@ -399,7 +286,7 @@ function getPreface( string $path ) : string
 			$preface_lines[1] != 4 )
 			return $preface;
 	}
-*/
+
 	$text  = getFile( $path );
 	$lines = explode( "\n", $text );
 	$preface_array = array();
@@ -415,7 +302,7 @@ function getPreface( string $path ) : string
 	
 	return $preface;
 }
-
+*/
 // 提取某個帶像「=浦」一類標記的部分。
 // return: array
 function getSection( string $path, string $prefix ) : array
@@ -457,69 +344,8 @@ function logToFile( string $file, string $content )
 		FILE_APPEND | LOCK_EX );
 }
 
-function normalize(
-	string $text,
-	bool $removeSpace = false,
-	bool $removeNewline = false,
-	bool $removePunctuation = false ) : string
-{
-	if( $removeSpace )
-	{
-		$text = str_replace( " ", "", $text );
-	}
-	if( $removeNewline )
-	{
-		$text = str_replace( "\n", "", $text );
-	}
-	$text = 
-		str_replace( "？", "。", // use 。
-		str_replace( "，", "。",
-		str_replace( "！", "。",
-		str_replace( "：", "。",
-		str_replace( "；", "。",
-		str_replace( "、", "。",
-		str_replace( "《", "",   // remove these
-		str_replace( "》", "",
-		str_replace( "〈", "",
-		str_replace( "〉", "",
-		str_replace( "「", "",
-		str_replace( "」", "",
-		str_replace( "『", "",
-		str_replace( "』", "",
-		str_replace( "·", "",
-		str_replace( "　", "",
-		str_replace( "其一", "",
-		str_replace( "其二", "",
-		str_replace( "其三", "",
-		str_replace( "其四", "",
-		str_replace( "其五", "",
-		str_replace( "其六", "",
-		str_replace( "其七", "",
-		str_replace( "其八", "",
-		str_replace( "其九", "",
-		str_replace( "其十", "",
-		str_replace( "其十一", "",
-		str_replace( "其十二", "",
-		str_replace( "其十三", "",
-		str_replace( "其十四", "",
-		str_replace( "其十五", "",
-		str_replace( "其十六", "",
-		str_replace( "其十七", "",
-		str_replace( "其十八", "",
-		str_replace( "其十九", "",
-		str_replace( "其二十", "", $text
-			))))))))))))))))))))))))))))))))))));  
-	$text = preg_replace( '/[\d]+ [\P{M}]+?\n/', "", $text );
-	$text = preg_replace( '/[\s]+/', "", $text );
-	
-	if( $removePunctuation )
-	{
-		$text = str_replace( "。", "", $text );
-	}
-	//echo $text;
-	return $text;
-}
 
+/*
 function 提取杜甫文件名稱() : array
 {
 	$sub_folder_array = array();
@@ -563,7 +389,7 @@ function 提取杜甫文件名稱() : array
 	
 	return $file_names;
 }
-
+*/
 // 去掉頁碼, garbage in, garbage out
 function 提取簡化坐標( string $坐標 ) : string
 {
@@ -579,108 +405,8 @@ function 提取簡化坐標( string $坐標 ) : string
 		坐標關括號;
 }
 
-// 提取文檔碼,〚 後面的四個數字, garbage in, garbage out
-function 提取文檔碼( string $坐標 ) : string
-{
-	$坐標regex = '/〚\d{4}:/';
-	$match = array();
-	$r = preg_match( $坐標regex, $坐標 );
-	if( !$r )
-	{
-		return "${坐標} 不是完整坐標。";
-	}
-	//$str = trim( $坐標, 坐標括號 );
-	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
 
-	$str_array = explode( ':', $str );
-	// 至少有兩塊
-	if( sizeof( $str_array ) < 2 ||
-		strlen( $str_array[ 0 ] ) !== 4 )
-	{
-		return $坐標;
-	}
-	return $str_array[ 0 ];
-}
 
-// 提取首碼, 1-20, garbage in, garbage out
-function 提取首碼( string $坐標 ) : string
-{
-	//$str = trim( $坐標, 坐標括號 );
-	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
-
-	$str_array = explode( ':', $str );
-	//print_r( $str_array );
-	if( sizeof( $str_array ) == 3 && // 有頁碼
-		( intval( $str_array[ 1 ] ) > 0 &&
-		  intval( $str_array[ 1 ] ) < 21 ) &&
-		strlen( $str_array[ 0 ] ) === 4 )
-	{
-		return $str_array[ 1 ];
-	}
-	elseif( sizeof( $str_array ) == 2 && // 沒有頁碼
-		( intval( $str_array[ 0 ] ) > 0 &&
-		  intval( $str_array[ 0 ] ) < 21 ))
-	{
-		return $str_array[ 0 ];
-	}
-	return '';
-}
-
-// 提取行碼, garbage in, garbage out
-// 〚0013:1:5.2.3-4〛
-function 提取行碼( string $坐標 ) : string
-{
-	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
-	$str_array = explode( '.', $str );
-	
-	if( sizeof( $str_array ) >= 1 ) 
-	{
-		if( strpos( $str_array[ 0 ], ':' ) !== false )// 有頁碼
-		{
-			$parts = explode( ':', $str_array[ 0 ] );
-			
-			if( sizeof( $parts ) == 2 ) // 沒有首碼
-			{
-				return $parts[ 1 ];
-			}
-			elseif( sizeof( $parts ) == 3 ) // 有首碼
-			{
-				return $parts[ 2 ];
-			}
-		}
-		else // 沒有頁碼，沒有首碼
-		{
-			return $str_array[ 0 ];
-		}
-	}
-	return '';
-}
-
-// 提取句碼, garbage in, garbage out
-function 提取句碼( string $坐標 ) : string
-{
-	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
-	$str_array = explode( '.', $str );
-	
-	if( sizeof( $str_array ) >= 2 )
-	{
-		return $str_array[ 1 ];
-	}
-	return '';
-}
-
-// 提取字碼, garbage in, garbage out
-function 提取字碼( string $坐標 ) : string
-{
-	$str = str_replace( '〛', '', str_replace( '〚', '', $坐標 ) );
-	$str_array = explode( '.', $str );
-	
-	if( sizeof( $str_array ) >= 3 )
-	{
-		return $str_array[ 2 ];
-	}
-	return '';
-}
 
 function 生成完整坐標( string $坐標, string $頁碼 ) : string
 {
@@ -1395,10 +1121,17 @@ function 提取陣列値( array $陣列 ) : string
 // 〚0276:20.2.2-4〛
 function 顯示坐標値( array $杜甫詩陣列, string $坐標 ) 
 {
-	$路徑 = 坐標轉換成列陣路徑( $坐標 );
+	$路徑 = 完整坐標轉換成列陣路徑( $坐標 );
 	
 	switch( sizeof( $路徑 ) )
 	{
+		case 5:
+			$値 = $杜甫詩陣列[ $路徑[ 0 ] ]
+				[ $路徑[ 1 ] ]
+				[ $路徑[ 2 ] ]
+				[ $路徑[ 3 ] ]
+				[ $路徑[ 4 ] ];
+			break;
 		case 4:
 			$値 = $杜甫詩陣列[ $路徑[ 0 ] ]
 				[ $路徑[ 1 ] ]
@@ -1934,13 +1667,15 @@ function 是完整坐標( string $str ) : bool
 	// 4 or 5 parts within 〚〛
 	$regex1 = '/\d{4}:/u'; // 〚0003:〛
 	$regex2 = '/\d{4}:\d+:/u'; // 〚0013:2:〛
-	$regex3 = '/\d{4}:\d+/u'; // 〚0003:3〛
-	$regex4 = '/\d{4}:\d+:\d+/u'; // 〚0013:2:11〛
+	
+	$regex3 = '/\d{4}:\d+(-\d+)?/u'; // 〚0003:3〛〚0003:3-5〛
+	$regex4 = '/\d{4}:\d+:\d+(-\d+)?/u'; // 〚0013:2:11〛
 	$regex5 = '/\d{4}:\d+\.\d/u'; // 〚0003:4.2〛
 	$regex6 = '/\d{4}:\d+:\d+\.\d/u'; // 〚0013:2:11.1〛
 	$regex7 = '/\d{4}:\d+\.\d.\d+(-\d+)?/u'; // 〚0003:5.1.2〛〚0003:5.1.2-4〛
 	$regex8 = '/\d{4}:\d+:\d+\.\d.\d+(-\d+)?/u'; // 〚0013:2:11.2.5〛〚0013:2:11.2.1-3〛
-
+	
+	
 	$r = preg_match( $regex1, $str, $match );
 	if( $r && $match[ 0 ] == $str )
 	{

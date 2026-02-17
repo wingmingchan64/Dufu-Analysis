@@ -6,7 +6,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 頁碼 );
 
-checkARGV( $argv, 2, 提供簡稱 );
+check_argv( $argv, 2, 提供簡稱 );
 
 $output = '';
 $stop_page = 280;

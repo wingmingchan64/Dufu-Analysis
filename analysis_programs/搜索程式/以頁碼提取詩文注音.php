@@ -20,7 +20,7 @@ wui6 dong1 ling4 zyut6 ding2, jat1 laam5 zung3 saan1 siu2
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\常數.php" );
 require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
-checkARGV( $argv, 2, 提供頁碼 );
+check_argv( $argv, 2, 提供頁碼 );
 $頁碼 = trim( $argv[ 1 ] );
 
 $path = 杜甫全集粵音注音文件夾 . $頁碼 . 程式後綴;

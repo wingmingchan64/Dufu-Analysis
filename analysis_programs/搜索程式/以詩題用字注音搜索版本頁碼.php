@@ -12,7 +12,7 @@ require_once( 詩題_頁碼 );
 require_once( 書目簡稱 );
 require_once( 詩題_注音 );
 
-checkARGV( $argv, 3, 提供題音、簡 );
+check_argv( $argv, 3, 提供題音、簡 );
 $題音 = trim( $argv[ 1 ] );
 $簡稱 = trim( $argv[ 2 ] );
 $陣列命 = $簡稱 . "内容";

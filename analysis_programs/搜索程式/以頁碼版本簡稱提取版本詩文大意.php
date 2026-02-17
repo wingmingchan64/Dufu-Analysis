@@ -8,7 +8,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 書目簡稱 );
 //require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\搜索程式\\以坐標提取詩文.php" );
 
-checkARGV( $argv, 3, 提供頁、簡 );
+check_argv( $argv, 3, 提供頁、簡 );
 $頁碼 = trim( $argv[ 1 ] );
 $簡稱 = trim( $argv[ 2 ] );
 

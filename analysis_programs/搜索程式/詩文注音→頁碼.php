@@ -9,7 +9,7 @@ require_once( 詩句_頁碼 );
 require_once( 頁碼_詩題 );
 require_once( 注音_詩句 );
 
-checkARGV( $argv, 2, 提供詩文注音 );
+check_argv( $argv, 2, 提供詩文注音 );
 $音 = trim( $argv[ 1 ] );
 $result = array();
 echo $音, NL;
