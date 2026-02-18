@@ -9,7 +9,7 @@ require_once(
 	'lib' . DIRECTORY_SEPARATOR . '函式.php' );
 
 check_argv( $argv, 3, 提供簡稱、版本詩碼 );
-$簡稱 = fixText( trim( $argv[ 1 ] ) );
+$簡稱 = fix_text( trim( $argv[ 1 ] ) );
 $版本詩碼 = 修復文檔碼( trim( $argv[ 2 ] ) );
 $書目簡稱 = 提取數據結構( REGISTRY_DIR . '書目簡稱' );
 $書名 = $書目簡稱[ $簡稱 ];

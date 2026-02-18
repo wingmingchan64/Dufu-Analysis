@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tests\php\lib\處理後設標記_test.php
+php H:\github\Dufu-Analysis\tests\php\lib\提取版本文檔_test.php
 */
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
@@ -9,7 +9,7 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-處理後設標記( '全', '0098', '中華書局版', true, true );
+echo 提取版本文檔( '0002' );
 
 
 

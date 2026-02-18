@@ -15,7 +15,7 @@ require_once( PHP_GLOBAL_FUNCTIONS );
 
 check_argv( $argv, 2, 提供詩題 );
 
-$題 = fixText( trim( $argv[ 1 ] ) );
+$題 = fix_text( trim( $argv[ 1 ] ) );
 $result = array();
 
 foreach( $詩題_默認詩文檔碼 as $詩題 => $文檔碼 )

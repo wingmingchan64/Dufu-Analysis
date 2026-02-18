@@ -12,7 +12,7 @@ check_argv( $argv, 3, 提供默詩碼、簡稱 );
 
 $默詩碼 = 修復文檔碼( trim( $argv[ 1 ] ) );
 echo $默詩碼, NL;
-$簡稱 = fixText( trim( $argv[ 2 ] ) );
+$簡稱 = fix_text( trim( $argv[ 2 ] ) );
 $書目簡稱 = 提取數據結構( REGISTRY_DIR . '書目簡稱' );
 $書名 = $書目簡稱[ $簡稱 ];
 if( 是組詩( $默詩碼 ) && strpos( $默詩碼, '-' ) === false   )

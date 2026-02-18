@@ -6,6 +6,7 @@ function 處理後設標記(
 	string $簡稱, // 郭, 全
 	string $版本詩碼, // 0001, 0465-1
 	string $版本名稱 = '',
+	bool $插入文字 = true,
 	bool $存檔 = false
  ) : mixed
 {
@@ -18,12 +19,15 @@ function 處理後設標記(
 	
 	$書名 = $書目簡稱[ $簡稱 ];
 	$版文檔碼 = substr( $版本詩碼, 0, 4 );
+	
 	if( $版本名稱 != '' )
 	{
 		$版本名稱 .= DS;
 	}
+	
 	$文檔路徑 =  杜甫文件夾 . PACKAGES_DIR .
 		$書名 . DS . $版本名稱 . "${版文檔碼}.txt";
+	echo $文檔路徑, NL;
 		
 	if( !file_exists( $文檔路徑 ) )
 	{
@@ -41,7 +45,11 @@ function 處理後設標記(
 	foreach( $lines as $line )
 	{
 		$parts = explode( '〘', $line );
-		$text = $parts[ 0 ];
+		$text = '';
+		if( $插入文字 )
+		{
+			$text = $parts[ 0 ];
+		}
 		$tag = rtrim( $parts[ 1 ], '〙' );
 		$陣列 = 後設標記轉換成陣列( $簡稱, $版本詩碼, $counter, $tag, $text );
 		array_push( $文檔碼_後設標記[ $版本身份 ], $陣列 );
@@ -63,20 +71,26 @@ function 處理後設標記(
 			array_push( $temp[ $版本身份 ], $record );
 		}
 		
+		/*
 		// load $版文檔碼_後設標記紀錄
 		$版文檔碼_後設標記紀錄 = 提取數據結構( 版文檔碼_後設標記紀錄 );
 		$版文檔碼_後設標記紀錄 = array_merge( $版文檔碼_後設標記紀錄, $temp );
 		//$版文檔碼_後設標記紀錄 = array_unique( $版文檔碼_後設標記紀錄 );
 		//print_r( $版文檔碼_後設標記紀錄 );
-		
+		*/
 		//$版文檔碼_後設標記紀錄 $temp;
 		// write back to file
 		$json = json_encode(
-			$版文檔碼_後設標記紀錄,
+			$temp,
 			JSON_UNESCAPED_UNICODE
 		);
 		file_put_contents(
-			dirname( __DIR__, 4 ) . DS. SCHEMAS_JSON_DIR . 版文檔碼_後設標記紀錄 . '.json', $json . PHP_EOL );
+			dirname( __DIR__, 4 ) . DS .
+			PACKAGES_DIR .
+			$書名 . DS .
+			'metadata' . DS .
+			'by_doc_id' . DS .
+			$版文檔碼 . '.json', $json . PHP_EOL );
 		
 /*
 		$encoded_temp = json_encode( $temp, JSON_UNESCAPED_UNICODE );

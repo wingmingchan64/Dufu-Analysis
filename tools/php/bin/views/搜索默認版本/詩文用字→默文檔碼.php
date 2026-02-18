@@ -20,7 +20,7 @@ require_once(
 	'lib' . DIRECTORY_SEPARATOR . '函式.php' );
 
 check_argv( $argv, 2, 提供詩文 );
-$詩文 = fixText( trim( $argv[ 1 ] ) );
+$詩文 = fix_text( trim( $argv[ 1 ] ) );
 $result = array();
 $temp = array();
 

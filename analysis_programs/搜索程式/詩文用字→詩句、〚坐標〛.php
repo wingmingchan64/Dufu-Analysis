@@ -46,7 +46,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 詩句_坐標 );
 
 check_argv( $argv, 2, 提供詩文 );
-$詩文用字 = fixText( trim( $argv[ 1 ] ) );
+$詩文用字 = fix_text( trim( $argv[ 1 ] ) );
 $result = array();
 $result[ "詩句" ] = array();
 $result[ "坐標" ] = array();

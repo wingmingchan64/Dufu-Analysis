@@ -12,7 +12,7 @@ require_once(
 	"to_be_included_for_json.php" );
 
 check_argv( $argv, 2, 提供詩文陣列 );
-$詩文 = fixText( trim( $argv[ 1 ] ) );
+$詩文 = fix_text( trim( $argv[ 1 ] ) );
 $詩文陣列 = explode( ',', $詩文 );
 print_r( 提取詩文默詩碼( $詩文陣列 ) );
 ?>

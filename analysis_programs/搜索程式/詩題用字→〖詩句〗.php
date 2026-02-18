@@ -11,7 +11,7 @@ require_once( 詩題_頁碼 );
 
 check_argv( $argv, 2, 提供詩題 );
 
-$題 = fixText( trim( $argv[ 1 ] ) );
+$題 = fix_text( trim( $argv[ 1 ] ) );
 $result = array();
 
 foreach( $詩題_頁碼 as $詩題 => $頁碼 )

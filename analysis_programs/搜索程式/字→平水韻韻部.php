@@ -8,7 +8,7 @@ require_once( 字_韻部 );
 
 check_argv( $argv, 2, 提供單字 );
 // standardize the text
-$字 = fixText( trim( $argv[ 1 ] ) );
+$字 = fix_text( trim( $argv[ 1 ] ) );
 
 if( array_key_exists( $字, $字_韻部 ) )
 {

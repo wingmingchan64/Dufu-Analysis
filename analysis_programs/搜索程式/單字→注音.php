@@ -9,7 +9,7 @@ require_once( 杜甫資料庫 . '統一碼字_粵音.php' );
 
 check_argv( $argv, 2, 提供單字 );
 // normalize the text
-$字 = fixText( trim( $argv[ 1 ] ) );
+$字 = fix_text( trim( $argv[ 1 ] ) );
 
 if( array_key_exists( $字, $字音 ) )
 {

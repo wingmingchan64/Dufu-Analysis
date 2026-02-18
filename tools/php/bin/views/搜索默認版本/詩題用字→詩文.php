@@ -9,7 +9,7 @@ require_once(
 	'lib' . DIRECTORY_SEPARATOR . '函式.php' );
 
 check_argv( $argv, 2, 提供詩題 );
-$題 = fixText( trim( $argv[ 1 ] ) );
+$題 = fix_text( trim( $argv[ 1 ] ) );
 $詩題_默認詩文檔碼 = 提取數據結構( 詩題_默認詩文檔碼 );
 $result = array();
 

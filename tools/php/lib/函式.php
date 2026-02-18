@@ -1492,7 +1492,7 @@ function 在行至行範圍内( string $行至行範圍, int $行 ) : bool
 }
 
 
-function fixText( string $str ) : string
+function fix_text( string $str ) : string
 {
 	global $異體字;
 	$len = mb_strlen( $str );

@@ -8,7 +8,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 require_once( 詩句_注音 );
 
 check_argv( $argv, 2, 提供詩句 );
-$句 = fixText( trim( $argv[ 1 ] ) );
+$句 = fix_text( trim( $argv[ 1 ] ) );
 $result = array();
 
 if( array_key_exists( $句, $詩句_注音 ) )

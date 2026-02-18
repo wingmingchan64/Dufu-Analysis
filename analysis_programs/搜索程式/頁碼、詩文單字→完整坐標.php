@@ -8,7 +8,7 @@ require_once( "h:\\github\\Dufu-Analysis\\analysis_programs\\函式.php" );
 
 check_argv( $argv, 3, 提供頁、字 );
 $頁碼 = fix_doc_id( trim( $argv[ 1 ] ) );
-$用字 = fixText( trim( $argv[ 2 ] ) );
+$用字 = fix_text( trim( $argv[ 2 ] ) );
 
 $path = 詩集文件夾 . $頁碼 . '坐標_用字.php';
 //$found = false;
