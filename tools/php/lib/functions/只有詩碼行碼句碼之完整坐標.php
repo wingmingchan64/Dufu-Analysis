@@ -10,7 +10,7 @@ function 只有詩碼行碼句碼之完整坐標(  string $坐標 ) : bool
 	}
 	$裸坐標 = rtrim( ltrim( trim( $坐標 ), '〚' ), '〛' );
 	$裸坐標 = rtrim( $裸坐標, ':' );
-	//$裸坐標 = str_replace( '.'
+	$裸坐標 = str_replace( '.', ':', $裸坐標 );
 	$parts = explode( ':', $裸坐標 );
 	$size = sizeof( $parts );
 	

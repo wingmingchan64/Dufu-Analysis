@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\schemas\生成默認詩文檔碼.php
+php H:\github\Dufu-Analysis\tools\php\bin\ids\生成默認詩文檔碼.php
 */
 require_once( 
 	dirname( __DIR__, 2 ) . DIRECTORY_SEPARATOR .
@@ -32,7 +32,8 @@ foreach( $files as $file )
 	}
 }
 
-$json_dir = dirname( __DIR__, 4 ) . DS . 'schemas' . DS . 'json' . DS;
+$json_dir = dirname( __DIR__, 4 ) . DS . SCHEMAS_JSON_IDS_DIR;
+
 $json = json_encode(
     $默認詩文檔碼,
     JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT

@@ -10,28 +10,46 @@ function 提取擴充範圍行碼坐標( string $坐標 ) : array
 	{
 		throw new IncompleteCoordinateException( "不是完整坐標。" );
 	}
+	$文檔碼 = mb_substr( $坐標, 1, 4 );
+	$是組詩 = 是組詩( $文檔碼 );
 	
-	$regex1 = '/\d{4}:\d+-\d+/'; // 〚0003:5.1-4〛
-	$regex2 = '/\d{4}:\d+:\d+-\d+/'; // 〚0013:2:11-13〛
+	if( $是組詩 )
+	{
+		$regex = '/\d{4}:\d+:\d+-\d+/u'; // 〚0013:2:11-13〛
+	}
+	else
+	{
+		$regex = '/\d{4}:\d+-\d+/u'; // 〚0003:5.1-4〛
+	}
 	$裸坐標 = str_replace( '〚', '', 
 		str_replace( '〛', '', $坐標 ) );
 	$match = array();
 	
-	$r = preg_match( $regex1, $裸坐標, $match );
+	$r = preg_match( $regex, $裸坐標, $match );
+	
 	if( !$r || $match[ 0 ] != $裸坐標 )
 	{
 		$match = array();
-		$r = preg_match( $regex2, $裸坐標, $match );
+		//echo "Should be here 100", NL;
 		if( !$r || $match[ 0 ] != $裸坐標 )
 		{
 			return array( "字碼沒有範圍數字。" );
 		}
+		echo "Should be here 101", NL;
 	}
 	// $parts[2], the last part
-	$parts = explode( '.', $裸坐標 );
-	$last = $parts[ 2 ];
-	$first = $parts[ 0 ] . '.' . $parts[ 1 ] . '.';
-	
+	$parts = explode( ':', $裸坐標 );
+	$size = sizeof( $parts );
+	$last = $parts[ $size - 1 ];
+	if( $是組詩 )
+	{
+		$first = $parts[ 0 ] . ':' . $parts[ 1 ] . ':';
+	}
+	else
+	{
+		$first = $parts[ 0 ] . ':';
+	}
+	//echo "First: ", $first, NL;
 	$坐標陣列 = array();
 	$pre_parts = "";
 	$行範圍 = explode( '-', $last );

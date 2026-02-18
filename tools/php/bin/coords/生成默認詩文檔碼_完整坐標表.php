@@ -16,11 +16,11 @@ $默認詩文檔碼_行碼坐標 = array();
 $默認詩文檔碼_句碼坐標 = array();
 $默認詩文檔碼_字碼坐標 = array();
 $默認詩文檔碼_完整坐標表 = array();
+$含範圍行碼完整坐標 = array();
 
 $默認詩文檔碼 = 提取數據結構( 默認詩文檔碼 );
 $默認詩文檔碼_序言 = 提取數據結構( 默認詩文檔碼_序言 );
 $組詩_副題 = 提取數據結構( 組詩_副題 );
-
 
 foreach( $默認詩文檔碼 as $文檔碼 )
 {
@@ -75,7 +75,6 @@ foreach( $默認詩文檔碼 as $文檔碼 )
 	}
 	// 詩文
 	// 行碼、範圍
-
 	$碼_文 = $行碼_詩文[ $文檔碼 ];
 	$默認詩文檔碼_行碼坐標[ $文檔碼 ] =
 		array_merge( $默認詩文檔碼_行碼坐標[ $文檔碼 ],
@@ -120,6 +119,7 @@ foreach( $默認詩文檔碼 as $文檔碼 )
 				array_push(
 					$默認詩文檔碼_行碼坐標[ $文檔碼 ],
 					$坐標板塊 );
+				array_push( $含範圍行碼完整坐標, $坐標板塊 );
 			}
 		}
 		
@@ -186,6 +186,8 @@ foreach( $默認詩文檔碼 as $文檔碼 )
 					array_push(
 						$默認詩文檔碼_行碼坐標[ $文檔碼 ],
 						$坐標板塊 );
+					array_push( $含範圍行碼完整坐標, $坐標板塊 );
+
 				}
 			}
 		}
@@ -380,6 +382,26 @@ $json = json_encode(
 file_put_contents(
 	dirname( __DIR__, 4 ) . DS . SCHEMAS_JSON_COORDS_DIR .
 	"默認詩文檔碼_字碼坐標.json",
+	$json . PHP_EOL );
+
+$json = json_encode(
+    $默認詩文檔碼_行碼坐標,
+    JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	dirname( __DIR__, 4 ) . DS . SCHEMAS_JSON_COORDS_DIR .
+	"默認詩文檔碼_行碼坐標.json",
+	$json . PHP_EOL );
+
+$json = json_encode(
+    $含範圍行碼完整坐標,
+    JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	dirname( __DIR__, 4 ) . DS . SCHEMAS_JSON_COORDS_DIR .
+	"含範圍行碼完整坐標.json",
 	$json . PHP_EOL );
 
 $json = json_encode(

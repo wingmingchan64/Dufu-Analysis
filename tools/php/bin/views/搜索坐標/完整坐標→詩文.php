@@ -1,8 +1,13 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0013:1:〛
 php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0003:〛
-H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0013:1:5.1.2〛
+php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0013:1:〛
+php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0013:1:5〛
+php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0013:1:5-6〛
+php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0003:3.1〛
+php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0013:1:5.1〛
+php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0013:1:5.1.2〛
+php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0013:1:5.1.2-3〛
 =>
 
 */
@@ -15,9 +20,7 @@ $坐標 = trim( $argv[ 1 ] );
 
 if( 是合法完整坐標( $坐標 ) )
 {
-	$文檔碼 = mb_substr( $坐標, 1, 4 );
-	$詩碼 = 提取詩碼( $坐標 );
-	$詩陣列 = 提取數據結構( BASE_TEXT_DIR . $詩碼 );
+/*
 	$首碼 = '';
 	//$陣列
 	// 完整坐標轉換成列陣路徑
@@ -27,17 +30,10 @@ if( 是合法完整坐標( $坐標 ) )
 	// 提取擴充範圍行碼坐標
 	//print_r( $詩陣列 );
 	//顯示坐標値( $詩陣列, $坐標 );
+*/	
+	$result = 提取坐標文字內容( $坐標 );
+	echo $result, NL;
 	
-	if( 是組詩( $文檔碼 ) )
-	{
-		$首碼 = 提取首碼( $坐標 );
-		echo 杜甫詩陣列首ToString( $詩陣列[ $文檔碼 ][ $首碼 ] );
-	}
-	else
-	{
-		顯示坐標値( $詩陣列, $坐標 );
-		//echo 杜甫詩陣列首ToString( $詩陣列[ $文檔碼 ] );
-	}
 }
 else
 {

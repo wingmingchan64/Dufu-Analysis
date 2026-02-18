@@ -61,6 +61,7 @@ const PHP_GLOBAL_FUNCTIONS = PHP_CODE_BASE_LIB_DIR . '函式.php';
 //const 詩字_字碼 = '詩字_字碼';
 // base_text
 
+
 // coords 坐標
 const 一字組合_坐標 = COORDS_DIR . '一字組合_坐標';
 const 二字組合_坐標 = COORDS_DIR . '二字組合_坐標';
@@ -91,6 +92,7 @@ const 完整坐標表 = COORDS_DIR . '完整坐標表';
 const 非完整坐標表 = COORDS_DIR . '非完整坐標表';
 const 詩碼坐標 = COORDS_DIR . '詩碼坐標';
 const 含範圍字碼完整坐標 = COORDS_DIR . '含範圍字碼完整坐標';
+const 含範圍行碼完整坐標 = COORDS_DIR . '含範圍行碼完整坐標';
 const 默認詩文檔碼_詩文_坐標 = COORDS_DIR . '默認詩文檔碼_詩文_坐標';
 
 

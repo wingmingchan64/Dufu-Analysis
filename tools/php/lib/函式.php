@@ -1634,22 +1634,10 @@ to work with 杜甫詩陣列:
 1-副題
 序文 第三行
 */
-/*
-function 是合法完整坐標( array $坐標陣列, string $str ) : bool
-{
-	$文檔碼 = 提取文檔碼( $str );
-	
-	if( !array_key_exists( $文檔碼, $坐標陣列 ) )
-	{
-		return false;
-	}
-	if( !in_array( $str, $坐標陣列[ $文檔碼 ] ) )
-	{
-		return false;
-	}
-	return true;
-}
-*/
+
+
+
+// this function does not consult the complete list
 function 是完整坐標( string $str ) : bool
 {
 	// 必須有坐標括號
@@ -1657,6 +1645,9 @@ function 是完整坐標( string $str ) : bool
 		mb_strpos( $str, '〛' ) === false
 	)
 	{
+		echo "here 1", NL;
+		echo $str, NL;
+
 		return false;
 	}
 	
@@ -1674,7 +1665,6 @@ function 是完整坐標( string $str ) : bool
 	$regex6 = '/\d{4}:\d+:\d+\.\d/u'; // 〚0013:2:11.1〛
 	$regex7 = '/\d{4}:\d+\.\d.\d+(-\d+)?/u'; // 〚0003:5.1.2〛〚0003:5.1.2-4〛
 	$regex8 = '/\d{4}:\d+:\d+\.\d.\d+(-\d+)?/u'; // 〚0013:2:11.2.5〛〚0013:2:11.2.1-3〛
-	
 	
 	$r = preg_match( $regex1, $str, $match );
 	if( $r && $match[ 0 ] == $str )
