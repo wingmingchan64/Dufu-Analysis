@@ -9,7 +9,15 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-處理後設標記( '全', '0098', '中華書局版', true, true );
+$全文檔碼_全詩碼 = 提取目錄( '《全唐詩》' . DS . 'catalog' . DS .
+	'全文檔碼_全詩碼' );
+$全詩碼 = $全文檔碼_全詩碼[ '0098' ];
+print_r( $全詩碼 );
+
+foreach( $全詩碼 as $詩碼 )
+{
+	處理後設標記( '全', $詩碼, '中華書局版', true, true );
+}
 
 
 

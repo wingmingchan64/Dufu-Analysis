@@ -1256,28 +1256,16 @@ function 杜甫詩陣列行ToString(
 {
 	$行内容 = '';
 	$句内容 = '';
-	//print_r( $行 );
+
 	foreach( $行 as $碼 => $句 )
 	{
 		if( is_array( $句 ) )
 		{
-			//echo "array", NL;
 			$句内容 = implode( $句 );
-			//echo '句内容' . $句内容, NL;
 		}
-		//print_r( $句 );
 		
-		/*
-		foreach( $句s as $句 )
-		{
-			if( is_array( $句 ) )
-			{
-				$句内容 .= 杜甫詩陣列句ToString( $句 );
-				
-			}
-		}
-		*/
 		if( $加句號 ){ $句内容 .= '。'; }
+		
 		if( $加新行 )
 		{ 
 			if( $碼 == sizeof( $行 ) )
@@ -1298,6 +1286,7 @@ function 杜甫詩陣列行ToString(
 	return $行内容;
 }
 
+// 陣列, array pointed to by 詩碼
 function 杜甫詩陣列首ToString(
 	array $首,
 	bool $加句號=true, 
@@ -1306,9 +1295,8 @@ function 杜甫詩陣列首ToString(
 	bool $加詩題等=false
 ) : string
 {
-	//echo "Printing from 杜甫詩陣列首ToString", NL;
-	//print_r( $首 );
 	$首内容 = '';
+	
 	foreach( $首 as $行碼 => $行 )
 	{
 		if( $行碼 == 1 || is_string( $行 ) ) // skip 詩題、副題、序文
@@ -1320,6 +1308,7 @@ function 杜甫詩陣列首ToString(
 			continue;
 		}
 		$首内容 .= 杜甫詩陣列行ToString( $行, $加句號, $加新行, $加行碼, $行碼 );
+		
 	}
 	return $首内容;
 }

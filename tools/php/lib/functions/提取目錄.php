@@ -11,6 +11,11 @@ function 提取目錄( string $目錄 ) : array
 		$CATALOG = new JsonDataLoader( PACKAGES_JSON_DIR );
 	}
 	
-	return $CATALOG->get( $目錄 );;
+	return $CATALOG->get( $目錄 );
+}
+
+function 提取後設資料( string $路徑 ) : array
+{
+	return 提取目錄( $路徑 );
 }
 ?>
