@@ -82,12 +82,6 @@ function 提取版本文檔(
 		}
 	}
 
-	
-	/*
-	legal 版文檔碼
-	metadata
-	base_text
-	*/
 	return $bt;
 }
 ?>

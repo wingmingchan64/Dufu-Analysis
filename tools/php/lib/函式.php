@@ -16,11 +16,10 @@ define( 'PHP_FUNCTIONS_DIR', PHP_CODE_BASE_LIB_DIR . FUNCTIONS_DIR );
 define( 'PHP_EXCEPTIONS_DIR', PHP_CODE_BASE_LIB_DIR . EXCEPTIONS_DIR );
 define( 'JSON_DATA_LOADER',
 	PHP_CODE_BASE_LIB_DIR . 'JsonDataLoader.class.php' );
-
 define( 'JSON_BASE_DIR', dirname( __DIR__, 3 ) . DS .
-	'schemas' . DS . 'json' . DS );
+	SCHEMAS_JSON_DIR );
 define( 'PACKAGES_JSON_DIR', dirname( __DIR__, 3 ) . DS .
-	'packages' . DS );
+	PACKAGES_DIR );
 
 // load exceptions before loading functions
 $excep_dir = __DIR__ . DS . EXCEPTIONS_DIR;

@@ -10,6 +10,7 @@ require_once(
 	"函式.php" );
 
 $result = 提取版本文檔( '全', '0098' );
+//$result = 提取版本文檔( '全', '0002' );
 $store = array();
 //print_r( $result );
 $store = array();
@@ -19,7 +20,7 @@ $store = array();
 	//echo 杜甫詩陣列首ToString( $詩 );
 提取詩陣列詩文( $result, $store );
 //print_r( $result );
-print_r( $store );
+//print_r( $store );
 echo implode( NL.NL, $store );
 //echo implode( NL, $store );
 //}

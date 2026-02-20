@@ -11,6 +11,6 @@ function 提取數據結構( string $結構 ) : array
 		$DATA = new JsonDataLoader( JSON_BASE_DIR );
 	}
 	
-	return $DATA->get( $結構 );;
+	return $DATA->get( $結構 );
 }
 ?>
