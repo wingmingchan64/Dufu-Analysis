@@ -14,5 +14,5 @@ require_once(
 check_argv( $argv, 2, 提供詩文陣列 );
 $詩文 = fix_text( trim( $argv[ 1 ] ) );
 $詩文陣列 = explode( ',', $詩文 );
-print_r( 提取詩文默詩碼( $詩文陣列 ) );
+print_r( 提取詩文默詩碼陣列( $詩文陣列 ) );
 ?>

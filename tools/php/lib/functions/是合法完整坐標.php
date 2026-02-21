@@ -24,4 +24,9 @@ function 是合法完整坐標( string $坐標 ) : bool
 		return false;
 	}
 }
+
+function is_legal_complete_coords( string $坐標 ) : bool
+{
+	return 是合法完整坐標( $坐標 );
+}
 ?>

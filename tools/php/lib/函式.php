@@ -1607,120 +1607,10 @@ function getMergedText( array $詩陣列, string $punc = '' ) : string
 	}
 	return $text;
 }
-// 生成完整坐標
-// 提取詩文末字坐標
-// 提取〖詩文〗坐標
 
-// JSON GROUP
-/*
-to work with 杜甫詩陣列:
-1. from 坐標 to array path
-2. to assign empty string to a cell
-3. to attach a string to the last cell
-4. to attach a string to 詩題、副題、序文
-詩題 第一行
-1-副題
-序文 第三行
-*/
-
-
-
-// this function does not consult the complete list
-function 是完整坐標( string $str ) : bool
-{
-	// 必須有坐標括號
-	if( mb_strpos( $str, '〚' ) === false ||
-		mb_strpos( $str, '〛' ) === false
-	)
-	{
-		echo "here 1", NL;
-		echo $str, NL;
-
-		return false;
-	}
-	
-	// strip the brackets
-	$str = str_replace( '〚', '', 
-		str_replace( '〛', '', $str ) );
-	$match = array();
-	// 4 or 5 parts within 〚〛
-	$regex1 = '/\d{4}:/u'; // 〚0003:〛
-	$regex2 = '/\d{4}:\d+:/u'; // 〚0013:2:〛
-	
-	$regex3 = '/\d{4}:\d+(-\d+)?/u'; // 〚0003:3〛〚0003:3-5〛
-	$regex4 = '/\d{4}:\d+:\d+(-\d+)?/u'; // 〚0013:2:11〛
-	$regex5 = '/\d{4}:\d+\.\d/u'; // 〚0003:4.2〛
-	$regex6 = '/\d{4}:\d+:\d+\.\d/u'; // 〚0013:2:11.1〛
-	$regex7 = '/\d{4}:\d+\.\d.\d+(-\d+)?/u'; // 〚0003:5.1.2〛〚0003:5.1.2-4〛
-	$regex8 = '/\d{4}:\d+:\d+\.\d.\d+(-\d+)?/u'; // 〚0013:2:11.2.5〛〚0013:2:11.2.1-3〛
-	
-	$r = preg_match( $regex1, $str, $match );
-	if( $r && $match[ 0 ] == $str )
-	{
-		return true;
-	}
-
-	$r = preg_match( $regex2, $str, $match );
-	if( $r && $match[ 0 ] == $str )
-	{
-		return true;
-	}
-	
-	$r = preg_match( $regex3, $str, $match );
-	if( $r && $match[ 0 ] == $str )
-	{
-		return true;
-	}
-	
-	$r = preg_match( $regex4, $str, $match );
-	if( $r && $match[ 0 ] == $str )
-	{
-		return true;
-	}
-	
-	$r = preg_match( $regex5, $str, $match );
-	if( $r && $match[ 0 ] == $str )
-	{
-		return true;
-	}
-	
-	$r = preg_match( $regex6, $str, $match );
-	if( $r && $match[ 0 ] == $str )
-	{
-		return true;
-	}
-	
-	$r = preg_match( $regex7, $str, $match );
-	if( $r && $match[ 0 ] == $str )
-	{
-		return true;
-	}
-	
-	$r = preg_match( $regex8, $str, $match );
-	if( $r && $match[ 0 ] == $str )
-	{
-		return true;
-	}
-
-	return false;
-}
 
 // 提取一個詩文詞組的坐標 〚0276:12.2.2〛,〚0276:12.2.2-4〛
 /*
-function 提取詩文坐標( string $詩文 ) : array
-{
-	$字數 = mb_strlen( $詩文 );
-	$結構 = 提取數據結構( 數字對照陣列[ $字數 ] );
-	
-	if( array_key_exists( $詩文, $結構 ) )
-	{
-		return $結構[ $詩文 ];
-	}
-	else
-	{
-		return array( "杜甫詩中無「${詩文}」。" );
-	}
-}
 */
 
 // 如果多於一個坐標，提取第一個
@@ -1757,56 +1647,6 @@ function 提取默詩碼詩文坐標( string $默詩碼, string $詩文 ) : stri
 	return "${默詩碼}中無「${詩文}」。";
 }
 
-// 提取一組詩碼，每首詩中，都有「$詩文s」
-function 提取詩文默詩碼( array $詩文s ) : array
-{
-	$temp1 = array();
-	$temp2 = array();
-	$temp3 = array();
-	$result = array();
-	$默詩碼 = array();
-	
-	foreach( $詩文s as $詩文 )
-	{
-		if( !array_key_exists( $詩文, $temp1 ) )
-		{
-			$temp1[ $詩文 ] = array();
-			$temp2[ $詩文 ] = array();
-			$result[ $詩文 ] = array();
-		}
-		$temp1[ $詩文 ] = 提取詩文坐標( $詩文 );
-	}
-	
-	foreach( $temp1 as $文 => $標s )
-	{
-		foreach( $標s as $標 )
-		{
-			if( mb_strpos( $標, '〚' ) === false )
-			{
-				array_push( $result[ $文 ],  
-					"杜甫詩中無「${文}」。" );
-				return $result;
-			}
-			
-			array_push( $temp2[ $文 ], 提取文檔碼( $標 ) );
-		}
-	}
-
-	foreach( $詩文s as $詩文 )
-	{
-		array_push( $temp3, $temp2[ $詩文 ] );
-	}
-	print_r( sizeof( $temp3 ) );
-	if( sizeof( $temp3 ) == 1 )
-	{
-		return $temp3;
-	}
-	$dummy = array(); // fix the indexes
-	return array_merge( 
-		$dummy,
-		array_unique( 
-			array_intersect( ...$temp3 ) ) );
-}
 /*
 // 提取一首詩的陣列，該詩可以是詩組中的一首；「$詩碼」必須是默認詩碼
 function 提取詩陣列( $詩碼 ) : array

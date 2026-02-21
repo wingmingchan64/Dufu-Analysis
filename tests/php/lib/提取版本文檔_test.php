@@ -9,7 +9,16 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-$result = 提取版本文檔( '全', '0098' );
+$詩陣列 = 提取版本文檔( '全', '0098' );
+$詩陣列 = 提取版本文檔( '全', '0002' );
+//print_r( $詩陣列 );
+//print_r( 提取詩陣列詩文( $詩陣列, true, true ) );
+
+echo implode( NL.NL, 提取詩陣列詩文( $詩陣列, true, true ) );
+
+//echo implode( NL, 提取詩陣列詩文( $詩陣列['0002'], false, false ) );
+
+/*
 //$result = 提取版本文檔( '全', '0002' );
 $store = array();
 //print_r( $result );
@@ -32,7 +41,7 @@ echo implode( NL.NL, $store );
 //echo $陣列[ $路徑[ 0 ] ][ $路徑[ 1 ] ][ $路徑[ 2 ] ][ $路徑[ 3 ] ];
 //插入路徑字( $陣列, $路徑, 0, 'da' );
 //print_r( $陣列 );
-
+*/
 
 
 

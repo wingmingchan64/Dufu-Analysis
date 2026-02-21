@@ -15,6 +15,6 @@ function 只有文檔碼之完整坐標( string $坐標 ) : bool
 
 function is_complete_coords_with_only_doc_id( string $坐標 ) : bool
 {
-	return 只有詩碼之完整坐標( $坐標 );
+	return 只有文檔碼之完整坐標( $坐標 );
 }
 ?>
