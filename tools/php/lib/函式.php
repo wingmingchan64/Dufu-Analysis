@@ -1480,28 +1480,6 @@ function 在行至行範圍内( string $行至行範圍, int $行 ) : bool
 }
 
 
-function fix_text( string $str ) : string
-{
-	global $異體字;
-	$len = mb_strlen( $str );
-	$temp = '';
-	$ytz = array_keys( $異體字 );
-	
-	foreach( range( 0, $len - 1 ) as $pos )
-	{
-		$字 = mb_substr( $str, $pos, 1 );
-		
-		if( in_array( $字, $ytz ) )
-		{
-			$temp .= $異體字[ $字 ];
-		}
-		else
-		{
-			$temp .= $字;
-		}
-	}
-	return $temp;
-}
 
 function getOutput( array $output ) : string
 {
@@ -1614,6 +1592,7 @@ function getMergedText( array $詩陣列, string $punc = '' ) : string
 */
 
 // 如果多於一個坐標，提取第一個
+/*
 function 提取默詩碼詩文坐標( string $默詩碼, string $詩文 ) : string
 {
 	if( $詩文 == 詩題 || $詩文 == 序文 )
@@ -1646,7 +1625,7 @@ function 提取默詩碼詩文坐標( string $默詩碼, string $詩文 ) : stri
 	}
 	return "${默詩碼}中無「${詩文}」。";
 }
-
+*/
 /*
 // 提取一首詩的陣列，該詩可以是詩組中的一首；「$詩碼」必須是默認詩碼
 function 提取詩陣列( $詩碼 ) : array

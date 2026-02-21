@@ -6,7 +6,6 @@
  */ 
 function 是合法完整坐標( string $坐標 ) : bool
 {
-	
 	if( !是完整坐標( $坐標 ) )
 	{
 		return false;
