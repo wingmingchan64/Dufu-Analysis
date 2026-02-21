@@ -1704,6 +1704,7 @@ function 是完整坐標( string $str ) : bool
 
 	return false;
 }
+
 // 提取一個詩文詞組的坐標 〚0276:12.2.2〛,〚0276:12.2.2-4〛
 /*
 function 提取詩文坐標( string $詩文 ) : array

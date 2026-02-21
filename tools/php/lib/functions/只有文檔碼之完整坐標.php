@@ -1,6 +1,7 @@
 <?php
 /*
- * 
+ * 〚0013:〛 true
+ * 〚0013:1:〛 false
  */
 function 只有文檔碼之完整坐標( string $坐標 ) : bool
 {
