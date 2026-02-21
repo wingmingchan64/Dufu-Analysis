@@ -9,16 +9,22 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-echo 列陣路徑轉換成完整坐標( array( '0013', '1', '5' ) ), NL;
 
+確認同一( 列陣路徑轉換成完整坐標( array( '0003', '3', '1' ) ), '〚0003:3.1〛', 'case#: 1' );
+確認同一( 列陣路徑轉換成完整坐標( array( '0013', '1', '5', '2', '3' ) ), '〚0013:1:5.2.3〛', 'case#: 2' );
 
+// 003 不是四位數字
+確認會丟( function(){ 列陣路徑轉換成完整坐標( array( '003', '3', '1' ) ); }, InvalidPathException::class, 'case#: 3' );
+// 0002 不存在
+確認會丟( function(){ 列陣路徑轉換成完整坐標( array( '0002', '3', '1' ) ); }, InvalidPathException::class, 'case#: 4' );
+// 行碼 13 不存在
+確認會丟( function(){ 列陣路徑轉換成完整坐標( array( '0003', '13', '1' ) ); }, InvalidCoordinateException::class, 'case#: 5' );
+確認會丟( function(){ 列陣路徑轉換成完整坐標( array( '0003', '13', '1' ) ); }, InvalidCoordinateException::class, 'case#: 5' );
 
-/*
-確認爲眞( 是合法詩文( '鬼神' ), 'case#: 1' );
-確認爲眞( 是合法詩文( '為' ), 'case#: 2' );
-確認爲眞( 是合法詩文( '軌' ), 'case#: 3' );
-確認爲眞( !是合法詩文( '軌道' ), 'case#: 4' );
+confirm_throw( function(){ 
+	convert_array_path_to_complete_coords( 
+		array( '0003', '13', '1' ) ); }, 
+		InvalidCoordinateException::class, 'case#: 6' );
 
-array_push( $test_results, "是合法詩文_test: 4 cases tested." );
-*/
+array_push( $test_results, "是合法詩文_test: 6 cases tested." );
 ?>

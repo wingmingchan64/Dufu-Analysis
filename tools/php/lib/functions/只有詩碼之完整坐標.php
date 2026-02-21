@@ -2,7 +2,7 @@
 /*
  * 
  */
-function 只有詩碼之完整坐標(  string $坐標 ) : bool 
+function 只有詩碼之完整坐標( string $坐標 ) : bool
 {
 	if( 是合法完整坐標( $坐標 ) === false )
 	{
@@ -13,5 +13,10 @@ function 只有詩碼之完整坐標(  string $坐標 ) : bool
 	$size = sizeof( $parts );
 	
 	return ( $size == 1 || $size == 2 );
+}
+
+function is_complete_coords_with_only_poem_id( string $坐標 ) : bool
+{
+	return 只有詩碼之完整坐標( $坐標 );
 }
 ?>
