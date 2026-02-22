@@ -65,16 +65,13 @@ Range must be continuous.
 範圍必須是連續區間。
 
 ## 三、語義識別層（Semantic ID Layer）
-文檔
 
-Document (container)
+### 文檔 Document (container)
 
 可裝載詩、組詩、注、評等資料的容器。
 A container that may hold one poem or a grouped set.
 
-文檔碼
-
-Document code
+### 文檔碼 Document code
 
 版本內唯一的容器識別符號。
 Identifier unique within a given edition.

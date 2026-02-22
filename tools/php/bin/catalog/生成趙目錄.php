@@ -116,6 +116,7 @@ $json = json_encode(
 file_put_contents(
 		dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
 	$書名 . DS .
+	'catalog' . DS . 
 	"${簡稱}目錄.json",
 	$json . PHP_EOL );
 

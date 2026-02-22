@@ -29,7 +29,9 @@ $contents = rtrim( $contents, ',' ) . ']';
 
 file_put_contents(
 		dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
-	'蕭滌非主編《杜甫全集校注》' . DS . '蕭目錄.json',
+	'蕭滌非主編《杜甫全集校注》' . DS . 
+	'catalog' . DS .
+	'蕭目錄.json',
 	$contents . PHP_EOL );
 	
 $蕭目錄 = json_decode( $contents, true );

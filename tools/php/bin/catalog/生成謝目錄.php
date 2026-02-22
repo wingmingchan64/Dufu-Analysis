@@ -97,13 +97,14 @@ $json = json_encode(
 file_put_contents(
 		dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
 	$書名 . DS .
+	'catalog' . DS .
 	"${簡稱}目錄.json",
 	$json . PHP_EOL );
 	
 print_r( json_decode( 
 	file_get_contents(
 		dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
-		$書名 . DS . "${簡稱}目錄.json" ), true ) [ 79 ] );
+		$書名 . DS . 'catalog' . DS . "${簡稱}目錄.json" ), true ) [ 79 ] );
 /*
 try {
 	$目錄陣列 = json_decode(
