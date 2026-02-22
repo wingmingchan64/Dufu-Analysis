@@ -139,6 +139,38 @@ print_r(
 		file_get_contents( 
 			dirname( __DIR__, 4) . DS . PACKAGES_DIR . 
 			"版本目錄對照表.json" ), true )[ '0013-1' ] );
-			
-//foreach( $版本目錄對照表 as 
+
+$默詩碼_版本詩碼對照表 = array();
+$默詩碼s = array_keys( $版本目錄對照表 );
+		
+foreach( $默詩碼s as $默詩碼 )
+{
+	$默詩碼_版本詩碼對照表[ $默詩碼 ] = array();
+	$版本 = $版本目錄對照表[ $默詩碼 ][ "版本" ];
+	$簡稱s = array_keys( $版本 );
+	
+	foreach( $簡稱s as $簡稱 )
+	{
+		if( $簡稱 == '奭' )
+		{
+			$版本詩碼 = $簡稱 . $版本[ $簡稱 ][ "${簡稱}文檔碼" ];
+		}
+		else
+		{
+			$版本詩碼 = $簡稱 . $版本[ $簡稱 ][ "${簡稱}詩碼" ];
+		}
+		array_push( $默詩碼_版本詩碼對照表[ $默詩碼 ], $版本詩碼 );
+	}
+}
+
+//print_r( $默詩碼_版本詩碼對照表 );
+$json = json_encode(
+    $默詩碼_版本詩碼對照表,
+    JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	dirname( __DIR__, 4) . DS . PACKAGES_DIR . "默詩碼_版本詩碼對照表.json",
+	$json . PHP_EOL );
+
 ?>
