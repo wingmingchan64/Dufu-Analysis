@@ -16,7 +16,8 @@ foreach( $簡稱陣列 as $簡稱 )
 {
 	$路徑名 = $簡稱 . 'path';
 	$$路徑名 = dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
-		$書目簡稱[ $簡稱 ] . DS . "${簡稱}目錄.json";
+		$書目簡稱[ $簡稱 ] . DS . 'catalog' . DS .
+		"${簡稱}目錄.json";
 	$目錄名 =  $簡稱 . '目錄';
 	$$目錄名 = json_decode( file_get_contents( $$路徑名 ), true );
 	
