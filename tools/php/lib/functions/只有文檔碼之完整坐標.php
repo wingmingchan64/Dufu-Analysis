@@ -1,7 +1,7 @@
 <?php
 /*
- * 〚0013:〛 true
- * 〚0013:1:〛 false
+ * 〚0013:〛 returns true
+ * 〚0013:1:〛 returns false
  */
 function 只有文檔碼之完整坐標( string $坐標 ) : bool
 {
@@ -10,6 +10,7 @@ function 只有文檔碼之完整坐標( string $坐標 ) : bool
 		throw new InvalidCoordinateException( "不是合法完整坐標。" );
 	}
 	
+	// 此種坐標只有七個字符
 	return ( mb_strlen( trim( $坐標 ) ) == 7 );
 }
 
