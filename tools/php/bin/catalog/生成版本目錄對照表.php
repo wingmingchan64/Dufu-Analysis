@@ -139,4 +139,6 @@ print_r(
 		file_get_contents( 
 			dirname( __DIR__, 4) . DS . PACKAGES_DIR . 
 			"版本目錄對照表.json" ), true )[ '0013-1' ] );
+			
+//foreach( $版本目錄對照表 as 
 ?>
