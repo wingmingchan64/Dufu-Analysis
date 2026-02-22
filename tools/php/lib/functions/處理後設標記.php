@@ -27,7 +27,7 @@ function 處理後設標記(
 	
 	$文檔路徑 =  杜甫文件夾 . PACKAGES_DIR .
 		$書名 . DS . $版本名稱 . "${版文檔碼}.txt";
-	echo $文檔路徑, NL;
+	//echo $文檔路徑, NL;
 		
 	if( !file_exists( $文檔路徑 ) )
 	{

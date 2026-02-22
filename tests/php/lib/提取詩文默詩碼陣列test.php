@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tests\php\lib\提取詩陣列_test.php
+php H:\github\Dufu-Analysis\tests\php\lib\提取詩文默詩碼陣列_test.php
 */
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
@@ -9,7 +9,10 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-print_r( 提取詩陣列( '〚0013:1:〛' ) );
+//print_r( get_array_of_poem_ids_containing_fragments(
+	//array( '乾坤', '醉', '大' ) ) );
+
+
 
 /*
 確認爲眞( 是合法詩文( '鬼神' ), 'case#: 1' );

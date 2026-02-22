@@ -40,7 +40,7 @@ function 提取詩文默詩碼陣列( array $詩文s ) : array
 	{
 		array_push( $temp3, $temp2[ $詩文 ] );
 	}
-	//print_r( sizeof( $temp3 ) );
+
 	if( sizeof( $temp3 ) == 1 )
 	{
 		return $temp3;

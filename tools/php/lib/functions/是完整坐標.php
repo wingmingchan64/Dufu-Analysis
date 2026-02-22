@@ -10,9 +10,6 @@ function 是完整坐標( string $str ) : bool
 		mb_strpos( $str, '〛' ) === false
 	)
 	{
-		echo "here 1", NL;
-		echo $str, NL;
-
 		return false;
 	}
 	

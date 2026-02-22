@@ -9,7 +9,7 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-print_r( 提取文檔碼詩文坐標( '0003', '如何' ) );
+//print_r( 提取詩文坐標( '如何' ) );
 
 /*
 確認爲眞( 是合法詩文( '鬼神' ), 'case#: 1' );

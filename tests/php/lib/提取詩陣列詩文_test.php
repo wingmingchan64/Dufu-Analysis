@@ -11,10 +11,10 @@ require_once(
 // array starts with 0013
 $詩陣列 = 提取詩陣列( '〚0013:1:〛' );
 //$詩陣列 = 提取數據結構( BASE_TEXT_DIR . '0013-1' );
-echo implode( NL, 提取詩陣列詩文( $詩陣列, true, true, false ) );
-echo NL, NL;
+//echo implode( NL, 提取詩陣列詩文( $詩陣列, true, true, false ) );
+//echo NL, NL;
 $詩陣列 = 提取詩陣列( '〚0003:〛' );
-echo implode( NL, 提取詩陣列詩文( $詩陣列, false, false ) );
+//echo implode( NL, 提取詩陣列詩文( $詩陣列, false, false ) );
 
 
 

@@ -9,5 +9,5 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-echo 清理JSON括號( 提取基底正文樹( '0276' ) );
+//echo 清理JSON括號( 提取基準正文樹( '0276' ) );
 ?>
