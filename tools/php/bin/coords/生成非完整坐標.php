@@ -3,12 +3,9 @@
 H:\github\Dufu-Analysis\tools\php\bin\coords\生成非完整坐標.php
 */
 require_once(
-	"H:" . DIRECTORY_SEPARATOR .
-	"github" . DIRECTORY_SEPARATOR .
-	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
-	"JSON" . DIRECTORY_SEPARATOR .
-	"程式" . DIRECTORY_SEPARATOR .
-	"to_be_included_for_json.php" );
+	dirname( __DIR__, 2 ) . DIRECTORY_SEPARATOR .
+	'lib' . DIRECTORY_SEPARATOR .
+	'函式.php' );
 
 $非完整坐標 = array();
 //$文檔碼 = '0003';

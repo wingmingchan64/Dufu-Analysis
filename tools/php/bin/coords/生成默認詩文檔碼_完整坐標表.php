@@ -374,7 +374,8 @@ foreach( $默認詩文檔碼_首碼坐標 as $文檔碼 => $首碼s )
 	$默認詩文檔碼_完整坐標表[ $文檔碼 ] = array_merge(
 		$默認詩文檔碼_完整坐標表[ $文檔碼 ],
 		$默認詩文檔碼_首碼坐標[ $文檔碼 ] );
-}	
+}
+
 
 $json = json_encode(
     $默認詩文檔碼_字碼坐標,
@@ -416,4 +417,20 @@ file_put_contents(
 	"默認詩文檔碼_完整坐標表.json",
 	$json . PHP_EOL );
 
+foreach( $默認詩文檔碼 as $默文檔碼 )
+{
+	if( intval( $默文檔碼 )> 6093 )
+	{
+		break;
+	}
+	$json = json_encode(
+		$默認詩文檔碼_完整坐標表[ $默文檔碼 ],
+		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT );
+		
+	file_put_contents(
+		dirname( __DIR__, 4 ) . DS . SCHEMAS_JSON_COORDS_DIR .
+		'完整坐標表' . DS .
+		"${默文檔碼}.json",
+		$json . PHP_EOL );
+}
 ?>

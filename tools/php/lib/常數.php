@@ -86,7 +86,6 @@ const 句碼_詩句 = COORDS_DIR . '句碼_詩句';
 const 行碼_詩文 = COORDS_DIR . '行碼_詩文';
 const 行碼_副題 = COORDS_DIR . '行碼_副題';
 const 字碼_詩字 = COORDS_DIR . '字碼_詩字';
-//const 完整坐標表 = COORDS_DIR . '完整坐標表';
 const 非完整坐標表 = COORDS_DIR . '非完整坐標表';
 const 詩碼坐標 = COORDS_DIR . '詩碼坐標';
 const 含範圍字碼完整坐標 = COORDS_DIR . '含範圍字碼完整坐標';
@@ -94,7 +93,6 @@ const 含範圍行碼完整坐標 = COORDS_DIR . '含範圍行碼完整坐標';
 const 默認詩文檔碼_完整坐標表 = COORDS_DIR . '默認詩文檔碼_完整坐標表';
 const 默認詩文檔碼_碼_字 = COORDS_DIR . '文檔碼_碼_字';
 const 默認詩文檔碼_詩文_坐標 = COORDS_DIR . '默認詩文檔碼_詩文_坐標';
-
 
 // ids
 const 默認詩文檔碼 = IDS_DIR . '默認詩文檔碼'; // 0013
