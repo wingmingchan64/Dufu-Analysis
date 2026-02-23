@@ -9,6 +9,7 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
+/*
 $全文檔碼_全詩碼 = 提取目錄( '《全唐詩》' . DS . 'catalog' . DS .
 	'全文檔碼_全詩碼' );
 $全詩碼 = $全文檔碼_全詩碼[ '0098' ];
@@ -17,8 +18,10 @@ foreach( $全詩碼 as $詩碼 )
 {
 	處理後設標記( '全', $詩碼, '中華書局版', true, true );
 }
+*/
 
-
+$result = 處理後設標記( '郭', '0001', '', true, true );
+//print_r( $result );
 
 
 /*
@@ -27,6 +30,6 @@ foreach( $全詩碼 as $詩碼 )
 確認爲眞( 是合法詩文( '軌' ), 'case#: 3' );
 確認爲眞( !是合法詩文( '軌道' ), 'case#: 4' );
 
-array_push( $test_results, "是合法詩文_test: 4 cases tested." );
+array_push( $test_results, "處理後設標記_test: 4 cases tested." );
 */
 ?>

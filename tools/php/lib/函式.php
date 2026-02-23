@@ -74,6 +74,7 @@ if( !is_file( JSON_DATA_LOADER ) )
 require_once( JSON_DATA_LOADER );
 $DATA = new JsonDataLoader( JSON_BASE_DIR );
 $CATALOG = new JsonDataLoader( PACKAGES_JSON_DIR );
+$METADATA = new JsonDataLoader( PACKAGES_JSON_DIR );
 
 // global array for storing test results
 $test_results = array();

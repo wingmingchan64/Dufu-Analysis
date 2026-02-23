@@ -14,8 +14,10 @@ function 提取目錄( string $目錄 ) : array
 	return $CATALOG->get( $目錄 );
 }
 
+/*
 function 提取後設資料( string $路徑 ) : array
 {
 	return 提取目錄( $路徑 );
 }
+*/
 ?>
