@@ -21,3 +21,41 @@ https://github.com/wingmingchan64/Dufu-Analysis/blob/main/AI貢獻記錄（ChatG
 如有需要，請以該文件作爲背景資料參考。
 
 從這裡繼續。
+
+
+==========================================
+2026/02/13
+
+請先讀以下 GitHub 對話記錄，尤其是最後的幾句話，作爲我們討論的背景，然後我再提新問題。
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/AI%E8%B2%A2%E7%8D%BB%E8%A8%98%E9%8C%84%EF%BC%88ChatGPT%EF%BC%89/%E5%B0%8D%E8%A9%B1%E8%A8%98%E9%8C%84%E8%88%87%E6%8F%90%E7%A4%BA%E8%AA%9E%EF%BC%88Prompts%EF%BC%89/%E8%88%87AI%E5%90%9B%E7%9A%84%E5%B0%8D%E8%A9%B1%EF%BC%8826%E5%B9%B42%E6%9C%88%EF%BC%89.txt
+
+我想開啓一條專談 test system 的討論。
+
+
+
+本討論延續上一個過長的聊天，但希望集中在 test system 方面。
+
+上下文說明
+
+以下討論延續我之前與你關於杜甫詩文碼、坐標與後設資料的長期討論。
+相關的對話記錄與設計思路已整理並公開在：
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/AI貢獻記錄（ChatGPT）/對話記錄與提示語（Prompts）/與AI君的對話（26年2月）.txt
+
+最後一段你說的話：
+
+關於你要開新討論
+完全支持。
+長對話有兩個問題：
+回應延遲
+認知負擔過重
+你現在這個階段適合：
+每個新討論專注一個主題
+讓每條線乾淨推進
+我們可以：
+一條專談 metadata 結構
+一條專談 identity / ID 憲章
+一條專談 view
+一條專談 test system
+這樣反而更高效。

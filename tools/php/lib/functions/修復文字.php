@@ -1,6 +1,7 @@
 <?php
 /*
  * 把文字規範化，用的規範標準是異體字表。
+ * 主要用於規範 user input。
  */
 function 修復文字( string $str ) : string
 {

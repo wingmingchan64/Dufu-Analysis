@@ -16,7 +16,7 @@ function 在詩文重見名單中
 	}
 	elseif( !array_key_exists( $文檔碼, $詩文重見名單 ) )
 	{
-		return true;
+		return false;
 	}
 	elseif( in_array( $詩文, $詩文重見名單[ $文檔碼 ] ) )
 	{
@@ -26,5 +26,10 @@ function 在詩文重見名單中
 	{
 		return false;
 	}
+}
+
+function is_in_list_of_repeated_fragment( string $文檔碼, string $詩文 ) : bool
+{
+	return 在詩文重見名單中( $文檔碼, $詩文 );
 }
 ?>

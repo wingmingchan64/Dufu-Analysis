@@ -93,6 +93,8 @@ const 含範圍行碼完整坐標 = COORDS_DIR . '含範圍行碼完整坐標';
 const 默認詩文檔碼_完整坐標表 = COORDS_DIR . '默認詩文檔碼_完整坐標表';
 const 默認詩文檔碼_碼_字 = COORDS_DIR . '文檔碼_碼_字';
 const 默認詩文檔碼_詩文_坐標 = COORDS_DIR . '默認詩文檔碼_詩文_坐標';
+const 完整坐標表 = '完整坐標表';
+const 完整坐標表文件夾 = COORDS_DIR . 完整坐標表 . DS;
 
 // ids
 const 默認詩文檔碼 = IDS_DIR . '默認詩文檔碼'; // 0013

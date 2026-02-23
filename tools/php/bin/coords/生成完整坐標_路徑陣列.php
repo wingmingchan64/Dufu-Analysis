@@ -22,7 +22,7 @@ foreach( $chart as $坐標 )
 {
 	if( mb_strpos( $坐標, '-' ) === false )
 	{
-		$store[ $文檔 ][ $坐標 ] = 完整坐標轉換成列陣路徑( $坐標 );
+		$store[ $文檔 ][ $坐標 ] = 完整坐標轉換成路徑列陣( $坐標 );
 	}
 }
 print_r( $store );

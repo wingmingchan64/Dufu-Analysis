@@ -1,11 +1,12 @@
 <?php
 /*
- *
+ * Converts metadata JSON to an array of metadata.
+ * Called after 處理後設資料.
  */
 function 後設標記轉換成陣列(
 	string $簡稱, // 郭, 全
 	string $版本詩碼, // 0001, 0465-1
-	int $行, // 1, 2, 3, etc
+	int $行, // 1, 2, 3, etc in 版本
 	string $後設標記,
 	string $文字 = '' ) : array
 {
@@ -25,18 +26,16 @@ function 後設標記轉換成陣列(
 	{
 		throw new InvalidAnchorValueException( "目錄「${目錄路徑}」不存在。" );
 	}
+	
 	$版本詩碼_默詩碼 = json_decode( 
 		file_get_contents( $目錄路徑 ), true );
 	$版文檔碼 = substr( $版本詩碼, 0, 4 );
-	
 	$默詩碼 = $版本詩碼_默詩碼[ $版本詩碼 ];
 	$默文檔碼 = substr( $默詩碼, 0, 4 );
 	$完整坐標表 = 提取數據結構( 默認詩文檔碼_完整坐標表 )[ $默文檔碼 ];
 	$非完整坐標表 = 提取數據結構( 非完整坐標表 );
 	$詩文組合 = 提取數據結構( 詩文組合 );
 	$後設陣列 = json_decode( $後設標記, true );
-	
-	echo 後設資料行ID, NL;
 	$後設陣列[ 後設資料行ID ] = $簡稱 . $版文檔碼 . '.' . $行;
 	
 	if( $文字 != '' )
@@ -46,59 +45,69 @@ function 後設標記轉換成陣列(
 	
 	$錨種類 = array( 'a', 'b_a' );
 	
-foreach( $錨種類 as $錨 )
-{
-	if( array_key_exists( $錨, $後設陣列 ) )
+	foreach( $錨種類 as $錨 )
 	{
-		$錨値 = $後設陣列[ $錨 ];
-		// 詩題、序言
-		if( $錨値 == '1' || $錨値 == '3' )
+		if( array_key_exists( $錨, $後設陣列 ) )
 		{
-			$行 = $錨値;
-			$錨値 = "〚${默文檔碼}:${行}〛";
-		}
-		// 完整坐標
-		elseif( 是完整坐標( $錨値 ) && 是合法完整坐標( $錨値 ) )
-		{
-			$錨値 = $錨値;
-		}
-		// 非完整坐標表，補文檔碼
-		elseif( in_array( $錨値, $非完整坐標表 ) )
-		{
-			$完整坐標 = 生成完整坐標( $錨値, $默文檔碼 );
-			
-			if( 是合法完整坐標( $完整坐標 ) )
+			$錨値 = $後設陣列[ $錨 ];
+			// 詩題、序言
+			if( $錨値 == '1' || $錨値 == '3' )
 			{
-				$錨値 = $完整坐標;
+				$行 = $錨値;
+				$錨値 = "〚${默文檔碼}:${行}〛";
 			}
-			else
+			// 完整坐標
+			elseif( 是完整坐標( $錨値 ) && 是合法完整坐標( $錨値 ) )
 			{
-				throw new InvalidAnchorValueException( "「${完整坐標}」不合法。" );
+				$錨値 = $錨値;
 			}
-		}
-		// 文字
-		else
-		{
-			if( in_array( $錨値, $詩文組合 ) )
+			// 非完整坐標表，補文檔碼
+			elseif( in_array( $錨値, $非完整坐標表 ) )
 			{
-				// 詩文 => 坐標
-				$坐標s = 提取文檔碼詩文坐標( $默文檔碼, $錨値 );
+				$完整坐標 = 生成完整坐標( $錨値, $默文檔碼 );
 				
-				if( sizeof( $坐標s ) == 1 )
+				if( 是合法完整坐標( $完整坐標 ) )
 				{
-					$錨値 = $坐標s[ 0 ];
+					$錨値 = $完整坐標;
 				}
 				else
 				{
-					throw new InvalidAnchorValueException( 
-						"錨値「${錨値}」不合法。" );
+					throw new InvalidAnchorValueException( "「${完整坐標}」不合法。" );
 				}
 			}
+			// 文字
+			else
+			{
+				if( in_array( $錨値, $詩文組合 ) )
+				{
+					// 詩文 => 坐標
+					$坐標s = 提取文檔碼詩文坐標( $默文檔碼, $錨値 );
+					
+					if( sizeof( $坐標s ) == 1 )
+					{
+						$錨値 = $坐標s[ 0 ];
+					}
+					else
+					{
+						throw new InvalidAnchorValueException( 
+							"錨値「${錨値}」不合法。" );
+					}
+				}
+			}
+			$後設陣列[ $錨 ] = $錨値;
 		}
-		$後設陣列[ $錨 ] = $錨値;
 	}
-}
 
 	return $後設陣列;
+}
+
+function convert_metadata_to_array(
+	string $簡稱, // 郭, 全
+	string $版本詩碼, // 0001, 0465-1
+	int $行, // 1, 2, 3, etc
+	string $後設標記,
+	string $文字 = '' ) : array
+{
+	return 後設標記轉換成陣列( $簡稱, $版本詩碼, $行, $後設標記, $文字 );
 }
 ?>

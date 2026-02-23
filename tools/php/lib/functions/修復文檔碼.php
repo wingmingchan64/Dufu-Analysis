@@ -4,6 +4,12 @@
  */
 function 修復文檔碼( string $num ) : string
 {
+	if( intval( $num ) === 0 )
+	{
+		throw new InvalidDocumentIDException(
+			"文檔碼「${num}」不存在。」" );
+	}	
+	
 	// 詩碼中可能有 - 號，- 之前的數字爲文檔碼
 	$pos = strpos( $num, '-' );
 	$first = '';
@@ -34,7 +40,10 @@ function 修復文檔碼( string $num ) : string
 			return $first;
 		}
 	}
-	return $num;
+	
+	throw new InvalidDocumentIDException(
+		"文檔碼「${num}」不存在。」" );
+	
 }
 
 function fix_doc_id( string $num ) : string
