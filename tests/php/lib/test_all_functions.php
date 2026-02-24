@@ -34,6 +34,7 @@ foreach( $files as $file )
 		require( $path );
 	}
 }
-
-print_r( $test_results );
+$json = json_encode( $test_results, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT );
+echo 清理JSON括號( $json, true );
+//print_r( $test_results );
 ?>

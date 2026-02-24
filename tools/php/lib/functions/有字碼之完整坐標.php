@@ -16,7 +16,6 @@ function 有字碼之完整坐標(  string $坐標 ) : bool
 	
 	if( 是組詩( $parts[ 0 ] ) )
 	{
-		echo $parts[ 0 ], NL;
 		return ( $size == 5 );
 	}
 	return ( $size == 4 );

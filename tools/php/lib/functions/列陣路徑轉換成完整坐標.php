@@ -8,7 +8,7 @@ function 列陣路徑轉換成完整坐標( array $路徑 ) : string
 {
 	if( strlen( $路徑[ 0 ] ) != 4 ) // 文檔碼 XXXX
 	{
-		throw new InvalidPathException( '此路徑無文檔碼。' );
+		$路徑[ 0 ] = 修復文檔碼( $路徑[ 0 ] );
 	}
 	
 	$size = sizeof( $路徑 );
