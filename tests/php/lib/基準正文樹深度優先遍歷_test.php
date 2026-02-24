@@ -17,7 +17,17 @@ if( array_key_exists( 詩題, $tree[ $根 ] ) )
 	$題 = $tree[ $根 ][ 詩題 ];
 	unset( $tree[ $根 ][ 詩題 ] );
 }
+$store = array();
+
+基準正文樹加句號( $tree, $store );
+print_r( $tree );
+///echo $題, NL;
+//echo implode( $store );
+
 //print_r( $tree );
+exit;
+
+
 $store = array();
 基準正文樹深度優先遍歷( $tree, $store );
 //print_r( $store );
@@ -25,4 +35,5 @@ echo $題, NL;
 echo implode( $store );
 
 array_push( $test_results, "是合法錨値_test: 8 cases tested." );
+
 ?>
