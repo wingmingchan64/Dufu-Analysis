@@ -2,7 +2,7 @@
 /*
  * 把不完整文檔碼改成完整文檔碼。 此函式不負責審核文檔碼是否合法。
  */
-function 修復文檔碼( string $num ) : string
+function 修復文檔碼( string $num, bool $debug=false ) : string
 {
 	if( intval( $num ) === 0 )
 	{
@@ -43,11 +43,10 @@ function 修復文檔碼( string $num ) : string
 	
 	throw new InvalidDocumentIDException(
 		"文檔碼「${num}」不存在。」" );
-	
 }
 
-function fix_doc_id( string $num ) : string
+function fix_doc_id( string $num, bool $debug=false ) : string
 {
-	return 修復文檔碼( $num );
+	return 修復文檔碼( $num, $debug );
 }
 ?>

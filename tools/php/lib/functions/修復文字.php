@@ -3,18 +3,16 @@
  * 把文字規範化，用的規範標準是異體字表。
  * 主要用於規範 user input。
  */
-function 修復文字( string $str ) : string
-{
-	return fix_text( $str );
-}
-
-function fix_text( string $str ) : string
+function 修復文字( string $str, bool $debug=false ) : string
 {
 	// 提取異體字表
 	$異體字 = 提取數據結構( REGISTRY_DIR . '異體字' );
 	$len = mb_strlen( $str );
 	$temp = '';
 	$ytz = array_keys( $異體字 );
+	
+	debug_echo( __FILE__, __LINE__, $len, $debug );
+	
 	// 逐字檢查，以規範字取代非規範字
 	foreach( range( 0, $len - 1 ) as $pos )
 	{
@@ -30,5 +28,10 @@ function fix_text( string $str ) : string
 		}
 	}
 	return $temp;
+}
+
+function fix_text( string $str, bool $debug=false ) : string
+{
+	return 修復文字( $str, $debug );
 }
 ?>

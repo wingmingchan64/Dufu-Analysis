@@ -72,14 +72,19 @@ if( !is_file( JSON_DATA_LOADER ) )
     throw new RuntimeException( 'JsonDataLoader 未找到: ' . JSON_DATA_LOADER );
 }
 require_once( JSON_DATA_LOADER );
-$DATA = new JsonDataLoader( JSON_BASE_DIR );
-$CATALOG = new JsonDataLoader( PACKAGES_JSON_DIR );
+$DATA     = new JsonDataLoader( JSON_BASE_DIR );
+$CATALOG  = new JsonDataLoader( PACKAGES_JSON_DIR );
 $METADATA = new JsonDataLoader( PACKAGES_JSON_DIR );
+
+require_once( 'functions' . DS . 'debug_echo.php' );
+
 
 // global array for storing test results
 $test_results = array();
 
-require_once( 杜甫資料庫 . '異體字.php' );
+//require_once( 杜甫資料庫 . '異體字.php' );
+$異體字 = 提取數據結構( REGISTRY_DIR . '異體字' );
+
 
 $path_for_file = '';
 $text_of_file  = '';

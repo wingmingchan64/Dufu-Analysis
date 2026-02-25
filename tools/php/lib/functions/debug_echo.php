@@ -4,9 +4,9 @@
  */
 function debug_echo( 
 	string $file, string $line, 
-	string $msg, bool $mode = false ) : bool
+	string $msg, bool $debug = false ) : bool
 {
-	if( $mode )
+	if( $debug )
 	{
 		echo 
 			str_replace( dirname( __DIR__, 1 ) .
@@ -19,9 +19,9 @@ function debug_echo(
 
 function debug_print_r( 
 	string $file, string $line, 
-	mixed $obj, bool $mode = false ) : bool
+	mixed $obj, bool $debug = false ) : bool
 {
-	if( $mode )
+	if( $debug )
 	{
 		echo 
 			str_replace( dirname( __DIR__, 1 ) .
@@ -32,5 +32,4 @@ function debug_print_r(
 	}
 	return true;
 }
-
 ?>

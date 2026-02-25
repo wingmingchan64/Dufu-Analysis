@@ -3,7 +3,7 @@
  * 〚6093:5.2.3〛returns array( '6093', '5', '2', '3' );
  */
 // 完整坐標中，其中不能有範圍 - 
-function 完整坐標轉換成路徑列陣( string $坐標 ) : array
+function 完整坐標轉換成路徑列陣( string $坐標, bool $debug=false ) : array
 {
 	$文檔碼 = mb_substr( $坐標, 1, 4 );
 	
@@ -41,8 +41,8 @@ function 完整坐標轉換成路徑列陣( string $坐標 ) : array
 	return $坐標;
 }
 
-function convert_complete_coords_to_path_array( string $坐標 ) : array
+function convert_complete_coords_to_path_array( string $坐標, bool $debug=false ) : array
 {
-	return 完整坐標轉換成路徑列陣( $坐標 );
+	return 完整坐標轉換成路徑列陣( $坐標, $debug );
 }
 ?>

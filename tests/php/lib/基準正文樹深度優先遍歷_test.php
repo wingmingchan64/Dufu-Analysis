@@ -20,12 +20,12 @@ if( array_key_exists( 詩題, $tree[ $根 ] ) )
 $store = array();
 
 基準正文樹加句號( $tree, $store );
-print_r( $tree );
+//print_r( $tree );
 ///echo $題, NL;
 //echo implode( $store );
 
 //print_r( $tree );
-exit;
+return;
 
 
 $store = array();

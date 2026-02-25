@@ -16,4 +16,5 @@ function 基準正文樹深度優先遍歷( array $樹, array &$store )
 		}
 	}
 }
+
 ?>

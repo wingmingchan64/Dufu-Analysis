@@ -8,7 +8,7 @@ function 後設標記轉換成陣列(
 	string $版本詩碼, // 0001, 0465-1
 	int $行, // 1, 2, 3, etc in 版本
 	string $後設標記,
-	string $文字 = '' ) : array
+	string $文字 = '', bool $debug=false ) : array
 {
 	$書目簡稱 = 提取數據結構( 書目簡稱 );
 	
@@ -106,8 +106,8 @@ function convert_metadata_to_array(
 	string $版本詩碼, // 0001, 0465-1
 	int $行, // 1, 2, 3, etc
 	string $後設標記,
-	string $文字 = '' ) : array
+	string $文字 = '', bool $debug=false ) : array
 {
-	return 後設標記轉換成陣列( $簡稱, $版本詩碼, $行, $後設標記, $文字 );
+	return 後設標記轉換成陣列( $簡稱, $版本詩碼, $行, $後設標記, $文字, $debug );
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tests\php\lib\提取版本文檔_test.php
+php H:\github\Dufu-Analysis\tests\php\lib\提取文檔碼詩文坐標_test.php
 */
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
@@ -9,14 +9,7 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-$詩陣列 = 提取版本文檔( '全', '0098' );
-$詩陣列 = 提取版本文檔( '全', '0002' );
-//print_r( $詩陣列 );
-//print_r( 提取詩陣列詩文( $詩陣列, true, true ) );
-
-//echo implode( NL.NL, 提取詩陣列詩文( $詩陣列, true, true ) );
-
-
+print_r( 提取文檔碼詩文坐標( '0003', '如何' ) );
 
 /*
 確認爲眞( 是合法詩文( '鬼神' ), 'case#: 1' );

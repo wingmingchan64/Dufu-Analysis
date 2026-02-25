@@ -3,7 +3,7 @@
  * 〚0003:〛, 〚0013:1:〛 returns true
  * 〚0002:〛, 〚0013:〛 returns false
  */
-function 只有詩碼之完整坐標( string $坐標 ) : bool
+function 只有詩碼之完整坐標( string $坐標, bool $debug=false ) : bool
 {
 	if( 是合法完整坐標( $坐標 ) === false )
 	{
@@ -33,8 +33,8 @@ function 只有詩碼之完整坐標( string $坐標 ) : bool
 	}
 }
 
-function is_complete_coords_with_only_poem_id( string $坐標 ) : bool
+function is_complete_coords_with_only_poem_id( string $坐標, bool $debug=false ) : bool
 {
-	return 只有詩碼之完整坐標( $坐標 );
+	return 只有詩碼之完整坐標( $坐標, $debug );
 }
 ?>

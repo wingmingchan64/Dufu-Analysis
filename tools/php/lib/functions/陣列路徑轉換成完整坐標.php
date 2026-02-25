@@ -4,7 +4,7 @@
  * $路徑[0] 必須是文檔碼。
  * 完整坐標中，其中不會有範圍 - 標記。
  */
-function 列陣路徑轉換成完整坐標( array $路徑 ) : string
+function 陣列路徑轉換成完整坐標( array $路徑 ) : string
 {
 	if( strlen( $路徑[ 0 ] ) != 4 ) // 文檔碼 XXXX
 	{
@@ -53,6 +53,6 @@ function 列陣路徑轉換成完整坐標( array $路徑 ) : string
 
 function convert_array_path_to_complete_coords( array $路徑 ) : string
 {
-	return 列陣路徑轉換成完整坐標( $路徑 );
+	return 陣列路徑轉換成完整坐標( $路徑 );
 }
 ?>

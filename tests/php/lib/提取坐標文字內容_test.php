@@ -1,7 +1,9 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tests\php\lib\提取句碼_test.php
+php H:\github\Dufu-Analysis\tests\php\lib\提取坐標文字內容_test.php
 */
+設定測試檔( basename( __FILE__ ) );
+$debug = false;
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
 	'tools' . DIRECTORY_SEPARATOR .
@@ -9,19 +11,20 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-確認會丟( function(){ 提取句碼( '〚0013:1:5〛' );  }, InvalidCoordinateException::class, 'case#: 1' );
+$i = 1;
 
-確認會丟( function(){ 確認同一( 提取句碼( '〚0013:1:5〛' ), '5' );  }, InvalidCoordinateException::class, 'case#: 2' );
+$i++;
+
+確認會丟( function(){ 提取坐標文字內容( '〚0013:1:3〛' );  }, InvalidCoordinateException::class, "case#: ${i}" );
+$i++;
+確認會丟( function(){ 確認同一( 提取坐標文字內容( '〚0013:1:5〛' ), '' );  }, InvalidCoordinateException::class, "case#: ${i}" );
 
 
 
 
 /*
 
-echo 提取句碼( '〚0013:1:5〛' );
-echo 提取句碼( '〚0013:1:5.1〛' );
-echo 提取句碼( '〚0013:1:6.1.3〛' );
-echo 提取句碼( '〚0013:1:7.1.3-4〛' );
+
 */
 
 /*

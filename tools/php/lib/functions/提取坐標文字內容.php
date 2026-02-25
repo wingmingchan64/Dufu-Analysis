@@ -2,8 +2,12 @@
 /*
  * 
  */
-function 提取坐標文字內容( string $坐標 ) : string
+function 提取坐標文字內容( string $坐標, bool $debug=false ) : string
 {
+	if( !是合法完整坐標( $坐標 ) )
+	{
+		throw new InvalidCoordinateException( "坐標「${坐標}」不存在。" );
+	}
 	$文檔碼 = mb_substr( $坐標, 1, 4 );
 	$詩碼 = 提取詩碼( $坐標 );
 	$詩陣列 = 提取數據結構( BASE_TEXT_DIR . $詩碼 );
@@ -59,5 +63,10 @@ function 提取坐標文字內容( string $坐標 ) : string
 		提取詩陣列詩文( $詩陣列, $temp, true, false );
 	}
 	return implode( $temp );
+}
+
+function get_text_with_coords( string $坐標, bool $debug=false ) : string
+{
+	return 提取坐標文字內容( $坐標, $debug );
 }
 ?>

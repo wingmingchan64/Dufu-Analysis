@@ -2,7 +2,7 @@
 /*
  * $坐標 必須是完整坐標。
  */
-function 含首碼( string $坐標 ) : bool
+function 含首碼( string $坐標, bool $debug=false ) : bool
 {
 	$文檔碼 = mb_substr( $坐標, 1, 4 );
 
@@ -27,8 +27,8 @@ function 含首碼( string $坐標 ) : bool
 	return 是組詩( $文檔碼 );
 }
 
-function contain_member_poem_id( string $坐標 ) : bool
+function contain_member_poem_id( string $坐標, bool $debug=false ) : bool
 {
-	return 含首碼( $坐標 );
+	return 含首碼( $坐標, $debug );
 }
 ?>

@@ -2,7 +2,7 @@
 /*
  * 
  */
-function 含範圍字碼完整坐標轉換成路徑列陣( string $坐標 ): array
+function 含範圍字碼完整坐標轉換成路徑列陣( string $坐標, bool $debug=false ): array
 {
 	$文檔碼 = mb_substr( $坐標, 1, 4 );
 
@@ -55,8 +55,8 @@ function 含範圍字碼完整坐標轉換成路徑列陣( string $坐標 ): arr
 	return $result;
 }
 
-function convert_complete_coords_with_scoped_char_to_path_array( string $坐標 ): array
+function convert_complete_coords_with_scoped_char_to_path_array( string $坐標, bool $debug=false ): array
 {
-	return 含範圍字碼完整坐標轉換成路徑列陣( $坐標 );
+	return 含範圍字碼完整坐標轉換成路徑列陣( $坐標, $debug );
 }
 ?>
