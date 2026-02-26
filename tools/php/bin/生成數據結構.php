@@ -14,5 +14,6 @@ require( 'base_text\生成杜甫詩陣列.php' );
 require( 'ids\生成默認詩文檔碼.php' );
 require( 'ids\生成默認版本詩碼.php' );
 
-
+// 5 files per book
+require( 'catalog\生成默詩碼_版本詩碼.php' );
 ?>
