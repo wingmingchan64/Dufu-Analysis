@@ -2,6 +2,7 @@
 /*
 php H:\github\Dufu-Analysis\tools\php\bin\ids\生成默認版本詩碼.php
 */
+$debug = true;
 require_once( 
 	dirname( __DIR__, 2 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR . '函式.php' );
@@ -33,13 +34,14 @@ foreach( $files as $file )
 		
 		if( 是組詩( $文檔 ) )
 		{
-			$counter = 1;
-			
-			foreach( $組詩_副題[ $文檔 ][ 1 ] as $dummy )
+			foreach( $組詩_副題[ $文檔 ] as $k => $v )
 			{
-				array_push( $默認版本詩碼,
-					$文檔 . '-' . $counter );
-				$counter++;
+				if( intval( $k ) > 0 )
+				{
+					echo "Inside 組詩: $k", NL;
+					array_push( $默認版本詩碼,
+						$文檔 . '-' . $k );
+				}
 			}
 		}
 		else

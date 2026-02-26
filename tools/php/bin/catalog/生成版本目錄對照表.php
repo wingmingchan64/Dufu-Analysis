@@ -6,7 +6,6 @@ require_once(
 	dirname( __DIR__, 3) . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR .
 	'函式.php' );
 
-$簡稱陣列 = array( '全', '趙', '郭', '奭', '仇', '蕭', '謝', '訳' );
 $版本目錄對照表 = array();
 $書目簡稱 = 提取數據結構( 書目簡稱 );
 $默認版本詩碼 = 提取數據結構( 默認版本詩碼 );
