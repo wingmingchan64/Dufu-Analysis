@@ -3,7 +3,7 @@
  * 以詩碼提取詩 JSON 樹。
  * 例：提取基準正文樹( '0013-1,5' )，回傳第五行
  */
-function 提取基準正文樹( string $路徑 ) : string
+function 提取基準正文樹JSON( string $路徑 ) : string
 {
 	$路徑 = rtrim( $路徑, ',' );
 	

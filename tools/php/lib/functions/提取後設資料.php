@@ -2,7 +2,7 @@
 /*
  * 以數據結構名稱，提取該結構
  */
-function 提取後設資料( string $結構 ) : array
+function 提取後設資料( string $結構, bool $debug=false ) : array
 {
 	static $METADATA = null;
 	

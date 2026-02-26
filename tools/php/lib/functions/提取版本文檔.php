@@ -101,12 +101,18 @@ function 提取版本文檔(
 			{
 				替換詩陣列文字( $bt, $錨値, $文字,  );
 			}
+			else
+			{
+				插入詩陣列文字( $bt, $錨値, $文字,  );
+			}
 				
 		}
 	}
 	
 	if( $是組詩 )
-		return array( $簡稱.$版文檔碼 => $bt );
+	{
+		return array( $簡稱 . $版文檔碼 => $bt );
+	}
 	
 	return $bt;
 }

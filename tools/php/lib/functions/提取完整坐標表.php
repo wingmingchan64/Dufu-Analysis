@@ -2,10 +2,10 @@
 /*
  * 提取與該文檔碼相應的完整坐標表。
  */
-function 提取完整坐標表( string $文檔碼, bool $mode = false ) : array
+function 提取完整坐標表( string $文檔碼, bool $debug = false ) : array
 {
 	$文檔碼 = 修復文檔碼( $文檔碼 );
-	debug_echo( __FILE__, __LINE__, $文檔碼, $mode );
+	debug_echo( __FILE__, __LINE__, $文檔碼, $debug );
 	
 	if( strlen( $文檔碼 ) > 4 )
 	{
@@ -22,5 +22,10 @@ function 提取完整坐標表( string $文檔碼, bool $mode = false ) : array
 			"文檔碼「${文檔碼}」不存在。"
 		);
 	}
+}
+
+function get_complete_coords_list( string $文檔碼, bool $debug = false ) : array
+{
+	return 提取完整坐標表( $文檔碼, $debug );
 }
 ?>

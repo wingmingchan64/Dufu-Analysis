@@ -8,11 +8,11 @@ require_once(
 	'函式.php' );
 
 // change this value
-$簡稱 = '蕭';
+$簡稱 = '郭';
 
 $書目簡稱 = 提取數據結構( 書目簡稱 );
 $書名 = $書目簡稱[ $簡稱 ];
-$目錄名 = $書名 . DS . "${簡稱}目錄";
+$目錄名 = $書名 . DS . 'catalog'. DS . "${簡稱}目錄";
 $版本目錄 = 提取目錄( $目錄名 );
 
 $默_版名 = '默詩碼_' . $簡稱 . '詩碼';
@@ -39,6 +39,7 @@ $json = json_encode(
 
 file_put_contents(
 	dirname( __DIR__, 4) . DS . PACKAGES_DIR . $書名 . DS .
+	'catalog' . DS .
 	$默_版名 . '.json',
 	$json . PHP_EOL );
 
@@ -49,6 +50,7 @@ $json = json_encode(
 
 file_put_contents(
 	dirname( __DIR__, 4) . DS . PACKAGES_DIR . $書名 . DS .
+	'catalog' . DS .
 	$版_默名 . '.json',
 	$json . PHP_EOL );
 

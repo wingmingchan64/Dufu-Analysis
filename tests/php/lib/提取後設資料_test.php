@@ -1,7 +1,9 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tests\php\lib\行碼坐標轉換成字碼坐標_test.php
+php H:\github\Dufu-Analysis\tests\php\lib\提取後設資料_test.php
 */
+//設定測試檔( basename( __FILE__ ) );
+$debug = false;
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
 	'tools' . DIRECTORY_SEPARATOR .
@@ -9,10 +11,15 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-//echo 行碼坐標轉換成字碼坐標( '〚0229:4〛' );
-//echo 行碼坐標轉換成字碼坐標( '〚0003:5〛' );
-echo 行碼坐標轉換成字碼坐標( '〚0013:1:7〛' );
-
-array_push( $test_results, "是合法錨値_test: 8 cases tested." );
-
+$i = 1;
+//確認爲眞( 
+print_r( 提取後設資料( '《全唐詩》' . DS . METADATA_DIR .
+	'by_doc_id' .
+	DS . '0002' ) );
+	
+	//, "case#: ${i}" );
+$i++;
+/*
+確認會丟( function(){ 提取後設資料( '〚0013:1:5〛' );  }, InvalidCoordinateException::class, "case#: ${i}" );
+*/
 ?>

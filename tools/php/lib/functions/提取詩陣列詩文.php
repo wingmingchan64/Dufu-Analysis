@@ -8,9 +8,13 @@ function 提取詩陣列詩文(
 	array $詩陣列,
 	bool $加句號 = true,
 	bool $加新行 = true,
-	bool $忽略副題 = true // only affects 組詩
+	bool $忽略副題 = true,// only affects 組詩
+	bool $debug = false
 ) : array
 {
+	//debug_echo( __FILE__, __LINE__, "提取詩陣列詩文", $debug );
+	//debug_print_r( __FILE__, __LINE__, $詩陣列, $debug );
+
 	$store = array();
 	$路徑 = array();
 	$根 = array_keys( $詩陣列 )[ 0 ];

@@ -1,6 +1,6 @@
 <?php
 /*
- * 
+ * used by 插入詩陣列文字
  */
 function 插入路徑文字( 
 	array &$陣列, array $路徑, string $文字, int $start = 0 ) : bool

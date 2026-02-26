@@ -1,7 +1,8 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tests\php\lib\提取基底正文樹_test.php
+php H:\github\Dufu-Analysis\tests\php\lib\提取詩碼基準正文樹_test.php
 */
+$debug = true;
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
 	'tools' . DIRECTORY_SEPARATOR .
@@ -9,5 +10,6 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-//echo 清理JSON括號( 提取基準正文樹( '0276' ) );
+$樹 = 提取詩碼基準正文樹( '0003' );
+
 ?>
