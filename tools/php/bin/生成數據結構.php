@@ -16,4 +16,6 @@ require( 'ids\生成默認版本詩碼.php' );
 
 // 5 files per book
 require( 'catalog\生成默詩碼_版本詩碼.php' );
+// 2 files
+require( 'catalog\生成版本目錄對照表.php' );
 ?>

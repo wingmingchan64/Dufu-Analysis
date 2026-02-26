@@ -2,6 +2,8 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\提取版本文檔_test.php
 */
+//設定測試檔( basename( __FILE__ ) );
+$debug = true;
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
 	'tools' . DIRECTORY_SEPARATOR .
@@ -10,7 +12,7 @@ require_once(
 	"函式.php" );
 
 //$詩陣列 = 提取版本文檔( '全', '0098' );
-$詩陣列 = 提取版本文檔( '郭', '0001' );
+$詩陣列 = 提取版本文檔( '郭', '0001', true, true );
 print_r( $詩陣列 );
 //print_r( 提取詩陣列詩文( $詩陣列, true, true ) );
 
