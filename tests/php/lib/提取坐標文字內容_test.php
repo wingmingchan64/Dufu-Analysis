@@ -2,7 +2,7 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\提取坐標文字內容_test.php
 */
-設定測試檔( basename( __FILE__ ) );
+//設定測試檔( basename( __FILE__ ) );
 $debug = true;
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
