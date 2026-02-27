@@ -4,7 +4,7 @@
  * 〚0013:1:5.2.3〛,〚0013:1:5.2.4〛
  * 只接受完整坐標，只擴充字碼
  */
-function 提取擴充範圍字碼坐標( string $坐標 ) : array
+function 提取擴充範圍字碼坐標( string $坐標, bool $debug=false ) : array
 {
 	if( 是完整坐標( $坐標 ) === false )
 	{
@@ -54,8 +54,8 @@ function 提取擴充範圍字碼坐標( string $坐標 ) : array
 }
 
 
-function get_coords_with_char_scope( string $坐標 ) : array
+function get_coords_with_char_scope( string $坐標, bool $debug=false ) : array
 {
-	return 提取擴充範圍字碼坐標( $坐標 );
+	return 提取擴充範圍字碼坐標( $坐標, $debug );
 }
 ?>

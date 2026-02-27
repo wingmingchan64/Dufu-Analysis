@@ -121,4 +121,13 @@ function 提取版本文檔(
 	
 	return $bt;
 }
+
+function get_edition_document(
+	string $簡稱,
+	string $版文檔碼, 
+	bool $插入文字 = true,
+	bool $debug=false ) : array
+{
+	return 提取版本文檔( $簡稱, $版文檔碼, $插入文字, $debug );
+}
 ?>

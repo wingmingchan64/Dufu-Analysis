@@ -1,6 +1,6 @@
 <?php
 /*
- * 以數據結構名稱，提取該結構
+ * 以數據結構名稱，提取該結構。
  */
 function 提取後設資料( string $結構, bool $debug=false ) : array
 {
@@ -12,5 +12,10 @@ function 提取後設資料( string $結構, bool $debug=false ) : array
 	}
 	
 	return $METADATA->get( $結構 );
+}
+
+function get_metadata( string $結構, bool $debug=false ) : array
+{
+	return 提取後設資料( $結構, $debug );
 }
 ?>

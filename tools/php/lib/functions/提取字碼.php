@@ -1,8 +1,8 @@
 <?php
 /*
- * 提取行碼，坐標中最後一個 : 後的値。
+ * 提取字碼。
  */
-function 提取字碼( string $坐標 ) : string
+function 提取字碼( string $坐標, bool $debug=false ) : string
 {
 	
 	if( 是合法完整坐標( $坐標 ) === false )
@@ -38,8 +38,8 @@ function 提取字碼( string $坐標 ) : string
 	return '';
 }
 
-function get_char_id( string $坐標 ) : string
+function get_char_id( string $坐標, bool $debug=false ) : string
 {
-	return 提取字碼( $坐標 );
+	return 提取字碼( $坐標, $debug );
 }
 ?>

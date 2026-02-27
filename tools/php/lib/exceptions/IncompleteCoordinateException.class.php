@@ -1,3 +1,3 @@
 <?php
-class IncompleteCoordsException extends Exception{}
+class IncompleteCoordinateException extends Exception{}
 ?>
