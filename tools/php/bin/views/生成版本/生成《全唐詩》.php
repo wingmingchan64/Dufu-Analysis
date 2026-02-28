@@ -8,8 +8,6 @@ require_once(
 	
 $後設資料文件夾 = dirname( __DIR__, 5 ) . DS . PACKAGES_DIR .
 	'《全唐詩》' . DS . METADATA_DIR . 'by_doc_id' . DS;
-$全文檔碼_全詩碼   = 提取目錄(
-	'《全唐詩》' .DS . 'catalog'. DS . '全文檔碼_全詩碼' );
 	
 $多個文檔 = true;
 
@@ -45,7 +43,6 @@ else
 		}
 	}
 }
-//print_r( $版文檔碼s );
 
 foreach( $版文檔碼s as $版文檔碼 )
 {
