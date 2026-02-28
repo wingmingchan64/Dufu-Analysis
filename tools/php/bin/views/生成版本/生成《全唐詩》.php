@@ -8,12 +8,8 @@ require_once(
 	
 $後設資料文件夾 = dirname( __DIR__, 5 ) . DS . PACKAGES_DIR .
 	'《全唐詩》' . DS . METADATA_DIR . 'by_doc_id' . DS;
-//$全文檔碼_默文檔碼 = 提取目錄(
-	//'《全唐詩》' .DS . 'catalog'. DS . '全文檔碼_默文檔碼' );
 $全文檔碼_全詩碼   = 提取目錄(
 	'《全唐詩》' .DS . 'catalog'. DS . '全文檔碼_全詩碼' );
-//$全詩碼_默詩碼    = 提取目錄(
-	//'《全唐詩》' .DS . 'catalog'. DS . '全詩碼_默詩碼' );
 	
 $多個文檔 = true;
 
@@ -49,7 +45,7 @@ else
 		}
 	}
 }
-print_r( $版文檔碼s );
+//print_r( $版文檔碼s );
 
 foreach( $版文檔碼s as $版文檔碼 )
 {
@@ -69,8 +65,5 @@ foreach( $版文檔碼s as $版文檔碼 )
 		dirname( __DIR__, 5 ) . DS . PACKAGES_DIR . 
 		'《全唐詩》' . DS . 'samples' . DS . "${版文檔碼}.md",
 		$contents . PHP_EOL );
-
 }
-
-
 ?>
