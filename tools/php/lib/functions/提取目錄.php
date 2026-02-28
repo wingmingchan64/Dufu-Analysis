@@ -2,7 +2,7 @@
 /*
  * 以數據結構名稱，提取該結構
  */
-function 提取目錄( string $目錄 ) : array
+function 提取目錄( string $目錄, bool $debug=false ) : array
 {
 	static $CATALOG = null;
 	
@@ -14,10 +14,9 @@ function 提取目錄( string $目錄 ) : array
 	return $CATALOG->get( $目錄 );
 }
 
-/*
-function 提取後設資料( string $路徑 ) : array
+function get_catalog( string $路徑, bool $debug=false ) : array
 {
 	return 提取目錄( $路徑 );
 }
-*/
+
 ?>
