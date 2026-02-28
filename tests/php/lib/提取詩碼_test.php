@@ -2,7 +2,8 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\提取詩碼_test.php
 */
-ini_set( 'memory_limit', '5196M' );
+設定測試檔( basename( __FILE__ ) );
+$debug = false;
 
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
@@ -11,12 +12,10 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-echo 提取詩碼( '〚0013:1:5.1〛' );
-/*
-確認會丟( function(){ 提取字碼( '〚0013:1:5.1〛' );  }, InvalidCoordinateException::class, 'case#: 1' );
-確認同一( 提取字碼( '〚0013:1:6.1.3〛' ), '3', 'case#: 2' );
-確認同一( 提取字碼( '〚0013:1:7.1.3-4〛' ), '3-4', 'case#: 3' );
-
-array_push( $test_results, "提取字碼_test: 3 cases tested." );
-*/
+$i = 1;
+確認相等( 提取詩碼( '〚0013:1:6.1.3〛' ), '0013-1', "case#: ${i}" );
+$i++;
+確認相等( 提取詩碼( '〚0003:5.1.3-4〛' ), '0003', "case#: ${i}" );
+$i++;
+確認會丟( function(){ 提取詩碼( '〚0012:1:5.1〛' );  }, InvalidCoordinateException::class, "case#: ${i}", 'Message here', true );
 ?>

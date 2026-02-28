@@ -131,8 +131,8 @@ const 空語鏈 = '';
 
 
 // metadata
-const 後設資料ID = 'doc_id';
-const 後設資料行ID = 'doc_l_id';
+const 版本文檔ID = 'doc_id';
+const 後設標記ID = 'mm_id';
 
 
 

@@ -2,7 +2,7 @@
 /*
  * 提取一組詩碼，每首詩中，都有「$詩文s」
  */
-function 提取詩文默詩碼陣列( array $詩文s ) : array
+function 提取詩文默詩碼陣列( array $詩文s, bool $debug=false ) : array
 {
 	$temp1 = array();
 	$temp2 = array();
@@ -25,6 +25,8 @@ function 提取詩文默詩碼陣列( array $詩文s ) : array
 	{
 		foreach( $標s as $標 )
 		{
+			$文檔碼 = mb_substr( $標, 1, 4 );
+			
 			if( mb_strpos( $標, '〚' ) === false )
 			{
 				array_push( $result[ $文 ],  
@@ -32,7 +34,14 @@ function 提取詩文默詩碼陣列( array $詩文s ) : array
 				return $result;
 			}
 			
-			array_push( $temp2[ $文 ], 提取文檔碼( $標 ) );
+			if( 是組詩( $文檔碼 ) )
+			{
+				array_push( $temp2[ $文 ], 提取詩碼( $標 ) );
+			}
+			else
+			{
+				array_push( $temp2[ $文 ], 提取文檔碼( $標 ) );
+			}
 		}
 	}
 
@@ -52,7 +61,8 @@ function 提取詩文默詩碼陣列( array $詩文s ) : array
 			array_intersect( ...$temp3 ) ) );
 }
 
-function get_array_of_poem_ids_containing_fragments( array $詩文s ) : array
+function get_array_of_poem_ids_containing_fragments(
+	array $詩文s, bool $debug=false ) : array
 {
 	return 提取詩文默詩碼陣列( $詩文s );
 }

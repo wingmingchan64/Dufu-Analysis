@@ -1,6 +1,6 @@
 <?php
 /*
- *
+ * 提取詩文片段的完整坐標，坐標可以多於一個。
  */
 function 提取詩文坐標( string $詩文, bool $debug=false ) : array
 {

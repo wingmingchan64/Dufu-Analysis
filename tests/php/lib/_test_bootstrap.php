@@ -112,7 +112,8 @@ function 確認會丟(
     callable $fn,
     string $expected_exception_class,
     string $case_id = '',
-    string $message = ''
+    string $message = '',
+	bool $debug=false
 ) : bool
 {
     try
@@ -123,16 +124,25 @@ function 確認會丟(
 	{
         if( $e instanceof $expected_exception_class )
 		{
-            記錄case('PASS', $case_id, $message ?: ('Caught expected ' . $expected_exception_class));
+            記錄case( 
+				'PASS', 
+				$case_id, 
+				$message ?: ( 'Caught expected ' . $expected_exception_class ) );
             return true;
 		}
 
+		if( $debug )
+		{
+			debug_echo( __FILE__, __LINE__, $expected_exception_class );
+		}
+
         // 丟了但類型不對
-        $msg = $message ?: ( 'Expected ' . 	
+        $msg = $message ?: (
+			'Expected ' . 	
 			$expected_exception_class . ', got ' . 
 			get_class( $e ) );
-        $fail = new ConfirmationFailureException($msg);
-        記錄case('FAIL', $case_id, $msg, $e);
+        $fail = new ConfirmationFailureException( $msg );
+        記錄case( 'FAIL', $case_id, $msg, $e );
         throw $fail;
     }
 
@@ -148,9 +158,10 @@ function confirm_throw(
     callable $fn,
     string $expected_exception_class,
     string $case_id = '',
-    string $message = ''
+    string $message = '',
+	bool $debug=false
 ) : bool
 {
-	return 確認會丟( $fn, $expected_exception_class, $case_id, $message );
+	return 確認會丟( $fn, $expected_exception_class, $case_id, $message, $debug );
 }
 ?>

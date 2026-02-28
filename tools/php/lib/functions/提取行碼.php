@@ -2,7 +2,7 @@
 /*
  * 提取行碼，坐標中最後一個 : 後的値。
  */
-function 提取行碼( string $坐標 ) : string
+function 提取行碼( string $坐標, bool $debug=false ) : string
 {
 	if( 是合法完整坐標( $坐標 ) === false )
 	{
@@ -26,11 +26,11 @@ function 提取行碼( string $坐標 ) : string
 	else
 	{
 		// shouldn't be here
-		throw new InvalidCoordinateException( "不是合法完整坐標。" );
+		throw new InvalidCoordinateException( "坐標沒有行碼。" );
 	}
 }
 
-function get_line_id( string $坐標 ) : string
+function get_line_id( string $坐標, bool $debug=false ) : string
 {
 	return 提取行碼( $坐標 );
 }

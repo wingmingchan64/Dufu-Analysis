@@ -1,11 +1,12 @@
 <?php
 /*
  * Converts metadata JSON to an array of metadata.
- * Called after 處理後設資料.
+ * Called by 處理後設資料.
+ * partial $錨値: only 1 and 3 are allowed
  */
 function 後設標記轉換成陣列(
 	string $簡稱, // 郭, 全
-	string $版本詩碼, // 0001, 0465-1
+	string $版文檔碼, // 0001, 0098
 	int $行, // 1, 2, 3, etc in 版本
 	string $後設標記,
 	string $文字 = '', bool $debug=false ) : array
@@ -18,25 +19,35 @@ function 後設標記轉換成陣列(
 	}
 	
 	$書名 = $書目簡稱[ $簡稱 ];
-	$目錄路徑 = dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
-		$書名 . DS . 'catalog' . DS .
-		"${簡稱}詩碼_默詩碼.json";
+	//$目錄路徑 = dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
+		//$書名 . DS . 'catalog' . DS .
+		//"${簡稱}詩碼_默詩碼.json";
+		
+	$版文檔碼_默文檔碼 = 提取目錄( $書名 . DS . 'catalog' . DS .
+		"${簡稱}文檔碼_默文檔碼" );
+	$版詩碼_默詩碼 = 提取目錄( $書名 . DS . 'catalog' . DS .
+		"${簡稱}詩碼_默詩碼" );
+	// anyone in the array will do
+	//print_r( $版文檔碼_默文檔碼 );
+	$默文檔碼 = $版文檔碼_默文檔碼[ $版文檔碼 ][ 0 ];
 
+/*
 	if( !file_exists( $目錄路徑 ) )
 	{
 		throw new InvalidAnchorValueException( "目錄「${目錄路徑}」不存在。" );
 	}
+*/	
+	//$版本詩碼_默詩碼 = json_decode( 
+		//file_get_contents( $目錄路徑 ), true );
+	//$版文檔碼 = substr( $版本詩碼, 0, 4 );
+	//$默詩碼 = $版本詩碼_默詩碼[ $版本詩碼 ];
+	//$默文檔碼 = substr( $默詩碼, 0, 4 );
+	//$完整坐標表 = 提取數據結構( 默認詩文檔碼_完整坐標表 )[ $默文檔碼 ];
 	
-	$版本詩碼_默詩碼 = json_decode( 
-		file_get_contents( $目錄路徑 ), true );
-	$版文檔碼 = substr( $版本詩碼, 0, 4 );
-	$默詩碼 = $版本詩碼_默詩碼[ $版本詩碼 ];
-	$默文檔碼 = substr( $默詩碼, 0, 4 );
-	$完整坐標表 = 提取數據結構( 默認詩文檔碼_完整坐標表 )[ $默文檔碼 ];
 	$非完整坐標表 = 提取數據結構( 非完整坐標表 );
 	$詩文組合 = 提取數據結構( 詩文組合 );
 	$後設陣列 = json_decode( $後設標記, true );
-	$後設陣列[ 後設資料行ID ] = $簡稱 . $版文檔碼 . '.' . $行;
+	$後設陣列[ 後設標記ID ] = $簡稱 . $版文檔碼 . '.' . $行;
 	
 	if( $文字 != '' )
 	{
@@ -61,6 +72,7 @@ function 後設標記轉換成陣列(
 			{
 				$錨値 = $錨値;
 			}
+			/*
 			// 非完整坐標表，補文檔碼
 			elseif( in_array( $錨値, $非完整坐標表 ) )
 			{
@@ -75,6 +87,7 @@ function 後設標記轉換成陣列(
 					throw new InvalidAnchorValueException( "「${完整坐標}」不合法。" );
 				}
 			}
+			*/
 			// 文字
 			else
 			{

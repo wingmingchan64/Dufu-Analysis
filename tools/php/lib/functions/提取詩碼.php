@@ -1,8 +1,8 @@
 <?php
 /*
- * 提取詩碼。
+ * 提取詩碼，格式爲 0013-1
  */
-function 提取詩碼( string $坐標 ) : string
+function 提取詩碼( string $坐標, bool $debug=false ) : string
 {
 	if( 是合法完整坐標( $坐標 ) === false )
 	{
@@ -38,7 +38,7 @@ function 提取詩碼( string $坐標 ) : string
 	}
 }
 
-function get_poem_id( string $坐標 ) : string
+function get_poem_id( string $坐標, bool $debug=false ) : string
 {
 	return 提取詩碼( $坐標 );
 }

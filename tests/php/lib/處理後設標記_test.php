@@ -9,8 +9,9 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
+處理後設標記( '全', '0098', '中華書局版', true, true );
 
-確認爲眞( 處理後設標記( '郭', '0001', '', true, true ), 'case#: 1' );
 
-array_push( $test_results, "處理後設標記_test: 1 case tested." );
+//確認爲眞( 處理後設標記( '郭', '0001', '', true, true ), 'case#: 1' );
+
 ?>

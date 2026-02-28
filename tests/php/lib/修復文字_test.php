@@ -3,7 +3,7 @@
 php H:\github\Dufu-Analysis\tests\php\lib\修復文字_test.php
 */
 設定測試檔( basename( __FILE__ ) );
-$debug = true;
+$debug = false;
 
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .

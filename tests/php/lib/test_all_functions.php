@@ -29,7 +29,7 @@ foreach( $all as $f )
     if( !str_ends_with( $f, '_test.php' ) ) continue;
     $test_files[] = $f;
 }
-sort($test_files);
+sort( $test_files );
 
 // 先記錄 SKIP
 foreach( $test_files as $f )
@@ -44,12 +44,22 @@ foreach( $test_files as $f )
 $failed = false;
 $mode = getenv( 'TEST_MODE' ) ?: 'FAIL_FAST';
 
-foreach($test_files as $f) {
-    if(isset($skip[$f])) continue;
+//print_r( $test_files );
+//print_r( $skip );
+
+foreach( $test_files as $f )
+{
+	//echo $f, NL;
+    if( isset( $skip[ $f ] ) )
+	{
+		echo "Skipping " . $skip[ $f ], NL;
+		continue;
+	}
 
     設定測試檔($f);
 
-    try {
+    try 
+	{
         // 每個測試檔自身會 require 函式.php（你現在是這樣）
         // 但如果你已在這裡 require 了 函式.php，那測試檔裡那段可慢慢拿掉（可選）
         require $tests_dir . DIRECTORY_SEPARATOR . $f;

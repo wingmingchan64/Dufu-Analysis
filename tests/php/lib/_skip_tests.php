@@ -4,6 +4,7 @@
  * comment out a line to be included in the test
  */
 return [
+/*
 	'修復文字_test.php',
 	'修復文檔碼_test.php',
 	'列陣路徑轉換成完整坐標_test.php',
@@ -28,7 +29,10 @@ return [
 	'提取行碼_test.php',
 	'提取詩文坐標_test.php',
 	'提取詩文默詩碼陣列_test.php',
+
 	'提取詩碼_test.php',
+
+
 	'提取詩陣列_test.php',
 	'提取詩陣列詩文_test.php',
 	'提取路徑陣列_test.php',
@@ -41,5 +45,6 @@ return [
 	'處理後設標記_test.php',
 	'處理後設資料_test.php',
 	'行碼坐標轉換成字碼坐標_test.php'
+*/
 ];
 ?>
