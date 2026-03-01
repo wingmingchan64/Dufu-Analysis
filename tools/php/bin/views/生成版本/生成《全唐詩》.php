@@ -11,7 +11,7 @@ $資料來源文件夾 = dirname( __DIR__, 6 ) . DS . 'DuFu' . DS .
 $後設資料文件夾 = dirname( __DIR__, 5 ) . DS . PACKAGES_DIR .
 	'《全唐詩》' . DS . METADATA_DIR . 'by_doc_id' . DS;
 	
-$多個文檔 = true;
+$多個文檔 = false;
 
 // 生成一個文檔，文檔碼爲：版本文檔碼
 if( !$多個文檔 )
