@@ -1,2 +1,0 @@
-php H:\github\Dufu-Analysis\analysis_programs\搜索程式\run_program.php 頁碼→詩題
-php H:\github\Dufu-Analysis\analysis_programs\搜索程式\run_program.php 頁碼→〚行碼〛、詩文
