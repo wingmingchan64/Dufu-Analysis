@@ -3,7 +3,7 @@
  * 沿著路徑，提取末端的文字。
  */
 function 提取路徑字(
-	array $陣列, array $路徑, int $開始, bool $debug=false ) : string
+	array $陣列, array $路徑, int $開始=0, bool $debug=false ) : string
 {
 	if( $開始 == sizeof( $路徑 ) - 1 )
 	{
@@ -16,7 +16,7 @@ function 提取路徑字(
 }
 
 function get_char_by_path(
-	array $陣列, array $路徑, int $開始, bool $debug=false ) : string
+	array $陣列, array $路徑, int $開始=0, bool $debug=false ) : string
 {
 	return 提取路徑字( $陣列, $路徑, $開始, $debug );
 }

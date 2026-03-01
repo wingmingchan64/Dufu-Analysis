@@ -4,6 +4,8 @@
 
 # All build artifacts (views, exports, caches)
 build/
+test/
+test_backup/
 
 # Package-local build outputs (if any)
 packages/**/build/
