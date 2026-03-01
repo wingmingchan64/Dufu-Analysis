@@ -10,7 +10,7 @@
 
 然後，是全0098的後設資料（這個文檔是下面的程式生成的）：
 
-- <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/packages/%E3%80%8A%E5%85%A8%E5%94%90%E8%A9%A9%E3%80%8B/metadata/by_doc_id/0098.json">0098.json</a>
+- 程式生成 JSON 檔 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/packages/%E3%80%8A%E5%85%A8%E5%94%90%E8%A9%A9%E3%80%8B/metadata/by_doc_id/0098.json">0098.json</a>
 
 - 資料來源文字檔 <a href="https://github.com/wingmingchan64/DuFu/blob/master/packages/%E3%80%8A%E5%85%A8%E5%94%90%E8%A9%A9%E3%80%8B/%E4%B8%AD%E8%8F%AF%E6%9B%B8%E5%B1%80%E7%89%88/0098.txt">0098.txt</a>
 
