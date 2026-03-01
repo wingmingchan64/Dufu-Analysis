@@ -124,6 +124,8 @@ function 確認會丟(
 	{
         if( $e instanceof $expected_exception_class )
 		{
+			//debug_echo( __FILE__, __LINE__, "Throwing", $debug );
+
             記錄case( 
 				'PASS', 
 				$case_id, 
@@ -131,10 +133,7 @@ function 確認會丟(
             return true;
 		}
 
-		if( $debug )
-		{
-			debug_echo( __FILE__, __LINE__, $expected_exception_class );
-		}
+		//debug_echo( __FILE__, __LINE__, "Not throwing " .$expected_exception_class );
 
         // 丟了但類型不對
         $msg = $message ?: (

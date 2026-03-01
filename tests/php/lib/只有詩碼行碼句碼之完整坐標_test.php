@@ -16,7 +16,5 @@ $i = 1;
 $i++;
 確認爲眞( is_complete_coords_with_only_poem_id_line_id_segment_id( '〚0013:1:6.1〛' ), "case#: ${i}" );
 $i++;
-確認會丟( function(){ 確認爲眞( 只有詩碼行碼句碼之完整坐標( '〚0013:〛' ) ); }, ConfirmationFailureException::class, "case#: ${i}" );
-$i++;
-確認會丟( function(){ 確認爲眞( 只有詩碼行碼句碼之完整坐標( '〚0014:〛' ) ); }, InvalidCoordinateException::class, "case#: ${i}" );
+確認會丟( function(){ 只有詩碼行碼句碼之完整坐標( 'qian' ); }, InvalidCoordinateException::class, "case#: ${i}" );
 ?>

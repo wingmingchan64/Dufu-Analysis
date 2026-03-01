@@ -1,8 +1,9 @@
 <?php
 /*
- * 
+ * 沿著路徑，提取末端的文字。
  */
-function 提取路徑字( array $陣列, array $路徑, int $開始 ) : string
+function 提取路徑字(
+	array $陣列, array $路徑, int $開始, bool $debug=false ) : string
 {
 	if( $開始 == sizeof( $路徑 ) - 1 )
 	{
@@ -10,40 +11,13 @@ function 提取路徑字( array $陣列, array $路徑, int $開始 ) : string
 	}
 	else
 	{
-		return 提取路徑字( $陣列[ $路徑[ $開始 ] ], $路徑, $開始+1 );
+		return 提取路徑字( $陣列[ $路徑[ $開始 ] ], $路徑, $開始+1, $debug );
 	}
 }
 
-
-
-
-
-
-function 替換路徑字( array &$陣列, array $路徑, int $開始, $字 ) : bool
+function get_char_by_path(
+	array $陣列, array $路徑, int $開始, bool $debug=false ) : string
 {
-	if( $開始 == sizeof( $路徑 ) - 1 )
-	{
-		$陣列[ $路徑[ $開始 ] ] = $字;
-		return true;
-	}
-	else
-	{
-		return 替換路徑字( $陣列[ $路徑[ $開始 ] ], $路徑, $開始+1, $字 );
-	}
+	return 提取路徑字( $陣列, $路徑, $開始, $debug );
 }
-
-function 插入路徑字( array &$陣列, array $路徑, int $開始, $字 ) : bool
-{
-	if( $開始 == sizeof( $路徑 ) - 1 )
-	{
-		$陣列[ $路徑[ $開始 ] ] = $陣列[ $路徑[ $開始 ] ] . $字;
-		return true;
-	}
-	else
-	{
-		return 插入路徑字( $陣列[ $路徑[ $開始 ] ], $路徑, $開始+1, $字 );
-	}
-}
-
-
 ?>

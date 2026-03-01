@@ -16,10 +16,10 @@ $i = 1;
 確認相等( 修復文檔碼( '3' ), '0003', "case#: ${i}" );
 $i++;
 確認相等( 修復文檔碼( '13-1' ), '0013-1', "case#: ${i}" );
-// 0004 與 0003 不同
+// 
 $i++;
-confirm_throw( function(){ confirm_identical( 修復文檔碼( '4' ), '0003' ); }, ConfirmationFailureException::class, "case#: ${i}", '', true );
+confirm_throw( function(){  修復文檔碼( '大' ); }, InvalidDocumentIDException::class, "case#: ${i}" ); 
 // 不是數字
 $i++;
-確認會丟( function(){ 修復文檔碼( 'run-1' ); }, InvalidDocumentIDException::class, "case#: ${i}" );
+確認會丟( function(){ 修復文檔碼( 'run-1' ); }, InvalidDocumentIDException::class, "case#: ${i}", '', $debug );
 ?>

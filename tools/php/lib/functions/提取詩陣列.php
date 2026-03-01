@@ -2,7 +2,7 @@
 /*
  * 以詩碼坐標，提取詩陣列。
  */
-function 提取詩陣列( string $坐標 ) : array
+function 提取詩陣列( string $坐標, bool $debug=false ) : array
 {
 	if( !是詩碼坐標( $坐標 ) )
 	{
@@ -26,5 +26,10 @@ function 提取詩陣列( string $坐標 ) : array
 	{
 		throw new InvalidCoordinateException( "詩碼坐標中，無此坐標。" );
 	}
+}
+
+function get_poem_array( string $坐標, bool $debug=false ) : array
+{
+	return 提取詩陣列( $坐標, $debug );
 }
 ?>

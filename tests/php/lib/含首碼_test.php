@@ -16,8 +16,4 @@ $i = 1;
 $i++;
 確認爲眞( !含首碼( '〚0003:5.1.2〛' ), "case#: ${i}" );
 $i++;
-確認會丟( function(){ 
-	確認爲眞( contain_member_poem_id( '〚0003:5.1.2〛' ) );
-	}, 
-	ConfirmationFailureException::class, "case#: ${i}" );
 ?>

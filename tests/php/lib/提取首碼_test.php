@@ -12,7 +12,6 @@ require_once(
 確認會丟( function(){ 提取首碼( '〚0013:〛' ); }, InvalidCoordinateException::class, 'case#: 1' );
 確認相等( 提取首碼( '〚0013:2:〛' ), '2', 'case#: 2' );
 確認會丟( function(){ 
-	確認相等( 提取首碼( '〚0013:2:〛' ), '1', '' );
-	}, 
-	ConfirmationFailureException::class, 'case#: 3' );
+	提取首碼( '〚001:〛' ); }, 
+	InvalidCoordinateException::class, 'case#: 3' );
 ?>

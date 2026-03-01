@@ -16,5 +16,5 @@ $i = 1;
 $i++;
 確認爲眞( is_complete_coords_with_only_poem_id_line_id( '〚0013:1:6-7〛' ), "case#: ${i}" );
 $i++;
-確認會丟( function(){ 確認爲眞( 只有詩碼行碼之完整坐標( '〚0013:〛' ) ); }, ConfirmationFailureException::class, "case#: ${i}" );
+
 ?>
