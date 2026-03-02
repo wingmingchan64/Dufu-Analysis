@@ -1,0 +1,72 @@
+{
+    "全":
+	{
+		"title":"《全唐詩》",
+		"edition":"中華書局1980年4月第1版第七冊",
+		"note":"頁二二五一至二五九〇，每頁十六行",
+		"work_id": "全",                       
+		"edition_id": "全-中華1980-4",         
+		"anchor": 
+		{
+			"scheme": "page_line",               
+			"format": "P{page}-L{line}",         
+			"page_digits": 4,
+			"line_digits": 2,
+			"page_base": 1,
+			"line_base": 1,
+			"max_lines_per_page": 16
+		}		
+	},
+    "郭":
+	{	"title":"郭知達《新刊校定集注杜詩》",
+		"edition":"上海古籍出版社2022年12月第1版第一至四冊",
+		"note":"頁一至一六〇五，每頁十行",
+		"work_id": "郭",                       
+		"edition_id": "郭-上古2022-12",         
+		"anchor": 
+		{
+			"scheme": "page_line",               
+			"format": "P{page}-L{line}",         
+			"page_digits": 4,
+			"line_digits": 2,
+			"page_base": 1,
+			"line_base": 1,
+			"max_lines_per_page": 10
+		}		
+	},
+    "蕭":
+	{	"title":"蕭滌非主編《杜甫全集校注》",
+		"edition":"人民文學出版社2014年1月北京第1版第一至十一冊",
+		"note":"頁一至六五〇七，每頁不多於十七行",
+		"work_id": "全",                       
+		"edition_id": "蕭-人民2014-1",         
+		"anchor": 
+		{
+			"scheme": "page_line",               
+			"format": "P{page}-L{line}",         
+			"page_digits": 4,
+			"line_digits": 2,
+			"page_base": 1,
+			"line_base": 1,
+			"max_lines_per_page": 17
+		}		
+	},
+	"謝":
+	{	"title":"謝思煒《杜甫集校注》",
+		"edition":"上海古籍出版社2015年12月第1版第一至七冊",
+		"note":"頁一至三〇九一，每頁不多於十七行",
+		"work_id": "全",                       
+		"edition_id": "謝-上古2015-12",
+		"anchor": 
+		{
+			"scheme": "page_line",               
+			"format": "P{page}-L{line}",         
+			"page_digits": 4,
+			"line_digits": 2,
+			"page_base": 1,
+			"line_base": 1,
+			"max_lines_per_page": 17
+		}		
+	}
+
+}

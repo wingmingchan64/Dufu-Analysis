@@ -1,12 +1,12 @@
 <?php
 declare( strict_types = 1 );
+namespace Dufu\Tools;
 
 /**
  * JSON Loader for 杜甫資料
  * JSON-first，PHP 作為 view / CLI
  */
-
-class JsonDataLoader
+final class JsonDataLoader
 {
     private string $baseDir;
     private array $cache = [];
@@ -27,23 +27,27 @@ class JsonDataLoader
      */
     public function get( string $name ) : array
     {
-        if( isset( $this->cache[ $name ] ) ) {
+        if( isset( $this->cache[ $name ] ) )
+		{
             return $this->cache[ $name ];
         }
 
         $path = $this->baseDir . DIRECTORY_SEPARATOR . $name . ".json";
 
-        if( !is_file( $path ) ) {
+        if( !is_file( $path ) )
+		{
             throw new RuntimeException( "JSON 檔不存在：$path" );
         }
 
         $json = file_get_contents( $path );
-        if( $json === false ) {
+        if( $json === false )
+		{
             throw new RuntimeException( "讀取失敗：$path" );
         }
 
         $data = json_decode( $json, true );
-        if( !is_array( $data ) ) {
+        if( !is_array( $data ) )
+		{
             $err = json_last_error_msg();
             throw new RuntimeException( "JSON 解析失敗：$path；error=$err" );
         }
@@ -58,7 +62,8 @@ class JsonDataLoader
      */
     public function loadMany( array $names ): void
     {
-        foreach ( $names as $name ) {
+        foreach ( $names as $name )
+		{
             $this->get( $name );
         }
     }
