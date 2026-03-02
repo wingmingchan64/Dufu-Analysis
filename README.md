@@ -1,4 +1,4 @@
-# Dufu-Analysis (Written by ChapGPT)
+# Dufu-Analysis (By ChapGPT)
 
 Dufu-Analysis is the analysis/build repository of my long-term Du Fu project.
 
@@ -105,7 +105,7 @@ start with a few categories (e.g. variants and notes), then expand without break
 
 ---
 
-## Site Map
+## Site Map （我加的部分）
 
 - <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/schemas/json/base_text">基準正文樹</a>
 - <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/schemas/json/coords">坐標表</a>
