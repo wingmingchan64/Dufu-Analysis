@@ -1,4 +1,4 @@
-# Dufu-Analysis
+# Dufu-Analysis (Written by ChapGPT)
 
 Dufu-Analysis is the analysis/build repository of my long-term Du Fu project.
 
@@ -25,7 +25,7 @@ A poem is modeled as a finite-depth ordered tree:
 
 A coordinate (anchor) is a **path** from root to a node, e.g.:
 
-- `〚0465:3.2.1〛` = poem 0465 → line 3 → segment 2 → char 1
+- `〚0456:3.2.1〛` = poem 0456 → line 3 → segment 2 → char 1
 - range anchors exist (continuous ranges only), e.g. `〚0003:3-5〛`
 
 ### 2) Metadata as attachable “decorations”
