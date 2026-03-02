@@ -155,7 +155,7 @@ function 提取版本文檔(
 				
 				if( 提取行碼( $坐標 ) == 1 )
 				{
-					$bt[ $默文檔碼 ][ 詩題 ] = $bt[ $默文檔碼 ][ 詩題 ] . NL . $doc_id_texts[ $mm_id ];
+					$bt[ $默文檔碼 ][ 詩題 ] = $bt[ $默文檔碼 ][ 詩題 ] . '[' . $doc_id_texts[ $mm_id ] . ']';
 				}
 				else
 				{
