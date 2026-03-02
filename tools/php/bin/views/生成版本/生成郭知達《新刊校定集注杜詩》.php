@@ -66,9 +66,10 @@ foreach( $版文檔碼s as $版文檔碼 )
 		unset( $詩陣列詩文[ 0 ] );
 
 		$詩題 = $詩題 . NL . NL;
-		$詩文 = 加sub標簽( implode( NL, $詩陣列詩文 ) );
+		$詩文 = implode( NL, $詩陣列詩文 );
+		$詩文 = str_replace( '。]。', ']。', $詩文 );
+		$詩文 = 	加sub標簽( $詩文 );
 		$contents = $詩題 . $詩文;
-		
 
 		file_put_contents(
 			dirname( __DIR__, 5 ) . DS . PACKAGES_DIR . 
