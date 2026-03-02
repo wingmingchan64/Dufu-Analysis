@@ -102,3 +102,21 @@ This repo uses automated build scripts to regenerate JSON artifacts and automate
 The system is actively evolving. Metadata can be added incrementally:
 
 start with a few categories (e.g. variants and notes), then expand without breaking existing data.
+
+---
+
+## Site Map
+
+- <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/schemas/json/base_text">基準正文樹</a>
+- <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/schemas/json/coords">坐標表</a>
+- <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/schemas/json/registry">術語、規則說明</a>
+- <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/packages">注本資料</a>
+- <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/tools/php">PHP Controller</a>
+- <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/tests/php">PHP Test Programs</a>
+
+## 注本資料內部結構：郭知達《新刊校定集注杜詩》
+- <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/packages/%E9%83%AD%E7%9F%A5%E9%81%94%E3%80%8A%E6%96%B0%E5%88%8A%E6%A0%A1%E5%AE%9A%E9%9B%86%E6%B3%A8%E6%9D%9C%E8%A9%A9%E3%80%8B/catalog">目錄</a>
+- <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/packages/%E9%83%AD%E7%9F%A5%E9%81%94%E3%80%8A%E6%96%B0%E5%88%8A%E6%A0%A1%E5%AE%9A%E9%9B%86%E6%B3%A8%E6%9D%9C%E8%A9%A9%E3%80%8B/metadata">後設資料</a>
+- <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/packages/%E9%83%AD%E7%9F%A5%E9%81%94%E3%80%8A%E6%96%B0%E5%88%8A%E6%A0%A1%E5%AE%9A%E9%9B%86%E6%B3%A8%E6%9D%9C%E8%A9%A9%E3%80%8B/samples">View 的樣本</a>
+- <a href=""></a>
+- <a href=""></a>
