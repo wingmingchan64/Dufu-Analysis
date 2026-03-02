@@ -59,13 +59,13 @@ function 提取版本文檔(
 	{
 		$bt = 提取數據結構( BASE_TEXT_DIR . $默文檔碼 );
 	}
-
+/*
 	// $資料 per 文檔，not per 詩
 	for( $i=0; $i<sizeof( $資料 ); $i++ )
 	{
-		$類別 = $資料[ $i ][ 'cat' ];
-		$錨値 = $資料[ $i ][ 'a' ];
-		$文字 = $資料[ $i ][ 't' ];
+		$類別 = $資料[ $i ][ CAT ];
+		$錨値 = $資料[ $i ][ B_A ];
+		$文字 = $資料[ $i ][ T ];
 		// the first record
 		// 詩題、序言、詩文
 		$regex = '/〚(\d{4}):([13])〛/u';
@@ -97,22 +97,75 @@ function 提取版本文檔(
 			}
 		}
 		// 副題、詩文
+		
 		else
 		{
-			// 〚1376:1:7.1.5〛
+			// read from other files instead
+			
 			if( $類別 == '異' )
 			{
 				替換詩陣列文字( $bt, $錨値, $文字, $debug  );
 			}
 			else
 			{
-				debug_echo( __FILE__, __LINE__, $錨値, $debug );
+				//debug_echo( __FILE__, __LINE__, $錨値, $debug );
 
 				插入詩陣列文字( $bt, $錨値, $文字, $debug );
 			}
 				
 		}
+		
 	}
+	*/
+	// read from other files instead
+	$簡稱_部分 = 提取後設資料( '簡稱_部分' );
+	
+	$部分s = $簡稱_部分[ $簡稱 ];
+	
+	foreach( $部分s as $部分 )
+	{
+		$doc_id_texts = 提取後設資料( $書名 . DS .
+			METADATA_DIR . 'doc_id_texts' . DS . $版文檔碼 );
+			
+		if( $部分 == '異' )
+		{
+			$doc_id_異 = 提取後設資料( $書名 . DS .
+				METADATA_DIR . 'doc_id_異' );
+			foreach( $doc_id_異[ $版文檔碼 ] as $mm_id => $錨 )
+			{
+				替換詩陣列文字( $bt, $錨, $doc_id_texts[ $mm_id ], $debug  );
+			}
+		}
+		else
+		{
+			$後設資料名 = 'doc_id_' . $部分; 
+			$$後設資料名 = 提取後設資料( $書名 . DS .
+				METADATA_DIR . $後設資料名 );
+				
+			foreach( $$後設資料名[ $版文檔碼 ] as $坐標 => $mm_ids )
+			{
+				$text = '[';
+				
+				foreach( $mm_ids as $mm_id )
+				{
+					$text .= $doc_id_texts[ $mm_id ];
+				}
+				
+				$text .= ']';
+				
+				if( 提取行碼( $坐標 ) == 1 )
+				{
+					$bt[ $默文檔碼 ][ 詩題 ] = $bt[ $默文檔碼 ][ 詩題 ] . NL . $doc_id_texts[ $mm_id ];
+				}
+				else
+				{
+					echo $坐標 . ' ' . $text, NL;
+					插入詩陣列文字( $bt, $坐標, $text, $debug  );
+				}
+			}
+		}
+	}
+	
 	
 	if( $是組詩 )
 	{

@@ -287,9 +287,14 @@ const 按語 = '按語';
 
 const 來源 = "來源";
 const 異夾 = "異夾"; // 異文、夾注
-const 詞項 = "異夾"; 
+const 詞項 = "詞項"; 
 const 位置 = "位置"; 
-const 次序 = "次序"; 
+const 次序 = "次序";
+const MM_ID = 'mm_id'; // metadata marker id
+const CAT = 'cat'; // category
+const A = 'a';     // anchor
+const T = 't';     // text
+const B_A = 'b_a'; // book anchor
 
 
 // programs
