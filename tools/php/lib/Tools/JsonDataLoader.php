@@ -1,7 +1,11 @@
 <?php
 declare( strict_types = 1 );
 namespace Dufu\Tools;
-
+use Dufu\Exceptions\BaseDirNotFoundException;
+use Dufu\Exceptions\JsonFileNotFoundException;
+use Dufu\Exceptions\JsonDecodeException;
+use Dufu\Exceptions\JsonReadException;
+use JsonException;
 /**
  * JSON Loader for 杜甫資料
  * JSON-first，PHP 作為 view / CLI
@@ -9,6 +13,7 @@ namespace Dufu\Tools;
 final class JsonDataLoader
 {
     private string $baseDir;
+	/** @var array<string, array> */
     private array $cache = [];
 
     public function __construct( string $baseDir )
@@ -16,7 +21,7 @@ final class JsonDataLoader
         if ( !is_dir( $baseDir ) ) 
 		{
 			//echo $baseDir, NL;
-            throw new RuntimeException( "JSON 目錄不存在：$baseDir" );
+            throw new BaseDirNotFoundException( "JSON 目錄不存在：$baseDir" );
         }
         $this->baseDir = rtrim( $baseDir, DIRECTORY_SEPARATOR );
     }
@@ -36,20 +41,33 @@ final class JsonDataLoader
 
         if( !is_file( $path ) )
 		{
-            throw new RuntimeException( "JSON 檔不存在：$path" );
+            throw new JsonFileNotFoundException( "JSON 檔不存在： $path" );
         }
 
         $json = file_get_contents( $path );
+		
         if( $json === false )
 		{
-            throw new RuntimeException( "讀取失敗：$path" );
+            throw new JsonReadException( "讀取失敗： $path" );
         }
 
-        $data = json_decode( $json, true );
+		try
+		{
+			$data = json_decode( 
+				$json, true, 512, JSON_THROW_ON_ERROR );
+		}
+		catch( JsonException $e )
+		{
+			throw new JsonDecodeException(
+				"JSON 解析失敗：$path；error=" . 
+				$e->getMessage(), 0, $e);
+        }
+		
         if( !is_array( $data ) )
 		{
-            $err = json_last_error_msg();
-            throw new RuntimeException( "JSON 解析失敗：$path；error=$err" );
+            // 這通常代表 JSON 頂層不是 object/array（例如字串、數字）
+            throw new JsonDecodeException( 
+				"JSON 格式不符（頂層非 array/object）： $path" );
         }
 
         // 快取
@@ -59,6 +77,7 @@ final class JsonDataLoader
 
     /**
      * 一次載入多個
+	 * @param array<int, string> $names
      */
     public function loadMany( array $names ): void
     {
@@ -70,6 +89,7 @@ final class JsonDataLoader
 
     /**
      * 列出目前已載入的資料 key
+	 * @return array<int, string>
      */
     public function loadedKeys(): array
     {

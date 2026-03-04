@@ -2,10 +2,16 @@
 /*
 php H:\github\Dufu-Analysis\tools\php\bin\views\生成版本\生成《全唐詩》.php
 */
+declare( strict_types = 1 );
+
 require_once( 
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR . '函式.php' );
 	
+$一字組合_坐標 = 提取數據結構( 一字組合_坐標 );
+print_r( $默認詩碼_首句 );
+
+/*
 $資料來源文件夾 = dirname( __DIR__, 6 ) . DS . 'DuFu' . DS .
 	PACKAGES_DIR . '《全唐詩》' . DS . '中華書局版' . DS;
 $後設資料文件夾 = dirname( __DIR__, 5 ) . DS . PACKAGES_DIR .
@@ -70,4 +76,5 @@ foreach( $版文檔碼s as $版文檔碼 )
 			$contents . PHP_EOL );
 	}
 }
+*/
 ?>

@@ -6,6 +6,21 @@
 const DS = DIRECTORY_SEPARATOR;
 // packages
 const PACKAGES_DIR = 'packages' . DS;
+const PACKAGES_DIR_全 = 'packages' . DS . 
+	'《全唐詩》' . DS;
+const PACKAGES_DIR_訳 = 'packages' . DS . 
+	'下定雅弘、松原_朗《杜甫全詩訳注》' . DS;
+const PACKAGES_DIR_仇 = 'packages' . DS . 
+	'仇兆鰲《杜詩詳註》' . DS;
+const PACKAGES_DIR_郭 = 'packages' . DS . 
+	'郭知達《新刊校定集注杜詩》' . DS;
+const PACKAGES_DIR_蕭 = 'packages' . DS . 
+	'蕭滌非主編《杜甫全集校注》' . DS;
+const PACKAGES_DIR_趙 = 'packages' . DS . 
+	'林繼中輯校《杜詩趙次公先後解輯校》' . DS;
+const PACKAGES_DIR_奭 = 'packages' . DS . 
+	'王嗣奭《杜臆》' . DS;
+	
 // schemas
 const SCHEMAS_DIR = 'schemas' . DS;
 const SCHEMAS_JSON_DIR = SCHEMAS_DIR . 'json' . DS;
@@ -63,6 +78,7 @@ const PHP_GLOBAL_FUNCTIONS = PHP_CODE_BASE_LIB_DIR . '函式.php';
 
 
 // coords 坐標
+// $一字組合_坐標 = 提取數據結構( 一字組合_坐標 );
 const 一字組合_坐標 = COORDS_DIR . '一字組合_坐標';
 const 二字組合_坐標 = COORDS_DIR . '二字組合_坐標';
 const 三字組合_坐標 = COORDS_DIR . '三字組合_坐標';

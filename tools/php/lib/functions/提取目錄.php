@@ -8,7 +8,7 @@ function 提取目錄( string $目錄, bool $debug=false ) : array
 	
 	if( $CATALOG === null )
 	{
-		$CATALOG = new JsonDataLoader( PACKAGES_JSON_DIR );
+		$CATALOG = new Dufu\Tools\JsonDataLoader( PACKAGES_JSON_DIR );
 	}
 	
 	return $CATALOG->get( $目錄 );

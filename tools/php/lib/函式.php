@@ -2,20 +2,28 @@
 /*
 函式
 */
+declare(strict_types=1);
+/*
 set_error_handler( function ( 
 	$severity, $message, $file, $line )
 {
     throw new \ErrorException( $message, $severity, 	
 		$severity, $file, $line );
 });
-
+*/
 // load constants
 require_once( __DIR__ . DIRECTORY_SEPARATOR . '常數.php' );
+// load exceptions
+require_once( __DIR__ . DS . 'autoload.php' );
+// JSON loader
+use Dufu\Tools\JsonDataLoader;
+
 define( 'PHP_CODE_BASE_DIR', dirname( __DIR__ ) . DS );
 define( 'PHP_FUNCTIONS_DIR', PHP_CODE_BASE_LIB_DIR . FUNCTIONS_DIR );
 define( 'PHP_EXCEPTIONS_DIR', PHP_CODE_BASE_LIB_DIR . EXCEPTIONS_DIR );
 define( 'JSON_DATA_LOADER',
-	PHP_CODE_BASE_LIB_DIR . 'JsonDataLoader.class.php' );
+	PHP_CODE_BASE_LIB_DIR .
+		'Tools' . DS . 'JsonDataLoader.php' );
 define( 'JSON_BASE_DIR', dirname( __DIR__, 3 ) . DS .
 	SCHEMAS_JSON_DIR );
 define( 'PACKAGES_JSON_DIR', dirname( __DIR__, 3 ) . DS .
@@ -72,18 +80,16 @@ if( !is_file( JSON_DATA_LOADER ) )
     throw new RuntimeException( 'JsonDataLoader 未找到: ' . JSON_DATA_LOADER );
 }
 require_once( JSON_DATA_LOADER );
-$DATA     = new JsonDataLoader( JSON_BASE_DIR );
-$CATALOG  = new JsonDataLoader( PACKAGES_JSON_DIR );
-$METADATA = new JsonDataLoader( PACKAGES_JSON_DIR );
+$DATA     = new Dufu\Tools\JsonDataLoader( JSON_BASE_DIR );
+$CATALOG  = new Dufu\Tools\JsonDataLoader( PACKAGES_JSON_DIR );
+$METADATA = new Dufu\Tools\JsonDataLoader( PACKAGES_JSON_DIR );
 
 require_once( 'functions' . DS . 'debug_echo.php' );
 
+$異體字 = 提取數據結構( 異體字 );
 
-// global array for storing test results
-$test_results = array();
 
-//require_once( 杜甫資料庫 . '異體字.php' );
-$異體字 = 提取數據結構( REGISTRY_DIR . '異體字' );
+
 
 
 $path_for_file = '';

@@ -8,7 +8,7 @@ function 提取數據結構( string $結構, bool $debug=false ) : array
 	
 	if( $DATA === null )
 	{
-		$DATA = new JsonDataLoader( JSON_BASE_DIR );
+		$DATA = new Dufu\Tools\JsonDataLoader( JSON_BASE_DIR );
 	}
 	
 	return $DATA->get( $結構 );
