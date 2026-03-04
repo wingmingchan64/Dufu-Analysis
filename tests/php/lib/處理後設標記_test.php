@@ -2,6 +2,9 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\處理後設標記_test.php
 */
+use Dufu\Exceptions\JsonFileNotFoundException;
+use Dufu\Exceptions\InvalidAnchorValueException;
+
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
 	'tools' . DIRECTORY_SEPARATOR .
@@ -9,9 +12,12 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-處理後設標記( '全', '0098', '中華書局版', true, true );
+//處理後設標記( '全', '0098', '中華書局版', true, true );
 
 
-//確認爲眞( 處理後設標記( '郭', '0001', '', true, true ), 'case#: 1' );
+//確認爲眞( 
+處理後設標記( '郭', '0001', '', true, true );
+
+//, 'case#: 1' );
 
 ?>

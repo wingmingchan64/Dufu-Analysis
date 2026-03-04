@@ -9,7 +9,7 @@
 		"anchor": 
 		{
 			"scheme": "page_line",               
-			"format": "P{page}-L{line}",         
+			"format": "P{page4}-L{line2}",         
 			"page_digits": 4,
 			"line_digits": 2,
 			"page_base": 1,
@@ -20,18 +20,18 @@
     "郭":
 	{	"title":"郭知達《新刊校定集注杜詩》",
 		"edition":"上海古籍出版社2022年12月第1版第一至四冊",
-		"note":"頁一至一六〇五，每頁十行",
+		"note":"頁一至一六〇五，每頁通常十行；若同頁含【校勘記】及校語，常達十一行。",
 		"work_id": "郭",                       
 		"edition_id": "郭-上古2022-12",         
 		"anchor": 
 		{
 			"scheme": "page_line",               
-			"format": "P{page}-L{line}",         
+			"format": "P{page4}-L{line2}",         
 			"page_digits": 4,
 			"line_digits": 2,
 			"page_base": 1,
 			"line_base": 1,
-			"max_lines_per_page": 10
+			"max_lines_per_page": 11
 		}		
 	},
     "蕭":
@@ -43,7 +43,7 @@
 		"anchor": 
 		{
 			"scheme": "page_line",               
-			"format": "P{page}-L{line}",         
+			"format": "P{page4}-L{line2}",         
 			"page_digits": 4,
 			"line_digits": 2,
 			"page_base": 1,
@@ -60,7 +60,7 @@
 		"anchor": 
 		{
 			"scheme": "page_line",               
-			"format": "P{page}-L{line}",         
+			"format": "P{page4}-L{line2}",         
 			"page_digits": 4,
 			"line_digits": 2,
 			"page_base": 1,

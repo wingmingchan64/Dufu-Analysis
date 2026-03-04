@@ -2,6 +2,9 @@
 /*
  * 處理 .txt 中的〘〙標記，
  */
+use Dufu\Exceptions\JsonFileNotFoundException;
+use Dufu\Exceptions\InvalidAnchorValueException;
+
 function 處理後設標記(
 	string $簡稱, // 郭, 全
 	string $版文檔碼, // 0001, 0098
@@ -18,7 +21,6 @@ function 處理後設標記(
 	}
 	
 	$書名 = $書目簡稱[ $簡稱 ];
-	//$版文檔碼 = substr( $版本詩碼, 0, 4 );
 	
 	if( $版本名稱 != '' )
 	{
@@ -36,9 +38,8 @@ function 處理後設標記(
 	$file = trim( file_get_contents( $文檔路徑 ) );
 	$lines = explode( NL, $file );
 	$文檔碼_後設標記 = array();
-	$版本身份 = $簡稱 . $版文檔碼; // 版本文檔ID
+	$版本身份 = $簡稱 . $版文檔碼; // first part of sid
 	$文檔碼_後設標記[ $版本身份 ] = array();
-	$counter = 1;
 	
 	foreach( $lines as $line )
 	{
@@ -51,10 +52,8 @@ function 處理後設標記(
 		}
 		
 		$tag = rtrim( $parts[ 1 ], '〙' );
-		$陣列 = 後設標記轉換成陣列( $簡稱, $版文檔碼, $counter, $tag, $text );
+		$陣列 = 後設標記轉換成陣列( $簡稱, $版文檔碼, $tag, $text );
 		array_push( $文檔碼_後設標記[ $版本身份 ], $陣列 );
-		
-		$counter++;
 	}
 	if( $存檔 )
 	{
