@@ -2,6 +2,10 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\提取詩文默詩碼陣列_test.php
 */
+use Dufu\Exceptions\ConfirmationFailureException;
+use Dufu\Exceptions\PoemIDNotFoundException;
+use Dufu\Exceptions\PoemFragmentNotFoundException;
+
 設定測試檔( basename( __FILE__ ) );
 $debug = false;
 require_once(
@@ -18,5 +22,5 @@ $i++;
 確認相等( 提取詩文默詩碼陣列( array( '之子', '時', '相見' ) ), 
 	array( '0013-2' ), "case#: ${i}" );
 $i++;
-確認會丟( function(){ 提取詩文默詩碼陣列( array( '之子', '時間', '相見' ) );  }, InvalidPoemFragmentException::class, "case#: ${i}" );
+確認會丟( function(){ 提取詩文默詩碼陣列( array( '之子', '時間', '相見' ) );  }, PoemFragmentNotFoundException::class, "case#: ${i}" );
 ?>

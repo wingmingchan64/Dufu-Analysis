@@ -3,8 +3,8 @@
 php H:\github\Dufu-Analysis\tests\php\lib\提取基準正文樹_test.php
 */
 $debug = true;
-use Dufu\Exceptions\PoemIDNotFoundException;
 use Dufu\Exceptions\ConfirmationFailureException;
+use Dufu\Exceptions\PoemIDNotFoundException;
 
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .

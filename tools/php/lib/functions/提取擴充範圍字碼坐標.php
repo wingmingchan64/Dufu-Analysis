@@ -4,11 +4,14 @@
  * 〚0013:1:5.2.3〛,〚0013:1:5.2.4〛
  * 只接受完整坐標，只擴充字碼
  */
+use Dufu\Exceptions\IncompleteCoordinateException;
+
 function 提取擴充範圍字碼坐標( string $坐標, bool $debug=false ) : array
 {
 	if( 是完整坐標( $坐標 ) === false )
 	{
-		throw new IncompleteCoordinateException( "不是完整坐標。" );
+		throw new IncompleteCoordinateException(
+			"「${坐標}」不是完整坐標。" );
 	}
 	$regex1 = '/\d{4}:\d+\.\d.\d+-\d+/u'; // 〚0003:5.1.2-4〛
 	$regex2 = '/\d{4}:\d+:\d+\.\d.\d+-\d+/u'; // 〚0013:2:11.2.1-3〛

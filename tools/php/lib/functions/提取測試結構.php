@@ -2,6 +2,10 @@
 /*
  * 以測試結構名稱，提取該結構
  */
+use Dufu\Exceptions\JsonFileNotFoundException;
+use Dufu\Exceptions\JsonReadException;
+use Dufu\Exceptions\JsonDecodeException;
+
 function 提取測試結構( string $結構, bool $debug=false ) : array
 {
 	static $TESTS = null;

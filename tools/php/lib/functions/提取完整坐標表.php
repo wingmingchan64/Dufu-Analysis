@@ -2,6 +2,8 @@
 /*
  * 提取與該文檔碼相應的完整坐標表。
  */
+use Dufu\Exceptions\DocumentIDNotFoundException;
+
 function 提取完整坐標表( string $文檔碼, bool $debug = false ) : array
 {
 	$文檔碼 = 修復文檔碼( $文檔碼 );
@@ -18,7 +20,7 @@ function 提取完整坐標表( string $文檔碼, bool $debug = false ) : array
 	}
 	catch( RuntimeException $e )
 	{
-		throw new InvalidDocumentIDException(
+		throw new DocumentIDNotFoundException(
 			"文檔碼「${文檔碼}」不存在。"
 		);
 	}

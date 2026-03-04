@@ -2,6 +2,9 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\提取後設資料_test.php
 */
+use Dufu\Exceptions\ConfirmationFailureException;
+use Dufu\Exceptions\JsonFileNotFoundException;
+
 設定測試檔( basename( __FILE__ ) );
 $debug = false;
 require_once(
@@ -16,9 +19,9 @@ $i = 1;
 	'by_doc_id' .
 	DS . '0002' ) ), 13, "case#: ${i}" );
 $i++;
-確認會丟( function(){ 提取後設資料( '〚0013:1:5〛' );  }, RuntimeException::class, "case#: ${i}" );
+確認會丟( function(){ 提取後設資料( '〚0013:1:5〛' );  }, InvalidArgumentException::class, "case#: ${i}" );
 $i++;
 確認會丟( function(){ 提取後設資料( '《全唐詩》' . DS . METADATA_DIR .
 	'by_doc_id' .
-	DS . '7000' );  }, RuntimeException::class, "case#: ${i}" );
+	DS . '7000' );  }, JsonFileNotFoundException::class, "case#: ${i}" );
 ?>

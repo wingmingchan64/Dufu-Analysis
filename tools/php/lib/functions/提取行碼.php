@@ -2,6 +2,8 @@
 /*
  * 提取行碼，坐標中最後一個 : 後的値。
  */
+use Dufu\Exceptions\InvalidCoordinateException;
+
 function 提取行碼( string $坐標, bool $debug=false ) : string
 {
 	if( 是合法完整坐標( $坐標 ) === false )

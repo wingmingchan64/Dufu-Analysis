@@ -2,6 +2,9 @@
 /*
  * 
  */
+use Dufu\Exceptions\DocumentIDNotFoundException;
+use Dufu\Exceptions\PoemFragmentNotFoundException;
+
 function 提取文檔碼詩文坐標(
 	string $文檔碼, string $詩文, bool $debug=false ) : array
 {
@@ -9,11 +12,11 @@ function 提取文檔碼詩文坐標(
 	
 	if( !是默認文檔碼( $文檔碼 ) )
 	{
-		throw new InvalidDocumentIDException(
+		throw new DocumentIDNotFoundException(
 			"文檔碼「${文檔碼}」不存在。"
 		);
 	}
-		
+	
 	$坐標s = 提取詩文坐標( $詩文 );
 	$result = array();
 	

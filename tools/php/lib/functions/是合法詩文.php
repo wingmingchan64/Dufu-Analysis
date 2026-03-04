@@ -2,6 +2,8 @@
 /*
  * 詩文片段是否存在於詩中。
  */
+use Dufu\Exceptions\JsonFileNotFoundException;
+
 function 是合法詩文( string $詩文 ) : bool
 {
 	$詩文 = fix_text( $詩文 );

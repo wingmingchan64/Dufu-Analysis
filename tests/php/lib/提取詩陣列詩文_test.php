@@ -2,6 +2,9 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\提取詩陣列詩文_test.php
 */
+use Dufu\Exceptions\ConfirmationFailureException;
+use Dufu\Exceptions\InvalidPathException;
+
 設定測試檔( basename( __FILE__ ) );
 $debug = false;
 require_once(

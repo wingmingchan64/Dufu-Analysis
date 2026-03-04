@@ -2,11 +2,13 @@
 /*
  * 以詩碼坐標，提取詩陣列。
  */
+use Dufu\Exceptions\InvalidCoordinateException;
+
 function 提取詩陣列( string $坐標, bool $debug=false ) : array
 {
-	if( !是詩碼坐標( $坐標 ) )
+	if( !是默認詩碼坐標( $坐標 ) )
 	{
-		throw new InvalidCoordinateException( "詩碼坐標中，無坐標「${坐標}」。" );
+		throw new InvalidCoordinateException( "默認詩碼坐標中，無坐標「${坐標}」。" );
 	}
 	$file_name = rtrim( 
 		str_replace( ':', '-',

@@ -2,6 +2,9 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\提取完整坐標表_test.php
 */
+use Dufu\Exceptions\ConfirmationFailureException;
+use Dufu\Exceptions\DocumentIDNotFoundException;
+
 設定測試檔( basename( __FILE__ ) );
 $debug = false;
 require_once(
@@ -14,5 +17,5 @@ require_once(
 $i = 1;
 確認相等( 提取完整坐標表( '3', $debug )[ 0 ], '〚0003:〛',"case#: {$i}" );
 $i++;
-確認相等( sizeof( 提取完整坐標表( '3', $debug ) ), 140,"case#: {$i}" );
+確認相等( sizeof( 提取完整坐標表( '3', $debug ) ), 140, "case#: {$i}" );
 ?>

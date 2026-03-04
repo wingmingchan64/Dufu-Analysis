@@ -5,6 +5,9 @@
  * 〚0229:4〛 => 〚0229:4.1.7〛
  * 〚0013:1:7〛 => 〚0013:1:7.2.7〛
  */
+use Dufu\Exceptions\JsonFileNotFoundException;
+use Dufu\Exceptions\InvalidCoordinateException;
+
 function 行碼坐標轉換成字碼坐標( string $坐標 ) : string
 {
 	$文檔碼 = mb_substr( $坐標, 1, 4 );

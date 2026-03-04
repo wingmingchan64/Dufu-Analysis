@@ -1,8 +1,13 @@
 <?php
 /*
- *
+ * check whether a value can be used as anchor
  */
-function 是可用錨値( string $文檔碼, string $str ) : bool
+use Dufu\Exceptions\JsonFileNotFoundException;
+
+function 是可用錨値(
+	string $文檔碼, 
+	string $str, 
+	bool $debug=false ) : bool
 {
 	$默認詩文檔碼 = 提取數據結構( 默認詩文檔碼 );
 	$默認詩文檔碼_詩文 = 提取數據結構( 默認詩文檔碼_詩文 );

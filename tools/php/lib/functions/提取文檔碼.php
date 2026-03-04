@@ -3,6 +3,8 @@
  * 提取文檔碼，〚 後面的四個數字。
  * called by 是合法完整坐標，因此不檢查坐標是否合法。
  */
+use Dufu\Exceptions\InvalidCoordinateException;
+
 function 提取文檔碼( string $坐標, bool $debug=false ) : string
 {
 	if( 是完整坐標( $坐標 ) === false )

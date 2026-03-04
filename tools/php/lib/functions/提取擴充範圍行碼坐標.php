@@ -4,6 +4,8 @@
  * 〚0013:1:5〛,〚0013:1:6〛
  * 只接受完整坐標，只擴充行碼
  */
+use Dufu\Exceptions\IncompleteCoordinateException;
+
 function 提取擴充範圍行碼坐標( string $坐標, bool $debug=false ) : array
 {
 	if( 是完整坐標( $坐標 ) === false )

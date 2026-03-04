@@ -2,6 +2,9 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\提取文檔碼_test.php
 */
+use Dufu\Exceptions\ConfirmationFailureException;
+use Dufu\Exceptions\InvalidCoordinateException;
+
 設定測試檔( basename( __FILE__ ) );
 $debug = false;
 require_once(
@@ -17,5 +20,5 @@ $i = 1;
 $i++;
 確認相等( 提取文檔碼( '〚0003:5.1〛' ), '0003', "case#: {$i}" );
 $i++;
-確認會丟( function(){ 提取首碼( '〚13:〛' ); }, InvalidCoordinateException::class, "case#: {$i}" );
+確認會丟( function(){ 提取文檔碼( '〚13:〛' ); }, InvalidCoordinateException::class, "case#: {$i}" );
 ?>

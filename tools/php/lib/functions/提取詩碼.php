@@ -2,6 +2,8 @@
 /*
  * 提取詩碼，格式爲 0013-1
  */
+use Dufu\Exceptions\InvalidCoordinateException;
+
 function 提取詩碼( string $坐標, bool $debug=false ) : string
 {
 	if( 是合法完整坐標( $坐標 ) === false )

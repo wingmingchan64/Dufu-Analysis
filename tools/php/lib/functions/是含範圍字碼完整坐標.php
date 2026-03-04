@@ -2,7 +2,10 @@
 /*
  *
  */
-function 是含範圍字碼完整坐標( string $坐標 ) : bool
+use Dufu\Exceptions\JsonFileNotFoundException;
+
+function 是含範圍字碼完整坐標(
+	string $坐標, bool $debug=false ) : bool
 {
 	$含範圍字碼完整坐標 = 提取數據結構( 含範圍字碼完整坐標 );
 

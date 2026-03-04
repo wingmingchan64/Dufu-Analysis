@@ -4,7 +4,12 @@
  * $路徑[0] 必須是文檔碼。
  * 完整坐標中，其中不會有範圍 - 標記。
  */
-function 陣列路徑轉換成完整坐標( array $路徑 ) : string
+use Dufu\Exceptions\JsonFileNotFoundException;
+use Dufu\Exceptions\InvalidPathException;
+use Dufu\Exceptions\InvalidCoordinateException;
+
+function 陣列路徑轉換成完整坐標(
+	array $路徑, bool $debug=false ) : string
 {
 	if( strlen( $路徑[ 0 ] ) != 4 ) // 文檔碼 XXXX
 	{
@@ -51,8 +56,9 @@ function 陣列路徑轉換成完整坐標( array $路徑 ) : string
 		"坐標「${坐標template}」不存在。" );
 }
 
-function convert_array_path_to_complete_coords( array $路徑 ) : string
+function convert_array_path_to_complete_coords( 
+	array $路徑, bool $debug=false ) : string
 {
-	return 陣列路徑轉換成完整坐標( $路徑 );
+	return 陣列路徑轉換成完整坐標( $路徑, $debug );
 }
 ?>

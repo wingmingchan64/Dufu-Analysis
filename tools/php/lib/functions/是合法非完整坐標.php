@@ -2,6 +2,8 @@
 /*
  *
  */
+use Dufu\Exceptions\JsonFileNotFoundException;
+
 function 是合法非完整坐標( string $str ) : bool
 {
 	$非完整坐標表 = 提取數據結構( 非完整坐標表 );

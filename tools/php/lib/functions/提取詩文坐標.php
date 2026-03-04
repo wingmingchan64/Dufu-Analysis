@@ -2,6 +2,8 @@
 /*
  * 提取詩文片段的完整坐標，坐標可以多於一個。
  */
+use Dufu\Exceptions\PoemFragmentNotFoundException;
+
 function 提取詩文坐標( string $詩文, bool $debug=false ) : array
 {
 	$詩文 = 修復文字( $詩文 );
@@ -12,7 +14,7 @@ function 提取詩文坐標( string $詩文, bool $debug=false ) : array
 	{
 		return $結構[ $詩文 ];
 	}
-	throw new InvalidPoemFragmentException(
+	throw new PoemFragmentNotFoundException(
 		"杜甫詩中無「${詩文}」。" );
 }
 

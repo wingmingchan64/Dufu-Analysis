@@ -30,7 +30,7 @@ function 提取坐標文字內容( string $坐標, bool $debug=false ) : string
 		}
 		return $temp;
 	}
-	elseif( 有字碼之完整坐標( $坐標 ) )
+	elseif( 是有字碼之完整坐標( $坐標 ) )
 	{
 		debug_echo( __FILE__, __LINE__, "字碼", $debug );
 		$字碼_詩字 = 提取數據結構( 字碼_詩字 );

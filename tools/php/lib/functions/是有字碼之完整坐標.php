@@ -1,12 +1,16 @@
 <?php
 /*
- * 
+ * no exception thrown
  */
-function 有字碼之完整坐標(  string $坐標 ) : bool 
+use Dufu\Exceptions\JsonFileNotFoundException;
+use Dufu\Exceptions\InvalidCoordinateException;
+
+function 是有字碼之完整坐標( 
+	string $坐標, bool $debug=false ) : bool 
 {
 	if( 是合法完整坐標( $坐標 ) === false )
 	{
-		throw new InvalidCoordinateException( "不是合法完整坐標。" );
+		return false;
 	}
 	$裸坐標 = rtrim( ltrim( trim( $坐標 ), '〚' ), '〛' );
 	$裸坐標 = rtrim( $裸坐標, ':' );
@@ -19,5 +23,11 @@ function 有字碼之完整坐標(  string $坐標 ) : bool
 		return ( $size == 5 );
 	}
 	return ( $size == 4 );
+}
+
+function is_complete_coords_with_char_id( 
+	string $坐標, bool $debug=false ) : bool 
+{
+	return 是有字碼之完整坐標( $坐標, $debug );
 }
 ?>

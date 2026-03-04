@@ -3,6 +3,9 @@
  * 以詩碼提取詩 JSON 樹。
  * 例：提取基準正文樹( '0013-1,5' )，回傳第五行
  */
+use Dufu\Exceptions\PoemIDNotFoundException;
+use Dufu\Exceptions\InvalidPathException;
+
 function 提取基準正文樹JSON( string $路徑, bool $debug=false ) : string
 {
 	$路徑 = rtrim( $路徑, ',' );
@@ -20,9 +23,9 @@ function 提取基準正文樹JSON( string $路徑, bool $debug=false ) : string
 	// 提出來的樹沒有根，得補回去
 	$樹根 = $路徑陣列[ sizeof( $路徑陣列 ) - 1 ];
 	
-	if( !是默認版本詩碼( $詩碼 ) )
+	if( !是默認詩碼( $詩碼 ) )
 	{
-		throw new InvalidPoemIDException( "無詩碼「${詩碼}」。" );
+		throw new PoemIDNotFoundException( "無詩碼「${詩碼}」。" );
 	}
 	
 	$文檔碼 = substr( $詩碼, 0, 4 );

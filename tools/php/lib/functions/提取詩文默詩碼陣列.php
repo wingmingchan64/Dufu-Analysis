@@ -2,6 +2,9 @@
 /*
  * 提取一組詩碼，每首詩中，都有「$詩文s」
  */
+use Dufu\Exceptions\PoemIDNotFoundException;
+use Dufu\Exceptions\PoemFragmentNotFoundException;
+
 function 提取詩文默詩碼陣列( array $詩文s, bool $debug=false ) : array
 {
 	$temp1 = array();

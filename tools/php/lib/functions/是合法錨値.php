@@ -2,7 +2,10 @@
 /*
  *
  */
-function 是合法錨値( string $str ) : bool
+use Dufu\Exceptions\JsonFileNotFoundException;
+
+function 是合法錨値(
+	string $str, bool $debug=false ) : bool
 {
 	$str = fix_text( $str );
 	$默認詩文檔碼_完整坐標表 = 
@@ -14,12 +17,18 @@ function 是合法錨値( string $str ) : bool
 	{
 		$默文檔碼 = mb_substr( $str, 1, 4 );
 		
-		if( in_array( $默文檔碼, $默認詩文檔碼_完整坐標表 ) )
+		if( in_array( 
+			$默文檔碼, 
+			array_keys( $默認詩文檔碼_完整坐標表 ) ) )
 		{
 			return true;
 		}
+		// newly added
+		else
+		{
+			return false;
+		}
 	}
-	
 	// not 坐標, 詩文
 	elseif( 
 		!in_array( $str, $非完整坐標表 ) &&
@@ -29,5 +38,11 @@ function 是合法錨値( string $str ) : bool
 	}
 		
 	return true;
+}
+
+function is_legal_anchor_value(
+	string $str, bool $debug=false ) : bool
+{
+	return 是合法錨値( $str, $debug );
 }
 ?>
