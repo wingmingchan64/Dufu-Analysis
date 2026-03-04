@@ -2,6 +2,8 @@
 /*
  * 
  */
+use Dufu\Exceptions\InvalidCoordinateException;
+
 function 提取坐標文字內容( string $坐標, bool $debug=false ) : string
 {
 	if( !是合法完整坐標( $坐標 ) )
@@ -58,7 +60,15 @@ function 提取坐標文字內容( string $坐標, bool $debug=false ) : string
 		}
 		else
 		{
-			return $行碼_詩文[ $文檔碼 ][ $坐標 ];
+			if( array_key_exists( $文檔碼, $行碼_詩文 ) &&
+				array_key_exists( $坐標, $行碼_詩文[ $文檔碼 ] ) )
+			{
+				return $行碼_詩文[ $文檔碼 ][ $坐標 ];
+			}
+			else
+			{
+				throw new InvalidCoordinateException( "坐標「${坐標}」不存在。" );
+			}
 		}
 	}
 	// 首

@@ -67,7 +67,7 @@ function make_ids(
  * @param string $cat    例如 "注"
  * @param string $text   條目正文
  * @param string|null $anchor 例如 "L0123" 或 "O00012345"
- * @param string|null $span   例如 "0062:1:5-0062:1:6"
+ * @param string|null $span   例如 "0062:1:5-6"
  */
 function make_sid(
 	string $workId, 
@@ -76,7 +76,7 @@ function make_sid(
 	?string $anchor = null, 
 	?string $span = null ): array
 {
-    $norm = normalize_text( $text );
+    $norm = normalize_text_for_sid( $text );
 
     if ( $anchor !== null && $anchor !== '' )
 	{

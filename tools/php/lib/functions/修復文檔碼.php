@@ -2,11 +2,13 @@
 /*
  * 把不完整文檔碼改成完整文檔碼。 此函式不負責審核文檔碼是否合法。
  */
+use Dufu\Exceptions\DocumentIDNotFoundException;
+
 function 修復文檔碼( string $num, bool $debug=false ) : string
 {
 	if( intval( $num ) === 0 )
 	{
-		throw new InvalidDocumentIDException(
+		throw new DocumentIDNotFoundException(
 			"文檔碼「${num}」不存在。」" );
 	}	
 	
@@ -41,7 +43,7 @@ function 修復文檔碼( string $num, bool $debug=false ) : string
 		}
 	}
 	
-	throw new InvalidDocumentIDException(
+	throw new DocumentIDNotFoundException(
 		"文檔碼「${num}」不存在。」" );
 }
 

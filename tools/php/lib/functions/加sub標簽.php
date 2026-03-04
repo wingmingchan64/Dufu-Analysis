@@ -1,6 +1,6 @@
 <?php
 /*
- * 
+ * 在 [注] 前後加 <sub></sub>。
  */
 function 加sub標簽(
 	string $文字,
@@ -19,5 +19,12 @@ function 加sub標簽(
 		}
 	}
 	return $contents;
+}
+
+function add_sub_tags(
+	string $文字,
+	bool $debug=false ) : string
+{
+	return 加sub標簽( $文字, $debug );
 }
 ?>

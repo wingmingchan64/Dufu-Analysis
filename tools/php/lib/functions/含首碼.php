@@ -2,6 +2,8 @@
 /*
  * $坐標 必須是完整坐標。
  */
+use Dufu\Exceptions\InvalidCoordinateException;
+
 function 含首碼( string $坐標, bool $debug=false ) : bool
 {
 	$文檔碼 = mb_substr( $坐標, 1, 4 );

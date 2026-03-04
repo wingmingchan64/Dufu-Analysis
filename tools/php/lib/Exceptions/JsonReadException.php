@@ -2,5 +2,5 @@
 declare( strict_types = 1 );
 namespace Dufu\Exceptions;
 
-class InvalidAnchorValueException extends DufuException{}
+class JsonReadException extends DufuException{}
 ?>

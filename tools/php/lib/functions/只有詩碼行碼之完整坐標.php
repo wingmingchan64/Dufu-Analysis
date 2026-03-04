@@ -2,6 +2,8 @@
 /*
  * Returns true if 完整坐標 contains 行碼 as the last part.
  */
+use Dufu\Exceptions\InvalidCoordinateException;
+
 function 只有詩碼行碼之完整坐標( string $坐標, bool $debug=false ) : bool
 {
 	if( 是合法完整坐標( $坐標 ) === false )

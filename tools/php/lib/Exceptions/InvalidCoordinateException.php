@@ -1,3 +1,6 @@
 <?php
-class InvalidCoordinateException extends Exception{}
+declare( strict_types = 1 );
+namespace Dufu\Exceptions;
+
+class InvalidCoordinateException extends DufuException{}
 ?>

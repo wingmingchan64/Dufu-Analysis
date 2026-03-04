@@ -2,6 +2,9 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\只有文檔碼之完整坐標_test.php
 */
+use Dufu\Exceptions\InvalidCoordinateException;
+use Dufu\Exceptions\ConfirmationFailureException;
+
 設定測試檔( basename( __FILE__ ) );
 $debug = true;
 require_once(

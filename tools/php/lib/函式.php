@@ -28,6 +28,8 @@ define( 'JSON_BASE_DIR', dirname( __DIR__, 3 ) . DS .
 	SCHEMAS_JSON_DIR );
 define( 'PACKAGES_JSON_DIR', dirname( __DIR__, 3 ) . DS .
 	PACKAGES_DIR );
+define( 'TESTS_BASE_DIR', dirname( __DIR__, 3 ) . DS .
+	TESTS_PHP_DIR );
 
 // load exceptions before loading functions
 $excep_dir = __DIR__ . DS . EXCEPTIONS_DIR;
@@ -83,11 +85,11 @@ require_once( JSON_DATA_LOADER );
 $DATA     = new Dufu\Tools\JsonDataLoader( JSON_BASE_DIR );
 $CATALOG  = new Dufu\Tools\JsonDataLoader( PACKAGES_JSON_DIR );
 $METADATA = new Dufu\Tools\JsonDataLoader( PACKAGES_JSON_DIR );
+$TESTS = new Dufu\Tools\JsonDataLoader( TESTS_BASE_DIR );
 
 require_once( 'functions' . DS . 'debug_echo.php' );
 
 $異體字 = 提取數據結構( 異體字 );
-
 
 
 

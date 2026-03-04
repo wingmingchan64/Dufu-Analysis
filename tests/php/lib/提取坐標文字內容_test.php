@@ -2,6 +2,9 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\提取坐標文字內容_test.php
 */
+use Dufu\Exceptions\InvalidCoordinateException;
+use Dufu\Exceptions\ConfirmationFailureException;
+
 設定測試檔( basename( __FILE__ ) );
 $debug = false;
 require_once(
@@ -18,10 +21,7 @@ $i++;
 $i++;
 確認相等( 
 	mb_strlen( 提取坐標文字內容( '〚0013:1:〛' ) ), 64, "case#: ${i}" );
-$i++;
+$i++; // 4
 // 〚0013:1:3〛指向副題
-確認會丟( function(){ 提取坐標文字內容( '〚0013:1:3〛' );  }, ErrorException::class, "case#: ${i}" );
-$i++;
-//確認會丟( function(){ 確認相等( 提取坐標文字內容( '〚0013:1:5〛' ), '' );  }, InvalidCoordinateException::class, "case#: ${i}" );
-
+確認會丟( function(){ 提取坐標文字內容( '〚0013:1:3〛' );  }, InvalidCoordinateException::class, "case#: ${i}" );
 ?>

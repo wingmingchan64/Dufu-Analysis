@@ -2,7 +2,10 @@
 /*
  * 
  */
-function 含範圍字碼完整坐標轉換成路徑列陣( string $坐標, bool $debug=false ): array
+use Dufu\Exceptions\InvalidCoordinateException;
+
+function 含範圍字碼完整坐標轉換成路徑列陣(
+	string $坐標, bool $debug=false ): array
 {
 	$文檔碼 = mb_substr( $坐標, 1, 4 );
 

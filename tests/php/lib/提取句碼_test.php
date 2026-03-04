@@ -2,6 +2,9 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\提取句碼_test.php
 */
+use Dufu\Exceptions\InvalidCoordinateException;
+use Dufu\Exceptions\ConfirmationFailureException;
+
 設定測試檔( basename( __FILE__ ) );
 $debug = false;
 require_once(

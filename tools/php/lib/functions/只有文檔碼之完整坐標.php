@@ -3,6 +3,8 @@
  * 〚0013:〛 returns true
  * 〚0013:1:〛 returns false
  */
+use Dufu\Exceptions\InvalidCoordinateException;
+
 function 只有文檔碼之完整坐標( string $坐標, bool $debug=false ) : bool
 {
 	if( 是合法完整坐標( $坐標 ) === false )

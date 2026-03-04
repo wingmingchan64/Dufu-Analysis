@@ -2,11 +2,14 @@
 /*
  * 提取行碼，坐標中最後一個 : 後的値。
  */
+use Dufu\Exceptions\InvalidCoordinateException;
+
 function 提取句碼( string $坐標, bool $debug=false ) : string
 {
 	if( 是合法完整坐標( $坐標 ) === false )
 	{
-		throw new InvalidCoordinateException( "不是合法完整坐標。" );
+		throw new InvalidCoordinateException(
+			"「${坐標}」不是合法完整坐標。" );
 	}
 	
 	if( 含首碼( $坐標 ) )

@@ -4,6 +4,8 @@ php H:\github\Dufu-Analysis\tests\php\lib\修復文字_test.php
 */
 //設定測試檔( basename( __FILE__ ) );
 $debug = false;
+use Dufu\Exceptions\JsonFileNotFoundException;
+use Dufu\Exceptions\ConfirmationFailureException;
 
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
@@ -13,7 +15,7 @@ require_once(
 	"函式.php" );
 
 // phase 1: local test
-echo 修復文字( '為', $debug );
+//echo 修復文字( '為', $debug );
 
 // phase 2
 $i = 1;

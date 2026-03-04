@@ -3,11 +3,15 @@
  * 〚0003:〛, 〚0013:1:〛 returns true
  * 〚0002:〛, 〚0013:〛 returns false
  */
+use Dufu\Exceptions\InvalidCoordinateException;
+
 function 只有詩碼之完整坐標( string $坐標, bool $debug=false ) : bool
 {
 	if( 是合法完整坐標( $坐標 ) === false )
 	{
-		throw new InvalidCoordinateException( "不是合法完整坐標。" );
+		//return false;
+		throw new InvalidCoordinateException( 
+			"「${坐標}」不是合法完整坐標。" );
 	}
 	
 	$文檔碼 = mb_substr( $坐標, 1, 4 );

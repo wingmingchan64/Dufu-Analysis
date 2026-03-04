@@ -2,6 +2,9 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\只有詩碼行碼之完整坐標_test.php
 */
+use Dufu\Exceptions\ConfirmationFailureException;
+use Dufu\Exceptions\InvalidCoordinateException;
+
 設定測試檔( basename( __FILE__ ) );
 $debug = false;
 require_once(
@@ -16,5 +19,4 @@ $i = 1;
 $i++;
 確認爲眞( is_complete_coords_with_only_poem_id_line_id( '〚0013:1:6-7〛' ), "case#: ${i}" );
 $i++;
-
 ?>

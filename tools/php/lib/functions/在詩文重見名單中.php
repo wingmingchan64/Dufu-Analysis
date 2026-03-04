@@ -2,6 +2,8 @@
 /*
  * 詩文若出現在此黑名單中，則不能用作錨値。
  */
+use Dufu\Exceptions\DocumentIDNotFoundException;
+
 function 在詩文重見名單中
 	( string $文檔碼, string $詩文, bool $debug=false ) : bool
 {
@@ -10,7 +12,7 @@ function 在詩文重見名單中
 	
 	if( !in_array( $文檔碼, $默認詩文檔碼 ) )
 	{
-		throw new InvalidDocumentIDException(
+		throw new DocumentIDNotFoundException(
 			"「${文檔碼}」不合法。"
 		);
 	}

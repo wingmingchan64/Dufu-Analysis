@@ -2,6 +2,9 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\在詩文重見名單中_test.php
 */
+use Dufu\Exceptions\ConfirmationFailureException;
+use Dufu\Exceptions\DocumentIDNotFoundException;
+
 設定測試檔( basename( __FILE__ ) );
 $debug = false;
 require_once(
@@ -16,8 +19,8 @@ $i = 1;
 $i++;
 確認爲眞( !在詩文重見名單中( '3224', '青山' ), "case#: ${i}" );
 $i++;
-確認會丟( function(){ 在詩文重見名單中( '3224' ); }, 'ArgumentCountError', "case#: ${i}" );
+確認會丟( function(){ 在詩文重見名單中( '3224' ); }, ArgumentCountError::class, "case#: ${i}" );
 $i++;
-確認會丟( function(){ 在詩文重見名單中( '3223', '青山' ); }, InvalidDocumentIDException::class, 
+確認會丟( function(){ 在詩文重見名單中( '3223', '青山' ); }, DocumentIDNotFoundException::class, 
 	"case#: ${i}" );
 ?>

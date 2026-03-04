@@ -19,8 +19,9 @@ function 提取基準正文樹(
 	return 提取數據結構( BASE_TEXT_DIR . $默詩碼 );
 }
 
-function get_base_text_tree( string $路徑, bool $debug=false ) : array
+function get_base_text_tree( 
+	string $默詩碼, bool $debug=false ) : array
 {
-	return 提取基準正文樹( $路徑, $debug );
+	return 提取基準正文樹( $默詩碼, $debug );
 }
 ?>

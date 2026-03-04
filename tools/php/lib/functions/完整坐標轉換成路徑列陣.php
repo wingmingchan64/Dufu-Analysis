@@ -2,6 +2,8 @@
 /*
  * 〚6093:5.2.3〛returns array( '6093', '5', '2', '3' );
  */
+use Dufu\Exceptions\InvalidCoordinateException;
+
 // 完整坐標中，其中不能有範圍 - 
 function 完整坐標轉換成路徑列陣( string $坐標, bool $debug=false ) : array
 {

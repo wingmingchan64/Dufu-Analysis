@@ -2,6 +2,7 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\test_all_functions.php
 */
+
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
 	'tools' . DIRECTORY_SEPARATOR .

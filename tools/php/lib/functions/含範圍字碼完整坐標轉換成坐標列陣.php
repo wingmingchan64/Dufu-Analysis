@@ -3,6 +3,8 @@
  * 把含範圍字碼的坐標擴充成坐標列陣。
  * 〚6093:5.2.2-3〛 => 〚6093:5.2.2〛,〚6093:5.2.3〛
  */
+use Dufu\Exceptions\InvalidCoordinateException;
+
 function 含範圍字碼完整坐標轉換成坐標列陣( string $坐標, bool $debug=false ): array
 {
 	$文檔碼 = mb_substr( $坐標, 1, 4 );

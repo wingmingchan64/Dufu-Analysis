@@ -3,7 +3,7 @@
  * this function consults the complete list
  * calls 是完整坐標
  * no exception thrown
- */ 
+ */
 function 是合法完整坐標( string $坐標, bool $debug=false ) : bool
 {
 	if( !是完整坐標( $坐標 ) )

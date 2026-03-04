@@ -2,7 +2,8 @@
 /*
  * 
  */
-function 基準正文樹深度優先遍歷( array $樹, array &$store ) 
+function 基準正文樹深度優先遍歷(
+	array $樹, array &$store, bool $debug=false ) : void
 {
 	foreach( $樹 as $k => $v )
 	{
@@ -17,4 +18,9 @@ function 基準正文樹深度優先遍歷( array $樹, array &$store )
 	}
 }
 
+function base_text_tree_depth_first_traversal(
+	array $樹, array &$store, bool $debug=false ) : void
+{
+	基準正文樹深度優先遍歷( $樹, $store, $debug );
+}
 ?>

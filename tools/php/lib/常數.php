@@ -3,7 +3,9 @@
 杜甫資料庫編程部分所應用的 PHP 常數
 */
 // 系統文件夾
-const DS = DIRECTORY_SEPARATOR;
+//const DS = DIRECTORY_SEPARATOR;
+// the / is replaced by DIRECTORY_SEPARATOR in JsonDataLoader
+const DS = '/';
 // packages
 const PACKAGES_DIR = 'packages' . DS;
 const PACKAGES_DIR_全 = 'packages' . DS . 
@@ -148,7 +150,7 @@ const 空語鏈 = '';
 
 // metadata
 const 版本文檔ID = 'doc_id';
-const 後設標記ID = 'mm_id';
+const 後設標記ID = 'sid';
 
 
 

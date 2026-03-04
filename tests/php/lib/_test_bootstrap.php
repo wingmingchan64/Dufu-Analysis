@@ -1,4 +1,6 @@
 <?php
+use Dufu\Exceptions\ConfirmationFailureException;
+
 $test_results = [];     // 每個測試檔可 push summary 或 case 記錄
 $test_cases   = [];     // (建議) 每個 case 一筆，便於統計
 $test_log     = [];     // (可選) 文字 log（你說想加的 log）

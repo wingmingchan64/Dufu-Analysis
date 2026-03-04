@@ -3,10 +3,12 @@
  * 把文字規範化，用的規範標準是異體字表。
  * 主要用於規範 user input。
  */
+use Dufu\Exceptions\JsonFileNotFoundException;
+
 function 修復文字( string $str, bool $debug=false ) : string
 {
 	// 提取異體字表
-	$異體字 = 提取數據結構( REGISTRY_DIR . '異體字' );
+	$異體字 = 提取數據結構( 異體字 );
 	$len = mb_strlen( $str );
 	$temp = '';
 	$ytz = array_keys( $異體字 );

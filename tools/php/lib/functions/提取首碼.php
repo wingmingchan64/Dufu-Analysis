@@ -2,6 +2,8 @@
 /*
  * 提取首碼，坐標中 :X: 的 X 値。1-20。
  */
+use Dufu\Exceptions\InvalidCoordinateException;
+
 function 提取首碼( string $坐標 ) : string
 {
 	if( 是合法完整坐標( $坐標 ) === false )

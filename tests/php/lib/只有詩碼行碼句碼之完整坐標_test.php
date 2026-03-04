@@ -2,6 +2,9 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\只有詩碼行碼句碼之完整坐標_test.php
 */
+use Dufu\Exceptions\ConfirmationFailureException;
+use Dufu\Exceptions\InvalidCoordinateException;
+
 設定測試檔( basename( __FILE__ ) );
 $debug = false;
 require_once(

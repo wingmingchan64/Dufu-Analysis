@@ -3,7 +3,7 @@
  * Probably due to the recursive call,
  * the tree will not be modified, albeit &
  * must use a store to store the result
- * should not return a bool because the value is pushed
+ * should not return a bool because the bool value is pushed
  */
 function 基準正文樹加句號(
 	array &$樹, 

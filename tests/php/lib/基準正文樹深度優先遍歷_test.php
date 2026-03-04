@@ -2,6 +2,10 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\基準正文樹深度優先遍歷_test.php
 */
+use Dufu\Exceptions\ConfirmationFailureException;
+
+設定測試檔( basename( __FILE__ ) );
+$debug = true;
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
 	'tools' . DIRECTORY_SEPARATOR .
@@ -17,23 +21,12 @@ if( array_key_exists( 詩題, $tree[ $根 ] ) )
 	$題 = $tree[ $根 ][ 詩題 ];
 	unset( $tree[ $根 ][ 詩題 ] );
 }
-$store = array();
-
-基準正文樹加句號( $tree, $store );
-//print_r( $tree );
-///echo $題, NL;
-//echo implode( $store );
-
-//print_r( $tree );
-return;
-
 
 $store = array();
 基準正文樹深度優先遍歷( $tree, $store );
-//print_r( $store );
-echo $題, NL;
-echo implode( $store );
 
-array_push( $test_results, "是合法錨値_test: 8 cases tested." );
-
+$i = 1;
+確認相等( $題, "望嶽", "case#: ${i}" );
+$i++;
+確認相等( implode( $store ), "岱宗夫如何齊魯青未了造化鍾神秀陰陽割昏曉盪胸生曾雲決眥入歸鳥會當凌絕頂一覽眾山小", "case#: ${i}" );
 ?>

@@ -2,8 +2,11 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\加sub標簽_test.php
 */
-//設定測試檔( basename( __FILE__ ) );
+use Dufu\Exceptions\ConfirmationFailureException;
+
+設定測試檔( basename( __FILE__ ) );
 $debug = false;
+
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
 	'tools' . DIRECTORY_SEPARATOR .
@@ -11,5 +14,11 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-echo 加sub標簽( "遣興五首[黃鶴本以陶潛、賀公、孟浩然三首入龐德公一首後。]" );
+//echo 加sub標簽( "遣興五首[黃鶴。]" );
+
+$i = 1;
+確認相等( 加sub標簽( "遣興五首[黃鶴。]" ),
+	"遣興五首<sub>[黃鶴。]</sub>", "case#: ${i}" );
+$i++;
+	
 ?>
