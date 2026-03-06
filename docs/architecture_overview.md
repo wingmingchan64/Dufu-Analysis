@@ -59,31 +59,26 @@ canonical 文本使用四層坐標系：
 - `anchor` 必須是單字坐標。
 - `scope` 必須存在，不允許爲 null。
 - `scope` 必須覆蓋連續字序。
-- `anchor` 必須包含於 scope 之內。
+- `anchor` 必須包含於 `scope` 之內。
 
 scope 的粒度可爲：
 
-字
-
-詞
-
-句
-
-聯
-
-詩
+- 字
+- 詞
+- 句
+- 聯
+- 詩
 
 若無法確定更細範圍，scope 可提升至上層單位；必要時可取整首詩。
 
-4. Interval Principle
+## 4. Interval Principle
 
 所有 annotation 的 scope 均視爲 canonical 文本上的 interval。
 
 annotation interval 只允許兩種關係：
 
-相離（disjoint）
-
-包含（nested）
+- 相離（disjoint）
+- 包含（nested）
 
 不允許交叉（crossing）。
 
@@ -91,147 +86,112 @@ annotation interval 只允許兩種關係：
 
 此原則適用於注與評，亦是 canonical 注釋可逆還原與詞典生成的基礎。
 
-5. Annotation Types
+## 5. Annotation Types
 
-annotation 類型採 controlled vocabulary，不用 open-ended system。
+annotation 類型採 **controlled vocabulary**，不用 open-ended system。
 
 目前核心類型可包括：
 
-字注
-
-詞注
-
-句注
-
-聯注
-
-詩評
-
-泛論
+- 字注
+- 詞注
+- 句注、句評
+- 聯注、聯評
+- 詩評
+- 泛論
 
 其中：
 
-注：偏解釋性材料
-
-評：偏評論性材料
-
-泛論：藉某詩而發的詩學或一般議論，其 scope 仍標爲該詩，以表示附著位置
+- 注：偏解釋性材料
+- 評：偏評論性材料
+- 泛論：藉某詩而發的詩學或一般議論，其 scope 仍標爲該詩，以表示附著位置
 
 annotation 類型原則上應單一。若一段文字兼具多種性質，應優先考慮分解，而非複標。
 
-6. Topics and References
+## 6. Topics and References
 
-系統不採單一扁平 tags，而採分類後的 metadata facets。
+系統不採單一扁平 `tags`，而採分類後的 metadata facets。
 
 至少可分爲：
 
-References
+### References
 
-books
+- books
+- people
 
-people
-
-Topics
+### Topics
 
 例如：
 
-典故
+- 典故
+- 詩法
+- 氣格
+- 政治
+- 時事
+- 制度
+- 地理
 
-詩法
+`references` 與 `topics` 均宜採 controlled vocabulary。
+`topic` 原則上單一；必要時先分解 annotation，再考慮例外。
 
-氣格
-
-政治
-
-時事
-
-制度
-
-地理
-
-references 與 topics 均宜採 controlled vocabulary。
-topic 原則上單一；必要時先分解 annotation，再考慮例外。
-
-7. Source Layer
+## 7. Source Layer
 
 每條 annotation 同時保留來源層資訊，以支援版本還原與原文追索。
 
 來源層可包括：
 
-work_id：著述 ID，如 郭
-
-edition_id：版本 ID，如 郭⸨聶⸩
-
-unit_id：著述單元 ID，如 郭0001
-
-doc_id：文件容器 ID，如 0001
-
-aid：來源錨 ID，如 郭0018@P0040L10
-
-sid：來源 annotation 唯一 ID
-
-pos：同一來源行內的次序
+- `work_id`：著述 ID，如 郭
+- `edition_id`：版本 ID，如 郭⸨聶⸩
+- `unit_id`：著述單元 ID，如 郭0001
+- `doc_id`：文件容器 ID，如 0001
+- `aid`：來源錨 ID，如 郭0018@P0040L10
+- `sid`：來源 annotation 唯一 ID
+- `pos`：同一來源行內的次序
 
 其中：
 
-unit_id 指著述中的單元
+- `unit_id` 指著述中的單元
+- `doc_id` 指文件容器
+- 二者不可混同
 
-doc_id 指文件容器
+## 8. Storage Model
 
-二者不可混同
-
-8. Storage Model
-
-metadata 以 doc_id 爲基本容器組織。
+metadata 以 `doc_id` 爲基本容器組織。
 
 以某著述爲例，其資料結構可分爲：
 
-catalog：目錄文檔
-
-metadata/doc_records：一首詩／組詩一個文檔，存全部 metadata
-
-metadata/doc_texts：一首詩／組詩一個文檔，存 sid -> 著述原文
-
-metadata/doc_index_*.json：按 annotation 類型建立索引，如 注、異、評、按語、校記等
+- `catalog`：目錄文檔
+- `metadata/doc_records`：一首詩／組詩一個文檔，存全部 metadata
+- `metadata/doc_texts`：一首詩／組詩一個文檔，存 `sid -> 著述原文`
+- `metadata/doc_index_*.json`：按 annotation 類型建立索引，如 注、異、評、按語、校記等
 
 這種設計兼顧：
 
-主資料集中保存
+- 主資料集中保存
+- 原文獨立管理
+- 類型快速檢索
+- 以 `doc_id` 爲自然工作單位
 
-原文獨立管理
-
-類型快速檢索
-
-以 doc_id 爲自然工作單位
-
-9. Canonical / Source Reversibility
+## 9. Canonical / Source Reversibility
 
 系統不僅支援由來源版本分解爲 canonical annotation，也支援由 canonical annotation 回復來源版本結構。
 
 其中：
 
-anchor + scope 支援 canonical 層精確附著
-
-來源層資訊支援原書版本的聯注、句注、夾注、數字注等還原
-
-同一來源著述內部亦可能存在多層 source structure，需在來源層中保留
+- `anchor + scope` 支援 canonical 層精確附著
+- 來源層資訊支援原書版本的聯注、句注、夾注、數字注等還原
+- 同一來源著述內部亦可能存在多層 source structure，需在來源層中保留
 
 此可逆性是本系統的重要設計目標。
 
-10. Design Philosophy
+## 10. Design Philosophy
 
 本系統遵循以下原則：
 
-以 canonical 文本爲唯一基準
-
-坐標與範圍清楚
-
-annotation 單元盡量單一、可分解
-
-metadata 使用 controlled vocabulary
-
-主資料、原文、索引分層管理
-
-先求結構穩定，再求功能擴展
+- 以 canonical 文本爲唯一基準
+- 坐標與範圍清楚
+- annotation 單元盡量單一、可分解
+- metadata 使用 controlled vocabulary
+- 主資料、原文、索引分層管理
+- 先求結構穩定，再求功能擴展
 
 系統不是 open-ended tagging platform，而是面向數位人文研究的 controlled scholarly annotation system。
