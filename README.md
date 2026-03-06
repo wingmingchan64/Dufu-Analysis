@@ -123,6 +123,18 @@ start with a few categories (e.g. variants and notes), then expand without break
 - <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/packages/%E9%83%AD%E7%9F%A5%E9%81%94%E3%80%8A%E6%96%B0%E5%88%8A%E6%A0%A1%E5%AE%9A%E9%9B%86%E6%B3%A8%E6%9D%9C%E8%A9%A9%E3%80%8B/catalog">目錄</a>
 - <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/packages/%E9%83%AD%E7%9F%A5%E9%81%94%E3%80%8A%E6%96%B0%E5%88%8A%E6%A0%A1%E5%AE%9A%E9%9B%86%E6%B3%A8%E6%9D%9C%E8%A9%A9%E3%80%8B/metadata">後設資料</a>
 - <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/packages/%E9%83%AD%E7%9F%A5%E9%81%94%E3%80%8A%E6%96%B0%E5%88%8A%E6%A0%A1%E5%AE%9A%E9%9B%86%E6%B3%A8%E6%9D%9C%E8%A9%A9%E3%80%8B/samples">View 樣本</a>
+
+### 如何生成郭知達《新刊校定集注杜詩》的《奉贈韋左丞丈二十二韻》
+
+- Controller: <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/tools/php/bin/views/%E7%94%9F%E6%88%90%E7%89%88%E6%9C%AC/%E7%94%9F%E6%88%90%E9%83%AD%E7%9F%A5%E9%81%94%E3%80%8A%E6%96%B0%E5%88%8A%E6%A0%A1%E5%AE%9A%E9%9B%86%E6%B3%A8%E6%9D%9C%E8%A9%A9%E3%80%8B.php">生成郭知達《新刊校定集注杜詩》.php</a>
+- 提取基準正文樹 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/schemas/json/base_text/0276.json">0276.json</a>
+- 提取異文坐標、sid <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/packages/%E9%83%AD%E7%9F%A5%E9%81%94%E3%80%8A%E6%96%B0%E5%88%8A%E6%A0%A1%E5%AE%9A%E9%9B%86%E6%B3%A8%E6%9D%9C%E8%A9%A9%E3%80%8B/metadata/doc_id_%E7%95%B0.json">doc_id_異.json</a>
+- 提取異文 sid、異文 <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/packages/%E9%83%AD%E7%9F%A5%E9%81%94%E3%80%8A%E6%96%B0%E5%88%8A%E6%A0%A1%E5%AE%9A%E9%9B%86%E6%B3%A8%E6%9D%9C%E8%A9%A9%E3%80%8B/metadata/doc_id_texts/0001.json">0001.json</a>
+- 以異文替換基準正文樹中相應文字（以坐標爲路徑）
+- 提取注文、評論坐標、sid
+- 提取注文、評論
+- 以注文、評論插入基準正文樹中之適當位置（以坐標爲路徑）
+- 去掉版本樹之樹結構，只剩末端文字
 <!--
 - <a href=""></a>
 - <a href=""></a>
