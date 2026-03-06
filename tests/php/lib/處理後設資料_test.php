@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tests\php\lib\處理後設標記_test.php
+php H:\github\Dufu-Analysis\tests\php\lib\處理後設資料_test.php
 */
 use Dufu\Exceptions\JsonFileNotFoundException;
 use Dufu\Exceptions\InvalidAnchorValueException;
@@ -16,7 +16,7 @@ require_once(
 //處理後設標記( '全', '0098', '中華書局版', true, true );
 
 //確認爲眞( 
-處理後設標記( '郭', '0001', '', true, true, true );
+處理後設資料( '郭', '0001', '' );
 
 //, 'case#: 1' );
 

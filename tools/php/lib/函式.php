@@ -91,7 +91,7 @@ require_once( 'functions' . DS . 'debug_echo.php' );
 
 $異體字 = 提取數據結構( 異體字 );
 
-
+/*
 
 
 $path_for_file = '';
@@ -131,7 +131,7 @@ function compareText(
 	
 	return $difference; // could be empty
 }
-
+*/
 
 // 提取題注（杜甫原注）
 // $file_path: h:\github\DuFu\01 卷一 3-270\0048 過宋員外之問舊莊.txt
@@ -163,13 +163,14 @@ function getAnnotation( string $file_path ) : string
 	return $annotation;
 }
 */
-
+/*
 // gets the file contents
 function getFile( $file_path ) : string
 {
 	$text_of_file = file_get_contents( $file_path );
 	return $text_of_file;
 }
+*/
 /*
 // 決定一行詩在詩組中，屬於哪一首，用於計算首碼
 // titles: 詩組_詩題, example: ( 3, 10, 13, 20 )
@@ -316,6 +317,7 @@ function getPreface( string $path ) : string
 	return $preface;
 }
 */
+/*
 // 提取某個帶像「=浦」一類標記的部分。
 // return: array
 function getSection( string $path, string $prefix ) : array
@@ -356,7 +358,7 @@ function logToFile( string $file, string $content )
 		$content.PHP_EOL, 
 		FILE_APPEND | LOCK_EX );
 }
-
+*/
 
 /*
 function 提取杜甫文件名稱() : array
@@ -403,6 +405,7 @@ function 提取杜甫文件名稱() : array
 	return $file_names;
 }
 */
+/*
 // 去掉頁碼, garbage in, garbage out
 function 提取簡化坐標( string $坐標 ) : string
 {
@@ -684,7 +687,8 @@ function 提取版本詩文( string $版本, string $頁 ) : array
 	//print_r( $版本陣列 );
 	return $版本陣列;
 }
-
+*/
+/*
 function 提取版本詩文含夾注陣列( 
 	array $詩陣列, 
 	array $版本異文、夾注, 
@@ -748,12 +752,6 @@ function 提取版本詩文含夾注陣列(
 	//foreach( $詩陣列 as $key => 
 	foreach( $版本注釋 as $key => $value )
 	{
-		/*
-		if( $首碼 != '1' )
-		{
-			$詩陣列 = $詩陣列[ $首碼 ];
-		}
-		*/
 		$首碼 = 提取首碼( $key );
 		$行碼 = 提取行碼( $key );
 		$句碼 = 提取句碼( $key );
@@ -1035,6 +1033,7 @@ function 在句中( string $句坐標, string $詞組坐標 ) : bool
 	return false;
 }
 /*
+/*
 // $坐標 必須是完整坐標，必須有字碼
 function 提取詩文( string $坐標 ) : string
 {
@@ -1109,6 +1108,7 @@ function 提取詩文( string $坐標 ) : string
 	return '';
 }
 */
+/*
 function 移除詩文夾注( string $帶夾注詩文 ) : string
 {
 	return preg_replace( 夾注regex, '', $帶夾注詩文 );
@@ -1252,7 +1252,7 @@ function 顯示杜甫詩陣列詩文(
 		}
 	}
 }
-
+*/
 function 杜甫詩陣列句ToString( array $句 ) : string
 {
 	//print_r( $句 );
@@ -1380,7 +1380,7 @@ function 杜甫詩陣列行至行ToString(
 	//echo $行至行内容, NL;
 	return $行至行内容;
 }
-
+/*
 function 杜甫詩陣列詩文替代( array &$頁陣列, array $替代 )
 {
 	foreach( $替代 as $坐標 => $替代文 ) // $替代文 string
@@ -1599,7 +1599,7 @@ function getMergedText( array $詩陣列, string $punc = '' ) : string
 	}
 	return $text;
 }
-
+*/
 
 // 提取一個詩文詞組的坐標 〚0276:12.2.2〛,〚0276:12.2.2-4〛
 /*

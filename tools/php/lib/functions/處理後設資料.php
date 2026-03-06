@@ -1,6 +1,6 @@
 <?php
 /*
- *
+ * 處理 .json
  */
 function 處理後設資料(
 	string $簡稱, // 郭, 全
@@ -35,42 +35,45 @@ function 處理後設資料(
 	//print_r( $後設資料 );
 	
 	// store pieces in relevant arrays
-	$異_mm_id_a = array();
-	$注_mm_id_b_a = array();
-	$評_mm_id_b_a = array();
-	$永明校記_mm_id_b_a = array();
-	$永明按語_mm_id_b_a = array();
-	$mm_id_texts = array();
+	$異_sid_a = array();
+	$注_sid_b_a = array();
+	$評_sid_b_a = array();
+	$永明校記_sid_b_a = array();
+	$永明按語_sid_b_a = array();
+	$sid_texts = array();
 	
-	foreach( $後設資料[ $簡稱 . $版文檔碼 ] as $item )
+	foreach( $後設資料 as $item )
 	{
-		$mm_id_texts[ $item[ MM_ID ] ] = $item[ T ];
+		$sid_texts[ $item[ 'rid' ][ 'sid' ] ] = $item[ T ];
 		
 		if( $item[ CAT ] == '異' )
 		{
-			$異_mm_id_a[ $item[ MM_ID ] ] = $item[ A ];
+			$異_sid_a[ $item[ 'rid' ][ 'sid' ] ] = $item[ A ];
 		}
 		elseif( $item[ CAT ] == '永明按語' || 
 			$item[ CAT ] == '永明校記' )
 		{
-			$陣列名 = $item[ CAT ] . '_mm_id_b_a';
-			$$陣列名[] = $item[ MM_ID ];
+			$陣列名 = $item[ CAT ] . '_sid_b_a';
+			$$陣列名[] = $item[ 'rid' ][ 'sid' ];
 		}
 		// 注、評
 		else
 		{
-			$陣列名 = $item[ CAT ] . '_mm_id_b_a';
+			$陣列名 = $item[ CAT ] . '_sid_b_a';
+			//echo $陣列名, NL;
+			
 			if( !array_key_exists( $item[ B_A ], $$陣列名 ) )
 			{
 				$$陣列名[ $item[ B_A ] ] = array();
 			}
-			$$陣列名[ $item[ B_A ] ][] = $item[ MM_ID ];
+			$$陣列名[ $item[ B_A ] ][] = $item[ 'rid' ][ 'sid' ];
+			//print_r( $$陣列名 );
 		}
 	}
 	
 	// store the texts
 	$json = json_encode(
-		$mm_id_texts,
+		$sid_texts,
 		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
 	);
 
@@ -85,7 +88,7 @@ function 處理後設資料(
 	// 異
 	$doc_id_異 = 提取後設資料(
 		$書名 . DS . METADATA_DIR . 'doc_id_異' );
-	$doc_id_異[ $版文檔碼 ] = $異_mm_id_a;
+	$doc_id_異[ $版文檔碼 ] = $異_sid_a;
 	$json = json_encode(
 		$doc_id_異,
 		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
@@ -96,164 +99,63 @@ function 處理後設資料(
 		'metadata' . DS .
 		"doc_id_異.json",
 		$json . PHP_EOL );
+		
 	// 注
-	if( !empty( $doc_id_注 ) )
-	{
-		$doc_id_注 = 提取後設資料(
-			$書名 . DS . METADATA_DIR . 'doc_id_注' );
-		$doc_id_注[ $版文檔碼 ] = $注_mm_id_b_a;
-		$json = json_encode(
-			$doc_id_注,
-			JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
-		);
-		file_put_contents(
-			dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
-			$書名 . DS . $版本名稱 . 
-			'metadata' . DS .
-			"doc_id_注.json",
-			$json . PHP_EOL );
-	}
+	$doc_id_注 = 提取後設資料(
+		$書名 . DS . METADATA_DIR . 'doc_id_注' );
+	$doc_id_注[ $版文檔碼 ] = $注_sid_b_a;
+	$json = json_encode(
+		$doc_id_注,
+		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+	);
+	file_put_contents(
+		dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
+		$書名 . DS . $版本名稱 . 
+		'metadata' . DS .
+		"doc_id_注.json",
+		$json . PHP_EOL );
 	// 評
-	if( !empty( $doc_id_評 ) )
-	{
-		$doc_id_評 = 提取後設資料(
-			$書名 . DS . METADATA_DIR . 'doc_id_評' );
-		$doc_id_評[ $版文檔碼 ] = $評_mm_id_b_a;
-		$json = json_encode(
-			$doc_id_評,
-			JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
-		);
-		file_put_contents(
-			dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
-			$書名 . DS . $版本名稱 . 
-			'metadata' . DS .
-			"doc_id_評.json",
-			$json . PHP_EOL );
-	}
+	$doc_id_評 = 提取後設資料(
+		$書名 . DS . METADATA_DIR . 'doc_id_評' );
+	$doc_id_評[ $版文檔碼 ] = $評_sid_b_a;
+	$json = json_encode(
+		$doc_id_評,
+		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+	);
+	file_put_contents(
+		dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
+		$書名 . DS . $版本名稱 . 
+		'metadata' . DS .
+		"doc_id_評.json",
+		$json . PHP_EOL );
 	// 永明校記
-	if( !empty( $doc_id_永明校記 ) )
-	{
-		$doc_id_永明校記 = 提取後設資料(
-			$書名 . DS . METADATA_DIR . 'doc_id_永明校記' );
-		$doc_id_永明校記[ $版文檔碼 ] = $永明校記_mm_id_b_a;
-		$json = json_encode(
-			$doc_id_永明校記,
-			JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
-		);
-		file_put_contents(
-			dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
-			$書名 . DS . $版本名稱 . 
-			'metadata' . DS .
-			"doc_id_永明校記.json",
-			$json . PHP_EOL );
-	}
+	$doc_id_永明校記 = 提取後設資料(
+		$書名 . DS . METADATA_DIR . 'doc_id_永明校記' );
+	$doc_id_永明校記[ $版文檔碼 ] = $永明校記_sid_b_a;
+	$json = json_encode(
+		$doc_id_永明校記,
+		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+	);
+	file_put_contents(
+		dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
+		$書名 . DS . $版本名稱 . 
+		'metadata' . DS .
+		"doc_id_永明校記.json",
+		$json . PHP_EOL );
 	// 永明按語
-	if( !empty( $doc_id_永明校記 ) )
-	{
-		$doc_id_永明按語 = 提取後設資料(
-			$書名 . DS . METADATA_DIR . 'doc_id_永明按語' );
-		$doc_id_永明按語[ $版文檔碼 ] = $永明按語_mm_id_b_a;
-		$json = json_encode(
-			$doc_id_永明按語,
-			JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
-		);
-		file_put_contents(
-			dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
-			$書名 . DS . $版本名稱 . 
-			'metadata' . DS .
-			"doc_id_永明按語.json",
-			$json . PHP_EOL );
-	}
-	
-/*
-	$mm_id = 提取後設資料(
-		$書名 . DS . $版本名稱 . 
-		'metadata' . DS . 'by_doc_id' . DS . $版文檔碼 );
-	// renew contents
-	$doc_id_l_id[ $doc_id ] = array();
-	
-	$doc_l_id_tags = 提取後設資料(
-		$書名 . DS . $版本名稱 . 
-		'metadata' . DS . 'mapping' . DS . 'doc_l_id_tags' );
-	// renew contents
-	$doc_l_id_tags[ $doc_id ] = array();
-	
-	$doc_l_id_texts = array();
-	$b_a_doc_l_id = array();
-	$b_a_to_keep = array( '注', '評' );
-	
-	foreach( $後設資料[ $doc_id ] as $entry )
-	{
-		//echo $entry[ 後設資料行ID ], NL;
-		//array_push( $doc_id_l_id[ $doc_id ], 
-			//$entry[ 後設標記ID ] );
-		//unset( $entry[ 後設資料行ID ] );
-		
-		//$doc_l_id_tags[ $doc_id ][ $entry[ 後設資料行ID ] ] = $entry;
-		//$doc_l_id_texts[ $entry[ 後設資料行ID ] ] = 
-			$entry[ 't' ];
-			
-		if( array_key_exists( 'b_a', $entry ) )
-		{
-			$坐標 = $entry[ 'b_a' ];
-			
-			if( $坐標 != '' && in_array( $entry[ 'cat' ], $b_a_to_keep ) )
-			{
-				if( !array_key_exists( $坐標, $b_a_doc_l_id ) )
-				{
-					$b_a_doc_l_id[ $坐標 ] = array();
-				}
-				array_push( $b_a_doc_l_id[ $坐標 ], $entry[ 後設標記ID ] );
-			}
-		}
-		$cat = $entry[ 'cat' ];
-		$varname = $cat . '_doc_ids';
-		
-		
-		if( !array_key_exists( $doc_id, $$varname ) )
-		{
-			$$varname[ $doc_id ] = array();
-		}
-		
-		array_push( $$varname[ $doc_id ], $entry[ 後設標記ID ] );
-		
-	}
-	//print_r( $doc_l_id_texts );
-	
+	$doc_id_永明按語 = 提取後設資料(
+		$書名 . DS . METADATA_DIR . 'doc_id_永明按語' );
+	$doc_id_永明按語[ $版文檔碼 ] = $永明按語_sid_b_a;
 	$json = json_encode(
-		$doc_id_l_id,
+		$doc_id_永明按語,
 		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
 	);
-
 	file_put_contents(
 		dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
 		$書名 . DS . $版本名稱 . 
-		'metadata' . DS . 
-		'mapping' . DS .
-		"doc_id_l_id.json",
+		'metadata' . DS .
+		"doc_id_永明按語.json",
 		$json . PHP_EOL );
-
-	$json = json_encode(
-		$doc_l_id_texts,
-		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
-	);
-	
-
-	$json = json_encode(
-		$doc_l_id_tags,
-		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
-	);
-
-	file_put_contents(
-		dirname( __DIR__, 4 ) . DS . PACKAGES_DIR .
-		$書名 . DS . $版本名稱 . 
-		'metadata' . DS . 
-		'mapping' . DS .
-		"doc_l_id_tags.json",
-		$json . PHP_EOL );
-	//$異_doc_ids
-*/
-	
 	
 	return true;
 }

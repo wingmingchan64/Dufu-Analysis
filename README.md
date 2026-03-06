@@ -56,8 +56,10 @@ Common IDs:
 - `edition_prefix` : edition abbreviation, e.g. `全`, `蕭`, `郭`
 - `document_id`    : document container id within an edition, e.g. `0098`
 - `poem_id`        : single-poem id (may be a group member), e.g. `0098-1`
-- `doc_id`         : global document id, e.g. `全0098.3` (document + line id)
+- `doc_id`         : global document id, e.g. `全0098` (document)
 - `canonical_poem_id` : poem id in the canonical/base-text layer
+- `sid` : source id, e.g. `郭0001:P0001L03:33b2683d2d47`
+- `anchor` : page and line information of the source, e.g. `P0001L03`
 
 **IDs identify objects (containers/poems/records). Anchors identify positions on the poem tree.**
 

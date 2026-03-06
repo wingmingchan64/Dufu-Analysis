@@ -8,10 +8,9 @@ use Dufu\Exceptions\JsonFileNotFoundException;
 use Dufu\Exceptions\AbbreviationNotFoundException;
 
 function 後設標記轉換成陣列(
-	string $簡稱, // 郭, 全
+	string $簡稱,    // 郭, 全
 	string $版文檔碼, // 0001, 0098
-	string $頁行,
-	string $後設標記,
+	string $後設標記,  // mm k-v pairs
 	string $文字 = '', 
 	bool $debug=false ) : array
 {
@@ -30,9 +29,11 @@ function 後設標記轉換成陣列(
 	$默文檔碼 = $版文檔碼_默文檔碼[ $版文檔碼 ][ 0 ];
 	$非完整坐標表 = 提取數據結構( 非完整坐標表 );
 	$詩文組合 = 提取數據結構( 詩文組合 );
-	$後設陣列 = json_decode( $後設標記, true );
+	//$後設陣列 = json_decode( $後設標記, true );
+	
+	
 	$後設陣列[ 後設標記ID ] = 
-		make_sid( $簡稱 . $版文檔碼, $後設陣列[ CAT ], $文字, $頁行 );
+		make_sid( $簡稱 . $版文檔碼, $後設陣列[ CAT ], $文字, $後設陣列[ RID ] );
 	
 	if( $文字 != '' )
 	{
@@ -92,4 +93,6 @@ function convert_metadata_to_array(
 {
 	return 後設標記轉換成陣列( $簡稱, $版本詩碼, $行, $後設標記, $文字, $debug );
 }
+
+
 ?>
