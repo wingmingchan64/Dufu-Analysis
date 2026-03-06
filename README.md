@@ -1,4 +1,4 @@
-# Dufu-Analysis (By ChapGPT)
+# Dufu-Analysis (By ChatGPT)
 
 Dufu-Analysis is the analysis/build repository of my long-term Du Fu project.
 
