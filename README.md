@@ -110,6 +110,7 @@ start with a few categories (e.g. variants and notes), then expand without break
 
 ## Highlights of the Repo （我加的部分）
 
+- <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/docs">Documentation</a>
 - <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/schemas/json/base_text">基準正文樹</a>
 - <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/schemas/json/coords">坐標表</a>
 - <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/schemas/json/registry">術語、規則說明</a>
