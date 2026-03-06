@@ -58,7 +58,7 @@ Common IDs:
 - `poem_id`        : single-poem id (may be a group member), e.g. `0098-1`
 - `doc_id`         : global document id, e.g. `全0098` (document)
 - `canonical_poem_id` : poem id in the canonical/base-text layer
-- `sid` : source id in the metadata layer, e.g. `郭0001:P0001L03:33b2683d2d47`
+- `sid` : source id of an edition in the metadata layer, e.g. `郭0001:P0001L03:33b2683d2d47`
 - `anchor` : page and line numbers of the source, e.g. `P0001L03`
 
 **IDs identify objects (containers/poems/records). Anchors identify positions on the poem tree or in the edition.**
