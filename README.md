@@ -134,7 +134,8 @@ start with a few categories (e.g. variants and notes), then expand without break
 - 提取注文、評論坐標、sid
 - 提取注文、評論
 - 以注文、評論插入基準正文樹中之適當位置（以坐標爲路徑）
-- 去掉版本樹之樹結構，只剩末端文字
+- 去掉版本樹之樹結構，只剩末端文字，生成 .md 文檔
+- <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/packages/%E9%83%AD%E7%9F%A5%E9%81%94%E3%80%8A%E6%96%B0%E5%88%8A%E6%A0%A1%E5%AE%9A%E9%9B%86%E6%B3%A8%E6%9D%9C%E8%A9%A9%E3%80%8B/samples/0001.md">0001.md</a>
 <!--
 - <a href=""></a>
 - <a href=""></a>
