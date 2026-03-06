@@ -1,4 +1,4 @@
-# Architecture Overview
+# Architecture Overview (By ChatGPT)
 
 本系統旨在建立一個以 **canonical 杜甫文本** 爲核心的注釋與後設資料架構，用以支援：
 
@@ -71,6 +71,8 @@ scope 的粒度可爲：
 
 若無法確定更細範圍，scope 可提升至上層單位；必要時可取整首詩。
 
+---
+
 ## 4. Interval Principle
 
 所有 annotation 的 scope 均視爲 canonical 文本上的 interval。
@@ -85,6 +87,8 @@ annotation interval 只允許兩種關係：
 若兩條 annotation 互相交叉，應合併爲較大的 annotation 單元。
 
 此原則適用於注與評，亦是 canonical 注釋可逆還原與詞典生成的基礎。
+
+---
 
 ## 5. Annotation Types
 
@@ -106,6 +110,8 @@ annotation 類型採 **controlled vocabulary**，不用 open-ended system。
 - 泛論：藉某詩而發的詩學或一般議論，其 scope 仍標爲該詩，以表示附著位置
 
 annotation 類型原則上應單一。若一段文字兼具多種性質，應優先考慮分解，而非複標。
+
+---
 
 ## 6. Topics and References
 
@@ -133,6 +139,8 @@ annotation 類型原則上應單一。若一段文字兼具多種性質，應優
 `references` 與 `topics` 均宜採 controlled vocabulary。
 `topic` 原則上單一；必要時先分解 annotation，再考慮例外。
 
+---
+
 ## 7. Source Layer
 
 每條 annotation 同時保留來源層資訊，以支援版本還原與原文追索。
@@ -153,6 +161,8 @@ annotation 類型原則上應單一。若一段文字兼具多種性質，應優
 - `doc_id` 指文件容器
 - 二者不可混同
 
+---
+
 ## 8. Storage Model
 
 metadata 以 `doc_id` 爲基本容器組織。
@@ -171,6 +181,8 @@ metadata 以 `doc_id` 爲基本容器組織。
 - 類型快速檢索
 - 以 `doc_id` 爲自然工作單位
 
+---
+
 ## 9. Canonical / Source Reversibility
 
 系統不僅支援由來源版本分解爲 canonical annotation，也支援由 canonical annotation 回復來源版本結構。
@@ -182,6 +194,8 @@ metadata 以 `doc_id` 爲基本容器組織。
 - 同一來源著述內部亦可能存在多層 source structure，需在來源層中保留
 
 此可逆性是本系統的重要設計目標。
+
+---
 
 ## 10. Design Philosophy
 
