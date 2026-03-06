@@ -77,7 +77,7 @@ Common IDs:
   - experimental view generators
   - tests
 
-All JSON files in this repo are **generated** from source text + build scripts.
+Almost all JSON files in this repo are **generated** from source text + build scripts.
 
 ---
 
