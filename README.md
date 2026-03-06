@@ -61,7 +61,7 @@ Common IDs:
 - `sid` : source id in the metadata layer, e.g. `郭0001:P0001L03:33b2683d2d47`
 - `anchor` : page and line numbers of the source, e.g. `P0001L03`
 
-**IDs identify objects (containers/poems/records). Anchors identify positions on the poem tree.**
+**IDs identify objects (containers/poems/records). Anchors identify positions on the poem tree or in the edition.**
 
 ---
 
