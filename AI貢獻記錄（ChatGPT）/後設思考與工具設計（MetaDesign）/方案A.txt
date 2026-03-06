@@ -1,0 +1,180 @@
+很好，這其實是兩個不同層次的問題：
+
+10 條超核心規則（總綱）
+
+Metadata Principles 完整說明 放在哪裡
+
+我先給你 10 條版本，再談文件放置位置。
+
+Metadata System：10 條核心規則（One-Page Version）
+
+1. Canonical Text
+所有注釋與版本對齊均以固定的 canonical 杜甫文本為基準；canonical 文本字序與字數不隨版本差異改變。
+
+2. Coordinate System
+文本坐標採用四層結構：
+
+詩 : 聯 . 句 . 字
+
+字序為句內字序。
+
+3. Anchor
+每條 annotation 必須具有 anchor。
+anchor 必須指向 canonical 文本中的單一字。
+
+4. Scope
+每條 annotation 必須具有 scope。
+scope 表示 annotation 的作用範圍。
+
+5. Scope Continuity
+scope 必須覆蓋 canonical 文本中的 連續字序區間。
+
+6. Anchor Containment
+anchor 必須位於 scope 之內。
+
+7. No Crossing Intervals
+annotation 的 scope 只允許：
+
+相離（disjoint）
+
+包含（nested）
+
+不允許交叉（crossing）。
+
+8. Controlled Annotation Types
+annotation type 使用固定類型（controlled vocabulary），例如：
+
+字注
+詞注
+句注
+聯注
+詩評
+泛論
+
+9. Single Primary Classification
+annotation 原則上只具有 單一主類型與主題。
+若涉及多種內容，應優先分解為多條 annotation。
+
+10. Human-Readable Input
+句內 scope 可使用詩文片段輸入，由程式轉換為 canonical 坐標。
+
+這 10 條其實就是你整個系統的「憲法」。
+
+Metadata Principles 放在哪裡？
+
+這其實是 repository 結構設計問題。
+我建議 三層文件結構。
+
+第一層（README）：總綱
+
+放 10 條核心規則。
+
+例如：
+
+README.md
+
+內容：
+
+專案介紹
+
+系統理念
+
+Metadata System: 10 Rules
+
+因為 README 是任何人第一眼看到的。
+
+第二層（docs）：完整設計
+
+完整的 Metadata Principles 放在：
+
+docs/metadata_principles.md
+
+內容：
+
+Canonical text
+
+Coordinate system
+
+Anchor / scope
+
+Interval rules
+
+Annotation types
+
+References
+
+Topics
+
+Annotation decomposition
+
+這是設計說明書。
+
+第三層（schemas）：技術結構
+
+JSON / schema 說明放在：
+
+schemas/
+    annotation_schema.json
+    metadata_registry.json
+
+這是程式層規格。
+
+三層關係其實是
+README
+  ↓
+docs/metadata_principles
+  ↓
+schemas
+
+也就是：
+
+理念
+→ 設計
+→ 結構
+你的 repo 其實可以變成這樣
+
+例如：
+
+Dufu-Analysis
+│
+├─ README.md
+│
+├─ docs
+│   ├─ metadata_principles.md
+│   ├─ coordinate_system.md
+│   └─ annotation_types.md
+│
+├─ schemas
+│   ├─ annotation_schema.json
+│   └─ registries
+│
+├─ analysis_programs
+│
+└─ data
+
+這會讓整個工程非常清晰。
+
+我其實還有一個強烈建議
+
+你現在這個系統已經成熟到一個程度，其實值得有一個文件：
+
+docs/system_overview.md
+
+只有一張圖。
+
+畫出：
+
+canonical text
+        ↓
+source annotations
+        ↓
+canonical annotations
+        ↓
+dictionary generation
+        ↓
+research queries
+
+這張圖會讓任何人 10 秒內理解整個系統。
+
+如果你願意，我可以幫你畫出一張 杜甫 annotation system 的結構圖。
+那張圖其實會把你這兩年思考的東西，一下子全部說清楚。

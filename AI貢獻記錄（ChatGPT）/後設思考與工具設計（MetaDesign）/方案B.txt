@@ -1,0 +1,218 @@
+很好，這兩個問題其實都很重要：
+
+1️⃣ 10 條超核心規則（one-page version）
+2️⃣ Metadata Principles 應該放在哪裡
+
+我先回答第二個，因為這其實關係到整個專案結構。
+
+一、Metadata Principles 放哪裡最好？
+
+我會建議一個很典型、也很穩定的做法：
+
+Dufu-Analysis
+│
+├─ README.md
+│
+├─ docs/
+│   ├─ metadata_principles.md
+│   ├─ coordinate_system.md
+│   └─ annotation_model.md
+│
+├─ schemas/
+│   └─ json/
+│
+└─ data/
+
+也就是：
+
+README：總覽
+docs：設計說明
+
+所以：
+
+docs/metadata_principles.md
+
+會是最自然的位置。
+
+README 裡只放「超短版」
+
+README 可以只放一段：
+
+Metadata Principles (summary)
+→ see docs/metadata_principles.md
+
+這樣：
+
+README 不會太長
+
+詳細說明有固定位置
+
+為什麼不直接放 README？
+
+因為你的設計會慢慢擴充，例如：
+
+canonical text
+
+coordinate system
+
+annotation model
+
+source mapping
+
+dictionary generation
+
+如果全塞 README，會很難維護。
+
+二、Metadata Principles 的角色
+
+這份文件其實是整個系統的：
+
+conceptual contract
+
+也就是說：
+
+程式
+
+JSON schema
+
+annotation data
+
+都要遵守它。
+
+它比 code 更穩定。
+
+三、我建議再加兩份文件
+
+未來你會很容易需要這兩個：
+
+1️⃣ Coordinate System
+docs/coordinate_system.md
+
+說明：
+
+詩:聯.句.字
+scope
+anchor
+interval
+2️⃣ Annotation Model
+docs/annotation_model.md
+
+說明：
+
+sid
+type
+references
+topics
+source
+四、現在給你「10 條超核心規則」
+
+這一版是 deliberately 簡潔的。
+
+你甚至可以直接放在 README。
+
+Canonical Annotation Rules (10 Core Rules)
+
+1️⃣ Canonical Text
+
+所有 annotation 均以 canonical 杜甫文本 為基準。
+canonical 文本的字序固定，不因版本差異改動。
+
+2️⃣ Coordinate System
+
+文本坐標採四層結構：
+
+詩 : 聯 . 句 . 字
+
+字序為 句內字序。
+
+3️⃣ Anchor
+
+每條 annotation 必須有 anchor。
+anchor 必為 單一字坐標。
+
+4️⃣ Scope
+
+每條 annotation 必須有 scope。
+scope 為 canonical 文本上的 連續字序區間。
+
+5️⃣ Containment Rule
+
+anchor 必須包含於 scope。
+
+anchor ∈ scope
+
+6️⃣ Scope Levels
+
+scope 可為：
+
+字
+詞
+句
+聯
+詩
+
+若無法確定細範圍，可提升至較高層級。
+
+7️⃣ No Null Scope
+
+annotation 不允許 scope = null。
+若範圍不明，可使用整首詩作為 scope。
+
+8️⃣ Interval Rule
+
+annotation scope 只允許：
+
+相離（disjoint）
+
+包含（nested）
+
+不允許：
+
+交叉（crossing）
+
+9️⃣ Controlled Annotation Types
+
+annotation type 使用 固定分類，例如：
+
+字注
+詞注
+句注
+聯注
+詩評
+泛論
+
+🔟 Single Primary Classification
+
+annotation 原則上只屬於 一個主要類型與主題。
+若內容複雜，優先 分解 annotation，而非多重分類。
+
+五、這 10 條其實就是你整個系統的「憲法」
+
+之後不管你寫：
+
+JSON schema
+
+PHP / Python 程式
+
+metadata 編輯器
+
+詞典生成器
+
+都會回到這 10 條。
+
+六、我其實很想再幫你做一件事
+
+現在你的系統已經很清楚了，我可以幫你畫一張 完整的 metadata architecture 圖，把這些關係畫成一張簡單的圖，例如：
+
+canonical text
+      │
+annotation
+      │
+anchor + scope
+      │
+source mapping
+      │
+topics / references
+
+這張圖放在 repo 裡會非常有用，因為一眼就能看懂整個系統。
+

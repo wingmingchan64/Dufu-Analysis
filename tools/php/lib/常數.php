@@ -147,10 +147,19 @@ $簡稱陣列 = array(
 const 默詩碼_版本詩碼對照表 = '默詩碼_版本詩碼對照表';
 const 空語鏈 = '';
 
-
 // metadata
-const 版本文檔ID = 'doc_id';
-const 後設標記ID = 'sid';
+const 著述ID = 'work_id'; // 來源著述ID，如 郭
+const 版本ID = 'edition_id'; // 〚郭⸨聶⸩〛
+const 單元ID = 'unit_id';   // 郭0001
+const 單元碼 = 'unit_no'; // 0001
+const 文檔ID = 'doc_id'; // 0001.json
+const 來源ID = 'source_id'; // 郭0001:P0001L04:6185f5e1c434
+const 來錨 = 'sa'; // source anchor, 來源 P0001L04
+const 去單元ID = 'target_unit_id'; // 0276
+const 去錨 = 'ta'; // target anchor, 去處、目的地 〚0276:3.1.5〛
+const 著述去錨 = 'source_ta'; // work target anchor
+
+
 
 
 
