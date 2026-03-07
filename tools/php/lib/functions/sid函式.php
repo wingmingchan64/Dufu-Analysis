@@ -74,7 +74,8 @@ function make_sid(
 	string $cat, 
 	string $text, 
 	?string $anchor = null, 
-	?string $span = null ): array
+	?string $span = null ): string
+	//array
 {
     $norm = normalize_text_for_sid( $text );
 
@@ -83,7 +84,8 @@ function make_sid(
         $fp = $cat . "|" . $norm;
         $sid = $workId . ":" . $anchor . ":" . 
 			short_hash( $fp, 12 );
-        return [ "sid" => $sid, "sid_method" => "A" ];
+        //return [ "sid" => $sid, "sid_method" => "A" ];
+        return $sid;
     }
 
     if ( $span !== null && $span !== '' )
@@ -91,12 +93,14 @@ function make_sid(
         $fp = $span . "|" . $cat . "|" . $norm;
         $sid = $workId . ":" . $span . ":" . 
 			short_hash( $fp, 12 );
-        return [ "sid" => $sid, "sid_method" => "B" ];
+        //return [ "sid" => $sid, "sid_method" => "B" ];
+		return $sid;
     }
 
     $fp = $cat . "|" . $norm;
     $sid = $workId . ":" . short_hash( $fp, 16 );
 	
-    return [ "sid" => $sid, "sid_method" => "C" ];
+    //return [ "sid" => $sid, "sid_method" => "C" ];
+    return $sid;
 }
 ?>

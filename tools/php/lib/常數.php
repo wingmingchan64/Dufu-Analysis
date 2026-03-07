@@ -3,7 +3,6 @@
 杜甫資料庫編程部分所應用的 PHP 常數
 */
 // 系統文件夾
-//const DS = DIRECTORY_SEPARATOR;
 // the / is replaced by DIRECTORY_SEPARATOR in JsonDataLoader
 const DS = '/';
 // packages
@@ -75,9 +74,7 @@ const PHP_GLOBAL_FUNCTIONS = PHP_CODE_BASE_LIB_DIR . '函式.php';
 
 // JSON data structures
 
-//const 詩字_字碼 = '詩字_字碼';
 // base_text
-
 
 // coords 坐標
 // $一字組合_坐標 = 提取數據結構( 一字組合_坐標 );
@@ -113,7 +110,6 @@ const 默認詩文檔碼_碼_字 = COORDS_DIR . '文檔碼_碼_字';
 const 默認詩文檔碼_詩文_坐標 = COORDS_DIR . '默認詩文檔碼_詩文_坐標';
 const 完整坐標表 = '完整坐標表';
 const 完整坐標表文件夾 = COORDS_DIR . 完整坐標表 . DS;
-
 // ids
 const 默認詩文檔碼 = IDS_DIR . '默認詩文檔碼'; // 0013
 const 默認版本詩碼 = IDS_DIR . '默認版本詩碼'; // 0013-1
@@ -148,17 +144,37 @@ const 默詩碼_版本詩碼對照表 = '默詩碼_版本詩碼對照表';
 const 空語鏈 = '';
 
 // metadata
-const 著述ID = 'work_id'; // 來源著述ID，如 郭
+const 著述ID = 'work_id'; // 來源著述ID，簡稱，如 郭
 const 版本ID = 'edition_id'; // 〚郭⸨聶⸩〛
 const 單元ID = 'unit_id';   // 郭0001
 const 單元碼 = 'unit_no'; // 0001
-const 文檔ID = 'doc_id'; // 0001.json
+const 文檔ID = 'doc_id'; // 文檔容器ID，如 0001.json
 const 來源ID = 'source_id'; // 郭0001:P0001L04:6185f5e1c434
-const 來錨 = 'sa'; // source anchor, 來源 P0001L04
-const 去單元ID = 'target_unit_id'; // 0276
-const 去錨 = 'ta'; // target anchor, 去處、目的地 〚0276:3.1.5〛
-const 著述去錨 = 'source_ta'; // work target anchor
+// sa => 來源錨
+const 來源錨 = 'source_anchor'; // 來源 P0001L04
+// ta => 默認去向錨
+const 默認去向錨 = 'target_anchor'; // target anchor, 去處、目的地 〚0276:3.1.5〛
+// unit_ta => 單元去向錨
+const 單元去向錨 = 'unit_target_anchor'; // unit target anchor
+// 坐標
+const 範圍起點 = 'scope_start';
+const 範圍終點 = 'scope_end';
+const 單元範圍起點 = 'unit_scope_start';
+const 單元範圍終點 = 'unit_scope_end';
+// 注、異、評、永明校記、永明按語
+const 類別 = 'cat'; // 文類/資料類別
+// 詞注、引書
+const 選錄 = 'selection'; // annotation 功能類型
+const 專題 = 'topic'; // 主題分類
+const 參考 = 'references';
+const 來源 = 'source';
+const 文字內容 = 'text';
 
+// folders
+const 文檔_記錄 = 'doc_records';
+const 文檔_文字內容 = 'doc_texts';
+const 文檔_索引 = 'doc_index_';
+const 位置 = "pos"; 
 
 
 
@@ -286,7 +302,7 @@ const 旁注 = '旁注';
 const 【旁注】 = '【旁注】';
 const 坐標版本異文、夾注 = '坐標版本異文、夾注';
 const 定義 = '定義';
-const 參考 = '參考';
+//const 參考 = '參考';
 
 const 仇引 = '[仇引]';
 const 引奭 = '[引奭]';
@@ -312,16 +328,7 @@ const 按語 = '按語';
 // 〘異:絶〙
 // 〘注:夫如何;位:〚3.2〛;序:2 〙
 
-const 來源 = "來源";
-const 異夾 = "異夾"; // 異文、夾注
-const 詞項 = "詞項"; 
-const 位置 = "位置"; 
-const 次序 = "次序";
-const MM_ID = 'mm_id'; // metadata marker id
-const CAT = 'cat'; // category
-const A = 'a';     // anchor
-const T = 't';     // text
-const B_A = 'b_a'; // book anchor
+//const 來源 = "來源";
 
 
 // programs

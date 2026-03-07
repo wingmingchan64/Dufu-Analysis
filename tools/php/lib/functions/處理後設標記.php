@@ -39,7 +39,7 @@ function 處理後設標記(
 	$file = trim( file_get_contents( $文檔路徑 ) );
 	$lines = explode( NL, $file );
 	$文檔碼_後設標記 = array();
-	$版本身份 = $簡稱 . $版文檔碼; // 郭0001
+	$單元ID = $簡稱 . $版文檔碼; // 郭0001
 	$後設標記陣列 = array();
 	
 	foreach( $lines as $line )
@@ -48,10 +48,10 @@ function 處理後設標記(
 		$文字 = $parts[ 0 ];
 		$後設標記 = rtrim( $parts[ 1 ], '〙' );
 		$後設標記 = json_decode( $後設標記, true );
-		$後設標記[ 'workId' ] = $版本身份;
-		$後設標記[ 'aid' ] = $版本身份 . '@' . $後設標記[ 'anchor' ];
+		$後設標記[ 單元ID ] = $單元ID;
+		$後設標記[ 'aid' ] = $單元ID . '@' . $後設標記[ 'anchor' ];
 		$後設標記[ 'rid' ] = make_sid( 
-			$版本身份, $後設標記[ CAT ], $文字, $後設標記[ 'anchor' ] );
+			$單元ID, $後設標記[ CAT ], $文字, $後設標記[ 'anchor' ] );
 		$後設標記[ 't' ] = $文字;
 		$後設標記[ 'pos' ] = $counter;
 		$後設標記陣列[] = $後設標記;
@@ -124,13 +124,13 @@ function 處理後設標記(
 	{
 		//$temp = array();
 		/*
-		foreach( $文檔碼_後設標記[ $版本身份 ] as $record )
+		foreach( $文檔碼_後設標記[ $單元ID ] as $record )
 		{
-			if( !array_key_exists( $版本身份, $temp ) )
+			if( !array_key_exists( $單元ID, $temp ) )
 			{
-				$temp[ $版本身份 ] = array();
+				$temp[ $單元ID ] = array();
 			}
-			array_push( $temp[ $版本身份 ], $record );
+			array_push( $temp[ $單元ID ], $record );
 		}
 		*/
 		
