@@ -7,26 +7,39 @@ require_once(
 	'lib' . DIRECTORY_SEPARATOR .
 	'函式.php' );
 
-$完整坐標表 = 提取數據結構( 完整坐標表 );
+$默認詩文檔碼 = 提取數據結構( 默認詩文檔碼 );
+$默認詩文檔碼_完整坐標表 = 提取數據結構( 默認詩文檔碼_完整坐標表 );
 $含範圍完整字碼坐標 = array();
 $不含範圍完整字碼坐標 = array();
-$regex1 = '/\d{4}:\d+\.\d.\d+-\d+/u'; // 〚0003:5.1.2-4〛
-$regex2 = '/\d{4}:\d+:\d+\.\d.\d+-\d+/u'; //〚0013:2:11.2.1-3〛
+//$regex1 = '/\d{4}:\d+\.\d.\d+-\d+/u'; // 〚0003:5.1.2-4〛
+$regex1 = '/\.\d+\.\d+-/u'; // 〚0003:5.1.2-4〛
+$regex2 = '/\d{4}:\d+:\d+\.\d.\d+-\d+〛/u'; //〚0013:2:11.2.1-3〛
 $regex3 = '/\d{4}:\d+\.\d.\d+〛/u'; // 〚0003:5.1.2〛
 $regex4 = '/\d{4}:\d+:\d+\.\d.\d+〛/u'; //〚0013:2:11.2.1〛
 
-foreach( $完整坐標表 as $坐標 )
+foreach( $默認詩文檔碼 as $文檔碼 )
 {
-	//echo $坐標, NL;
-	if( preg_match( $regex1, $坐標 ) ||
-		preg_match( $regex2, $坐標 ) )
+	if( intval( $文檔碼 ) > 6093 )
 	{
-		array_push( $含範圍完整字碼坐標, $坐標 );
+		break;
 	}
-	elseif( preg_match( $regex3, $坐標 ) ||
-		preg_match( $regex4, $坐標 ) )
+
+	$完整坐標表 = $默認詩文檔碼_完整坐標表[ $文檔碼 ];
+	
+	foreach( $完整坐標表 as $坐標 )
 	{
-		array_push( $不含範圍完整字碼坐標, $坐標 );
+		if( preg_match( $regex1, $坐標 ) )
+			//|| preg_match( $regex2, $坐標 ) )
+		{
+			echo $坐標, NL;
+			$含範圍完整字碼坐標[] = $坐標;
+		}
+		elseif( preg_match( $regex3, $坐標 ) ||
+			preg_match( $regex4, $坐標 ) )
+		{
+			//echo $坐標, NL;
+			$不含範圍完整字碼坐標[] = $坐標;
+		}
 	}
 }
 

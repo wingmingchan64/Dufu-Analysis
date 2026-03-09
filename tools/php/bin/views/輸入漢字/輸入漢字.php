@@ -4,7 +4,7 @@
  * Usage: 
 php H:\github\Dufu-Analysis\tools\php\bin\views\輸入漢字\輸入漢字.php
  * Author: Wing Ming Chan
- * Updated: 2025-07-11
+ * Updated: 2026-03-08
 */
 require_once(
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
@@ -133,9 +133,9 @@ while( true )
 				printBuffer( $buffer );
 			}
 		}
-		elseif(array_key_exists( $input, $粵音_常用字 ) )
+		elseif( array_key_exists( $input, $粵音_常用字 ) )
 		{
-			print_r( $粵音_常用字[ $input ] );
+			//print_r( $粵音_常用字[ $input ] );
 			$num = intval( readline() );
 				
 			if( $num >= 0 && $num < sizeof( $粵音_常用字[ $input ] ) )

@@ -2,6 +2,8 @@
 # Build / generated outputs
 # =========================
 
+全唐詩/
+
 # All build artifacts (views, exports, caches)
 build/
 test/

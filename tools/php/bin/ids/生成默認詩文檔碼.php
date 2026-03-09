@@ -43,5 +43,4 @@ file_put_contents(
 	$json_dir .
 	"默認詩文檔碼.json",
 	$json . PHP_EOL );
-
 ?>

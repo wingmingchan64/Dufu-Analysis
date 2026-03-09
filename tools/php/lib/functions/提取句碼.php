@@ -1,6 +1,6 @@
 <?php
 /*
- * 提取行碼，坐標中最後一個 : 後的値。
+ * 提取句碼，坐標中行碼後的値。
  */
 use Dufu\Exceptions\InvalidCoordinateException;
 
@@ -10,6 +10,11 @@ function 提取句碼( string $坐標, bool $debug=false ) : string
 	{
 		throw new InvalidCoordinateException(
 			"「${坐標}」不是合法完整坐標。" );
+	}
+	if( !是有句碼之完整坐標( $坐標 ) )
+	{
+		throw new InvalidCoordinateException(
+			"「${坐標}」不含句碼。" );
 	}
 	
 	if( 含首碼( $坐標 ) )

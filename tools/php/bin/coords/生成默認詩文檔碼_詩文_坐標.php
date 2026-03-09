@@ -1,18 +1,18 @@
 <?php
 /*
-H:\github\Dufu-Analysis\tools\php\bin\coords\生成默認詩文檔碼_詩文_坐標.php
+php  H:\github\Dufu-Analysis\tools\php\bin\coords\生成默認詩文檔碼_詩文_坐標.php
 */
 require_once(
 	dirname( __DIR__, 2 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR .
 	'函式.php' );
 
-
 $默認詩文檔碼_詩文_坐標 = 提取數據結構( 默認詩文檔碼_空陣列 );
 
 for( $i = 1; $i < 12; $i++ )
 {
 	$詩文_坐標 = 提取數據結構( 數字對照陣列[ $i ] );
+	
 	foreach( $詩文_坐標 as $詩文 => $坐標s )
 	{
 		foreach( $坐標s as $坐標 )
@@ -36,11 +36,8 @@ $json = json_encode(
 );
 
 file_put_contents(
-	"H:" . DIRECTORY_SEPARATOR .
-	"github" . DIRECTORY_SEPARATOR .
-	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
-	"JSON" . DIRECTORY_SEPARATOR .
-	"數據結構" . DIRECTORY_SEPARATOR .
+	dirname( __DIR__, 4 ) . DIRECTORY_SEPARATOR . 
+	SCHEMAS_JSON_COORDS_DIR .
 	"默認詩文檔碼_詩文_坐標.json",
 	$json . PHP_EOL );
 

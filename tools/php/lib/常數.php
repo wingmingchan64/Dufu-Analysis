@@ -97,24 +97,31 @@ const 數字對照陣列 = array(
 	"8"=>八字組合_坐標, "9"=>九字組合_坐標,
 	"10"=>十字組合_坐標, "11"=>十一字組合_坐標,
 );
+const 默認詩文檔碼 = IDS_DIR . '默認詩文檔碼'; // 0013
+const 默認版本詩碼 = IDS_DIR . '默認版本詩碼'; // 0013-1
+const 默認文檔碼_默認詩碼 = IDS_DIR . '默認文檔碼_默認詩碼';
+const 默認詩文檔碼_完整坐標表 = COORDS_DIR . '默認詩文檔碼_完整坐標表';
+const 默認詩文檔碼_碼_字 = COORDS_DIR . '默認詩文檔碼_碼_字';
+const 默認詩文檔碼_詩文_坐標 = COORDS_DIR . '默認詩文檔碼_詩文_坐標';
+const 默認詩文檔碼_單句行坐標 = COORDS_DIR . '默認詩文檔碼_單句行坐標';
+const 默認詩碼坐標 = COORDS_DIR . '默認詩碼坐標'; // only 坐標
+const 默認詩碼_坐標 = COORDS_DIR . '默認詩碼_坐標'; // 〚0003:〛
+const 坐標_默認詩碼 = COORDS_DIR . '坐標_默認詩碼';
+const 坐標_句 = COORDS_DIR . '坐標_句';
+const 默認詩碼_句坐標 = COORDS_DIR . '默認詩碼_句坐標';
+
 const 句碼_詩句 = COORDS_DIR . '句碼_詩句';
 const 行碼_詩文 = COORDS_DIR . '行碼_詩文';
 const 行碼_副題 = COORDS_DIR . '行碼_副題';
 const 字碼_詩字 = COORDS_DIR . '字碼_詩字';
 const 非完整坐標表 = COORDS_DIR . '非完整坐標表';
-const 默認詩碼坐標 = COORDS_DIR . '默認詩碼坐標';
+
 const 含範圍字碼完整坐標 = COORDS_DIR . '含範圍字碼完整坐標';
 const 含範圍行碼完整坐標 = COORDS_DIR . '含範圍行碼完整坐標';
-const 默認詩文檔碼_完整坐標表 = COORDS_DIR . '默認詩文檔碼_完整坐標表';
-const 默認詩文檔碼_碼_字 = COORDS_DIR . '文檔碼_碼_字';
-const 默認詩文檔碼_詩文_坐標 = COORDS_DIR . '默認詩文檔碼_詩文_坐標';
-const 默認詩碼_句坐標 = COORDS_DIR . '默認詩碼_句坐標';
+
 const 完整坐標表 = '完整坐標表';
 const 完整坐標表文件夾 = COORDS_DIR . 完整坐標表 . DS;
 // ids
-const 默認詩文檔碼 = IDS_DIR . '默認詩文檔碼'; // 0013
-const 默認版本詩碼 = IDS_DIR . '默認版本詩碼'; // 0013-1
-const 默認文檔碼_默認詩碼 = IDS_DIR . '默認文檔碼_默認詩碼';
 const 帶序言之詩 = IDS_DIR . '帶序言之詩';
 // mapping
 const 默認詩文檔碼_詩題 = MAPPING_DIR . '默認詩文檔碼_詩題';
@@ -210,7 +217,8 @@ const 坐標括號 = "〚〛";
 const 冒號 = '：'; // UNICODE!!!
 // preg_replace( 夾注regex, '', $ )
 const 夾注regex = '/\[\X+?]/u';
-const 兩句regex = "/(\\X+?。\\X+?。)/u";
+//const 兩句regex = "/(\p{Han}+?[。，？！]\\p{Han}+?)/u";
+const 兩句regex = "/(\p{Han}+?[。，？！]\p{Han}+)/u";
 const 四句regex = "/(\\X+?。\\X+?。\\X+?。\\X+?。)/u";
 const 第一組新行regex = "$1\n";
 const ASCII = 'ASCII';
@@ -280,7 +288,6 @@ const 【詩句】 = "【詩句】";
 const 參數 = '參數';
 const 注釋 = '注釋';
 const 【注釋】 = '【注釋】';
-const 坐標_句 = '坐標_句';
 const 注音 = '注音';
 const 【注音】 = '【注音】';
 const 韻部 = '韻部';

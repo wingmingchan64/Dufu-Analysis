@@ -1,18 +1,26 @@
 <?php
 /*
-H:\github\Dufu-Analysis\tools\php\bin\coords\生成非完整坐標.php
+php H:\github\Dufu-Analysis\tools\php\bin\coords\生成非完整坐標.php
 */
 require_once(
 	dirname( __DIR__, 2 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR .
 	'函式.php' );
 
+$默認詩文檔碼_完整坐標表 = 提取數據結構( 默認詩文檔碼_完整坐標表 );
+$默認詩文檔碼 = 提取數據結構( 默認詩文檔碼 );
+
 $非完整坐標 = array();
-//$文檔碼 = '0003';
 
 foreach( $默認詩文檔碼 as $文檔碼 )
 {
+	if( intval( $文檔碼 ) > 6093 )
+	{
+		break;
+	}
+
 	$坐標s = $默認詩文檔碼_完整坐標表[ $文檔碼 ];
+	
 	foreach( $坐標s as $坐標 )
 	{
 		$坐標 = str_replace( "${文檔碼}:", '', $坐標 );
@@ -34,7 +42,8 @@ $json = json_encode(
 );
 
 file_put_contents(
-	$JSON_BASE . DIRECTORY_SEPARATOR .
+	dirname( __DIR__, 4 ) . DIRECTORY_SEPARATOR . 
+	SCHEMAS_JSON_COORDS_DIR .
 	"非完整坐標表.json",
 	$json . PHP_EOL );
 

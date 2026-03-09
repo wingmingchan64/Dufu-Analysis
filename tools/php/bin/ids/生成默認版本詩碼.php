@@ -38,7 +38,7 @@ foreach( $files as $file )
 			{
 				if( intval( $k ) > 0 )
 				{
-					echo "Inside 組詩: $k", NL;
+					//echo "Inside 組詩: $k", NL;
 					array_push( $默認版本詩碼,
 						$文檔 . '-' . $k );
 				}

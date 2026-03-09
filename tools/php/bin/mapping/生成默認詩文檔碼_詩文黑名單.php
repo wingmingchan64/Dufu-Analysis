@@ -1,14 +1,11 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\JSON\程式\生成默認詩文檔碼_詩文黑名單.php
+php H:\github\Dufu-Analysis\tools\php\bin\mapping\生成默認詩文檔碼_詩文黑名單.php
 */
 require_once(
-	"H:" . DIRECTORY_SEPARATOR .
-	"github" . DIRECTORY_SEPARATOR .
-	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
-	"JSON" . DIRECTORY_SEPARATOR .
-	"程式" . DIRECTORY_SEPARATOR .
-	"to_be_included_for_json.php" );
+	dirname( __DIR__, 2 ) . DIRECTORY_SEPARATOR .
+	'lib' . DIRECTORY_SEPARATOR .
+	'函式.php' );
 
 $默認詩文檔碼 = 提取數據結構( 默認詩文檔碼 );
 $默認詩文檔碼_詩文 = 提取數據結構( 默認詩文檔碼_詩文 );
@@ -18,6 +15,10 @@ $默文檔_詩文 = array();
 
 foreach( $默認詩文檔碼 as $文檔碼 )
 {
+	if( intval( $文檔碼 ) > 6093 )
+	{
+		break;
+	}
 	$詩文 = normalize( 
 		$默認詩文檔碼_詩文[ $文檔碼 ], true, true, true );
 	$字數 = mb_strlen( $詩文 );
@@ -63,11 +64,8 @@ $json = json_encode(
 );
 
 file_put_contents(
-	"H:" . DIRECTORY_SEPARATOR .
-	"github" . DIRECTORY_SEPARATOR .
-	"Dufu-Analysis" . DIRECTORY_SEPARATOR .
-	"JSON" . DIRECTORY_SEPARATOR .
-	"數據結構" . DIRECTORY_SEPARATOR .
+	dirname( __DIR__, 4 ) . DIRECTORY_SEPARATOR . 
+	SCHEMAS_JSON_MAPPING_DIR .
 	"默認詩文檔碼_詩文重見名單.json",
 	$json . PHP_EOL );
 

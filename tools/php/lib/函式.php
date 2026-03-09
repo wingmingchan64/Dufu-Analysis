@@ -1493,7 +1493,7 @@ function 在行至行範圍内( string $行至行範圍, int $行 ) : bool
 	return ( $行 >= $起 && $行 <= $止 );
 }
 
-
+*/
 
 function getOutput( array $output ) : string
 {
@@ -1510,7 +1510,7 @@ function printOutput( array $output )
 {
 	echo getOutput( $output );
 }
-
+/*
 // 用於生成版本文本
 function insertText(
 	array &$詩陣列, string $坐標, string $文字, bool $replace = false )
