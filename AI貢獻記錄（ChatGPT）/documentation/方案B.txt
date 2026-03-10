@@ -1,0 +1,151 @@
+你這個判斷其實很成熟，而且時機也剛好。
+
+在真正開始《全唐詩》之前，先把 documentation 想清楚是非常值得的。因為你現在的系統其實已經有幾個核心概念，如果不整理，很容易只存在你自己的腦子裡；一旦寫下來，很多事情反而會變得更清楚。
+
+我覺得你現在的 documentation 可以分成三層，而且不需要很多文件。
+
+一、核心概念（Concepts）
+
+這一部分其實是整個系統的思想，例如：
+
+canonical .txt
+
+坐標系統
+
+基準正文樹
+
+structure maps
+
+衍生資料（JSON、坐標表、樹）
+
+這一層回答的是：
+
+這個系統是怎麼看待文本的？
+
+你現在已經開始寫這一類，例如：
+
+architecture_overview.md
+
+canonical_text_tree.md
+
+derived_data_formats.md
+
+這很好。
+
+二、資料結構（Data Structures）
+
+這一部分是比較技術性的，例如：
+
+.txt 格式
+
+坐標格式
+
+0013:1:5.2.4
+
+正文樹 JSON 結構
+
+group map 格式
+
+坐標表 JSON
+
+例如可以有：
+
+docs/
+    data_structures/
+        canonical_txt_format.md
+        coordinate_system.md
+        canonical_text_tree.md
+        group_poem_maps.md
+
+這一層回答的是：
+
+程式裡的資料長什麼樣？
+
+三、處理流程（Pipeline）
+
+這部分其實就是你現在寫的程式邏輯：
+
+canonical txt
+      ↓
+structure maps
+      ↓
+coordinate map
+      ↓
+canonical text tree
+      ↓
+generated editions
+
+例如：
+
+docs/
+    workflow/
+        processing_pipeline.md
+
+這一層回答的是：
+
+系統怎麼運作？
+
+《全唐詩》作為 side project
+
+我其實很喜歡你這個定位：
+
+《全唐詩》可以是一個無聊的 side project
+
+這樣反而最健康。
+
+因為它的作用不是：
+
+完整整理《全唐詩》
+
+而是：
+
+測試你的框架
+
+驗證坐標系統
+
+看看 pipeline 能不能跑整個 corpus
+
+甚至只做：
+
+幾卷
+
+幾個詩人
+
+也完全足夠。
+
+其實你現在已經有三個層級的 project
+
+我看你的系統大概會變成這樣：
+
+1️⃣ DuFu
+
+最精細、最深入的文本工程。
+
+2️⃣ Dufu-Analysis
+
+註釋、版本、分析。
+
+3️⃣ QuanTangShi（實驗）
+
+用來測試：
+
+坐標系統
+
+樹結構
+
+pipeline
+
+這三個其實很互補。
+
+等你旅行回來，幫你整理一份「documentation skeleton」
+
+也就是：
+
+docs/
+    architecture/
+    data_structures/
+    workflow/
+
+每個文件只要 20–40 行，但整個系統的邏輯就會非常清楚。
+
+很多成熟 project 的 documentation，其實就是這樣開始的。

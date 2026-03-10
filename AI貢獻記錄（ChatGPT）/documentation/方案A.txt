@@ -1,0 +1,130 @@
+我覺得你的判斷很成熟：在開始《全唐詩》之前先想 documentation，其實是很好的時機。因為現在：
+
+架構已經基本定型
+
+工具鏈正在形成
+
+還沒有被四萬首詩拖進細節泥潭
+
+這時候寫 documentation，反而最清楚。
+
+而且對你這種工程來說，documentation 的作用其實不只是「給別人看」，更重要的是：
+
+幫你自己固定設計決策。
+
+例如你現在其實已經有很多關鍵設計：
+
+canonical .txt
+
+坐標系統
+
+基準正文樹
+
+group maps
+
+衍生資料（JSON）
+
+corpus pipeline
+
+如果這些不寫下來，過半年自己都可能忘記「為什麼當初這樣設計」。
+
+我會建議一個簡單但很穩定的 docs 結構
+
+例如：
+
+docs/
+    architecture/
+        architecture_overview.md
+        canonical_text_tree.md
+        coordinate_system.md
+        derived_data_formats.md
+
+    text_format/
+        canonical_txt_format.md
+        group_poem_structure.md
+
+    workflow/
+        corpus_pipeline.md
+
+    projects/
+        dufu_project.md
+        quantangshi_project.md
+
+這樣：
+
+architecture：核心概念
+
+text_format：文本規則
+
+workflow：處理流程
+
+projects：具體 corpus
+
+《全唐詩》放在 side project 其實很好
+
+因為它可以當作：
+
+architecture stress test
+
+測試：
+
+坐標系統是否普遍適用
+
+canonical txt 是否足夠簡單
+
+樹結構是否穩定
+
+但不必把它變成你的主要工作。
+
+你的主工程仍然是 杜甫，因為：
+
+annotation 最多
+
+結構最複雜
+
+metadata 最豐富
+
+如果能處理杜甫，其它詩人基本都不是問題。
+
+其實我覺得你 documentation 裡最重要的一個文件會是：
+
+architecture_overview.md
+
+只要寫清楚三件事：
+
+1️⃣ canonical text 的角色
+2️⃣ coordinate system 的作用
+3️⃣ canonical text tree 的用途
+
+整個系統就基本講清楚了。
+
+另外一點（這可能對你很重要）
+
+你的 project 其實有一個很明確的理念：
+
+文本是 source，結構由程式生成。
+
+這跟很多 TEI / XML corpus 不一樣。
+
+很多 digital humanities project 是：
+
+XML = source
+
+而你是：
+
+txt = source
+structure = generated
+
+這其實是一個很值得寫進 documentation 的設計哲學。
+
+如果你願意，我可以幫你一起把 documentation 的骨架搭起來，例如先寫三個最核心的文件：
+
+architecture_overview.md
+canonical_text_tree.md
+corpus_pipeline.md
+
+這三個文件寫完，你整個 project 的思想其實就已經很清楚了。
+
+而《全唐詩》那時候就真的可以只是：
+
+一個無聊但很有用的 side project。
