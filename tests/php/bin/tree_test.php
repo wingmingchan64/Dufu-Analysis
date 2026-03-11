@@ -38,5 +38,5 @@ unset( $樹[ $詩碼 ][ '3' ] );
 print_r( json_encode( $樹, 
 	JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) );
 	
-//echo implode( NL, 提取詩陣列詩文( $樹 ) );
+echo implode( NL, 提取基準正文樹詩文( $樹 ) );
 ?>

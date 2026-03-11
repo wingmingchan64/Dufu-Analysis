@@ -84,4 +84,15 @@ function get_text_from_poem_array(
 {
 	return 提取詩陣列詩文( $詩陣列, $加句號, $加新行, $忽略副題, $debug );
 }
+
+function 提取基準正文樹詩文(
+	array $詩陣列,
+	bool $加句號 = true,
+	bool $加新行 = true,
+	bool $忽略副題 = true,// only affects 組詩
+	bool $debug = false
+) : array
+{
+	return 提取詩陣列詩文( $詩陣列, $加句號, $加新行, $忽略副題, $debug );
+}
 ?>
