@@ -32,7 +32,7 @@
 顯示基文樹：
 
 	$文檔碼 = '2539';
-	$樹 = 提取數據結構( BASE_TEXT_DIR . $文檔碼 );
+	$樹 = 提取基準正文樹( $文檔碼 );
 	print_r( json_encode( $樹, 
 		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) );
 
