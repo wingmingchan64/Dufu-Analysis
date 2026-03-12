@@ -1,0 +1,20 @@
+Code examples from ChatGPT
+
+// getting files
+$files = glob( $txt_dir . '/*.txt' );
+
+// splitting contents into lines
+$lines = preg_split( "/\R/u", $txt );
+
+// coercing assignment
+$doc_id = $header_parts[ 0 ] ?? '';
+
+// grabbing segments from lines
+    $sentences = array_values( array_filter(
+        explode( '。', trim( $line ) ),
+        fn( $s ) => $s !== ''
+    ) );
+
+// splitting segments into chars
+        $chars = preg_split( 
+			'//u', $sentence, -1, PREG_SPLIT_NO_EMPTY );
