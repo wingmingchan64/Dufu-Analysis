@@ -49,16 +49,8 @@
 ## mapping\生成默認詩文檔碼_詩題.php
 
 - Dependency: ids\帶序言之詩.json
-- Generation: ids\默認文檔碼_默認詩碼.json
+- Generation: mapping\默認詩文檔碼_詩題.json.json, 默認詩文檔碼_詩題.json, 默認詩文檔碼_序言.json, 默認詩文檔碼_題注.jsonS
 - Example:
 
-<pre>	{
-		"0003": "0003",
-		"0008": "0008",
-		"0013": [
-			"0013-1",
-			"0013-2"
-		],
-		...
-	}
+<pre>
 </pre>
