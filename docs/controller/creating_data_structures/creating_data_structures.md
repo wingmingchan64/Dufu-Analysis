@@ -8,6 +8,7 @@
 - Dependency: None
 - Generation: ids\默認詩文檔碼.json
 - Example:
+
 	[
 		"0003",
 		"0008",
