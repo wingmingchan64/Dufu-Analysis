@@ -9,12 +9,12 @@
 - Generation: ids\默認詩文檔碼.json
 - Example:
 
-	\[
+<pre>	[
 		"0003",
 		"0008",
 		"0013-1",
 		...
-	\]
+	]</pre>
 
 ## ids\生成默認版本詩碼.php
 
