@@ -19,8 +19,12 @@ require( 'ids\生成默認詩文檔碼.php' );
 require( 'ids\生成默認版本詩碼.php' );
 
 /*
- * 生成：.json
+ * 生成：默認文檔碼_默認詩碼.json
  */
+require( 'ids\生成默認詩文檔碼_默認詩碼.php' );
+
+ 
+
 require( 'mapping\生成默認詩文檔碼_詩題.php' );
 
 
@@ -28,7 +32,6 @@ require( 'mapping\生成默認詩文檔碼_詩題.php' );
 /*
  * 生成：.json
  */
-require( 'coords\生成默認詩文檔碼_默認詩碼.php' );
 // after base_text
 require( 'coords\生成詩碼坐標.php' );
 // after 默認詩文檔碼、帶序言之詩、組詩_副題

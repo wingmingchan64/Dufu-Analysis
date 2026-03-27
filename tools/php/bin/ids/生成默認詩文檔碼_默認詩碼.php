@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\coords\生成默認詩文檔碼_默認詩碼.php
+php H:\github\Dufu-Analysis\tools\php\bin\ids\生成默認詩文檔碼_默認詩碼.php
 */
 require_once(
 	dirname( __DIR__, 2 ) . DIRECTORY_SEPARATOR .
