@@ -23,8 +23,9 @@ require( 'ids\生成默認版本詩碼.php' );
  */
 require( 'ids\生成默認詩文檔碼_默認詩碼.php' );
 
- 
-
+/*
+ * 生成：詩題_默認詩文檔碼.json, 默認詩文檔碼_詩題.json
+ */
 require( 'mapping\生成默認詩文檔碼_詩題.php' );
 
 
@@ -32,6 +33,7 @@ require( 'mapping\生成默認詩文檔碼_詩題.php' );
 /*
  * 生成：.json
  */
+/*
 // after base_text
 require( 'coords\生成詩碼坐標.php' );
 // after 默認詩文檔碼、帶序言之詩、組詩_副題
@@ -75,5 +77,5 @@ require( 'catalog\生成版本目錄對照表.php' );
 
 // 1457 files in base_text
 require( 'base_text\生成杜甫詩陣列.php' );
-
+*/
 ?>

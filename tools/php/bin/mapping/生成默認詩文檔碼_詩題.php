@@ -15,9 +15,7 @@ $默認詩文檔碼_序言 = array();
 $帶序言之詩 = 提取數據結構( 帶序言之詩 );
 
 $text_dir = dirname( __DIR__, 5 ) . DIRECTORY_SEPARATOR . 
-	'DuFu' . DIRECTORY_SEPARATOR . 
-	'默認版本' . DIRECTORY_SEPARATOR . 
-	'詩' . DIRECTORY_SEPARATOR;
+	杜甫默認版本詩文件夾;
 
 if( !is_dir( $text_dir ) )
 {
@@ -103,7 +101,4 @@ file_put_contents(
 	SCHEMAS_JSON_MAPPING_DIR .
 	"默認詩文檔碼_序言.json",
 	$json . PHP_EOL );
-
-
-
 ?>

@@ -2,6 +2,11 @@
 /*
 杜甫資料庫編程部分所應用的 PHP 常數
 */
+// 杜甫詩文文件夾
+const 杜甫默認版本詩文件夾 = 'DuFu' . DIRECTORY_SEPARATOR . 
+	'默認版本' . DIRECTORY_SEPARATOR . 
+	'詩' . DIRECTORY_SEPARATOR;
+
 // 系統文件夾
 // the / is replaced by DIRECTORY_SEPARATOR in JsonDataLoader
 const DS = '/';

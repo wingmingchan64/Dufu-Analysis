@@ -7,8 +7,8 @@ require_once(
 	dirname( __DIR__, 2 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR . '函式.php' );
 	
-$dir = dirname( __DIR__, 5 ) . DS . 'DuFu' . DS . '默認版本' . DS .
-	'詩' . DS;
+$dir = dirname( __DIR__, 5 ) . DIRECTORY_SEPARATOR .
+	杜甫默認版本詩文件夾;
 
 if( !is_dir( $dir ) )
 {
