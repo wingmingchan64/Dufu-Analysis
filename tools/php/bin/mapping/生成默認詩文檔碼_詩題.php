@@ -21,6 +21,7 @@ if( !is_dir( $text_dir ) )
 {
     throw new RuntimeException( '文件夾不存在: ' . $text_dir );
 }
+
 $files = scandir( $text_dir );
 sort( $files, SORT_STRING );
 
