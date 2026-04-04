@@ -76,7 +76,7 @@ canonical text tree
 - 每一步操作作用於當前樹（可爲已修改的樹）
 
 卽：
-
+<pre>
 	tree<sub>0</sub> (canonical)
 		↓ op<sub>1</sub>
 	tree<sub>1</sub>
@@ -84,6 +84,7 @@ canonical text tree
 	tree<sub>2</sub>
 		↓ ...
 	tree<sub>n</sub> (final)
+</pre>
 
 ### 4.2 操作種類（op）
 
