@@ -75,15 +75,15 @@ canonical text tree
 - 每一條 metadata 視爲一個操作指令
 - 每一步操作作用於當前樹（可爲已修改的樹）
 
-即：
+卽：
 
-tree<sub>0</sub> (canonical)
-    ↓ op<sub>1</sub>
-tree<sub>1</sub>
-    ↓ op<sub>2</sub>
-tree<sub>2</sub>
-    ↓ ...
-tree<sub>n</sub> (final)
+	tree<sub>0</sub> (canonical)
+		↓ op<sub>1</sub>
+	tree<sub>1</sub>
+		↓ op<sub>2</sub>
+	tree<sub>2</sub>
+		↓ ...
+	tree<sub>n</sub> (final)
 
 ### 4.2 操作種類（op）
 
@@ -195,7 +195,7 @@ Controller 負責：
 
 ---
 
-9. 輸出
+## 9. 輸出
 
 最終生成：
 
