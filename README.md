@@ -141,3 +141,8 @@ start with a few categories (e.g. variants and notes), then expand without break
 - <a href=""></a>
 - <a href=""></a>
 -->
+
+### Processing pipelines
+
+- <a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/docs/workflow/pipeline.md">Processing Pipeline</a>
+- <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/tests/php/bin/pipeline">例子</a>
