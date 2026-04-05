@@ -31,13 +31,13 @@ metadata：
 
 子樹：
 
-- 作為 payload 植入 canonical tree
+- 作爲 payload 植入 canonical tree
 - 植入前可進行任意內部處理
-- 植入後視為黑箱（opaque structure）
+- 植入後視爲黑箱（opaque structure）
 
 ---
 
-## 4. 為何限制操作範圍
+## 4. 爲何限制操作範圍
 
 此限制的目的：
 
@@ -59,7 +59,7 @@ metadata：
 - 坐標系統需擴展
 - 操作域混合
 
-因此目前策略為：
+因此目前策略爲：
 
 > 僅在子樹植入前完成其內部操作
 
@@ -67,7 +67,7 @@ metadata：
 
 ## 6. 操作類型
 
-目前 op 為封閉集合：
+目前 op 爲封閉集合：
 
 `Text-level`
 - replace_text
@@ -95,4 +95,4 @@ derived tree
 ## 8. 小結
 
 - metadata 操作僅限於 canonical domain，
-- subtree 作為外部結構接入，而非操作對象。
+- subtree 作爲外部結構接入，而非操作對象。
