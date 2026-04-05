@@ -86,7 +86,7 @@ read line
 	
 文字 payload 出現於 m-marker 之前。爲了保護某些著述的版權，這些文字可能被隱藏，不被發佈。
 
-用於 subtree 的操作：
+用於子樹（subtree）的操作：
 
 - payload 可爲：
 	- 子樹引用
