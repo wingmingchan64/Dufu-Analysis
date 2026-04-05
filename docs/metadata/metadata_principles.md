@@ -4,7 +4,7 @@
 
 在本系統中，metadata 不只是附註（annotation），而是：
 
-	> 可執行的轉換指令（executable transformation instructions）
+> 可執行的轉換指令（executable transformation instructions）
 
 metadata 的作用，是對基準正文樹（canonical text tree）進行操作，從而生成不同版本的文本面貌。
 
