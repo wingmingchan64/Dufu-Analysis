@@ -77,7 +77,14 @@ read line
 
 ## 5. Payload 表示
 
-對於 subtree 操作：
+用於文字的操作：
+
+- payload 可爲：
+	- 被插入到某終端節點的文字
+	- 用以替換某終端節點的文字
+	- 空語鏈（empty string），用以刪除某終端節點的文字
+
+用於 subtree 的操作：
 
 - payload 可爲：
 	- 子樹引用
