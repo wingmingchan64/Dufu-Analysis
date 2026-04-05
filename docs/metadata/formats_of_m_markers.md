@@ -9,7 +9,7 @@ metadata 以 m-marker 表示，形式如下：
 其中：
 
 - 〘〙 用於標記 metadata
-- 內容為 JSON 結構
+- 內容爲 JSON 結構
 
 ---
 
@@ -28,21 +28,21 @@ metadata 以 m-marker 表示，形式如下：
 
 ---
 
-## 3. JSONL 作為核心格式
+## 3. JSONL 作爲核心格式
 
-系統的核心處理形式為：
+系統的核心處理形式爲：
 
 > JSONL（JSON Lines）
 
 卽：
 
-- 每一條 metadata 為一行 JSON
+- 每一條 metadata 爲一行 JSON
 - 按順序排列
 - 對應 transformation sequence
 
 ---
 
-## 4. 為何使用 JSONL
+## 4. 爲何使用 JSONL
 
 JSONL 的優點：
 
@@ -56,7 +56,7 @@ metadata 的順序：
 ...
 </pre>
 
-卽為執行順序。
+卽爲執行順序。
 
 ### 4.2 易於串接
 
@@ -79,7 +79,7 @@ read line
 
 對於 subtree 操作：
 
-- payload 可為：
+- payload 可爲：
 	- 子樹引用
 	- 或子樹生成參數
 
