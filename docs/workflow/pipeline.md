@@ -207,6 +207,7 @@ edition tree
 - 純文本
 - 帶注文本
 - 不同版本面貌
+- <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/tests/php/bin/pipeline">例子</a>
 
 ---
 
