@@ -113,8 +113,109 @@ function process_metadata( array &$tree, string $text ) : void
 				//print_r( $子樹 );
 				植入子樹( $tree, $path, $子樹 );
 				break;
+			
+			case "賦値":
+				// from assigner to assignee
+				// assigner
+				$scope_end = $tags[ "scope_end" ];
+				// 坐標
+				if( mb_strpos( $scope_end, '〚' ) !== false )
+				{
+					$assigner_path = 完整坐標轉換成路徑列陣( $scope_end );
+				}
+				else
+				{
+					$assigner_path = '暫存';
+				}
+				//print_r( $assigner_path );
+				
+				// 坐標
+				if( mb_strpos( $txt, '〚' ) !== false )
+				{
+					$assignee_path = 完整坐標轉換成路徑列陣( $txt );
+				}
+				else
+				{
+					$assignee_path = '暫存';
+				}
+				樹賦値( $tree, $assigner_path, $assignee_path );
+				break;
+				
+			case "去除":
+				if( mb_strpos( $txt, '〚' ) !== false )
+				{
+					$path = 完整坐標轉換成路徑列陣( $txt );
+				}
+				else
+				{
+					$path = '暫存';
+				}
+				
+				if( is_array( $path ) )
+				{
+					$pointer = $tree;
+					
+					foreach( $pointer as $step )
+					{
+						$pointer = &$pointer[ $step ];
+					}
+					unset( $pointer );
+				}
+				else
+				{
+					unset( $tree[ '暫存' ] );
+				}
+				break;
 		}
 	}
+}
+
+function 樹賦値( array &$tree, mixed $assigner, mixed $assignee ) : void
+{
+	//print_r( $assigner );
+	//print_r( $assignee );
+	// assigner
+	if( is_array( $assigner ) )
+	{
+		$assigner_pointer = &$tree;
+		for( $i = 0; $i < count( $assigner ); $i++ )
+		{
+			$assigner_pointer = 
+				&$assigner_pointer[ $assigner[ $i ] ];
+		}
+		//print_r( $assigner_pointer );
+	}
+	else
+	{
+		//$tree[ '暫存' ] = [];
+		$assigner_pointer = &$tree[ '暫存' ];
+	}
+	
+	// assignee
+	if( is_array( $assignee ) )
+	{
+		$assignee_pointer = &$tree;
+		for( $i = 0; $i < count( $assignee ); $i++ )
+		//foreach( $assigner_pointer as $step )
+		{
+			
+			$assignee_pointer = 
+				&$assignee_pointer[ $assignee[ $i ] ];
+		}
+		//print_r( $assignee_pointer );
+	}
+	else
+	{
+		//$tree[ '暫存' ] = [];
+		$assignee_pointer = &$tree[ '暫存' ];
+	}
+	
+	//print_r( $assigner_pointer );
+	//$assignee_pointer = [];
+	$temp = $assigner_pointer;
+	print_r( $temp );
+	$assignee_pointer = $temp;
+	print_r( $assignee_pointer );
 }
 
 
