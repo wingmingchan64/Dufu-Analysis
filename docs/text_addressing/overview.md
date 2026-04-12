@@ -10,11 +10,13 @@
 
 >text ↔ coordinate
 
+---
+
 ## 2. 核心槪念
 
 Text Addressing 包含以下幾個基本要素：
 
-## 2.1 坐標（Coordinate）
+### 2.1 坐標（Coordinate）
 
 - 坐標是對基準正文樹中節點位置的標記
 - 表達的是一條由根至節點的導航路徑
@@ -22,59 +24,66 @@ Text Addressing 包含以下幾個基本要素：
 
 	`〚0003:3.2.1〛`
 
-2.2 文本實體（Textual Entity）
+### 2.2 文本實體（Textual Entity）
 
 文本實體可以是：
 
-單字（字）
-句
-行（聯）
-詩（或章、篇等更高層單位）
+- 單字（字）
+- 句
+- 行（聯）
+- 詩（或章、篇等更高層單位）
 
 在樹結構中，每一個非終端節點均可視爲一個可取出的文本單元。
 
-2.3 路徑（Path）
+### 2.3 路徑（Path）
 
 坐標所表示的本質是：
 
-一條從根節點到目標節點的路徑
+>一條從根節點到目標節點的路徑
 
 此路徑定義了文本在結構中的位置。
 
-3. 基本操作
+---
+
+## 3. 基本操作
 
 Text Addressing 支持三類基本操作：
 
-3.1 定位（Addressing）
+### 3.1 定位（Addressing）
 
 由坐標定位文本：
 
-coordinate → text
+	`coordinate → text`
 
 例如：
 
-retrieve_text_from_canonical_tree('LUNYU', ['01','1']);
-3.2 反查（Resolution）
+	`retrieve_text_from_canonical_tree('LUNYU', ['01','1']);`
+
+### 3.2 反查（Resolution）
 
 由文本（或其特徵）定位坐標：
 
-text → coordinate(s)
+	`text → coordinate(s)`
 
 例如：
 
-查找包含「酒」字的所有坐標
-查找同時包含「酒」、「病」的詩
-3.3 查詢（Query）
+- 查找包含「酒」字的所有坐標
+- 查找同時包含「酒」、「病」的詩
+
+### 3.3 查詢（Query）
 
 在坐標與文本之間進行條件篩選：
 
-query(text conditions) → set of coordinates / texts
+`query(text conditions) → set of coordinates / texts`
 
 例如：
 
-羅列所有杜甫詩中，同時含「酒」與「病」的詩
-查找詩題含「亭」，正文含「轉蓬」的作品
-4. 對應關係（Mapping）
+- 羅列所有杜甫詩中，同時含「酒」與「病」的詩
+- 查找詩題含「亭」，正文含「轉蓬」的作品
+
+---
+
+## 4. 對應關係（Mapping）
 
 Text Addressing 建立並維護以下對應：
 
@@ -84,20 +93,28 @@ Text Addressing 建立並維護以下對應：
 
 此對應關係具有以下特性：
 
-一對多（例如一首詩對應多個坐標）
-可逆（coordinate → text，text → coordinate）
-可擴展（支持跨書、跨版本）
-5. 與其他模塊的關係
+- 一對多（例如一首詩對應多個坐標）
+- 可逆（coordinate → text，text → coordinate）
+- 可擴展（支持跨書、跨版本）
+
+---
+
+## 5. 與其他模塊的關係
 
 Text Addressing 在系統中的位置如下：
 
-模塊	職能
-data	定義基準正文樹與結構
-metadata	定義轉換操作
-controller	執行操作
-text_addressing	定位與取出文本
-6. 設計原則
-6.1 坐標爲核心
+| 模塊				| 職能				|
+| ----------------- | -----------------	|
+| data	 			| 定義基準正文樹與結構	|
+| metadata			| 定義轉換操作			|
+| controller		| 執行操作			|
+| text_addressing	| 定位與取出文本		|
+
+---
+
+## 6. 設計原則
+
+### 6.1 坐標爲核心
 
 所有文本定位與檢索均以坐標爲基礎，而非頁碼或排版。
 
