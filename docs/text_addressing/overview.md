@@ -22,7 +22,7 @@ Text Addressing 包含以下幾個基本要素：
 - 表達的是一條由根至節點的導航路徑
 - 例如：
 
-	`〚0003:3.2.1〛`
+`〚0003:3.2.1〛`
 
 ### 2.2 文本實體（Textual Entity）
 
@@ -53,17 +53,17 @@ Text Addressing 支持三類基本操作：
 
 由坐標定位文本：
 
-	`coordinate → text`
+`coordinate → text`
 
 例如：
 
-	`retrieve_text_from_canonical_tree('LUNYU', ['01','1']);`
+`retrieve_text_from_canonical_tree('LUNYU', ['01','1']);`
 
 ### 3.2 反查（Resolution）
 
 由文本（或其特徵）定位坐標：
 
-	`text → coordinate(s)`
+`text → coordinate(s)`
 
 例如：
 
