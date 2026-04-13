@@ -1,8 +1,8 @@
-# Text Addressing 文本定址 — Overview （By ChatGPT）
+# Text Addressing 文本定位 — Overview （By ChatGPT）
 
 ## 1. 定義
 
-在本系統中，**Text Addressing（文本定址）**指的是：
+在本系統中，**Text Addressing（文本定位）**指的是：
 
 >以坐標（coordinate）爲核心，建立文本與其在基準正文樹中的位置之間的對應關係，並支持定位、取出與查詢文本內容的機制。
 
