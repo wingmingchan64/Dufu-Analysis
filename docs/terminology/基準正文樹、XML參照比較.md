@@ -24,8 +24,7 @@
 基準正文樹可以轉換成 XML：
 
 <pre>
-&lt;doc&gt;
-  &lt;docid&gt;3572&lt;/docid&gt;
+&lt;doc id="3572"&gt;
   &lt;title&gt;八陣圖&lt;/title&gt;
   &lt;line id="3"&gt;
     &lt;segment id="3.1"&gt;
