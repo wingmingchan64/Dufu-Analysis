@@ -28,11 +28,11 @@ This tree is the foundation of all further operations.
 
 Text addressing provides a way to locate and extract text from the canonical text.
 
-Uses coordinates to represent positions within the text tree
-Supports both single points and ranges
-Enables mapping between:
-coordinate → text (extraction)
-text → coordinate (search)
+- Uses coordinates to represent positions within the text tree
+- Supports both single points and ranges
+- Enables mapping between:
+	- coordinate → text (extraction)
+	- text → coordinate (search)
 
 Text addressing operates purely on the structure of the canonical text.
 
@@ -40,9 +40,9 @@ Text addressing operates purely on the structure of the canonical text.
 
 Metadata represents structured information attached to the text.
 
-Attached to specific coordinates or ranges
-Encodes annotations, variants, references, and other semantic information
-Does not modify the canonical text itself
+- Attached to specific coordinates or ranges
+- Encodes annotations, variants, references, and other semantic information
+- Can modify the canonical text itself
 
 Metadata depends on text addressing for locating its targets.
 
@@ -54,10 +54,10 @@ From the combination of canonical text and metadata, the system generates struct
 
 These include:
 
-JSON representations
-Indexes (e.g., character → coordinate)
-Mappings between different versions or structures
-Aggregated datasets
+- JSON representations
+- Indexes (e.g., character → coordinate)
+- Mappings between different versions or structures
+- Aggregated datasets
 
 All derived structures are generated programmatically and are not edited manually.
 
@@ -69,9 +69,11 @@ Views are reconstructions or presentations of the text based on structured data.
 
 Examples include:
 
-Reconstructed editions
-Aggregated annotations
-Structured outputs for analysis
+- Different formats of the same text
+- Reconstructed editions
+- Aggregated annotations
+- Structured outputs for analysis
+- Search results
 
 A view is not a source, but a result of applying rules to canonical text and metadata.
 
