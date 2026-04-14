@@ -20,36 +20,48 @@ A typical coordinate has the form:
 
 Where:
 
-`<doc_id>` identifies the document or work
-<levelN> are hierarchical indices
-3. Separators
+- `<doc_id>` identifies the document or work
+- `<levelN>` are hierarchical indices
+
+---
+
+## Separators
 
 The coordinate uses fixed separators:
 
-: separates the document identifier from the structural path
-. separates levels within the structural path
-- denotes a range at the lowest level
+- `:` separates the document identifier from the structural path
+- `.` separates levels within the structural path
+- `-` denotes a range at the lowest level
 
 These separators are reserved and must not be used for other purposes.
 
-4. Components
-4.1 Document Identifier
-Appears at the beginning of the coordinate
-Identifies the scope of the coordinate
-Treated as an opaque string at the syntax level
-4.2 Hierarchical Levels
-Represent positions within the text tree
-Each level is expressed as a positive integer
-Levels are ordered from higher to lower in the hierarchy
+---
+
+## Components
+
+### Document Identifier
+
+- Appears at the beginning of the coordinate
+- Identifies the scope of the coordinate
+- Treated as an opaque string at the syntax level
+
+### Hierarchical Levels
+
+- Represent positions within the text tree
+- Each level is expressed as a positive integer
+- Levels are ordered from higher to lower in the hierarchy
 
 Example:
 
-0003:3.1.2
-5. Ranges
+>0003:3.1.2
+
+---
+
+## Ranges
 
 A coordinate may include a range at the lowest level:
 
-<doc_id>:<path>.<start>-<end>
+><doc_id>:<path>.<start>-<end>
 
 Example:
 
