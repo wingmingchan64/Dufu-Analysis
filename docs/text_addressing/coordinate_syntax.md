@@ -105,17 +105,18 @@ Canonical form ensures consistent comparison and storage.
 ## Examples
 
 Valid:
-
+<pre>
 0003:3.1.2
 0003:3.1.2-5
 LUNYU,01,1,3,2,4   (alternative format, if defined elsewhere)
-
+</pre>
 Invalid:
-
->0003::3.1.2        (double separator)
->0013:3.1           (missing level, if required by system rules)
->0003:3.1.5-2       (invalid range)
->0003:3.1.2-3-4     (multiple ranges)
+<pre>
+0003::3.1.2        (double separator)
+0013:3.1           (missing level, if required by system rules)
+0003:3.1.5-2       (invalid range)
+0003:3.1.2-3-4     (multiple ranges)
+</pre>
 
 ---
 
