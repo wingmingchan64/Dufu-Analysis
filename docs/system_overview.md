@@ -83,12 +83,14 @@ A view is not a source, but a result of applying rules to canonical text and met
 
 The system follows a reproducible pipeline:
 
+<pre>
 .txt (source text)
   → canonical text tree
   → text addressing structures
   → metadata attachment
   → derived data (JSON, indexes, mappings)
   → views
+</pre>
 
 Each step is implemented by programs and can be rerun to regenerate all outputs.
 
