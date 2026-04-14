@@ -81,24 +81,28 @@ Rules:
 
 A syntactically valid coordinate must satisfy:
 
-Correct use of separators (:, ., -)
-No missing components
-All level values are positive integers
-At most one range, and only at the lowest level
+- Correct use of separators (`:`, `.`, `-`)
+- No missing components
+- All level values are positive integers
+- At most one range, and only at the lowest level
 
 This document does not validate whether the coordinate exists in the text.
 
-7. Canonical Form
+---
+
+## Canonical Form
 
 Coordinates should be written in a canonical form:
 
-No extra whitespace
-No leading or trailing separators
-No redundant levels
+- No extra whitespace
+- No leading or trailing separators
+- No redundant levels
 
 Canonical form ensures consistent comparison and storage.
 
-8. Examples
+---
+
+## Examples
 
 Valid:
 
@@ -109,17 +113,20 @@ LUNYU,01,1,3,2,4   (alternative format, if defined elsewhere)
 Invalid:
 
 0003::3.1.2        (double separator)
-0003:3.1           (missing level, if required by system rules)
+0013:3.1           (missing level, if required by system rules)
 0003:3.1.5-2       (invalid range)
 0003:3.1.2-3-4     (multiple ranges)
-9. Extensibility
+
+---
+
+## Extensibility
 
 The syntax is designed to be stable.
 
 Possible extensions must:
 
-Preserve existing separators
-Remain backward compatible
-Avoid introducing ambiguity
+- Preserve existing separators
+- Remain backward compatible
+- Avoid introducing ambiguity
 
 Any extension should be defined explicitly and not inferred.
