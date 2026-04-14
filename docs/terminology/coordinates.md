@@ -38,7 +38,7 @@ A coordinate is a path with a defined syntax.
 
 ## Level
 
-A level is a layer in the canonical text hierarchy.
+A **level** is a layer in the canonical text hierarchy.
 
 Typical levels include:
 
@@ -54,7 +54,7 @@ Levels are ordered from higher to lower.
 
 ## Unit
 
-A unit is a structural element at a given level.
+A **unit** is a structural element at a given level.
 
 Examples:
 
@@ -84,11 +84,11 @@ Granularity determines the precision of addressing.
 
 ## Range
 
-A range is a coordinate that represents multiple contiguous units at the same level.
+A **range** is a coordinate that represents multiple contiguous units at the same level.
 
-Defined by a start and an end
-Must be contiguous
-Must remain within a single parent structure
+- Defined by a start and an end
+- Must be contiguous
+- Must remain within a single parent structure
 
 A range is not a collection of arbitrary units.
 
@@ -96,7 +96,7 @@ A range is not a collection of arbitrary units.
 
 ## Contiguity
 
-Contiguity means that units are adjacent without gaps.
+**Contiguity** means that units are adjacent without gaps.
 
 A valid coordinate or range must refer to a contiguous segment.
 
@@ -104,9 +104,9 @@ Non-contiguous selections must be expressed using multiple coordinates.
 
 ---
 
-## Segment
+## Fragment
 
-A segment is the text returned by resolving a coordinate.
+A **fragment** is the text returned by resolving a coordinate.
 
 It may correspond to a single unit or a range
 It is always contiguous
@@ -116,10 +116,10 @@ It is defined entirely by the coordinate
 
 ## Exact Coordinate
 
-An exact coordinate refers to a fully specified coordinate that resolves deterministically to a segment.
+An **exact coordinate** refers to a fully specified coordinate that resolves deterministically to a segment.
 
-No ambiguity
-No interpretation required
+- No ambiguity
+- No interpretation required
 
 Exact coordinates are the primary form used in the system.
 
@@ -127,12 +127,12 @@ Exact coordinates are the primary form used in the system.
 
 ## Structural Addressing
 
-Structural addressing refers to locating text using partial or indirect information.
+**Structural addressing** refers to locating text using partial or indirect information.
 
 Examples:
 
-substring search
-pattern matching
+- substring search
+- pattern matching
 
 Structural addressing produces candidate coordinates.
 
@@ -142,10 +142,10 @@ It is distinct from exact coordinates.
 
 ## Anchor
 
-An anchor is a coordinate used as a reference point in another system, such as metadata.
+An **anchor** is a coordinate used as a reference point in another system, such as metadata.
 
-It must satisfy additional constraints beyond general coordinate validity
-It typically refers to a single position rather than a range
+- It must satisfy additional constraints beyond general coordinate validity
+- It typically refers to a single position rather than a range
 
 Anchor rules are defined by the system that uses them.
 
@@ -153,39 +153,39 @@ Anchor rules are defined by the system that uses them.
 
 ## Boundary
 
-A boundary refers to the start or end position of a coordinate or range.
+A **boundary** refers to the start or end position of a coordinate or range.
 
-Boundaries are inclusive
-A range includes both its start and end
+- Boundaries are inclusive
+- A range includes both its start and end
 
 ---
 
 ## Canonical Text
 
-The canonical text is the structured text to which coordinates apply.
+The **canonical text** is the structured text to which coordinates apply.
 
-It is interpreted as a tree
-Coordinates are always defined relative to it
+- It is interpreted as a tree
+- Coordinates are always defined relative to it
 
 ---
 
 ## Coordinate Space
 
-The coordinate space is the set of all valid coordinates within a given canonical text.
+The **coordinate space** is the set of all valid coordinates within a given canonical text.
 
-It is finite and structured
-It depends on the structure of the text
+- It is finite and structured
+- It depends on the structure of the text
 
 ---
 
 ## Valid Coordinate
 
-A valid coordinate is one that satisfies the required level of validation in a given context.
+A **valid coordinate** is one that satisfies the required level of validation in a given context.
 
 Depending on context, this may include:
 
-syntactic validity
-structural validity
-usability for a specific operation
+- syntactic validity
+- structural validity
+- usability for a specific operation
 
 Validity is always context-dependent.
