@@ -14,7 +14,7 @@ The system separates editable source text from generated structured data, and de
 
 The system is built around three fundamental components:
 
-2.1 Canonical Text
+### Canonical Text
 
 The canonical text is the base representation of a work.
 
@@ -24,7 +24,7 @@ Organized into hierarchical units such as 行 (line), 句 (phrase), and 字 (cha
 
 This tree is the foundation of all further operations.
 
-2.2 Text Addressing
+### Text Addressing
 
 Text addressing provides a way to locate and extract text from the canonical text.
 
@@ -36,7 +36,7 @@ text → coordinate (search)
 
 Text addressing operates purely on the structure of the canonical text.
 
-2.3 Metadata
+### Metadata
 
 Metadata represents structured information attached to the text.
 
