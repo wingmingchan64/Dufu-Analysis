@@ -63,7 +63,7 @@ Example:
 
 A coordinate may include a range at the lowest level:
 
-><doc_id>:<path>.<start>-<end>
+>&lt;doc_id>:&lt;path>.&lt;start>-&lt;end>
 
 Example:
 
