@@ -46,8 +46,8 @@ If the meaning cannot be expressed at that level, use a larger enclosing scope.
 
 This ensures:
 
-precision where possible
-structural consistency where necessary
+- precision where possible
+- structural consistency where necessary
 
 ---
 
@@ -55,13 +55,13 @@ structural consistency where necessary
 
 When multiple scopes are used within a single annotation, they must satisfy:
 
-Each scope is contiguous
-Scopes must not partially overlap
+- Each scope is contiguous
+- Scopes must not partially overlap
 
 For any two scopes A and B:
 
-either A and B are disjoint, or
-one fully contains the other
+- either A and B are disjoint, or
+- one fully contains the other
 
 Partial overlap without containment is not allowed.
 
@@ -73,8 +73,8 @@ A scope may fully contain another scope.
 
 Containment may occur:
 
-within the same level (e.g., range within range)
-across levels (e.g., 行 containing 字)
+- within the same level (e.g., range within range)
+- across levels (e.g., 行 containing 字)
 
 Containment is valid and does not violate scope constraints.
 
@@ -100,8 +100,8 @@ This creates ambiguity and is prohibited.
 
 Scope relationships must preserve a tree-like structure:
 
-scopes may form a hierarchy (nesting)
-or remain separate (disjoint)
+- scopes may form a hierarchy (nesting)
+- or remain separate (disjoint)
 
 They must not form arbitrary overlapping graphs.
 
@@ -113,8 +113,8 @@ Scope is defined using coordinates.
 
 Therefore:
 
-all scope constraints depend on coordinate semantics
-scope cannot violate contiguity or structural rules of coordinates
+- all scope constraints depend on coordinate semantics
+- scope cannot violate contiguity or structural rules of coordinates
 
 Scope does not extend the coordinate system; it uses it.
 
@@ -124,8 +124,8 @@ Scope does not extend the coordinate system; it uses it.
 
 Scope defines coverage, not meaning.
 
-It specifies where metadata applies
-It does not define how metadata is interpreted
+- It specifies where metadata applies
+- It does not define how metadata is interpreted
 
 Additional semantic relationships (e.g., correspondence, contrast) must be expressed separately.
 
@@ -139,25 +139,25 @@ These must not be expressed by a single scope.
 
 Instead, they should be represented using:
 
-multiple scopes, or
-additional fields within metadata
+- multiple scopes, or
+- additional fields within metadata
 
 Example:
-
+<pre>
 {
   "scope": "0003:3.1.1-5",
   "focus": ["0003:3.1.1", "0003:3.1.5"]
 }
-
+</pre>
 ---
 
 ## Escalation Strategy
 
 When a concept cannot be expressed using a contiguous scope at a given level:
 
-move to a higher-level scope
-use that scope as the base
-express finer relationships separately
+- move to a higher-level scope
+- use that scope as the base
+- express finer relationships separately
 
 In the extreme case, scope may extend to the entire document.
 
@@ -167,10 +167,10 @@ In the extreme case, scope may extend to the entire document.
 
 The following must always hold:
 
-every scope is contiguous
-no partial overlap is allowed between scopes
-scope relationships form a tree structure
-scope is always representable as coordinates
+- every scope is contiguous
+- no partial overlap is allowed between scopes
+- scope relationships form a tree structure
+- scope is always representable as coordinates
 
 ---
 
