@@ -4,9 +4,9 @@ Status: Stable
 
 ## Purpose
 
-The Dufu-Analysis system is designed to transform classical Chinese texts into a structured, machine-readable form that supports precise addressing, metadata attachment, and reproducible data generation.
+The *Dufu-Analysis* system is designed to transform classical Chinese texts into a structured, machine-readable form that supports precise addressing, metadata attachment, and reproducible data generation.
 
-The system separates editable source text from generated structured data, and defines a consistent framework for connecting them.
+The system separates **editable source text** from **generated structured data**, and defines a consistent framework for connecting them.
 
 ---
 
@@ -18,9 +18,9 @@ The system is built around three fundamental components:
 
 The canonical text is the base representation of a work.
 
-Stored in plain text (.txt)
-Interpreted as a structured tree
-Organized into hierarchical units such as 行 (line), 句 (phrase), and 字 (character)
+- Stored in plain text (`.txt`)
+- Interpreted as a structured tree
+- Organized into hierarchical units such as 行 (line), 句 (segment), and 字 (character)
 
 This tree is the foundation of all further operations.
 
