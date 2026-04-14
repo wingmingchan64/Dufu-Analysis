@@ -72,8 +72,8 @@ Example:
 Rules:
 
 - A range can only appear at the lowest level
-- `&lt;start>` and `&lt;end>` must be integers
-- `&lt;start>` &lt; `&lt;end>`
+- `<start>` and `<end>` must be integers
+- `<start>` &lt; `<end>`
 
 ---
 
