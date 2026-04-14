@@ -30,8 +30,9 @@ The documentation is organized in layers. A suggested reading order is:
 	- `data/` — data formats and generated structures
 
 ### Workflow and Implementation
-	- `workflow/` — data processing pipelines
-	- `controller/` — how concepts map to actual programs and data generation
+	
+- `workflow/` — data processing pipelines
+- `controller/` — how concepts map to actual programs and data generation
 
 You do not need to read everything sequentially. Each module is designed to be readable independently once the basic terminology is understood.
 
