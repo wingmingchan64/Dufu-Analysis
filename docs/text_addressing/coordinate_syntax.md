@@ -10,7 +10,9 @@ It specifies how coordinates are written, structured, and validated as strings.
 
 This document does not define how coordinates are interpreted.
 
-2. General Form
+---
+
+## General Form
 
 A coordinate is a sequence of components representing a path in the canonical text tree.
 
