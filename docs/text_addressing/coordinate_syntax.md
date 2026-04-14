@@ -67,14 +67,17 @@ A coordinate may include a range at the lowest level:
 
 Example:
 
-0003:3.1.2-5
+>0003:3.1.2-5
 
 Rules:
 
-A range can only appear at the lowest level
-<start> and <end> must be integers
-<start> ≤ <end>
-6. Validity Rules
+- A range can only appear at the lowest level
+- `&lt;start>` and `&lt;end>` must be integers
+- `&lt;start>` &lt; `&lt;end>`
+
+---
+
+## Validity Rules
 
 A syntactically valid coordinate must satisfy:
 
