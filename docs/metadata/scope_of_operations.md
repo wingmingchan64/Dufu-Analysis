@@ -1,98 +1,188 @@
-# Scope of Operations（操作範圍，暫定稿） （By ChatGPT）
+# Scope of Operations （By ChatGPT）
 
-## 1. 操作域（Operation Domain）
-
-目前系統區分兩個範疇：
-
-### 1.1 Canonical Domain
-
-- 對象：基準正文樹
-- 工具：metadata + 坐標
-- 所有 op 均在此域執行
-
-### 1.2 Subtree Domain
-
-- 對象：待植入子樹
-- 不屬於 canonical metadata 系統
-- 可在植入前完成自身處理
+Status: Stable
 
 ---
 
-## 2. Metadata 的作用範圍
+## Purpose
 
-metadata：
+This document defines how **scope** is used in metadata.
 
-- 僅作用於 canonical tree
-- 不直接作用於已植入子樹內部
+It specifies how text segments are selected, combined, and constrained when attaching metadata.
 
----
-
-## 3. 子樹的處理原則
-
-子樹：
-
-- 作爲 payload 植入 canonical tree
-- 植入前可進行任意內部處理
-- 植入後視爲黑箱（opaque structure）
+Scope is built on top of the coordinate system and must respect its properties.
 
 ---
 
-## 4. 爲何限制操作範圍
+## Definition of Scope
 
-此限制的目的：
+A **scope** is the text segment to which a metadata entry applies.
 
-- 保持坐標系統簡潔
-- 保持 controller 邏輯清晰
-- 避免跨層級操作導致複雜度爆炸
+- It is expressed as a coordinate or a coordinate range
+- It must resolve to a contiguous segment
+- It operates entirely within the canonical text
 
----
-
-## 5. 遞歸操作（暫不實作）
-
-理論上：
-
-- 子樹內部亦可進行 metadata 操作
-- 甚至可再次植入子樹
-
-但此將導致：
-
-- 坐標系統需擴展
-- 操作域混合
-
-因此目前策略爲：
-
-> 僅在子樹植入前完成其內部操作
+Scope defines **where** a metadata entry is valid.
 
 ---
 
-## 6. 操作類型
+## Contiguity Requirement
 
-目前 op 爲封閉集合：
+All scopes must be contiguous.
 
-`Text-level`
-- replace_text
-- insert_text
+- A scope must correspond to a single continuous segment
+- Non-contiguous selections are not allowed within a single scope
 
-`Tree-level`
-- insert_subtree
-	- 替換 non-terminal node
-	- 插入於 terminal node
+Non-contiguous relationships must be expressed using multiple scopes or metadata-level structures.
 
 ---
 
-## 7. 執行模型
+## Granularity Principle
 
-<pre>
-canonical tree
-    ↓
-apply metadata (in order)
-    ↓
-derived tree
-</pre>
+Scope selection follows a granularity principle:
+
+>Use the smallest possible scope that fully expresses the intended meaning.
+If the meaning cannot be expressed at that level, use a larger enclosing scope.
+
+This ensures:
+
+precision where possible
+structural consistency where necessary
 
 ---
 
-## 8. 小結
+## Scope Segmentation
 
-- metadata 操作僅限於 canonical domain，
-- subtree 作爲外部結構接入，而非操作對象。
+When multiple scopes are used within a single annotation, they must satisfy:
+
+Each scope is contiguous
+Scopes must not partially overlap
+
+For any two scopes A and B:
+
+either A and B are disjoint, or
+one fully contains the other
+
+Partial overlap without containment is not allowed.
+
+---
+
+## Containment
+
+A scope may fully contain another scope.
+
+Containment may occur:
+
+within the same level (e.g., range within range)
+across levels (e.g., 行 containing 字)
+
+Containment is valid and does not violate scope constraints.
+
+---
+
+## Prohibition of Partial Overlap
+
+The following pattern is not allowed:
+
+A: 2–4
+B: 3–5
+
+Such scopes:
+
+overlap
+but neither contains the other
+
+This creates ambiguity and is prohibited.
+
+---
+
+## Structural Consistency
+
+Scope relationships must preserve a tree-like structure:
+
+scopes may form a hierarchy (nesting)
+or remain separate (disjoint)
+
+They must not form arbitrary overlapping graphs.
+
+---
+
+## Relationship to Addressing
+
+Scope is defined using coordinates.
+
+Therefore:
+
+all scope constraints depend on coordinate semantics
+scope cannot violate contiguity or structural rules of coordinates
+
+Scope does not extend the coordinate system; it uses it.
+
+---
+
+## Relationship to Metadata Semantics
+
+Scope defines coverage, not meaning.
+
+It specifies where metadata applies
+It does not define how metadata is interpreted
+
+Additional semantic relationships (e.g., correspondence, contrast) must be expressed separately.
+
+---
+
+## Non-Contiguous Semantics
+
+Some meanings involve non-contiguous elements.
+
+These must not be expressed by a single scope.
+
+Instead, they should be represented using:
+
+multiple scopes, or
+additional fields within metadata
+
+Example:
+
+{
+  "scope": "0003:3.1.1-5",
+  "focus": ["0003:3.1.1", "0003:3.1.5"]
+}
+
+---
+
+## Escalation Strategy
+
+When a concept cannot be expressed using a contiguous scope at a given level:
+
+move to a higher-level scope
+use that scope as the base
+express finer relationships separately
+
+In the extreme case, scope may extend to the entire document.
+
+---
+
+## Invariants
+
+The following must always hold:
+
+every scope is contiguous
+no partial overlap is allowed between scopes
+scope relationships form a tree structure
+scope is always representable as coordinates
+
+---
+
+## Design Principles
+
+Scope of operations follows these principles:
+
+- **contiguity**
+	- no fragmented segments
+- **minimality**
+	- prefer the smallest valid scope
+- **hierarchy**
+	- allow nesting, disallow crossing
+- **separation**
+	- structure (scope) and meaning (metadata) are distinct
