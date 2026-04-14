@@ -94,51 +94,58 @@ The system follows a reproducible pipeline:
 
 Each step is implemented by programs and can be rerun to regenerate all outputs.
 
-6. Source of Truth
+---
+
+## Source of Truth
 
 The system enforces a strict rule:
 
-The only editable source is the plain text (.txt)
-All structured data must be derivable from source text and programs
+- The only editable source is the plain text (`.txt`)
+- All structured data must be derivable from source text and programs
 
 This ensures consistency, reproducibility, and long-term maintainability.
 
-7. Module Relationships
+---
+
+## Module Relationships
 
 The main modules of the system are related as follows:
 
-Canonical Text
-defines the base structure
-Text Addressing
-defines how the text is accessed
-Metadata
-defines how information is attached
-Data
-defines how structures are represented
-Workflow / Implementation
-defines how structures are generated
+- **Canonical Text**
+	- defines the base structure
+- **Text Addressing**
+	- defines how the text is accessed
+- **Metadata**
+	- defines how information is attached
+- **Data**
+	- defines how structures are represented
+- **Workflow / Implementation**
+	- defines how structures are generated
 
 Each module has a distinct responsibility and should not redefine the role of another.
 
-8. Design Principles
+---
+
+## Design Principles
 
 The system follows several guiding principles:
 
-Separation of concerns
-text, addressing, and metadata are distinct layers
-Reproducibility
-all outputs must be regenerable from source
-Stability at the foundation
-basic structures (text tree, addressing) should remain stable
-Extensibility
-new metadata and views can be added without altering the base text
-9. Scope
+- **Separation of concerns**
+	- text, addressing, and metadata are distinct layers
+- **Reproducibility**
+	- all outputs must be regenerable from source
+- **Stability at the foundation**
+	- basic structures (text tree, addressing) should remain stable
+- **Extensibility**
+	- new metadata and views can be added without altering the base text
+	
+## Scope
 
 This system is designed to support:
 
-Classical Chinese text analysis
-Cross-edition comparison
-Annotation and commentary integration
-Structured data generation for further research
+- Classical Chinese text analysis
+- Cross-edition comparison
+- Annotation and commentary integration
+- Structured data generation for further research
 
 It is not limited to a single edition or work, but is intended to generalize across similar textual corpora.
