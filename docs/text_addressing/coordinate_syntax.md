@@ -20,7 +20,7 @@ A typical coordinate has the form:
 
 Where:
 
-<doc_id> identifies the document or work
+`<doc_id>` identifies the document or work
 <levelN> are hierarchical indices
 3. Separators
 
