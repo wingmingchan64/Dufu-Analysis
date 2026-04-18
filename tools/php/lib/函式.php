@@ -2,15 +2,7 @@
 /*
 函式
 */
-declare(strict_types=1);
-/*
-set_error_handler( function ( 
-	$severity, $message, $file, $line )
-{
-    throw new \ErrorException( $message, $severity, 	
-		$severity, $file, $line );
-});
-*/
+declare( strict_types = 1 );
 // load constants
 require_once( __DIR__ . DIRECTORY_SEPARATOR . '常數.php' );
 // load exceptions
