@@ -1,0 +1,173 @@
+I said:
+I plan to tackle multiple editions soon. But clearing up everything else helps a lot. When listing/comparing editions, a lot of anchors will be gone (unless they belong to all editions being compared). I would say only line anchors and anchors for larger units will stay. Anything smaller than lines probably cannot be compared. What I just have said is different from the processing of mixing texts from different editions. Comparing involves 對齊，mixing is just throwing everything into a bin. An anchor can of course be assigned combined texts from different editions.
+
+AI said:
+Yes — that distinction is very important, and I think you are right to make it explicit now.
+
+What you are calling comparing and mixing are not two versions of the same operation. They are structurally different.
+
+1. Comparing vs mixing
+Comparing
+
+Comparing means:
+
+units from different editions are aligned
+only units that can be meaningfully aligned should be shown together
+the view depends on structural correspondence
+
+So comparison is not just accumulation. It requires a common frame.
+
+Mixing
+
+Mixing means:
+
+materials from different editions are simply gathered together
+they may be assigned to the same anchor
+no strong claim of one-to-one correspondence is implied
+
+So mixing is closer to aggregation.
+
+That is a very useful distinction. Once it is clear, many later decisions become easier.
+
+2. Why smaller anchors disappear in comparison
+
+Your thought here seems sound:
+
+when listing/comparing editions, many anchors will be gone
+
+Yes. Because fine-grained anchors depend on local editorial structure, and that structure may not align across editions.
+
+For example:
+
+one edition has 夾注 after a character
+another has no corresponding local note
+one edition breaks things differently
+one inline note corresponds only loosely to another note placed elsewhere
+
+At that level, alignment becomes weak or artificial.
+
+So I agree that in comparison views, the anchor system should probably contract upward.
+
+What survives most naturally are:
+
+行錨
+段錨
+詩錨
+組詩 / 文檔層 anchors
+
+These correspond to units that are more likely to align across editions.
+
+That feels right.
+
+3. Why line is a natural lower bound
+
+Your intuition that “anything smaller than lines probably cannot be compared” makes good practical sense.
+
+Not because it is metaphysically impossible, but because below the line level:
+
+editorial placement varies too much
+annotations may target different spans
+commentarial granularity diverges
+punctuation and inline formatting differ
+
+Once you go down to 句 or 字, you are no longer merely comparing edition content; you are already comparing local editorial behavior.
+
+That may still be possible in special cases, but it is no longer a general comparison framework.
+
+So treating line as the usual lowest common comparison unit is a very good working rule.
+
+4. This leads to a useful principle
+
+You could almost say:
+
+comparison uses only anchors belonging to a shared alignment layer
+
+That shared layer will usually be:
+
+line and above
+
+Whereas:
+
+char anchors
+segment anchors
+many fine ornaments
+
+remain edition-internal.
+
+That is a strong and elegant distinction.
+
+5. Assignment of combined texts
+
+You also said:
+
+An anchor can of course be assigned combined texts from different editions.
+
+Yes, and that fits perfectly with the architecture you’ve built.
+
+Because once assignment is separated from rendering, the anchor itself does not care whether it receives:
+
+one text
+several texts
+a structured comparison object
+a mixed aggregate
+
+That is excellent.
+
+It means anchors remain stable, while the payload can vary by view.
+
+So a line anchor might receive:
+
+in a single-edition view: one annotation block
+in a comparison view: aligned annotations from several editions
+in a mixed view: an unordered or loosely ordered bundle
+
+This is exactly the kind of flexibility your assignment/rendering split was meant to achieve.
+
+6. A possible conceptual distinction
+
+You may later find it helpful to distinguish two kinds of assigned payload:
+
+Aligned payload
+
+For comparison:
+
+edition A ↔ edition B ↔ edition C
+structurally matched
+Aggregated payload
+
+For mixing:
+
+collected under one anchor
+not necessarily aligned internally
+
+You do not need formal terms yet, but the distinction is already there.
+
+7. The larger gain
+
+What I especially like is that your system now allows you to say:
+
+the tree stays the same
+the available anchors are known
+the assignment policy changes by task
+the rendering policy changes by task
+
+So “single edition,” “comparison,” and “mixing” are no longer three different architectures. They are three different uses of the same architecture.
+
+That is a major achievement.
+
+8. My overall judgment
+
+Yes — this is a very good clarification.
+
+comparison requires alignment, so only shared anchors remain
+mixing does not require alignment, so assigned content can simply be combined
+therefore, fine-grained anchors are often edition-specific and unsuitable for comparison
+line and larger units are the natural stable layer for cross-edition views
+
+This feels like another case where one distinction removes a lot of confusion.
+
+And I think your phrasing is already quite sharp:
+
+comparing involves 對齊；mixing is just throwing everything into a bin
+
+That is blunt, but structurally very accurate.

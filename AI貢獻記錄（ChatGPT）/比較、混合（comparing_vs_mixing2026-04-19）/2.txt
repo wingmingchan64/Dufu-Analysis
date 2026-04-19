@@ -1,0 +1,164 @@
+I said:
+I plan to tackle multiple editions soon. But clearing up everything else helps a lot. When listing/comparing editions, a lot of anchors will be gone (unless they belong to all editions being compared). I would say only line anchors and anchors for larger units will stay. Anything smaller than lines probably cannot be compared. What I just have said is different from the processing of mixing texts from different editions. Comparing involves 對齊，mixing is just throwing everything into a bin. An anchor can of course be assigned combined texts from different editions.
+
+AI said:
+Yes — that distinction is very important, and I think you are right to separate the two.
+
+What you are now calling comparison and mixing are not two variants of the same thing. They are structurally different operations.
+
+1. Comparison requires alignment
+
+When editions are compared, the system must be able to say:
+
+these two things correspond
+these two things differ
+this note belongs to the same unit in both editions
+this note has no counterpart in the other edition
+
+So comparison presupposes some shared unit of reference. In your present architecture, that naturally means:
+
+line anchors
+poem anchors
+group-poem anchors
+perhaps paragraph anchors, where paragraphing is truly comparable
+
+But below the line level, things become unstable very quickly:
+
+segmentation may differ
+punctuation may differ
+note placement may differ
+one edition may have no corresponding local anchor at all
+
+So your instinct is sound:
+
+for comparison, anchors smaller than line level will usually drop out
+
+Not because they are useless in themselves, but because they do not survive cross-edition alignment well enough.
+
+2. Mixing does not require alignment
+
+What you call “mixing” is different. There, the question is not:
+
+what corresponds to what?
+
+but rather:
+
+what materials do I want to gather here?
+
+So yes, in that case an anchor can receive:
+
+text from edition A
+text from edition B
+text from edition C
+
+without any claim that they are aligned internally.
+
+This is much looser. It is aggregation, not comparison.
+
+So I would say:
+
+comparison = alignment-based
+mixing = collection-based
+
+That distinction is excellent, and I think it will save you a lot of confusion later.
+
+3. This also clarifies which anchors are “portable” across editions
+
+You are beginning to see that some anchors are structurally robust enough to survive edition comparison, and some are not.
+
+Likely portable
+line anchors
+poem anchors
+group/document anchors
+perhaps some paragraph anchors, if the edition tradition supports them
+Likely not portable
+char anchors
+many segment anchors
+small local hooks tied to edition-specific annotation style
+
+That is a very useful distinction. It means you do not have to force one uniform anchor system into every use case.
+
+Instead, you can say:
+
+some anchors are intra-edition anchors
+
+some anchors are inter-edition comparable anchors
+
+That seems truer to the materials.
+
+4. A very helpful consequence
+
+Once you accept this, comparison stops being “compare everything.” It becomes:
+
+compare only what can be aligned without distortion
+
+That is a mature rule.
+
+Otherwise one is tempted to compare at too fine a level simply because the data exists. But in textual work, finer is not always better. Sometimes finer means false precision.
+
+Your line-level judgment is therefore not merely pragmatic; it is methodologically sound.
+
+5. Assignment can still stay unified
+
+The nice thing is that your anchor-assignment model still works.
+
+An anchor may be assigned:
+
+one edition’s text
+several editions’ texts
+a merged display object
+a comparison bundle
+
+So the assignment mechanism itself need not split into two completely different systems.
+
+The difference lies in what is being assigned.
+
+For example:
+
+in a single-edition view, a line anchor receives one note block
+in a mixed view, a line anchor receives several note blocks
+in a comparison view, a line anchor receives an aligned comparison object
+
+That is elegant, because it keeps the tree stable and lets the semantics of the payload vary.
+
+6. I would phrase the distinction like this
+
+You may eventually want language along these lines:
+
+Comparison requires alignment of corresponding units across editions and therefore operates only on anchors that are structurally comparable.
+Mixing does not require alignment; it only aggregates materials from multiple editions under a shared anchor.
+
+That feels very close to what you just said.
+
+7. One further implication
+
+This may also mean that your system will eventually need two kinds of “combined payload”:
+
+Mixed payload
+
+A bag or list of materials from different editions, without claiming detailed correspondence.
+
+Comparative payload
+
+A structured object whose parts are explicitly aligned across editions.
+
+That distinction belongs in the metadata/rendering layer, not in the tree. Which is good. The tree should not have to care.
+
+8. My overall judgment
+
+This is a strong clarification.
+
+You are no longer just thinking “multiple editions” in the abstract. You are distinguishing:
+
+what can be aligned
+what can only be gathered
+what anchor levels survive comparison
+what anchor levels remain edition-local
+
+That will make your later work much steadier.
+
+And yes, I think your present conclusion is right:
+
+for real comparison, line anchors and larger units are the natural core; anything smaller is usually too fragile or too edition-specific.
+
+That is not a limitation of the system. It is respect for the nature of the texts.
