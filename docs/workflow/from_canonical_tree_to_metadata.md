@@ -2,6 +2,8 @@
 
 Status: Draft
 
+---
+
 ## Introduction
 
 This document shows how the metadata component does the following:
