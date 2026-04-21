@@ -41,11 +41,7 @@ foreach( $lines as $line )
 	
 	if( $op == 'assign' )
 	{
-		//echo is_string( $樹 ) ? 'is string' : 'not string';
-		if( is_array( $樹 ) )
-		{
-			assign( $樹, explode( ',', $anchor ), $text );
-		}
+		assign( $樹, explode( ',', $anchor ), $text );
 	}
 	
 	if( $op == 'insert_tree' )

@@ -115,6 +115,295 @@ The next step is to add default punctuations and anchors to various levels of th
 >`添加標點符號( $樹 );`<br />
 `添加錨( $樹 );`
 
-<pre>
+Now the tree becomes:
 
+<pre>
+Array
+(
+    [0003] => Array
+        (
+            [詩題] => Array
+                (
+                    [0] => 望嶽
+                    [1] =>
+                )
+            [3] => Array
+                (
+                    [1] => Array
+                        (
+                            [1] => 岱
+                            [2] => 宗
+                            [3] => 夫
+                            [4] => 如
+                            [5] => 何
+                            [p] => 。
+                            [a] =>
+                        )
+                    [2] => Array
+                        (
+                            [1] => 齊
+                            [2] => 魯
+                            [3] => 青
+                            [4] => 未
+                            [5] => 了
+                            [p] => 。
+                            [a] =>
+                        )
+                    [a] =>
+                )
+            [4] => Array
+                (
+                    [1] => Array
+                        (
+                            [1] => 造
+                            [2] => 化
+                            [3] => 鍾
+                            [4] => 神
+                            [5] => 秀
+                            [p] => 。
+                            [a] =>
+                        )
+                    [2] => Array
+                        (
+                            [1] => 陰
+                            [2] => 陽
+                            [3] => 割
+                            [4] => 昏
+                            [5] => 曉
+                            [p] => 。
+                            [a] =>
+                        )
+                    [a] =>
+                )
+            [5] => Array
+                (
+                    [1] => Array
+                        (
+                            [1] => 盪
+                            [2] => 胸
+                            [3] => 生
+                            [4] => 曾
+                            [5] => 雲
+                            [p] => 。
+                            [a] =>
+                        )
+                    [2] => Array
+                        (
+                            [1] => 決
+                            [2] => 眥
+                            [3] => 入
+                            [4] => 歸
+                            [5] => 鳥
+                            [p] => 。
+                            [a] =>
+                        )
+                    [a] =>
+                )
+            [6] => Array
+                (
+                    [1] => Array
+                        (
+                            [1] => 會
+                            [2] => 當
+                            [3] => 凌
+                            [4] => 絕
+                            [5] => 頂
+                            [p] => 。
+                            [a] =>
+                        )
+                    [2] => Array
+                        (
+                            [1] => 一
+                            [2] => 覽
+                            [3] => 眾
+                            [4] => 山
+                            [5] => 小
+                            [p] => 。
+                            [a] =>
+                        )
+                    [a] =>
+                )
+            [a] =>
+        )
+    [a] =>
+)
 </pre>
+
+---
+
+## Metadata tags
+
+The next steps is to prepare the metadata tags:
+
+<pre>
+mong6 ngok6〘{"cat":"粵","anchor":"0003,詩題,1","scope":"0003,1","op":"assign"}〙
+doi6 zung1 fu4 jyu4 ho4 cai4 lou5 cing1 mei6 liu5〘{"cat":"粵","anchor":"0003,3,a","scope":"0003,3","op":"assign"}〙
+zou6 faa3 zung1 san4 sau3 jam1 joeng4 got3 fan1 hiu2〘{"cat":"粵","anchor":"0003,4,a","scope":"0003,4","op":"assign"}〙
+dong6 hung1 sang1 cang4 wan4 kyut3 zi6 jap6 gwai1 niu5〘{"cat":"粵","anchor":"0003,5,a","scope":"0003,5","op":"assign"}〙
+wui6 dong1 ling4 zyut6 ding2 jat1 laam5 zung3 saan1 siu2〘{"cat":"粵","anchor":"0003,6,a","scope":"0003,6","op":"assign"}〙
+筱韻〘{"cat":"韻","anchor":"0003,3,2,a","op":"assign"}〙
+筱韻〘{"cat":"韻","anchor":"0003,4,2,a","op":"assign"}〙
+筱韻〘{"cat":"韻","anchor":"0003,5,2,a","op":"assign"}〙
+筱韻〘{"cat":"韻","anchor":"0003,6,2,a","op":"assign"}〙
+{"title":"體裁","contents":["五古"]}〘{"cat":"體","anchor":"0003,a","op":"insert_tree"}〙
+{"1":
+{"title":"補充說明",
+"contents":["下定雅弘、松原朗《杜甫全詩訳注》認爲「神秀」是雙聲詞。《廣韻》「神」屬船母（濁），「秀」屬心母（清），至粵語合流爲清音。日語中，「神」，シン；「秀」，シュウ，確是雙聲。又「昏曉」爲雙聲詞（曉母），但日語「コンギョウ」卻不是（作者原有之振り仮名，キ之濁化源於前面的ン），除非把「曉」標爲「キョウ」（原音訓）。"]},
+"2":{"title":"其他","contents":["攄，syu1。","嶒，cang4。","毗，pei4。","峛崺，lei5 ji5。","培塿，pau2 lau5。","扛，gong1。"]}}〘{"cat":"體","anchor":"a","op":"insert_tree"}〙
+</pre>
+
+Each tag consists of some texts (possibly jsonl) and an array of information, including a processing instruction. For example:
+
+<pre>
+mong6 ngok6〘{"cat":"粵","anchor":"0003,詩題,1","scope":"0003,1","op":"assign"}〙
+</pre>
+
+This tag instructs the system to assign the string "mong6 ngok6" to the anchor "0003,詩題,1". 
+
+## The Resulting Tree
+
+After all metadata tags are processed, the tree becomes:
+
+<pre>
+Array
+(
+    [0003] => Array
+        (
+            [詩題] => Array
+                (
+                    [0] => 望嶽
+                    [1] => mong6 ngok6
+                )
+            [3] => Array
+                (
+                    [1] => Array
+                        (
+                            [1] => 岱
+                            [2] => 宗
+                            [3] => 夫
+                            [4] => 如
+                            [5] => 何
+                            [p] => 。
+                            [a] =>
+                        )
+                    [2] => Array
+                        (
+                            [1] => 齊
+                            [2] => 魯
+                            [3] => 青
+                            [4] => 未
+                            [5] => 了
+                            [p] => 。
+                            [a] => 筱韻
+                        )
+                    [a] => doi6 zung1 fu4 jyu4 ho4 cai4 lou5 cing1 mei6 liu5
+                )
+            [4] => Array
+                (
+                    [1] => Array
+                        (
+                            [1] => 造
+                            [2] => 化
+                            [3] => 鍾
+                            [4] => 神
+                            [5] => 秀
+                            [p] => 。
+                            [a] =>
+                        )
+                    [2] => Array
+                        (
+                            [1] => 陰
+                            [2] => 陽
+                            [3] => 割
+                            [4] => 昏
+                            [5] => 曉
+                            [p] => 。
+                            [a] => 筱韻
+                        )
+                    [a] => zou6 faa3 zung1 san4 sau3 jam1 joeng4 got3 fan1 hiu2
+                )
+            [5] => Array
+                (
+                    [1] => Array
+                        (
+                            [1] => 盪
+                            [2] => 胸
+                            [3] => 生
+                            [4] => 曾
+                            [5] => 雲
+                            [p] => 。
+                            [a] =>
+                        )
+                    [2] => Array
+                        (
+                            [1] => 決
+                            [2] => 眥
+                            [3] => 入
+                            [4] => 歸
+                            [5] => 鳥
+                            [p] => 。
+                            [a] => 筱韻
+                        )
+                    [a] => dong6 hung1 sang1 cang4 wan4 kyut3 zi6 jap6 gwai1 niu5
+                )
+            [6] => Array
+                (
+                    [1] => Array
+                        (
+                            [1] => 會
+                            [2] => 當
+                            [3] => 凌
+                            [4] => 絕
+                            [5] => 頂
+                            [p] => 。
+                            [a] =>
+                        )
+                    [2] => Array
+                        (
+                            [1] => 一
+                            [2] => 覽
+                            [3] => 眾
+                            [4] => 山
+                            [5] => 小
+                            [p] => 。
+                            [a] => 筱韻
+                        )
+                    [a] => wui6 dong1 ling4 zyut6 ding2 jat1 laam5 zung3 saan1 siu2
+                )
+            [a] => Array
+                (
+                    [title] => 體裁
+                    [contents] => Array
+                        (
+                            [0] => 五古
+                        )
+                )
+        )
+    [a] => Array
+        (
+            [1] => Array
+                (
+                    [title] => 補充說明
+                    [contents] => Array
+                        (
+                            [0] => 下定雅弘、松原朗《杜甫全詩訳注》認爲「神秀」是雙聲詞。《廣韻》「神」屬船母（濁），「秀」屬心母（清），至粵語合流爲清音。日語中，「神」，シン；「秀」，シュウ，確是雙聲。又「昏曉」爲雙聲詞（曉母），但日語「コンギョウ」卻不是（作者原有之振り仮名，キ之濁化源於前面的ン），除非把「曉」標爲「キョウ」（原音訓）。
+                        )
+                )
+            [2] => Array
+                (
+                    [title] => 其他
+                    [contents] => Array
+                        (
+                            [0] => 攄，syu1。
+                            [1] => 嶒，cang4。
+                            [2] => 毗，pei4。
+                            [3] => 峛崺，lei5 ji5。
+                            [4] => 培塿，pau2 lau5。
+                            [5] => 扛，gong1。
+                        )
+                )
+        )
+)
+</pre>
+
+Now this tree can be handed to the rendering component to turn the tree into a view.
