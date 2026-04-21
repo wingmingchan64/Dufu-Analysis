@@ -112,8 +112,8 @@ Array
 
 The next step is to add default punctuations and anchors to various levels of the tree. Here is the code:
 
->`添加標點符號( $樹 );`
->`添加錨( $樹 );`
+>`添加標點符號( $樹 );`<br />
+`添加錨( $樹 );`
 
 <pre>
 
