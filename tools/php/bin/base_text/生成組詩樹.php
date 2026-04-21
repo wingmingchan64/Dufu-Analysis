@@ -43,7 +43,7 @@ file_put_contents(
 foreach( $組詩樹 as $文檔碼 => $子樹 )
 {
 	$json = json_encode(
-		$組詩樹[ $文檔碼 ],
+		array( $文檔碼 => $組詩樹[ $文檔碼 ] ),
 		JSON_UNESCAPED_UNICODE // | JSON_PRETTY_PRINT
 	);
 	file_put_contents(
