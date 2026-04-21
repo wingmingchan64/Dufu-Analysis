@@ -260,6 +260,8 @@ mong6 ngok6〘{"cat":"粵","anchor":"0003,詩題,1","scope":"0003,1","op":"assig
 
 This tag instructs the system to assign the string "mong6 ngok6" to the anchor "0003,詩題,1". 
 
+---
+
 ## The Resulting Tree
 
 After all metadata tags are processed, the tree becomes:
