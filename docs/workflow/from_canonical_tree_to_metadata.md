@@ -6,7 +6,7 @@ This document shows how the metadata component does the following:
 
 - adds anchors to a canonical tree
 - processes the metadata tags
-- attaches metadata tags to the Tree
+- attaches metadata tags to the tree
 
 The metadata component does not deal with rendering of the tree.
 
@@ -113,7 +113,7 @@ Array
 The next step is to add default punctuations and anchors to various levels of the tree. Here is the code:
 
 >`添加標點符號( $樹 );`
-`添加錨( $樹 );`
+>`添加錨( $樹 );`
 
 <pre>
 
