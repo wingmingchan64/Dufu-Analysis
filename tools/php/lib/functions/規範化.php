@@ -17,54 +17,67 @@ function normalize(
 	bool $removeNewline = false,
 	bool $removePunctuation = false ) : string
 {
+	$to_delete = array(
+		"”","“",
+		"‘","’",
+		"《", "》",
+		"〈","〉",
+		"「","」",
+		"『","』",
+		"·",
+		"……",
+		"——",
+		"其一", 
+		"其二", 
+		"其三", 
+		"其四", 
+		"其五", 
+		"其六", 
+		"其七", 
+		"其八", 
+		"其九", 
+		"其十", 
+		"其十一",
+		"其十二",
+		"其十三",
+		"其十四",
+		"其十五",
+		"其十六",
+		"其十七",
+		"其十八",
+		"其十九",
+		"其二十"
+	);
+	$to_replace = array(
+		"？",
+		"，",
+		"！",
+		"：",
+		"；",
+		"、"
+	);
+	
 	if( $removeSpace )
 	{
 		$text = str_replace( " ", "", $text );
 	}
+	
 	if( $removeNewline )
 	{
-		$text = str_replace( "\n", "", $text );
+		$text = str_replace( "\r\n", "", $text );
 	}
-	$text = 
-		str_replace( "？", "。", // use 。
-		str_replace( "，", "。",
-		str_replace( "！", "。",
-		str_replace( "：", "。",
-		str_replace( "；", "。",
-		str_replace( "、", "。",
-		str_replace( "《", "",   // remove these
-		str_replace( "》", "",
-		str_replace( "〈", "",
-		str_replace( "〉", "",
-		str_replace( "「", "",
-		str_replace( "」", "",
-		str_replace( "『", "",
-		str_replace( "』", "",
-		str_replace( "·", "",
-		str_replace( "　", "",
-		str_replace( "其一", "",
-		str_replace( "其二", "",
-		str_replace( "其三", "",
-		str_replace( "其四", "",
-		str_replace( "其五", "",
-		str_replace( "其六", "",
-		str_replace( "其七", "",
-		str_replace( "其八", "",
-		str_replace( "其九", "",
-		str_replace( "其十", "",
-		str_replace( "其十一", "",
-		str_replace( "其十二", "",
-		str_replace( "其十三", "",
-		str_replace( "其十四", "",
-		str_replace( "其十五", "",
-		str_replace( "其十六", "",
-		str_replace( "其十七", "",
-		str_replace( "其十八", "",
-		str_replace( "其十九", "",
-		str_replace( "其二十", "", $text
-			))))))))))))))))))))))))))))))))))));  
+		
+	foreach( $to_delete as $item )
+	{
+		$text = str_replace( $item, '', $text );
+	}
+	
+	foreach( $to_replace as $item )
+	{
+		$text = str_replace( $item, '。', $text );
+	}
+	
 	$text = preg_replace( '/[\d]+ [\P{M}]+?\n/', "", $text );
-	$text = preg_replace( '/[\s]+/', "", $text );
 	
 	if( $removePunctuation )
 	{

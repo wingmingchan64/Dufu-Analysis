@@ -80,7 +80,8 @@ const PHP_GLOBAL_FUNCTIONS = PHP_CODE_BASE_LIB_DIR . '函式.php';
 // JSON data structures
 
 // base_text
-
+const 杜甫詩陣列 = '杜甫詩陣列';
+const 組詩樹 = '組詩樹';
 // coords 坐標
 // $一字組合_坐標 = 提取數據結構( 一字組合_坐標 );
 const 一字組合_坐標 = COORDS_DIR . '一字組合_坐標';

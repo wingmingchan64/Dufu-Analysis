@@ -2,7 +2,7 @@
 /*
 php H:\github\Dufu-Analysis\tests\php\lib\修復文字_test.php
 */
-//設定測試檔( basename( __FILE__ ) );
+設定測試檔( basename( __FILE__ ) );
 $debug = false;
 use Dufu\Exceptions\JsonFileNotFoundException;
 use Dufu\Exceptions\ConfirmationFailureException;
@@ -19,7 +19,7 @@ require_once(
 
 // phase 2
 $i = 1;
-//確認相等( 修復文字( '為' ), '爲', "case#: ${i}" );
+確認相等( 修復文字( '為' ), '爲', "case#: ${i}" );
 $i++;
-//確認相等( 修復文字( '大' ), '大', "case#: ${i}" );
+確認相等( 修復文字( '大' ), '大', "case#: ${i}" );
 ?>

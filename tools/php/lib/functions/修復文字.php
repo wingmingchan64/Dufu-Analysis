@@ -5,10 +5,22 @@
  */
 use Dufu\Exceptions\JsonFileNotFoundException;
 
-function 修復文字( string $str, bool $debug=false ) : string
+function 修復文字(
+	string $str,
+	bool $debug=false,
+	array $異 = null ) : string
 {
-	// 提取異體字表
-	$異體字 = 提取數據結構( 異體字 );
+	if( !is_null( $異 ) )
+	{
+		// use 異體字表 passed in
+		$異體字 = $異;
+	}
+	else
+	{
+		// 提取異體字表
+		$異體字 = 提取數據結構( 異體字 );
+	}
+	
 	$len = mb_strlen( $str );
 	$temp = '';
 	$ytz = array_keys( $異體字 );
@@ -32,8 +44,27 @@ function 修復文字( string $str, bool $debug=false ) : string
 	return $temp;
 }
 
-function fix_text( string $str, bool $debug=false ) : string
+function fix_text(
+	string $str,
+	bool $debug=false,
+	array $異 = null ) : string
 {
-	return 修復文字( $str, $debug );
+	return 修復文字( $str, $debug, $異 );
+}
+
+function 去除異體字(
+	string $str,
+	bool $debug=false,
+	array $異 = null ) : string
+{
+	return 修復文字( $str, $debug, $異 );
+}
+
+function remove_variants( 
+	string $str,
+	bool $debug=false,
+	array $異 = null ) : string
+{
+	return 修復文字( $str, $debug, $異 );
 }
 ?>
