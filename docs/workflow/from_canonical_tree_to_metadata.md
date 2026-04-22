@@ -407,3 +407,12 @@ Array
 </pre>
 
 Now the tree and the anchor array can be passed to the rendering component to turn the tree into a view. The JSON/JSONL strings stored in anchors provide essential information for the rendering component and help it figuring out how to render the texts provided.
+
+## Rendering the Tree
+
+This is a preview of the rendering component.
+
+- The component should provide a set of view creating functions, each responsible for the creation of a view of a certain format, like XML, HTML, .md or plain text
+- the path array provides paths pointing to nodes which  store metadata that should be processed
+- a view creating function will look at the semantic structure of the metadata and determine how to render the associated string
+- the rendering component can also pass the tree received from the metadata component along to the client without doing anything
