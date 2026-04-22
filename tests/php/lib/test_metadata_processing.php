@@ -23,6 +23,7 @@ $metadata = file_get_contents( 'H:\github\DuFu\packages\陳永明《杜甫全集
 $lines = explode( '〙', $metadata );
 
 $count = 0;
+$anchors = array();
 
 foreach( $lines as $line )
 {
@@ -34,14 +35,35 @@ foreach( $lines as $line )
 	}
 	$parts = explode( '〘', $line );
 	$text = trim( $parts[ 0 ] );
+	$type = detect_format( $text );
+	//echo $type, NL;
 	$tags = json_decode( $parts[ 1 ], true );
+	//print_r( $tags );
 	
 	$anchor = $tags[ 'anchor' ];
+	$anchors[] = $anchor;
+	$cat = $tags[ 'cat' ];
 	$op = $tags[ 'op' ];
+	$scope = $tags[ 'scope' ];
+	
+	$str = '{' .
+		'"cat":"' . $cat . '",' .
+		'"scope":"' . $scope . '"';
+		
+	if( $type == 'string' )
+	{
+		$str .= ',"text":"' . $text . '"}';
+	}
+	elseif( $type == 'json' )
+	{
+		$str .= '}' . "\r\n" . $text;
+	}
+	
+	//echo $text, NL;
 	
 	if( $op == 'assign' )
 	{
-		assign( $樹, explode( ',', $anchor ), $text );
+		assign( $樹, explode( ',', $anchor ), $str );
 	}
 	
 	if( $op == 'insert_tree' )
@@ -52,6 +74,7 @@ foreach( $lines as $line )
 }
 
 print_r( $樹 );
+///print_r( $anchors );
 
 
 function assign( array &$tree, array $path, mixed $value )

@@ -245,15 +245,15 @@ doi6 zung1 fu4 jyu4 ho4 cai4 lou5 cing1 mei6 liu5〘{"cat":"粵","anchor":"0003,
 zou6 faa3 zung1 san4 sau3 jam1 joeng4 got3 fan1 hiu2〘{"cat":"粵","anchor":"0003,4,a","scope":"0003,4","op":"assign"}〙
 dong6 hung1 sang1 cang4 wan4 kyut3 zi6 jap6 gwai1 niu5〘{"cat":"粵","anchor":"0003,5,a","scope":"0003,5","op":"assign"}〙
 wui6 dong1 ling4 zyut6 ding2 jat1 laam5 zung3 saan1 siu2〘{"cat":"粵","anchor":"0003,6,a","scope":"0003,6","op":"assign"}〙
-筱韻〘{"cat":"韻","anchor":"0003,3,2,a","op":"assign"}〙
-筱韻〘{"cat":"韻","anchor":"0003,4,2,a","op":"assign"}〙
-筱韻〘{"cat":"韻","anchor":"0003,5,2,a","op":"assign"}〙
-筱韻〘{"cat":"韻","anchor":"0003,6,2,a","op":"assign"}〙
-{"title":"體裁","contents":["五古"]}〘{"cat":"體","anchor":"0003,a","op":"insert_tree"}〙
+筱韻〘{"cat":"韻","anchor":"0003,3,2,a","scope":"0003,3,2,5","op":"assign"}〙
+筱韻〘{"cat":"韻","anchor":"0003,4,2,a","scope":"0003,4,2,5","op":"assign"}〙
+筱韻〘{"cat":"韻","anchor":"0003,5,2,a","scope":"0003,5,2,5","op":"assign"}〙
+筱韻〘{"cat":"韻","anchor":"0003,6,2,a","scope":"0003,6,2,5","op":"assign"}〙
+{"title":"體裁","contents":["五古"]}〘{"cat":"體","anchor":"0003,a","scope":"0003","op":"assign"}〙
 {"1":
 {"title":"補充說明",
 "contents":["下定雅弘、松原朗《杜甫全詩訳注》認爲「神秀」是雙聲詞。《廣韻》「神」屬船母（濁），「秀」屬心母（清），至粵語合流爲清音。日語中，「神」，シン；「秀」，シュウ，確是雙聲。又「昏曉」爲雙聲詞（曉母），但日語「コンギョウ」卻不是（作者原有之振り仮名，キ之濁化源於前面的ン），除非把「曉」標爲「キョウ」（原音訓）。"]},
-"2":{"title":"其他","contents":["攄，syu1。","嶒，cang4。","毗，pei4。","峛崺，lei5 ji5。","培塿，pau2 lau5。","扛，gong1。"]}}〘{"cat":"體","anchor":"a","op":"insert_tree"}〙
+"2":{"title":"其他","contents":["攄，syu1。","嶒，cang4。","毗，pei4。","峛崺，lei5 ji5。","培塿，pau2 lau5。","扛，gong1。"]}}〘{"cat":"體","anchor":"a","scope":"0003","op":"assign"}〙
 </pre>
 
 Each tag consists of some texts (possibly jsonl) and an array of information, including a processing instruction. For example:
@@ -262,7 +262,7 @@ Each tag consists of some texts (possibly jsonl) and an array of information, in
 mong6 ngok6〘{"cat":"粵","anchor":"0003,詩題,1","scope":"0003,1","op":"assign"}〙
 </pre>
 
-This tag instructs the system to assign the string "mong6 ngok6" to the anchor "0003,詩題,1". 
+This tag instructs the system to assign the string '{"cat":"粵","scope":"0003,1"}' to the anchor "0003,詩題,1".
 
 ---
 
@@ -278,7 +278,7 @@ Array
             [詩題] => Array
                 (
                     [0] => 望嶽
-                    [1] => mong6 ngok6
+                    [1] => {"cat":"粵","scope":"0003,1","text":"mong6 ngok6"}
                 )
             [3] => Array
                 (
@@ -300,9 +300,9 @@ Array
                             [4] => 未
                             [5] => 了
                             [p] => 。
-                            [a] => 筱韻
+                            [a] => {"cat":"韻","scope":"0003,3,2,5","text":"筱韻"}
                         )
-                    [a] => doi6 zung1 fu4 jyu4 ho4 cai4 lou5 cing1 mei6 liu5
+                    [a] => {"cat":"粵","scope":"0003,3","text":"doi6 zung1 fu4 jyu4 ho4 cai4 lou5 cing1 mei6 liu5"}
                 )
             [4] => Array
                 (
@@ -324,9 +324,9 @@ Array
                             [4] => 昏
                             [5] => 曉
                             [p] => 。
-                            [a] => 筱韻
+                            [a] => {"cat":"韻","scope":"0003,4,2,5","text":"筱韻"}
                         )
-                    [a] => zou6 faa3 zung1 san4 sau3 jam1 joeng4 got3 fan1 hiu2
+                    [a] => {"cat":"粵","scope":"0003,4","text":"zou6 faa3 zung1 san4 sau3 jam1 joeng4 got3 fan1 hiu2"}
                 )
             [5] => Array
                 (
@@ -348,9 +348,9 @@ Array
                             [4] => 歸
                             [5] => 鳥
                             [p] => 。
-                            [a] => 筱韻
+                            [a] => {"cat":"韻","scope":"0003,5,2,5","text":"筱韻"}
                         )
-                    [a] => dong6 hung1 sang1 cang4 wan4 kyut3 zi6 jap6 gwai1 niu5
+                    [a] => {"cat":"粵","scope":"0003,5","text":"dong6 hung1 sang1 cang4 wan4 kyut3 zi6 jap6 gwai1 niu5"}
                 )
             [6] => Array
                 (
@@ -372,44 +372,38 @@ Array
                             [4] => 山
                             [5] => 小
                             [p] => 。
-                            [a] => 筱韻
+                            [a] => {"cat":"韻","scope":"0003,6,2,5","text":"筱韻"}
                         )
-                    [a] => wui6 dong1 ling4 zyut6 ding2 jat1 laam5 zung3 saan1 siu2
+                    [a] => {"cat":"粵","scope":"0003,6","text":"wui6 dong1 ling4 zyut6 ding2 jat1 laam5 zung3 saan1 siu2"}
                 )
-            [a] => Array
-                (
-                    [title] => 體裁
-                    [contents] => Array
-                        (
-                            [0] => 五古
-                        )
-                )
+            [a] => {"cat":"體","scope":"0003"}
+{"title":"體裁","contents":["五古"]}
         )
-    [a] => Array
-        (
-            [1] => Array
-                (
-                    [title] => 補充說明
-                    [contents] => Array
-                        (
-                            [0] => 下定雅弘、松原朗《杜甫全詩訳注》認爲「神秀」是雙聲詞。《廣韻》「神」屬船母（濁），「秀」屬心母（清），至粵語合流爲清音。日語中，「神」，シン；「秀」，シュウ，確是雙聲。又「昏曉」爲雙聲詞（曉母），但日語「コンギョウ」卻不是（作者原有之振り仮名，キ之濁化源於前面的ン），除非把「曉」標爲「キョウ」（原音訓）。
-                        )
-                )
-            [2] => Array
-                (
-                    [title] => 其他
-                    [contents] => Array
-                        (
-                            [0] => 攄，syu1。
-                            [1] => 嶒，cang4。
-                            [2] => 毗，pei4。
-                            [3] => 峛崺，lei5 ji5。
-                            [4] => 培塿，pau2 lau5。
-                            [5] => 扛，gong1。
-                        )
-                )
-        )
+    [a] => {"cat":"體","scope":"0003"}
+{"1":
+{"title":"補充說明",
+"contents":["下定雅弘、松原朗《杜甫全詩訳注》認爲「神秀」是雙聲詞。《廣韻》「神」屬船母（濁），「秀」屬心母（清），至粵語合流爲清音。日語中，「神」，シン；「秀」，シュウ，確是雙聲。又「昏曉」爲雙聲詞（曉母），但日語「コンギョウ」卻不是（作者原有之振り仮名，キ之濁化源於前面的ン），除非把「曉」標爲「キョウ」（原音訓）。"]},
+"2":{"title":"其他","contents":["攄，syu1。","嶒，cang4。","毗，pei4。","峛崺，lei5 ji5。","培塿，pau2 lau5。","扛，gong1。"]}}
 )
 </pre>
 
-Now this tree can be handed to the rendering component to turn the tree into a view.
+The string attached to an anchor is either a JSON or a JSONL that can be processed by the rendering component. An array storing all the anchors affected is also created:
+
+<pre>
+Array
+(
+    [0] => 0003,詩題,1
+    [1] => 0003,3,a
+    [2] => 0003,4,a
+    [3] => 0003,5,a
+    [4] => 0003,6,a
+    [5] => 0003,3,2,a
+    [6] => 0003,4,2,a
+    [7] => 0003,5,2,a
+    [8] => 0003,6,2,a
+    [9] => 0003,a
+    [10] => a
+)
+</pre>
+
+Now the tree and the anchor array can be passed to the rendering component to turn the tree into a view. The JSON/JSONL strings stored in anchors provide essential information for the rendering component and help it figuring out how to render the texts provided.
