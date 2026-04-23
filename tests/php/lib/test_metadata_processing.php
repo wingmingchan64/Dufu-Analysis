@@ -24,6 +24,7 @@ $lines = explode( '〙', $metadata );
 
 $count = 0;
 $anchors = array();
+$book = '粵';
 
 foreach( $lines as $line )
 {
@@ -47,6 +48,7 @@ foreach( $lines as $line )
 	$scope = $tags[ 'scope' ];
 	
 	$str = '{' .
+		'"book":"' . $book . '",' .
 		'"cat":"' . $cat . '",' .
 		'"scope":"' . $scope . '"';
 		
