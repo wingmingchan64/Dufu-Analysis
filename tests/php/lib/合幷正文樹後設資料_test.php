@@ -32,12 +32,11 @@ if( detect_format( $異文 ) == 'jsonl' ||
 		$params = json_decode( $line, true );
 		$cat = $params[ 'cat' ];
 		
-		//$標簽 = 
-			//生成XML標簽( 'span', array( 'class' => $cat ) );
-		$標簽 = 生成括號陣列( '〈〉' );
+		$標簽 = 生成XML標簽( 'sub' );
+		//$標簽 = 生成括號陣列( '〈〉' );
 		$content = 
 			$標簽[ 0 ] . 
-			trim( $params[ 'content' ] ).
+			trim( $params[ 'content' ] ) .
 			$標簽[ 1 ];
 		
 		$op = $params[ 'op' ];
@@ -70,9 +69,8 @@ if( detect_format( $注釋 ) == 'jsonl' ||
 	{
 		$params = json_decode( $line, true );
 		$cat = $params[ 'cat' ];
-		//$標簽 = 
-			//生成XML標簽( 'span', array( 'class' => $cat ) );
-		$標簽 = 生成括號陣列( '〈〉' );
+		$標簽 = 生成XML標簽( 'sub' );
+		//$標簽 = 生成括號陣列( '〈〉' );
 		$src_path = trim( $params[ 'src_path' ] );
 		//echo $src_path, NL;
 		//echo 提取ctt正文( $src_path ), NL;
@@ -94,7 +92,18 @@ if( detect_format( $注釋 ) == 'jsonl' ||
 	}
 }
 //print_r( $樹 );
-echo 攤平樹文字_略過鍵( $樹 );
+
+$contents = '## ' . $樹[ '0276' ][ '詩題' ][ '題' ] . NL . NL;
+$contents .= $樹[ '0276' ][ '詩題' ][ 'a' ] . NL . NL;
+
+for( $i = 3; $i < 25; $i++ )
+{
+	$contents .= 攤平樹文字_略過鍵( $樹[ '0276' ][ (string) $i ] ) . NL . NL;
+}
+file_put_contents(
+	'H:\github\CanonicalTextTrees' . 
+	'\corpus\dufu\新刊校定集注杜詩\views' . '\0001.md',
+	$contents . NL );
 
 
 
