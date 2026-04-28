@@ -106,6 +106,13 @@ file_put_contents(
 	$contents . NL );
 
 
+$contents = '## ' . $樹[ '0276' ][ '詩題' ][ '題' ] . NL . NL;
+$contents .= 攤平樹文字_略過鍵( $樹, [ '詩題', 'a' ] );
+file_put_contents(
+	'H:\github\CanonicalTextTrees' . 
+	'\corpus\dufu\新刊校定集注杜詩\views' . '\0001_poem.md',
+	$contents . NL );
+
 
 
 
