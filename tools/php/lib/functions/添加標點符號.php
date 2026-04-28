@@ -9,8 +9,8 @@ function add_punctuation(
 	if( is_string( $tree[ array_key_last( $tree ) ] ) )
 	{
 		$tree = $tree + 
-			array( 'p' => $punc )
-			+ array( 'a' => '' );
+			array( 'p' => $punc ) +
+			array( 'a' => '' );
 		return;
 	}
 	elseif( is_array( $tree[ array_key_last( $tree ) ] ) )

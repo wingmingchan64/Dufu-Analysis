@@ -60,6 +60,7 @@ $注釋 =
 	'H:\github\DuFu\packages\郭知達《新刊校定集注杜詩》\metadata\注釋' . '\0001.txt' 
 );
 
+
 if( detect_format( $注釋 ) == 'jsonl' ||
 	detect_format( $注釋 ) == 'json')
 {
@@ -72,9 +73,6 @@ if( detect_format( $注釋 ) == 'jsonl' ||
 		$標簽 = 生成XML標簽( 'sub' );
 		//$標簽 = 生成括號陣列( '〈〉' );
 		$src_path = trim( $params[ 'src_path' ] );
-		//echo $src_path, NL;
-		//echo 提取ctt正文( $src_path ), NL;
-		
 		$path = explode( ',', $src_path );
 		$content = 
 			$標簽[ 0 ] . 
@@ -82,6 +80,7 @@ if( detect_format( $注釋 ) == 'jsonl' ||
 			$標簽[ 1 ];
 		$op = $params[ 'op' ];
 		$path = explode( ',', $params[ 'scope' ] );
+		
 		// replace 1-3 with 'a'
 		$path[ count( $path ) - 1 ] = 'a';
 		
@@ -105,17 +104,64 @@ file_put_contents(
 	'\corpus\dufu\新刊校定集注杜詩\views' . '\0001.md',
 	$contents . NL );
 
-
 $contents = '## ' . $樹[ '0276' ][ '詩題' ][ '題' ] . NL . NL;
 $contents .= 攤平樹文字_略過鍵( $樹, [ '詩題', 'a' ] );
+//echo $contents;
+
 file_put_contents(
 	'H:\github\CanonicalTextTrees' . 
 	'\corpus\dufu\新刊校定集注杜詩\views' . '\0001_poem.md',
 	$contents . NL );
 
 
+$comments = array();
+$counter = 0;
+collect_comments( $樹 );
+//print_r( $樹 );
+//print_r( $comments );
+//echo $counter, NL;
 
+function collect_comments( array &$tree )
+{
+	global $comments;
+	global $counter;
+	
+	foreach( $tree as $k => $v )
+	{
+		if( $k == 'a' )
+		{
+			if( $v != '' )
+			{
+				$counter++;
+				$comments[] = "[${counter}] " . 
+				str_replace( '<sub>', '',
+					str_replace( '</sub>', '', $v ) );
+				$tree[ $k ] = "[${counter}]";
+			}
+		}
+		elseif( is_array( $v ) )
+		{
+			collect_comments( $tree[ $k ] );
+		}
+	}
+}
 
+$contents = '## ' . 攤平樹文字_略過鍵( $樹[ '0276' ][ '詩題' ] ) . NL . NL;
+
+for( $i = 3; $i < 25; $i++ )
+{
+	$contents .= 攤平樹文字_略過鍵( $樹[ '0276' ][ (string) $i ] );
+}
+
+$contents = preg_replace( '/(。)(\[\d+?\])/u', "$2$1",
+	$contents );
+$contents .= NL . NL . '【注釋】' . NL .
+	implode( "\r\n", $comments );
+
+file_put_contents(
+	'H:\github\CanonicalTextTrees' . 
+	'\corpus\dufu\新刊校定集注杜詩\views' . '\0001_number.md',
+	$contents . NL );
 
 
 
