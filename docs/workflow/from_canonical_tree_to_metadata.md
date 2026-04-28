@@ -1607,7 +1607,7 @@ Array
 </pre>
 
 
-## Rendering the Tree
+## Creating a View
 
 The tree can be flattened. The entire tree structure is removed, and only the texts in terminal nodes remain. This is the result (newlines are added for better readability):
 
