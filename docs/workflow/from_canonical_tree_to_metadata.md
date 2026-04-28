@@ -1678,5 +1678,5 @@ Note that:
 
 - HTML tags are added just for illustrative purposes
 - Any marker can be used
-- For example, instead of `&lt;span class="注釋">&lt;/span>`, `〈〉` can be used (as in Wikipedia)
+- For example, instead of `<span class="注釋"></span>`, `〈〉` can be used (as in Wikipedia)
 - The presentational layer can insert any code into the resulting tree before rendering
