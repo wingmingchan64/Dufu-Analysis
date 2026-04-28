@@ -31,12 +31,15 @@ if( detect_format( $異文 ) == 'jsonl' ||
 	{
 		$params = json_decode( $line, true );
 		$cat = $params[ 'cat' ];
-		$標簽 = 
-			生成XML標簽( 'span', array( 'class' => $cat ) );
+		
+		//$標簽 = 
+			//生成XML標簽( 'span', array( 'class' => $cat ) );
+		$標簽 = 生成括號陣列( '〈〉' );
 		$content = 
 			$標簽[ 0 ] . 
 			trim( $params[ 'content' ] ).
 			$標簽[ 1 ];
+		
 		$op = $params[ 'op' ];
 		$path = explode( ',', $params[ 'scope' ] );
 		
@@ -67,8 +70,9 @@ if( detect_format( $注釋 ) == 'jsonl' ||
 	{
 		$params = json_decode( $line, true );
 		$cat = $params[ 'cat' ];
-		$標簽 = 
-			生成XML標簽( 'span', array( 'class' => $cat ) );
+		//$標簽 = 
+			//生成XML標簽( 'span', array( 'class' => $cat ) );
+		$標簽 = 生成括號陣列( '〈〉' );
 		$src_path = trim( $params[ 'src_path' ] );
 		//echo $src_path, NL;
 		//echo 提取ctt正文( $src_path ), NL;
