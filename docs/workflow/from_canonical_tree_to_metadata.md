@@ -1673,3 +1673,10 @@ The tree can be flattened. The entire tree structure is removed, and only the te
 浩蕩。萬里誰能馴。&lt;span class="注釋"&gt;
 顏延年詩：鸞翮有時鎩，龍性誰能馴。謝脁詩：浩蕩別親知。東坡云：波乃沒字。宋敏求謂余鷗不善沒，改作波。殊不知鷗之滅沒煙波，最爲自然。《禽經》云：鳧善浮，鷗善沒。沒字爲是。◯趙云：何遜詩：可憐雙白鷗，朝夕水上遊。浩蕩雖本水，而不必專言水。或取流放之貌，如《離騷》云：怨靈修之浩蕩；或取曠遠之貌，如《楚辭》曰：志浩蕩而傷懷。是也。世間本多作「波」字，東坡定作「沒」字，言鷗滅沒於煙波間，而浩蕩遠去，尤有義理。而宋敏求謂鷗不解沒，作「波」字，便覺一篇神氣索然也。范淑衷甫云：世有師曠《禽經》之書，其中曰：鳧善浮，鷗善沒。則「沒」字卻是沉沒之沒，卽與前說又相反矣。&lt;/span&gt;
 </pre>
+
+Note that:
+
+- HTML tags are added just for illustrative purposes
+- Any marker can be used
+- For example, instead of `&lt;span class="注釋">&lt;/span>`, `〈〉` can be used (as in Wikipedia)
+- The presentational layer can insert any code into the resulting tree before rendering
