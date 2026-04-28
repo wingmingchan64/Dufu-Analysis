@@ -18,6 +18,6 @@ function 提取詩碼基準正文樹( string $詩碼, bool $debug=false ) : arra
 
 function get_poem_id_base_text_tree( string $詩碼, bool $debug=false ) : array
 {
-	return 提取詩碼基準正文樹( $詩碼 );
+	return 提取詩碼基準正文樹( $詩碼, $debug );
 }
 ?>

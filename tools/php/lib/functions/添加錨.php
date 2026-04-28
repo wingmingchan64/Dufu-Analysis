@@ -101,7 +101,10 @@ function add_anchors(
 		
 		// 詩題
 		$詩題 = $tree[ $文檔碼 ][ 詩題 ];
-		$tree[ $文檔碼 ][ 詩題 ] = array( $詩題, '' );
+		$tree[ $文檔碼 ][ 詩題 ] = array( 
+			'題' => $詩題, 
+			'a' => ''
+		);
 
 	}
 	else

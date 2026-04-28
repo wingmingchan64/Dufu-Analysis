@@ -38,4 +38,9 @@ function detect_format( string $str ) : string
 
     return 'string';
 }
+
+function 辨認格式( string $str ) : string
+{
+	return detect_format(  $str );
+}
 ?>

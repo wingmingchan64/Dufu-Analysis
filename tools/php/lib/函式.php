@@ -9,6 +9,14 @@ require_once( __DIR__ . DIRECTORY_SEPARATOR . '常數.php' );
 require_once( __DIR__ . DS . 'autoload.php' );
 // JSON loader
 use Dufu\Tools\JsonDataLoader;
+// CTT registry
+$ctt_registry = json_decode( file_get_contents(
+	dirname( __DIR__, 4 ) . DIRECTORY_SEPARATOR .
+		'CanonicalTextTrees' . DIRECTORY_SEPARATOR .
+		'schemas' . DIRECTORY_SEPARATOR .
+		'json' . DIRECTORY_SEPARATOR .
+		'registry' . DIRECTORY_SEPARATOR .
+		'registry.json' ), true );
 
 define( 'PHP_CODE_BASE_DIR', dirname( __DIR__ ) . DS );
 define( 'PHP_FUNCTIONS_DIR', PHP_CODE_BASE_LIB_DIR . FUNCTIONS_DIR );

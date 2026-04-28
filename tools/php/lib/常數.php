@@ -191,6 +191,11 @@ const 文檔_文字內容 = 'doc_texts';
 const 文檔_索引 = 'doc_index_';
 const 位置 = "pos"; 
 
+// ctt
+const FOLDER        = 'folder';
+const TITLE         = 'title';
+const DISPLAY_TITLE = 'display_title';
+
 
 
 
