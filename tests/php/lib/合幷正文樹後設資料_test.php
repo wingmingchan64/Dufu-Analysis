@@ -89,8 +89,8 @@ if( detect_format( $注釋 ) == 'jsonl' ||
 		}
 	}
 }
-print_r( $樹 );
-//echo 攤平樹文字_略過鍵( $樹 );
+//print_r( $樹 );
+echo 攤平樹文字_略過鍵( $樹 );
 
 
 
