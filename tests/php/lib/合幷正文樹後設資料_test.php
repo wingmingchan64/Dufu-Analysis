@@ -155,8 +155,8 @@ for( $i = 3; $i < 25; $i++ )
 
 $contents = preg_replace( '/(。)(\[\d+?\])/u', "$2$1",
 	$contents );
-$contents .= NL . NL . '【注釋】' . NL .
-	implode( "\r\n", $comments );
+$contents .= NL . NL . '【注釋】' . NL . NL .
+	implode( NL . NL, $comments );
 
 file_put_contents(
 	'H:\github\CanonicalTextTrees' . 
