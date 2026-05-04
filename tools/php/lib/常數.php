@@ -6,6 +6,9 @@
 const 杜甫默認版本詩文件夾 = 'DuFu' . DIRECTORY_SEPARATOR . 
 	'默認版本' . DIRECTORY_SEPARATOR . 
 	'詩' . DIRECTORY_SEPARATOR;
+const 杜甫分析文件夾 = 'Dufu-Analysis' . DIRECTORY_SEPARATOR;
+const 基準正文樹文件夾 = 
+	'CanonicalTextTrees' . DIRECTORY_SEPARATOR;
 
 // 系統文件夾
 // the / is replaced by DIRECTORY_SEPARATOR in JsonDataLoader
@@ -78,7 +81,6 @@ const PHP_CODE_BASE_LIB_DIR = __DIR__ . DS;
 const PHP_GLOBAL_FUNCTIONS = PHP_CODE_BASE_LIB_DIR . '函式.php';
 
 // JSON data structures
-
 // base_text
 const 杜甫詩陣列 = '杜甫詩陣列';
 const 組詩樹 = '組詩樹';
@@ -115,16 +117,13 @@ const 默認詩碼_坐標 = COORDS_DIR . '默認詩碼_坐標'; // 〚0003:〛
 const 坐標_默認詩碼 = COORDS_DIR . '坐標_默認詩碼';
 const 坐標_句 = COORDS_DIR . '坐標_句';
 const 默認詩碼_句坐標 = COORDS_DIR . '默認詩碼_句坐標';
-
 const 句碼_詩句 = COORDS_DIR . '句碼_詩句';
 const 行碼_詩文 = COORDS_DIR . '行碼_詩文';
 const 行碼_副題 = COORDS_DIR . '行碼_副題';
 const 字碼_詩字 = COORDS_DIR . '字碼_詩字';
 const 非完整坐標表 = COORDS_DIR . '非完整坐標表';
-
 const 含範圍字碼完整坐標 = COORDS_DIR . '含範圍字碼完整坐標';
 const 含範圍行碼完整坐標 = COORDS_DIR . '含範圍行碼完整坐標';
-
 const 完整坐標表 = '完整坐標表';
 const 完整坐標表文件夾 = COORDS_DIR . 完整坐標表 . DS;
 // ids
@@ -154,6 +153,11 @@ const 詩文組合 = SETS_DIR . '詩文組合';
 $簡稱陣列 = array( 
 	'全', '趙', '郭', '奭', '仇', '蕭', '謝', '訳' 
 );
+
+// CTT 用常數
+const FOLDER        = 'folder';
+const TITLE         = 'title';
+const DISPLAY_TITLE = 'display_title';
 
 const 默詩碼_版本詩碼對照表 = '默詩碼_版本詩碼對照表';
 const 空語鏈 = '';
@@ -191,10 +195,6 @@ const 文檔_文字內容 = 'doc_texts';
 const 文檔_索引 = 'doc_index_';
 const 位置 = "pos"; 
 
-// ctt
-const FOLDER        = 'folder';
-const TITLE         = 'title';
-const DISPLAY_TITLE = 'display_title';
 
 
 
@@ -204,7 +204,6 @@ const 杜甫資料庫 = 'h:'.DS.'杜甫資料庫'.DS;
 const 平水韻文件夾 = 杜甫資料庫.'平水韻'.DS;
 const 中古聲母文件夾 = 杜甫資料庫.'中古聲母'.DS;
 const 資料匯總文件夾 = 杜甫資料庫 . '資料匯總' . DS;
-const 杜甫分析文件夾 = 'h:'.DS.'github'.DS.'Dufu-Analysis'.DS;
 const 程式文件夾 = 'h:'.DS.'github'.DS.'Dufu-Analysis'.DS.'analysis_programs'.DS;
 const 杜甫文件夾 = 'h:'.DS.'github'.DS.'Dufu'.DS;
 const 默認版本文件夾 = 杜甫文件夾.'默認版本'.DS;
@@ -451,6 +450,7 @@ const 搜索坐標選項 = array(
 	'完整坐標→詩文' => "請輸入完整坐標\n",
 	'詩文→完整坐標' => "請輸入詩文\n",
 	'默文檔碼、詩文→完整坐標' => "請輸入文檔碼、詩文\n",
+	'默文檔碼、詩文→路徑' => "請輸入文檔碼、詩文\n",
 	//'' => "\n",
 	//'' => "\n",
 );

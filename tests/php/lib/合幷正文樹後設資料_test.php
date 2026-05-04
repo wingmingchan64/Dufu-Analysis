@@ -14,13 +14,14 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-$樹 = 提取基準正文樹( '0276' );
+$樹 = 提取基準正文樹( '0076' );
 添加標點符號( $樹 );
 添加錨( $樹 );
 //print_r( $樹 );
 
+/*
 $異文 = file_get_contents(
-	'H:\github\DuFu\packages\郭知達《新刊校定集注杜詩》\metadata\異文' . '\0001.txt'
+	'H:\github\DuFu\packages\郭知達《新刊校定集注杜詩》\metadata\異文' . '\0003.txt'
 );
 if( detect_format( $異文 ) == 'jsonl' ||
 	detect_format( $異文 ) == 'json')
@@ -49,15 +50,15 @@ if( detect_format( $異文 ) == 'jsonl' ||
 	}
 
 }
-
+*/
 $metadata_tree = json_decode( 
-	file_get_contents('H:\github\CanonicalTextTrees\corpus\dufu\新刊校定集注杜詩\trees' . '\0001.json' ), true );
+	file_get_contents('H:\github\CanonicalTextTrees\corpus\dufu\新刊校定集注杜詩\trees' . '\0003.json' ), true );
 
 //print_r( $metadata_tree );
 
 $注釋 = 
 	file_get_contents(
-	'H:\github\DuFu\packages\郭知達《新刊校定集注杜詩》\metadata\注釋' . '\0001.txt' 
+	'H:\github\DuFu\packages\郭知達《新刊校定集注杜詩》\metadata\注釋' . '\0003.txt' 
 );
 
 
@@ -92,23 +93,28 @@ if( detect_format( $注釋 ) == 'jsonl' ||
 }
 //print_r( $樹 );
 
-$contents = '## ' . $樹[ '0276' ][ '詩題' ][ '題' ] . NL . NL;
-$contents .= $樹[ '0276' ][ '詩題' ][ 'a' ] . NL . NL;
+$contents = '## ' . $樹[ '0076' ][ '詩題' ][ '題' ] . NL . NL;
+$contents .= $樹[ '0076' ][ '詩題' ][ 'a' ] . NL . NL;
 
-for( $i = 3; $i < 25; $i++ )
+//for( $i = 3; $i < 25; $i++ )
+foreach( $樹[ '0076' ] as $k => $v )
 {
-	$contents .= 攤平樹文字_略過鍵( $樹[ '0276' ][ (string) $i ] ) . NL . NL;
+	if( $k != '詩題' )
+	{
+		$contents .= 攤平樹文字_略過鍵( $樹[ '0076' ][ $k ] ) . NL . NL;
+	}
 }
+
 file_put_contents(
 	'H:\github\CanonicalTextTrees' . 
-	'\corpus\dufu\新刊校定集注杜詩\views' . '\0001.md',
+	'\corpus\dufu\新刊校定集注杜詩\views' . '\0003.md',
 	$contents . NL );
 
-$contents = '## ' . $樹[ '0276' ][ '詩題' ][ '題' ] . NL . NL;
+$contents = '## ' . $樹[ '0076' ][ '詩題' ][ '題' ] . NL . NL;
 $contents .= 攤平樹文字_略過鍵( $樹, [ '詩題', 'a' ] );
 file_put_contents(
 	'H:\github\CanonicalTextTrees' . 
-	'\corpus\dufu\新刊校定集注杜詩\views' . '\0001_poem.md',
+	'\corpus\dufu\新刊校定集注杜詩\views' . '\0003_poem.md',
 	$contents . NL );
 
 $comments = array();
@@ -140,11 +146,14 @@ function collect_comments( array &$tree )
 	}
 }
 
-$contents = '## ' . 攤平樹文字_略過鍵( $樹[ '0276' ][ '詩題' ] ) . NL . NL;
+$contents = '## ' . 攤平樹文字_略過鍵( $樹[ '0076' ][ '詩題' ] ) . NL . NL;
 
-for( $i = 3; $i < 25; $i++ )
+foreach( $樹[ '0076' ] as $k => $v )
 {
-	$contents .= 攤平樹文字_略過鍵( $樹[ '0276' ][ (string) $i ] );
+	if( $k != 'a' )
+	{
+		$contents .= 攤平樹文字_略過鍵( $樹[ '0076' ][ $k ] );
+	}
 }
 
 $contents = preg_replace( '/(。)(\[\d+?\])/u', "$2$1",
@@ -154,7 +163,7 @@ $contents .= NL . NL . '【注釋】' . NL . NL .
 
 file_put_contents(
 	'H:\github\CanonicalTextTrees' . 
-	'\corpus\dufu\新刊校定集注杜詩\views' . '\0001_number.md',
+	'\corpus\dufu\新刊校定集注杜詩\views' . '\0003_number.md',
 	$contents . NL );
 
 
