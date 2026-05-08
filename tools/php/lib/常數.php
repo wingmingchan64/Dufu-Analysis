@@ -82,8 +82,8 @@ const PHP_GLOBAL_FUNCTIONS = PHP_CODE_BASE_LIB_DIR . '函式.php';
 
 // JSON data structures
 // base_text
-const 杜甫詩陣列 = '杜甫詩陣列';
-const 組詩樹 = '組詩樹';
+const 杜甫詩陣列 = BASE_TEXT_DIR . '杜甫詩陣列';
+const 組詩樹    = BASE_TEXT_DIR . '組詩樹';
 // coords 坐標
 // $一字組合_坐標 = 提取數據結構( 一字組合_坐標 );
 const 一字組合_坐標 = COORDS_DIR . '一字組合_坐標';
@@ -116,6 +116,7 @@ const 默認詩碼坐標 = COORDS_DIR . '默認詩碼坐標'; // only 坐標
 const 默認詩碼_坐標 = COORDS_DIR . '默認詩碼_坐標'; // 〚0003:〛
 const 坐標_默認詩碼 = COORDS_DIR . '坐標_默認詩碼';
 const 坐標_句 = COORDS_DIR . '坐標_句';
+const 句_路徑 = COORDS_DIR . '句_路徑';
 const 默認詩碼_句坐標 = COORDS_DIR . '默認詩碼_句坐標';
 const 句碼_詩句 = COORDS_DIR . '句碼_詩句';
 const 行碼_詩文 = COORDS_DIR . '行碼_詩文';
@@ -194,7 +195,6 @@ const 文檔_記錄 = 'doc_records';
 const 文檔_文字內容 = 'doc_texts';
 const 文檔_索引 = 'doc_index_';
 const 位置 = "pos"; 
-
 
 
 
@@ -451,6 +451,7 @@ const 搜索坐標選項 = array(
 	'詩文→完整坐標' => "請輸入詩文\n",
 	'默文檔碼、詩文→完整坐標' => "請輸入文檔碼、詩文\n",
 	'默文檔碼、詩文→路徑' => "請輸入文檔碼、詩文\n",
+	'句→路徑' => "請輸入完整詩句\n",
 	//'' => "\n",
 	//'' => "\n",
 );

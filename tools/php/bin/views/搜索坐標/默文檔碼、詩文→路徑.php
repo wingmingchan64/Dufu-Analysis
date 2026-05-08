@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\默文檔碼、詩文→路徑.php 1376 死
+php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\默文檔碼、詩文→完整坐標.php 1376 死
 */
 require_once( 
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
@@ -29,10 +29,13 @@ if( array_key_exists( $詩文, $陣列 ) )
 	{
 		if( mb_substr( $標, 1, 4 ) == $默文檔碼 )
 		{
-			$路徑 = 完整坐標轉換成路徑列陣( $標 );
+			$路徑 = explode( '.',
+				str_replace( ':', '.',
+				rtrim( ltrim( $標, '〚' ), '〛' ) ) );
 			array_push( $result, implode( ',', $路徑 ) );
 		}
 	}
+	
 	print_r( $result );
 }
 else
