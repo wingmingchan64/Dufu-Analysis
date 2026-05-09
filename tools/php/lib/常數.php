@@ -145,10 +145,15 @@ const 首句_默認詩碼 = MAPPING_DIR . '首句_默認詩碼';
 const 版文檔碼_後設標記紀錄 = METADATA_DIR . '版文檔碼_後設標記紀錄';
 // registry
 const 書目簡稱 = REGISTRY_DIR . '書目簡稱';
+const 簡稱_著述碼 = REGISTRY_DIR . '簡稱_著述碼';
+const 著述碼_簡稱 = REGISTRY_DIR . '著述碼_簡稱';
 const 異體字 = REGISTRY_DIR . '異體字';
 // sets
 const 詩文組合 = SETS_DIR . '詩文組合';
-// 
+
+// dufu/packages
+const 杜甫版本文件夾 = 'DuFu' . DIRECTORY_SEPARATOR .
+	'packages' . DIRECTORY_SEPARATOR;
 
 // 版本簡稱：用於生成 默詩碼_版本詩碼
 $簡稱陣列 = array( 
