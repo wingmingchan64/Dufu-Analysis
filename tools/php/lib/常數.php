@@ -3,7 +3,10 @@
 杜甫資料庫編程部分所應用的 PHP 常數
 */
 // 杜甫詩文文件夾
-const 杜甫默認版本詩文件夾 = 'DuFu' . DIRECTORY_SEPARATOR . 
+const 杜甫文件夾 = 'DuFu' . DIRECTORY_SEPARATOR;
+const 杜甫版本文件夾 = 杜甫文件夾 .
+	'packages' . DIRECTORY_SEPARATOR;
+const 杜甫默認版本詩文件夾 = 杜甫文件夾 . 
 	'默認版本' . DIRECTORY_SEPARATOR . 
 	'詩' . DIRECTORY_SEPARATOR;
 const 杜甫分析文件夾 = 'Dufu-Analysis' . DIRECTORY_SEPARATOR;
@@ -151,9 +154,6 @@ const 異體字 = REGISTRY_DIR . '異體字';
 // sets
 const 詩文組合 = SETS_DIR . '詩文組合';
 
-// dufu/packages
-const 杜甫版本文件夾 = 'DuFu' . DIRECTORY_SEPARATOR .
-	'packages' . DIRECTORY_SEPARATOR;
 
 // 版本簡稱：用於生成 默詩碼_版本詩碼
 $簡稱陣列 = array( 
@@ -210,7 +210,7 @@ const 平水韻文件夾 = 杜甫資料庫.'平水韻'.DS;
 const 中古聲母文件夾 = 杜甫資料庫.'中古聲母'.DS;
 const 資料匯總文件夾 = 杜甫資料庫 . '資料匯總' . DS;
 const 程式文件夾 = 'h:'.DS.'github'.DS.'Dufu-Analysis'.DS.'analysis_programs'.DS;
-const 杜甫文件夾 = 'h:'.DS.'github'.DS.'Dufu'.DS;
+//const 杜甫文件夾 = 'h:'.DS.'github'.DS.'Dufu'.DS;
 const 默認版本文件夾 = 杜甫文件夾.'默認版本'.DS;
 const 默認版本詩文件夾 = 杜甫文件夾.'默認版本'.DS.'詩'.DS;
 // 文檔

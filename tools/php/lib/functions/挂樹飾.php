@@ -4,11 +4,12 @@
  */
 use CTT\Exceptions\IllegalWorkIDException;
 
-function 挂樹飾( 
+function 挂樹飾(
 	string $默文碼, 
-	string $著述版文碼 ) : 	void
+	string $著述版文碼 ) : array
 {
 	global $ctt_registry;
+	
 	[ $著述碼, $版文碼 ] = explode( ',', $著述版文碼 );
 	// error checking
 	if( !array_key_exists( $著述碼, $ctt_registry ) )
@@ -25,6 +26,7 @@ function 挂樹飾(
 			METADATA_DIR . '部分_函式' )[ $著述碼 ];
 	// 正文樹
 	$樹 = 提取基準正文樹( $默文碼 );
+	添加標點符號( $樹 );
 	添加錨( $樹 );
 	// CTT: text source
 	$ctt = retrieve_ctt( $著述版文碼 );
@@ -63,11 +65,21 @@ function 挂樹飾(
 				if( array_key_exists( "op", $rel ) )
 				{
 					$函式 = $rel[ "op" ];
+				}
+				
+				if( $函式 == 'replace' )
+				{
 					$replace = true;
 				}
 				
 				$範圍 = $rel[ "scope" ];
-				$路徑 = explode( ',', $rel[ "scope" ] );
+				
+				if( 不是路徑( $範圍 ) && $範圍 != 'a' )
+				{
+					$範圍 = 提取詩文唯一路徑( $默文碼, $範圍 );
+				}
+				
+				$路徑 = explode( ',', $範圍 );
 				
 				// replace scope x-y with a
 				if( strpos( 
@@ -77,9 +89,7 @@ function 挂樹飾(
 					$路徑[ count( $路徑 ) - 1 ] = 'a';
 				}
 				
-				$文字 = 提取ctt正文( $rel[ "src_path"] );
-				$text = 
-					提取ctt正文( $rel[ "src_path"] );
+				$text = 提取ctt正文( $rel[ "src_path"] );
 					
 				if( !$replace )
 				{
@@ -97,9 +107,8 @@ function 挂樹飾(
 				}
 			}
 		}
-		// 
 	}
 	
-	echo json_encode( $樹, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT );
+	return $樹;
 }
 ?>
