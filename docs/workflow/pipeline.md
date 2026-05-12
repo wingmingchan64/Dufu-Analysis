@@ -6,6 +6,7 @@
 
 處理流程如下：
 
+<pre>
 canonical `.txt`
       ↓
 canonical text tree
@@ -17,6 +18,7 @@ controller（順序執行操作）
 derived / edition tree
       ↓
 rendered text（版本面貌）
+</pre>
 
 ---
 
