@@ -13,13 +13,15 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 	
-$默文碼 = '0668';
+$默文碼 = '0003';
 $版本碼 = 'JINGQUAN';
-$版文碼 = '0097';
+$版文碼 = '0002';
 
 $folder = 提取ctt文件夾( $版本碼 );
 $樹 = 挂樹飾( $默文碼, "${版本碼},${版文碼}" );
-//print_r( $樹 );
+print_r( $樹 );
+
+exit;
 
 $json_path = dirname( __FILE__, 5 ) . DIRECTORY_SEPARATOR .
 	'CanonicalTextTrees' . DIRECTORY_SEPARATOR .
