@@ -5,8 +5,10 @@
 use CTT\Exceptions\IllegalWorkIDException;
 
 function 挂樹飾(
-	string $默文碼, 
-	string $著述版文碼 ) : array
+	string $默文碼,
+	string $著述版文碼,
+	array $m_paths ) : array
+	// ) : array
 {
 	global $ctt_registry;
 	
@@ -17,6 +19,7 @@ function 挂樹飾(
 		throw new IllegalWorkIDException( "「${著述碼}」不存在。" );
 	}
 	// retrieve lookup maps
+	/*
 	$簡稱 = 提取數據結構( 著述碼_簡稱 )[ $著述碼 ];
 	$data_dir = 提取書目簡稱()[ $簡稱 ] . DIRECTORY_SEPARATOR;
 	$processing_order = 
@@ -24,12 +27,14 @@ function 挂樹飾(
 			METADATA_DIR . 'processing_order' )[ $著述碼 ];
 	$部分_函式 = 提取數據結構(
 			METADATA_DIR . '部分_函式' )[ $著述碼 ];
+	*/
 	// 正文樹
 	$樹 = 提取基準正文樹( $默文碼 );
 	添加標點符號( $樹 );
 	添加錨( $樹 );
 	// CTT: text source
 	$ctt = retrieve_ctt( $著述版文碼 );
+	/*
 	// parts
 	$metadata_dir =
 		dirname( __DIR__, 5 ) . DIRECTORY_SEPARATOR .
@@ -51,17 +56,25 @@ function 挂樹飾(
 					$部分_dir . $版文碼 . '.txt' ) );
 		}
 	}
-	//print_r( $metadata_markers );
-	foreach( $metadata_markers as $部分 => $mms )
+	*/
+	foreach( $m_paths as $path )
 	{
-		foreach( $mms as $mm )
-		{
-			if( $mm != '' )
-			{
-				$rel = json_decode( $mm, true );
-				$函式 = $部分_函式[ $部分 ];
-				$replace = false;
+		[ $dummy1, $dummy2, $部分, $範圍, $來源, $函式 ] =
+			explode( '_', $path );
+		$replace = ( $函式 == 'replace' );
+	
+	
+	//print_r( $metadata_markers );
+	//foreach( $metadata_markers as $部分 => $mms )
+	//{
+		//foreach( $mms as $mm )
+		//{
+			//if( $mm != '' )
+			//{
+				//$rel = json_decode( $mm, true );
+				//$函式 = $部分_函式[ $部分 ];
 				
+				/*
 				if( array_key_exists( "op", $rel ) )
 				{
 					$函式 = $rel[ "op" ];
@@ -71,25 +84,27 @@ function 挂樹飾(
 				{
 					$replace = true;
 				}
+				*/
+				//$範圍 = $rel[ "scope" ];
 				
-				$範圍 = $rel[ "scope" ];
-				
+				/*
 				if( 不是路徑( $範圍 ) && $範圍 != 'a' )
 				{
 					$範圍 = 提取詩文唯一路徑( $默文碼, $範圍 );
 				}
+				*/
 				
 				$路徑 = explode( ',', $範圍 );
 				
 				// replace scope x-y with a
 				if( strpos( 
-						$路徑[ count( $路徑 ) - 1 ],
-						'-' ) !== false )
+					$路徑[ count( $路徑 ) - 1 ],
+					'-' ) !== false )
 				{
 					$路徑[ count( $路徑 ) - 1 ] = 'a';
 				}
 				
-				$text = 提取ctt正文( $rel[ "src_path"] );
+				$text = 提取ctt正文( $來源 );
 					
 				if( !$replace )
 				{
@@ -106,9 +121,7 @@ function 挂樹飾(
 					替換路徑字( $樹, $路徑, $text );
 				}
 			}
-		}
-	}
-	
+		
 	return $樹;
 }
 ?>

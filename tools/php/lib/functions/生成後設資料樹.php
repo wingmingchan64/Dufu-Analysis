@@ -79,7 +79,7 @@ function 生成後設資料樹(
 			
 		}
 	}
-	print_r( json_encode( $m_tree , JSON_UNESCAPED_UNICODE  ) );
+	//print_r( json_encode( $m_tree , JSON_UNESCAPED_UNICODE  ) );
 	
 	//echo $df_folder, NL;
 	//echo $ctt_folder, NL;

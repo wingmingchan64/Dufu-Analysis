@@ -29,10 +29,12 @@ echo json_encode(
 
 
 $paths = array();
-record_mtree_paths( $m_tree[ $著述碼 ][ $版文檔碼 ][ '注釋' ], '' );
-//record_mtree_paths( $m_tree, '' );
-print_r( $paths );
+//record_mtree_paths( $m_tree[ $著述碼 ][ $版文檔碼 ][ '注釋' ], '' );
+record_mtree_paths( $m_tree, '' );
+//print_r( $paths );
 
+$樹 = 挂樹飾( $默文檔碼, $著述碼 . ',' . $版文檔碼, $paths );
+print_r( $樹 );
 
 function record_mtree_paths( array $m_tree, string $parent )
 {
