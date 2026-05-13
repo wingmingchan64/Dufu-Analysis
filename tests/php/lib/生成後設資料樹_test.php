@@ -17,7 +17,8 @@ require_once(
 $默文檔碼 = '0668';
 $著述碼   = 'JINGQUAN';
 $版文檔碼 = '0097';
-$m_tree = 生成後設資料樹( $默文檔碼, $著述碼, $版文檔碼 );
+生成後設資料樹( $默文檔碼, $著述碼, $版文檔碼 );
+
 // 著述碼+版文檔碼+類別+範圍+來源+函式
 /*
 echo json_encode(
@@ -25,43 +26,21 @@ echo json_encode(
     JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
 );
 */
-print_r( $m_tree );
 
-/*
+$m_tree = 提取後設資料樹( $著述碼, $版文檔碼 );
+//print_r( $m_tree );
 $paths = array();
-//record_mtree_paths( $m_tree[ $著述碼 ][ $版文檔碼 ][ '注釋' ], '' );
-record_mtree_paths( $m_tree, '' );
-//print_r( $paths );
+record_mtree_paths( $m_tree );
+//record_mtree_paths( $m_tree[ $著述碼 ][ $版文檔碼 ][ '注釋' ] );
 
+print_r( $paths );
+/*
 $樹 = 挂樹飾( $默文檔碼, $著述碼 . ',' . $版文檔碼, $paths );
 //print_r( $樹 );
 生成HTML面貌( $樹 );
 //print_r( $樹 );
 */
 
-function record_mtree_paths( array $m_tree, string $parent )
-{
-	global $paths;
-	
-	foreach( $m_tree as $k => $v )
-	{
-		if( is_string( $v ) )
-		{
-			$paths[] = $parent . '_' . $k . '_' . $v;
-		}
-		else
-		{
-			if( $parent == '' )
-			{
-				record_mtree_paths( $m_tree[ $k ], $k );
-			}
-			else{
-				record_mtree_paths( $m_tree[ $k ], 
-					$parent . '_' . $k );
-			}
-		}
-	}
-}
 
 /*
 $i = 1;
