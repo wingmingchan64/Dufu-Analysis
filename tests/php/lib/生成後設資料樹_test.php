@@ -14,9 +14,9 @@ require_once(
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
-$默文檔碼 = '0003';
+$默文檔碼 = '0668';
 $著述碼   = 'JINGQUAN';
-$版文檔碼 = '0002';
+$版文檔碼 = '0097';
 $m_tree = 生成後設資料樹( $默文檔碼, $著述碼, $版文檔碼 );
 // 著述碼+版文檔碼+類別+範圍+來源+函式
 /*
@@ -25,9 +25,9 @@ echo json_encode(
     JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
 );
 */
-//print_r( $m_tree );
+print_r( $m_tree );
 
-
+/*
 $paths = array();
 //record_mtree_paths( $m_tree[ $著述碼 ][ $版文檔碼 ][ '注釋' ], '' );
 record_mtree_paths( $m_tree, '' );
@@ -36,8 +36,8 @@ record_mtree_paths( $m_tree, '' );
 $樹 = 挂樹飾( $默文檔碼, $著述碼 . ',' . $版文檔碼, $paths );
 //print_r( $樹 );
 生成HTML面貌( $樹 );
-print_r( $樹 );
-
+//print_r( $樹 );
+*/
 
 function record_mtree_paths( array $m_tree, string $parent )
 {

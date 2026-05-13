@@ -3,9 +3,9 @@
  * 
  */
 function 生成後設資料樹(
-	string $默文碼, 
+	string $默文碼, // 尋找詩文路徑用
 	string $著述碼,
-	string $版文檔碼 ) : array
+	string $版文檔碼 ) : void
 {
 	global $ctt_registry;
 
@@ -15,7 +15,7 @@ function 生成後設資料樹(
 	}
 	
 	// retrieve lookup maps
-	$簡稱 = 提取數據結構( 著述碼_簡稱 )[ $著述碼 ];
+	//$簡稱 = 提取數據結構( 著述碼_簡稱 )[ $著述碼 ];
 	$processing_order = 
 		提取數據結構(
 			METADATA_DIR . 'processing_order' )[ $著述碼 ];
@@ -23,15 +23,18 @@ function 生成後設資料樹(
 			METADATA_DIR . '部分_函式' )[ $著述碼 ];
 
 	// get the source folder
-	$著述碼_簡稱 = 提取數據結構( 著述碼_簡稱 );
+	
+	//$著述碼_簡稱 = 提取數據結構( 著述碼_簡稱 );
 	//$書目簡稱 = 提取數據結構( 書目簡稱 );
+	/*
 	$df_folder = dirname( __DIR__, 5 ) .
 		DIRECTORY_SEPARATOR .
 		杜甫版本文件夾 .
 		提取書目簡稱()[ $簡稱 ] . DIRECTORY_SEPARATOR .
 		METADATA_DIR . $版文檔碼 . DIRECTORY_SEPARATOR;
+	*/
 	
-	// get the target folder
+	// get the source/target folder
 	$ctt_dir = dirname( __DIR__, 5 ) . 
 		DIRECTORY_SEPARATOR .
 		'CanonicalTextTrees' . DIRECTORY_SEPARATOR;
@@ -45,7 +48,8 @@ function 生成後設資料樹(
 	
 	foreach( $processing_order as $部分 )
 	{
-		$file = $df_folder . $部分 . '.txt';
+		$file = $ctt_folder . 
+			$版文檔碼 . DIRECTORY_SEPARATOR . $部分 . '.txt';
 		
 		if( file_exists( $file ) )
 		{
@@ -76,13 +80,22 @@ function 生成後設資料樹(
 				$m_tree[ $著述碼 ][ $版文檔碼 ][ $部分 ]
 				[ $範圍 ][ $來源路徑 ] = $函式;
 			}
-			
 		}
 	}
 	//print_r( json_encode( $m_tree , JSON_UNESCAPED_UNICODE  ) );
 	
 	//echo $df_folder, NL;
 	//echo $ctt_folder, NL;
-	return $m_tree;
+	//return $m_tree;
+	
+	$json = json_encode(
+		$m_tree,
+		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+	);
+
+	file_put_contents(
+		$ctt_folder . 
+			$版文檔碼 . DIRECTORY_SEPARATOR . 'm_tree.json',
+		$json . PHP_EOL );
 }
 ?>
