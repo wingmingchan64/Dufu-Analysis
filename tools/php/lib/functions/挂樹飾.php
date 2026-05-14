@@ -8,7 +8,6 @@ function 挂樹飾(
 	string $默文碼,
 	string $著述版文碼,
 	array $m_paths ) : array
-	// ) : array
 {
 	global $ctt_registry;
 	
@@ -18,110 +17,58 @@ function 挂樹飾(
 	{
 		throw new IllegalWorkIDException( "「${著述碼}」不存在。" );
 	}
-	// retrieve lookup maps
-	/*
-	$簡稱 = 提取數據結構( 著述碼_簡稱 )[ $著述碼 ];
-	$data_dir = 提取書目簡稱()[ $簡稱 ] . DIRECTORY_SEPARATOR;
-	$processing_order = 
-		提取數據結構(
-			METADATA_DIR . 'processing_order' )[ $著述碼 ];
-	$部分_函式 = 提取數據結構(
-			METADATA_DIR . '部分_函式' )[ $著述碼 ];
-	*/
 	// 正文樹
 	$樹 = 提取基準正文樹( $默文碼 );
 	添加標點符號( $樹 );
 	添加錨( $樹 );
-	// CTT: text source
-	$ctt = retrieve_ctt( $著述版文碼 );
-	/*
-	// parts
-	$metadata_dir =
-		dirname( __DIR__, 5 ) . DIRECTORY_SEPARATOR .
-		杜甫版本文件夾 . $data_dir . METADATA_DIR;
-	//echo $metadata_dir, NL;
 	
-	$metadata_markers = array();
-	
-	foreach( $processing_order as $部分 )
-	{
-		$部分_dir = $metadata_dir . $部分 . 	
-			DIRECTORY_SEPARATOR;
-			
-		if( is_dir( $部分_dir ) &&
-			file_exists( $部分_dir . $版文碼 . '.txt' ) )
-		{
-			$metadata_markers[ $部分 ] =
-				explode( NL, file_get_contents( 
-					$部分_dir . $版文碼 . '.txt' ) );
-		}
-	}
-	*/
 	foreach( $m_paths as $path )
 	{
 		[ $dummy1, $dummy2, $部分, $範圍, $來源, $函式 ] =
 			explode( '_', $path );
 		$replace = ( $函式 == 'replace' );
-	
-	
-	//print_r( $metadata_markers );
-	//foreach( $metadata_markers as $部分 => $mms )
-	//{
-		//foreach( $mms as $mm )
-		//{
-			//if( $mm != '' )
-			//{
-				//$rel = json_decode( $mm, true );
-				//$函式 = $部分_函式[ $部分 ];
-				
-				/*
-				if( array_key_exists( "op", $rel ) )
-				{
-					$函式 = $rel[ "op" ];
-				}
-				
-				if( $函式 == 'replace' )
-				{
-					$replace = true;
-				}
-				*/
-				//$範圍 = $rel[ "scope" ];
-				
-				/*
-				if( 不是路徑( $範圍 ) && $範圍 != 'a' )
-				{
-					$範圍 = 提取詩文唯一路徑( $默文碼, $範圍 );
-				}
-				*/
-				
-				$路徑 = explode( ',', $範圍 );
-				
-				// replace scope x-y with a
-				if( strpos( 
-					$路徑[ count( $路徑 ) - 1 ],
-					'-' ) !== false )
-				{
-					$路徑[ count( $路徑 ) - 1 ] = 'a';
-				}
-				
-				$text = 提取ctt正文( $來源 );
-					
-				if( !$replace )
-				{
-					$text =
-						"〈${部分}*${範圍}*${text}〉";
-				}
+		$路徑 = explode( ',', $範圍 );
+		
+		// replace scope x-y with a
+		if( strpos( 
+			$路徑[ count( $路徑 ) - 1 ],
+			'-' ) !== false )
+		{
+			$路徑[ count( $路徑 ) - 1 ] = 'a';
+		}
+		
+		$text = 提取ctt正文( $來源 );
+			
+		if( !$replace )
+		{
+			$text =
+				"〈${部分}*${範圍}*${text}〉";
+		}
+		// newly added
+		else
+		{
+			//$text =
+				//"〈替換*${範圍}*${text}〉";
+		}
 
-				if( $函式 == 'insert' )
-				{
-					插入路徑字( $樹, $路徑, $text );
-				}
-				elseif( $函式 == 'replace' )
-				{
-					替換路徑字( $樹, $路徑, $text );
-				}
-			}
+		if( $函式 == 'insert' )
+		{
+			插入路徑字( $樹, $路徑, $text );
+		}
+		elseif( $函式 == 'replace' )
+		{
+			替換路徑字( $樹, $路徑, $text );
+		}
+	}
 		
 	return $樹;
+}
+
+function attach_tree_ornaments(
+	string $默文碼,
+	string $著述版文碼,
+	array $m_paths ) : array
+{
+	return 挂樹飾( $默文碼, $著述版文碼, $m_paths );
 }
 ?>

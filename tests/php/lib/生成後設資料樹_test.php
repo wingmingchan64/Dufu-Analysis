@@ -33,13 +33,13 @@ $paths = array();
 record_mtree_paths( $m_tree );
 //record_mtree_paths( $m_tree[ $著述碼 ][ $版文檔碼 ][ '注釋' ] );
 
-print_r( $paths );
-/*
+//print_r( $paths );
+
 $樹 = 挂樹飾( $默文檔碼, $著述碼 . ',' . $版文檔碼, $paths );
 //print_r( $樹 );
 生成HTML面貌( $樹 );
-//print_r( $樹 );
-*/
+print_r( $樹 );
+
 
 
 /*

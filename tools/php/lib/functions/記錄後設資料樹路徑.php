@@ -29,7 +29,7 @@ function record_mtree_paths(
 }
 
 function 記錄後設資料樹路徑( 
-	array $m_tree, string $parent='' ) : array
+	array $m_tree, string $parent='' ) : void
 {
 	record_mtree_paths( $m_tree, $parent );
 }

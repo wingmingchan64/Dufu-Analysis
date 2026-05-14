@@ -52,8 +52,6 @@ function 生成HTML面貌( array &$樹 ) : void
 							$end_tag = '</span>';$node_text .= $start_tag . $text . $end_tag;
 						}
 					}
-					
-					//$樹[ $k ] = $樹[ $k ] . $text;
 				}
 				$樹[ $k ] = $first . $node_text;
 			}
