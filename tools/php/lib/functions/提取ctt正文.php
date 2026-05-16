@@ -1,13 +1,15 @@
 <?php
+use CTT\Exceptions\IllegalCoordinateException;
+
 function retrieve_text_from_ctt(
 	string $path, bool $add_punctuation = false ) : string
 {
 	$parts = explode( ',', $path );
 	$work_id = $parts[ 0 ];
 	
-	if( !is_legal_path( $parts[ 0 ], $path ) )
+	if( !is_edition_legal_path( $parts[ 0 ], $path ) )
 	{
-		throw new CTT\Exceptions\IllegalCoordinateException( $path . " not a legal path." );
+		throw new IllegalCoordinateException( $path . " not a legal path." );
 	}
 	global $ctt_registry;
 	

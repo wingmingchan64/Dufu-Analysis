@@ -20,7 +20,7 @@ function 生成後設資料樹(
 		提取數據結構(
 			METADATA_DIR . 'processing_order' )[ $著述碼 ];
 	$部分_函式 = 提取數據結構(
-			METADATA_DIR . '部分_函式' )[ $著述碼 ];
+		METADATA_DIR . '部分_函式' )[ $著述碼 ];
 
 	// get the source folder
 	
@@ -38,10 +38,11 @@ function 生成後設資料樹(
 	$ctt_dir = dirname( __DIR__, 5 ) . 
 		DIRECTORY_SEPARATOR .
 		'CanonicalTextTrees' . DIRECTORY_SEPARATOR;
-	$ctt_folder = 提取ctt文件夾( $著述碼 ) . 
+	$ctt_folder = $ctt_dir . 提取ctt文件夾( $著述碼 ) . 
 		DIRECTORY_SEPARATOR . 
 		METADATA_DIR;
-	$ctt_folder = $ctt_dir . $ctt_folder;
+	$ctt_trees_folder = $ctt_folder . TREES_DIR;
+	//$ctt_folder = $ctt_folder . $版文檔碼 . DIRECTORY_SEPARATOR;
 	
 	$m_tree = array();
 	$m_tree[ $著述碼 ] = array( $版文檔碼 => array() );
@@ -50,7 +51,7 @@ function 生成後設資料樹(
 	{
 		$file = $ctt_folder . 
 			$版文檔碼 . DIRECTORY_SEPARATOR . $部分 . '.txt';
-		
+
 		if( file_exists( $file ) )
 		{
 			$m_tree[ $著述碼 ][ $版文檔碼 ][ $部分 ] = array();
@@ -59,11 +60,25 @@ function 生成後設資料樹(
 			
 			foreach( $markers as $marker )
 			{
+				$marker = trim( $marker );
+				
+				if( $marker == '' )
+				{
+					continue;
+				}
+				
 				$map = json_decode( $marker, true );
+				//echo $marker, NL;
+				//echo "Before scope", NL;
+				//print_r( $map );
 				$範圍 = $map[ 'scope' ];
 				
-				if( 不是路徑( $範圍 ) && $範圍 != 'a' )
+				if( 不是路徑( $範圍 ) && 
+					$範圍 != 樹錨名 &&
+					intval( $範圍 ) === false )
 				{
+					//echo "should be here", NL;
+					//echo $範圍, NL;
 					$範圍 = 提取詩文唯一路徑( $默文碼, $範圍 );
 				}
 				
@@ -94,8 +109,8 @@ function 生成後設資料樹(
 	);
 
 	file_put_contents(
-		$ctt_folder . 
-			$版文檔碼 . DIRECTORY_SEPARATOR . 'm_tree.json',
+		$ctt_trees_folder . 
+			$版文檔碼 . '.json',
 		$json . PHP_EOL );
 }
 ?>

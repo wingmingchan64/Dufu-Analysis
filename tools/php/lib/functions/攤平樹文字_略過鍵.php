@@ -12,10 +12,11 @@ function flatten_tree_to_text_skip_keys(
 {
 	if( is_string( $node ) )
 	{
+		//echo $node, NL;
 		return $node;
 	}
 
-	if(!is_array($node))
+	if( !is_array( $node ) )
 	{
 		throw new InvalidArgumentException(
 			'Tree node must be either string or array.'
@@ -31,15 +32,18 @@ function flatten_tree_to_text_skip_keys(
 			continue;
 		}
 
-		$text .= flatten_tree_to_text_skip_keys($child, $skip_keys);
+		$text .= flatten_tree_to_text_skip_keys($child, $skip_keys );
 	}
 
+	//echo $text, NL;
 	return $text;
 }
 
 function 攤平樹文字_略過鍵(
 	mixed $node, array $skip_keys = [] ): string
 {
-	return flatten_tree_to_text_skip_keys( $node, $skip_keys );
+	$text = flatten_tree_to_text_skip_keys( $node, $skip_keys );
+	//echo $text, NL;
+	return $text;
 }
 ?>

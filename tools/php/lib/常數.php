@@ -89,6 +89,7 @@ const 杜甫詩陣列 = BASE_TEXT_DIR . '杜甫詩陣列';
 const 組詩樹    = BASE_TEXT_DIR . '組詩樹';
 // coords 坐標
 // $一字組合_坐標 = 提取數據結構( 一字組合_坐標 );
+const 路徑_句      = COORDS_DIR . '路徑_句';
 const 一字組合_坐標 = COORDS_DIR . '一字組合_坐標';
 const 二字組合_坐標 = COORDS_DIR . '二字組合_坐標';
 const 三字組合_坐標 = COORDS_DIR . '三字組合_坐標';
@@ -153,6 +154,8 @@ const 著述碼_簡稱 = REGISTRY_DIR . '著述碼_簡稱';
 const 異體字 = REGISTRY_DIR . '異體字';
 // sets
 const 詩文組合 = SETS_DIR . '詩文組合';
+// metadata trees
+const TREES_DIR = 'trees' . DS;
 
 
 // 版本簡稱：用於生成 默詩碼_版本詩碼
@@ -165,16 +168,21 @@ const FOLDER        = 'folder';
 const TITLE         = 'title';
 const DISPLAY_TITLE = 'display_title';
 
+// 基準正文樹
+const 默文檔碼 = '默文檔碼';
 const 默詩碼_版本詩碼對照表 = '默詩碼_版本詩碼對照表';
 const 空語鏈 = '';
 
 // metadata
 const 著述ID = 'work_id'; // 來源著述ID，簡稱，如 郭
+const 著述碼 = 'work_id'; // 來源著述ID，簡稱，如 郭
 const 版本ID = 'edition_id'; // 〚郭⸨聶⸩〛
 const 單元ID = 'unit_id';   // 郭0001
 const 單元碼 = 'unit_no'; // 0001
 const 文檔ID = 'doc_id'; // 文檔容器ID，如 0001.json
 const 來源ID = 'source_id'; // 郭0001:P0001L04:6185f5e1c434
+// 後設資料部分
+const 樹錨名 = 'a';
 // sa => 來源錨
 const 來源錨 = 'source_anchor'; // 來源 P0001L04
 // ta => 默認去向錨
@@ -219,6 +227,13 @@ const 杜甫全集       = 'h:\github\DuFu\杜甫全集.txt';
 
 define( 'NL', PHP_EOL ); // System-independent newline
 const 等號 = '=';
+// used in paths
+const 逗號 = ','; // ascii!!!
+const 星號 = '*';
+const US = '_'; // underscore
+const 下劃綫 = '_';
+const 分號 = '-';
+
 const 坐標開括號 = '〚';
 const 杜甫全集粵音注音 = 'h:\github\DuFu\杜甫全集粵音注音.txt';
 const 目錄          = 'h:\github\DuFu\目錄.txt';
@@ -348,7 +363,6 @@ const 版本頁碼 = '版本頁碼';
 const 【按語】 = '【按語】';
 const 按語 = '按語';
 
-// 後設資料部分
 // 〘異:絶〙
 // 〘注:夫如何;位:〚3.2〛;序:2 〙
 

@@ -21,8 +21,8 @@ function 提取後設資料樹(
 		DIRECTORY_SEPARATOR . 
 		METADATA_DIR;
 	$ctt_folder = $ctt_dir . $ctt_folder;
-	$m_tree_file = $ctt_folder . $版文檔碼 .
-		DIRECTORY_SEPARATOR . 'm_tree.json';
+	$m_tree_file = $ctt_folder . TREES_DIR .
+	$版文檔碼 . '.json';
 	$m_tree = json_decode( 
 		file_get_contents( $m_tree_file ), true );
 	

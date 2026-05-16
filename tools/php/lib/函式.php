@@ -7,6 +7,11 @@ declare( strict_types = 1 );
 require_once( __DIR__ . DIRECTORY_SEPARATOR . '常數.php' );
 // load exceptions
 require_once( __DIR__ . DS . 'autoload.php' );
+require_once( dirname( __DIR__, 4 ) . DS .
+	基準正文樹文件夾 . 'tools' . DS . 
+	'php' . DS .
+	'lib' . DS .
+	'autoload.php' );
 // JSON loader
 use Dufu\Tools\JsonDataLoader;
 // CTT registry
@@ -30,28 +35,6 @@ define( 'PACKAGES_JSON_DIR', dirname( __DIR__, 3 ) . DS .
 	PACKAGES_DIR );
 define( 'TESTS_BASE_DIR', dirname( __DIR__, 3 ) . DS .
 	TESTS_PHP_DIR );
-
-// load exceptions before loading functions
-$excep_dir = __DIR__ . DS . EXCEPTIONS_DIR;
-if( !is_dir( $excep_dir ) )
-{
-    throw new RuntimeException( 'exceptions 目錄不存在: ' . $excep_dir );
-}
-$files = scandir( $excep_dir );
-sort( $files, SORT_STRING );
-
-foreach( $files as $file )
-{
-	$path = $excep_dir . $file;
-
-	if(
-		is_file( $path )
-		&& preg_match( '/\.class\.php$/i', $file )
-	)
-	{
-		require_once( $path );
-	}
-}
 
 // load functions
 $func_dir = __DIR__ . DS . FUNCTIONS_DIR;
