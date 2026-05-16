@@ -17,7 +17,7 @@ function add_anchors(
 		$temp = $tree;
 		$tree = [];
 		$tree[ $文檔碼 ] = $temp[ $文檔碼 ];
-		$tree[ 'a' ] = '';
+		$tree[ 樹錨名 ] = '';
 		$path = [];
 		$temp_pointer = &$tree[ $文檔碼 ];
 		$是組詩 = 是組詩( $文檔碼 );
@@ -103,7 +103,7 @@ function add_anchors(
 		$詩題 = $tree[ $文檔碼 ][ 詩題 ];
 		$tree[ $文檔碼 ][ 詩題 ] = array( 
 			'題' => $詩題, 
-			'a' => ''
+			樹錨名 => ''
 		);
 
 	}
@@ -121,6 +121,6 @@ function 添加錨(
 }
 function 添加子錨( array &$tree, array $path, int $pos ) : void
 {
-	add_node( $tree, $path, $pos, array( 'a' => '' ) );
+	add_node( $tree, $path, $pos, array( 樹錨名 => '' ) );
 }
 ?>

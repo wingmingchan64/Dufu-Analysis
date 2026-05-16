@@ -8,7 +8,7 @@ function 添加末端錨( array &$tree ) : void
 	{
 		if( is_string( $v ) && $v != '')
 		{
-			$tree[ $k ] = array( $k => $v, 'a' => '' );
+			$tree[ $k ] = array( $k => $v, 樹錨名 => '' );
 		}
 		else
 		{
