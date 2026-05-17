@@ -25,8 +25,15 @@ require( 'ids\生成默認詩文檔碼_默認詩碼.php' );
 
 /*
  * 生成：詩題_默認詩文檔碼.json, 默認詩文檔碼_詩題.json
+ *     默認詩文檔碼_題注.json, 默認詩文檔碼_序言.json
  */
 require( 'mapping\生成默認詩文檔碼_詩題.php' );
+
+
+
+require( 'mapping\生成組詩_副題.php' );
+
+
 
 
 // after 默認版本詩碼
@@ -55,14 +62,14 @@ require( 'coords\生成默認詩碼_句坐標.php' );
 //require( 'coords\' );
 //require( 'coords\' );
 //require( 'coords\' );
-
-
-require( 'mapping\生成組詩_副題.php' );
-require( 'mapping\生成默認詩文檔碼_序言.php' );
-require( 'mapping\生成默認詩文檔碼_行碼_內容.php' );
 // after 行碼_詩文
+require( 'coords\生成默認詩文檔碼_行碼_內容.php' );
+require( 'mapping\生成默認詩文檔碼_序言.php' );
+
 require( 'mapping\生成默認詩文檔碼_詩文.php' );
 require( 'mapping\生成默認詩文檔碼_詩文黑名單.php' );
+
+
 
 
 

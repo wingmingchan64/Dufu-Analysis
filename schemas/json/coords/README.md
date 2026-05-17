@@ -11,5 +11,5 @@ Status: Draft
 </pre>
 
 - 生成：
-  - 完整坐標表（1133 files）：
+  - 完整坐標表（1133 files）
   - 

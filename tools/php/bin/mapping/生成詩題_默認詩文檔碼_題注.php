@@ -16,13 +16,15 @@ $詩_BASE =
 	"默認版本" . DIRECTORY_SEPARATOR .
 	"詩" . DIRECTORY_SEPARATOR;
 
-
+$默認詩文檔碼 = 提取數據結構( 默認詩文檔碼 );
+$默認詩文檔碼_詩題 = 提取數據結構( 默認詩文檔碼_詩題 );
 
 foreach( $默認詩文檔碼_詩題 as $文檔 => $詩題 )
 {
 	$默認詩文檔碼_詩題[ $文檔 ] = 
 		normalize( $詩題, true, true, true );
 }
+
 $詩題_默認詩文檔碼 = array_flip( $默認詩文檔碼_詩題 );
 //print_r( $詩題_默認詩文檔碼 );
 $默認詩文檔碼_題注 = array();
@@ -64,7 +66,8 @@ $json = json_encode(
 );
 
 file_put_contents(
-	$JSON_BASE . DIRECTORY_SEPARATOR .
+	dirname( __DIR__, 4 ) . DIRECTORY_SEPARATOR .
+	SCHEMAS_JSON_MAPPING_DIR .
 	"默認詩文檔碼_詩題.json",
 	$json . PHP_EOL );
 	
@@ -74,7 +77,8 @@ $json = json_encode(
 );
 
 file_put_contents(
-	$JSON_BASE . DIRECTORY_SEPARATOR .
+	dirname( __DIR__, 4 ) . DIRECTORY_SEPARATOR .
+	SCHEMAS_JSON_MAPPING_DIR .
 	"詩題_默認詩文檔碼.json",
 	$json . PHP_EOL );
 
@@ -84,7 +88,8 @@ $json = json_encode(
 );
 
 file_put_contents(
-	$JSON_BASE . DIRECTORY_SEPARATOR .
+	dirname( __DIR__, 4 ) . DIRECTORY_SEPARATOR .
+	SCHEMAS_JSON_MAPPING_DIR .
 	"默認詩文檔碼_題注.json",
 	$json . PHP_EOL );
 

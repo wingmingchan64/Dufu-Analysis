@@ -124,6 +124,7 @@ const 句_路徑 = COORDS_DIR . '句_路徑';
 const 默認詩碼_句坐標 = COORDS_DIR . '默認詩碼_句坐標';
 const 句碼_詩句 = COORDS_DIR . '句碼_詩句';
 const 行碼_詩文 = COORDS_DIR . '行碼_詩文';
+const 默認詩文檔碼_行碼_內容 = COORDS_DIR . '默認詩文檔碼_行碼_內容';
 const 行碼_副題 = COORDS_DIR . '行碼_副題';
 const 字碼_詩字 = COORDS_DIR . '字碼_詩字';
 const 非完整坐標表 = COORDS_DIR . '非完整坐標表';
@@ -140,7 +141,6 @@ const 組詩_副題       = MAPPING_DIR . '組詩_副題';
 const 默認詩文檔碼_詩文 = MAPPING_DIR . '默認詩文檔碼_詩文';
 const 默認詩文檔碼_序言 = MAPPING_DIR . '默認詩文檔碼_序言';
 const 默認詩文檔碼_題注 = MAPPING_DIR . '默認詩文檔碼_題注';
-const 默認詩文檔碼_行碼_內容 = MAPPING_DIR . '默認詩文檔碼_行碼_內容';
 const 默認詩文檔碼_詩文重見名單 = 
 	MAPPING_DIR . '默認詩文檔碼_詩文重見名單';
 const 默認詩碼_首句 = MAPPING_DIR . '默認詩碼_首句';
