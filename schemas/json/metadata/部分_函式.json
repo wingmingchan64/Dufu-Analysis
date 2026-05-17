@@ -9,5 +9,12 @@
 		"注釋" : "insert",
 		"眉批" : "insert",
 		"評論" : "insert"
+	},
+	"QIANZHU":{
+		"題注" : "replace",
+		"原注" : "insert",
+		"題解" : "insert",
+		"異文" : "replace",
+		"注釋" : "insert"
 	}
 }

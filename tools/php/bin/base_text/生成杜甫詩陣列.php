@@ -6,6 +6,7 @@ require_once(
 	dirname( __DIR__, 2 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR .
 	'函式.php' );
+
 require_once( dirname( __DIR__, 2 ) . DS . BIN_DIR .
 	'載入身份數據結構.php' );
 require_once( dirname( __DIR__, 2 ) . DS . BIN_DIR .

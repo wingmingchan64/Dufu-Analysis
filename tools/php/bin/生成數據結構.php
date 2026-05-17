@@ -7,7 +7,7 @@ require_once(
 	dirname( __DIR__, 1 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR .
 	'函式.php' );
-
+	
 /*
  * 生成：默認詩文檔碼.json
  */
@@ -78,4 +78,12 @@ require( 'catalog\生成版本目錄對照表.php' );
 // 1457 files in base_text
 require( 'base_text\生成杜甫詩陣列.php' );
 */
+
+/*
+ * 生成：杜甫詩陣列.json
+ *     組詩樹.json
+ */
+require( 'base_text\生成杜甫詩陣列.php' );
+require( 'base_text\生成組詩樹.php' );
+
 ?>

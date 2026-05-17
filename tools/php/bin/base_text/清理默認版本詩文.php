@@ -11,6 +11,7 @@ $poem_dir = dirname( __DIR__, 5 ) . DIRECTORY_SEPARATOR .
 	'DuFu' . DIRECTORY_SEPARATOR .
 	'默認版本' . DIRECTORY_SEPARATOR .
 	'詩' . DIRECTORY_SEPARATOR;
+
 if( !is_dir( $poem_dir ) )
 {
     throw new RuntimeException( 'exceptions 詩文件夾: ' . $poem_dir );

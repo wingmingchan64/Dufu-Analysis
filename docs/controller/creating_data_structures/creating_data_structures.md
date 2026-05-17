@@ -63,3 +63,14 @@
 	...
 }
 </pre>
+
+
+
+
+
+
+## base_text\生成杜甫詩陣列.php
+
+- Dependency: ids\默認詩文檔碼.json, 
+				mapping\生成默認詩文檔碼_詩題.php,
+				
