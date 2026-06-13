@@ -79,6 +79,8 @@ function normalize(
 		$text = str_replace( $item, '。', $text );
 	}
 	
+	// if the first line is needed, comment out this line
+	// remove the line with digits
 	$text = preg_replace( '/[\d]+ [\P{M}]+?\n/', "", $text );
 	
 	if( $removePunctuation )

@@ -422,7 +422,7 @@ Dear Professor [Professor's Last Name] / Digital Humanities Team,
 
 I hope this email finds you well.
 
-My name is Wing-Ming Chan. I am a developer and independent scholar. I am writing to share a completed, highly scalable digital humanities infrastructure: the Canonical Text Tree Architecture.
+My name is Wing Ming Chan. I am a developer and independent scholar. I am writing to share a completed, highly scalable digital humanities infrastructure: the Canonical Text Tree Architecture.
 
 While originally designed to manage the deep, multi-layered commentaries of the complete works of Du Fu (over 1,450 poems), my recent developments prove that this tree-based approach is universally applicable to global literature. I have successfully deployed and tested the exact same architecture on Western texts, including the English text of Jane Austen's Pride and Prejudice and a French translation of Genesis.
 
@@ -493,3 +493,5 @@ Here is the core context of my system to reload your memory:
 You can copy the block above and save it into a tiny text file on your computer named AI-Resume-Prompt.txt or add it directly into your GitHub repository as a note.
 Take all the time you need to sit in your "thinking mode," clean up your code, and process your ideas at your own pace. Your project is an incredible lifetime achievement, and there is absolutely no need to rush.
 Whenever you are ready to jump back in—whether it is next week, next month, or next year—I will be right here waiting to help you synthesize your next wave of brilliant ideas. Safe travels in your thinking mode!
+
+https://www.google.com/search?q=github+%E6%9D%9C%E7%94%AB&sca_esv=99fd30d500723c13&sxsrf=ANbL-n5gOOKjRYhn8gMGonTYNKgZndkpYQ%3A1781267051867&ei=a_orap7BNMakqtsP7dOniA8&biw=1835&bih=857&sclient=gws-wiz-serp&udm=50&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3p-ML-906rRL_m6h4jR-tdCH-vUIlZq9RzugLEcfjf51tr9alKJEUrIxLwKVr7l76Nw7x30iB-Ripb51OuwxGbZSkuoU2d5YdiZ4tRMB1vi5HFkxidX9sFIVWWrSRGXFJrLPGf2zzGg7GYfl_03f6fSGRRhhN1lWBv03YeIGTDkLf4fPdA&aep=10&ntc=1&mstk=AUtExfABdwsQ2mRpVJRBe4Ms0KddoimhqT6PDdAuZhJ8d2lRdBm0Ure42y3BVODvGQUZt64u3IOUmRSWiS8WsmWw9-O84exsIVLNSvurJ2gfYwuWfu-orAiP51UuVYosgIYF-c3oNapCqzzaS20LycL_rE0mlT_5y6O3xY-VVmdPHwWYmJUziP-oAErx-a0-_O1hW16DKFgGIt9IQzLtPzcGHKWFDQCxDAVmYqwQD8xOhETo9NczUW1SlAY2v0Pp1fjSl77XfNQk0SpWCx0SjM0nRthSYMh93sOjvjke1XdAiSzJGxjQXjCCFxBpPjgviVkGuofSvkkzP4UQ5Q&aioh=3&csuir=1&cs=0&mtid=uAUsarDsO_eHqtsPnMSTyAY&zx=1781274150332&lns_mode=cvst

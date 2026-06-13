@@ -1,114 +1,134 @@
 # Dufu-Analysis (By ChatGPT)
 
-Dufu-Analysis is the analysis/build repository of my long-term Du Fu project.
+Dufu-Analysis is the analysis and build repository of a long-term project centered on Du Fu (杜甫), his poems, the vast body of traditional commentaries (杜著述), and the classical texts quoted within those commentaries.
 
-This repo focuses on **structured data**, **metadata**, **indexes**, and **build tools** derived from source materials (stored elsewhere, mainly in the `DuFu` repo). Instead of generating a huge amount of fixed annotated texts up front, the project emphasizes:
+The project is not a digital edition of a single book. Instead, it is a tree-based textual system designed to organize, relate, and present a large body of interconnected textual materials.
 
-- organic **decomposition** of source materials into computable units
-- incremental **tagging** (metadata) and classification
-- reproducible **build pipelines**
-- on-demand **recomposition** into different “views” (appearances)
+The core principle is simple:
 
-In short: **a text-as-tree system + attachable metadata + multiple generated views**.
+>A single tree. Unlimited possibilities.
 
----
-
-## Core ideas
-
-### 1) Text as an ordered tree
-A poem is modeled as a finite-depth ordered tree:
-
-- root: poem
-- level 1: line (聯 / 行)
-- level 2: segment (句) — a structural segment within a line (not “sentence”)
-- level 3: character
-
-A coordinate (anchor) is a **path** from root to a node, e.g.:
-
-- `〚0456:3.2.1〛` = poem 0456 → line 3 → segment 2 → char 1
-- range anchors exist (continuous ranges only), e.g. `〚0003:3-5〛`
-
-### 2) Metadata as attachable “decorations”
-Annotations (variants, notes, comments, citations, etc.) are modeled as objects attached to anchor points.
-
-A metadata record:
-- must embed its anchor(s)
-- must be semantically related to the anchor
-- is not meant to replace the base text, but to highlight properties of the text
-
-### 3) Views as “appearances”
-Different traversal / rendering strategies produce different views, for example:
-- inline long notes (classical editions look)
-- inline short glosses (interlinear notes)
-- numbered notes collected after the poem
-- one-line-base-text + many notes inserted between lines (optimized for comparison across editions)
-
-Views are generated artifacts: they can be rebuilt at any time.
+A single data tree can store the canonical text of a Du Fu poem together with all related information from multiple commentaries, annotations, textual variants, and source texts. Different views can then be generated from the same underlying structure.
 
 ---
 
-## Identity (IDs)
+## Project Goals
 
-This project is identity-driven.
+The project aims to:
 
-Common IDs:
+- establish a canonical (reference) version of Du Fu's poems
+- represent texts as structured trees
+- relate poems, commentaries, and source texts through metadata
+- support multiple editions simultaneously
+- generate different views from the same underlying data
+- provide reusable infrastructure for textual analysis
 
-- `edition_prefix` : edition abbreviation, e.g. `全`, `蕭`, `郭`
-- `document_id`    : document container id within an edition, e.g. `0098`
-- `poem_id`        : single-poem id (may be a group member), e.g. `0098-1`
-- `doc_id`         : global document id, e.g. `全0098` (document)
-- `canonical_poem_id` : poem id in the canonical/base-text layer
-- `a`, `b_a`: anchors on the poem tree
-- `sid` : source id of an edition in the metadata layer, e.g. `郭0001:P0001L03:33b2683d2d47`
-- `anchor` : page and line numbers of the source, e.g. `P0001L03`
-
-**IDs identify objects (containers/poems/records). Anchors identify positions on the poem tree or in the edition.**
+The emphasis is on structure, relationships, and reproducibility rather than producing fixed annotated texts.
 
 ---
 
-## Repository roles
+## Core Concepts
 
-### Relationship to `DuFu`
-- `DuFu` stores source materials (including my own input and cleaned texts).
-- `Dufu-Analysis` stores:
-  - build code (PHP/Python tools)
-  - derived JSON structures (schemas/base_text, mappings, registries)
-  - indexes
-  - experimental view generators
-  - tests
+### Text Trees
 
-Almost all JSON files in this repo are **generated** from source text + build scripts.
+Texts are stored as trees.
+
+Several different kinds of trees are used:
+
+- Canonical Text Trees (base Du Fu texts)
+- Commentary Text Trees (杜著述)
+- Source Text Trees (quoted classical texts)
+- Metadata Instruction Trees
+- Data Trees
+
+Different types of texts may use different granularities.
+
+For example:
+
+- Du Fu poems are usually stored at character level.
+- Source texts are usually stored at sentence level.
+- Commentaries are usually stored at line or paragraph level.
+
+### Metadata
+
+Metadata does not directly modify texts.
+
+Instead, metadata records relationships between trees.
+
+Examples include:
+
+- annotations
+- comments
+- textual variants
+- quotations
+- source references
+
+Metadata is organized as a Metadata Instruction Tree.
+
+Each metadata instruction relates:
+
+- a location in the canonical text tree
+- a location in a commentary tree or source text tree
+
+### Data Trees
+
+A Data Tree is generated by combining:
+
+- Canonical Text Tree
+- Commentary Text Trees
+- Source Text Trees
+
+through metadata instructions.
+
+A single Data Tree may contain all information related to a single poem.
+
+### Viewports
+
+A tree may be viewed from different levels.
+
+Starting from the root reveals the entire structure.
+
+Following a path reveals progressively smaller subtrees and more detailed information.
+
+This project treats textual exploration as movement through a tree structure.
+
+>A viewport. Zoom in. Zoom out.
 
 ---
 
-## Data outputs (high-level)
+## Repository Contents
 
-Typical generated outputs include:
-- base_text shards (canonical layer)
-- edition catalogs and mapping tables
-- metadata by document id
-- inverted indexes by category/tags/keywords
-- generated views (txt/json/md), when enabled
+This repository contains:
 
----
+- build scripts
+- testing tools
+- metadata processing tools
+- generated tree structures
+- indexes and mappings
+- documentation
+- view-generation experiments
 
-## Build and tests
-
-This repo uses automated build scripts to regenerate JSON artifacts and automated tests to ensure invariants (IDs, anchors, mappings, etc.) remain consistent.
-
-(Implementation details and commands are documented under `tools/` and `tests/`.)
+Source texts are maintained separately.
 
 ---
 
-## Status
+## Current Status
 
-The system is actively evolving. Metadata can be added incrementally:
+The architectural design is largely complete.
 
-start with a few categories (e.g. variants and notes), then expand without breaking existing data.
+The project continues to evolve through:
+
+- additional commentaries
+- metadata expansion
+- source-text integration
+- experimental views
+- documentation improvements
+
+The primary goal is no longer the production of fixed outputs, but the development of a flexible textual system capable of generating many different outputs from the same underlying data.
 
 ---
 
-## Highlights of the Repo （我加的部分）
+## Highlights of the Repos （我加的部分）
 
 - <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/docs">Documentation</a>
 - <a href="https://github.com/wingmingchan64/Dufu-Analysis/tree/main/schemas/json/base_text">基準正文樹</a>
