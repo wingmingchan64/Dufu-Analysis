@@ -1,5 +1,5 @@
 <?php
-/*
+/**
 杜甫資料庫編程部分所應用的 PHP 常數
 */
 // 杜甫詩文文件夾：默認版本基準正文、後設資料
@@ -10,21 +10,22 @@ const 杜甫分析文件夾 = 'Dufu-Analysis' . DIRECTORY_SEPARATOR;
 const 基準正文樹文件夾 = 
 	'CanonicalTextTrees' . DIRECTORY_SEPARATOR;
 // 後設資料
-const 杜甫版本文件夾 = 杜甫文件夾 . 'packages' . DIRECTORY_SEPARATOR;
+//const 杜甫版本文件夾 = 杜甫文件夾 . 'packages' . DIRECTORY_SEPARATOR;
 // 基準正文
 const 杜甫默認版本詩文件夾 = 杜甫文件夾 . 
-	'默認版本' . DIRECTORY_SEPARATOR . 
-	'詩' . DIRECTORY_SEPARATOR;
-
-
+	'默認版本' . DIRECTORY_SEPARATOR . '詩' . DIRECTORY_SEPARATOR;
 
 // 系統文件夾
 // the / is replaced by DIRECTORY_SEPARATOR in JsonDataLoader
 const DS = '/';
-// packages
+// packages in DuFu for 後設資料
 const PACKAGES_DIR = 'packages' . DS;
 const PACKAGES_DIR_全 = 'packages' . DS . 
 	'《全唐詩》' . DS;
+const PACKAGES_DIR_典 = 'packages' . DS . 
+	'《引典出處》' . DS;
+const PACKAGES_DIR_趙 = 'packages' . DS . 
+	'林繼中輯校《杜詩趙次公先後解輯校》' . DS;
 const PACKAGES_DIR_訳 = 'packages' . DS . 
 	'下定雅弘、松原_朗《杜甫全詩訳注》' . DS;
 const PACKAGES_DIR_仇 = 'packages' . DS . 
@@ -33,12 +34,10 @@ const PACKAGES_DIR_郭 = 'packages' . DS .
 	'郭知達《新刊校定集注杜詩》' . DS;
 const PACKAGES_DIR_蕭 = 'packages' . DS . 
 	'蕭滌非主編《杜甫全集校注》' . DS;
-const PACKAGES_DIR_趙 = 'packages' . DS . 
-	'林繼中輯校《杜詩趙次公先後解輯校》' . DS;
 const PACKAGES_DIR_奭 = 'packages' . DS . 
 	'王嗣奭《杜臆》' . DS;
 	
-// schemas
+// schemas in 
 const SCHEMAS_DIR = 'schemas' . DS;
 const SCHEMAS_JSON_DIR = SCHEMAS_DIR . 'json' . DS;
 // 基文
@@ -388,28 +387,6 @@ const 默認版本選項指令 = array(
 	'默詩碼→詩首句'         => "請輸入默詩碼：\n",
 	'默文檔碼→重現名單'      => "請輸入默文檔碼：\n",
 	
-	//'詩題注音→默文檔碼' => "請輸入\"si1 tai4 zyu3 jam1\":\n",
-	//'詩文注音→默文檔碼' => "請輸入\"si1 man4 zyu3 jam1\":\n",
-
-/*
-	//'頁碼→詩文'        => "請輸入頁碼:\n",
-	//'頁碼→注音'        => "請輸入頁碼:\n", // 粵音注音
-	//'頁碼→譯文'        => "請輸入頁碼:\n", // 韓成武、張志民《杜甫詩全譯》
-	//'頁碼→〚行碼〛、詩文' => "請輸入頁碼:\n",
-*/
-	// 搜索頁碼
-/**/
-	// 搜索注音
-	//'單字→注音' => "請輸入詩文單字:\n",
-	//'詩句→注音' => "請輸入詩句:\n",
-	
-	// 搜索詩句、坐標
-	//'詩文用字→詩句、〚坐標〛' => "請輸入詩文用字:\n",
-	//'詩文用字→〚坐標〛'     => "請輸入詩文用字:\n",
-	//'頁碼、詩文單字→〚坐標〛' => "請輸入頁碼、詩文單字:\n",
-	
-	// 括號
-	//'生成行碼'            => "請輸入最後一個行碼:\n",
 
 	// 版本書籍用
 

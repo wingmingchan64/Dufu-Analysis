@@ -31,6 +31,10 @@ foreach( $files as $file )
 	)
 	{
 		$文檔 = str_replace( '.txt', '', $file );
+		// skip number larger than 6093
+		if( intval( $file ) > 6100 )
+		{ continue; }
+
 		
 		if( 是組詩( $文檔 ) )
 		{

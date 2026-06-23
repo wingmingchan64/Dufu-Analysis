@@ -6,39 +6,34 @@ require_once(
 	dirname( __DIR__, 1 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR .
 	'函式.php' );
+$step = 1;
+
+switch( $step )
+{
+	case 1: // ids and mapping, 8 files
+		// 生成：默認詩文檔碼.json
+		require( 'ids\生成默認詩文檔碼.php' );
+		// 生成：默認版本詩碼.json
+		// depends on 手編的 $組詩_副題 for 0013-1, etc
+		require( 'ids\生成默認版本詩碼.php' );
+		// 生成：默認文檔碼_默認詩碼.json
+		require( 'ids\生成默認詩文檔碼_默認詩碼.php' );
+		// 生成：詩題_默認詩文檔碼.json, 默認詩文檔碼_詩題.json
+		//     默認詩文檔碼_題注.json, 默認詩文檔碼_序言.json
+		//     組詩_副題.json
+		require( 'mapping\生成默認詩文檔碼_詩題.php' );
+		require( 'mapping\生成組詩_副題.php' );
+		break;
+	case 2:
+		break;
 /*
- * 生成：默認詩文檔碼.json
- */
-require( 'ids\生成默認詩文檔碼.php' );
-
-/*
- * 生成：默認版本詩碼.json
- */
-require( 'ids\生成默認版本詩碼.php' );
-
-/*
- * 生成：默認文檔碼_默認詩碼.json
- */
-require( 'ids\生成默認詩文檔碼_默認詩碼.php' );
-
-/*
- * 生成：詩題_默認詩文檔碼.json, 默認詩文檔碼_詩題.json
- *     默認詩文檔碼_題注.json, 默認詩文檔碼_序言.json
- */
-require( 'mapping\生成默認詩文檔碼_詩題.php' );
 
 
-
-require( 'mapping\生成組詩_副題.php' );
 
 
 
 
 // after 默認版本詩碼
-/*
- * 生成：.json
- */
-/**/
 // after base_text
 require( 'coords\生成詩碼坐標.php' );
 // after 默認詩文檔碼、帶序言之詩、組詩_副題
@@ -67,27 +62,18 @@ require( 'mapping\生成默認詩文檔碼_序言.php' );
 require( 'mapping\生成默認詩文檔碼_詩文.php' );
 require( 'mapping\生成默認詩文檔碼_詩文黑名單.php' );
 
-
-
-
-
-
-
-
-
 // 5 files per book
 require( 'catalog\生成默詩碼_版本詩碼.php' );
 // 2 files
 require( 'catalog\生成版本目錄對照表.php' );
 
-/**/
 
-/*
- * 生成：杜甫詩陣列.json
- *     組詩樹.json
- */
+
+//生成：杜甫詩陣列.json
+     // 組詩樹.json
 // 1457 files in base_text
 require( 'base_text\生成杜甫詩陣列.php' );
 require( 'base_text\生成組詩樹.php' );
-
+*/
+}
 ?>

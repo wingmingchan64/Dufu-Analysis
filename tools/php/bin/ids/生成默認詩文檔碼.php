@@ -28,6 +28,10 @@ foreach( $files as $file )
 	)
 	{
 		$file = str_replace( '.txt', '', $file );
+		// skip number larger than 6093
+		if( intval( $file ) > 6100 )
+		{ continue; }
+
 		array_push( $默認詩文檔碼, $file );
 	}
 }
