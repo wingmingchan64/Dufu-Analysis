@@ -7,7 +7,7 @@ require_once(
 	'lib' . DIRECTORY_SEPARATOR .
 	'函式.php' );
 	
-$step = 4;
+$step = 5;
 
 switch( $step )
 {
@@ -65,11 +65,13 @@ switch( $step )
 		//     完整坐標表/X.json
 		require( 'coords\生成默認詩文檔碼_完整坐標表.php' );
 		break;
+	case 5: //  files
+		require( 'coords\生成默認詩文檔碼_詩文_坐標.php' );
+		break;
 
 /*
 
 // after 數字對照陣列
-require( 'coords\生成默認詩文檔碼_詩文_坐標.php' );
 // after 完整坐標表
 require( 'coords\生成含範圍完整字碼坐標.php' );
 // after 完整坐標表
