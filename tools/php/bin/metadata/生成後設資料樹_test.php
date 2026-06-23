@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tests\php\lib\生成後設資料樹.php
+php H:\github\Dufu-Analysis\tools\php\bin\metadata\生成後設資料樹_test.php
 */
 use Dufu\Exceptions\ConfirmationFailureException;
 use Dufu\Exceptions\InvalidCoordinateException;

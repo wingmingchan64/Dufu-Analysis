@@ -2,12 +2,10 @@
 /*
 php H:\github\Dufu-Analysis\tools\php\bin\生成數據結構.php
 */
-
 require_once(
 	dirname( __DIR__, 1 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR .
 	'函式.php' );
-	
 /*
  * 生成：默認詩文檔碼.json
  */
@@ -40,7 +38,7 @@ require( 'mapping\生成組詩_副題.php' );
 /*
  * 生成：.json
  */
-/*
+/**/
 // after base_text
 require( 'coords\生成詩碼坐標.php' );
 // after 默認詩文檔碼、帶序言之詩、組詩_副題
@@ -82,14 +80,13 @@ require( 'catalog\生成默詩碼_版本詩碼.php' );
 // 2 files
 require( 'catalog\生成版本目錄對照表.php' );
 
-// 1457 files in base_text
-require( 'base_text\生成杜甫詩陣列.php' );
-*/
+/**/
 
 /*
  * 生成：杜甫詩陣列.json
  *     組詩樹.json
  */
+// 1457 files in base_text
 require( 'base_text\生成杜甫詩陣列.php' );
 require( 'base_text\生成組詩樹.php' );
 

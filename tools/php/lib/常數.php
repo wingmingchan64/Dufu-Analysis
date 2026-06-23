@@ -2,16 +2,21 @@
 /*
 杜甫資料庫編程部分所應用的 PHP 常數
 */
-// 杜甫詩文文件夾
+// 杜甫詩文文件夾：默認版本基準正文、後設資料
 const 杜甫文件夾 = 'DuFu' . DIRECTORY_SEPARATOR;
-const 杜甫版本文件夾 = 杜甫文件夾 .
-	'packages' . DIRECTORY_SEPARATOR;
+// 程式、基準正文樹
+const 杜甫分析文件夾 = 'Dufu-Analysis' . DIRECTORY_SEPARATOR;
+// 後設資料指令樹、杜著述、引文正文及正文樹
+const 基準正文樹文件夾 = 
+	'CanonicalTextTrees' . DIRECTORY_SEPARATOR;
+// 後設資料
+const 杜甫版本文件夾 = 杜甫文件夾 . 'packages' . DIRECTORY_SEPARATOR;
+// 基準正文
 const 杜甫默認版本詩文件夾 = 杜甫文件夾 . 
 	'默認版本' . DIRECTORY_SEPARATOR . 
 	'詩' . DIRECTORY_SEPARATOR;
-const 杜甫分析文件夾 = 'Dufu-Analysis' . DIRECTORY_SEPARATOR;
-const 基準正文樹文件夾 = 
-	'CanonicalTextTrees' . DIRECTORY_SEPARATOR;
+
+
 
 // 系統文件夾
 // the / is replaced by DIRECTORY_SEPARATOR in JsonDataLoader
