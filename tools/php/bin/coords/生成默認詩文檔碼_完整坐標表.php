@@ -167,7 +167,6 @@ foreach( $默認詩文檔碼 as $文檔碼 )
 					$prev行碼 = $curr行碼;
 				}
 			}
-			//echo "$prev首碼:$prev行碼; $curr首碼:$curr行碼", NL;
 			
 			// a change in 首碼
 			if( $prev首碼 != $curr首碼 )

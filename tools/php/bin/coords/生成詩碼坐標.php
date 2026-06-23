@@ -34,13 +34,12 @@ foreach( $files as $file )
 		$詩碼 = str_replace( '-', ':', 
 			str_replace( '.json', '', $file ) );
 		array_push( $默認詩碼坐標, "〚${詩碼}:〛" );
-		$默認詩碼_坐標[ "〚${詩碼}:〛" ] = 
+		$坐標_默認詩碼[ "〚${詩碼}:〛" ] = 
 			str_replace( '.json', '', $file );
 	}
 }
 
-$坐標_默認詩碼 = array_flip( $默認詩碼_坐標 );
-//print_r( $詩碼坐標 );
+$默認詩碼_坐標 = array_flip( $坐標_默認詩碼 );
 
 $json = json_encode(
 	$默認詩碼坐標,

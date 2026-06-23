@@ -410,9 +410,6 @@ foreach( $默認詩文檔碼 as $文檔碼 )
 	fclose( $handle );
 }
 ksort( $句碼_詩句 );
-//ksort( $文檔碼_碼_字 );
-
-//print_r( $文檔碼_碼_字 );
 
 $json = json_encode(
 	$文檔碼_碼_字,
@@ -445,15 +442,6 @@ foreach( $文檔碼_碼_字 as $默認詩文檔碼碼 => $碼_字 )
 		array_push( $詩字_字碼[ $字 ], $碼 );
 	}
 }
-
-/*
-print_r( $二字組合 );
-print_r( $三字組合 );
-print_r( $四字組合 );
-print_r( $五字組合 );
-print_r( $六字組合 );
-print_r( $七字組合 );
-*/
 
 foreach( $句碼_詩句 as $文檔碼 => $標_句 )
 {
