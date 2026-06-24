@@ -33,9 +33,6 @@ foreach( $默認詩文檔碼 as $文檔碼 )
 
 sort( $非完整坐標 );
 
-//print_r( $非完整坐標 );
-
-
 $json = json_encode(
 	$非完整坐標,
 	JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT

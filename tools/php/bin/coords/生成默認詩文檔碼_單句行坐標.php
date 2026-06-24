@@ -26,9 +26,6 @@ foreach( $行碼_詩文 as $文檔碼 => $坐標詩文 )
 	}
 }
 
-//print_r( $默認詩文檔碼_單句行坐標 );
-
-
 $json = json_encode(
     $默認詩文檔碼_單句行坐標,
     JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT

@@ -7,7 +7,7 @@ require_once(
 	'lib' . DIRECTORY_SEPARATOR .
 	'函式.php' );
 	
-$step = 5;
+$step = 8;
 
 switch( $step )
 {
@@ -65,50 +65,55 @@ switch( $step )
 		//     完整坐標表/X.json
 		require( 'coords\生成默認詩文檔碼_完整坐標表.php' );
 		break;
-	case 5: //  files
+	case 5: // 1 file
+		// all combinations of char within segments
 		require( 'coords\生成默認詩文檔碼_詩文_坐標.php' );
 		break;
-
-/*
-
-// after 數字對照陣列
-// after 完整坐標表
-require( 'coords\生成含範圍完整字碼坐標.php' );
-// after 完整坐標表
-require( 'coords\生成非完整坐標.php' );
-// after 完整坐標表
-require( 'coords\生成完整坐標_路徑陣列.php' );
-// after 行碼_詩文
-require( 'coords\生成默認詩文檔碼_單句行坐標.php' );
-
-
+	case 6: // 9 files
+		// after 數字對照陣列
+		// after 完整坐標表
+		// 生成：含範圍完整字碼坐標.json
+		//     不含範圍完整字碼坐標.json
+		require( 'coords\生成含範圍完整字碼坐標.php' );
+		// after 完整坐標表
+		// 生成：非完整坐標表.json
+		require( 'coords\生成非完整坐標.php' );
+		// after 完整坐標表，不含範圍
+		// 生成：完整坐標_路徑陣列.json
+		require( 'coords\生成完整坐標_路徑陣列.php' );
+		// after 行碼_詩文
+		// 生成：默認詩文檔碼_單句行坐標.json
+		require( 'coords\生成默認詩文檔碼_單句行坐標.php' );
+		// after 句碼_詩句
+		// 生成：默認詩碼_句坐標.json 0003->〚0003:3.1〛
+		require( 'coords\生成默認詩碼_句坐標.php' );
+		// after 行碼_詩文
+		// 生成：默認詩文檔碼_行碼_內容.json
+		// 內容 could be the empty string
+		require( 'coords\生成默認詩文檔碼_行碼_內容.php' );
 		// 生成：默認詩文檔碼_詩文.json
+		// 0003->岱宗夫如何。齊魯青未了。造化鍾……
 		require( 'mapping\生成默認詩文檔碼_詩文.php' );
 		// 生成：默認詩文檔碼_詩文重見名單
 		require( 'mapping\生成默認詩文檔碼_詩文黑名單.php' );
-
-
-// after 句碼_詩句
-require( 'coords\生成默認詩碼_句坐標.php' );
+		break;
+	case 7: //  files
+		// 5 files per book
+		require( 'catalog\生成默詩碼_版本詩碼.php' );
+		// 2 files
+		require( 'catalog\生成版本目錄對照表.php' );
+		break;
+	case 8: //  files
+		//生成：杜甫詩陣列.json
+		//    組詩樹.json
+		// 1457 files in base_text
+		require( 'base_text\生成杜甫詩陣列.php' );
+		require( 'base_text\生成組詩樹.php' );
+		break;
+/*
 //require( 'coords\' );
 //require( 'coords\' );
 //require( 'coords\' );
-// after 行碼_詩文
-require( 'coords\生成默認詩文檔碼_行碼_內容.php' );
-
-
-// 5 files per book
-require( 'catalog\生成默詩碼_版本詩碼.php' );
-// 2 files
-require( 'catalog\生成版本目錄對照表.php' );
-
-
-
-//生成：杜甫詩陣列.json
-     // 組詩樹.json
-// 1457 files in base_text
-require( 'base_text\生成杜甫詩陣列.php' );
-require( 'base_text\生成組詩樹.php' );
 */
 }
 ?>

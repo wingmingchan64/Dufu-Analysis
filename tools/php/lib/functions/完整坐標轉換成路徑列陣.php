@@ -38,6 +38,7 @@ function 完整坐標轉換成路徑列陣( string $坐標, bool $debug=false ) 
 		str_replace( 坐標關括號, '', $坐標 ) );
 	// hyphen only
 	$坐標 = str_replace( ':', '.', $坐標 );
+	$坐標 = rtrim( $坐標, '.' ); // remove last .
 	$坐標 = explode( '.', $坐標 );
 	
 	return $坐標;

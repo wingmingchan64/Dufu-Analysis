@@ -29,15 +29,12 @@ foreach( $默認詩文檔碼 as $文檔碼 )
 	foreach( $完整坐標表 as $坐標 )
 	{
 		if( preg_match( $regex1, $坐標 ) )
-			//|| preg_match( $regex2, $坐標 ) )
 		{
-			echo $坐標, NL;
 			$含範圍完整字碼坐標[] = $坐標;
 		}
 		elseif( preg_match( $regex3, $坐標 ) ||
 			preg_match( $regex4, $坐標 ) )
 		{
-			//echo $坐標, NL;
 			$不含範圍完整字碼坐標[] = $坐標;
 		}
 	}
