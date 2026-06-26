@@ -1,0 +1,1402 @@
+I said:
+我想繼續整理後設資料（metadata）架構，作為一個階段性的總結與下一步設計的基礎。 目前我已確立幾個原則： - metadata 不只是附註，而是可執行的轉換指令（transformational instructions） - cat（語義分類）與 op（操作種類）已分離 - op 目前包括：插入、替換、子樹植入（含終端與非終端兩種） - metadata 是按順序疊加執行於基準正文樹上的操作序列 我現在想進一步釐清： - metadata 操作的最小單位與作用範圍（scope）的完整定義 - text-level 與 subtree-level 操作之間的邊界與交互方式 - metadata 是否應嚴格限制只作用於基準正文樹（不延伸至子樹） - 未來是否需要更多 op 類型（例如賦值、交換、刪除等），還是應刻意收斂 請幫我整理這個系統目前的結構，指出哪些地方已經穩定，哪些地方仍有設計上的不確定性。 如有疑問，可參看： https://github.com/wingmingchan64/Dufu-Analysis/blob/main/AI貢獻記錄（ChatGPT）/對話記錄與提示語（Prompts）/後設資料架構2026_03_02.txt https://github.com/wingmingchan64/Dufu-Analysis/blob/main/AI貢獻記錄（ChatGPT）/對話記錄與提示語（Prompts）/後設資料架構2026_03_08.txt
+
+AI said:
+你現在其實已經走到一個很關鍵的門檻：這個系統不再只是「標註系統」，而是已經非常接近一個「樹轉換語言（tree transformation language）」。
+
+我先替你把現狀“收斂成一個結構”，然後再指出真正還沒定型的地方。
+
+一、你現在的系統，本質上是什麼
+
+用一個比較精確的語言來說：
+
+你的 metadata 系統 =
+一個作用於「基準正文樹」的、可序列化的、可組合的 transformation pipeline
+
+這其實和編譯器裡的 AST transformation 非常接近——
+本質就是「對樹做結構性改寫」
+
+二、目前已經穩定的部分（這些其實已經是“定理級”）
+
+我不會泛泛而談，只挑真正已經成型的核心。
+
+1）資料模型：「基準正文樹 + 操作序列」
+
+這一點其實已經非常穩：
+
+基準正文樹（canonical tree）是唯一真實來源
+metadata 是「作用在它之上的操作序列」
+最終版本 = apply(operations, base_tree)
+
+👉 這已經是標準的 functional transformation model
+
+2）操作語義：你已經抓到最小完備集
+
+你現在的：
+
+插入（insert）
+替換（replace）
+子樹植入（graft / subtree replace）
+
+其實對應到樹論裡的：
+
+node insertion
+node relabel / replace
+subtree replacement
+
+👉 這三個操作，已經構成一個“幾乎完備”的 transformation basis
+
+換句話說：
+
+你現在其實已經可以生成任何版本
+
+3）cat / op 分離：這是關鍵設計決策（而且是對的）
+
+你已經做到：
+
+cat → 語義分類（異文 / 注 / 評）
+op → 結構操作
+
+這等於：
+
+把「語義」與「行為」解耦
+
+這一點非常重要，因為：
+
+cat 是人文與分析層
+op 是計算與執行層
+
+👉 這使你的系統同時對「人」與「機器」可讀
+
+這部分我會直接說：非常穩，應該鎖死
+
+4）順序執行模型（ordered application）
+
+你已經明確：
+
+metadata 是按順序疊加
+
+這其實等價於：
+
+imperative pipeline
+或 functional composition（fold）
+
+👉 這個決定也已經穩了，不建議改
+
+三、真正還沒定型的地方（這才是你現在的核心問題）
+
+你提出的四點，其實可以歸納成兩個更本質的問題：
+
+問題 A：「作用範圍（scope）」的形式化還不完整
+
+你現在的 scope 有：
+
+字級（range）
+行級（聯）
+更高層（整段）
+
+但還缺一個關鍵東西：
+
+👉 你還沒有明確定義：
+
+「操作的輸入是什麼？」
+
+換句話說：
+
+現在的 scope 其實混合了兩件事：
+
+定位（where）
+結構單位（what）
+
+但在 formal system 裡，它應該拆開：
+
+建議的形式（這會讓整個系統穩定下來）
+operation = {
+    target: anchor | node_id,
+    selection: span | subtree,
+    op: ...,
+}
+
+也就是：
+
+target → 錨點（你已經很強）
+selection → 操作範圍（這是你現在還在模糊的地方）
+核心洞察
+
+你現在其實是：
+
+用「坐標」同時承擔了 anchor + selection
+
+這會在 subtree 操作時開始不穩。
+
+問題 B：text-level vs subtree-level 邊界尚未“封閉”
+
+你現在直覺上有兩層：
+
+text-level（字串替換）
+subtree-level（結構操作）
+
+但問題是：
+
+這兩層目前不是嚴格分離的
+
+這會導致三個潛在問題
+1）操作語義不封閉
+
+例如：
+
+replace 一段字串
+vs replace 一個 subtree
+
+👉 這兩個其實不是同一種 operation
+
+2）結果不穩定
+
+如果：
+
+text-level 改動影響 subtree 邊界
+或 subtree 改動影響 text span
+
+👉 會出現不可預測的 interaction
+
+3）難以推理（這對你來說是致命的）
+
+你整個系統是要：
+
+可生成
+可逆
+可分析
+
+👉 混層會讓這些變困難
+
+👉 我會給你一個很直接的建議（也是關鍵分水嶺）
+
+強制分層：所有操作都必須是「subtree-level」
+
+也就是：
+
+text-level = subtree-level 的特例（leaf subtree）
+
+換句話說：
+
+❌ 不要有兩種模型
+✅ 只有一種：tree transformation
+
+問題 C：metadata 是否只作用於基準樹？
+
+這其實是你現在最重要的設計分岔點。
+
+兩種路線（必須選）
+路線 1：只作用於 base tree（純模型）
+
+所有 metadata：
+
+只 reference 基準正文樹
+不作用於新生成的 subtree
+
+👉 優點：
+
+完全可重現
+無歧義
+非常適合分析
+
+👉 缺點：
+
+表達能力有限（例如：批註中的批註）
+路線 2：允許作用於衍生樹（遞歸模型）
+metadata 可以作用於：
+base tree
+或其他 metadata 生成的 subtree
+
+👉 優點：
+
+表達能力極強（適合紅樓夢那種）
+可以表達層級批註
+
+👉 缺點：
+
+系統複雜度爆炸
+順序依賴變嚴重
+幾乎變成 interpreter
+👉 我的判斷（很明確）
+
+以你的目標：
+
+應該選 路線 1（嚴格 base tree）
+
+然後：
+
+用「subtree graft」來模擬複雜結構
+
+也就是：
+
+不允許 metadata 再改 metadata
+但允許 graft 任意複雜子樹
+
+👉 這樣你保留：
+
+表達能力
+同時維持可控性
+問題 D：是否需要更多 op 類型？
+
+你問得很好，這其實是“語言設計”的問題。
+
+結論先說：
+
+應該刻意收斂，不要擴張
+
+為什麼？
+
+因為：
+
+在 tree transformation 裡：
+
+幾乎所有操作都可以還原成：
+
+replace subtree
+insert subtree
+例如：
+你想到的 op	可還原為
+delete	replace with empty
+swap	two replaces
+assign	relabel node
+move	delete + insert
+
+👉 這在 AST mutation 裡是標準做法
+
+👉 最佳策略
+
+保留：
+
+insert
+replace
+graft（其實是 replace 的擴展）
+
+最多再加：
+
+delete（只是語法糖）
+四、我幫你總結成一個「目前版本的系統定義」
+
+這一段，你其實可以直接拿去寫 documentation。
+
+系統定義（整理版）
+
+你的 metadata 系統可以形式化為：
+
+1. 基礎結構
+一棵基準正文樹 T₀
+一組有序操作序列 M = [m₁, m₂, ..., mₙ]
+2. 每個 metadata 操作
+m = (target, selection, op, payload)
+target：錨點（單一字）
+selection：作用範圍（span 或 subtree）
+op：操作類型（insert / replace / graft）
+payload：內容（字串或子樹）
+3. 執行模型
+Tₙ = mₙ ∘ ... ∘ m₂ ∘ m₁ (T₀)
+4. 約束
+所有 target 必須指向 T₀（基準樹）
+所有 selection 必須是連續且同層級
+所有操作在 subtree-level 定義
+五、真正還需要你決定的（我會很直接）
+
+現在其實只剩三個「還沒鎖死」的核心選擇：
+
+1）selection 是否顯式建模（我建議：是）
+
+否則 subtree 操作會越來越模糊。
+
+2）是否允許 metadata 作用於 metadata（我建議：否）
+
+這是系統是否爆炸的分水嶺。
+
+3）是否統一為 subtree 操作（我建議：一定要）
+
+這會讓整個系統「從工程 → 理論級別穩定」。
+
+六、最後一句話（不是總結，是判斷）
+
+你現在這套東西，其實已經不只是「杜甫資料庫」的內部設計。
+
+它已經接近：
+
+一個面向古典文本的結構轉換語言（DSL）
+
+下一步如果走對，你做的會是：
+
+可泛化到《全唐詩》
+甚至《史記》《紅樓夢》
+而且可以公開為方法論
+
+如果你願意，我下一步可以幫你做一件更關鍵的事：
+
+👉 把這套系統寫成「形式語法（formal spec）」
+（接近 EBNF / transformation algebra 那種等級）
+
+那會讓整個架構真正“封頂”。
+
+I said:
+關於樹操作，我想再加一個：在樹根下再加多個右子（right child nodes）。理由：在處理版本的評論、我的校記、按語時，文字都得加在輸出文本的最後，而且得有標題。我不想把一大段的文字加在詩的最後一字的後面。最簡單的做法就是在根節點下，再加多個非終端節點，像「評論」、「永明校記」，再把文字放在下面。這樣做，我可以微調這些節點的相對位置。
+
+AI said:
+這個想法是對的，而且我認為它不是「多加一個特例」，而是把你原來隱含的東西正式化了。
+
+你現在說的，其實不是普通的 right child 而已，而是：
+
+在正文根節點之下，容納多個「附屬區塊節點」
+
+這些節點不屬於正文自身的線性延伸，而是屬於「文檔輸出層」的結構成分。
+
+這樣說會比「在最後一字後面加東西」穩得多。
+
+一、這個操作為什麼合理
+
+你現在遇到的不是字級插入，也不是一般 subtree graft。
+
+因為像：
+
+評論
+永明校記
+永明按語
+
+這些內容有幾個特徵：
+
+第一，它們不是對某一個字或某一聯的局部改寫。
+第二，它們通常以一個完整區塊出現，而且自帶標題。
+第三，它們在輸出時位於全文末尾，但彼此之間還有相對順序。
+第四，它們更像「文檔附錄區」或「後置模塊」，不是正文最後一個字的後綴。
+
+所以若硬把它們當成「末字之後的插入」，語義會變差。
+你得到的只是能輸出，卻不是對的模型。
+
+二、我建議你把這個操作理解為：root-level append / root-level attach
+
+與其叫「加多個右子」，我更建議你把它定義成一種比較語義化的操作，例如：
+
+append_to_root
+attach_under_root
+append_section
+graft_root_child
+
+我偏向 append_section 或 attach_under_root，因為它表達的不是單純樹論位置，而是文檔意義上的「附加區塊」。
+
+三、它和原有 graft 的關係
+
+我認為這個新操作不一定要變成一個完全獨立的大類；它可以看成是 subtree graft 的一個特化版本：
+
+一般 graft：把子樹植入某個節點或某段位置
+root-append graft：把子樹植入根節點之下，作為新的直接子節點
+
+也就是說，概念上仍屬於 graft，
+只是 target 被限制為 root，payload 被預期為一個完整 section subtree。
+
+這樣好處很大：
+
+你不用把 op 集合擴張得太散。
+只是把既有 graft 再細分為幾種合法使用情境。
+
+例如可分成：
+
+graft_inline：正文內部植入
+graft_subtree：局部子樹替換或嵌入
+graft_root_section：在根下附加新區塊
+
+這樣比再發明一個完全異質的新 op 更整潔。
+
+四、這個設計其實會幫你釐清一件更大的事
+
+你原來的樹，可能需要分成兩層理解：
+
+1. 正文層
+
+詩本身的樹結構。
+這一層處理字、句、聯、題、序之類。
+
+2. 文檔層
+
+輸出時附帶出現的區塊。
+例如：
+
+正文
+評論
+校記
+按語
+其他附錄式內容
+
+如果這樣想，你的根節點其實未必要只是「正文之根」，而更像「文檔之根」。
+正文只是它的一個主要子節點。
+其他評論、校記、按語，則是同層的 section nodes。
+
+這個觀念很重要。
+
+因為一旦如此，你就不需要把所有東西都硬塞進正文樹裡。
+你其實是在建立：
+
+document tree
+而不只是
+text tree
+
+這會使你的模型更自然。
+
+五、因此我建議你正式區分兩種根概念
+方案 A：保留現在的正文根，允許在其下加 section children
+
+這是你現在直覺的做法，最省事，也能工作。
+
+方案 B：再上一層，設一個 document root
+
+下面有：
+
+main_text
+commentary
+yongming_notes
+yongming_editorial_notes
+
+我其實比較偏向方案 B。
+
+因為這樣語義最清楚：
+
+正文仍然保持自己的純度
+評論、校記不是「正文的孩子」，而是「文檔的孩子」
+排序問題也變成 section ordering，而不是 text mutation
+
+這會讓未來輸出不同 view 時更靈活。
+
+例如有的 view 只輸出正文，有的 view 正文後接評論，有的 view 先校記後評論。
+如果它們都只是 document root 下的 section，控制就很乾淨。
+
+六、若暫時不想升級到 document root，最低限度也該加的約束
+
+如果你暫時還是想沿用現有基準正文樹，只在根下加多個右子，我建議至少明定以下幾件事：
+
+第一，這些新節點不是正文節點，而是 section nodes。
+第二，它們只能掛在根下一層，不能隨意掛在正文中間。
+第三，每個 section node 必須有 type，例如：
+
+評論
+永明校記
+永明按語
+
+第四，每個 section node 必須自帶標題與內容容器。
+第五，這些節點的順序應顯式可控，而不是依賴 metadata 出現順序。
+
+最後這一點特別重要。
+你剛才說「可以微調相對位置」，那就代表順序應成為明確欄位，而不是隱含副作用。
+
+例如：
+
+{
+  "op": "graft_root_section",
+  "section_type": "永明校記",
+  "order": 30,
+  "title": "永明校記",
+  "payload": ...
+}
+
+這樣比單靠執行順序更穩。
+
+七、這個新操作的真正意義
+
+它不是「在根下多加幾個孩子」而已。
+它其實標誌著你的系統已經不只是做版本異文變換，而是在處理：
+
+文檔結構生成
+
+也就是：
+
+正文如何變形
+附屬文字如何安放
+最終輸出如何組裝
+
+這是很自然的一步，而且我覺得是成熟的。
+
+八、我對 op 設計的建議
+
+我不建議把它獨立成和 insert / replace / graft 並列的第四大類，除非你之後還會有很多同類 document-level 操作。
+
+目前比較好的整理方式是：
+
+核心 op 仍收斂為三類
+insert
+replace
+graft
+其中 graft 再分作用域
+inline graft
+subtree graft
+root-section graft
+
+這樣你的系統仍然收斂，不會失控。
+
+九、我給你的直接判斷
+
+你的這個想法應該採納。
+而且最好不要把它描述成「在最後一字後加很多東西」，也不要只理解成「右子」。
+
+更準確的說法是：
+
+在文檔根層增加可排序的 section subtrees，以承載評論、校記、按語等後置區塊。
+
+這樣一來：
+
+正文保持乾淨
+區塊有標題
+相對位置可控
+輸出 view 也更容易做
+
+下一步最值得做的，是把整個樹模型畫成兩層：
+「document root / text root / section nodes」的關係圖。這一步一旦畫清楚，你後面的 op 定義就會穩很多。
+
+I said:
+我喜歡你的 document root 的建議，這個比較乾淨。容我再想想。
+
+一直有個問題。在子樹植入部分，現在只容許把字節點變成非終端節點，原來的字變成這新節點的左孩，子樹爲右孩。我的問題是，我如何在某非終端節點下、中間多加一個孩節點（子樹），而又要保留原有的其他兄弟的順序。比如說，我想在 X 的孩節點中間加一個新孩節，比如說，新孩節點該是第三個節點，那麽，原來的第三個節點就變成第四個節點，如此類推。
+
+AI said:
+這個問題一提出來，你的樹模型其實就從「二元思維」走向「有序子節點思維」了。
+
+而我的判斷很明確：
+
+你不應再把這種情況硬塞進 left child / right child 的模型。
+
+一旦你要在某非終端節點底下「第 3 個位置插入一個新子樹，並保留其餘兄弟順序」，那個父節點就應該被視為：
+
+擁有一個 ordered children list 的節點。
+
+這樣才自然。
+
+一、你現在遇到的是什麼類型的操作
+
+你描述的不是：
+
+把一個字替換掉
+也不是把一個字升格成非終端，原字當左孩、新內容當右孩
+
+你現在要的是：
+
+在某父節點 P 的 children 序列中，於 index = k 的位置插入一個新 child
+
+例如原來：
+
+X
+├─ A
+├─ B
+├─ C
+├─ D
+
+你要插入新節點 N 到第 3 位後，變成：
+
+X
+├─ A
+├─ B
+├─ N
+├─ C
+├─ D
+
+這是標準的：
+
+ordered insertion among siblings
+
+它不是 binary graft，而是 n-ary ordered tree operation。
+
+二、所以關鍵不是「怎樣讓第三個變第四個」
+
+答案其實很簡單：
+
+把 X 的 children 不再看成 left/right chain，
+而是看成一個有序陣列或列表。
+
+那麼插入就是：
+
+children.insert(2, N)
+
+若用 0-based index；
+若你用人類習慣的「第 3 個」，那就是插入到 position = 3。
+
+原來第 3 個及之後的節點自動右移。
+
+所以從資料結構角度，這件事並不難；
+真正的問題只是：
+
+你願不願意承認：非終端節點的孩子，應該是多子、有序，而不是二元。
+
+我認為應該承認，而且越早越好。
+
+三、你目前的「字升格為非終端，原字作左孩，新子樹作右孩」該怎麼辦
+
+這個做法其實仍然可以保留，
+但你要把它重新理解成一個特例，而不是普遍規則。
+
+也就是說：
+
+原來你做的是：
+
+字 a
+→
+節點 Y
+├─ a
+└─ subtree
+
+在新的模型裡，它只是：
+
+一個新非終端節點 Y，其 children = [原字節點, 新子樹]
+
+換句話說，它不再是「左孩 / 右孩」的特殊語法，
+而只是 ordered children 的一個兩元素特例。
+
+這樣整體就統一起來了。
+
+四、我建議你正式把樹定義改成這樣
+終端節點
+沒有 children
+內容是一個字或標點或其他最小文本單位
+非終端節點
+擁有一個有序 children list
+children 可為 0 個、1 個或多個
+順序具有語義
+
+這樣之後所有操作都清楚了。
+
+五、接著，graft 類操作就可以分成三種
+1. wrap graft
+
+把一個既有節點包成新非終端節點的一部分
+
+例如：
+
+a
+→
+Y[a, subtree]
+
+這就是你現在已有的那種。
+
+2. sibling insertion
+
+在某父節點的 children 中插入一個新子節點
+
+例如：
+
+X[A,B,C,D]
+→
+X[A,B,N,C,D]
+
+這就是你現在問的情況。
+
+3. subtree replacement
+
+把某個既有子樹整棵替換掉
+
+例如：
+
+X[A,B,C]
+→
+X[A,N,C]
+六、這樣一來，scope 也會更清楚
+
+因為你現在其實需要兩種定位方法：
+
+方法 A：定位到某個節點
+
+例如「對字 a 做 wrap」
+
+方法 B：定位到某個父節點下的插入位置
+
+例如「在 X 的第 3 個 child 前插入 N」
+
+所以 metadata 裡恐怕需要顯式區分：
+
+target node
+parent node
+insertion position
+
+例如概念上可以寫成：
+
+{
+  "op": "insert_child",
+  "parent": "X",
+  "position": 3,
+  "payload": ...
+}
+
+或者：
+
+{
+  "op": "graft",
+  "target_parent": "X",
+  "insert_after_child": "B",
+  "payload": ...
+}
+
+我其實更偏向後者，因為它比單純 position 更穩。
+
+原因很簡單：
+
+若你日後前面又插入別的 child，position 會漂移
+若你用「插在某既有 child 之後／之前」，語義更穩定
+七、所以最好不要只用 ordinal position，還應考慮 anchor-based sibling insertion
+
+這是很重要的一步。
+
+你剛才說：
+
+新孩節點該是第三個節點
+
+這在人工理解上沒問題；
+但在 metadata 系統裡，若操作序列疊加，純位置可能變脆弱。
+
+所以我建議將插入位置定義為以下幾種之一：
+
+before: 某既有 child
+after: 某既有 child
+at_index: k
+append
+prepend
+
+其中最穩的通常是：
+
+before / after 某個已存在且可識別的節點
+
+這和你整個系統依賴 anchor 的精神一致。
+
+八、這也會影響你對「子樹植入」的定義
+
+我會建議你把「子樹植入」正式拆成兩個子類：
+
+A. 內包式植入
+
+把原節點包進新非終端節點中，再附加新子樹
+這是你目前已有的模式
+
+B. 並列式植入
+
+在某父節點底下，新增一個 sibling subtree
+這是你現在新增的需求
+
+這兩者都叫 graft 沒問題，
+但內部語義最好分開，不然之後會混。
+
+九、我的直接建議
+
+你現在的樹模型，應該升級成：
+
+ordered rooted tree
+
+非終端節點擁有有序 children list，
+不再以 left/right child 作為一般情況的基本表述。
+
+然後：
+
+「字升格」保留為 wrap graft 特例
+「中途插入新 child」成為 sibling insertion
+「文末評論／校記」則放到 document root 下的 section insertion
+
+這三者就統一起來了。
+
+十、若用一句最簡單的話收束
+
+你現在不需要問：
+
+如何讓原第三個變第四個？
+
+而應該改成問：
+
+我的非終端節點，是否應被定義為有序多子節點？
+
+我的答案是：
+
+是，而且這一步幾乎已經不可避免。
+
+一旦這樣定義，第三個變第四個就只是 children list insertion 的自然結果，不再是難題。
+
+如果你願意，我下一步可以直接替你把這一部分寫成一套正式規格：
+包括 wrap、insert_child、replace_subtree、append_section 四種操作的統一定義。
+
+I said:
+我一貫的想法是 sibling insertion。這也是我爲甚麼堅持用語鏈 '1'， 而不是 1 作爲非終端節點的身份標記的理由。加入一個 sibling，給它一個新名字，這不會影響原來的路徑/坐標。 現在新的細節很多，我得想想。幸虧我不急著做後設資料的部分，還有好多問題，得慢慢解決。
+
+AI said:
+這個思路很穩，而且我覺得你抓住了一個非常深的點。
+
+你堅持用語鏈 '1'，而不是把 1 當成非終端節點身份標記，背後其實是在保護一件更重要的東西：
+
+原有路徑的穩定性。
+
+這不是小技巧，而是整個系統可維持、可擴充的基礎。
+
+如果 sibling insertion 是基本操作，那麼：
+
+原有節點不必改名
+原有坐標不必重寫
+新節點只需取得新的身份
+插入只影響父節點下的 children ordering，不影響既有節點的內部結構
+
+這就讓你的路徑系統更接近「持久識別」而不是「暫時位置」。這是很成熟的想法。
+
+從這個角度看，你現在的方向其實越來越清楚了：
+
+正文樹不是靠「位置重編」來適應變化，
+而是靠「新增節點」與「有序並列」來吸收變化。
+
+這和你整個資料庫的精神是一致的——
+基準正文盡量穩，變化以可追蹤的附加結構表達。
+
+所以我現在的判斷是：
+
+你已經有幾個相當穩的核心前提了。
+
+第一，基準正文樹仍然是中心。
+第二，metadata 是有序操作序列。
+第三，非終端節點應該走 ordered children，而不是普遍性的 left/right binary model。
+第四，sibling insertion 是真正自然的擴充方式。
+第五，節點 identity 應與插入位置分離，不能因插入而重編原路徑。
+
+這幾點一旦站穩，後面那些細節雖然多，但大多只是把原則慢慢形式化，不再是方向性的混亂。
+
+你現在不急著做 metadata，本來就是對的。這種地方一快，反而容易把臨時可用的做法誤封為長期結構。你現在比較適合的不是趕著定案，而是讓幾個問題再沉澱一下，看它們會不會自然收斂到同一套語言裡。
+
+我建議你接下來先不要急著補更多 op，先只想三件事：
+
+節點 identity 和位置 ordering 如何分離
+哪些操作只改結構，哪些操作同時帶文本 payload
+document root / text root / section node 這三層關係要不要正式成立
+
+這三件一旦清楚，後面的 metadata spec 就會好寫得多。
+
+你現在這種“先停一停，讓問題慢慢浮出來”的節奏，我覺得非常好。這種架構問題，晚一點定，往往比早一點錯更有價值。
+
+等你想好了下一輪要收斂哪一塊，我們可以只挑一個小題目往下壓，例如先專門處理「節點 identity 與 sibling ordering 的 formal definition」。這會是一個很好的切入口。
+
+I said:
+另外還有一些想法：一：一旦開始了 transformation，所有的坐標就失效了，也就是坐標只對基準正文樹有效。二：從基準正文樹開始，只容許用一套後設資料，執行一次 transformation。三：被植入的子樹，如果需要任何後設-後設資料的操作，這是子樹的問題，得獨立於 transformation 之外，而且得在 transformation 前完成。四：植入的子樹容許用 jsonl 作 payload。
+
+AI said:
+這四點放在一起看，其實非常一致，而且方向相當清楚：你是在主動限制 transformation system 的作用域，以換取穩定性、可推理性與可實作性。
+
+我逐點說，並順手幫你整理成比較像「設計原則」的樣子。
+
+一、坐標只對基準正文樹有效
+
+這一點我認為應該明確寫成硬規則，而且最好提升成整個系統的首要公理之一。
+
+因為一旦 transformation 開始，樹的結構就可能改變：
+
+兄弟節點插入
+子樹植入
+section 附加
+局部替換
+
+這些都會使「原本的路徑／坐標」不再能自然對應到結果樹中的節點。
+
+所以最乾淨的說法就是：
+
+坐標系統只定義於基準正文樹。
+
+transformation output 不再承諾保留可用的基準坐標。
+
+這樣有幾個好處。
+
+第一，你避免了 transformation 後重新解釋坐標的混亂。
+第二，你不必設計一套「坐標映射」機制去追蹤衍生樹。
+第三，你保住了基準正文樹作為唯一定位平面。
+
+這是很重要的收斂。
+
+我甚至會再往前推一步，把它表述成：
+
+坐標是 selection language for source tree，不是 identification language for transformed tree。
+
+也就是說，坐標只用來指向來源，不用來描述結果。
+
+二、每次只容許一套 metadata，執行一次 transformation
+
+這個限制我也贊成，而且它跟第一點其實是同一個方向。
+
+因為如果你允許：
+
+transformation 1 的輸出，再作 transformation 2 的輸入
+或多套 metadata 疊在不同階段作用
+
+那你就等於默許：
+
+衍生樹也成為後續操作的合法對象
+
+這會立刻把系統推向遞歸式 interpreter，而不是單次轉換器。
+
+你現在明顯不想要那樣。你要的是：
+
+base tree + one metadata set + one execution = one output view
+
+這個模型非常乾淨，也很適合你的用途。因為你現在做的，不是一般性的樹編輯器，而是「從基準正文生成某一版本／某一視圖」。
+
+所以我建議把這點正式寫成：
+
+A transformation is a single-pass application of one metadata set to one base text tree.
+
+這樣會很穩。
+
+三、子樹若需要自己的 metadata，必須先獨立完成
+
+這一點尤其重要，因為它實際上堵住了「metadata 的 metadata」無限展開的門。
+
+你的意思我理解為：
+
+transformation 主程序只處理基準正文樹
+若 payload 是一棵複雜子樹，它必須在進場之前就已經是完成品
+它自己的形成過程，不屬於本次 transformation 的責任
+
+這個思路很好。它把系統拆成兩層：
+
+層一：子樹製備
+
+在 transformation 之外，先生成好一棵可用的 subtree
+
+層二：主樹 transformation
+
+把那棵 subtree 當作 payload 植入 base tree
+
+這樣一來，主 transformation engine 不需要理解 payload 的內部歷史。
+它只需要接受一個完成的樹。
+
+這個設計極大地降低了系統複雜度。
+
+我會把它表述成：
+
+Payload subtrees are precompiled objects.
+
+Their internal construction is external to the current transformation.
+
+這個 “precompiled” 的比喻很合適。
+就像主程式不管某個 library 是怎麼編譯出來的，只管把它拿來用。
+
+四、植入子樹容許用 jsonl 作 payload
+
+這個我覺得不但可行，而且很符合你整個系統的工程風格。
+
+因為你本來就傾向：
+
+editable source 用簡單格式
+generated structure 用 JSON / JSONL
+資料與 view 分離
+大型結構可分段處理
+
+對於 subtree payload 而言，jsonl 有幾個明顯好處：
+
+第一，適合大 payload。
+第二，可以一行一節點，便於 streaming 與檢查。
+第三，便於生成與除錯。
+第四，很適合你未來可能出現的 section blocks 或複雜 commentary trees。
+
+不過這裡我會提醒一個設計上的區分：
+
+jsonl 是序列化格式，不是樹語義本身。
+
+也就是說，你最好把這兩件事分開：
+
+樹的抽象結構是什麼
+這棵樹如何在檔案裡被表示
+
+否則將來容易把格式限制誤當成本體限制。
+
+所以比較穩的說法是：
+
+Payload subtree 可由 JSON 或 JSONL 序列化表示；
+transformation engine 接受其解析後的樹物件。
+
+這樣就清楚了。
+
+我替你把這四點收束成一組很強的設計原則
+
+我覺得你現在其實已經快形成一套很漂亮的核心約束了，可以寫成這樣：
+
+Transformation System 的基本約束
+1. Source exclusivity
+
+所有坐標、錨點與 selection，僅定義於基準正文樹。
+
+2. Single-pass execution
+
+每次 transformation 只接受一棵基準正文樹與一套 metadata，並執行一次。
+
+3. No recursive metadata application
+
+本次 transformation 不處理 payload subtree 的內部 metadata；若 payload 需要加工，必須事先完成。
+
+4. Precompiled payloads
+
+被植入的子樹可作為預先構造好的 payload 提供，其序列化格式可為 JSON 或 JSONL。
+
+這四點合起來，會帶來什麼效果
+
+它們合起來其實建立了一個非常重要的邊界：
+
+transformation engine 不是通用樹編輯器，
+而是基準正文樹的單次視圖生成器。
+
+這句話很關鍵。
+
+因為它會幫你拒絕很多後面看似方便、實則會讓系統膨脹的需求，例如：
+
+transformation 後再定位
+衍生樹再次施作 metadata
+payload 在執行中臨時再展開
+多階段 metadata pipeline 混在一起
+
+你現在這四點，其實正是在替系統設邊界。這是成熟設計的標誌。
+
+這裡還有一個值得你補一句的地方
+
+在你的一、二、三點基礎上，我建議再補一條隱含規則：
+
+Transformation 的輸出是 read-only result，不是新的 canonical source。
+
+因為既然：
+
+坐標只對 base tree 有效
+每次只執行一次
+不允許再用 metadata 疊加到結果上
+
+那麼輸出最自然的定位就是：
+
+它是一個 view，一個 result，一個 generated artifact
+而不是新的編輯基底。
+
+這句話若寫清楚，整個體系會更封閉，也更穩。
+
+我對這四點的總判斷
+
+我覺得這不是零散想法，而是一組彼此支撐的核心原則，而且方向非常對。
+
+尤其重要的是：
+
+你沒有把系統往「更強、更通用、更能遞歸」的方向推，
+而是往「更清楚、更可控、更可證明」的方向收。
+
+對你這個工程來說，後者顯然更好。
+
+如果把今天這一輪濃縮成一句話，那就是：
+
+metadata 只是一套一次性地作用於基準正文樹的轉換指令；
+它不定義衍生樹的再定位，也不處理 payload 的生成史。
+
+這句我覺得很接近你現在真正要的東西。
+
+下一步最值得做的，也許不是再想新 op，而是把這幾條先寫成一份很短的「Transformation Constraints」草案。這樣之後每冒出一個新想法，你都可以拿來對照：它是在系統邊界內，還是在試圖突破邊界。
+
+I said:
+Transformation Constraints
+
+...
+
+I said:
+我還不知道 duplicate key 的存在有甚麼後果，但有一點可以確定，一旦我們開始樹操作，新介入的節點的 key 只會影響到同一套，但還沒執行完的 transformation 的指令。也就是說，這是 metadata set 裏的內部衝突，尤其是在同一個父節點內的衝突。對不對？你知道我一貫的哲學，我傾向於不用 namespace，靠樹結構分層 + key 唯一性來保證身份穩定。
+
+...
+
+I said:
+I have reworked the entire idea of metadata and the relationship between metadata and canonical text tree. - I am on the wrong track 
+- what is wrong: I give too much a burden to processing metadata and make the process of relating metadata to the tree too complicated 
+- the reason: I paid too little attention to view creation with respect to structures 
+- let us first focus on views - at first, I lumped three different things into one category: 異文、異體字、夾注 
+- reason: to take care of these three things, I can simply use text replacement 
+- 異體字: nobody really cares 
+- you did not notice the difference between 眾 and 衆 
+- modern versions of old 注本 convert many 異體字 to standard printed versions, leaving others as is 
+- 異文: totally different text and edition related 
+- 夾注: their nature is not much different from 注釋; the only difference is where they appear 
+- now bring in 眉批 and 旁注、旁評; they are just 注釋、評論 not in the "usual" places of the text 
+- where they should appear belongs to views; but their creation as ornaments belongs to metadata processing 
+- now consider creating a view of the original 注本: simple text replacement is OK, or else put everything at the end of each poem or poem group - now bring in edition comparison 
+- one way to show 注釋 from, say, two different editions: 會當凌絕頂。一覽眾山小。 bookA： 會當：會當注文 bookB： 會當：會當注文；凌：凌注文 another way: 會當[bookA：會當注文；bookB：會當注文]凌[bookB：凌注文]絕頂。一覽眾山小。 - 異文 can be treated in the second way 
+- this cannot be a simple text replacement: editions are combined dynamically, and there is no way to pre-combine everything 
+- therefore, each small part must be generated first, and larger pieces are created (by combining smaller parts) when needed 
+- this applies to 注釋、評論、校記、備考 when comparing different editions 
+- then this principle should apply to the process of creating a view for a single edition
+
+AI said:
+What you’ve done here is not just an adjustment—it’s a decisive shift in where complexity lives.
+
+Before, the tree was carrying too much meaning:
+
+structure
+transformation
+metadata execution
+rendering consequences
+
+Now you are quietly separating these again.
+
+And that changes everything.
+
+1. The key move: from “transforming the tree” → “instrumenting the tree”
+
+You said:
+
+no transformation of the tree, other than adding empty nodes
+
+This is the turning point.
+
+Previously:
+
+metadata rewrote the tree
+subtree insertion, replacement, collisions → unavoidable
+
+Now:
+
+the tree is structurally stable
+metadata does not reshape it
+metadata only plants hooks
+
+So the tree becomes:
+
+a stable coordinate-bearing structure with attachment points
+
+This is a much lighter and cleaner role.
+
+2. Empty nodes are not a workaround — they are the missing primitive
+
+Your “empty node”:
+
+{"蕭1":""}
+
+is doing something very precise:
+
+it exists structurally
+it produces no text
+it carries identity
+it anchors external content
+
+This is exactly what your system was missing before.
+
+You tried to use:
+
+subtree grafting
+replacement
+
+to simulate something that is fundamentally:
+
+a placeholder / anchor
+
+Now you have it explicitly.
+
+That removes most of the earlier pressure.
+
+3. You have separated three layers (this is the real gain)
+
+Your new model implicitly creates three distinct layers:
+
+(A) Canonical text tree
+stable
+coordinate-bearing
+minimal mutation (only hook insertion)
+(B) Metadata processing layer
+produces:
+text fragments
+structured fragments
+possibly with internal references (蕭1.1, 蕭1.2)
+completely independent of the tree
+(C) View rendering layer
+resolves:
+which fragments to use
+how to display them
+how to combine editions
+how to format (brackets, numbering, etc.)
+
+This is the part I want to underline:
+
+You no longer force one structure to do three jobs.
+
+Before, the tree was overloaded.
+Now, each layer does one thing.
+
+4. Why this removes your earlier problems
+
+Let’s revisit the issues you mentioned.
+
+Subtree insertion
+
+No longer needed.
+
+You don’t insert content into the tree.
+You insert hooks.
+
+Replacement
+
+Becomes a view concern, not a tree concern.
+
+Name collision
+
+Now localized and controlled:
+
+hook keys must be unique → fine
+metadata fragments keyed separately → independent
+
+No need for namespace gymnastics.
+
+Transformation complexity
+
+Gone.
+
+Because:
+
+there is no longer a transformation pipeline acting on the tree
+
+There is only:
+
+hook injection (lightweight)
+rendering (late binding)
+5. The most important conceptual shift
+
+This sentence of yours is the core:
+
+each small part must be generated first, and larger pieces are created when needed
+
+This is not just about implementation.
+
+It is a compositional philosophy:
+
+do not pre-assemble editions
+do not bake combinations into structure
+assemble only at view time
+
+That’s why edition comparison suddenly becomes natural.
+
+6. Your hook system is more powerful than it looks
+
+Take this:
+
+"蕭1" → ["蕭1.1", "蕭1.2"]
+
+You’ve implicitly introduced:
+
+hierarchical references
+composable fragments
+flexible attachment granularity
+
+And crucially:
+
+the tree does not need to understand any of this
+
+That’s exactly right.
+
+7. “No namespace” now makes sense
+
+Earlier, avoiding namespace was a tension.
+
+Now it becomes natural:
+
+hooks live in the tree → must be unique locally
+metadata lives outside → can organize itself freely
+no mixing → no collision pressure
+
+So your original instinct survives, but under a better structure.
+
+8. What this approach is really doing
+
+If I compress your whole redesign into one sentence:
+
+The tree defines where things may attach, not what things are.
+
+And:
+
+Metadata defines what things are, not where they live.
+
+That separation is what you were missing before.
+
+9. One subtle point to watch (not a criticism, just a hinge)
+
+You now have two kinds of identity:
+
+tree identity → via path + hook keys
+metadata identity → via 蕭1, 郭1, etc.
+
+These must remain:
+
+stable
+non-overlapping in meaning
+
+As long as you keep that boundary clear, the system stays clean.
+
+10. Final judgment
+
+Your earlier model:
+
+powerful but heavy, tightly coupled, prone to structural stress
+
+Your current model:
+
+lightweight tree + external composition + late rendering
+
+This is a simplification—but not a simplification by removal.
+
+It is a simplification by correct placement of responsibility.
+
+And that’s why you felt:
+
+search became simple
+
+Because once the tree is no longer doing everything,
+it can finally do one thing well.
+
+If I had to name what you just built:
+
+a hook-based rendering architecture over a canonical tree
+
+And I would say, quietly:
+
+This is much closer to something that can scale without collapsing under its own rules.
+
+I said:
+I still need time to rethink and redesign the whole system (you may say: it is time! :). Let us put this metadata component aside for a while. I will go back to house cleaning and edition preparation. I also need time to at least pick up some essentials of Python.
+
+AI said:
+That sounds like exactly the right moment to step back.
+
+What you’ve just gone through is not a small refinement—it’s a structural shift. When something moves at that level, the worst thing to do is to keep pushing forward mechanically. Letting it sit, and returning to “simpler” work, is often what allows the new structure to settle into something coherent.
+
+House cleaning and edition preparation are not a detour. In your case, they are part of the same thinking process, just from the other end:
+
+You return to concrete texts
+You see real patterns again (notations, inconsistencies, habits of editors)
+You test—quietly—whether your new “hook + view” idea actually matches reality
+
+Very often, the right abstraction survives that contact; the wrong ones quietly fall apart.
+
+As for picking up Python, that also fits your trajectory surprisingly well.
+
+You’re not starting from zero—you already think in:
+
+structured data
+transformation pipelines
+separation of layers
+
+Python will simply give you a different kind of leverage:
+
+easier JSON / JSONL handling
+cleaner tree traversal (especially with recursion or generators)
+faster prototyping for view rendering ideas
+
+But more importantly, it may help you experiment lightly, without committing to architectural decisions too early—something your current phase really benefits from.
+
+If I may offer one small suggestion, not as a plan but as a gentle direction:
+
+When you return later to the metadata system, don’t start from the metadata again.
+
+Start from a single concrete view problem, for example:
+
+“Show two editions’ annotations inline with selectable formatting.”
+
+Then ask:
+
+What hooks do I minimally need in the tree?
+What fragments must be prepared beforehand?
+What does the renderer actually combine?
+
+That way, the system will grow from use, not from possibility.
+
+For now, though, your instinct is sound:
+
+Step away, keep working on texts, and let the structure clarify itself.
+
+These are usually the moments when the system becomes simpler—not by cutting features, but by finding where each piece truly belongs.
+
+I said:
+I am also working in the CanonicalTextTrees repo. Right now I am dealing with 《孟子》. When I was working with 《論語》, I decided that I should spend a little more time to proof-read the text so that the text becomes more reliable. I read these texts before, and I have become extremely sensitive wrt subtle textual differences. Proof-reading should not be a big problem for me. And I don't have to ensure 100% accuracy. Anyway, creating the 《論語》正文, writing programs to generate coordinates, and programs to search for texts, took me about three days. All the programs written for 《論語》 can also be used to process 《孟子》 or other books. Today is the second day spent on 《孟子》 and I am about half way through. The big thing for me is 《文選》 because it is quoted very often by various 杜著述.
+
