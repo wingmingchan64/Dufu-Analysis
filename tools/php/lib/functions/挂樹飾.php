@@ -7,7 +7,8 @@ use CTT\Exceptions\IllegalWorkIDException;
 function 挂樹飾(
 	string $默文碼,
 	string $著述版文碼,
-	array $m_paths ) : array
+	array $m_paths,
+	array &$樹 = null ) : array
 {
 	global $ctt_registry;
 	
@@ -19,9 +20,12 @@ function 挂樹飾(
 		throw new IllegalWorkIDException( "「${著述碼}」不存在。" );
 	}
 	// 正文樹
-	$樹 = 提取基準正文樹( $默文碼 );
-	添加標點符號( $樹 );
-	添加錨( $樹 );
+	if( is_null( $樹 ) )
+	{
+		$樹 = 提取基準正文樹( $默文碼 );
+		添加標點符號( $樹 );
+		添加錨( $樹 );
+	}
 	
 	foreach( $m_paths as $path )
 	{
@@ -107,7 +111,6 @@ function 挂樹飾(
 				{
 					$路徑[ 3 ] = 樹錨名;
 				}
-				
 			}
 			elseif( count( $路徑 ) == 5 )
 			{

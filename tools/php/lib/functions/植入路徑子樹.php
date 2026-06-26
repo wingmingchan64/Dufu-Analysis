@@ -17,10 +17,16 @@ function 植入路徑子樹(
 	
 	foreach( $子樹 as $k => $v )
 	{
-		if( is_array( $pointer ) && 
-			array_key_exists( $k, $pointer ) )
+		if( is_array( $pointer ) )
 		{
-			$pointer[ $k ] = $pointer[ $k ] . $v;
+			if( array_key_exists( $k, $pointer ) )
+			{
+				$pointer[ $k ] = $pointer[ $k ] . $v;
+			}
+			else
+			{
+				$pointer[ $k ] = $子樹[ $k ];
+			}
 		}
 		else
 		{

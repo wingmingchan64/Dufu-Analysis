@@ -44,6 +44,7 @@ function add_anchors(
 					$pos );
 				array_pop( $path );
 			}
+			
 			foreach( $temp_pointer as $k => $v )
 			{
 				if( !is_array( $v ) )
@@ -105,7 +106,6 @@ function add_anchors(
 			'題' => $詩題, 
 			樹錨名 => ''
 		);
-
 	}
 	else
 	{
@@ -119,6 +119,7 @@ function 添加錨(
 {
 	add_anchors( $tree );
 }
+
 function 添加子錨( array &$tree, array $path, int $pos ) : void
 {
 	add_node( $tree, $path, $pos, array( 樹錨名 => '' ) );
