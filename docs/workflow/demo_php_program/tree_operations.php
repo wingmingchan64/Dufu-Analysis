@@ -113,11 +113,11 @@ traverse_replace( $基準正文樹, $steps, '層' );
 function traverse_replace(
 	array &$tree, array $steps, string $v ) : void
 {
-	$pointer = &$tree;
+	$pointer = &$tree; // assign the address
 	
 	foreach( $steps as $step )
 	{
-		$pointer = &$pointer[ $step ];
+		$pointer = &$pointer[ $step ]; // assign the address
 	}
 	$pointer = $v;
 }
