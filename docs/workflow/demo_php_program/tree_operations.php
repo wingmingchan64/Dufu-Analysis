@@ -85,20 +85,21 @@ function recursive_get_paths(
 	
 	foreach( $keys as $key )
 	{
+		$temp = ltrim( $path, ',' );
+			
+		if( $temp !== "" && !in_array( $temp, $paths ) )
+		{
+			$paths[] = $temp;
+		}
+		
 		if( is_array( $tree[ $key ] ) )
 		{
-			$temp = ltrim( $path, ',' );
-			
-			if( $temp !== "" && !in_array( $temp, $paths ) )
-			{
-				$paths[] = $temp;
-			}	
-			
 			recursive_get_paths(
 				$tree[ $key ], $temp . ',' . $key );
 		}
 		else
 		{
+			
 			$paths[] = ltrim( $path, ',' ) . ',' . $key;
 			$map[ ltrim( $path, ',' ) . ',' . $key ] =
 				$tree[ $key ];
