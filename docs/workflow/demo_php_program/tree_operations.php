@@ -87,8 +87,15 @@ function recursive_get_paths(
 	{
 		if( is_array( $tree[ $key ] ) )
 		{
+			$temp = ltrim( $path, ',' );
+			
+			if( $temp !== "" && !in_array( $temp, $paths ) )
+			{
+				$paths[] = $temp;
+			}	
+			
 			recursive_get_paths(
-				$tree[ $key ], $path . ',' . $key );
+				$tree[ $key ], $temp . ',' . $key );
 		}
 		else
 		{
@@ -98,6 +105,7 @@ function recursive_get_paths(
 		}
 	}
 }
+print_r( $paths );
 
 $reverse_map = array_flip( $map );
 print_r( $paths );
