@@ -1,0 +1,687 @@
+杜甫系統研究（2026/06）
+
+這個討論是上一個長期討論的延續。
+
+最新的討論記錄如下： https://github.com/wingmingchan64/Dufu-Analysis/blob/main/AI%E8%B2%A2%E7%8D%BB%E8%A8%98%E9%8C%84%EF%BC%88ChatGPT%EF%BC%89/%E5%B0%8D%E8%A9%B1%E8%A8%98%E9%8C%84%E8%88%87%E6%8F%90%E7%A4%BA%E8%AA%9E%EF%BC%88Prompts%EF%BC%89/%E5%BE%8C%E8%A8%AD%E8%B3%87%E6%96%99%E6%9E%B6%E6%A7%8B2026_04_14.txt 
+
+請把這個討論視為一個研究（research），而不是單純的軟件開發。 
+
+目前的系統核心思想已經比較明確： 
+- tree-based architecture 
+- canonical text tree 
+- metadata tree - data tree 
+- viewport 
+- raw view vs rendered view 
+- presentation 與 data 完全分離 
+- metadata 主要負責建立不同樹之間的聯繫，而不是進行 transformation - rendering component 保持最大的自由度，由使用者自行決定最終呈現方式 
+
+目前我的重心已逐漸由 implementation 轉向： 
+- documentation 
+- abstraction 
+- reflection 
+- refinement 
+
+我希望你扮演的是一位共同研究者（research partner），而不是單純提供程式建議。 
+
+討論時請： 
+- 留意不同 component 之間責任是否清晰分離。 
+- 從 architecture/framework 的角度思考，而不要過早落入 implementation details。 
+- 如發現某個概念可以再抽象化、簡化，請指出。 
+- 如發現不同概念其實可以統一，也請提出。 
+- 如果我提出的新想法未必值得立即實作，也請直接指出；我們可以把它當成 incubating ideas，先記錄下來，讓它慢慢成熟。 
+
+目前我的目標已不再是盡快完成所有杜著述，而是繼續完善這套理論框架（theoretical framework）。我相信它： 
+- is globally applicable to any literature; 
+- provides a way of storing and organizing data; 
+- provides a way of identifying and locating data; 
+- supports multiple ways of presenting the same data. 
+
+請把之後的討論建立在這些前提之上。
+
+AI said:
+收到，我會把這個討論視為前一個研究的延續，而不是一個新的軟件開發專案。
+
+我會以目前你已經確立的研究方向作為預設前提，而不是反覆挑戰那些已經成熟的核心概念。根據我們之前幾個月討論累積的結果，我理解目前的框架大致可以描述為：
+
+Canonical Text Framework
+
+一個與文學作品種類、語言、版本無關（language-agnostic）的理論框架，其目的不是描述某一種文獻，而是描述「文本如何被定位、組織、關聯與呈現」。
+
+我理解目前研究的重心已經轉移。
+
+以前比較偏向：
+
+如何把杜甫資料建起來？
+
+現在比較偏向：
+
+為什麼這套架構成立？
+
+它有哪些抽象概念？
+
+它們彼此如何分工？
+
+哪些概念具有普遍性（generality）？
+
+哪些只是杜甫系統的特殊案例？
+
+這兩者是完全不同的研究階段。
+
+我之後希望扮演的角色
+
+我會盡量站在 research partner 的角度，而不是 implementation advisor。
+
+也就是說，我會比較常問：
+
+這是不是一個新的概念（concept）？
+還是一個既有概念的特殊案例？
+這個 component 的 responsibility 是否過重？
+有沒有兩個概念其實可以 merge？
+有沒有新的 abstraction 可以把五個規則變成一個原則？
+這是不是 architecture，而不是 policy？
+這是不是 theoretical framework，還是 implementation choice？
+
+有時甚至會說：
+
+我覺得這個 idea 很有趣，但目前還沒有足夠的 evidence，把它放進 incubating ideas 比較合適。
+
+我認為這也是研究的一部分。
+
+我目前看到的一個變化
+
+如果要說這幾個月最大的變化，我認為不是 tree，也不是 metadata。
+
+而是：
+
+你已經開始把 Presentation 完全獨立出來。
+
+這點我認為非常重要。
+
+以前我們還會討論：
+
+HTML 怎麼插
+XML 怎麼表示
+annotation 放哪裡
+punctuation 怎麼處理
+
+現在這些問題幾乎都退到 rendering component。
+
+因此 architecture 開始變成：
+
+Canonical Text Tree
+        │
+        │
+Metadata Tree
+        │
+        │
+Data Tree
+        │
+        │
+Viewport
+        │
+        │
+Rendering Component
+        │
+        ▼
+Rendered View
+
+注意：
+
+真正知道 HTML 的，只剩最後一層。
+
+前面的 component 都不知道。
+
+我認為這是一個很成熟的 architectural separation。
+
+我另外注意到的一個趨勢
+
+我覺得你現在真正研究的，其實已經不是：
+
+Text Tree
+
+而是：
+
+Relationship between Trees
+
+例如：
+
+metadata tree
+data tree
+canonical tree
+viewport
+
+真正重要的是：
+
+它們如何彼此建立 correspondence。
+
+因此 metadata 的角色，也從以前：
+
+修改 tree
+
+逐漸變成：
+
+建立 tree 之間的 mapping。
+
+我認為這個轉變非常值得寫進 documentation。
+
+因為它代表整個 framework 的哲學已經改變。
+
+以前：
+
+metadata changes text
+
+現在：
+
+metadata relates structures
+
+我甚至覺得第二句可以成為整個 framework 的一條設計原則。
+
+我想提出一個可能值得慢慢思考的新抽象
+
+目前你常使用：
+
+Canonical Text Tree
+Metadata Tree
+Data Tree
+
+我開始懷疑，它們其實都屬於同一個更高層概念。
+
+例如可以暫時稱為：
+
+Semantic Tree
+
+意思不是語義分析（semantic parsing），而是：
+
+一棵 tree，代表某一種 semantic domain。
+
+例如：
+
+Canonical Tree
+text domain
+Metadata Tree
+annotation domain
+Data Tree
+external knowledge domain
+
+未來甚至可能有：
+
+Citation Tree
+Translation Tree
+Variant Tree
+Commentary Tree
+
+它們全部都是：
+
+一種 domain-specific tree。
+
+真正重要的不是它們叫什麼名字，而是：
+
+每棵 tree 都可以透過 stable address 與其他 tree 建立關聯。
+
+如果這個方向成立，那麼 framework 的核心就不再是：
+
+Canonical Tree
+
+而是：
+
+A collection of interoperable trees connected by stable references.
+
+我不建議現在立刻採用這個抽象，因為它還需要更多例子驗證；但我認為它是一個值得放進 incubating ideas 的方向。
+
+最後，我也想確認一件我認為很重要的事情。
+
+在之前的討論中，你曾提到，希望未來的工作重心放在：
+
+documentation
+abstraction
+reflection
+refinement
+
+而不是急著把所有杜甫著述完成。我認為這是一個很自然的演進。從目前框架的成熟度來看，理論的整理本身已經成為主要研究成果之一，而不只是實作的附屬說明。
+
+因此，接下來的討論，我會優先從「這個概念在整個理論框架中的位置是什麼？」來思考，而不是先討論它該如何實作。我相信這也比較符合目前這個研究階段的目標。
+
+I said:
+謝謝你指出了我們現在面對的新方向。我會不斷提醒自己，我們現在已經進入研究（research）的階段，而不再停留於設計、實現（design and implementation）的階段。
+
+More thoughts on 杜甫詞典. 
+
+1. The contents for each entry can come from two different sources. a) from some 杜著述s. In this case, there is no need to do anything special. The entry term （條目） is used as a filename, and the file contains m-markers so that the system can pull out the context and the definition(s). b) the contents I compile. I have been creating contents for 星宿詞典 and 地名詞典. I also want to compile a 人名詞典. In this case, contents can be thrown into files whose names can be pinyin of the first 字 of 詞條. Contents of these files can, but do not have to, contain the 詞條s. 人名詞典 can also draw contents from 《舊唐書》, 《新唐書》 and so on. 
+
+2. For the interface, a program can look for a file whose name is supplied by the end user. If the file exsits, then the system can supply the corresponding content. The interface can also offer an option list, giving the user choices of 詞條s starting with or containing the user input char(s). I think this setup will be useful, at least for myself. I can easily pull out contents from 《引典出處》 and possibly other sources, without really looking into individual files. 
+
+I am also reworking the workflow part of docs in Dufu-Analysis. Yesterday I added https://github.com/wingmingchan64/Dufu-Analysis/blob/main/docs/workflow/07%20%E6%A8%B9%E7%B5%90%E6%A7%8B%E8%88%87%E6%A8%B9%E6%93%8D%E4%BD%9C.md and an accompanying program https://github.com/wingmingchan64/Dufu-Analysis/tree/main/docs/workflow/demo_php_program. I hope that this will help. I also want to talk more about multiple 杜著述s and raw view of a tree, since I have a real tree to show.
+
+AI said:
+我很高興看到這個方向，因為它讓我更清楚你現在真正研究的是什麼。
+
+以前我們常常討論的是「如何建立一個系統」。現在，我開始覺得你是在研究一種**知識組織（knowledge organization）**的方法，而杜甫只是第一個完整的實驗場（testbed）。
+
+你這次提到的幾件事情，我覺得背後都有同一個主題。
+
+1. 杜甫詞典：我看到的是「Source Independence」
+
+你寫道：
+
+The contents for each entry can come from two different sources.
+
+我反而會把它再抽象一層。
+
+不是：
+
+詞典有兩種來源。
+
+而是：
+
+Entry 與 Source 完全解耦（decoupled）。
+
+也就是：
+
+Dictionary Entry
+        │
+        ├── Source A（杜著述）
+        │
+        ├── Source B（自己編纂）
+        │
+        ├── Source C（舊唐書）
+        │
+        ├── Source D（新唐書）
+        │
+        └── Source E（任何 corpus）
+
+也就是說，
+
+一個 entry 並不知道資料從哪裡來。
+
+它只知道：
+
+有一些 content provider。
+
+這和你現在 metadata 的哲學非常一致。
+
+metadata 不修改 tree，
+
+而是：
+
+建立 connection。
+
+現在 dictionary 也是：
+
+entry 不保存資料，
+
+而是：
+
+entry connects sources.
+
+我覺得這是一個值得寫進 architecture 的觀點。
+
+2. 詞條其實只是 Identifier
+
+你現在說：
+
+條目可以直接作 filename。
+
+我想到的是另外一句：
+
+詞條首先是一個 identifier，其次才是一個標題。
+
+例如
+
+望嶽
+
+
+不是因為它是檔名。
+
+而是
+
+Entry ID = 望嶽
+
+碰巧 filesystem 用它當 filename。
+
+如果哪一天：
+
+望嶽.json
+
+變成
+
+000031.json
+
+architecture 完全不用改。
+
+因此我甚至會避免在 documentation 強調
+
+filename
+
+而改說
+
+persistent identifier
+
+filename 只是其中一種 implementation。
+
+3. 我尤其喜歡 option list
+
+你寫：
+
+offer an option list giving the user choices...
+
+我反而想到：
+
+這已經不是 dictionary。
+
+而是
+
+Discovery Interface。
+
+例如：
+
+星
+
+得到
+
+星宿
+星紀
+星漢
+星河
+...
+
+或者
+
+岱
+
+得到
+
+岱宗
+東岱
+泰山
+...
+
+注意，
+
+這不是 search。
+
+它是在幫使用者：
+
+discover available knowledge.
+
+我覺得 discovery 是另一個值得抽象的 component。
+
+例如：
+
+Identifier Resolver
+
+↓
+
+Discovery
+
+↓
+
+Entry Retrieval
+
+↓
+
+Rendering
+
+它和 search 很像，
+
+但目的不同。
+
+4. 我最有興趣的是你提到 workflow 的改變
+
+你說：
+
+I also want to talk more about multiple 杜著述s and raw view of a tree, since I have a real tree to show.
+
+我認為這可能會是未來 documentation 最重要的一章。
+
+因為以前我們一直談：
+
+Tree。
+
+但是現在終於有：
+
+Real Tree。
+
+兩者差很多。
+
+以前只能畫：
+
+root
+ ├── line
+ └── line
+
+現在可以真正展示：
+
+{
+  "1":{
+      "1":"岱",
+      "2":"宗",
+      "a":"",
+      "p":"。"
+  }
+}
+
+然後告訴讀者：
+
+這不是 HTML。
+
+不是 XML。
+
+不是 JSON document。
+
+而是：
+
+Raw View
+
+這句話我特別喜歡。
+
+我甚至開始覺得 Raw View 應該是一個正式術語
+
+以前我們說：
+
+Presentation 與 Data 分離。
+
+但 Raw View 又更精確。
+
+例如：
+
+Canonical Tree
+        │
+        ▼
+Raw View
+        │
+        ▼
+Rendered View
+
+Raw View 是：
+
+樹的忠實投影（faithful projection）。
+
+它保留：
+
+hierarchy
+anchors
+punctuation
+metadata attachment points
+
+但是：
+
+沒有任何 rendering decision。
+
+例如：
+
+它不知道：
+
+HTML
+XML
+CSS
+字型
+顏色
+annotation placement
+
+因此它可以成為：
+
+所有 renderer 的共同輸入。
+
+我覺得這比單純說
+
+serialize a tree
+
+更有理論味道。
+
+因為：
+
+Raw View 是一種 view。
+
+不是 serialization format。
+
+JSON 只是其中一種表示。
+
+最後，我想提出一個可能值得觀察的現象
+
+最近兩三個月，我發現你建立的新概念幾乎都有一個共同特徵：
+
+它們都不是「資料」。
+
+而是「介面（interface）」。
+
+例如：
+
+viewport
+raw view
+rendered view
+dictionary entry
+anchor
+metadata
+discovery
+
+它們真正做的是：
+
+介於兩個 component 之間，定義彼此如何互動。
+
+換句話說，你的 framework 正逐漸從一個 tree-centered architecture，演變成一個 interface-centered architecture。
+
+Tree 仍然是核心資料結構，但真正值得研究的，已經是各個 component 之間交換的是什麼、保證的是什麼，以及哪些資訊必須保持穩定。
+
+我認為這是一個相當重要的轉變。它表示你的研究開始從「資料如何儲存」提升到「知識如何在不同 component 之間流動而不失去語義」。如果這個方向繼續成熟，我猜未來 documentation 的核心章節，不再會是各種 tree 的定義，而會是 component interfaces 及其設計原則。那將使整個 framework 不僅適用於杜甫，也更容易推廣到任何典籍或知識庫。
+
+I said:
+我自己可沒感覺到這種轉變，不過這倒是一個有趣的觀察。也許是因爲越接近完成，就越會多考慮各個單元之間的關係，以及介面的問題。還有一個重要的原因，我的角色也開始從設計者、實現者，慢慢轉變成使用者。 
+
+我覺得我們該多花時間改寫那些關於定義、小部件的說明，大的像設計原則，可能應該等一等。往後可能還會有不同的想法、轉變。
+
+AI said:
+我很贊同你最後這段，而且我覺得它點出了研究工作一個很自然的演化。
+
+你說：
+
+我的角色也開始從設計者、實現者，慢慢轉變成使用者。
+
+我認為這不是一個附帶現象，而是一個很重要的里程碑。
+
+使用者開始「反過來」檢驗架構
+
+在設計初期，思考通常是：
+
+「我要怎樣設計一個可以做到 X 的架構？」
+
+所以注意力放在：
+
+能不能做到？
+如何做到？
+API 怎麼設計？
+tree 怎麼表示？
+
+但是當你開始每天使用它，你問的問題會變成：
+
+「這個架構用起來自然嗎？」
+
+這是一種完全不同的檢驗。
+
+例如，你最近提出的杜甫詞典，其實沒有涉及任何新的資料結構。你想到的是：
+
+我希望很容易就能查到《引典出處》裡的內容，而不用記得它放在哪個檔案。
+
+這是一個使用者需求，不是設計者需求。
+
+如果架構能很自然地滿足這個需求，它就證明架構是成功的；如果需要很多特例（special cases），那就表示某個抽象可能還不夠成熟。
+
+Documentation 的重心
+
+我也很同意你的判斷：
+
+我們該多花時間改寫那些關於定義、小部件的說明，大的像設計原則，可能應該等一等。
+
+我甚至會把 documentation 分成兩個層次。
+
+第一層，我稱之為 stable vocabulary。
+
+例如：
+
+Canonical Text Tree
+Metadata Tree
+Data Tree
+Anchor
+Viewport
+Raw View
+Rendered View
+Scope
+Coordinate
+
+這些都是 framework 的「詞彙」。
+
+如果詞彙定義得清楚，以後寫任何文件都會容易得多。它們就像數學中的定義，或者程式語言中的型別（types）：一旦穩定，就很少需要修改。
+
+第二層則是 design principles。
+
+例如：
+
+presentation 與 data 分離
+metadata 建立關聯而非 transformation
+rendering component 保持自由
+canonical tree 是唯一穩定參照
+
+這些是「原則」。
+
+而原則往往是回顧（reflection）的結果。它們需要經過很多實際案例驗證，才知道是否足夠一般化。
+
+因此，我認為現在先把精力放在第一層，是一個很穩健的策略。
+
+我想再補充一個觀察
+
+你剛才說：
+
+往後可能還會有不同的想法、轉變。
+
+我覺得，這句話其實透露出你的研究方法。
+
+很多人做 framework 時，會希望盡快寫出一套完整的「設計原則」，然後要求後面的工作都符合它。
+
+但你這幾個月的做法，正好相反。
+
+你比較像是在做：
+
+bottom-up theory formation
+
+也就是：
+
+先累積大量具體案例。
+不斷重構（refinement）。
+讓共同模式自然浮現。
+最後才整理成設計原則。
+
+這和很多成熟學科形成理論的方式很接近。理論不是一開始就存在，而是從反覆實踐中逐漸沉澱出來。
+
+所以，對於我們接下來的討論，我也想稍微調整自己的角色。
+
+如果以前我比較常說：
+
+「我覺得這可能是一個新的設計原則。」
+
+那麼現在，我會更傾向說：
+
+「這個現象值得先記錄下來，看看未來半年是否還會反覆出現。」
+
+如果它真的一再出現，我們再把它提升（promote）成 framework 的正式概念或設計原則。
+
+我認為這樣比較符合你目前的研究節奏，也能避免過早把仍在演化中的想法固定下來。這也是研究和工程的一個重要差別：工程希望儘快穩定，而研究允許概念先保持開放，直到有足夠的證據支持它們。
+
