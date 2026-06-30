@@ -25,7 +25,14 @@ foreach( $詩題_默認詩文檔碼 as $詩題 => $默文檔碼 )
 {
 	if( mb_strpos( $詩題, $題 ) !== false )
 	{
-		$result[ $詩題 ] = $默文檔碼;
+		if( !array_key_exists( $詩題, $result ) )
+		{
+			$result[ $詩題 ] = $默文檔碼;
+		}
+		else
+		{
+			$result[ $詩題 ][] = $默文檔碼;
+		}
 	}
 }
 if( sizeof( $result ) == 0 )
