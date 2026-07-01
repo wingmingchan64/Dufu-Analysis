@@ -685,3 +685,181 @@ bottom-up theory formation
 
 我認為這樣比較符合你目前的研究節奏，也能避免過早把仍在演化中的想法固定下來。這也是研究和工程的一個重要差別：工程希望儘快穩定，而研究允許概念先保持開放，直到有足夠的證據支持它們。
 
+I said:
+2026/06/30
+An implementation and two new ideas.
+
+When I inserted the data of both 仇兆鰲 and 楊倫 into a tree, the resulting tree must reside somewhere. I created a folder named 資料匯總 inside corpus/dufu, treating it as a new 杜著述. There are no metadata nor canonical_text folders inside, just trees and views. Now this setup (one 杜著述 containing data from other 杜著述s) is relevant to my new ideas.
+
+The two new ideas are about to 校記 and 年譜. 校記 first. So far I have avoided 校記, because I utterly had no idea on how to deal with them, at least when I started the project. But the more I look at them, the more certain I am that they are no different than 異文. An entry of 校記 is just comments of variants in different editions. So it is easy to combine 異文 and 校記. The only problem is that different 杜著述s can have different 校記. But again, this is not much different than the multiple-edition setup. A tree can contain nodes listing 異文 and 校記 from different 杜著述s. If 校記 is to be treated as another 杜著述, then there will be 校記 raw data from different 杜著述s coexisting in the same 校記.
+
+Similar setup (a 杜著述 containing data from different 杜著述s) will be needed when dealing with 杜甫年譜. I have got the entire 年譜 from 蕭滌非《杜甫全集校注》, which is in fact comiled by 張忠綱. Now the data structure can be interesting. Since this entire idea came up only this morning, I don't have any details. But data can be coming from different 杜著述s, and data can be grouped under years like 712 and 770. A 年譜 tree can have about 60 nodes (after each year) and subtrees with data from 杜著述s. Something like that.
+
+AI said:
+這三件事其實連在一起了：
+
+資料匯總、校記、年譜，都是「跨杜著述資料重新編排」的例子。
+
+我覺得你剛剛已經實作出一個很重要的 component，只是它現在的名字還很樸素：資料匯總。
+
+它不再是單一杜著述的 transcription，也不是單一版本的 canonical text，而是一個：
+
+derived 杜著述 / synthetic 杜著述 / aggregate work
+
+也就是由多個杜著述的資料重新組織而成的新樹。
+
+1. 資料匯總 作為新型杜著述是合理的
+
+你把仇兆鰲、楊倫資料插入同一棵 tree，然後放在：
+
+corpus/dufu/資料匯總/
+
+而裡面只有：
+
+trees/
+views/
+
+沒有：
+
+metadata/
+canonical_text/
+
+這非常合理。
+
+因為它不是原始著述，不需要有自己的 canonical transcription。它是由其他資料生成的。
+
+所以它的性質不是：
+
+primary work
+
+而是：
+
+derived work
+
+這可能可以成為「杜著述」的一個 subtype：
+
+杜著述
+├── primary 杜著述
+│   ├── 蕭滌非
+│   ├── 仇兆鰲
+│   ├── 楊倫
+│   └── …
+│
+└── derived 杜著述
+    ├── 資料匯總
+    ├── 校記匯總
+    ├── 年譜匯總
+    └── …
+
+這個抽象很有用。
+
+2. 校記與異文可以統一
+
+我很同意你的判斷：
+
+校記 is no different than 異文.
+
+更準確地說：
+
+異文是 variant data；校記是 variant commentary。
+
+它們不是兩種完全不同的東西，而是同一個現象的兩個層面。
+
+例如：
+
+異文：
+A 本作「風急」
+
+校記：
+某本作「風急」，按上下文當從某本。
+
+兩者都圍繞同一個核心：
+
+某一個 textual locus 上存在 variant evidence。
+
+因此可以統一為：
+
+Variant Node
+├── variant readings
+├── sources / editions
+├── notes / comments
+├── editor judgment
+└── references
+
+這樣一來，校記不必獨立成一種全新機制。
+
+它可以是 variant apparatus 的一部分。
+
+3. 但「校記作為杜著述」也仍然成立
+
+你說：
+
+If 校記 is to be treated as another 杜著述...
+
+我覺得這裡要分兩層。
+
+第一層：
+
+校記作為資料類型，屬於 variant apparatus。
+
+第二層：
+
+某一部書中的校記，可以作為一個可抽取、可建樹、可匯總的 textual layer。
+
+所以它可以同時是：
+
+data type = 校記
+source work = 蕭校記 / 仇校記 / 楊校記 / 謝校記
+aggregate work = 校記匯總
+
+這不矛盾。
+
+就像「注釋」既是一種 metadata 類型，也可以作為某部杜著述中的一個 textual layer。
+
+4. 年譜更像是 timeline tree
+
+年譜這個想法很有意思，因為它不是以詩碼為主軸，而是以時間為主軸。
+
+也就是：
+
+杜詩系統常規樹：
+詩 → 行 → 句 → 字
+
+年譜樹：
+年 → 事件 → 證據 / 詩 / 著述資料
+
+你說約 60 個年份節點，我覺得很自然：
+
+年譜
+├── 712
+│   ├── 蕭滌非/張忠綱資料
+│   ├── 其他年譜資料
+│   └── 相關詩文
+├── 713
+├── …
+└── 770
+
+這其實又是一種 derived 杜著述。
+
+它不是從一部書的線性文本出發，而是從一個 organizing principle 出發：
+
+organize Du Fu data by year.
+
+這和資料匯總很像，只是 資料匯總 的 organizing principle 是詩/坐標，年譜 的 organizing principle 是年份。
+
+5. 我會暫時這樣命名這個新概念
+
+先不要提升成大原則，但可以作為小部件定義：
+
+Aggregate Work（匯總著述）
+
+一種由其他杜著述或資料來源生成的著述型資料集合。它本身未必有 canonical_text，也未必有 metadata 原始資料；它主要保存由多個來源重新組織而成的 trees 與 views。
+
+它的例子包括：
+
+資料匯總
+校記匯總
+年譜匯總
+詞典匯總
+
+我覺得這個概念現在已經足夠具體，可以先寫進 documentation 的小定義裡，不必上升到整個 framework 的 design principle。
