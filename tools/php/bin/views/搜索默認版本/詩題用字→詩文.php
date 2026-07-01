@@ -13,12 +13,13 @@ $題 = fix_text( trim( $argv[ 1 ] ) );
 $詩題_默認詩文檔碼 = 提取數據結構( 詩題_默認詩文檔碼 );
 $result = array();
 
-
 foreach( $詩題_默認詩文檔碼 as $詩題 => $默文檔碼 )
 {
 	if( mb_strpos( $詩題, $題 ) !== false )
 	{
-		$詩文文檔路徑 = 默認版本詩文件夾 . $默文檔碼 . '.txt';
+		$詩文文檔路徑 = dirname( __dir__, 6 ) .
+			DIRECTORY_SEPARATOR .
+			默認版本詩文件夾 . $默文檔碼 . '.txt';
 		$result[ $詩題 ] = file_get_contents( $詩文文檔路徑 );
 	}
 }
