@@ -27,3 +27,9 @@ Array
     [7] => 默文檔碼→重現名單
 )
 </pre>
+
+---
+
+## 選項定義
+
+- 選項定義見<a href="https://github.com/wingmingchan64/Dufu-Analysis/blob/main/tools/php/lib/%E5%B8%B8%E6%95%B8.php">常數.php</a>
