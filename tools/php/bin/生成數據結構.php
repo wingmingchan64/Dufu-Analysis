@@ -21,8 +21,8 @@ switch( $step )
 		require( 'ids\生成默認詩文檔碼_默認詩碼.php' );
 		// 生成：詩題_默認詩文檔碼.json, 默認詩文檔碼_詩題.json
 		//     默認詩文檔碼_題注.json, 默認詩文檔碼_序言.json
-		//     組詩_副題.json
 		require( 'mapping\生成默認詩文檔碼_詩題.php' );
+		//     組詩_副題.json
 		require( 'mapping\生成組詩_副題.php' );
 		break;
 	case 2: // 3 files

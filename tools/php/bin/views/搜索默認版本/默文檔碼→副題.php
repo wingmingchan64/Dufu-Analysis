@@ -1,7 +1,7 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\默文檔碼→詩題.php 0668
-=> 詩題：自京赴奉先縣詠懷五百字
+php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\默文檔碼→副題.php 0668
+=> 
 */
 require_once( 
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
@@ -10,7 +10,6 @@ require_once(
 check_argv( $argv, 2, 提供默文檔碼 );
 $默文檔碼 = fix_doc_id( trim( $argv[ 1 ] ) );
 $默認詩文檔碼 = 提取數據結構( 默認詩文檔碼 );
-$默認詩文檔碼_詩題 = 提取數據結構( 默認詩文檔碼_詩題 );
 
 if( !in_array( $默文檔碼, $默認詩文檔碼 ) )
 {
@@ -18,8 +17,14 @@ if( !in_array( $默文檔碼, $默認詩文檔碼 ) )
 	return;
 }
 
-if( array_key_exists( $默文檔碼, $默認詩文檔碼_詩題 ) )
+$組詩_副題 = 提取數據結構( 組詩_副題 );
+
+if( array_key_exists( $默文檔碼, $組詩_副題 ) )
 {
-	echo 詩題, '：', $默認詩文檔碼_詩題[ $默文檔碼 ], "\n";
+	print_r( $組詩_副題[ $默文檔碼 ] );
+}
+else
+{
+	echo "默文檔碼「${默文檔碼}」不是組詩文檔碼。", NL;
 }
 ?>

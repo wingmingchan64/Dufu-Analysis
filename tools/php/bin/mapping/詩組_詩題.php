@@ -2,6 +2,7 @@
 /*
 生成：本文檔用人手生成、人手編輯。
 說明：同一頁碼包含一組詩、副題行碼。
+詩題： Do not use!!! Directly read from files.
 */
 //global $詩組_詩題; // 135頁, 458首
 $詩組_詩題=array(

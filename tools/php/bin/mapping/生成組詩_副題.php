@@ -12,11 +12,12 @@ require_once( __DIR__ . DS . '詩組_詩題.php' );
 
 $組詩_副題 = array();
 $pages = array_keys( $詩組_詩題 );
+$默認詩文檔碼_詩題 = 提取數據結構( 默認詩文檔碼_詩題 );
 
 foreach( $pages as $p )
 {
 	$組詩_副題[ $p ] = array();
-	$組詩_副題[ $p ][ 詩題 ] = $詩組_詩題[ $p ][ 0 ];
+	$組詩_副題[ $p ][ 詩題 ] = $默認詩文檔碼_詩題[ $p ];
 	$text_dir = dirname( __DIR__, 5 ) . 
 		DIRECTORY_SEPARATOR . 杜甫默認版本詩文件夾;
 	$contents = file_get_contents( 
