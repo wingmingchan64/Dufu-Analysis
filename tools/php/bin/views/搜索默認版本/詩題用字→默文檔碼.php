@@ -17,12 +17,12 @@ foreach( $詩題_默認詩文檔碼 as $詩題 => $默文檔碼 )
 {
 	if( mb_strpos( $詩題, $題 ) !== false )
 	{
-		$result[] = $默文檔碼;
+		$result[ $默文檔碼 ] = $詩題;
 	}
 }
 if( count( $result ) == 0 )
 {
-	echo 無結果, NL;
+	echo "杜甫詩中無此詩題：「${題}」。", NL;
 }
 else
 {
