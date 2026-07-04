@@ -11,7 +11,7 @@ require_once(
 check_argv( $argv, 2, 提供詩題 );
 $題 = fix_text( trim( $argv[ 1 ] ) );
 $詩題_默認詩文檔碼 = 提取數據結構( 詩題_默認詩文檔碼 );
-$result = "";
+$result = array();
 
 foreach( $詩題_默認詩文檔碼 as $詩題 => $默文檔碼 )
 {
@@ -20,15 +20,18 @@ foreach( $詩題_默認詩文檔碼 as $詩題 => $默文檔碼 )
 		$詩文文檔路徑 = dirname( __dir__, 6 ) .
 			DIRECTORY_SEPARATOR .
 			默認版本詩文件夾 . $默文檔碼 . '.txt';
-		$result = file_get_contents( $詩文文檔路徑 );
+		$result[] = file_get_contents( $詩文文檔路徑 );
 	}
 }
-if( $result === "" )
+if( count( $result ) == 0 )
 {
-	echo 無結果, NL;
+	echo "杜甫詩中無此詩題：「${題}」。", NL;
 }
 else
 {
-	echo $result, NL;
+	foreach( $result as $p )
+	{
+		echo $p, NL;
+	}
 }
 ?>
