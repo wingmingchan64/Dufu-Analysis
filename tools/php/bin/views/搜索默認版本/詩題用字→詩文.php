@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\詩題用字→詩文.php 
+php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\詩題用字→詩文.php 故高蜀州人日
 =>
 
 */
@@ -11,7 +11,7 @@ require_once(
 check_argv( $argv, 2, 提供詩題 );
 $題 = fix_text( trim( $argv[ 1 ] ) );
 $詩題_默認詩文檔碼 = 提取數據結構( 詩題_默認詩文檔碼 );
-$result = array();
+$result = "";
 
 foreach( $詩題_默認詩文檔碼 as $詩題 => $默文檔碼 )
 {
@@ -20,12 +20,15 @@ foreach( $詩題_默認詩文檔碼 as $詩題 => $默文檔碼 )
 		$詩文文檔路徑 = dirname( __dir__, 6 ) .
 			DIRECTORY_SEPARATOR .
 			默認版本詩文件夾 . $默文檔碼 . '.txt';
-		$result[ $詩題 ] = file_get_contents( $詩文文檔路徑 );
+		$result = file_get_contents( $詩文文檔路徑 );
 	}
 }
-if( sizeof( $result ) == 0 )
+if( $result === "" )
 {
-	array_push( $result, 無結果 );
+	echo 無結果, NL;
 }
-print_r( $result );
+else
+{
+	echo $result, NL;
+}
 ?>
