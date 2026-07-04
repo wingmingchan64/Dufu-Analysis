@@ -28,7 +28,7 @@ if( array_key_exists( $默文檔碼, $默認詩文檔碼_詩題 ) )
 	}
 	else
 	{
-		echo "此詩無序言", NL;
+		echo 無序言, NL;
 	}
 }
 ?>
