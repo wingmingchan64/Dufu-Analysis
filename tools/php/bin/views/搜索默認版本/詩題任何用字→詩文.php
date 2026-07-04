@@ -1,6 +1,7 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\詩題任何用字→詩文.php 追酬蜀州日
+php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\詩題任何用字→詩文.php 酬蜀州日追
+
 =>
 */
 require_once( 
@@ -46,7 +47,7 @@ foreach( $chars as $char )
 
 if( sizeof( $result ) == 0 )
 {
-	echo 無結果, NL;
+	echo "杜詩中沒有包含「${題}」的詩題。", NL;
 }
 else
 {
