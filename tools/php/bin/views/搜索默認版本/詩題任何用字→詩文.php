@@ -18,7 +18,6 @@ foreach( $chars as $char )
 	$temp[ $char ] = array();
 }
 
-
 foreach( $詩題_默認詩文檔碼 as $詩題 => $默文檔碼 )
 {
 	foreach( $chars as $char )
@@ -38,8 +37,6 @@ foreach( $詩題_默認詩文檔碼 as $詩題 => $默文檔碼 )
 	}
 }
 
-//print_r( $temp );
-
 $result = $temp[ $chars[ 0 ] ];
 
 foreach( $chars as $char )
@@ -50,7 +47,6 @@ foreach( $chars as $char )
 if( sizeof( $result ) == 0 )
 {
 	echo 無結果, NL;
-	return;
 }
 else
 {
@@ -62,5 +58,4 @@ else
 		echo file_get_contents( $詩文文檔路徑 ), NL;
 	}
 }
-
 ?>
