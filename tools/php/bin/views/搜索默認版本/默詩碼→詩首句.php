@@ -9,12 +9,11 @@ require_once(
 
 check_argv( $argv, 2, 提供默詩碼 );
 $默詩碼 = 修復文檔碼( trim( $argv[ 1 ] ) );
-
 $默認詩碼_首句 = 提取數據結構( 默認詩碼_首句 );
 
 if( !array_key_exists( $默詩碼, $默認詩碼_首句 ) )
 {
-	echo 無詩碼, NL;
+	echo "默認版本中無此詩碼：「${默詩碼}」", NL;
 }
 else
 {
