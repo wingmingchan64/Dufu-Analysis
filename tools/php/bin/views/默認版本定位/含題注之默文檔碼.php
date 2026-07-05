@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\含題注之默文檔碼.php
+php H:\github\Dufu-Analysis\tools\php\bin\views\默認版本定位\含題注之默文檔碼.php
 => 
 */
 require_once( 

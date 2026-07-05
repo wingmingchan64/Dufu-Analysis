@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\詩文用字→默文檔碼.php 反覆
+php H:\github\Dufu-Analysis\tools\php\bin\views\默認版本定位\詩文用字→默文檔碼.php 反覆
 =>
 */
 require_once( 

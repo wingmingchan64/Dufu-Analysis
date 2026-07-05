@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\詩文任何用字→詩文.php 酒病長江
+php H:\github\Dufu-Analysis\tools\php\bin\views\默認版本定位\詩文任何用字→詩文.php 酒病長江
 =>
 */
 require_once( 

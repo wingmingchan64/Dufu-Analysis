@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\組詩默文檔碼、詩題、副題.php
+php H:\github\Dufu-Analysis\tools\php\bin\views\默認版本定位\組詩默文檔碼、詩題、副題.php
 => 
 */
 require_once( 

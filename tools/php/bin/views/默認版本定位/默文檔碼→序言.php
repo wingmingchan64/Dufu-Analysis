@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\默文檔碼→序言.php 3686
+php H:\github\Dufu-Analysis\tools\php\bin\views\默認版本定位\默文檔碼→序言.php 3686
 => 序言：旣雨已秋。堂下理小畦。隔種一兩席許萵苣。向二旬矣。而苣不甲坼。獨野莧青青。傷時君子。或晚得微祿。轗軻不進。因作此詩。
 */
 require_once( 

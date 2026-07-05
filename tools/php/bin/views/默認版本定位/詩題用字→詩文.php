@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\詩題用字→詩文.php 故高蜀州人日
+php H:\github\Dufu-Analysis\tools\php\bin\views\默認版本定位\詩題用字→詩文.php 故高蜀州人日
 =>
 
 */

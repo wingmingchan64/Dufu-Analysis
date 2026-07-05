@@ -1,4 +1,4 @@
-# 搜索默認版本
+# 默認版本定位
 
 Status: Draft
 
@@ -7,7 +7,7 @@ Status: Draft
 ## 推動程式
 
 <pre>
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索默認版本\搜索默認版本.php
+php H:\github\Dufu-Analysis\tools\php\bin\views\默認版本定位\默認版本定位.php
 </pre>
 
 ---
