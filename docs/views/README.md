@@ -1,4 +1,4 @@
-# 定位面貌 Views of Locating
+# 定位的面貌 Views of Locating
 
 Status: Draft
 
