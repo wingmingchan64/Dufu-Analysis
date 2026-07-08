@@ -9,7 +9,7 @@ require_once(
 while( true )
 {
 	echo 選項指令;
-	$程式名 = array_keys( 搜索坐標選項 );
+	$程式名 = array_keys( 坐標、路徑選項 );
 	print_r( $程式名 );
 	
 	$option = readline();

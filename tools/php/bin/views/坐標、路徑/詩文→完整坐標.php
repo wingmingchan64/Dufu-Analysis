@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\詩文→完整坐標.php 
+php H:\github\Dufu-Analysis\tools\php\bin\views\坐標、路徑\詩文→完整坐標.php 
 */
 require_once( 
 	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .

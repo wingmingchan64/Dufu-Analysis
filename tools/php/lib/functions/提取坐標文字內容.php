@@ -71,7 +71,7 @@ function 提取坐標文字內容( string $坐標, bool $debug=false ) : string
 			}
 		}
 	}
-	// 首
+	// 首、文檔
 	else
 	{
 		debug_echo( __FILE__, __LINE__, "首碼", $debug );
@@ -82,6 +82,13 @@ function 提取坐標文字內容( string $坐標, bool $debug=false ) : string
 			{
 				// array
 				$temp = 提取詩陣列詩文( $詩陣列[ $文檔碼 ], true, false, true, $debug );
+			}
+			else
+			{
+				$詩文文檔路徑 = dirname( __DIR__, 5 ) . 	
+					DIRECTORY_SEPARATOR .
+					默認版本詩文件夾 . $文檔碼 . '.txt';
+				return file_get_contents( $詩文文檔路徑 );
 			}
 		}
 		catch( ErrorException $e )
