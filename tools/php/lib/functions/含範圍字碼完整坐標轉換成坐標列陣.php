@@ -29,7 +29,7 @@ function 含範圍字碼完整坐標轉換成坐標列陣( string $坐標, bool 
 	
 	$temp = array();
 	$match = array();
-	$範圍_regex = '/\.([\d+])-([\d+])/u';
+	$範圍_regex = '/\.(\d+)-(\d+)/u';
 	
 	$r = preg_match_all( $範圍_regex, $坐標, $match );
 	

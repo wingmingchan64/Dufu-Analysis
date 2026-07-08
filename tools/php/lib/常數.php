@@ -137,6 +137,7 @@ const 含範圍字碼完整坐標 = COORDS_DIR . '含範圍字碼完整坐標';
 const 含範圍行碼完整坐標 = COORDS_DIR . '含範圍行碼完整坐標';
 const 完整坐標表 = '完整坐標表';
 const 完整坐標表文件夾 = COORDS_DIR . 完整坐標表 . DS;
+const 含範圍碼完整坐標_路徑集 = COORDS_DIR . '含範圍碼完整坐標_路徑集';
 // ids
 const 帶序言之詩 = IDS_DIR . '帶序言之詩';
 // mapping
