@@ -1,13 +1,7 @@
 <?php
 /*
 php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0003:〛
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0013:1:〛
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0013:1:5〛
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0013:1:5-6〛
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0003:3.1〛
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0013:1:5.1〛
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0013:1:5.1.2〛
-php H:\github\Dufu-Analysis\tools\php\bin\views\搜索坐標\完整坐標→詩文.php 〚0013:1:5.1.2-3〛
+
 =>
 
 */

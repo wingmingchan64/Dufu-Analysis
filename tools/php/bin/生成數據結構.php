@@ -72,9 +72,9 @@ switch( $step )
 	case 6: // 9 files
 		// after 數字對照陣列
 		// after 完整坐標表
-		// 生成：含範圍完整字碼坐標.json
-		//     不含範圍完整字碼坐標.json
-		require( 'coords\生成含範圍完整字碼坐標.php' );
+		// 生成：含範圍字碼完整坐標.json
+		//     不含範圍字碼完整坐標.json
+		require( 'coords\生成含範圍字碼完整坐標.php' );
 		// after 完整坐標表
 		// 生成：非完整坐標表.json
 		require( 'coords\生成非完整坐標.php' );

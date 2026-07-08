@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\coords\生成含範圍完整字碼坐標.php
+php H:\github\Dufu-Analysis\tools\php\bin\coords\生成含範圍字碼完整坐標.php
 */
 require_once(
 	dirname( __DIR__, 2 ) . DIRECTORY_SEPARATOR .
@@ -9,8 +9,8 @@ require_once(
 
 $默認詩文檔碼 = 提取數據結構( 默認詩文檔碼 );
 $默認詩文檔碼_完整坐標表 = 提取數據結構( 默認詩文檔碼_完整坐標表 );
-$含範圍完整字碼坐標 = array();
-$不含範圍完整字碼坐標 = array();
+$含範圍字碼完整坐標 = array();
+$不含範圍字碼完整坐標 = array();
 //$regex1 = '/\d{4}:\d+\.\d.\d+-\d+/u'; // 〚0003:5.1.2-4〛
 $regex1 = '/\.\d+\.\d+-/u'; // 〚0003:5.1.2-4〛
 $regex2 = '/\d{4}:\d+:\d+\.\d.\d+-\d+〛/u'; //〚0013:2:11.2.1-3〛
@@ -30,35 +30,35 @@ foreach( $默認詩文檔碼 as $文檔碼 )
 	{
 		if( preg_match( $regex1, $坐標 ) )
 		{
-			$含範圍完整字碼坐標[] = $坐標;
+			$含範圍字碼完整坐標[] = $坐標;
 		}
 		elseif( preg_match( $regex3, $坐標 ) ||
 			preg_match( $regex4, $坐標 ) )
 		{
-			$不含範圍完整字碼坐標[] = $坐標;
+			$不含範圍字碼完整坐標[] = $坐標;
 		}
 	}
 }
 
 $json = json_encode(
-	$含範圍完整字碼坐標,
+	$含範圍字碼完整坐標,
 	JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
 );
 
 file_put_contents(
 	dirname( __DIR__, 4 ) . DS . 
 	SCHEMAS_JSON_COORDS_DIR .
-	"含範圍完整字碼坐標.json",
+	"含範圍字碼完整坐標.json",
 	$json . PHP_EOL );
 	
 $json = json_encode(
-	$不含範圍完整字碼坐標,
+	$不含範圍字碼完整坐標,
 	JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
 );
 
 file_put_contents(
 	dirname( __DIR__, 4 ) . DS . 
 	SCHEMAS_JSON_COORDS_DIR .
-	"不含範圍完整字碼坐標.json",
+	"不含範圍字碼完整坐標.json",
 	$json . PHP_EOL );
 ?>
