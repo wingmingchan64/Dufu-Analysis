@@ -26,5 +26,13 @@
 		"題解" : "insert",
 		"異文" : "replace",
 		"注釋" : "insert"
+	},
+	"XDF":{
+		"題注" : "replace",
+		"原注" : "insert",
+		"題解" : "insert",
+		"注釋" : "insert",
+		"評論" : "insert",
+		"備考" : "insert"
 	}
 }
