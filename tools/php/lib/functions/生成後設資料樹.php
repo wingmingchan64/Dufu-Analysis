@@ -9,7 +9,8 @@ function 生成後設資料樹(
 {
 	global $ctt_registry;
 
-	if( !array_key_exists( $著述碼, $ctt_registry ) )
+	if( !array_key_exists( 
+		$著述碼, $ctt_registry ) )
 	{
 		throw new IllegalWorkIDException( "「${著述碼}」不存在。" );
 	}
