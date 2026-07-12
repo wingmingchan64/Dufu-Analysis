@@ -5,7 +5,10 @@
 use Dufu\Exceptions\InvalidCoordinateException;
 
 // 完整坐標中，其中不能有範圍 - 
-function 完整坐標轉換成路徑( string $坐標, bool $debug=false ) : string
+function 完整坐標轉換成路徑( 
+	string $坐標, 
+	bool $allow_hyphen = false,
+	bool $debug=false ) : string
 {
 	//echo $坐標, NL;
 	$文檔碼 = mb_substr( $坐標, 1, 4 );
@@ -28,11 +31,14 @@ function 完整坐標轉換成路徑( string $坐標, bool $debug=false ) : stri
 		);
 	}
 	
-	if( mb_strpos( $坐標, '-' ) !== false )
+	if( !$allow_hyphen )
 	{
-		throw new InvalidCoordinateException(
-			"坐標「${坐標}」不能有「-」。"
-		);
+		if( mb_strpos( $坐標, '-' ) !== false )
+		{
+			throw new InvalidCoordinateException(
+				"坐標「${坐標}」不能有「-」。"
+			);
+		}
 	}
 	// remove brackets
 	$坐標 = str_replace( 坐標開括號, '', 
@@ -45,8 +51,11 @@ function 完整坐標轉換成路徑( string $坐標, bool $debug=false ) : stri
 	return $坐標;
 }
 
-function convert_complete_coords_to_path( string $坐標, bool $debug=false ) : string
+function convert_complete_coords_to_path( 
+	string $坐標, 
+	bool $allow_hyphen = false,
+	bool $debug=false ) : string
 {
-	return 完整坐標轉換成路徑列陣( $坐標, $debug );
+	return 完整坐標轉換成路徑列陣( $坐標, $allow_hyphen, $debug );
 }
 ?>

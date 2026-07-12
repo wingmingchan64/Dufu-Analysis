@@ -63,6 +63,8 @@ switch( $step )
 		//     含範圍行碼完整坐標.json
 		//     默認詩文檔碼_完整坐標表.json
 		//     完整坐標表/X.json
+		//     默認詩文檔碼_路徑表.json
+		//     路徑表/X.json
 		require( 'coords\生成默認詩文檔碼_完整坐標表.php' );
 		break;
 	case 5: // 1 file

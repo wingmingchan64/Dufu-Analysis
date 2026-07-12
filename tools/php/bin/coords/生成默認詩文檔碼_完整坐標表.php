@@ -13,6 +13,8 @@ $默認詩文檔碼_行碼坐標 = array();
 $默認詩文檔碼_句碼坐標 = array();
 $默認詩文檔碼_字碼坐標 = array();
 $默認詩文檔碼_完整坐標表 = array();
+$默認詩文檔碼_路徑表 = array();
+
 $含範圍行碼完整坐標 = array();
 
 $默認詩文檔碼 = 提取數據結構( 默認詩文檔碼 );
@@ -425,6 +427,7 @@ foreach( $默認詩文檔碼 as $文檔碼 )
 
 	$默認詩文檔碼_完整坐標表[ $文檔碼 ] = array();
 }
+
 foreach( $默認詩文檔碼 as $文檔碼 )
 {
 	if( intval( $文檔碼 )> 6093 )
@@ -452,6 +455,22 @@ foreach( $默認詩文檔碼_首碼坐標 as $文檔碼 => $首碼s )
 		$默認詩文檔碼_首碼坐標[ $文檔碼 ] );
 }
 
+foreach( $默認詩文檔碼 as $默文檔碼 )
+{
+	if( intval( $默文檔碼 )> 6093 )
+	{
+		break;
+	}
+
+	$temp = array();
+	
+	foreach( $默認詩文檔碼_完整坐標表[ $默文檔碼 ] as $坐標 )
+	{
+		$temp[] = 完整坐標轉換成路徑( $坐標, true );
+	}
+
+	$默認詩文檔碼_路徑表[ $默文檔碼 ] = $temp;
+}
 
 $json = json_encode(
     $默認詩文檔碼_字碼坐標,
@@ -492,6 +511,16 @@ file_put_contents(
 	dirname( __DIR__, 4 ) . DS . SCHEMAS_JSON_COORDS_DIR .
 	"默認詩文檔碼_完整坐標表.json",
 	$json . PHP_EOL );
+	
+$json = json_encode(
+    $默認詩文檔碼_路徑表,
+    JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	dirname( __DIR__, 4 ) . DS . SCHEMAS_JSON_COORDS_DIR .
+	"默認詩文檔碼_路徑表.json",
+	$json . PHP_EOL );
 
 foreach( $默認詩文檔碼 as $默文檔碼 )
 {
@@ -499,6 +528,7 @@ foreach( $默認詩文檔碼 as $默文檔碼 )
 	{
 		break;
 	}
+	
 	$json = json_encode(
 		$默認詩文檔碼_完整坐標表[ $默文檔碼 ],
 		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT );
@@ -506,6 +536,16 @@ foreach( $默認詩文檔碼 as $默文檔碼 )
 	file_put_contents(
 		dirname( __DIR__, 4 ) . DS . SCHEMAS_JSON_COORDS_DIR .
 		'完整坐標表' . DS .
+		"${默文檔碼}.json",
+		$json . PHP_EOL );
+		
+	$json = json_encode(
+		$默認詩文檔碼_路徑表[ $默文檔碼 ],
+		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT );
+		
+	file_put_contents(
+		dirname( __DIR__, 4 ) . DS . SCHEMAS_JSON_COORDS_DIR .
+		'路徑表' . DS .
 		"${默文檔碼}.json",
 		$json . PHP_EOL );
 }
