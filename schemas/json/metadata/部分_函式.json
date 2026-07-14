@@ -36,5 +36,10 @@
 		"備考" : "insert",
 		"異文":"replace",
 		"校記":"insert"
+	},
+	"ZDZSQTS":{
+		"題注" : "replace",
+		"注釋" : "insert",
+		"校記":"insert"
 	}
 }
