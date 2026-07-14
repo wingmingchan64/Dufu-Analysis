@@ -12,14 +12,18 @@ function 植入路徑子樹(
 	
 	foreach( $路徑 as $step )
 	{
-		$pointer = &$pointer[ $step ];
+		if( is_array( $pointer ) )
+		{
+			$pointer = &$pointer[ $step ];
+		}
 	}
 	
 	foreach( $子樹 as $k => $v )
 	{
 		if( is_array( $pointer ) )
 		{
-			if( array_key_exists( $k, $pointer ) )
+			if( array_key_exists( $k, $pointer ) &&
+				is_string( $v ) )
 			{
 				$pointer[ $k ] = $pointer[ $k ] . $v;
 			}

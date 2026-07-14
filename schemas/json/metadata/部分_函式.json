@@ -33,6 +33,8 @@
 		"題解" : "insert",
 		"注釋" : "insert",
 		"評論" : "insert",
-		"備考" : "insert"
+		"備考" : "insert",
+		"異文":"replace",
+		"校記":"insert"
 	}
 }
