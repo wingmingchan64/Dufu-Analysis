@@ -9,6 +9,11 @@
 		"評論" : "insert",
 		"大意" : "insert"
 	},
+	"DFQJYYZY":{
+		"粵音" : "insert",
+		"平仄" : "insert",
+		"韻部" : "insert"
+	},
 	"JINGQUAN":{
 		"題注" : "replace",
 		"原注" : "insert",
