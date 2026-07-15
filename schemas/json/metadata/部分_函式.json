@@ -38,8 +38,9 @@
 		"校記":"insert"
 	},
 	"ZDZSQTS":{
-		"題注" : "replace",
+		"題解" : "insert",
 		"注釋" : "insert",
+		"異文" : "replace",
 		"校記":"insert"
 	}
 }

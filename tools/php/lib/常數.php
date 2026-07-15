@@ -218,6 +218,16 @@ const 文檔_文字內容 = 'doc_texts';
 const 文檔_索引 = 'doc_index_';
 const 位置 = "pos"; 
 
+// 粵語: CanonicalTextTrees
+const 字_平仄 = '字_平仄'; // table
+const SCHEMAS_JSON_CANTONESE_DIR = SCHEMAS_JSON_DIR . 'cantonese' . DS;
+const SCHEMAS_JSON_平仄_DIR = SCHEMAS_JSON_DIR . '平仄' . DS;
+
+const 平聲符號 = '⚪';
+const 仄聲符號 = '⚫';
+const 平仄聲符號 = '🟢';
+
+
 
 
 
