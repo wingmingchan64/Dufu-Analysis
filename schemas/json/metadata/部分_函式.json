@@ -14,6 +14,9 @@
 		"平仄" : "insert",
 		"韻部" : "insert"
 	},
+	"DFQSYZ":{
+		"翻譯" : "insert"
+	},
 	"JINGQUAN":{
 		"題注" : "replace",
 		"原注" : "insert",
@@ -25,12 +28,18 @@
 		"眉批" : "insert",
 		"評論" : "insert"
 	},
+	"OWEN":{
+		"翻譯" : "insert"
+	},
 	"QIANZHU":{
 		"題注" : "replace",
 		"原注" : "insert",
 		"題解" : "insert",
 		"異文" : "replace",
 		"注釋" : "insert"
+	},
+	"TSJSCD":{
+		"鑒賞" : "implant"
 	},
 	"XDF":{
 		"題注" : "replace",
@@ -47,5 +56,9 @@
 		"注釋" : "insert",
 		"異文" : "replace",
 		"校記":"insert"
+	},
+	"ZHAOZHU":{
+		"題解" : "insert",
+		"注釋" : "insert"
 	}
 }
