@@ -82,7 +82,7 @@ function 生成後設資料樹(
 					//echo $範圍, NL;
 					$範圍 = 提取詩文唯一路徑( $默文碼, $範圍 );
 				}
-				
+				//print_r( $map );
 				$來源路徑 = $map[ 'src_path' ];
 				
 				if( array_key_exists( 'op', $map ) )

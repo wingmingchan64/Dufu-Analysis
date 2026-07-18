@@ -9,6 +9,11 @@ function 植入路徑子樹(
 	array $子樹, bool $debug=false ) : bool
 {
 	$pointer = &$陣列;
+	//print_r( $路徑 );
+	//print_r( $子樹 );
+	
+	//echo "tree", NL;
+	//print_r( $陣列 );
 	
 	foreach( $路徑 as $step )
 	{
@@ -22,14 +27,20 @@ function 植入路徑子樹(
 	{
 		if( is_array( $pointer ) )
 		{
-			if( array_key_exists( $k, $pointer ) &&
-				is_string( $v ) )
+			if( array_key_exists( $k, $pointer ) )
 			{
-				$pointer[ $k ] = $pointer[ $k ] . $v;
+				if( is_string( $v ) )
+				{
+					$pointer[ $k ] = $pointer[ $k ] . $v;
+				}
 			}
 			else
 			{
+				//echo '1b', NL;
+				//echo $k, NL;
+				//$temp = $pointer;
 				$pointer[ $k ] = $子樹[ $k ];
+				//print_r( $temp );
 			}
 		}
 		else
@@ -37,7 +48,7 @@ function 植入路徑子樹(
 			$pointer = $子樹;
 		}
 	}
-	
+	//print_r( $陣列 );
 	return true;
 }
 

@@ -9,13 +9,27 @@
 		"評論" : "insert",
 		"大意" : "insert"
 	},
+	"DDXJ":{
+		"題注" : "replace",
+		"原注" : "insert",
+		"題解" : "insert",
+		"異文" : "replace",
+		"夾注" : "insert",
+		"注釋" : "insert",
+		"評論" : "insert",
+		"結構" : "insert"
+	},
 	"DFQJYYZY":{
+		"體裁" : "insert",
 		"粵音" : "insert",
 		"平仄" : "insert",
 		"韻部" : "insert"
 	},
 	"DFQSYZ":{
 		"翻譯" : "insert"
+	},
+	"DUYI":{
+		"鑒賞" : "insert"
 	},
 	"JINGQUAN":{
 		"題注" : "replace",
@@ -57,8 +71,12 @@
 		"異文" : "replace",
 		"校記":"insert"
 	},
+	"ZHANGNIANPU":{
+		"年譜" : "insert"
+	},
 	"ZHAOZHU":{
 		"題解" : "insert",
-		"注釋" : "insert"
+		"注釋" : "insert",
+		"異文" : "replace"
 	}
 }
