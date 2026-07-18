@@ -9,6 +9,9 @@
 		"評論" : "insert",
 		"結構" : "insert"
 	},
+	"CJTDSJ":{
+		"結構" : "insert"
+	},
 	"DDXJ":{
 		"題注" : "replace",
 		"原注" : "insert",
@@ -27,6 +30,9 @@
 	},
 	"DFQSYZ":{
 		"翻譯" : "insert"
+	},
+	"DSS":{
+		"鑒賞" : "insert"
 	},
 	"DSYZ":{
 		"結構" : "insert"
