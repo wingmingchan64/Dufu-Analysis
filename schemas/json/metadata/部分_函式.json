@@ -7,7 +7,7 @@
 		"夾注" : "insert",
 		"注釋" : "insert",
 		"評論" : "insert",
-		"大意" : "insert"
+		"結構" : "insert"
 	},
 	"DDXJ":{
 		"題注" : "replace",
