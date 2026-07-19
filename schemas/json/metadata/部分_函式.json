@@ -40,6 +40,14 @@
 	"DUYI":{
 		"鑒賞" : "insert"
 	},
+	"GUOZHU":{
+		"題注" : "replace",
+		"原注" : "insert",
+		"題解" : "insert",
+		"異文" : "replace",
+		"夾注" : "insert",
+		"注釋" : "insert"
+	},
 	"JINGQUAN":{
 		"題注" : "replace",
 		"原注" : "insert",
