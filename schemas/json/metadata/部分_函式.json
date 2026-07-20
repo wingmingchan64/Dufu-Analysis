@@ -40,6 +40,10 @@
 	"DUYI":{
 		"鑒賞" : "insert"
 	},
+	"FMJZ":{
+		"題解" : "insert",
+		"注釋" : "insert"
+	},
 	"GUOZHU":{
 		"題注" : "replace",
 		"原注" : "insert",
@@ -70,7 +74,11 @@
 		"注釋" : "insert"
 	},
 	"TSJSCD":{
-		"鑒賞" : "implant"
+		"鑒賞" : "graft"
+	},
+	"WZYJBJZ":{
+		"題解" : "insert",
+		"注釋" : "insert"
 	},
 	"XDF":{
 		"題注" : "replace",
