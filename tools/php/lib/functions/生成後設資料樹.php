@@ -23,18 +23,6 @@ function 生成後設資料樹(
 	$部分_函式 = 提取數據結構(
 		METADATA_DIR . '部分_函式' )[ $著述碼 ];
 
-	// get the source folder
-	
-	//$著述碼_簡稱 = 提取數據結構( 著述碼_簡稱 );
-	//$書目簡稱 = 提取數據結構( 書目簡稱 );
-	/*
-	$df_folder = dirname( __DIR__, 5 ) .
-		DIRECTORY_SEPARATOR .
-		杜甫版本文件夾 .
-		提取書目簡稱()[ $簡稱 ] . DIRECTORY_SEPARATOR .
-		METADATA_DIR . $版文檔碼 . DIRECTORY_SEPARATOR;
-	*/
-	
 	// get the source/target folder
 	$ctt_dir = dirname( __DIR__, 5 ) . 
 		DIRECTORY_SEPARATOR .
@@ -83,6 +71,7 @@ function 生成後設資料樹(
 					$範圍 = 提取詩文唯一路徑( $默文碼, $範圍 );
 				}
 				//print_r( $map );
+				
 				$來源路徑 = $map[ 'src_path' ];
 				
 				if( array_key_exists( 'op', $map ) )
@@ -93,16 +82,24 @@ function 生成後設資料樹(
 				{
 					$函式 = $部分_函式[ $部分 ];
 				}
+				
+				if( array_key_exists( 'begin', $map ) )
+				{
+					$開始 = $map[ 'begin' ];
+				}
+				
 				$m_tree[ $著述碼 ][ $版文檔碼 ][ $部分 ]
 				[ $範圍 ][ $來源路徑 ] = $函式;
+				
+				if( $部分 == '引典' )
+				{
+					$m_tree[ $著述碼 ][ $版文檔碼 ]
+						[ $部分 ][ $範圍 ][ $來源路徑 ] =
+						$開始;
+				}
 			}
 		}
 	}
-	//print_r( json_encode( $m_tree , JSON_UNESCAPED_UNICODE  ) );
-	
-	//echo $df_folder, NL;
-	//echo $ctt_folder, NL;
-	//return $m_tree;
 	
 	$json = json_encode(
 		$m_tree,

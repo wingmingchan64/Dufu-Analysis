@@ -9,8 +9,17 @@
 		"評論" : "insert",
 		"結構" : "insert"
 	},
+	"CIDIAN":{
+		"詞典" : "insert"
+	},
 	"CJTDSJ":{
 		"結構" : "insert"
+	},
+	"CTSJ":{
+		"夾注" : "replace",
+		"題解" : "insert",
+		"注釋" : "insert",
+		"異文":"replace"
 	},
 	"DDXJ":{
 		"題注" : "replace",
@@ -73,6 +82,9 @@
 		"異文" : "replace",
 		"注釋" : "insert"
 	},
+	"SHIHUA":{
+		"鑒賞" : "graft"
+	},
 	"TSJSCD":{
 		"鑒賞" : "graft"
 	},
@@ -89,6 +101,9 @@
 		"備考" : "insert",
 		"異文":"replace",
 		"校記":"insert"
+	},
+	"YDCC":{
+		"引典" : "insert"
 	},
 	"ZDZSQTS":{
 		"題解" : "insert",

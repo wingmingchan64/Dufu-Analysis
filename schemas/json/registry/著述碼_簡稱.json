@@ -1,5 +1,6 @@
 {
     "CHOUZHU":"仇",
+	"CIDIAN":"詞典",
     "CJTDSJ":"歎",
 	"CTSJ":"蔡",
 	"DDXJ":"浦",
@@ -16,8 +17,9 @@
 	"TSJSCD":"鑒",
 	"WZYJBJZ":"王",
 	"XDF":"蕭",
-	"YDCC":"典",
 	"ZDZSQTS":"焮",
 	"ZHAOZHU":"趙",
-	"ZHANGNIANPU":"張年"
+	"ZHANGCIDIAN":"張辭",
+	"ZHANGNIANPU":"張年",
+	"YDCC":"典"
 }

@@ -3,6 +3,7 @@
  * JINGQUAN, 0001 
  */
 use CTT\Exceptions\IllegalWorkIDException;
+use CTT\Exceptions\IllegalLineIDException;
 
 function 附加著述資料(
 	string $默文碼,
@@ -14,7 +15,7 @@ function 附加著述資料(
 	
 	$是組詩 = 是組詩( $默文碼 );
 	$root_node_group = array(
-		"鑒賞", "年譜", "辨疑", "結構", "參考"
+		"鑒賞", "年譜", "辨疑", "結構", "參考", "引典", "詞典"
 	);
 	
 	[ $著述碼, $版文碼 ] = explode( 逗號, $著述版文碼 );
@@ -32,27 +33,111 @@ function 附加著述資料(
 		// focus on $部分, $範圍, $來源
 		// use $部分 to group authors
 		// $範圍: find 行碼, replace text with path
-		[ $dummy1, $dummy2, $部分, $範圍, $來源, $函式 ] =
-			explode( US, $path );
+		$parts = explode( US, $path );
+		$開始 = '';
+		
+		if( count( $parts ) == 6 )
+		{
+			[ $dummy1, $dummy2, $部分, $範圍, $來源, 
+				$函式 ] = $parts;
+		}
 			
 		if( in_array( $部分, $root_node_group ) )
 		{
-			// $範圍 is a
-			$路徑 = array( $範圍, $部分 );
-			echo $部分, NL;
-			
-			if( $樹[ $範圍 ] == '' )
+			if( $部分 == "引典" )
 			{
-				$樹[ $範圍 ] = array();
+				$開始 = 修復文字( $函式 );
+				// $來源:SFJL,01,57
+				// $來源:SFJL,01,57,124
+				$來源陣列 = explode( ',', $來源 );
+				$來源著述碼_段碼 = array_slice( $來源陣列, 0, 2 );
+				$用行 = false;
+				$引文行碼 = 0;
+				
+				if( count( $來源陣列 ) == 4 )
+				{
+					$用行 = true;
+					$引文行碼 = $來源陣列[ 3 ];
+					$來源陣列 = array_splice(
+						$來源陣列, 3, 1 );
+				}
+				
+				$篇名 = 
+					提取ctt正文( implode( ',', $來源著述碼_段碼 ) . ',篇名' );
+				$引文 = 修復文字( 提取ctt正文( $來源 ) );
+				
+				/*
+				echo $開始, NL;
+				echo $引文行碼, NL;
+				echo $引文, NL;
+				*/
+				
+				if( $開始 != '' &&
+					mb_strpos( $引文, $開始 ) !== 0 )
+				{
+					throw new IllegalLineIDException(
+						"${默文碼}:${來源}的引文「${引文}」中沒有「${開始}」。"
+					);
+				}
+					
+				//$路徑 = array( 樹錨名, $篇名 );
+				// $範圍:38
+				if( !array_key_exists(
+					$部分, $樹[ 樹錨名 ] ) )
+				{
+					$樹[ 樹錨名 ][ $部分 ] = array();
+				}
+				//echo 樹錨名, NL;
+				//echo $部分, NL;
+				//echo $篇名, NL;
+				// empty array
+				//print_r( $樹[ 樹錨名 ][ $部分 ] );
+				
+				//continue;
+				if( !array_key_exists(
+					$範圍, $樹[ 樹錨名 ][ $部分 ] ) )
+				{
+					$樹[ 樹錨名 ][ $部分 ][ $範圍 ] = array();
+				}
+				
+				if( !array_key_exists(
+					$篇名, $樹[ 樹錨名 ][ $部分 ][ $範圍 ] ) )
+				{
+					$樹[ 樹錨名 ][ $部分 ][ $範圍 ][ $篇名 ] = array();
+				}
+				
+				if( !$用行 )
+				{
+					// subtree
+					$引文 = 提取ctt子樹( $來源 );
+					$樹[ 樹錨名 ][ $部分 ][ $範圍 ][ $篇名 ][] = $引文;
+				}
+				else
+				{
+					// text
+					$樹[ 樹錨名 ][ $部分 ][ $範圍 ][ $篇名 ]
+						[ $引文行碼 ] = $引文;
+				}
 			}
-			
-			if( !array_key_exists( $部分, $樹[ $範圍 ] ) )
+			else
 			{
-				$樹[ $範圍 ][ $部分 ] = array();
+				// $範圍 is a
+				$路徑 = array( $範圍, $部分 );
+				//echo $部分, NL;
+				
+				if( $樹[ $範圍 ] == '' )
+				{
+					$樹[ $範圍 ] = array();
+				}
+				
+				if( !array_key_exists( $部分, $樹[ $範圍 ] ) )
+				{
+					$樹[ $範圍 ][ $部分 ] = array();
+				}
+				
+				$子樹 = array( $簡稱 => 提取ctt子樹( $來源 ) );
+				植入路徑子樹( $樹, $路徑, $子樹 );
 			}
-			
-			$子樹 = array( $簡稱 => 提取ctt子樹( $來源 ) );
-			植入路徑子樹( $樹, $路徑, $子樹 );
 		}
 		else
 		{
