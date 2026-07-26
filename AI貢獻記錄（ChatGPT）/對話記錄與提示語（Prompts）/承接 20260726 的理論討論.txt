@@ -161,3 +161,7 @@ Character Layer
 我們希望的是：
 
 用更少的基本概念，解釋更多既有現象。
+
+最新的討論記錄如下：
+
+https://github.com/wingmingchan64/Dufu-Analysis/blob/main/AI%E8%B2%A2%E7%8D%BB%E8%A8%98%E9%8C%84%EF%BC%88ChatGPT%EF%BC%89/%E5%B0%8D%E8%A9%B1%E8%A8%98%E9%8C%84%E8%88%87%E6%8F%90%E7%A4%BA%E8%AA%9E%EF%BC%88Prompts%EF%BC%89/%E6%9D%9C%E7%94%AB%E7%B3%BB%E7%B5%B1%E7%A0%94%E7%A9%B6%E8%A8%8E%E8%AB%962026_06_28.txt
