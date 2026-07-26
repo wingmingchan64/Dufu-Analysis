@@ -63,6 +63,7 @@ const METADATA_DIR = 'metadata' . DS;
 const REGISTRY_DIR = 'registry' . DS;
 const SETS_DIR = 'sets' . DS;
 
+
 // tests
 const TESTS_DIR = 'tests' . DS;
 const TESTS_PHP_DIR = TESTS_DIR . 'php' . DS;
@@ -86,6 +87,11 @@ const EXCEPTIONS_DIR = 'exceptions' . DS;
 const FUNCTIONS_DIR = 'functions' . DS;
 const PHP_CODE_BASE_LIB_DIR = __DIR__ . DS;
 const PHP_GLOBAL_FUNCTIONS = PHP_CODE_BASE_LIB_DIR . '函式.php';
+// CanonicalTextTrees
+const 語料文件夾 = 基準正文樹文件夾 . 'corpus' . DS;
+const 杜甫語料文件夾 = 語料文件夾 . 'dufu' . DS;
+const 古典語料文件夾 = 語料文件夾 . 'classical' . DS;
+
 
 // JSON data structures
 // base_text

@@ -15,11 +15,13 @@ function 附加著述資料(
 	
 	$是組詩 = 是組詩( $默文碼 );
 	$root_node_group = array(
-		"鑒賞", "年譜", "辨疑", "結構", "參考", "引典", "詞典"
+		"鑒賞", "年譜", "辨疑", "結構", "參考", "引典", "釋義"
 	);
 	
 	[ $著述碼, $版文碼 ] = explode( 逗號, $著述版文碼 );
-	$簡稱 = 提取數據結構( 著述碼_簡稱 )[ $著述碼 ];
+	$著述碼_簡稱 = 提取數據結構( 著述碼_簡稱 );
+	$簡稱 = $著述碼_簡稱[ $著述碼 ];
+	$書目簡稱 = 提取數據結構( 書目簡稱 );
 	// error checking
 	if( !array_key_exists( $著述碼, $ctt_registry ) )
 	{
@@ -36,6 +38,8 @@ function 附加著述資料(
 		$parts = explode( US, $path );
 		$開始 = '';
 		
+		//echo $path, NL;
+		
 		if( count( $parts ) == 6 )
 		{
 			[ $dummy1, $dummy2, $部分, $範圍, $來源, 
@@ -44,7 +48,58 @@ function 附加著述資料(
 			
 		if( in_array( $部分, $root_node_group ) )
 		{
-			if( $部分 == "引典" )
+			// CIDIAN_0943_釋義_鄜州_ZHANGCIDIAN,地13,1,4_insert
+			if( $部分 == "釋義" )
+			{
+				if( !array_key_exists(
+					'詞典', $樹[ 樹錨名 ] ) )
+				{
+					$樹[ 樹錨名 ][ '詞典' ] = array();
+				}
+				
+				[ $詞典名, $詞典類別, $段, $行 ] = 
+					explode( ',', $來源 );
+				$書名 = $書目簡稱[ $著述碼_簡稱[ $詞典名 ] ];
+				$詞條 = $範圍;
+				
+				if( !array_key_exists( $詞條, $樹[ 樹錨名 ][ '詞典' ] ) )
+				{
+					$樹[ 樹錨名 ][ '詞典' ][ $詞條 ] = array();
+					
+				}
+				
+				//echo $書名, NL;
+				
+				
+				$詞典文件夾 = dirname( __DIR__, 5 ) . DIRECTORY_SEPARATOR .
+					杜甫語料文件夾 .
+					'詞典' . DIRECTORY_SEPARATOR;
+				$地名坐標表 = $詞典文件夾 . '地名坐標.json';
+				$人名生卒年表 = $詞典文件夾 . '人名生卒年.json';
+				$地名坐標 = json_decode(
+					file_get_contents( $地名坐標表 ), true );
+				$人名生卒年 = json_decode(
+					file_get_contents( $人名生卒年表 ), true );
+
+				if( array_key_exists( $詞條, $地名坐標 ) )
+				{
+					$樹[ 樹錨名 ][ '詞典' ][ $詞條 ][ '坐標' ] 
+						= $地名坐標[ $詞條 ];
+				}
+				elseif( array_key_exists( $詞條, $人名生卒年 ) )
+				{
+					$樹[ 樹錨名 ][ '詞典' ][ $詞條 ][ '生卒年' ] 
+						= $人名生卒年[ $詞條 ];
+				}
+				
+				$釋義 = 提取ctt正文( $來源 );
+				$釋義 .= "（${書名}）";
+				$樹[ 樹錨名 ][ '詞典' ][ $詞條 ][ '釋義' ] =
+					$釋義;
+				
+				
+			}
+			elseif( $部分 == "引典" )
 			{
 				$開始 = 修復文字( $函式 );
 				// $來源:SFJL,01,57

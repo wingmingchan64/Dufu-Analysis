@@ -1,12 +1,12 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\metadata\生成後設資料樹.php
+php H:\github\Dufu-Analysis\tools\php\bin\views\資料匯總\生成後設資料樹.php
 */
 use Dufu\Exceptions\ConfirmationFailureException;
 use Dufu\Exceptions\InvalidCoordinateException;
 
 require_once(
-	dirname( __DIR__, 2 ) . DIRECTORY_SEPARATOR .
+	dirname( __DIR__, 3 ) . DIRECTORY_SEPARATOR .
 	"lib" . DIRECTORY_SEPARATOR .
 	"函式.php" );
 
