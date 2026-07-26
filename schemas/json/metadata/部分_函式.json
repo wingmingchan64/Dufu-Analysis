@@ -40,6 +40,12 @@
 	"DFQSYZ":{
 		"翻譯" : "insert"
 	},
+	"DSSBS":{
+		"題解" : "insert",
+		"注釋" : "insert",
+		"結構" : "insert",
+		"鑒賞" : "insert"
+	},
 	"DSS":{
 		"鑒賞" : "insert"
 	},
@@ -100,6 +106,12 @@
 		"評論" : "insert",
 		"備考" : "insert",
 		"異文":"replace",
+		"校記":"insert"
+	},
+	"XSW":{
+		"題解" : "insert",
+		"注釋" : "insert",
+		"評論" : "insert",
 		"校記":"insert"
 	},
 	"YDCC":{
