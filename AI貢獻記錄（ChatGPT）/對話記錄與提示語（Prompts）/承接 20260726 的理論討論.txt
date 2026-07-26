@@ -1,0 +1,163 @@
+Prompt：承接 2026/07/26 的理論討論
+
+我們上一個討論已經超過 18,000 行，這是一個新的延續。
+
+請把這次討論視為同一個長期研究計畫的延續，而不是重新開始。
+
+一、背景
+
+這是一個持續十年以上的研究計畫，核心包括：
+
+- 杜甫詩歌資料庫
+- CanonicalTextTrees
+- Metadata / Hub / Path-set 架構
+- 多版本、多著述、多層資料的整合
+
+目前研究的重點已逐漸由具體實作，提升到理論架構的整理。
+
+二、目前已形成的重要觀點
+1. Hub
+
+目前傾向將 Hub 理解為：
+
+一個實體（entity）＋一組 paths ＋ 與這些 paths 關聯的 pieces。
+
+不同 Hub 的差別，不在於機制，而在於 path collection 的來源。
+
+例如：
+
+- 完整正文（complete paths）
+- 詞典條目（selected paths）
+- 人物
+- 地名
+- 年譜
+- 引典
+- 各種研究專題
+
+都可以視為同一抽象模型。
+
+2. Metadata Marker
+
+Metadata Marker 具有兩個彼此獨立的部分：
+
+(1) Destination
+
+表示 piece 應存放的位置（home）。
+
+例如：
+
+- annotation tree
+- dictionary entry
+- chronology entry
+- person hub
+
+等等。
+
+(2) Reference Path-set
+
+表示 piece 所涉及（about）的正文位置。
+
+這部分基本保持一致，不因 destination 改變而改變。
+
+這兩個關係（home 與 about）是不同的概念。
+
+3. Structure 與 Content
+
+最近的新想法是：
+
+基準正文樹可能同時包含兩件事情：
+
+- 結構（structure）
+- 正文（character layer）
+
+平仄、粵音等實驗顯示：
+
+同一個結構可以承載不同 layer。
+
+因此：
+
+Structure
++
+Character Layer
+
+可以形成 Canonical Tree。
+
+Tone Layer
+
+可以形成 Tone Tree。
+
+Pronunciation Layer
+
+可以形成 Pronunciation Tree。
+
+4. Character Layer 的發現
+
+今天的重要發現是：
+
+如果只有一個空的 Structure Frame，
+
+原本以為還需要建立 Character Layer。
+
+後來發現：
+
+這個 Character Layer 其實早已存在於系統之中。
+
+它就是：
+
+Character → Coordinate (Path-set)
+
+索引。
+
+因此：
+
+Character Index
+
+不只是搜索索引，
+
+也是 Character Layer 的另一種表示。
+
+這是一個重要的理論發現。
+
+5. Canonical Tree 的新觀點
+
+目前比較傾向這樣理解：
+
+Canonical Tree 可以被視為：
+
+Structure Frame
+
+-
+
+Character Layer
+
+的一個 realization（或 view）。
+
+注意：
+
+這是一種理論上的理解，不是建議修改目前杜甫系統的實作。
+
+目前的 Canonical Tree 仍然是最自然、最高效率、最適合維護的主要資料結構。
+
+三、目前的研究狀態
+
+目前並沒有計畫推翻既有架構。
+
+相反地，
+
+這次討論似乎只是發現：
+
+原有系統中許多獨立建立的元件，
+
+其實都是同一抽象架構的不同投影。
+
+請延續這條思路，
+
+協助分析哪些只是不同角度的描述，
+
+哪些才是真正新的概念。
+
+如果新的抽象不能讓系統更簡單，就不要為抽象而抽象。
+
+我們希望的是：
+
+用更少的基本概念，解釋更多既有現象。
