@@ -92,7 +92,6 @@ const 語料文件夾 = 基準正文樹文件夾 . 'corpus' . DS;
 const 杜甫語料文件夾 = 語料文件夾 . 'dufu' . DS;
 const 古典語料文件夾 = 語料文件夾 . 'classical' . DS;
 
-
 // JSON data structures
 // base_text
 const 杜甫詩陣列 = BASE_TEXT_DIR . '杜甫詩陣列';

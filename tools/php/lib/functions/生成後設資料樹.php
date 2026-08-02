@@ -38,6 +38,7 @@ function 生成後設資料樹(
 	
 	foreach( $processing_order as $部分 )
 	{
+		//echo $部分, NL;
 		$file = $ctt_folder . 
 			$版文檔碼 . DIRECTORY_SEPARATOR . $部分 . '.txt';
 
@@ -61,10 +62,13 @@ function 生成後設資料樹(
 				//echo "Before scope", NL;
 				//print_r( $map );
 				$範圍 = $map[ 'scope' ];
+				//echo $範圍, NL;
+				//echo intval( $範圍 ), NL;
 				
-				if( 不是路徑( $範圍 ) && 
+				if( $範圍 != '題注' &&
+					不是路徑( $範圍 ) && 
 					$範圍 != 樹錨名 &&
-					intval( $範圍 ) === false )
+					intval( $範圍 ) === 0 )
 				{
 					//echo "should be here", NL;
 					//echo $範圍, NL;
@@ -73,6 +77,11 @@ function 生成後設資料樹(
 				//print_r( $map );
 				
 				$來源路徑 = $map[ 'src_path' ];
+				
+				if( $範圍 == '題注' )
+				{
+					$範圍 = "${默文碼},${範圍}";
+				}
 				
 				if( array_key_exists( 'op', $map ) )
 				{

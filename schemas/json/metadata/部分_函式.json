@@ -94,6 +94,9 @@
 	"TSJSCD":{
 		"鑒賞" : "graft"
 	},
+	"WANGZHU":{
+		"異文":"replace"
+	},
 	"WZYJBJZ":{
 		"題解" : "insert",
 		"注釋" : "insert"

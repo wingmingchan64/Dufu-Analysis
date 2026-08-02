@@ -1,6 +1,6 @@
 <?php
 /*
-php H:\github\Dufu-Analysis\tools\php\bin\views\默認版本定位\詩題用字→默文檔碼.php 故高蜀州人日
+php H:\github\Dufu-Analysis\tools\php\bin\views\默認版本定位\詩題用字→默文檔碼.php 白
 =>
 
 */
@@ -15,9 +15,18 @@ $result = array();
 
 foreach( $詩題_默認詩文檔碼 as $詩題 => $默文檔碼 )
 {
-	if( mb_strpos( $詩題, $題 ) !== false )
+	// $默文檔碼: string or array
+	if( is_string( $默文檔碼 ) || is_int( $默文檔碼 ) )
 	{
-		$result[ $默文檔碼 ] = $詩題;
+		$默文檔碼 = array( $默文檔碼 . '' );
+	}
+	
+	foreach( $默文檔碼 as $碼 )
+	{
+		if( mb_strpos( $詩題, $題 ) !== false )
+		{
+			$result[ $碼 ] = $詩題;
+		}
 	}
 }
 if( count( $result ) == 0 )
