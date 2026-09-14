@@ -95,7 +95,11 @@
 		"鑒賞" : "graft"
 	},
 	"WANGZHU":{
-		"異文":"replace"
+		"題注":"replace",
+		"異文":"replace",
+		"注釋" : "insert",
+		"夾注" : "insert",
+		"附錄":"graft"
 	},
 	"WZYJBJZ":{
 		"題解" : "insert",
