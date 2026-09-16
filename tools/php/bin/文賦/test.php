@@ -166,13 +166,6 @@ function recusively_fill_data(
 	{
 		$temp = ltrim( $path, ',' );
 		
-		/*
-		if( $temp !== "" && !in_array( $temp, $paths ) )
-		{
-			$paths[] = $temp;
-		}
-		*/
-		
 		if( is_array( $tree[ $key ] ) )
 		{
 			recusively_fill_data( $tree[ $key ], 
