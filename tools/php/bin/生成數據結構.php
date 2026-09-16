@@ -2,6 +2,8 @@
 /*
 php H:\github\Dufu-Analysis\tools\php\bin\生成數據結構.php
 */
+ini_set('memory_limit', '1024M');
+
 require_once(
 	dirname( __DIR__, 1 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR .
@@ -96,10 +98,12 @@ switch( $step )
 		require( 'coords\生成默認詩文檔碼_行碼_內容.php' );
 		// 生成：默認詩文檔碼_詩文.json
 		require( 'coords\生成詩句路徑.php' );
+		require( 'coords\生成含範圍碼完整坐標_路徑集.php' );
 		// 0003->岱宗夫如何。齊魯青未了。造化鍾……
 		require( 'mapping\生成默認詩文檔碼_詩文.php' );
 		// 生成：默認詩文檔碼_詩文重見名單
 		require( 'mapping\生成默認詩文檔碼_詩文黑名單.php' );
+		require( 'mapping\生成默認詩碼_首句.php' );
 		
 		break;
 	case 7: //  files
