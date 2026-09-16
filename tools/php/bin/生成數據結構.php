@@ -6,7 +6,9 @@ require_once(
 	dirname( __DIR__, 1 ) . DIRECTORY_SEPARATOR .
 	'lib' . DIRECTORY_SEPARATOR .
 	'函式.php' );
-	
+
+// 1-8
+// bugs in 7!!!
 $step = 8;
 
 switch( $step )
