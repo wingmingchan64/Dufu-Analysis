@@ -8,8 +8,7 @@ require_once(
 	'函式.php' );
 
 // 1-8
-// bugs in 7!!!
-$step = 8;
+$step = 6;
 
 switch( $step )
 {
@@ -96,10 +95,12 @@ switch( $step )
 		// 內容 could be the empty string
 		require( 'coords\生成默認詩文檔碼_行碼_內容.php' );
 		// 生成：默認詩文檔碼_詩文.json
+		require( 'coords\生成詩句路徑.php' );
 		// 0003->岱宗夫如何。齊魯青未了。造化鍾……
 		require( 'mapping\生成默認詩文檔碼_詩文.php' );
 		// 生成：默認詩文檔碼_詩文重見名單
 		require( 'mapping\生成默認詩文檔碼_詩文黑名單.php' );
+		
 		break;
 	case 7: //  files
 		// 5 files per book

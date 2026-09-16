@@ -182,7 +182,7 @@ final class JsonDataLoader
 
 		// 只允許 a-z A-Z 0-9 _ - / 和中文
 		// 只允許 a-z A-Z 0-9 _ - / 和中文
-		if( !preg_match('/^[\p{Han}A-Za-z0-9_\-\/《》]+$/u', $name))
+		if( !preg_match('/^[\p{Han}A-Za-z0-9_\-\/《》、]+$/u', $name))
 		{
 			throw new \InvalidArgumentException("JSON name 含非法字符: $name");
 		}
