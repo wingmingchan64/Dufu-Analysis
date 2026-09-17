@@ -10,7 +10,7 @@ require_once(
 	'函式.php' );
 
 // 1-8
-$step = 6;
+$step = 8;
 
 switch( $step )
 {

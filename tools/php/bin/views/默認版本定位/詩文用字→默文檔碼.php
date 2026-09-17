@@ -38,9 +38,13 @@ foreach( $temp as $坐標 )
 		$result[ $默文檔碼 ] = array();
 	}
 	
+	// remove range
 	$坐標 = preg_replace( '/\.\d+-\d+/u', '', $坐標 );
-	$路徑 = implode( ',', 
-		$完整坐標_路徑陣列[ $默文檔碼 ][ $坐標 ] );
+	$steps = $完整坐標_路徑陣列[ $默文檔碼 ][ $坐標 ];
+	
+	// remove 字碼
+	array_pop( $steps );
+	$路徑 = implode( ',', $steps );
 	$result[ $默文檔碼 ][] = $路徑_句[ $路徑 ];
 }
 
