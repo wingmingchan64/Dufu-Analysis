@@ -2,7 +2,7 @@
 /*
 php H:\github\Dufu-Analysis\tools\php\bin\生成數據結構.php
 */
-ini_set('memory_limit', '1024M');
+ini_set('memory_limit', '2048M');
 
 require_once(
 	dirname( __DIR__, 1 ) . DIRECTORY_SEPARATOR .
@@ -10,8 +10,8 @@ require_once(
 	'函式.php' );
 
 // 1-8
-$step = 8;
-$all = true;
+$step = 1;
+$all = true; // when true, set $step to 1
 
 switch( $step )
 {
