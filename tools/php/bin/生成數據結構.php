@@ -11,6 +11,7 @@ require_once(
 
 // 1-8
 $step = 8;
+$all = true;
 
 switch( $step )
 {
@@ -27,7 +28,7 @@ switch( $step )
 		require( 'mapping\生成默認詩文檔碼_詩題.php' );
 		//     組詩_副題.json
 		require( 'mapping\生成組詩_副題.php' );
-		break;
+		if( !$all ) break;
 	case 2: // 3 files
 		// after 默認版本詩碼
 		// after base_text
@@ -35,7 +36,7 @@ switch( $step )
 		//     坐標_默認詩碼.json 〚0013:1:〛-> 0013-1
 		//     默認詩碼_坐標.json
 		require( 'coords\生成詩碼坐標.php' );
-		break;
+		if( !$all ) break;
 	case 3: // 18 files
 		// after 默認詩文檔碼、帶序言之詩、組詩_副題
 		// 生成：默認詩文檔碼_碼_字.json 0003->〚0003:3.1.1〛->岱
@@ -58,7 +59,7 @@ switch( $step )
 		//     坐標_句.json 〚0003:3.1〛->岱宗夫如何
 		//     坐標_行.json 〚0003:3〛->岱宗夫如何。齊魯青未了。
 		require( 'coords\生成坐標_詩文.php' );
-		break;
+		if( !$all ) break;
 	case 4: // 1137 files
 		// after 默認詩文檔碼、默認詩文檔碼_序言、組詩_副題、句碼_詩句
 		// 生成：默認詩文檔碼_字碼坐標.json
@@ -69,11 +70,11 @@ switch( $step )
 		//     默認詩文檔碼_路徑表.json
 		//     路徑表/X.json
 		require( 'coords\生成默認詩文檔碼_完整坐標表.php' );
-		break;
+		if( !$all ) break;
 	case 5: // 1 file
 		// all combinations of char within segments
 		require( 'coords\生成默認詩文檔碼_詩文_坐標.php' );
-		break;
+		if( !$all ) break;
 	case 6: // 9 files
 		// after 數字對照陣列
 		// after 完整坐標表
@@ -104,21 +105,20 @@ switch( $step )
 		// 生成：默認詩文檔碼_詩文重見名單
 		require( 'mapping\生成默認詩文檔碼_詩文黑名單.php' );
 		require( 'mapping\生成默認詩碼_首句.php' );
-		
-		break;
+		if( !$all ) break;
 	case 7: //  files
 		// 5 files per book
 		require( 'catalog\生成默詩碼_版本詩碼.php' );
 		// 2 files
 		require( 'catalog\生成版本目錄對照表.php' );
-		break;
+		if( !$all ) break;
 	case 8: //  files
 		//生成：杜甫詩陣列.json
 		//    組詩樹.json
 		// 1457 files in base_text
 		require( 'base_text\生成杜甫詩陣列.php' );
 		require( 'base_text\生成組詩樹.php' );
-		break;
+		if( !$all ) break;
 /*
 //require( 'coords\' );
 //require( 'coords\' );
