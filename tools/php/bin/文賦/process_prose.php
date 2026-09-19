@@ -10,8 +10,9 @@ require_once(
 $文檔碼 = '6111';
 $filepath = dirname( __DIR__, 5 ) . DIRECTORY_SEPARATOR .
 	默認版本文賦文件夾 . "${文檔碼}.txt";
-$paragraphs = explode( 
-	NL.NL, file_get_contents( $filepath ) );
+$file_contents = file_get_contents( $filepath );
+$行s = explode( NL.NL, $file_contents );
+$paragraphs = explode( NL.NL, $file_contents );
 $文字塊 = '';
 $樹骨架 = array();
 $樹字數 = 0;
