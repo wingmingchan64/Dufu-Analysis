@@ -8,19 +8,15 @@
 function 生成樹骨架(
 	string $文檔碼, 
 	string $文檔內容,
-	array &$樹骨架 ) : string
+	array &$樹骨架 ) : void
 {
-	$題 = '';
+	$題 = 文賦篇名[$文檔碼];
 	$paragraphs = explode( NL.NL, $文檔內容 );
 
 	for( $i = 0; $i < count( $paragraphs ); $i++ )
 	{
 		if( $i == 0 )
 		{
-			$題 = preg_replace( '/\d{4}/', '',
-				str_replace( ' ', '',
-				preg_replace( 夾注regex, '',
-				$paragraphs[ $i ] ) ) );
 			$樹骨架[] = array( mb_strlen( $題 ) );
 			continue;
 		}
@@ -49,7 +45,6 @@ function 生成樹骨架(
 		}
 		$樹骨架[] = $段陣列;
 	}
-	return $題;
 }
 
 function create_tree_skeleton(
