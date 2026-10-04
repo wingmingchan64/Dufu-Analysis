@@ -41,10 +41,16 @@ foreach( $temp as $坐標 )
 	// remove range
 	$坐標 = preg_replace( '/\.\d+-\d+/u', '', $坐標 );
 	$steps = $完整坐標_路徑陣列[ $默文檔碼 ][ $坐標 ];
+	//print_r( $steps );
 	
-	// remove 字碼
-	array_pop( $steps );
+	// remove 字碼 驅車
+	if( ( 是組詩( $默文檔碼 ) && count( $steps ) == 5 ) ||
+		( !是組詩( $默文檔碼 ) && count( $steps ) == 4 ) )
+	{
+		array_pop( $steps );
+	}
 	$路徑 = implode( ',', $steps );
+	//print_r( $路徑 );
 	$result[ $默文檔碼 ][] = $路徑_句[ $路徑 ];
 }
 

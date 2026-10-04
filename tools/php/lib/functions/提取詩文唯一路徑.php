@@ -11,6 +11,7 @@ function 提取詩文唯一路徑(
 	string $詩文, 
 	bool $debug=false ) : string
 {
+	//echo $詩文, NL;
 	$默認詩文檔碼 = 提取數據結構( 默認詩文檔碼 );
 
 	if( !in_array( $默文檔碼, $默認詩文檔碼 ) )

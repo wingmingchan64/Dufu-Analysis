@@ -20,6 +20,7 @@ $帶序言之詩 = 提取數據結構( 帶序言之詩 );
 $行碼_詩文 = array();
 $行碼_副題 = array();
 $句碼_詩句 = array();
+$詩句_句碼 = array();
 $文檔碼_碼_字 = array();
 $文檔碼_字_碼 = array();
 $詩字_字碼 = array();
@@ -172,15 +173,19 @@ foreach( $默認詩文檔碼 as $文檔碼 )
 		)
 		{
 			$句s = explode( '。', normalize( $line ) );
-			
-			//print_r( count( $句s ) );
+			//print_r( $句s );
 			
 			for( $i = 0; $i<count( $句s ); $i++ )
 			{
+				if( $句s[ $i ] == '' )
+				{
+					continue;
+				}
 				if( !array_key_exists( $文檔碼, $句碼_詩句 ) )
 				{
 					$句碼_詩句[ $文檔碼 ] = array();
 				}
+				
 				if( mb_strlen( $句s[ $i ] ) > 0 )
 				{
 					//$句 = $i + 1;
@@ -194,11 +199,11 @@ foreach( $默認詩文檔碼 as $文檔碼 )
 					$句碼_詩句[ $文檔碼 ][ $句碼 ] = $句s[ $i ];
 					
 					if( !array_key_exists( 
-						$句s[ $i ], $句碼_詩句[ $文檔碼 ] ) )
+						$句s[ $i ], $詩句_句碼 ) )
 					{
-						$句碼_詩句[ $句s[ $i ] ] = array();
+						$詩句_句碼[ $句s[ $i ] ] = array();
 					}
-					array_push( $句碼_詩句[ $句s[ $i ] ], $句碼 );
+					array_push( $詩句_句碼[ $句s[ $i ] ], $句碼 );
 					
 					for( $j = 0; $j < mb_strlen( $句s[ $i ] ); $j++ )
 					{
@@ -223,7 +228,6 @@ foreach( $默認詩文檔碼 as $文檔碼 )
 					array_push( $文檔碼_字_碼[ mb_substr( $句s[ $i ], $j, 1 ) ], $字碼 );
 
 					}
-					
 					
 					// 組合
 					//$句s[ $i ]
@@ -401,7 +405,6 @@ foreach( $默認詩文檔碼 as $文檔碼 )
 							$句碼 );
 						array_push( $十一字組合[ $combo ], $字碼 );
 					}
-					
 				}
 			}
 		}
@@ -445,6 +448,7 @@ foreach( $文檔碼_碼_字 as $默認詩文檔碼碼 => $碼_字 )
 
 foreach( $句碼_詩句 as $文檔碼 => $標_句 )
 {
+	//print_r( $標_句 );
 	$坐標_句 = array_merge( $坐標_句, $標_句 );
 }
 
@@ -481,6 +485,16 @@ $json = json_encode(
 file_put_contents(
 	dirname( __DIR__, 4 ) . DS . SCHEMAS_JSON_COORDS_DIR .
 	"句碼_詩句.json",
+	$json . PHP_EOL );
+	
+$json = json_encode(
+    $詩句_句碼,
+    JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
+);
+
+file_put_contents(
+	dirname( __DIR__, 4 ) . DS . SCHEMAS_JSON_COORDS_DIR .
+	"詩句_句碼.json",
 	$json . PHP_EOL );
 
 $json = json_encode(

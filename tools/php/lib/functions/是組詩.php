@@ -12,7 +12,7 @@ function 是組詩(
 	return array_key_exists( $文檔碼, $組詩 );
 }
 
-function (
+function is_suite(
 	string $文檔碼, bool $debug=false ) : bool
 {
 	return 是組詩( $文檔碼, $debug );

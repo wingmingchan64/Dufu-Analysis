@@ -2,7 +2,8 @@
 use CTT\Exceptions\IllegalCoordinateException;
 
 function retrieve_text_from_ctt(
-	string $path, bool $add_punctuation = false ) : string
+	string $path,
+	bool $add_punctuation = false ) : string
 {
 	$parts = explode( ',', $path );
 	$work_id = $parts[ 0 ];
