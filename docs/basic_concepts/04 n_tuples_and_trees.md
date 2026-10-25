@@ -1,11 +1,27 @@
-# N-Tuples And Trees (Gemini)
+# N-Tuples and Trees
 
-## Fundamental Relationship Between N-Tuples And Trees
+## Relationship between N-Tuples and Trees
 
-n-tuples serve as the addresses, coordinates, or paths that uniquely pinpoint nodes inside a tree structure:
+N-tuples can be used to represent the addresses or paths of nodes in a rooted tree, provided that a consistent addressing scheme is defined.
 
-- The Root: Represented by the empty tuple () or a baseline single element (0)
-- Children of the Root: Represented by 1-tuples: (1), (2), (3).
-- Grandchildren: Represented by 2-tuples: (1, 1), (1, 2), (2, 1)
+In a common addressing scheme, each element of a tuple identifies a child of the preceding node:
 
-The length of the tuple n explicitly dictates the depth or level of the node within the tree.
+- Root: Represented by the empty tuple ()
+- Children of the Root: Represented by 1-tuples, such as (1), (2), and (3)
+- Grandchildren: Represented by 2-tuples, such as (1, 1), (1, 2), and (2, 1)
+
+In this scheme, each additional tuple element represents one step from a parent to a child. Consequently, the length of the tuple equals the depth of the corresponding node.
+
+Other addressing schemes may use different conventions, in which case tuple length and node depth need not be equal.
+
+---
+
+## Important Distinctions
+
+- Path：從根節點到目標節點所經過的結構路徑 (structural pathway from the root to the targeted node)
+- Address：用來唯一識別節點的表示方式 (a means of uniquely identifying nodes)
+- Coordinate：在某個約定的參照系統下表示位置的數值或標識組合 (within an agreed conventional locating system, a value or an identifier representing a location in a tree)
+
+---
+
+Source: Gemini (original draft, subsequently revised by ChatGPT)
