@@ -1,6 +1,6 @@
 # Works with Multilingual Translations
 
-## Listing Texts of Different Languages Side By Side
+## Listing Texts of Different Languages Side by Side
 
 - The same framework can be used to represent literary works in different languages
 - Texts in different languages may require different tokenization methods, depending on the intended level of analysis
@@ -8,7 +8,7 @@
 
 ---
 
-## Mapping between Two (Or More) Languages
+## Mapping between Two (or More) Languages
 
 - To simplify the process, the original and translated texts can be required to have corresponding paragraph divisions
 - Under this requirement, the two texts share the same set of paragraph-level paths, even though their textual contents differ
