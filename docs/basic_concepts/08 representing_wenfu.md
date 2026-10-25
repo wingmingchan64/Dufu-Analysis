@@ -65,3 +65,7 @@ Corresponding characters in the flat and hierarchical representations of the sam
 Textual changes may be specified using either form of address, with the appropriate mapping used when necessary.
 
 When attaching annotations, comments, or other information to textual units, the hierarchical representation is used.
+
+---
+
+Revised by ChatGPT

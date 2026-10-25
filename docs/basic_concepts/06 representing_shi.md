@@ -109,3 +109,7 @@ The primary function of metadata markers in this context is to associate texts f
 - scope: Identifies a node or a range of textual units in the text tree of the 默認版本
 - src_path: Identifies the source text in the text tree of a 杜著述
 - op: Specifies how the source text is to be incorporated into the resulting structure, using operations such as `insert`, `replace`, and `graft`
+
+---
+
+Revised by ChatGPT

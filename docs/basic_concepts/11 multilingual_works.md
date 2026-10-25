@@ -26,3 +26,7 @@
 - The terms specified in the metadata can be looked up automatically in the relevant dictionaries
 - The resulting definitions can then be attached to the corresponding nodes
 - Where necessary, metadata can also specify the intended dictionary sense
+
+---
+
+Revised by ChatGPT

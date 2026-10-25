@@ -191,3 +191,7 @@ For example, the skeleton of 《江頭五詠》 is:
 ## Empty Tree and Tree Skeleton Generation
 
 Once a source text file has been manually prepared according to a predefined format, the tree skeleton, empty tree, and text tree can all be generated programmatically.
+
+---
+
+Revised by ChatGPT

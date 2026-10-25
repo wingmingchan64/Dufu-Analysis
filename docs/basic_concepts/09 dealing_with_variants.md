@@ -68,3 +68,7 @@ B=(A\cap B)\cup(B-A)
 - Multiple versions, such as A, B, and C, can be displayed side by side.
 - Only one complete base version A is required
 - Other versions can be reconstructed from A and their respective differences, such as B − A and C − A, provided that the assumptions of this discussion are satisfied
+
+---
+
+Revised by ChatGPT

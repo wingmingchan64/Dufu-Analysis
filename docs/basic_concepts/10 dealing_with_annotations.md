@@ -24,3 +24,7 @@
 
 - Texts from any number of 杜著述 can be associated with the same 默認版本 tree
 - Their source identities and metadata relationships allow them to be distinguished and organized in different ways
+
+---
+
+Revised by ChatGPT
