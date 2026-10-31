@@ -38,4 +38,27 @@ foreach( 文賦默認文檔碼 as $文檔碼 )
 		SCHEMAS_JSON_BASE_TEXT_DIR . "${文檔碼}.json";
 	生成JSON文檔( $樹, $filepath );
 }
+/*
+foreach( 文賦默認文檔碼 as $文檔碼 )
+{
+	$filepath = 
+		dirname( __DIR__, 4 ) . DIRECTORY_SEPARATOR .
+		SCHEMAS_JSON_BASE_TEXT_DIR . "${文檔碼}.json";
+	//顯示文賦段落(
+	$文賦 = json_decode(
+		file_get_contents( $filepath ), true )
+			[ $文檔碼 ];
+	foreach( array_keys( $文賦 ) as $key )
+	{
+		if( $key == 篇名 )
+		{
+			echo $文賦[ $key ], NL . NL;
+		}
+		else
+		{
+			顯示文賦段落( $文賦[ $key ] );
+		}
+	}
+}
+*/
 ?>
