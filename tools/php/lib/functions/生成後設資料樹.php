@@ -58,7 +58,7 @@ function 生成後設資料樹(
 				}
 				
 				$map = json_decode( $marker, true );
-				//echo $marker, NL;
+				//echo "marker:" . $marker, NL;
 				//echo "Before scope", NL;
 				//print_r( $map );
 				$範圍 = $map[ 'scope' ];
