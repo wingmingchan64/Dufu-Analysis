@@ -96,6 +96,7 @@
 	},
 	"WANGZHU":{
 		"題注":"replace",
+		"原注": "insert",
 		"異文":"replace",
 		"注釋" : "insert",
 		"夾注" : "insert",

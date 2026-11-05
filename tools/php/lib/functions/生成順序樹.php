@@ -1,6 +1,7 @@
 <?php
 function 生成順序樹( string $文字塊 ) : array
 {
+	//echo $文字塊, NL;
 	$順序樹 = array();
 	
 	for( $i = 0; $i < mb_strlen( $文字塊 ); $i++ )

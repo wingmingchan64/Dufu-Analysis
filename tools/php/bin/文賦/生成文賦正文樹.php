@@ -12,7 +12,9 @@ foreach( 文賦默認文檔碼 as $文檔碼 )
 	$filepath = dirname( __DIR__, 5 ) . DIRECTORY_SEPARATOR .
 		默認版本文賦文件夾 . "${文檔碼}.txt";
 	$file_contents = file_get_contents( $filepath );
-	$文字塊 = 生成文字塊( $file_contents );
+	$file_contents = str_replace( '【', '',
+						str_replace( '】', '', $file_contents ) );
+	$文字塊 = 生成文字塊( $file_contents ); // no 【】
 	$順序樹 = 生成順序樹( $文字塊 );
 	$順序樹 = array( $文檔碼 => $順序樹 );
 	//print_r( $順序樹 );

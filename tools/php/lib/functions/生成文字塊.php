@@ -8,6 +8,8 @@ function 生成文字塊( string $文檔內容 ) : string
 				preg_replace( 夾注regex, '',
 				$文檔內容 ) );
 	$文檔內容 = 規範化( $文檔內容, true, true, true );
+	
+	//echo $文檔內容, NL;
 	return $文檔內容;
 };
 
