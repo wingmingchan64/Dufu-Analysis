@@ -28,11 +28,11 @@ function 生成後設資料樹(
 		DIRECTORY_SEPARATOR .
 		'CanonicalTextTrees' . DIRECTORY_SEPARATOR;
 	$ctt_folder = $ctt_dir . 提取ctt文件夾( $著述碼 ) . 
-		DIRECTORY_SEPARATOR . 
+		DIRECTORY_SEPARATOR .
 		METADATA_DIR;
 	$ctt_trees_folder = $ctt_folder . TREES_DIR;
 	//$ctt_folder = $ctt_folder . $版文檔碼 . DIRECTORY_SEPARATOR;
-	
+
 	$m_tree = array();
 	$m_tree[ $著述碼 ] = array( $版文檔碼 => array() );
 	
@@ -71,11 +71,9 @@ function 生成後設資料樹(
 					intval( $範圍 ) === 0 )
 				{
 					//echo "should be here", NL;
-					//echo $範圍, NL;
 					$範圍 = 提取詩文唯一路徑( $默文碼, $範圍 );
 				}
 				//print_r( $map );
-				
 				$來源路徑 = $map[ 'src_path' ];
 				
 				if( $範圍 == '題注' )
@@ -96,10 +94,10 @@ function 生成後設資料樹(
 				{
 					$開始 = $map[ 'begin' ];
 				}
-				
+
 				$m_tree[ $著述碼 ][ $版文檔碼 ][ $部分 ]
 				[ $範圍 ][ $來源路徑 ] = $函式;
-				
+
 				if( $部分 == '引典' )
 				{
 					$m_tree[ $著述碼 ][ $版文檔碼 ]
@@ -109,11 +107,12 @@ function 生成後設資料樹(
 			}
 		}
 	}
-	
+
 	$json = json_encode(
 		$m_tree,
 		JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT
 	);
+	
 
 	file_put_contents(
 		$ctt_trees_folder . 
